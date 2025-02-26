@@ -1,0 +1,1597 @@
+{
+    "manifest_version": "1.0.21",
+    "title": "Gaice - Ice Cream Shop Elementor Template Kit",
+    "page_builder": "elementor",
+    "kit_version": "1.0.0",
+    "templates": [
+        {
+            "name": "Global Kit Styles",
+            "screenshot": "screenshots\/global-kit-styles.jpg",
+            "source": "templates\/global.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "global-styles",
+                "include_in_zip": "1",
+                "elementor_pro_required": null,
+                "additional_template_information": [
+                    "These are the global theme styles configured through the Elementor Theme Styles area."
+                ]
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Homepage",
+            "screenshot": "screenshots\/homepage.jpg",
+            "source": "templates\/homepage.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/homepage\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-home",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "About Us",
+            "screenshot": "screenshots\/about-us.jpg",
+            "source": "templates\/about-us.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/about-us\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Staff",
+            "screenshot": "screenshots\/staff.jpg",
+            "source": "templates\/staff.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/staff\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Product",
+            "screenshot": "screenshots\/product.jpg",
+            "source": "templates\/product.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/product\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Product Detail",
+            "screenshot": "screenshots\/product-detail.jpg",
+            "source": "templates\/product-detail.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/product-detail\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Menu",
+            "screenshot": "screenshots\/menu.jpg",
+            "source": "templates\/menu.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/menu\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Gallery",
+            "screenshot": "screenshots\/gallery.jpg",
+            "source": "templates\/gallery.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/gallery\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "FAQ",
+            "screenshot": "screenshots\/faq.jpg",
+            "source": "templates\/faq.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/faq\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Blog",
+            "screenshot": "screenshots\/blog.jpg",
+            "source": "templates\/blog.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/blog\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Single Post",
+            "screenshot": "screenshots\/single-post.jpg",
+            "source": "templates\/single-post.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/single-post\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "404 Error",
+            "screenshot": "screenshots\/404-error.jpg",
+            "source": "templates\/404-error.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/404-error\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Contact Us",
+            "screenshot": "screenshots\/contact-us.jpg",
+            "source": "templates\/contact-us.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/contact-us\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Gaice Question MetForm",
+            "screenshot": "screenshots\/gaice-question-metform.jpg",
+            "source": "templates\/gaice-question-metform.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/gaice-question-metform\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-contact",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Gaice Contact MetForm",
+            "screenshot": "screenshots\/gaice-contact-metform.jpg",
+            "source": "templates\/gaice-contact-metform.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/gaice-contact-metform\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-contact",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Gaice Header",
+            "screenshot": "screenshots\/gaice-header.jpg",
+            "source": "templates\/gaice-header.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/gaice-header\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-header",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Gaice Footer",
+            "screenshot": "screenshots\/gaice-footer.jpg",
+            "source": "templates\/gaice-footer.json",
+            "preview_url": "https:\/\/gtkit.rometheme.pro\/gaice\/template-kit\/gaice-footer\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-footer",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        }
+    ],
+    "required_plugins": [
+        {
+            "name": "MetForm",
+            "version": "3.1.0",
+            "file": "metform\/metform.php",
+            "author": "Wpmet"
+        },
+        {
+            "name": "Elementor",
+            "version": "3.8.1",
+            "file": "elementor\/elementor.php",
+            "author": "Elementor.com"
+        },
+        {
+            "name": "ElementsKit Lite",
+            "version": "2.7.5",
+            "file": "elementskit-lite\/elementskit-lite.php",
+            "author": "Wpmet"
+        }
+    ],
+    "images": [
+        {
+            "filename": "young-stylish-brunette-keeping-ice-cream-and-laugh-AXRGQP6.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/young-stylish-brunette-keeping-ice-cream-and-laugh-AXRGQP6-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 301340,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "rolled-ice-creams-in-cone-cups-on-blue-background-S5K7XZP.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/rolled-ice-creams-in-cone-cups-on-blue-background-S5K7XZP-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 303470,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "chocolate-popsicles-cut-with-filling-lying-on-whit-TN3X69U.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/chocolate-popsicles-cut-with-filling-lying-on-whit-TN3X69U-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 298468,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "ice-cream-PB3ZBXTb.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/ice-cream-PB3ZBXTb.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                }
+            ],
+            "filesize": 296999,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "berry-and-vanilla-ice-cream-6ERD5YN.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/berry-and-vanilla-ice-cream-6ERD5YN.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                }
+            ],
+            "filesize": 307868,
+            "dimensions": [
+                800,
+                600
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "lipsum6.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/lipsum6-800x233.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 12610,
+            "dimensions": [
+                900,
+                262
+            ],
+            "image_source": "cc0",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/logoipsum.com"
+        },
+        {
+            "filename": "lipsum1.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/lipsum1-800x224.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 12719,
+            "dimensions": [
+                900,
+                252
+            ],
+            "image_source": "cc0",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/logoipsum.com"
+        },
+        {
+            "filename": "lipsum2.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/lipsum2-800x200.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 10874,
+            "dimensions": [
+                900,
+                225
+            ],
+            "image_source": "cc0",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/logoipsum.com"
+        },
+        {
+            "filename": "lipsum3.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/lipsum3-800x204.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 12161,
+            "dimensions": [
+                900,
+                229
+            ],
+            "image_source": "cc0",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/logoipsum.com"
+        },
+        {
+            "filename": "lipsum4.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/lipsum4-800x162.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 7868,
+            "dimensions": [
+                900,
+                182
+            ],
+            "image_source": "cc0",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/logoipsum.com"
+        },
+        {
+            "filename": "lipsum5.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/lipsum5-800x233.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 11522,
+            "dimensions": [
+                900,
+                262
+            ],
+            "image_source": "cc0",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/logoipsum.com"
+        },
+        {
+            "filename": "soft-serve.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/soft-serve-800x800.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 20733,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "gelato.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/gelato-800x800.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 19994,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "popsicle.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/popsicle-800x800.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 10093,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "sorbet.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/sorbet-800x800.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 19500,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "rolled-ice-cream.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/rolled-ice-cream-800x800.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 16954,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "frozen-yogurt.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/frozen-yogurt-800x800.png",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 21120,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "flat-lay-refreshing-ice-cream-overhead-PXSSYU7.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/flat-lay-refreshing-ice-cream-overhead-PXSSYU7.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 298991,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "homemade-coffee-and-chocolate-ice-cream-M55376P.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/homemade-coffee-and-chocolate-ice-cream-M55376P.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 303938,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "soft-serve-ice-cream-in-a-cone-PR2CZHNb.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/soft-serve-ice-cream-in-a-cone-PR2CZHNb-800x375.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                },
+                {
+                    "source": "templates\/product-detail.json",
+                    "name": "Product Detail"
+                },
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                },
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                },
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 301272,
+            "dimensions": [
+                1920,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "watermelon-sorbet-or-ice-cream-6JCKZUP.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/watermelon-sorbet-or-ice-cream-6JCKZUP.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                },
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 302279,
+            "dimensions": [
+                800,
+                600
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "pink-soft-serve-ice-cream-with-sprinkles-X4DHVSA.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/pink-soft-serve-ice-cream-with-sprinkles-X4DHVSA.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                },
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 307046,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "closeup-portrait-of-smiling-woman-with-ice-cream-i-Q2FVHDV.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/closeup-portrait-of-smiling-woman-with-ice-cream-i-Q2FVHDV-800x800.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 305696,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "funny-teenage-girl-with-ice-cream-in-her-hands-P3D3Q9H.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/funny-teenage-girl-with-ice-cream-in-her-hands-P3D3Q9H-800x800.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 302112,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "cute-girl-enjoys-ice-cream-on-modern-city-backgrou-85XQR7G.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/cute-girl-enjoys-ice-cream-on-modern-city-backgrou-85XQR7G-800x800.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                }
+            ],
+            "filesize": 297232,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "rolled-ice-creams-in-cone-cups-on-blue-background-WJDUZ96.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/rolled-ice-creams-in-cone-cups-on-blue-background-WJDUZ96-800x375.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                },
+                {
+                    "source": "templates\/product.json",
+                    "name": "Product"
+                },
+                {
+                    "source": "templates\/product-detail.json",
+                    "name": "Product Detail"
+                },
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                },
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                },
+                {
+                    "source": "templates\/faq.json",
+                    "name": "FAQ"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                },
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                },
+                {
+                    "source": "templates\/contact-us.json",
+                    "name": "Contact Us"
+                }
+            ],
+            "filesize": 289714,
+            "dimensions": [
+                1920,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "man-selling-ice-cream-in-the-shop-NQXN7EM.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/man-selling-ice-cream-in-the-shop-NQXN7EM.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 299200,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "waitress-taking-order-in-restaurant-E6ASRP5.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/waitress-taking-order-in-restaurant-E6ASRP5.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 307903,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "smiling-confident-waiter-DUGCWK9.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/smiling-confident-waiter-DUGCWK9.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 294861,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "coffee-bar-7YEEXJW.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/coffee-bar-7YEEXJW.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 307533,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "saleswoman-at-the-cafe-or-confectionery-shop-882K9ED.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/saleswoman-at-the-cafe-or-confectionery-shop-882K9ED.jpg",
+            "templates": [
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 294800,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "homemade-berry-ice-cream-LB5LN24.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/homemade-berry-ice-cream-LB5LN24.jpg",
+            "templates": [
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 304183,
+            "dimensions": [
+                800,
+                600
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "young-waiter-in-cap-t-shirt-and-apron-standing-wit-TWMBCK6.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/young-waiter-in-cap-t-shirt-and-apron-standing-wit-TWMBCK6.jpg",
+            "templates": [
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 305137,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "entrepreneur-owning-coffee-shop-standing-near-coff-M7PDUTB.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/entrepreneur-owning-coffee-shop-standing-near-coff-M7PDUTB.jpg",
+            "templates": [
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 295825,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "cafe-or-shop-employees-portrait-DKBSGEL.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/cafe-or-shop-employees-portrait-DKBSGEL.jpg",
+            "templates": [
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 299955,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "two-young-best-waiters-of-luxurious-restaurant-or-5W8R74H.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/two-young-best-waiters-of-luxurious-restaurant-or-5W8R74H.jpg",
+            "templates": [
+                {
+                    "source": "templates\/staff.json",
+                    "name": "Staff"
+                }
+            ],
+            "filesize": 300406,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "stir-fried-ice-cream-rolls-at-freeze-pan-rolled-ic-VGB3EJD.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/stir-fried-ice-cream-rolls-at-freeze-pan-rolled-ic-VGB3EJD-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/product-detail.json",
+                    "name": "Product Detail"
+                }
+            ],
+            "filesize": 305856,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "handmade-ice-cream-with-mint-in-a-cap-BES72N9.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/handmade-ice-cream-with-mint-in-a-cap-BES72N9.jpg",
+            "templates": [
+                {
+                    "source": "templates\/product-detail.json",
+                    "name": "Product Detail"
+                }
+            ],
+            "filesize": 305090,
+            "dimensions": [
+                800,
+                600
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "woman-holding-a-dragon-fruit-soft-ice-cream-waffle-9F8WVW4a.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/woman-holding-a-dragon-fruit-soft-ice-cream-waffle-9F8WVW4a.jpg",
+            "templates": [
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 298786,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "home-made-strawberry-ice-cream-served-in-cones-8WKJKQSa.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/home-made-strawberry-ice-cream-served-in-cones-8WKJKQSa.jpg",
+            "templates": [
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 299897,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "blueberry-ice-cream-with-macaroons-PB7QKG5a.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/blueberry-ice-cream-with-macaroons-PB7QKG5a.jpg",
+            "templates": [
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 303829,
+            "dimensions": [
+                800,
+                600
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "close-up-colorful-balls-from-freshly-prepared-home-4EXDPGB.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/close-up-colorful-balls-from-freshly-prepared-home-4EXDPGB.jpg",
+            "templates": [
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 301806,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "rolled-ice-creams-in-cone-cups-on-blue-background-S5K7XZPa.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/rolled-ice-creams-in-cone-cups-on-blue-background-S5K7XZPa.jpg",
+            "templates": [
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 298786,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "stir-fried-ice-cream-rolls-at-freeze-pan-rolled-ic-VGB3EJDa.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/stir-fried-ice-cream-rolls-at-freeze-pan-rolled-ic-VGB3EJDa.jpg",
+            "templates": [
+                {
+                    "source": "templates\/menu.json",
+                    "name": "Menu"
+                }
+            ],
+            "filesize": 304992,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "woman-selling-ice-cream-in-the-shop-4K4RJEW.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/woman-selling-ice-cream-in-the-shop-4K4RJEW-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                }
+            ],
+            "filesize": 307827,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "couple-having-fun-with-ice-cream-9L5345Y.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/couple-having-fun-with-ice-cream-9L5345Y-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                }
+            ],
+            "filesize": 306862,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "ice-cream-DRR2RGX.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/ice-cream-DRR2RGX-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                },
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 274900,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "ice-cream-EQ9V5VD.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/ice-cream-EQ9V5VD-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                }
+            ],
+            "filesize": 303299,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "ice-cream-treats-QZ9QTVC.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/ice-cream-treats-QZ9QTVC-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                }
+            ],
+            "filesize": 307911,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "rolled-ice-creams-in-cone-cups-on-blue-background-QXDCEJ4.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/rolled-ice-creams-in-cone-cups-on-blue-background-QXDCEJ4-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                }
+            ],
+            "filesize": 304338,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "salesman-getting-waffle-cone-for-the-ice-cream-in-Y2DQ5RE.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/salesman-getting-waffle-cone-for-the-ice-cream-in-Y2DQ5RE-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                }
+            ],
+            "filesize": 301246,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "strawberry-ice-cream-SGHM4AS.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/strawberry-ice-cream-SGHM4AS-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                },
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 304765,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "tasty-ice-cream-2HAXEPV.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/tasty-ice-cream-2HAXEPV-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/gallery.json",
+                    "name": "Gallery"
+                }
+            ],
+            "filesize": 301043,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "ice-cream-waffles-PEC37RJa.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/12\/ice-cream-waffles-PEC37RJa.jpg",
+            "templates": [
+                {
+                    "source": "templates\/faq.json",
+                    "name": "FAQ"
+                }
+            ],
+            "filesize": 300472,
+            "dimensions": [
+                800,
+                900
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "couple-having-fun-with-ice-cream-9L5345Ya.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/12\/couple-having-fun-with-ice-cream-9L5345Ya.jpg",
+            "templates": [
+                {
+                    "source": "templates\/faq.json",
+                    "name": "FAQ"
+                }
+            ],
+            "filesize": 296489,
+            "dimensions": [
+                800,
+                600
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "homemade-raspberry-popsicle-and-mint-leaf-EBD5WL9.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/homemade-raspberry-popsicle-and-mint-leaf-EBD5WL9-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 302896,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "three-layers-ice-cream-cake-PL7GKTD.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/11\/three-layers-ice-cream-cake-PL7GKTD-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 269674,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "three-ice-cream-cones-SC9MTED.jpg",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/12\/three-ice-cream-cones-SC9MTED.jpg",
+            "templates": [
+                {
+                    "source": "templates\/404-error.json",
+                    "name": "404 Error"
+                }
+            ],
+            "filesize": 303251,
+            "dimensions": [
+                800,
+                600
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/H3WUX4ERCP"
+        },
+        {
+            "filename": "Gaice-Logo.png",
+            "thumbnail_url": "http:\/\/gtkit.rometheme.pro\/gaice\/wp-content\/uploads\/sites\/13\/2022\/12\/Gaice-Logo-800x800.png",
+            "templates": [
+                {
+                    "source": "templates\/gaice-header.json",
+                    "name": "Gaice Header"
+                },
+                {
+                    "source": "templates\/gaice-footer.json",
+                    "name": "Gaice Footer"
+                }
+            ],
+            "filesize": 22699,
+            "dimensions": [
+                900,
+                900
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        }
+    ]
+}
