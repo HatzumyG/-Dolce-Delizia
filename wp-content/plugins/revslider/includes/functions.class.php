@@ -1998,6 +1998,13 @@ rs-module .material-icons {
 	}
 
 	/**
+	 * checks if any shortcode format is present in given string
+	 */
+	public function has_any_shortcode($text){
+		return (preg_match('/\[.*?\]/', $text)) ? true : false;
+	}
+
+	/**
 	 * open and checks a zip file for filetypes
 	 **/
 	public function check_bad_files($zip_file, $extensions_allowed = false){
@@ -2204,6 +2211,25 @@ rs-module .material-icons {
 
 	
 	/**
+	 * checks if slide amount of v6 and v7 is the same, if not returns false
+	 */
+	public function check_if_migration_done($sid){
+		global $wpdb;
+		
+		$v6s	= $wpdb->get_results($wpdb->prepare("SELECT COUNT(slider_id) AS slides FROM " . $wpdb->prefix . RevSliderFront::TABLE_SLIDES . " WHERE slider_id = %d", array($sid)), ARRAY_A);
+		$v6ss	= $wpdb->get_results($wpdb->prepare("SELECT COUNT(slider_id) AS slides FROM " . $wpdb->prefix . RevSliderFront::TABLE_STATIC_SLIDES . " WHERE slider_id = %d", array($sid)), ARRAY_A);
+		$v7s	= $wpdb->get_results($wpdb->prepare("SELECT COUNT(slider_id) AS slides FROM " . $wpdb->prefix . RevSliderFront::TABLE_SLIDES . "7 WHERE slider_id = %d", array($sid)), ARRAY_A);
+		$v6st	= 0;
+		if(!empty($v6s) && !empty($v6ss)){
+			foreach(array_merge($v6s, $v6ss) as $item){
+				$v6st += $item['slides'];
+			}
+		}
+
+		return (intval($this->get_val($v7s, [0, 'slides'])) !== $v6st) ? false : true;
+	}
+	
+	/**
 	 * get a map of slide ids for v7 slides
 	 * we need this in the process to migrate v7 slides
 	 * as we merge normal and static slides here
@@ -2248,6 +2274,26 @@ rs-module .material-icons {
 				if($t !== $_type) continue;
 				if(isset($v[$v6_slide_id])) return $v[$v6_slide_id];
 			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * retrieves the v6 slide id by a v7 slide id from the slide map
+	 **/
+	public function get_v6_slide_by_v7_id($v7_slide_id){
+		$slide_map 	= get_option('sliderrevolution-v7-slide-map', array());
+		if(empty($slide_map)) return false;
+
+		foreach($slide_map as $module => $slides){
+			$_slides = $this->get_val($slides, 'n', []);
+			if(empty($_slides)) continue;
+			if(!in_array($v7_slide_id, $_slides)) continue;
+			foreach($_slides as $v6 => $v7){
+				if($v7 == $v7_slide_id) return $v6;
+			}
+			return false;
 		}
 
 		return false;

@@ -11,7 +11,6 @@ import {
 } from "@/utils/helpers";
 import ToolVersionCard from "@/components/HostingerTools/ToolVersionCard.vue";
 import { computed, ref } from "vue";
-import OverheadButton from "@/components/OverheadButton.vue";
 import { storeToRefs } from "pinia";
 import { kebabToCamel } from "@/utils/helpers";
 
@@ -19,7 +18,7 @@ const { fetchSettingsData, updateSettingsData, regenerateByPassCode } =
   useSettingsStore();
 
 const { settingsData } = storeToRefs(useSettingsStore());
-const { homeUrl, siteUrl } = useGeneralStoreData();
+const { siteUrl } = useGeneralStoreData();
 
 const WORDPRESS_UPDATE_LINK = getBaseUrl(location.href) + "update-core.php";
 
@@ -61,13 +60,20 @@ const maintenanceSection = computed(() => [
 ]);
 
 const securitySection = computed(() => [
-  {
-    id: "disable-xml-rpc",
-    title: translate("hostinger_tools_disable_xml_rpc"),
-    description: translate("hostinger_tools_xml_rpc_description"),
-    isVisible: true,
-    toggleValue: settingsData.value?.disableXmlRpc,
-  },
+    {
+        id: "disable-xml-rpc",
+        title: translate("hostinger_tools_disable_xml_rpc"),
+        description: translate("hostinger_tools_xml_rpc_description"),
+        isVisible: true,
+        toggleValue: settingsData.value?.disableXmlRpc,
+    },
+    {
+        id: "disable-authentication-password",
+        title: translate("hostinger_tools_disable_authentication_password"),
+        description: translate("hostinger_tools_authentication_password_description"),
+        isVisible: true,
+        toggleValue: settingsData.value?.disableAuthenticationPassword,
+    },
 ]);
 
 const redirectsSection = computed(() => {
@@ -143,13 +149,22 @@ const phpVersionCard = computed(() => ({
         text: phpVersionCardText.value,
         onClick: () => {
           window.open(
-            `https://auth.hostinger.com/login?r=/section/php-configuration/domain/${location.host}`,
+            `https://auth.${resellerLocale.value}/login?r=/section/php-configuration/domain/${location.host}`,
             "_blank"
           );
         },
       }
     : undefined,
 }));
+
+
+const resellerLocale = computed(() => {
+  {
+    const { pluginUrl } = useGeneralStoreData();
+
+    return pluginUrl.match(/^[^/]+/)![0] || "hostinger.com";
+  }
+});
 
 const wordPressVersionCard = computed(() => ({
   title: translate("hostinger_tools_wordpress_version"),
@@ -203,9 +218,6 @@ const onUpdateSettings = (value: boolean, item: SectionItem) => {
   updateSettingsData(settingsData.value);
 };
 
-const goToPreviewWebsite = () => {
-  window.open(homeUrl, "_blank");
-};
 
 (async () => {
   isPageLoading.value = true;
@@ -216,10 +228,6 @@ const goToPreviewWebsite = () => {
 
 <template>
   <div v-if="settingsData">
-    <OverheadButton
-      :text="translate('hostinger_tools_preview_my_website')"
-      :action="goToPreviewWebsite"
-    />
     <div class="hostinger-tools__tool-version-cards">
       <ToolVersionCard
         :is-loading="isPageLoading"

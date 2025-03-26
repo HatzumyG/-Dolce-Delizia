@@ -118,7 +118,10 @@ class Assets {
 					'hostinger_tools_reset_link'          => __( 'Reset link', 'hostinger' ),
 					'hostinger_tools_disable_xml_rpc'     => __( 'Disable XML-RPC', 'hostinger' ),
 					'hostinger_tools_xml_rpc_description' => __( 'XML-RPC allows apps to connect to your WordPress site, but might expose your site\'s security. Disable this feature if you don\'t need it', 'hostinger' ),
-					'hostinger_tools_force_https'         => __( 'Force HTTPS', 'hostinger' ),
+                    'hostinger_tools_disable_authentication_password'     => __( 'Disable application passwords', 'hostinger' ),
+                    'hostinger_tools_authentication_password_description' => __( 'WordPress application passwords allow users to authenticate API requests without using their main login credentials, allowing for third-party integrations.', 'hostinger' ),
+
+                    'hostinger_tools_force_https'         => __( 'Force HTTPS', 'hostinger' ),
 					'hostinger_tools_force_https_description' => __( 'Redirects all HTTP URLs to HTTPS sites', 'hostinger' ),
 					'hostinger_tools_force_www'           => __( 'Force WWW', 'hostinger' ),
 					'hostinger_tools_force_www_description' => __( 'Redirects all WWW URLs to non-WWW ones', 'hostinger' ),
@@ -153,6 +156,7 @@ class Assets {
 				'nonce'         => wp_create_nonce( 'wp_rest' ),
 				'wp_version'    => $wp_version,
 				'php_version'   => phpversion(),
+				'recommended_php_version'   => $this->helper->get_recommended_php_version(),
 			)
 		);
 	}

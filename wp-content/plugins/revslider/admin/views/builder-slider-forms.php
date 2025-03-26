@@ -576,7 +576,7 @@ $api = 'revapi'; // . $slider_id;
 						<div style="display:none"  class="form_intoaccordion" data-trigger="#slr_fsc_l2"><i class="material-icons">arrow_drop_down</i></div>
 						<div class="collapsable">
 							<div id="post_subtype_settings_wrapper">
-								<label_a><?php _e('Fetch By', 'revslider');?></label_a><select id="post_fetch_type" name="post_fetch_type" class="sliderinput tos2 nosearchbox easyinit" data-r="source.post.fetchType" data-show=".fetch_ .*val*_, ._show_*val*" data-hide=".fetch_ .dep_, ._*val*_hide">
+								<label_a><?php _e('Fetch By', 'revslider');?></label_a><select id="post_fetch_type" name="post_fetch_type" class="sliderinput tos2 nosearchbox easyinit" data-evt="updateSortByPosts" data-r="source.post.fetchType" data-show=".fetch_ .*val*_, ._show_*val*" data-hide=".fetch_ .dep_, ._*val*_hide">
 									<option value="cat_tag"><?php _e('Categories & Tags', 'revslider');?></option>
 									<option value="related"><?php _e('Related', 'revslider');?></option>
 									<option value="popular"><?php _e('Popular', 'revslider');?></option>
@@ -1165,6 +1165,11 @@ if ($wpml->wpml_exists()) {
 								<div class="fixedscrollsettings">
 									<div class="all_sbt_fix_dependencies">
 										<div class="div20"></div>
+										<label_a style="overflow:visible"><?php _e('Shorter Height', 'revslider');?></label_a><select id="fixed_scroll_align"  class="sliderinput easyinit tos2 nosearchbox" data-r="scrolltimeline.align">
+											<option value="top"><?php _e('Top Aligned (SR6/SR7)', 'revslider');?></option>
+											<option value="travel"><?php _e('Center Travel (SR7)', 'revslider');?></option>											
+											<option value="bottom"><?php _e('Bottom Aligned (SR7)', 'revslider');?></option>											
+										</select>
 										<longoption><label_a><?php _e('Module Fixed From', 'revslider');?></label_a><input data-allowed="ms" id="fixed_scroll_start" data-r="scrolltimeline.fixedStart" data-numeric="true" data-min="1" data-max="999999999" data-evt="updateFixedScrollRange"  type="text"  class="sliderinput valueduekeyboard  easyinit" style="width:95px"></longoption>
 										<longoption><label_a><?php _e('Module Fixed Until', 'revslider');?></label_a><input data-allowed="ms"  id="fixed_scroll_end" data-r="scrolltimeline.fixedEnd" data-numeric="true" data-min="1" data-max="999999999"  data-evt="updateFixedScrollRange"  type="text"  class="sliderinput valueduekeyboard  easyinit" style="width:95px"></longoption>
 									</div>
