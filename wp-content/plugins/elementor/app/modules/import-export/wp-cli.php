@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\App\Modules\ImportExport;
 
 use Elementor\Core\Utils\Collection;
@@ -7,7 +11,11 @@ use Elementor\Plugin;
 use Elementor\App\Modules\KitLibrary\Connect\Kit_Library;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Wp_Cli extends \WP_CLI_Command {
@@ -97,7 +105,11 @@ class Wp_Cli extends \WP_CLI_Command {
 	 * @param array $assoc_args
 	 */
 	public function import( array $args, array $assoc_args ) {
+<<<<<<< HEAD
 		if ( ! current_user_can( 'manage_options' ) ) {
+=======
+		if ( ! current_user_can( 'administrator' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			\WP_CLI::error( 'You must run this command as an admin user' );
 		}
 

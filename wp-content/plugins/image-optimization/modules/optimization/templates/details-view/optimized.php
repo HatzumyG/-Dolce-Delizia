@@ -29,6 +29,7 @@ use ImageOptimization\Classes\File_Utils;
 		</span>
 
 		<span class="image-optimization-control__property-value">
+<<<<<<< HEAD
 			<?php echo sprintf(
 				'%d/%d',
 				esc_html( $args['sizes_optimized_count'] ),
@@ -40,6 +41,9 @@ use ImageOptimization\Classes\File_Utils;
 							aria-label="<?php esc_html_e( 'Open optimization details', 'image-optimization' ); ?>">
 				(+)
 			</button>
+=======
+			<?php echo esc_html( $args['sizes_optimized_count'] ); ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		</span>
 	</span>
 
@@ -50,9 +54,15 @@ use ImageOptimization\Classes\File_Utils;
 			<span class="name image-optimization-control__property-value" style="max-width: 50%;">
 				<?php
 				if ( $args['is_losseless_and_webp'] ) {
+<<<<<<< HEAD
 					esc_html_e( 'Requested WebP format is larger than the original file. Switch to Lossy in settings to convert this image in an optimized manner.', 'image-optimization' );
 				} else {
 					esc_html_e( 'Image is fully optimized', 'image-optimization' );
+=======
+					echo esc_html_e( 'Requested WebP format is larger than the original file. Switch to Lossy in settings to convert this image in an optimized manner.', 'image-optimization' );
+				} else {
+					echo esc_html_e( 'Image is fully optimized', 'image-optimization' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 				?>
 			</span>

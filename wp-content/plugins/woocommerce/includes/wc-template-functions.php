@@ -53,6 +53,7 @@ function wc_template_redirect() {
 	if ( is_wc_endpoint_url() && ! is_account_page() && ! is_checkout() && apply_filters( 'woocommerce_account_endpoint_page_not_found', true ) ) {
 		$wp_query->set_404();
 		status_header( 404 );
+<<<<<<< HEAD
 
 		$template = get_query_template( '404' );
 		if ( ! empty( $template ) && file_exists( $template ) ) {
@@ -60,6 +61,9 @@ function wc_template_redirect() {
 		} else {
 			wp_safe_redirect( home_url() );
 		}
+=======
+		include get_query_template( '404' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		exit;
 	}
 
@@ -1573,6 +1577,7 @@ if ( ! function_exists( 'woocommerce_catalog_ordering' ) ) {
 		if ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) {
 			return;
 		}
+<<<<<<< HEAD
 
 		/**
 		 * Filter the default catalog orderby.
@@ -1582,6 +1587,9 @@ if ( ! function_exists( 'woocommerce_catalog_ordering' ) ) {
 		 * @param string $default_orderby The default orderby option.
 		 */
 		$show_default_orderby = 'menu_order' === apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', 'menu_order' ) );
+=======
+		$show_default_orderby    = 'menu_order' === apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', 'menu_order' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( isset( $attributes ) && isset( $attributes['useLabel'] ) && $attributes['useLabel'] ) {
 			/**
@@ -1635,10 +1643,13 @@ if ( ! function_exists( 'woocommerce_catalog_ordering' ) ) {
 			unset( $catalog_orderby_options['rating'] );
 		}
 
+<<<<<<< HEAD
 		if ( is_array( $orderby ) ) {
 			$orderby = current( array_intersect( $orderby, array_keys( $catalog_orderby_options ) ) );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! array_key_exists( $orderby, $catalog_orderby_options ) ) {
 			$orderby = current( array_keys( $catalog_orderby_options ) );
 		}
@@ -1813,11 +1824,17 @@ if ( ! function_exists( 'woocommerce_template_single_rating' ) ) {
 	 * Output the product rating.
 	 */
 	function woocommerce_template_single_rating() {
+<<<<<<< HEAD
 		if ( ! post_type_supports( 'product', 'comments' ) || ! is_a( $GLOBALS['product'] ?? null, \WC_Product::class ) ) {
 			return;
 		}
 
 		wc_get_template( 'single-product/rating.php' );
+=======
+		if ( post_type_supports( 'product', 'comments' ) ) {
+			wc_get_template( 'single-product/rating.php' );
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }
 if ( ! function_exists( 'woocommerce_template_single_price' ) ) {
@@ -1826,10 +1843,13 @@ if ( ! function_exists( 'woocommerce_template_single_price' ) ) {
 	 * Output the product price.
 	 */
 	function woocommerce_template_single_price() {
+<<<<<<< HEAD
 		if ( ! is_a( $GLOBALS['product'] ?? null, \WC_Product::class ) ) {
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wc_get_template( 'single-product/price.php' );
 	}
 }
@@ -1839,10 +1859,13 @@ if ( ! function_exists( 'woocommerce_template_single_excerpt' ) ) {
 	 * Output the product short description (excerpt).
 	 */
 	function woocommerce_template_single_excerpt() {
+<<<<<<< HEAD
 		if ( ! isset( $GLOBALS['post']->post_excerpt ) ) {
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wc_get_template( 'single-product/short-description.php' );
 	}
 }
@@ -1852,10 +1875,13 @@ if ( ! function_exists( 'woocommerce_template_single_meta' ) ) {
 	 * Output the product meta.
 	 */
 	function woocommerce_template_single_meta() {
+<<<<<<< HEAD
 		if ( ! is_a( $GLOBALS['product'] ?? null, \WC_Product::class ) ) {
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wc_get_template( 'single-product/meta.php' );
 	}
 }
@@ -2403,11 +2429,16 @@ if ( ! function_exists( 'woocommerce_cross_sell_display' ) ) {
 		if ( is_checkout() ) {
 			return;
 		}
+<<<<<<< HEAD
 
 		// Get visible cross sells then sort them at random.
 		$cross_sells = isset( WC()->cart )
 			? array_filter( array_map( 'wc_get_product', WC()->cart->get_cross_sells() ), 'wc_products_array_filter_visible' )
 			: array();
+=======
+		// Get visible cross sells then sort them at random.
+		$cross_sells = array_filter( array_map( 'wc_get_product', WC()->cart->get_cross_sells() ), 'wc_products_array_filter_visible' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		wc_set_loop_prop( 'name', 'cross-sells' );
 		wc_set_loop_prop( 'columns', apply_filters( 'woocommerce_cross_sells_columns', $columns ) );
@@ -2606,6 +2637,7 @@ if ( ! function_exists( 'woocommerce_checkout_payment' ) ) {
 	 * Output the Payment Methods on the checkout.
 	 */
 	function woocommerce_checkout_payment() {
+<<<<<<< HEAD
 		if ( ! WC()->cart ) {
 			wc_doing_it_wrong(
 				__FUNCTION__,
@@ -2615,6 +2647,8 @@ if ( ! function_exists( 'woocommerce_checkout_payment' ) ) {
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( WC()->cart->needs_payment() ) {
 			$available_gateways = WC()->payment_gateways()->get_available_payment_gateways();
 			WC()->payment_gateways()->set_current_gateway( $available_gateways );
@@ -3377,7 +3411,11 @@ if ( ! function_exists( 'woocommerce_single_variation' ) ) {
 	 * Output placeholders for the single variation.
 	 */
 	function woocommerce_single_variation() {
+<<<<<<< HEAD
 		echo '<div class="woocommerce-variation single_variation" role="alert" aria-relevant="additions"></div>';
+=======
+		echo '<div class="woocommerce-variation single_variation"></div>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }
 
@@ -3619,6 +3657,7 @@ if ( ! function_exists( 'wc_no_products_found' ) ) {
 	 * Handles the loop when no products were found/no product exist.
 	 */
 	function wc_no_products_found() {
+<<<<<<< HEAD
 		if ( ! function_exists( 'wc_print_notice' ) ) {
 			// wc_print_notice() is used in our default template, so this likely means this function was called out of
 			// context. We include the notice functions here to avoid a fatal error.
@@ -3630,6 +3669,8 @@ if ( ! function_exists( 'wc_no_products_found' ) ) {
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wc_get_template( 'loop/no-products-found.php' );
 	}
 }
@@ -4178,6 +4219,7 @@ function wc_get_cart_undo_url( $cart_item_key ) {
  * @since 3.5.0
  */
 function woocommerce_output_all_notices() {
+<<<<<<< HEAD
 	if ( ! function_exists( 'wc_print_notices' ) ) {
 		wc_doing_it_wrong(
 			__FUNCTION__,
@@ -4187,6 +4229,8 @@ function woocommerce_output_all_notices() {
 		return;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	echo '<div class="woocommerce-notices-wrapper">';
 	wc_print_notices();
 	echo '</div>';
@@ -4406,7 +4450,11 @@ function wc_add_aria_label_to_pagination_numbers( $html, $args ) {
 			continue;
 		}
 
+<<<<<<< HEAD
 		$p->set_attribute( 'aria-label', $page_text . ' ' . number_format_i18n( (int) $n ) );
+=======
+		$p->set_attribute( 'aria-label', $page_text . ' ' . number_format_i18n( $n ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		++$n;
 	}
 

@@ -39,7 +39,11 @@ class ExportInstallPluginSteps implements StepExporter {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function filter( callable $callback ) {
+=======
+	public function filter(callable $callback) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->filter_callback = $callback;
 	}
 
@@ -49,7 +53,11 @@ class ExportInstallPluginSteps implements StepExporter {
 	 * @return array The array of InstallPlugin steps.
 	 */
 	public function export() {
+<<<<<<< HEAD
 		$plugins = $this->sort_plugins_by_dep( $this->wp_get_plugins() );
+=======
+		$plugins = $this->wp_get_plugins();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( is_callable( $this->filter_callback ) ) {
 			$plugins = call_user_func( $this->filter_callback, $plugins );
@@ -98,6 +106,7 @@ class ExportInstallPluginSteps implements StepExporter {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Sort plugins by dependencies -- put the dependencies at the top.
 	 *
 	 * @param array $plugins a list of plugins to sort (from wp_get_plugins function)
@@ -146,6 +155,8 @@ class ExportInstallPluginSteps implements StepExporter {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get the name of the step.
 	 *
 	 * @return string The step name.

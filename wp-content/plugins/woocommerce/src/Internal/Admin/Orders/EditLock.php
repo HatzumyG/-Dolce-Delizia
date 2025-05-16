@@ -102,7 +102,11 @@ class EditLock {
 		unset( $response['wp-refresh-post-lock'] );
 
 		$order = wc_get_order( $order_id );
+<<<<<<< HEAD
 		if ( ! $order || ! is_a( $order, \WC_Order::class ) || ( ! current_user_can( get_post_type_object( $order->get_type() )->cap->edit_post, $order->get_id() ) && ! current_user_can( 'manage_woocommerce' ) ) ) {
+=======
+		if ( ! $order || ( ! current_user_can( get_post_type_object( $order->get_type() )->cap->edit_post, $order->get_id() ) && ! current_user_can( 'manage_woocommerce' ) ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $response;
 		}
 
@@ -143,7 +147,11 @@ class EditLock {
 		$order_ids = array_unique( array_map( 'absint', $data['wc-check-locked-orders'] ) );
 		foreach ( $order_ids as $order_id ) {
 			$order = wc_get_order( $order_id );
+<<<<<<< HEAD
 			if ( ! $order || ! is_a( $order, \WC_Order::class ) ) {
+=======
+			if ( ! $order ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				continue;
 			}
 

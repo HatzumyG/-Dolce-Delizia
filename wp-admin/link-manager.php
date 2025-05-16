@@ -101,7 +101,11 @@ echo esc_html( $title );
 ?>
 </h1>
 
+<<<<<<< HEAD
 <a href="link-add.php" class="page-title-action"><?php echo esc_html__( 'Add Link' ); ?></a>
+=======
+<a href="link-add.php" class="page-title-action"><?php echo esc_html__( 'Add New Link' ); ?></a>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 <?php
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {

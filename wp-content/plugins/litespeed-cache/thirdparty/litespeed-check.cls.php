@@ -71,11 +71,21 @@ class LiteSpeed_Check
 				'<div ' .
 					self::$_msg_id .
 					'>' .
+<<<<<<< HEAD
 					__('Please consider disabling the following detected plugins, as they may conflict with LiteSpeed Cache:', 'litespeed-cache') .
 					'<p style="color: red; font-weight: 700;">' .
 					'PageSpeed Ninja' .
 					'</p>' .
 					'</div>'
+=======
+					esc_html__('Please consider disabling the following detected plugins, as they may conflict with LiteSpeed Cache:', 'litespeed-cache') .
+					'<p style="color: red; font-weight: 700;">' .
+					'PageSpeed Ninja' .
+					'</p>' .
+					'</div>',
+				false,
+				true
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			);
 		}
 	}
@@ -122,7 +132,11 @@ class LiteSpeed_Check
 			'<div ' .
 				self::$_msg_id .
 				'>' .
+<<<<<<< HEAD
 				__('Please consider disabling the following detected plugins, as they may conflict with LiteSpeed Cache:', 'litespeed-cache') .
+=======
+				esc_html__('Please consider disabling the following detected plugins, as they may conflict with LiteSpeed Cache:', 'litespeed-cache') .
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'<p style="color: red; font-weight: 700;">' .
 				implode(', ', $active_incompatible_plugins) .
 				'</p>' .

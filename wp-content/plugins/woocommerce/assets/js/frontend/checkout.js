@@ -537,11 +537,19 @@ jQuery( function( $ ) {
 					success:	function( result ) {
 						// Detach the unload handler that prevents a reload / redirect
 						wc_checkout_form.detachUnloadEventsOnSubmit();
+<<<<<<< HEAD
 
 						$( '.checkout-inline-error-message' ).remove();
 
 						try {
 							if ( 'success' === result.result &&
+=======
+						
+						$( '.checkout-inline-error-message' ).remove();
+
+						try {
+							if ( 'success' === result.result && 
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								$form.triggerHandler( 'checkout_place_order_success', [ result, wc_checkout_form ] ) !== false ) {
 								if ( -1 === result.redirect.indexOf( 'https://' ) || -1 === result.redirect.indexOf( 'http://' ) ) {
 									window.location = result.redirect;
@@ -651,12 +659,18 @@ jQuery( function( $ ) {
 					errorMessage.className = 'checkout-inline-error-message';
 					errorMessage.textContent = msg;
 
+<<<<<<< HEAD
 					if ( $formRow && errorMessage.textContent.length > 0 ) {
 						$formRow.append( errorMessage );
 					}
 
 					$field.attr( 'aria-describedby', descriptionId );
 					$field.attr( 'aria-invalid', 'true' );
+=======
+					$formRow.appendChild( errorMessage );
+					$field.setAttribute( 'aria-describedby', descriptionId );
+					$field.setAttribute( 'aria-invalid', 'true' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 			} );
 		},
@@ -678,6 +692,7 @@ jQuery( function( $ ) {
 			$( 'form.checkout_coupon' ).hide().on( 'submit', this.submit.bind( this ) );
 		},
 		show_coupon_form: function() {
+<<<<<<< HEAD
 			var $showcoupon = $( this );
 
 			$( '.checkout_coupon' ).slideToggle( 400, function() {
@@ -689,6 +704,10 @@ jQuery( function( $ ) {
 				} else {
 					$showcoupon.attr( 'aria-expanded', 'false' );
 				}
+=======
+			$( '.checkout_coupon' ).slideToggle( 400, function() {
+				$( '.checkout_coupon' ).find( ':input:eq(0)' ).trigger( 'focus' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			});
 			return false;
 		},
@@ -696,13 +715,21 @@ jQuery( function( $ ) {
 			if ( $target.length === 0 ) {
 				return;
 			}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			var msg = $( $.parseHTML( html_element ) ).text().trim();
 
 			if ( msg === '' ) {
 				return;
 			}
+<<<<<<< HEAD
 
+=======
+				
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$target.find( '#coupon_code' )
 				.focus()
 				.addClass( 'has-error' )
@@ -760,7 +787,10 @@ jQuery( function( $ ) {
 						// Coupon errors are shown under the input.
 						if ( response.indexOf( 'woocommerce-error' ) === -1 && response.indexOf( 'is-error' ) === -1 ) {
 							$form.slideUp( 400, function() {
+<<<<<<< HEAD
 								$( 'a.showcoupon' ).attr( 'aria-expanded', 'false' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								$form.before( response );
 							} );
 						} else {
@@ -811,9 +841,13 @@ jQuery( function( $ ) {
 
 						// Remove coupon code from coupon field
 						$( 'form.checkout_coupon' ).find( 'input[name="coupon_code"]' ).val( '' );
+<<<<<<< HEAD
 						$( 'form.checkout_coupon' ).slideUp( 400, function() {
 							$( 'a.showcoupon' ).attr( 'aria-expanded', 'false' );
 						} );
+=======
+						$( 'form.checkout_coupon' ).slideUp();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					}
 				},
 				error: function ( jqXHR ) {

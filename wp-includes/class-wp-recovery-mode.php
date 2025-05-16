@@ -161,9 +161,15 @@ class WP_Recovery_Mode {
 	 * @since 5.2.0
 	 *
 	 * @param array $error Error details from `error_get_last()`.
+<<<<<<< HEAD
 	 * @return true|WP_Error|void True if the error was handled and headers have already been sent.
 	 *                            Or the request will exit to try and catch multiple errors at once.
 	 *                            WP_Error if an error occurred preventing it from being handled.
+=======
+	 * @return true|WP_Error True if the error was handled and headers have already been sent.
+	 *                       Or the request will exit to try and catch multiple errors at once.
+	 *                       WP_Error if an error occurred preventing it from being handled.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function handle_error( array $error ) {
 
@@ -338,7 +344,11 @@ class WP_Recovery_Mode {
 	 *
 	 * @since 5.2.0
 	 *
+<<<<<<< HEAD
 	 * @global string[] $wp_theme_directories
+=======
+	 * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param array $error Error details from `error_get_last()`.
 	 * @return array|false {

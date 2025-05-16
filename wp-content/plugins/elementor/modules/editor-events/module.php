@@ -17,6 +17,15 @@ class Module extends BaseModule {
 
 	const EXPERIMENT_NAME = 'editor_events';
 
+<<<<<<< HEAD
+=======
+	public function __construct() {
+		parent::__construct();
+
+		$this->register_experiment();
+	}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function get_name() {
 		return 'editor-events';
 	}
@@ -41,14 +50,23 @@ class Module extends BaseModule {
 		return $settings;
 	}
 
+<<<<<<< HEAD
 	public static function get_experimental_data(): array {
 		return [
+=======
+	private function register_experiment() {
+		Plugin::$instance->experiments->add_feature( [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'name' => static::EXPERIMENT_NAME,
 			'title' => esc_html__( 'Elementor Editor Events', 'elementor' ),
 			'description' => esc_html__( 'Editor events processing', 'elementor' ),
 			'hidden' => true,
 			'release_status' => Experiments_Manager::RELEASE_STATUS_ALPHA,
 			'default' => Experiments_Manager::STATE_INACTIVE,
+<<<<<<< HEAD
 		];
+=======
+		] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

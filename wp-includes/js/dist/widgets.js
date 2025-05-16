@@ -63,15 +63,22 @@ __webpack_require__.d(__webpack_exports__, {
 var legacy_widget_namespaceObject = {};
 __webpack_require__.r(legacy_widget_namespaceObject);
 __webpack_require__.d(legacy_widget_namespaceObject, {
+<<<<<<< HEAD
   yu: () => (metadata),
   UU: () => (legacy_widget_name),
   W0: () => (settings)
+=======
+  metadata: () => (metadata),
+  name: () => (legacy_widget_name),
+  settings: () => (settings)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 // NAMESPACE OBJECT: ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/index.js
 var widget_group_namespaceObject = {};
 __webpack_require__.r(widget_group_namespaceObject);
 __webpack_require__.d(widget_group_namespaceObject, {
+<<<<<<< HEAD
   yu: () => (widget_group_metadata),
   UU: () => (widget_group_name),
   W0: () => (widget_group_settings)
@@ -84,6 +91,20 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@wordpress/icons/build-module/library/widget.js
+=======
+  metadata: () => (widget_group_metadata),
+  name: () => (widget_group_name),
+  settings: () => (widget_group_settings)
+});
+
+;// CONCATENATED MODULE: external ["wp","blocks"]
+const external_wp_blocks_namespaceObject = window["wp"]["blocks"];
+;// CONCATENATED MODULE: external ["wp","primitives"]
+const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/widget.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -98,6 +119,7 @@ const widget = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_widget = (widget);
 
+<<<<<<< HEAD
 ;// ./node_modules/clsx/dist/clsx.mjs
 function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const dist_clsx = (clsx);
 ;// external ["wp","blockEditor"]
@@ -105,6 +127,15 @@ const external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
 ;// external ["wp","components"]
 const external_wp_components_namespaceObject = window["wp"]["components"];
 ;// ./node_modules/@wordpress/icons/build-module/library/brush.js
+=======
+;// CONCATENATED MODULE: ./node_modules/clsx/dist/clsx.mjs
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const dist_clsx = (clsx);
+;// CONCATENATED MODULE: external ["wp","blockEditor"]
+const external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
+;// CONCATENATED MODULE: external ["wp","components"]
+const external_wp_components_namespaceObject = window["wp"]["components"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/brush.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -119,6 +150,7 @@ const brush = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_brush = (brush);
 
+<<<<<<< HEAD
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// external ["wp","element"]
@@ -128,6 +160,17 @@ const external_wp_coreData_namespaceObject = window["wp"]["coreData"];
 ;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/widget-type-selector.js
+=======
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: external ["wp","coreData"]
+const external_wp_coreData_namespaceObject = window["wp"]["coreData"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/widget-type-selector.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -182,7 +225,12 @@ function WidgetTypeSelector({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/inspector-card.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/inspector-card.js
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function InspectorCard({
   name,
@@ -199,6 +247,7 @@ function InspectorCard({
   });
 }
 
+<<<<<<< HEAD
 ;// external ["wp","notices"]
 const external_wp_notices_namespaceObject = window["wp"]["notices"];
 ;// external ["wp","compose"]
@@ -207,6 +256,16 @@ const external_wp_compose_namespaceObject = window["wp"]["compose"];
 const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
 var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/control.js
+=======
+;// CONCATENATED MODULE: external ["wp","notices"]
+const external_wp_notices_namespaceObject = window["wp"]["notices"];
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external ["wp","apiFetch"]
+const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
+var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/control.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* wp:polyfill */
 /**
  * WordPress dependencies
@@ -218,7 +277,11 @@ var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_w
 /**
  * An API for creating and loading a widget control (a <div class="widget">
  * element) that is compatible with most third party widget scripts. By not
+<<<<<<< HEAD
  * using React for this, we ensure that we have complete control over the DOM
+=======
+ * using React for this, we ensure that we have complete contorl over the DOM
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * and do not accidentally remove any elements that a third party widget script
  * has attached an event listener to.
  *
@@ -265,7 +328,11 @@ class Control {
   }
 
   /**
+<<<<<<< HEAD
    * Clean up the control so that it can be garbage collected.
+=======
+   * Clean up the control so that it can be garabge collected.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
    *
    * @access public
    */
@@ -617,7 +684,12 @@ function serializeForm(form) {
   return new window.URLSearchParams(Array.from(new window.FormData(form))).toString();
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/form.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/form.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -636,6 +708,10 @@ function serializeForm(form) {
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function Form({
   title,
   isVisible,
@@ -675,7 +751,11 @@ function Form({
       onChangeHasPreview,
       onError(error) {
         window.console.error(error);
+<<<<<<< HEAD
         createNotice('error', (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %s: the name of the affected block. */
+=======
+        createNotice('error', (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: the name of the affected block. */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         (0,external_wp_i18n_namespaceObject.__)('The "%s" block was affected by errors and may not function properly. Check the developer tools for more details.'), idBase || id));
       }
     });
@@ -722,7 +802,11 @@ function Form({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/preview.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/preview.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -737,6 +821,11 @@ function Form({
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function Preview({
   idBase,
   instance,
@@ -839,12 +928,20 @@ function Preview({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/no-preview.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/no-preview.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function NoPreview({
   name
 }) {
@@ -858,7 +955,11 @@ function NoPreview({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/convert-to-blocks-button.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/convert-to-blocks-button.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -893,7 +994,11 @@ function ConvertToBlocksButton({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/edit/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -909,6 +1014,10 @@ function ConvertToBlocksButton({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -919,6 +1028,11 @@ function ConvertToBlocksButton({
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function Edit(props) {
   const {
     id,
@@ -1003,6 +1117,10 @@ function NotEmpty({
     record: widgetType,
     hasResolved: hasResolvedWidgetType
   } = (0,external_wp_coreData_namespaceObject.useEntityRecord)('root', 'widgetType', widgetTypeId);
+<<<<<<< HEAD
+=======
+  const isNavigationMode = (0,external_wp_data_namespaceObject.useSelect)(select => select(external_wp_blockEditor_namespaceObject.store).isNavigationMode(), []);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const setInstance = (0,external_wp_element_namespaceObject.useCallback)(nextInstance => {
     setAttributes({
       instance: nextInstance
@@ -1022,7 +1140,11 @@ function NotEmpty({
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Spinner, {})
     });
   }
+<<<<<<< HEAD
   const mode = idBase && !isSelected ? 'preview' : 'edit';
+=======
+  const mode = idBase && (isNavigationMode || !isSelected) ? 'preview' : 'edit';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
     children: [idBase === 'text' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.BlockControls, {
       group: "other",
@@ -1058,7 +1180,11 @@ function NotEmpty({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/transforms.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/transforms.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1270,7 +1396,11 @@ const transforms = {
 };
 /* harmony default export */ const legacy_widget_transforms = (transforms);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/legacy-widget/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1320,7 +1450,11 @@ const settings = {
   transforms: legacy_widget_transforms
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/group.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/group.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1335,7 +1469,11 @@ const group = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_group = (group);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/edit.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/edit.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1345,6 +1483,11 @@ const group = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function edit_Edit(props) {
   const {
     clientId
@@ -1401,12 +1544,21 @@ function PreviewContent({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/save.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/save.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function save({
   attributes
 }) {
@@ -1422,12 +1574,21 @@ function save({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/deprecated.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/deprecated.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const v1 = {
   attributes: {
     title: {
@@ -1454,7 +1615,11 @@ const v1 = {
 };
 /* harmony default export */ const deprecated = ([v1]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/blocks/widget-group/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1534,7 +1699,11 @@ const widget_group_settings = {
   deprecated: deprecated
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/move-to.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/move-to.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1549,7 +1718,11 @@ const moveTo = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const move_to = (moveTo);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/components/move-to-widget-area/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/components/move-to-widget-area/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1590,10 +1763,17 @@ function MoveToWidgetArea({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/components/index.js
 
 
 ;// ./node_modules/@wordpress/widgets/build-module/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/components/index.js
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // @ts-check
 
 /**
@@ -1628,7 +1808,11 @@ function addWidgetIdToBlock(block, widgetId) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/register-legacy-widget-variations.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/register-legacy-widget-variations.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1659,7 +1843,11 @@ function registerLegacyWidgetVariations(settings) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/widgets/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/widgets/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1684,9 +1872,15 @@ function registerLegacyWidgetVariations(settings) {
  */
 function registerLegacyWidgetBlock(supports = {}) {
   const {
+<<<<<<< HEAD
     /* metadata */ "yu": metadata,
     /* settings */ "W0": settings,
     /* name */ "UU": name
+=======
+    metadata,
+    settings,
+    name
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   } = legacy_widget_namespaceObject;
   (0,external_wp_blocks_namespaceObject.registerBlockType)({
     name,
@@ -1707,9 +1901,15 @@ function registerLegacyWidgetBlock(supports = {}) {
  */
 function registerWidgetGroupBlock(supports = {}) {
   const {
+<<<<<<< HEAD
     /* metadata */ "yu": metadata,
     /* settings */ "W0": settings,
     /* name */ "UU": name
+=======
+    metadata,
+    settings,
+    name
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   } = widget_group_namespaceObject;
   (0,external_wp_blocks_namespaceObject.registerBlockType)({
     name,

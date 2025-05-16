@@ -247,7 +247,10 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			'author_exclude' => 'author__not_in',
 			'exclude'        => 'post__not_in',
 			'include'        => 'post__in',
+<<<<<<< HEAD
 			'ignore_sticky'  => 'ignore_sticky_posts',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'menu_order'     => 'menu_order',
 			'offset'         => 'offset',
 			'order'          => 'order',
@@ -338,6 +341,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			}
 		}
 
+<<<<<<< HEAD
 		/*
 		 * Honor the original REST API `post__in` behavior. Don't prepend sticky posts
 		 * when `post__in` has been specified.
@@ -346,6 +350,8 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			unset( $args['ignore_sticky_posts'] );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if (
 			isset( $registered['search_semantics'], $request['search_semantics'] )
 			&& 'exact' === $request['search_semantics']
@@ -411,6 +417,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		// Force the post_type argument, since it's not a user input variable.
 		$args['post_type'] = $this->post_type;
 
+<<<<<<< HEAD
 		$is_head_request = $request->is_method( 'HEAD' );
 		if ( $is_head_request ) {
 			// Force the 'fields' argument. For HEAD requests, only post IDs are required to calculate pagination.
@@ -420,6 +427,8 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			$args['update_post_meta_cache'] = false;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Filters WP_Query arguments when querying posts via the REST API.
 		 *
@@ -452,6 +461,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			add_filter( 'post_password_required', array( $this, 'check_password_required' ), 10, 2 );
 		}
 
+<<<<<<< HEAD
 		if ( ! $is_head_request ) {
 			$posts = array();
 
@@ -470,6 +480,24 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 				$data    = $this->prepare_item_for_response( $post, $request );
 				$posts[] = $this->prepare_response_for_collection( $data );
 			}
+=======
+		$posts = array();
+
+		update_post_author_caches( $query_result );
+		update_post_parent_caches( $query_result );
+
+		if ( post_type_supports( $this->post_type, 'thumbnail' ) ) {
+			update_post_thumbnail_cache( $posts_query );
+		}
+
+		foreach ( $query_result as $post ) {
+			if ( ! $this->check_read_permission( $post ) ) {
+				continue;
+			}
+
+			$data    = $this->prepare_item_for_response( $post, $request );
+			$posts[] = $this->prepare_response_for_collection( $data );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		// Reset filter.
@@ -477,7 +505,11 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			remove_filter( 'post_password_required', array( $this, 'check_password_required' ) );
 		}
 
+<<<<<<< HEAD
 		$page        = isset( $query_args['paged'] ) ? (int) $query_args['paged'] : 0;
+=======
+		$page        = (int) $query_args['paged'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$total_posts = $posts_query->found_posts;
 
 		if ( $total_posts < 1 && $page > 1 ) {
@@ -499,7 +531,11 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			);
 		}
 
+<<<<<<< HEAD
 		$response = $is_head_request ? new WP_REST_Response( array() ) : rest_ensure_response( $posts );
+=======
+		$response = rest_ensure_response( $posts );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$response->header( 'X-WP-Total', (int) $total_posts );
 		$response->header( 'X-WP-TotalPages', (int) $max_pages );
@@ -1669,8 +1705,11 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 				return $result;
 			}
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -1844,12 +1883,15 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		setup_postdata( $post );
 
+<<<<<<< HEAD
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
 			/** This filter is documented in wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php */
 			return apply_filters( "rest_prepare_{$this->post_type}", new WP_REST_Response( array() ), $post, $request );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$fields = $this->get_fields_for_response( $request );
 
 		// Base fields for every post.
@@ -3071,12 +3113,15 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 				'description' => __( 'Limit result set to items that are sticky.' ),
 				'type'        => 'boolean',
 			);
+<<<<<<< HEAD
 
 			$query_params['ignore_sticky'] = array(
 				'description' => __( 'Whether to ignore sticky posts or not.' ),
 				'type'        => 'boolean',
 				'default'     => true,
 			);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( post_type_supports( $this->post_type, 'post-formats' ) ) {

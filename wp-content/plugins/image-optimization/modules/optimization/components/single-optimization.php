@@ -43,7 +43,14 @@ class Single_Optimization {
 		} catch ( Throwable $t ) {
 			Logger::log( Logger::LEVEL_ERROR, 'Optimization error. Reason: ' . $t->getMessage() );
 
+<<<<<<< HEAD
 			Retry::maybe_retry_optimization( $image_id );
+=======
+			( new Image_Meta( $image_id ) )
+				->set_status( Image_Status::OPTIMIZATION_FAILED )
+				->set_error_type( Image_Optimization_Error_Type::GENERIC )
+				->save();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -77,12 +84,23 @@ class Single_Optimization {
 		} catch ( Throwable $t ) {
 			Logger::log( Logger::LEVEL_ERROR, 'Reoptimizing error. Reason: ' . $t->getMessage() );
 
+<<<<<<< HEAD
 			Retry::maybe_retry_optimization( $image_id );
+=======
+			( new Image_Meta( $image_id ) )
+				->set_status( Image_Status::REOPTIMIZING_FAILED )
+				->set_error_type( Image_Optimization_Error_Type::GENERIC )
+				->save();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
 	public function __construct() {
+<<<<<<< HEAD
 		add_action( Async_Operation_Hook::OPTIMIZE_SINGLE, [ $this, 'optimize_single_image' ], 3 );
+=======
+		add_action( Async_Operation_Hook::OPTIMIZE_SINGLE, [ $this, 'optimize_single_image' ] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( Async_Operation_Hook::REOPTIMIZE_SINGLE, [ $this, 'reoptimize_single_image' ] );
 	}
 }

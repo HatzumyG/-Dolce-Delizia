@@ -26,17 +26,23 @@ class Crawler extends Root
 	const FAST_USER_AGENT = 'lscache_runner';
 	const CHUNKS = 10000;
 
+<<<<<<< HEAD
 	const STATUS_WAIT = 'W';
 	const STATUS_HIT = 'H';
 	const STATUS_MISS = 'M';
 	const STATUS_BLACKLIST = 'B';
 	const STATUS_NOCACHE = 'N';
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private $_sitemeta = 'meta.data';
 	private $_resetfile;
 	private $_end_reason;
 	private $_ncpu = 1;
+<<<<<<< HEAD
 	private $_server_ip;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	private $_crawler_conf = array(
 		'cookies' => array(),
@@ -71,7 +77,10 @@ class Crawler extends Root
 		$this->_summary = self::get_summary();
 
 		$this->_ncpu = $this->_get_server_cpu();
+<<<<<<< HEAD
 		$this->_server_ip = $this->conf(Base::O_SERVER_IP);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		self::debug('Init w/ CPU cores=' . $this->_ncpu);
 	}
@@ -306,8 +315,13 @@ class Crawler extends Root
 		// if finished last time, regenerate sitemap
 		if ($this->_summary['done'] === 'touchedEnd') {
 			// check whole crawling interval
+<<<<<<< HEAD
 			$last_finished_at = $this->_summary['last_full_time_cost'] + $this->_summary['this_full_beginning_time'];
 			if (!$manually_run && time() - $last_finished_at < $this->conf(Base::O_CRAWLER_CRAWL_INTERVAL)) {
+=======
+			$last_fnished_at = $this->_summary['last_full_time_cost'] + $this->_summary['this_full_beginning_time'];
+			if (!$manually_run && time() - $last_fnished_at < $this->conf(Base::O_CRAWLER_CRAWL_INTERVAL)) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				self::debug('Cron abort: cache warmed already.');
 				// if not reach whole crawling interval, exit
 				$this->Release_lane();
@@ -337,6 +351,7 @@ class Crawler extends Root
 			$this->_summary['crawler_stats'][$this->_summary['curr_crawler']] = array();
 		}
 
+<<<<<<< HEAD
 		$res = $this->load_conf();
 		if (!$res) {
 			self::debug('Load conf failed');
@@ -344,6 +359,9 @@ class Crawler extends Root
 			$this->Release_lane();
 			return;
 		}
+=======
+		$this->load_conf();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		try {
 			$this->_engine_start();
@@ -366,6 +384,21 @@ class Crawler extends Root
 		$current_crawler = $this->_crawlers[$this->_summary['curr_crawler']];
 
 		/**
+<<<<<<< HEAD
+=======
+		 * Set role simulation
+		 * @since 1.9.1
+		 */
+		// if (!empty($current_crawler['uid'])) {
+		// 	// Get role simulation vary name
+		// 	$vary_name = $this->cls('Vary')->get_vary_name();
+		// 	$vary_val = $this->cls('Vary')->finalize_default_vary($current_crawler['uid']);
+		// 	$this->_crawler_conf['cookies'][$vary_name] = $vary_val;
+		// 	$this->_crawler_conf['cookies']['litespeed_hash'] = Router::cls()->get_hash($current_crawler['uid']);
+		// }
+
+		/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 * Check cookie crawler
 		 * @since  2.8
 		 */
@@ -386,7 +419,11 @@ class Crawler extends Root
 		 * @since  1.9.1
 		 */
 		if (!empty($current_crawler['webp'])) {
+<<<<<<< HEAD
 			$this->_crawler_conf['headers'][] = 'Accept: image/' . ($this->conf(Base::O_IMG_OPTM_WEBP) == 2 ? 'avif' : 'webp') . ',*/*';
+=======
+			$this->_crawler_conf['headers'][] = 'Accept: image/webp,*/*';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -401,15 +438,23 @@ class Crawler extends Root
 		 * Limit delay to use server setting
 		 * @since 1.8.3
 		 */
+<<<<<<< HEAD
 		$this->_crawler_conf['run_delay'] = 500; // microseconds
 		if (defined('LITESPEED_CRAWLER_USLEEP') && LITESPEED_CRAWLER_USLEEP > $this->_crawler_conf['run_delay']) {
 			$this->_crawler_conf['run_delay'] = LITESPEED_CRAWLER_USLEEP;
 		}
+=======
+		$this->_crawler_conf['run_delay'] = $this->conf(Base::O_CRAWLER_USLEEP); // microseconds
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if (!empty($_SERVER[Base::ENV_CRAWLER_USLEEP]) && $_SERVER[Base::ENV_CRAWLER_USLEEP] > $this->_crawler_conf['run_delay']) {
 			$this->_crawler_conf['run_delay'] = $_SERVER[Base::ENV_CRAWLER_USLEEP];
 		}
 
+<<<<<<< HEAD
 		$this->_crawler_conf['run_duration'] = $this->get_crawler_duration();
+=======
+		$this->_crawler_conf['run_duration'] = $this->conf(Base::O_CRAWLER_RUN_DURATION);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->_crawler_conf['load_limit'] = $this->conf(Base::O_CRAWLER_LOAD_LIMIT);
 		if (!empty($_SERVER[Base::ENV_CRAWLER_LOAD_LIMIT_ENFORCE])) {
@@ -417,6 +462,7 @@ class Crawler extends Root
 		} elseif (!empty($_SERVER[Base::ENV_CRAWLER_LOAD_LIMIT]) && $_SERVER[Base::ENV_CRAWLER_LOAD_LIMIT] < $this->_crawler_conf['load_limit']) {
 			$this->_crawler_conf['load_limit'] = $_SERVER[Base::ENV_CRAWLER_LOAD_LIMIT];
 		}
+<<<<<<< HEAD
 		if ($this->_crawler_conf['load_limit'] == 0) {
 			self::debug('🛑 Terminated crawler due to load limit set to 0');
 			return false;
@@ -453,6 +499,8 @@ class Crawler extends Root
 			$RUN_DURATION = 900; // reset to default value if defined in conf file is higher than 900 seconds for security enhancement
 		}
 		return $RUN_DURATION;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -501,7 +549,11 @@ class Crawler extends Root
 
 		// mark running
 		$this->_prepare_running();
+<<<<<<< HEAD
 		// run crawler
+=======
+		// run cralwer
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->_do_running();
 		$this->_terminate_running();
 	}
@@ -544,7 +596,10 @@ class Crawler extends Root
 
 		$curload /= $this->_ncpu;
 		// $curload = 1;
+<<<<<<< HEAD
 		$CRAWLER_THREADS = defined('LITESPEED_CRAWLER_THREADS') ? LITESPEED_CRAWLER_THREADS : 3;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ($this->_cur_threads == -1) {
 			// init
@@ -554,8 +609,13 @@ class Crawler extends Root
 				$curthreads = 1;
 			} else {
 				$curthreads = intval($this->_crawler_conf['load_limit'] - $curload);
+<<<<<<< HEAD
 				if ($curthreads > $CRAWLER_THREADS) {
 					$curthreads = $CRAWLER_THREADS;
+=======
+				if ($curthreads > $this->conf(Base::O_CRAWLER_THREADS)) {
+					$curthreads = $this->conf(Base::O_CRAWLER_THREADS);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 			}
 		} else {
@@ -571,14 +631,22 @@ class Crawler extends Root
 				$curthreads--;
 				// }
 			} elseif ($curload + 1 < $this->_crawler_conf['load_limit']) {
+<<<<<<< HEAD
 				if ($curthreads < $CRAWLER_THREADS) {
+=======
+				if ($curthreads < $this->conf(Base::O_CRAWLER_THREADS)) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$curthreads++;
 				}
 			}
 		}
 
 		// $log = 'set current threads = ' . $curthreads . ' previous=' . $this->_cur_threads
+<<<<<<< HEAD
 		// 	. ' max_allowed=' . $CRAWLER_THREADS . ' load_limit=' . $this->_crawler_conf[ 'load_limit' ] . ' current_load=' . $curload;
+=======
+		// 	. ' max_allowed=' . $this->conf( Base::O_CRAWLER_THREADS ) . ' load_limit=' . $this->_crawler_conf[ 'load_limit' ] . ' current_load=' . $curload;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->_cur_threads = $curthreads;
 		$this->_cur_thread_time = time();
@@ -676,6 +744,7 @@ class Crawler extends Root
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Test port for simulator
 	 *
 	 * @since  7.0
@@ -772,6 +841,8 @@ class Crawler extends Root
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Run crawler
 	 *
 	 * @since  1.1.0
@@ -781,6 +852,7 @@ class Crawler extends Root
 	{
 		$options = $this->_get_curl_options(true);
 
+<<<<<<< HEAD
 		// If is role simulator and not defined local port, check port once
 		$test_result = $this->_test_port();
 		if (!$test_result) {
@@ -789,6 +861,8 @@ class Crawler extends Root
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		while ($urlChunks = $this->cls('Crawler_Map')->list_map(self::CHUNKS, $this->_summary['last_pos'])) {
 			// self::debug('$urlChunks=' . count($urlChunks) . ' $this->_cur_threads=' . $this->_cur_threads);
 			// start crawling
@@ -912,6 +986,7 @@ class Crawler extends Root
 			exit('curl_multi_init disabled');
 		}
 		$mh = curl_multi_init();
+<<<<<<< HEAD
 		$CRAWLER_DROP_DOMAIN = defined('LITESPEED_CRAWLER_DROP_DOMAIN') ? LITESPEED_CRAWLER_DROP_DOMAIN : false;
 		$curls = array();
 		foreach ($rows as $row) {
@@ -919,6 +994,14 @@ class Crawler extends Root
 				continue;
 			}
 			if (substr($row['res'], $this->_summary['curr_crawler'], 1) == self::STATUS_NOCACHE) {
+=======
+		$curls = array();
+		foreach ($rows as $row) {
+			if (substr($row['res'], $this->_summary['curr_crawler'], 1) == 'B') {
+				continue;
+			}
+			if (substr($row['res'], $this->_summary['curr_crawler'], 1) == 'N') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				continue;
 			}
 
@@ -930,6 +1013,7 @@ class Crawler extends Root
 
 			// Append URL
 			$url = $row['url'];
+<<<<<<< HEAD
 			if ($CRAWLER_DROP_DOMAIN) {
 				$url = $this->_crawler_conf['base'] . $row['url'];
 			}
@@ -956,6 +1040,11 @@ class Crawler extends Root
 				}
 			}
 
+=======
+			if ($this->conf(Base::O_CRAWLER_DROP_DOMAIN)) {
+				$url = $this->_crawler_conf['base'] . $row['url'];
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			curl_setopt($curls[$row['id']], CURLOPT_URL, $url);
 			self::debug('Crawling [url] ' . $url . ($url == $row['url'] ? '' : ' [ori] ' . $row['url']));
 
@@ -963,7 +1052,11 @@ class Crawler extends Root
 
 			curl_multi_add_handle($mh, $curls[$row['id']]);
 		}
+<<<<<<< HEAD
 
+=======
+		// self::debug('-----debug1');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// execute curl
 		if ($curls) {
 			do {
@@ -973,6 +1066,7 @@ class Crawler extends Root
 				}
 			} while ($active && $status == CURLM_OK);
 		}
+<<<<<<< HEAD
 
 		// curl done
 		$ret = array();
@@ -981,6 +1075,16 @@ class Crawler extends Root
 				continue;
 			}
 			if (substr($row['res'], $this->_summary['curr_crawler'], 1) == self::STATUS_NOCACHE) {
+=======
+		// self::debug('-----debug2');
+		// curl done
+		$ret = array();
+		foreach ($rows as $row) {
+			if (substr($row['res'], $this->_summary['curr_crawler'], 1) == 'B') {
+				continue;
+			}
+			if (substr($row['res'], $this->_summary['curr_crawler'], 1) == 'N') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				continue;
 			}
 			// self::debug('-----debug3');
@@ -1011,6 +1115,7 @@ class Crawler extends Root
 	 */
 	private function _status2title($status)
 	{
+<<<<<<< HEAD
 		if ($status == self::STATUS_HIT) {
 			return '✅ Hit';
 		}
@@ -1021,6 +1126,18 @@ class Crawler extends Root
 			return '😅 Blacklisted';
 		}
 		if ($status == self::STATUS_NOCACHE) {
+=======
+		if ($status == 'H') {
+			return '✅ Hit';
+		}
+		if ($status == 'M') {
+			return '😊 Miss';
+		}
+		if ($status == 'B') {
+			return '😅 Blacklisted';
+		}
+		if ($status == 'N') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return '😅 Blacklisted';
 		}
 		return '🛸 Unknown';
@@ -1034,14 +1151,20 @@ class Crawler extends Root
 	 */
 	private function _status_parse($header, $code, $url)
 	{
+<<<<<<< HEAD
 		// self::debug('http status code: ' . $code . ' [headers]', $header);
 		if ($code == 201) {
 			return self::STATUS_HIT;
+=======
+		if ($code == 201) {
+			return 'H';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if (stripos($header, 'X-Litespeed-Cache-Control: no-cache') !== false) {
 			// If is from DIVI, taken as miss
 			if (defined('LITESPEED_CRAWLER_IGNORE_NONCACHEABLE') && LITESPEED_CRAWLER_IGNORE_NONCACHEABLE) {
+<<<<<<< HEAD
 				return self::STATUS_MISS;
 			}
 
@@ -1051,6 +1174,20 @@ class Crawler extends Root
 			}
 
 			return self::STATUS_NOCACHE; // Blacklist
+=======
+				return 'M';
+			}
+
+			// If blacklist is disabled
+			if (
+				(defined('LITESPEED_CRAWLER_DISABLE_BLOCKLIST') && LITESPEED_CRAWLER_DISABLE_BLOCKLIST) ||
+				apply_filters('litespeed_crawler_disable_blocklist', '__return_false', $url)
+			) {
+				return 'M';
+			}
+
+			return 'N'; // Blacklist
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$_cache_headers = array('x-qc-cache', 'x-lsadc-cache', 'x-litespeed-cache');
@@ -1058,18 +1195,35 @@ class Crawler extends Root
 		foreach ($_cache_headers as $_header) {
 			if (stripos($header, $_header) !== false) {
 				if (stripos($header, $_header . ': miss') !== false) {
+<<<<<<< HEAD
 					return self::STATUS_MISS; // Miss
 				}
 				return self::STATUS_HIT; // Hit
+=======
+					return 'M'; // Miss
+				}
+				return 'H'; // Hit
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
 		// If blacklist is disabled
+<<<<<<< HEAD
 		if ((defined('LITESPEED_CRAWLER_DISABLE_BLOCKLIST') && LITESPEED_CRAWLER_DISABLE_BLOCKLIST) || apply_filters('litespeed_crawler_disable_blocklist', false, $url)) {
 			return self::STATUS_MISS;
 		}
 
 		return self::STATUS_BLACKLIST; // Blacklist
+=======
+		if (
+			(defined('LITESPEED_CRAWLER_DISABLE_BLOCKLIST') && LITESPEED_CRAWLER_DISABLE_BLOCKLIST) ||
+			apply_filters('litespeed_crawler_disable_blocklist', '__return_false', $url)
+		) {
+			return 'M';
+		}
+
+		return 'B'; // Blacklist
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -1080,7 +1234,10 @@ class Crawler extends Root
 	 */
 	private function _get_curl_options($crawler_only = false)
 	{
+<<<<<<< HEAD
 		$CRAWLER_TIMEOUT = defined('LITESPEED_CRAWLER_TIMEOUT') ? LITESPEED_CRAWLER_TIMEOUT : 30;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$options = array(
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HEADER => true,
@@ -1088,7 +1245,11 @@ class Crawler extends Root
 			CURLOPT_FOLLOWLOCATION => false,
 			CURLOPT_ENCODING => 'gzip',
 			CURLOPT_CONNECTTIMEOUT => 10,
+<<<<<<< HEAD
 			CURLOPT_TIMEOUT => $CRAWLER_TIMEOUT, // Larger timeout to avoid incorrect blacklist addition #900171
+=======
+			CURLOPT_TIMEOUT => $this->conf(Base::O_CRAWLER_TIMEOUT), // Larger timeout to avoid incorrect blacklist addition #900171
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			CURLOPT_SSL_VERIFYHOST => 0,
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_NOBODY => false,
@@ -1105,6 +1266,27 @@ class Crawler extends Root
 		$options[CURLOPT_HTTP_VERSION] = CURL_HTTP_VERSION_1_1;
 		// 	$options[ CURL_HTTP_VERSION_2 ] = 1;
 
+<<<<<<< HEAD
+=======
+		// IP resolve
+		if ($this->conf(Base::O_SERVER_IP)) {
+			Utility::compatibility();
+			if (($this->conf(Base::O_CRAWLER_DROP_DOMAIN) || !$crawler_only) && $this->_crawler_conf['base']) {
+				// Resolve URL to IP
+				$parsed_url = parse_url($this->_crawler_conf['base']);
+
+				if (!empty($parsed_url['host'])) {
+					$dom = $parsed_url['host'];
+					$port = $parsed_url['scheme'] == 'https' ? '443' : '80';
+					$url = $dom . ':' . $port . ':' . $this->conf(Base::O_SERVER_IP);
+
+					$options[CURLOPT_RESOLVE] = array($url);
+					$options[CURLOPT_DNS_USE_GLOBAL_CACHE] = false;
+				}
+			}
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// if is walker
 		// $options[ CURLOPT_FRESH_CONNECT ] = true;
 
@@ -1149,6 +1331,7 @@ class Crawler extends Root
 		if ($accept) {
 			$this->_crawler_conf['headers'] = array('Accept: ' . $accept);
 		}
+<<<<<<< HEAD
 		$options = $this->_get_curl_options();
 
 		if ($uid) {
@@ -1166,6 +1349,13 @@ class Crawler extends Root
 			}
 		}
 
+=======
+		if ($uid) {
+			$this->_crawler_conf['cookies']['litespeed_flash_hash'] = Router::cls()->get_flash_hash($uid);
+		}
+
+		$options = $this->_get_curl_options();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$options[CURLOPT_HEADER] = false;
 		$options[CURLOPT_FOLLOWLOCATION] = true;
 
@@ -1197,7 +1387,11 @@ class Crawler extends Root
 		if ($this->_end_reason == 'end') {
 			// Current crawler is fully done
 			// $end_reason = sprintf( __( 'Crawler %s reached end of sitemap file.', 'litespeed-cache' ), '#' . ( $this->_summary['curr_crawler'] + 1 ) );
+<<<<<<< HEAD
 			$this->_summary['curr_crawler']++; // Jump to next crawler
+=======
+			$this->_summary['curr_crawler']++; // Jump to next cralwer
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// $this->_summary[ 'crawler_stats' ][ $this->_summary[ 'curr_crawler' ] ] = array(); // reset this at next crawl time
 			$this->_summary['last_pos'] = 0; // reset last position
 			$this->_summary['last_crawler_total_cost'] = time() - $this->_summary['curr_crawler_beginning_time'];
@@ -1234,11 +1428,16 @@ class Crawler extends Root
 		$crawler_factors['uid'] = array(0 => __('Guest', 'litespeed-cache'));
 
 		// WebP on/off
+<<<<<<< HEAD
 		if ($this->conf(Base::O_IMG_OPTM_WEBP)) {
 			$crawler_factors['webp'] = array(1 => $this->cls('Media')->next_gen_image_title());
 			if (apply_filters('litespeed_crawler_webp', false)) {
 				$crawler_factors['webp'][0] = '';
 			}
+=======
+		if (($this->conf(Base::O_GUEST) && $this->conf(Base::O_GUEST_OPTM)) || $this->conf(Base::O_IMG_OPTM_WEBP)) {
+			$crawler_factors['webp'] = array(1 => 'WebP', 0 => '');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		// Guest Mode on/off
@@ -1258,6 +1457,7 @@ class Crawler extends Root
 
 		// Get roles set
 		// List all roles
+<<<<<<< HEAD
 		foreach ($this->conf(Base::O_CRAWLER_ROLES) as $v) {
 			$role_title = '';
 			$udata = get_userdata($v);
@@ -1271,6 +1471,21 @@ class Crawler extends Root
 
 			$crawler_factors['uid'][$v] = ucfirst($role_title);
 		}
+=======
+		// foreach ($this->conf(Base::O_CRAWLER_ROLES) as $v) {
+		// 	$role_title = '';
+		// 	$udata = get_userdata($v);
+		// 	if (isset($udata->roles) && is_array($udata->roles)) {
+		// 		$tmp = array_values($udata->roles);
+		// 		$role_title = array_shift($tmp);
+		// 	}
+		// 	if (!$role_title) {
+		// 		continue;
+		// 	}
+
+		// 	$crawler_factors['uid'][$v] = ucfirst($role_title);
+		// }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Cookie crawler
 		foreach ($this->conf(Base::O_CRAWLER_COOKIES) as $v) {
@@ -1340,9 +1555,15 @@ class Crawler extends Root
 	 */
 	public function json_local_path()
 	{
+<<<<<<< HEAD
 		// if (!file_exists(LITESPEED_STATIC_DIR . '/crawler/' . $this->_sitemeta)) {
 		// 	return false;
 		// }
+=======
+		if (!file_exists(LITESPEED_STATIC_DIR . '/crawler/' . $this->_sitemeta)) {
+			return false;
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return LITESPEED_STATIC_DIR . '/crawler/' . $this->_sitemeta;
 	}
@@ -1389,10 +1610,17 @@ class Crawler extends Root
 
 		$_status_list = array(
 			'-' => 'default',
+<<<<<<< HEAD
 			self::STATUS_MISS => 'primary',
 			self::STATUS_HIT => 'success',
 			self::STATUS_BLACKLIST => 'danger',
 			self::STATUS_NOCACHE => 'warning',
+=======
+			'M' => 'primary',
+			'H' => 'success',
+			'B' => 'danger',
+			'N' => 'warning',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		$reason_set = explode(',', $reason_set);

@@ -7,7 +7,11 @@ use Elementor\Modules\Promotions\AdminMenuItems\Interfaces\Promotion_Menu_Item;
 use Elementor\Settings;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class Base_Promotion_Item implements Promotion_Menu_Item {

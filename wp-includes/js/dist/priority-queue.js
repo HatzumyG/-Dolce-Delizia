@@ -289,7 +289,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+<<<<<<< HEAD
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+=======
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 (() => {
 "use strict";
 // ESM COMPAT FLAG
@@ -302,7 +306,11 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: ./node_modules/requestidlecallback/index.js
 var requestidlecallback = __webpack_require__(5033);
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/priority-queue/build-module/request-idle-callback.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/priority-queue/build-module/request-idle-callback.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -325,7 +333,11 @@ function createRequestIdleCallback() {
 }
 /* harmony default export */ const request_idle_callback = (createRequestIdleCallback());
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/priority-queue/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/priority-queue/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

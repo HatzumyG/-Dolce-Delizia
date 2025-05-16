@@ -5,8 +5,11 @@
  * @package WooCommerce\Emails
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -31,6 +34,10 @@ if ( ! class_exists( 'WC_Email_Failed_Order', false ) ) :
 		public function __construct() {
 			$this->id             = 'failed_order';
 			$this->title          = __( 'Failed order', 'woocommerce' );
+<<<<<<< HEAD
+=======
+			$this->description    = __( 'Failed order emails are sent to chosen recipient(s) when orders have been marked failed (if they were previously pending or on-hold).', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$this->template_html  = 'emails/admin-failed-order.php';
 			$this->template_plain = 'emails/plain/admin-failed-order.php';
 			$this->placeholders   = array(
@@ -45,11 +52,14 @@ if ( ! class_exists( 'WC_Email_Failed_Order', false ) ) :
 			// Call parent constructor.
 			parent::__construct();
 
+<<<<<<< HEAD
 			// Must be after parent's constructor which sets `email_improvements_enabled` property.
 			$this->description = $this->email_improvements_enabled
 				? __( 'Select who should be notified if an order that was previously processing or on-hold has failed.', 'woocommerce' )
 				: __( 'Failed order emails are sent to chosen recipient(s) when orders have been marked failed (if they were previously pending or on-hold).', 'woocommerce' );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// Other settings.
 			$this->recipient = $this->get_option( 'recipient', get_option( 'admin_email' ) );
 		}
@@ -71,9 +81,13 @@ if ( ! class_exists( 'WC_Email_Failed_Order', false ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
+<<<<<<< HEAD
 			return $this->email_improvements_enabled
 				? __( 'Order failed: #{order_number}', 'woocommerce' )
 				: __( 'Order Failed: #{order_number}', 'woocommerce' );
+=======
+			return __( 'Order Failed: #{order_number}', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -147,9 +161,13 @@ if ( ! class_exists( 'WC_Email_Failed_Order', false ) ) :
 		 * @return string
 		 */
 		public function get_default_additional_content() {
+<<<<<<< HEAD
 			return $this->email_improvements_enabled
 				? __( 'We hope they’ll be back soon! Read more about <a href="https://woocommerce.com/document/managing-orders/">troubleshooting failed payments</a>.', 'woocommerce' )
 				: __( 'Hopefully they’ll be back. Read more about <a href="https://woocommerce.com/document/managing-orders/">troubleshooting failed payments</a>.', 'woocommerce' );
+=======
+			return __( 'Hopefully they’ll be back. Read more about <a href="https://woocommerce.com/document/managing-orders/">troubleshooting failed payments</a>.', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -209,10 +227,13 @@ if ( ! class_exists( 'WC_Email_Failed_Order', false ) ) :
 					'desc_tip'    => true,
 				),
 			);
+<<<<<<< HEAD
 			if ( FeaturesUtil::feature_is_enabled( 'email_improvements' ) ) {
 				$this->form_fields['cc']  = $this->get_cc_field();
 				$this->form_fields['bcc'] = $this->get_bcc_field();
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

@@ -209,10 +209,14 @@ class Settings {
 		$settings['woocommerceTranslation'] = __( 'WooCommerce', 'woocommerce' );
 		// We may have synced orders with a now-unregistered status.
 		// E.g An extension that added statuses is now inactive or removed.
+<<<<<<< HEAD
 		if ( PageController::is_admin_page() ) {
 			$settings['unregisteredOrderStatuses'] = $this->get_unregistered_order_statuses();
 		}
 
+=======
+		$settings['unregisteredOrderStatuses'] = $this->get_unregistered_order_statuses();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// The separator used for attributes found in Variation titles.
 		//phpcs:ignore
 		$settings['variationTitleAttributesSeparator'] = apply_filters( 'woocommerce_product_variation_title_attributes_separator', ' - ', new \WC_Product() );

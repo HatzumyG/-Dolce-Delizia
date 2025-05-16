@@ -48,10 +48,17 @@ function wp_signon( $credentials = array(), $secure_cookie = '' ) {
 			'remember'      => false,
 		);
 
+<<<<<<< HEAD
 		if ( ! empty( $_POST['log'] ) && is_string( $_POST['log'] ) ) {
 			$credentials['user_login'] = wp_unslash( $_POST['log'] );
 		}
 		if ( ! empty( $_POST['pwd'] ) && is_string( $_POST['pwd'] ) ) {
+=======
+		if ( ! empty( $_POST['log'] ) ) {
+			$credentials['user_login'] = wp_unslash( $_POST['log'] );
+		}
+		if ( ! empty( $_POST['pwd'] ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$credentials['user_password'] = $_POST['pwd'];
 		}
 		if ( ! empty( $_POST['rememberme'] ) ) {
@@ -150,12 +157,16 @@ function wp_signon( $credentials = array(), $secure_cookie = '' ) {
  * @param string                $password Password for authentication.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
+<<<<<<< HEAD
 function wp_authenticate_username_password(
 	$user,
 	$username,
 	#[\SensitiveParameter]
 	$password
 ) {
+=======
+function wp_authenticate_username_password( $user, $username, $password ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ( $user instanceof WP_User ) {
 		return $user;
 	}
@@ -205,9 +216,13 @@ function wp_authenticate_username_password(
 		return $user;
 	}
 
+<<<<<<< HEAD
 	$valid = wp_check_password( $password, $user->user_pass, $user->ID );
 
 	if ( ! $valid ) {
+=======
+	if ( ! wp_check_password( $password, $user->user_pass, $user->ID ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return new WP_Error(
 			'incorrect_password',
 			sprintf(
@@ -221,10 +236,13 @@ function wp_authenticate_username_password(
 		);
 	}
 
+<<<<<<< HEAD
 	if ( wp_password_needs_rehash( $user->user_pass, $user->ID ) ) {
 		wp_set_password( $password, $user->ID );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	return $user;
 }
 
@@ -239,12 +257,16 @@ function wp_authenticate_username_password(
  * @param string                $password Password for authentication.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
+<<<<<<< HEAD
 function wp_authenticate_email_password(
 	$user,
 	$email,
 	#[\SensitiveParameter]
 	$password
 ) {
+=======
+function wp_authenticate_email_password( $user, $email, $password ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ( $user instanceof WP_User ) {
 		return $user;
 	}
@@ -288,9 +310,13 @@ function wp_authenticate_email_password(
 		return $user;
 	}
 
+<<<<<<< HEAD
 	$valid = wp_check_password( $password, $user->user_pass, $user->ID );
 
 	if ( ! $valid ) {
+=======
+	if ( ! wp_check_password( $password, $user->user_pass, $user->ID ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return new WP_Error(
 			'incorrect_password',
 			sprintf(
@@ -304,10 +330,13 @@ function wp_authenticate_email_password(
 		);
 	}
 
+<<<<<<< HEAD
 	if ( wp_password_needs_rehash( $user->user_pass, $user->ID ) ) {
 		wp_set_password( $password, $user->ID );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	return $user;
 }
 
@@ -323,12 +352,16 @@ function wp_authenticate_email_password(
  * @param string                $password Password. If not empty, cancels the cookie authentication.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
+<<<<<<< HEAD
 function wp_authenticate_cookie(
 	$user,
 	$username,
 	#[\SensitiveParameter]
 	$password
 ) {
+=======
+function wp_authenticate_cookie( $user, $username, $password ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	global $auth_secure_cookie;
 
 	if ( $user instanceof WP_User ) {
@@ -369,12 +402,16 @@ function wp_authenticate_cookie(
  * @return WP_User|WP_Error|null WP_User on success, WP_Error on failure, null if
  *                               null is passed in and this isn't an API request.
  */
+<<<<<<< HEAD
 function wp_authenticate_application_password(
 	$input_user,
 	$username,
 	#[\SensitiveParameter]
 	$password
 ) {
+=======
+function wp_authenticate_application_password( $input_user, $username, $password ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ( $input_user instanceof WP_User ) {
 		return $input_user;
 	}
@@ -457,7 +494,11 @@ function wp_authenticate_application_password(
 	$hashed_passwords = WP_Application_Passwords::get_user_application_passwords( $user->ID );
 
 	foreach ( $hashed_passwords as $key => $item ) {
+<<<<<<< HEAD
 		if ( ! WP_Application_Passwords::check_password( $password, $item['password'] ) ) {
+=======
+		if ( ! wp_check_password( $password, $item['password'], $user->ID ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			continue;
 		}
 
@@ -616,6 +657,7 @@ function wp_validate_logged_in_cookie( $user_id ) {
 function count_user_posts( $userid, $post_type = 'post', $public_only = false ) {
 	global $wpdb;
 
+<<<<<<< HEAD
 	$post_type = array_unique( (array) $post_type );
 	sort( $post_type );
 
@@ -629,6 +671,11 @@ function count_user_posts( $userid, $post_type = 'post', $public_only = false ) 
 		$count = $wpdb->get_var( $query );
 		wp_cache_set( $cache_key, $count, 'post-queries' );
 	}
+=======
+	$where = get_posts_by_author_sql( $post_type, true, $userid, $public_only );
+
+	$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Filters the number of posts a user has written.
@@ -660,6 +707,7 @@ function count_user_posts( $userid, $post_type = 'post', $public_only = false ) 
 function count_many_users_posts( $users, $post_type = 'post', $public_only = false ) {
 	global $wpdb;
 
+<<<<<<< HEAD
 	if ( empty( $users ) || ! is_array( $users ) ) {
 		return array();
 	}
@@ -680,18 +728,35 @@ function count_many_users_posts( $users, $post_type = 'post', $public_only = fal
 	$pre = apply_filters( 'pre_count_many_users_posts', null, $users, $post_type, $public_only );
 	if ( null !== $pre ) {
 		return $pre;
+=======
+	$count = array();
+	if ( empty( $users ) || ! is_array( $users ) ) {
+		return $count;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	$userlist = implode( ',', array_map( 'absint', $users ) );
 	$where    = get_posts_by_author_sql( $post_type, true, null, $public_only );
 
 	$result = $wpdb->get_results( "SELECT post_author, COUNT(*) FROM $wpdb->posts $where AND post_author IN ($userlist) GROUP BY post_author", ARRAY_N );
+<<<<<<< HEAD
 
 	$count = array_fill_keys( $users, 0 );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	foreach ( $result as $row ) {
 		$count[ $row[0] ] = $row[1];
 	}
 
+<<<<<<< HEAD
+=======
+	foreach ( $users as $id ) {
+		if ( ! isset( $count[ $id ] ) ) {
+			$count[ $id ] = 0;
+		}
+	}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	return $count;
 }
 
@@ -1206,6 +1271,7 @@ function is_user_member_of_blog( $user_id = 0, $blog_id = 0 ) {
  *
  * @param int    $user_id    User ID.
  * @param string $meta_key   Metadata name.
+<<<<<<< HEAD
  * @param mixed  $meta_value Metadata value. Arrays and objects are stored as serialized data and
  *                           will be returned as the same type when retrieved. Other data types will
  *                           be stored as strings in the database:
@@ -1213,6 +1279,9 @@ function is_user_member_of_blog( $user_id = 0, $blog_id = 0 ) {
  *                           - true is stored and retrieved as '1'
  *                           - numbers (both integer and float) are stored and retrieved as strings
  *                           Must be serializable if non-scalar.
+=======
+ * @param mixed  $meta_value Metadata value. Must be serializable if non-scalar.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param bool   $unique     Optional. Whether the same key should not be added.
  *                           Default false.
  * @return int|false Meta ID on success, false on failure.
@@ -1261,11 +1330,14 @@ function delete_user_meta( $user_id, $meta_key, $meta_value = '' ) {
  *               False for an invalid `$user_id` (non-numeric, zero, or negative value).
  *               An empty array if a valid but non-existing user ID is passed and `$single` is false.
  *               An empty string if a valid but non-existing user ID is passed and `$single` is true.
+<<<<<<< HEAD
  *               Note: Non-serialized values are returned as strings:
  *               - false values are returned as empty strings ('')
  *               - true values are returned as '1'
  *               - numbers (both integer and float) are returned as strings
  *               Arrays and objects retain their original type.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function get_user_meta( $user_id, $key = '', $single = false ) {
 	return get_metadata( 'user', $user_id, $key, $single );
@@ -2456,7 +2528,10 @@ function wp_insert_user( $userdata ) {
 	 *
 	 * @since 4.9.0
 	 * @since 5.8.0 The `$userdata` parameter was added.
+<<<<<<< HEAD
 	 * @since 6.8.0 The user's password is now hashed using bcrypt by default instead of phpass.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param array    $data {
 	 *     Values and keys for the user.
@@ -2847,6 +2922,11 @@ All at ###SITENAME###
 	$current_user = wp_get_current_user();
 	if ( $current_user->ID === $user_id ) {
 		if ( isset( $plaintext_pass ) ) {
+<<<<<<< HEAD
+=======
+			wp_clear_auth_cookie();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			/*
 			 * Here we calculate the expiration length of the current auth cookie and compare it to the default expiration.
 			 * If it's greater than this, then we know the user checked 'Remember Me' when they logged in.
@@ -2855,6 +2935,7 @@ All at ###SITENAME###
 			/** This filter is documented in wp-includes/pluggable.php */
 			$default_cookie_life = apply_filters( 'auth_cookie_expiration', ( 2 * DAY_IN_SECONDS ), $user_id, false );
 
+<<<<<<< HEAD
 			wp_clear_auth_cookie();
 
 			$remember = false;
@@ -2869,6 +2950,15 @@ All at ###SITENAME###
 			}
 
 			wp_set_auth_cookie( $user_id, $remember, '', $token );
+=======
+			$remember = false;
+
+			if ( false !== $logged_in_cookie && ( $logged_in_cookie['expiration'] - time() ) > $default_cookie_life ) {
+				$remember = true;
+			}
+
+			wp_set_auth_cookie( $user_id, $remember );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -2902,12 +2992,16 @@ All at ###SITENAME###
  * @return int|WP_Error The newly created user's ID or a WP_Error object if the user could not
  *                      be created.
  */
+<<<<<<< HEAD
 function wp_create_user(
 	$username,
 	#[\SensitiveParameter]
 	$password,
 	$email = ''
 ) {
+=======
+function wp_create_user( $username, $password, $email = '' ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$user_login = wp_slash( $username );
 	$user_email = wp_slash( $email );
 	$user_pass  = $password;
@@ -3004,10 +3098,20 @@ function wp_get_password_hint() {
  *
  * @since 4.4.0
  *
+<<<<<<< HEAD
+=======
+ * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param WP_User $user User to retrieve password reset key for.
  * @return string|WP_Error Password reset key on success. WP_Error on error.
  */
 function get_password_reset_key( $user ) {
+<<<<<<< HEAD
+=======
+	global $wp_hasher;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ( ! ( $user instanceof WP_User ) ) {
 		return new WP_Error( 'invalidcombo', __( '<strong>Error:</strong> There is no account with that username or email address.' ) );
 	}
@@ -3053,7 +3157,17 @@ function get_password_reset_key( $user ) {
 	 */
 	do_action( 'retrieve_password_key', $user->user_login, $key );
 
+<<<<<<< HEAD
 	$hashed = time() . ':' . wp_fast_hash( $key );
+=======
+	// Now insert the key, hashed, into the DB.
+	if ( empty( $wp_hasher ) ) {
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
+	}
+
+	$hashed = time() . ':' . $wp_hasher->HashPassword( $key );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	$key_saved = wp_update_user(
 		array(
@@ -3079,6 +3193,7 @@ function get_password_reset_key( $user ) {
  *
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @param string $key       The password reset key.
  * @param string $login     The user login.
  * @return WP_User|WP_Error WP_User object on success, WP_Error object for invalid or expired keys.
@@ -3088,6 +3203,17 @@ function check_password_reset_key(
 	$key,
 	$login
 ) {
+=======
+ * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
+ *
+ * @param string $key       Hash to validate sending user's password.
+ * @param string $login     The user login.
+ * @return WP_User|WP_Error WP_User object on success, WP_Error object for invalid or expired keys.
+ */
+function check_password_reset_key( $key, $login ) {
+	global $wp_hasher;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$key = preg_replace( '/[^a-z0-9]/i', '', $key );
 
 	if ( empty( $key ) || ! is_string( $key ) ) {
@@ -3104,6 +3230,14 @@ function check_password_reset_key(
 		return new WP_Error( 'invalid_key', __( 'Invalid key.' ) );
 	}
 
+<<<<<<< HEAD
+=======
+	if ( empty( $wp_hasher ) ) {
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
+	}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Filters the expiration time of password reset keys.
 	 *
@@ -3125,7 +3259,11 @@ function check_password_reset_key(
 		return new WP_Error( 'invalid_key', __( 'Invalid key.' ) );
 	}
 
+<<<<<<< HEAD
 	$hash_is_correct = wp_verify_fast_hash( $key, $pass_key );
+=======
+	$hash_is_correct = $wp_hasher->CheckPassword( $key, $pass_key );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	if ( $hash_is_correct && $expiration_time && time() < $expiration_time ) {
 		return $user;
@@ -3140,7 +3278,11 @@ function check_password_reset_key(
 
 		/**
 		 * Filters the return value of check_password_reset_key() when an
+<<<<<<< HEAD
 		 * old-style key or an expired key is used.
+=======
+		 * old-style key is used.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *
 		 * @since 3.7.0 Previously plain-text keys were stored in the database.
 		 * @since 4.3.0 Previously key hashes were stored without an expiration time.
@@ -3161,13 +3303,22 @@ function check_password_reset_key(
  * @since 2.5.0
  * @since 5.7.0 Added `$user_login` parameter.
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb WordPress database abstraction object.
+=======
+ * @global wpdb         $wpdb      WordPress database abstraction object.
+ * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param string $user_login Optional. Username to send a password retrieval email for.
  *                           Defaults to `$_POST['user_login']` if not set.
  * @return true|WP_Error True when finished, WP_Error object on error.
  */
+<<<<<<< HEAD
 function retrieve_password( $user_login = '' ) {
+=======
+function retrieve_password( $user_login = null ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$errors    = new WP_Error();
 	$user_data = false;
 
@@ -3416,11 +3567,15 @@ function retrieve_password( $user_login = '' ) {
  * @param WP_User $user     The user
  * @param string  $new_pass New password for the user in plaintext
  */
+<<<<<<< HEAD
 function reset_password(
 	$user,
 	#[\SensitiveParameter]
 	$new_pass
 ) {
+=======
+function reset_password( $user, $new_pass ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Fires before the user's password is reset.
 	 *
@@ -4942,19 +5097,42 @@ All at ###SITENAME###
  *
  * @since 4.9.6
  *
+<<<<<<< HEAD
+=======
+ * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param int $request_id Request ID.
  * @return string Confirmation key.
  */
 function wp_generate_user_request_key( $request_id ) {
+<<<<<<< HEAD
 	// Generate something random for a confirmation key.
 	$key = wp_generate_password( 20, false );
 
 	// Save the key, hashed.
+=======
+	global $wp_hasher;
+
+	// Generate something random for a confirmation key.
+	$key = wp_generate_password( 20, false );
+
+	// Return the key, hashed.
+	if ( empty( $wp_hasher ) ) {
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
+	}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	wp_update_post(
 		array(
 			'ID'            => $request_id,
 			'post_status'   => 'request-pending',
+<<<<<<< HEAD
 			'post_password' => wp_fast_hash( $key ),
+=======
+			'post_password' => $wp_hasher->HashPassword( $key ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	);
 
@@ -4966,15 +5144,26 @@ function wp_generate_user_request_key( $request_id ) {
  *
  * @since 4.9.6
  *
+<<<<<<< HEAD
+=======
+ * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param string $request_id ID of the request being confirmed.
  * @param string $key        Provided key to validate.
  * @return true|WP_Error True on success, WP_Error on failure.
  */
+<<<<<<< HEAD
 function wp_validate_user_request_key(
 	$request_id,
 	#[\SensitiveParameter]
 	$key
 ) {
+=======
+function wp_validate_user_request_key( $request_id, $key ) {
+	global $wp_hasher;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$request_id       = absint( $request_id );
 	$request          = wp_get_user_request( $request_id );
 	$saved_key        = $request->confirm_key;
@@ -4992,6 +5181,14 @@ function wp_validate_user_request_key(
 		return new WP_Error( 'missing_key', __( 'The confirmation key is missing from this personal data request.' ) );
 	}
 
+<<<<<<< HEAD
+=======
+	if ( empty( $wp_hasher ) ) {
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
+	}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Filters the expiration time of confirm keys.
 	 *
@@ -5002,7 +5199,11 @@ function wp_validate_user_request_key(
 	$expiration_duration = (int) apply_filters( 'user_request_key_expiration', DAY_IN_SECONDS );
 	$expiration_time     = $key_request_time + $expiration_duration;
 
+<<<<<<< HEAD
 	if ( ! wp_verify_fast_hash( $key, $saved_key ) ) {
+=======
+	if ( ! $wp_hasher->CheckPassword( $key, $saved_key ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return new WP_Error( 'invalid_key', __( 'The confirmation key is invalid for this personal data request.' ) );
 	}
 

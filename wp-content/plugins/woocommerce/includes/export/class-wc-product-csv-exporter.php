@@ -7,7 +7,10 @@
  */
 
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Utilities\I18nUtil;
 
@@ -530,11 +533,19 @@ class WC_Product_CSV_Exporter extends WC_CSV_Batch_Exporter {
 	protected function get_column_value_stock_status( $product ) {
 		$status = $product->get_stock_status( 'edit' );
 
+<<<<<<< HEAD
 		if ( ProductStockStatus::ON_BACKORDER === $status ) {
 			return 'backorder';
 		}
 
 		return ProductStockStatus::IN_STOCK === $status ? 1 : 0;
+=======
+		if ( 'onbackorder' === $status ) {
+			return 'backorder';
+		}
+
+		return 'instock' === $status ? 1 : 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

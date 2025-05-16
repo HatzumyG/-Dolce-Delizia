@@ -2,10 +2,17 @@
 namespace Elementor\Core\Logger\Loggers;
 
 use Elementor\Core\Logger\Items\Base as Log_Item;
+<<<<<<< HEAD
 use Elementor\Core\Logger\Items\Log_Item_Interface;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
+=======
+use Elementor\Core\Logger\Items\Log_Item_Interface as Log_Item_Interface;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class Base implements Logger_Interface {

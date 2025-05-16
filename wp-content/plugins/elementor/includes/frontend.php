@@ -718,7 +718,11 @@ class Frontend extends App {
 	 *
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param string  $frontend_file_name
+=======
+	 * @param string $frontend_file_name
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param boolean $custom_file
 	 *
 	 * @return string frontend file URL
@@ -744,7 +748,11 @@ class Frontend extends App {
 	 * @since 3.5.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param string  $frontend_file_name
+=======
+	 * @param string $frontend_file_name
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param boolean $custom_file
 	 *
 	 * @return string frontend file path
@@ -921,7 +929,11 @@ class Frontend extends App {
 			$this->enqueued_icon_fonts[] = $css_url;
 		}
 
+<<<<<<< HEAD
 		// Clear enqueued icons.
+=======
+		//clear enqueued icons
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->icon_fonts_to_enqueue = [];
 	}
 
@@ -1023,7 +1035,11 @@ class Frontend extends App {
 
 		// Print used fonts
 		if ( ! empty( $google_fonts['google'] ) ) {
+<<<<<<< HEAD
 			++$this->google_fonts_index;
+=======
+			$this->google_fonts_index++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( Plugin::$instance->experiments->is_feature_active( 'e_local_google_fonts' ) ) {
 				foreach ( $google_fonts['google'] as $current_font ) {
@@ -1045,7 +1061,11 @@ class Frontend extends App {
 				$early_access_font_urls = $this->get_early_access_google_font_urls( $google_fonts['early'] );
 
 				foreach ( $early_access_font_urls as $ea_font_url ) {
+<<<<<<< HEAD
 					++$this->google_fonts_index;
+=======
+					$this->google_fonts_index++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 					wp_enqueue_style( 'google-earlyaccess-' . $this->google_fonts_index, $ea_font_url ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 				}
@@ -1238,7 +1258,11 @@ class Frontend extends App {
 	 * @since 1.0.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param int  $post_id The post ID.
+=======
+	 * @param int $post_id The post ID.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param bool $with_css Optional. Whether to retrieve the content with CSS
 	 *                       or not. Default is false.
@@ -1526,7 +1550,11 @@ class Frontend extends App {
 	 * @access private
 	 * @since 2.0.4
 	 *
+<<<<<<< HEAD
 	 * @param string $content
+=======
+	 * @param $content
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */

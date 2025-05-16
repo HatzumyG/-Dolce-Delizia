@@ -580,6 +580,7 @@ function wp_render_layout_support_flag( $block_content, $block ) {
 
 	// Child layout specific logic.
 	if ( $child_layout ) {
+<<<<<<< HEAD
 		/*
 		 * Generates a unique class for child block layout styles.
 		 *
@@ -607,6 +608,9 @@ function wp_render_layout_support_flag( $block_content, $block ) {
 			'wp-container-content-'
 		);
 
+=======
+		$container_content_class   = wp_unique_prefixed_id( 'wp-container-content-' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$child_layout_declarations = array();
 		$child_layout_styles       = array();
 
@@ -732,6 +736,19 @@ function wp_render_layout_support_flag( $block_content, $block ) {
 	$class_names        = array();
 	$layout_definitions = wp_get_layout_definitions();
 
+<<<<<<< HEAD
+=======
+	/*
+	 * Uses an incremental ID that is independent per prefix to make sure that
+	 * rendering different numbers of blocks doesn't affect the IDs of other
+	 * blocks. Makes the CSS class names stable across paginations
+	 * for features like the enhanced pagination of the Query block.
+	 */
+	$container_class = wp_unique_prefixed_id(
+		'wp-container-' . sanitize_title( $block['blockName'] ) . '-is-layout-'
+	);
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	// Set the correct layout type for blocks using legacy content width.
 	if ( isset( $used_layout['inherit'] ) && $used_layout['inherit'] || isset( $used_layout['contentSize'] ) && $used_layout['contentSize'] ) {
 		$used_layout['type'] = 'constrained';
@@ -822,6 +839,7 @@ function wp_render_layout_support_flag( $block_content, $block ) {
 			: null;
 		$has_block_gap_support = isset( $block_gap );
 
+<<<<<<< HEAD
 		/*
 		 * Generates a unique ID based on all the data required to obtain the
 		 * corresponding layout style. Keeps the CSS class names the same
@@ -841,6 +859,8 @@ function wp_render_layout_support_flag( $block_content, $block ) {
 			'wp-container-' . sanitize_title( $block['blockName'] ) . '-is-layout-'
 		);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$style = wp_get_layout_style(
 			".$container_class",
 			$used_layout,

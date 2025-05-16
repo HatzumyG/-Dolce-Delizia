@@ -55,7 +55,11 @@ class Feedback extends Module {
 	public function enqueue_feedback_dialog_scripts() {
 		add_action( 'admin_footer', [ $this, 'print_deactivate_feedback_dialog' ] );
 
+<<<<<<< HEAD
 		$suffix = Utils::is_script_debug() ? '' : '.min';
+=======
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		wp_register_script(
 			'elementor-admin-feedback',

@@ -1,8 +1,11 @@
 <?php
 /**
  * Admin View: Email Template Preview
+<<<<<<< HEAD
  *
  * @deprecated 9.8.0
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

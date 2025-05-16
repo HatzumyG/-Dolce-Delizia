@@ -159,7 +159,11 @@ class WP_Plugin_Dependencies {
 	 * @return bool Whether the plugin has active dependents.
 	 */
 	public static function has_active_dependents( $plugin_file ) {
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+=======
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$dependents = self::get_dependents( self::convert_to_slug( $plugin_file ) );
 		foreach ( $dependents as $dependent ) {
@@ -235,7 +239,11 @@ class WP_Plugin_Dependencies {
 			return false;
 		}
 
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+=======
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		foreach ( self::$dependencies[ $plugin_file ] as $dependency ) {
 			$dependency_filepath = self::get_dependency_filepath( $dependency );
@@ -495,7 +503,11 @@ class WP_Plugin_Dependencies {
 			wp_send_json_success( $status );
 		}
 
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+=======
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$inactive_dependencies = array();
 		foreach ( $dependencies as $dependency ) {
@@ -544,7 +556,11 @@ class WP_Plugin_Dependencies {
 			return self::$plugins;
 		}
 
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+=======
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::$plugins = get_plugins();
 
 		return self::$plugins;

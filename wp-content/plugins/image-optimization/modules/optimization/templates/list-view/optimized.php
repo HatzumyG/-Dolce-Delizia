@@ -15,6 +15,7 @@ use ImageOptimization\Classes\File_Utils;
 		data-image-optimization-can-be-restored="<?php echo esc_attr( $args['can_be_restored'] ); ?>">
 	<p class="image-optimization-control__property">
 		<?php esc_html_e( 'Image sizes optimized', 'image-optimization' ); ?>:
+<<<<<<< HEAD
 		<span>
 			<?php echo sprintf(
 				'%d/%d',
@@ -28,6 +29,9 @@ use ImageOptimization\Classes\File_Utils;
 				(+)
 			</button>
 		</span>
+=======
+		<span><?php echo esc_html( $args['sizes_optimized_count'] ); ?></span>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	</p>
 
 	<p class="image-optimization-control__property">
@@ -35,9 +39,15 @@ use ImageOptimization\Classes\File_Utils;
 			<span>
 				<?php
 				if ( $args['is_losseless_and_webp'] ) {
+<<<<<<< HEAD
 					esc_html_e( 'Requested WebP format is larger than the original file. Switch to Lossy in settings to convert this image in an optimized manner.', 'image-optimization' );
 				} else {
 					esc_html_e( 'Image is fully optimized', 'image-optimization' );
+=======
+					echo esc_html_e( 'Requested WebP format is larger than the original file. Switch to Lossy in settings to convert this image in an optimized manner.', 'image-optimization' );
+				} else {
+					echo esc_html_e( 'Image is fully optimized', 'image-optimization' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 				?>
 			</span>

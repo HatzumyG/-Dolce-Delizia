@@ -136,11 +136,14 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response Response object.
 	 */
 	public function get_items( $request ) {
+<<<<<<< HEAD
 		if ( $request->is_method( 'HEAD' ) ) {
 			// Return early as this handler doesn't add any response headers.
 			return new WP_REST_Response( array() );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->retrieve_widgets();
 
 		$prepared          = array();
@@ -682,6 +685,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 			);
 		}
 
+<<<<<<< HEAD
 		$widget = $wp_registered_widgets[ $widget_id ];
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
@@ -689,6 +693,9 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 			return apply_filters( 'rest_prepare_widget', new WP_REST_Response( array() ), $widget, $request );
 		}
 
+=======
+		$widget    = $wp_registered_widgets[ $widget_id ];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$parsed_id = wp_parse_widget_id( $widget_id );
 		$fields    = $this->get_fields_for_response( $request );
 

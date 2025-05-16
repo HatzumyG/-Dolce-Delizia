@@ -148,7 +148,11 @@ class Uploads_Manager extends Base_Object {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Is Unfiltered Uploads Enabled
+=======
+	 * are Unfiltered Uploads Enabled
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.5.0
 	 * @access public
@@ -156,7 +160,11 @@ class Uploads_Manager extends Base_Object {
 	 * @return bool
 	 */
 	final public static function are_unfiltered_uploads_enabled() {
+<<<<<<< HEAD
 		$enabled = (bool) get_option( self::UNFILTERED_FILE_UPLOADS_KEY )
+=======
+		$enabled = ! ! get_option( self::UNFILTERED_FILE_UPLOADS_KEY )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			&& Svg::file_sanitizer_can_run()
 			&& User::is_current_user_can_upload_json();
 

@@ -118,6 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 			</span>
 			<span class="pagination-links">
+<<<<<<< HEAD
 				<# if ( data.current_page === 1 ) { #>
 					<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&laquo;</span>
 					<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&lsaquo;</span>
@@ -131,6 +132,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<span aria-hidden="true">&lsaquo;</span>
 					</a>
 				<# } #>
+=======
+
+				<a class="tablenav-pages-navspan" data-goto="1">
+					<span class="screen-reader-text"><?php esc_html_e( 'First page', 'woocommerce' ); ?></span>
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+				<a class="tablenav-pages-navspan" data-goto="<# print( Math.max( 1, parseInt( data.current_page, 10 ) - 1 ) ) #>">
+					<span class="screen-reader-text"><?php esc_html_e( 'Previous page', 'woocommerce' ); ?></span>
+					<span aria-hidden="true">&lsaquo;</span>
+				</a>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				<span class="paging-input">
 					<label for="current-page-selector" class="screen-reader-text"><?php esc_html_e( 'Current page', 'woocommerce' ); ?></label>
@@ -144,6 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 				</span>
 
+<<<<<<< HEAD
 				<# if ( data.current_page === data.qty_pages ) { #>
 					<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&rsaquo;</span>
 					<span class="tablenav-pages-navspan button disabled" aria-hidden="true">&raquo;</span>
@@ -157,6 +170,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<span aria-hidden="true">&raquo;</span>
 					</a>
 				<# } #>
+=======
+				<a class="tablenav-pages-navspan" data-goto="<# print( Math.min( data.qty_pages, parseInt( data.current_page, 10 ) + 1 ) ) #>">
+					<span class="screen-reader-text"><?php esc_html_e( 'Next page', 'woocommerce' ); ?></span>
+					<span aria-hidden="true">&rsaquo;</span>
+				</a>
+				<a class="tablenav-pages-navspan" data-goto="{{ data.qty_pages }}">
+					<span class="screen-reader-text"><?php esc_html_e( 'Last page', 'woocommerce' ); ?></span>
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			</span>
 		</div>

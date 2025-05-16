@@ -705,7 +705,11 @@ function dropdown_cats($optionall = 1, $all = 'All', $orderby = 'ID', $order = '
 
 	$show_option_none = '';
 	if ( $optionnone )
+<<<<<<< HEAD
 		$show_option_none = _x( 'None', 'Categories dropdown (show_option_none parameter)' );
+=======
+	$show_option_none = _x( 'None', 'Categories dropdown (show_option_none parameter)' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	$vars = compact('show_option_all', 'show_option_none', 'orderby', 'order',
 					'show_last_update', 'show_count', 'hide_empty', 'selected', 'exclude');
@@ -3673,7 +3677,11 @@ function post_permalink( $post = 0 ) {
 function wp_get_http( $url, $file_path = false, $red = 1 ) {
 	_deprecated_function( __FUNCTION__, '4.4.0', 'WP_Http' );
 
+<<<<<<< HEAD
 	// Add 60 seconds to the script timeout to ensure the remote request has enough time.
+=======
+	// Adds an additional 60 seconds to the script timeout to ensure the remote request has enough time.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ( function_exists( 'set_time_limit' ) ) {
 		@set_time_limit( 60 );
 	}
@@ -5190,7 +5198,11 @@ function wp_get_duotone_filter_property( $preset ) {
  * Returns the duotone filter SVG string for the preset.
  *
  * @since 5.9.1
+<<<<<<< HEAD
  * @deprecated 6.3.0 Use WP_Duotone::get_filter_svg_from_preset() instead.
+=======
+ * @deprecated 6.3.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @access private
  *
@@ -5198,7 +5210,11 @@ function wp_get_duotone_filter_property( $preset ) {
  * @return string Duotone SVG filter.
  */
 function wp_get_duotone_filter_svg( $preset ) {
+<<<<<<< HEAD
 	_deprecated_function( __FUNCTION__, '6.3.0', 'WP_Duotone::get_filter_svg_from_preset()' );
+=======
+	_deprecated_function( __FUNCTION__, '6.3.0' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	return WP_Duotone::get_filter_svg_from_preset( $preset );
 }
 
@@ -6169,6 +6185,10 @@ function the_block_template_skip_link() {
 	<style id="skip-link-styles">
 		.skip-link.screen-reader-text {
 			border: 0;
+<<<<<<< HEAD
+=======
+			clip: rect(1px,1px,1px,1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			clip-path: inset(50%);
 			height: 1px;
 			margin: -1px;
@@ -6181,6 +6201,10 @@ function the_block_template_skip_link() {
 
 		.skip-link.screen-reader-text:focus {
 			background-color: #eee;
+<<<<<<< HEAD
+=======
+			clip: auto !important;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			clip-path: none;
 			color: #444;
 			display: block;
@@ -6314,7 +6338,11 @@ function wp_interactivity_process_directives_of_interactive_blocks( array $parse
  * Gets the global styles custom CSS from theme.json.
  *
  * @since 6.2.0
+<<<<<<< HEAD
  * @deprecated 6.7.0 Use {@see 'wp_get_global_stylesheet'} instead for top-level custom CSS, or {@see 'WP_Theme_JSON::get_styles_for_block'} for block-level custom CSS.
+=======
+ * @deprecated 6.7.0 Use {@see 'wp_get_global_stylesheet'} instead.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @return string The global styles custom CSS.
  */
@@ -6422,6 +6450,7 @@ function wp_create_block_style_variation_instance_name( $block, $variation ) {
 function current_user_can_for_blog( $blog_id, $capability, ...$args ) {
 	return current_user_can_for_site( $blog_id, $capability, ...$args );
 }
+<<<<<<< HEAD
 
 /**
  * Loads classic theme styles on classic themes in the editor.
@@ -6461,3 +6490,5 @@ function wp_add_editor_classic_theme_styles( $editor_settings ) {
 
 	return $editor_settings;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

@@ -115,6 +115,7 @@ function wpcf7_stripe_skip_spam_check( $skip_spam_check, $submission ) {
 		$pi_id = trim( $_POST['_wpcf7_stripe_payment_intent'] );
 		$payment_intent = $service->api()->retrieve_payment_intent( $pi_id );
 
+<<<<<<< HEAD
 		if (
 			isset( $payment_intent['metadata']['wpcf7_submission_timestamp'] )
 		) {
@@ -140,6 +141,16 @@ function wpcf7_stripe_skip_spam_check( $skip_spam_check, $submission ) {
 		! empty( $submission->pull( 'payment_intent' ) ) and
 		$submission->verify_posted_data_hash()
 	) {
+=======
+		if ( isset( $payment_intent['status'] )
+		and ( 'succeeded' === $payment_intent['status'] ) ) {
+			$submission->push( 'payment_intent', $pi_id );
+		}
+	}
+
+	if ( ! empty( $submission->pull( 'payment_intent' ) )
+	and $submission->verify_posted_data_hash() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$skip_spam_check = true;
 	}
 
@@ -147,6 +158,7 @@ function wpcf7_stripe_skip_spam_check( $skip_spam_check, $submission ) {
 }
 
 
+<<<<<<< HEAD
 add_filter(
 	'wpcf7_spam',
 	'wpcf7_stripe_verify_payment_intent',
@@ -187,6 +199,8 @@ function wpcf7_stripe_verify_payment_intent( $spam, $submission ) {
 }
 
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 add_action(
 	'wpcf7_before_send_mail',
 	'wpcf7_stripe_before_send_mail',

@@ -30,7 +30,11 @@ get_current_screen()->add_help_tab(
 get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
 	'<p>' . __( '<a href="https://wordpress.org/documentation/article/tools-import-screen/">Documentation on Import</a>' ) . '</p>' .
+<<<<<<< HEAD
 	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
+=======
+	'<p>' . __( '<a href="https://wordpress.org/support/forums">Support</a>' ) . '</p>'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 );
 
 if ( current_user_can( 'install_plugins' ) ) {
@@ -235,6 +239,7 @@ if ( current_user_can( 'install_plugins' ) ) {
 		esc_url( network_admin_url( 'plugin-install.php?tab=search&type=tag&s=importer' ) )
 	) . '</p>';
 }
+<<<<<<< HEAD
 
 /**
  * Fires at the end of the Import screen.
@@ -242,6 +247,8 @@ if ( current_user_can( 'install_plugins' ) ) {
  * @since 6.8.0
  */
 do_action( 'import_filters' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 ?>
 
 </div>

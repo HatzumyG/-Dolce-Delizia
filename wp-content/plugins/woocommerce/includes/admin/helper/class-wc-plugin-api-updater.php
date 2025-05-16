@@ -80,6 +80,7 @@ class WC_Plugin_Api_Updater {
 			return $response;
 		}
 
+<<<<<<< HEAD
 		$product_id        = array_keys( $products );
 		$product_id        = array_shift( $product_id );
 		$is_site_connected = WC_Helper::is_site_connected();
@@ -98,6 +99,22 @@ class WC_Plugin_Api_Updater {
 			$request = WC_Helper_API::get( $endpoint );
 		}
 
+=======
+		$product_id = array_keys( $products );
+		$product_id = array_shift( $product_id );
+
+		// Fetch the product information from the Helper API.
+		$request = WC_Helper_API::get(
+			add_query_arg(
+				array(
+					'product_id' => absint( $product_id ),
+				),
+				'info'
+			),
+			array( 'authenticated' => true )
+		);
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$results = json_decode( wp_remote_retrieve_body( $request ), true );
 		if ( ! empty( $results ) ) {
 			$response = (object) $results;

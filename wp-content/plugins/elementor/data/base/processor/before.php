@@ -7,7 +7,10 @@ abstract class Before extends Processor {
 
 	/**
 	 * Get conditions for running processor.
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param array $args
 	 *
 	 * @return bool

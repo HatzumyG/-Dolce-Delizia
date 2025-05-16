@@ -111,6 +111,10 @@
 
 .screen-reader-text{
   border:0;
+<<<<<<< HEAD
+=======
+  clip:rect(1px, 1px, 1px, 1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   clip-path:inset(50%);
   height:1px;
   margin:-1px;
@@ -123,6 +127,10 @@
 
 .screen-reader-text:focus{
   background-color:#ddd;
+<<<<<<< HEAD
+=======
+  clip:auto !important;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   clip-path:none;
   color:#444;
   display:block;

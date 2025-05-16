@@ -3,8 +3,11 @@
  * EmailFont class file
  */
 
+<<<<<<< HEAD
 declare( strict_types = 1 );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\Internal\Email;
 
 /**
@@ -31,4 +34,8 @@ class EmailFont {
 		'Trebuchet MS'    => "'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif",
 		'Verdana'         => 'Verdana, Geneva, sans-serif',
 	);
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

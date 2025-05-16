@@ -360,9 +360,16 @@ class WP_HTML_Processor_State {
 	 * Context node initializing fragment parser, if created as a fragment parser.
 	 *
 	 * @since 6.4.0
+<<<<<<< HEAD
 	 * @deprecated 6.8.0 WP_HTML_Processor tracks the context_node internally.
 	 *
 	 * @var null
+=======
+	 *
+	 * @see https://html.spec.whatwg.org/#concept-frag-parse-context
+	 *
+	 * @var [string, array]|null
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public $context_node = null;
 

@@ -7,7 +7,11 @@ use Elementor\Utils as ElementorUtils;
 use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Ai extends Library {
@@ -82,7 +86,11 @@ class Ai extends Library {
 	 *     }
 	 * }
 	 */
+<<<<<<< HEAD
 	public function send_event( array $event_data ): void {
+=======
+	public function send_event( array $event_data ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->ai_request(
 			'POST',
 			'client-events/events',
@@ -98,8 +106,12 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get file upload get_file_payload
 	 *
+=======
+	 * get_file_payload
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $filename
 	 * @param $file_type
 	 * @param $file_path
@@ -254,8 +266,12 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get Image Prompt Enhanced  get_image_prompt_enhanced
 	 *
+=======
+	 * get_image_prompt_enhanced
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $prompt
 	 *
 	 * @return mixed|\WP_Error
@@ -330,8 +346,12 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get text to image get_text_to_image
 	 *
+=======
+	 * get_text_to_image
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $prompt
 	 * @param $prompt_settings
 	 *
@@ -357,11 +377,18 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_Featured_Image get_featured_image
 	 *
 	 * @param $data
 	 * @param $context
 	 * @param $request_ids
+=======
+	 * get_featured_image
+	 * @param $prompt
+	 * @param $prompt_settings
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return mixed|\WP_Error
 	 */
 	public function get_featured_image( $data, $context, $request_ids ) {
@@ -384,6 +411,7 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get Image To Image get_image_to_image
 	 *
 	 * @param $image_data
@@ -391,6 +419,13 @@ class Ai extends Library {
 	 * @param $request_ids
 	 * @return mixed|\WP_Error
 	 * @throws \Exception If image file not found.
+=======
+	 * get_image_to_image
+	 * @param $image_data
+	 *
+	 * @return mixed|\WP_Error
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_image_to_image( $image_data, $context, $request_ids ) {
 		$image_file = get_attached_file( $image_data['attachment_id'] );
@@ -471,7 +506,10 @@ class Ai extends Library {
 			[
 				'aspectRatio' => $image_data['promptSettings'][ self::ASPECT_RATIO ],
 				'backgroundColor' => $image_data['promptSettings'][ self::IMAGE_BACKGROUND_COLOR ],
+<<<<<<< HEAD
 				'featureIdentifier' => $image_data['featureIdentifier'],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'context' => wp_json_encode( $context ),
 				'ids' => $request_ids,
 				'api_version' => ELEMENTOR_VERSION,
@@ -489,6 +527,7 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get Image To Image Upscale get_image_to_image_upscale
 	 *
 	 * @param $image_data
@@ -496,6 +535,13 @@ class Ai extends Library {
 	 * @param $request_ids
 	 * @return mixed|\WP_Error
 	 * @throws \Exception If image file not found.
+=======
+	 * get_image_to_image_upscale
+	 * @param $image_data
+	 *
+	 * @return mixed|\WP_Error
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_image_to_image_upscale( $image_data, $context, $request_ids ) {
 		$image_file = get_attached_file( $image_data['attachment_id'] );
@@ -522,6 +568,7 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get Image To Image Remove Background get_image_to_image_remove_background
 	 *
 	 * @param $image_data
@@ -529,6 +576,13 @@ class Ai extends Library {
 	 * @param $request_ids
 	 * @return mixed|\WP_Error
 	 * @throws \Exception If image file not found.
+=======
+	 * get_image_to_image_remove_background
+	 * @param $image_data
+	 *
+	 * @return mixed|\WP_Error
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_image_to_image_remove_background( $image_data, $context, $request_ids ) {
 		$image_file = get_attached_file( $image_data['attachment_id'] );
@@ -554,6 +608,7 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get Image To Image Remove Text get_image_to_image_remove_text
 	 *
 	 * @param $image_data
@@ -561,6 +616,13 @@ class Ai extends Library {
 	 * @param $request_ids
 	 * @return mixed|\WP_Error
 	 * @throws \Exception If image file not found.
+=======
+	 * get_image_to_image_remove_text
+	 * @param $image_data
+	 *
+	 * @return mixed|\WP_Error
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_image_to_image_replace_background( $image_data, $context, $request_ids ) {
 		$image_file = get_attached_file( $image_data['attachment_id'] );
@@ -587,9 +649,14 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Store Temp File store_temp_file
 	 * used to store a temp file for the AI request and deletes it once the request is done
 	 *
+=======
+	 * store_temp_file
+	 * used to store a temp file for the AI request and deletes it once the request is done
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $file_content
 	 * @param $file_ext
 	 *
@@ -608,6 +675,7 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get Image To Image Out Painting get_image_to_image_out_painting
 	 *
 	 * @param $image_data
@@ -615,6 +683,13 @@ class Ai extends Library {
 	 * @param $request_ids
 	 * @return mixed|\WP_Error
 	 * @throws \Exception If image file not found.
+=======
+	 * get_image_to_image_out_painting
+	 * @param $image_data
+	 *
+	 * @return mixed|\WP_Error
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_image_to_image_out_painting( $image_data, $context, $request_ids ) {
 		$img_content = str_replace( ' ', '+', $image_data['mask'] );
@@ -652,6 +727,7 @@ class Ai extends Library {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get Image To Image Mask get_image_to_image_mask
 	 *
 	 * @param $image_data
@@ -659,6 +735,13 @@ class Ai extends Library {
 	 * @param $request_ids
 	 * @return mixed|\WP_Error
 	 * @throws \Exception If image file not found.
+=======
+	 * get_image_to_image_mask
+	 * @param $image_data
+	 *
+	 * @return mixed|\WP_Error
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_image_to_image_mask( $image_data, $context, $request_ids ) {
 		$image_file = get_attached_file( $image_data['attachment_id'] );

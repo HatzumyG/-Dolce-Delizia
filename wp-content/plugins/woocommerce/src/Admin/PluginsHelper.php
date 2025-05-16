@@ -77,16 +77,23 @@ class PluginsHelper {
 	const DISMISS_DISCONNECT_NOTICE = 'woo_disconnect_notice_dismiss';
 
 	/**
+<<<<<<< HEAD
 	 * Meta key for dismissing connected notice
 	 */
 	const DISMISS_CONNECT_NOTICE = 'woo_connect_notice_dismiss';
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Initialize hooks.
 	 */
 	public static function init() {
 		add_action( 'woocommerce_plugins_install_callback', array( __CLASS__, 'install_plugins' ), 10, 2 );
+<<<<<<< HEAD
 		add_action( 'woocommerce_plugins_install_and_activate_async_callback', array( __CLASS__, 'install_and_activate_plugins_async_callback' ), 10, 3 );
+=======
+		add_action( 'woocommerce_plugins_install_and_activate_async_callback', array( __CLASS__, 'install_and_activate_plugins_async_callback' ), 10, 2 );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( 'woocommerce_plugins_activate_callback', array( __CLASS__, 'activate_plugins' ), 10, 2 );
 		add_action( 'admin_notices', array( __CLASS__, 'maybe_show_connect_notice_in_plugin_list' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'maybe_enqueue_scripts_for_connect_notice' ) );
@@ -224,11 +231,18 @@ class PluginsHelper {
 	 *
 	 * @param array                     $plugins Plugins to install.
 	 * @param PluginsInstallLogger|null $logger an optional logger.
+<<<<<<< HEAD
 	 * @param string|null               $source place where the request is coming from.
 	 *
 	 * @return array
 	 */
 	public static function install_plugins( $plugins, ?PluginsInstallLogger $logger = null, ?string $source = null ) {
+=======
+	 *
+	 * @return array
+	 */
+	public static function install_plugins( $plugins, ?PluginsInstallLogger $logger = null ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Filter the list of plugins to install.
 		 *
@@ -318,6 +332,7 @@ class PluginsHelper {
 				continue;
 			}
 
+<<<<<<< HEAD
 			/**
 			 * Action triggered before a plugin is installed.
 			 *
@@ -325,6 +340,8 @@ class PluginsHelper {
 			 */
 			do_action( 'woocommerce_plugins_install_before', $slug, $source );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$upgrader = new Plugin_Upgrader( new Automatic_Upgrader_Skin() );
 			$result   = $upgrader->install( $api->download_link );
 			// result can be false or WP_Error.
@@ -377,6 +394,7 @@ class PluginsHelper {
 
 			$installed_plugins[] = $plugin;
 			$logger && $logger->installed( $plugin, $time[ $plugin ] );
+<<<<<<< HEAD
 
 			/**
 			 * Action triggered after a plugin is installed.
@@ -384,6 +402,8 @@ class PluginsHelper {
 			 * @since 9.8
 			 */
 			do_action( 'woocommerce_plugins_install_after', $slug, $source );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$data = array(
@@ -403,6 +423,7 @@ class PluginsHelper {
 	 *
 	 * It is used to call install_plugins and activate_plugins with a custom logger.
 	 *
+<<<<<<< HEAD
 	 * @param array       $plugins A list of plugins to install.
 	 * @param string      $job_id An unique job I.D.
 	 * @param string|null $source The source of the request.
@@ -413,6 +434,16 @@ class PluginsHelper {
 		$option_name = 'woocommerce_onboarding_plugins_install_and_activate_async_' . $job_id;
 		$logger      = new AsyncPluginsInstallLogger( $option_name );
 		self::install_plugins( $plugins, $logger, $source );
+=======
+	 * @param array  $plugins A list of plugins to install.
+	 * @param string $job_id An unique job I.D.
+	 * @return bool
+	 */
+	public static function install_and_activate_plugins_async_callback( array $plugins, string $job_id ) {
+		$option_name = 'woocommerce_onboarding_plugins_install_and_activate_async_' . $job_id;
+		$logger      = new AsyncPluginsInstallLogger( $option_name );
+		self::install_plugins( $plugins, $logger );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::activate_plugins( $plugins, $logger );
 		return true;
 	}
@@ -1131,6 +1162,7 @@ class PluginsHelper {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get the connected status notice message.
 	 *
 	 * @param string $user_email the user email.
@@ -1158,6 +1190,8 @@ class PluginsHelper {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Determine whether a specific notice should be shown to the current user.
 	 *
 	 * @param string $dismiss_notice_meta User meta that includes the timestamp when a store notice was dismissed.

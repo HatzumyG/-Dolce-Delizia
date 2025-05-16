@@ -147,12 +147,20 @@ function wp_populate_basic_auth_from_authorization_header() {
  * @since 3.0.0
  * @access private
  *
+<<<<<<< HEAD
  * @global string   $required_php_version    The required PHP version string.
  * @global string[] $required_php_extensions The names of required PHP extensions.
  * @global string   $wp_version              The WordPress version string.
  */
 function wp_check_php_mysql_versions() {
 	global $required_php_version, $required_php_extensions, $wp_version;
+=======
+ * @global string $required_php_version The required PHP version string.
+ * @global string $wp_version           The WordPress version string.
+ */
+function wp_check_php_mysql_versions() {
+	global $required_php_version, $wp_version;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	$php_version = PHP_VERSION;
 
@@ -169,6 +177,7 @@ function wp_check_php_mysql_versions() {
 		exit( 1 );
 	}
 
+<<<<<<< HEAD
 	$missing_extensions = array();
 
 	if ( isset( $required_php_extensions ) && is_array( $required_php_extensions ) ) {
@@ -193,6 +202,8 @@ function wp_check_php_mysql_versions() {
 		exit( 1 );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	// This runs before default constants are defined, so we can't assume WP_CONTENT_DIR is set yet.
 	$wp_content_dir = defined( 'WP_CONTENT_DIR' ) ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
 

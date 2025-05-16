@@ -4,6 +4,7 @@
 
 # JS file URL excludes
 maps-api-ssl.google.com
+<<<<<<< HEAD
 maps.google.com/maps
 maps.googleapis.com
 google.com/recaptcha
@@ -15,6 +16,16 @@ cse.google.com/cse.js
 /syntaxhighlighter/
 spotlight-social-photo-feeds ## https://docs.spotlightwp.com/article/757-autoptimize-compatibility @Tobolo
 userway.org
+=======
+stats.wp.com
+js.stripe.com
+paypal.com/sdk/js
+maps.google.com/maps
+cse.google.com/cse.js
+/syntaxhighlighter/
+spotlight-social-photo-feeds ## https://docs.spotlightwp.com/article/757-autoptimize-compatibility @Tobolo
+challenges.cloudflare.com
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 # Inline JS excludes
 document.write
@@ -22,6 +33,10 @@ gtag
 gtm
 dataLayer
 adsbygoogle
+<<<<<<< HEAD
+=======
+turnstile
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 block_tdi_ ## Theme: Newspaper by tagDiv.com
 
@@ -29,9 +44,15 @@ data-view-breakpoint-pointer ## Plugin: The Events Calendar by Modern Tribe (htt
 
 wp-json/wp-statistics ## WP Statistics
 
+<<<<<<< HEAD
 ## JetPack Stats
 stats.wp.com/e-
 _stq
+=======
+stats.wp.com/e-
+_stq
+## JetPack Stats
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 # Cloudflare turnstile - Tobolo
 turnstile

@@ -235,6 +235,10 @@ class Cart extends AbstractBlock {
 		parent::enqueue_data( $attributes );
 
 		$this->asset_data_registry->add( 'countryData', CartCheckoutUtils::get_country_data() );
+<<<<<<< HEAD
+=======
+		$this->asset_data_registry->add( 'baseLocation', wc_get_base_location() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->asset_data_registry->add( 'isShippingCalculatorEnabled', filter_var( get_option( 'woocommerce_enable_shipping_calc' ), FILTER_VALIDATE_BOOLEAN ) );
 		$this->asset_data_registry->add( 'displayItemizedTaxes', 'itemized' === get_option( 'woocommerce_tax_total_display' ) );
 		$this->asset_data_registry->add( 'displayCartPricesIncludingTax', 'incl' === get_option( 'woocommerce_tax_display_cart' ) );
@@ -250,6 +254,7 @@ class Cart extends AbstractBlock {
 
 		$this->asset_data_registry->add( 'localPickupEnabled', $pickup_location_settings['enabled'] );
 		$this->asset_data_registry->add( 'collectableMethodIds', $local_pickup_method_ids );
+<<<<<<< HEAD
 		$this->asset_data_registry->add( 'shippingMethodsExist', CartCheckoutUtils::shipping_methods_exist() > 0 );
 
 		$is_block_editor = $this->is_block_editor();
@@ -272,6 +277,8 @@ class Cart extends AbstractBlock {
 				)
 			);
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Hydrate the following data depending on admin or frontend context.
 		if ( ! is_admin() && ! WC()->is_rest_api_request() ) {

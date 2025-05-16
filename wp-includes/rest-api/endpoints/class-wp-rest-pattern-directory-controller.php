@@ -161,11 +161,14 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 			return $raw_patterns;
 		}
 
+<<<<<<< HEAD
 		if ( $request->is_method( 'HEAD' ) ) {
 			// Return early as this handler doesn't add any response headers.
 			return new WP_REST_Response( array() );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$response = array();
 
 		if ( $raw_patterns ) {

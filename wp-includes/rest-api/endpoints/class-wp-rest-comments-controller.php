@@ -262,6 +262,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 			$prepared_args['offset'] = $prepared_args['number'] * ( absint( $request['page'] ) - 1 );
 		}
 
+<<<<<<< HEAD
 		$is_head_request = $request->is_method( 'HEAD' );
 		if ( $is_head_request ) {
 			// Force the 'fields' argument. For HEAD requests, only post IDs are required to calculate pagination.
@@ -270,6 +271,8 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 			$prepared_args['update_comment_meta_cache'] = false;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Filters WP_Comment_Query arguments when querying comments via the REST API.
 		 *
@@ -285,6 +288,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		$query        = new WP_Comment_Query();
 		$query_result = $query->query( $prepared_args );
 
+<<<<<<< HEAD
 		if ( ! $is_head_request ) {
 			$comments = array();
 
@@ -296,6 +300,17 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 				$data       = $this->prepare_item_for_response( $comment, $request );
 				$comments[] = $this->prepare_response_for_collection( $data );
 			}
+=======
+		$comments = array();
+
+		foreach ( $query_result as $comment ) {
+			if ( ! $this->check_read_permission( $comment, $request ) ) {
+				continue;
+			}
+
+			$data       = $this->prepare_item_for_response( $comment, $request );
+			$comments[] = $this->prepare_response_for_collection( $data );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$total_comments = (int) $query->found_comments;
@@ -313,7 +328,11 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 			$max_pages      = (int) ceil( $total_comments / $request['per_page'] );
 		}
 
+<<<<<<< HEAD
 		$response = $is_head_request ? new WP_REST_Response( array() ) : rest_ensure_response( $comments );
+=======
+		$response = rest_ensure_response( $comments );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$response->header( 'X-WP-Total', $total_comments );
 		$response->header( 'X-WP-TotalPages', $max_pages );
 
@@ -1051,12 +1070,15 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		// Restores the more descriptive, specific name for use within this method.
 		$comment = $item;
 
+<<<<<<< HEAD
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
 			/** This filter is documented in wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php */
 			return apply_filters( 'rest_prepare_comment', new WP_REST_Response( array() ), $comment, $request );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$fields = $this->get_fields_for_response( $request );
 		$data   = array();
 
@@ -1263,7 +1285,11 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param string $comment_approved Comment status.
+=======
+	 * @param string|int $comment_approved comment status.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return string Comment status.
 	 */
 	protected function prepare_status_response( $comment_approved ) {

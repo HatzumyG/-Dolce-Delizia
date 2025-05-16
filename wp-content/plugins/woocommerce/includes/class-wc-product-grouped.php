@@ -148,6 +148,7 @@ class WC_Product_Grouped extends WC_Product {
 		return $this->get_prop( 'children', $context );
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Return the product's children - visible only.
 	 *
@@ -159,6 +160,8 @@ class WC_Product_Grouped extends WC_Product {
 		return array_filter( $grouped_products, 'wc_products_array_filter_visible_grouped' );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/*
 	|--------------------------------------------------------------------------
 	| Setters

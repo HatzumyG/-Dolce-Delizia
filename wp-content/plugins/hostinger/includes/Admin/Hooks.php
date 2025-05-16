@@ -30,9 +30,13 @@ class Hooks {
 	 * @return void
 	 */
 	public function rate_plugin(): void {
+<<<<<<< HEAD
         $admin_path = parse_url(admin_url(), PHP_URL_PATH);
 
 		if ( ! $this->utils->isThisPage( $admin_path . 'admin.php?page=' . Menu::MENU_SLUG ) ) {
+=======
+		if ( ! $this->utils->isThisPage( 'wp-admin/admin.php?page=' . Menu::MENU_SLUG ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 

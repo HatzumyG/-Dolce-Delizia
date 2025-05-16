@@ -161,8 +161,11 @@ final class ProductFilterAttribute extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$product_attribute = wc_get_attribute( $block_attributes['attributeId'] );
 		$attribute_counts  = $this->get_attribute_counts( $block, $product_attribute->slug, $block_attributes['queryType'] );
 		$hide_empty        = $block_attributes['hideEmpty'] ?? true;
@@ -226,10 +229,17 @@ final class ProductFilterAttribute extends AbstractBlock {
 		);
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive'  => $this->get_full_block_name(),
 			'data-wp-key'          => 'product-filter-attribute-' . md5( wp_json_encode( $block_attributes ) ),
 			'data-wp-context'      => wp_json_encode( $context, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
 			'data-wp-bind--hidden' => '!context.hasFilterOptions',
+=======
+			'data-wc-interactive'  => wp_json_encode( array( 'namespace' => $this->get_full_block_name() ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-key'          => 'product-filter-attribute-' . md5( wp_json_encode( $block_attributes ) ),
+			'data-wc-context'      => wp_json_encode( $context, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-bind--hidden' => '!context.hasFilterOptions',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		if ( empty( $filter_context ) ) {
@@ -397,6 +407,17 @@ final class ProductFilterAttribute extends AbstractBlock {
 		<!-- wp:heading {"level":3} -->
 		<h3 class="wp-block-heading">{{attribute_label}}</h3>
 		<!-- /wp:heading -->
+<<<<<<< HEAD
+=======
+
+		<!-- wp:woocommerce/product-filter-clear-button {"lock":{"remove":true}} -->
+		<!-- wp:buttons {"layout":{"type":"flex"}} -->
+		<div class="wp-block-buttons"><!-- wp:button {"className":"wc-block-product-filter-clear-button is-style-outline","style":{"border":{"width":"0px","style":"none"},"typography":{"textDecoration":"underline"},"outline":"none","fontSize":"medium"}} -->
+			<div class="wp-block-button wc-block-product-filter-clear-button is-style-outline" style="text-decoration:underline"><a class="wp-block-button__link wp-element-button" style="border-style:none;border-width:0px">Clear</a></div>
+			<!-- /wp:button --></div>
+		<!-- /wp:buttons -->
+		<!-- /wp:woocommerce/product-filter-clear-button --></div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	<!-- /wp:group -->
 
 	<!-- wp:woocommerce/product-filter-checkbox-list {"lock":{"remove":true}} -->
@@ -414,6 +435,7 @@ final class ProductFilterAttribute extends AbstractBlock {
 			)
 		);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -425,4 +447,6 @@ final class ProductFilterAttribute extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

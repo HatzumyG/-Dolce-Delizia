@@ -11,11 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Set_Fonts_And_Colors extends Step_Base {
 	const STEP_ID = 'set_fonts_and_colors';
 
+<<<<<<< HEAD
 	public function get_id(): string {
 		return self::STEP_ID;
 	}
 
 	public function is_absolute_completed(): bool {
+=======
+	public function get_id() : string {
+		return self::STEP_ID;
+	}
+
+	public function is_absolute_completed() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$settings = $this->elementor_adapter->get_kit_settings();
 		$custom_color = $settings['custom_colors'] ?? '';
 		$custom_fonts = $settings['custom_typography'] ?? '';
@@ -23,6 +31,7 @@ class Set_Fonts_And_Colors extends Step_Base {
 		return ! empty( $custom_color ) && ! empty( $custom_fonts );
 	}
 
+<<<<<<< HEAD
 	public function get_title(): string {
 		return __( 'Set up your Global Fonts & Colors', 'elementor' );
 	}
@@ -36,6 +45,21 @@ class Set_Fonts_And_Colors extends Step_Base {
 	}
 
 	public function get_cta_url(): string {
+=======
+	public function get_title() : string {
+		return __( 'Set up your Global Fonts & Colors', 'elementor' );
+	}
+
+	public function get_description() : string {
+		return esc_html__( 'Global colors and fonts ensure a cohesive look across your site. Start by defining one color and one font.', 'elementor' );
+	}
+
+	public function get_cta_text() : string {
+		return esc_html__( 'Go to Site Identity', 'elementor' );
+	}
+
+	public function get_cta_url() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$settings = $this->elementor_adapter->get_kit_settings();
 
 		$tab = ! $settings['custom_colors'] ? 'global-typography' : 'global-colors';
@@ -43,6 +67,7 @@ class Set_Fonts_And_Colors extends Step_Base {
 		return Page::get_site_settings_url_config( $tab )['url'];
 	}
 
+<<<<<<< HEAD
 	public function get_is_completion_immutable(): bool {
 		return false;
 	}
@@ -52,6 +77,17 @@ class Set_Fonts_And_Colors extends Step_Base {
 	}
 
 	public function get_learn_more_url(): string {
+=======
+	public function get_is_completion_immutable() : bool {
+		return false;
+	}
+
+	public function get_image_src() : string {
+		return 'https://assets.elementor.com/checklist/v1/images/checklist-step-2.jpg';
+	}
+
+	public function get_learn_more_url() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 'http://go.elementor.com/app-website-checklist-global-article';
 	}
 }

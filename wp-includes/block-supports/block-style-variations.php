@@ -62,7 +62,11 @@ function wp_resolve_block_style_variation_ref_values( &$variation_data, $theme_j
 	}
 }
 /**
+<<<<<<< HEAD
  * Renders the block style variation's styles.
+=======
+ * Render the block style variation's styles.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * In the case of nested blocks with variations applied, we want the parent
  * variation's styles to be rendered before their descendants. This solves the
@@ -194,6 +198,7 @@ function wp_render_block_style_variation_support_styles( $parsed_block ) {
 }
 
 /**
+<<<<<<< HEAD
  * Ensures the variation block support class name generated and added to
  * block attributes in the `render_block_data` filter gets applied to the
  * block's markup.
@@ -203,6 +208,17 @@ function wp_render_block_style_variation_support_styles( $parsed_block ) {
  *
  * @see wp_render_block_style_variation_support_styles
  *
+=======
+ * Ensure the variation block support class name generated and added to
+ * block attributes in the `render_block_data` filter gets applied to the
+ * block's markup.
+ *
+ * @see wp_render_block_style_variation_support_styles
+ *
+ * @since 6.6.0
+ * @access private
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param  string $block_content Rendered block content.
  * @param  array  $block         Block object.
  *

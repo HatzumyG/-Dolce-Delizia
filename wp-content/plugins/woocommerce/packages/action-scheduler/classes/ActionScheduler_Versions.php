@@ -19,6 +19,7 @@ class ActionScheduler_Versions {
 	private $versions = array();
 
 	/**
+<<<<<<< HEAD
 	 * Registered sources.
 	 *
 	 * @var array<string, string>
@@ -26,6 +27,8 @@ class ActionScheduler_Versions {
 	private $sources = array();
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Register version's callback.
 	 *
 	 * @param string   $version_string          Action Scheduler version.
@@ -35,6 +38,7 @@ class ActionScheduler_Versions {
 		if ( isset( $this->versions[ $version_string ] ) ) {
 			return false;
 		}
+<<<<<<< HEAD
 
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
 		$backtrace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
@@ -42,6 +46,9 @@ class ActionScheduler_Versions {
 
 		$this->versions[ $version_string ] = $initialization_callback;
 		$this->sources[ $source ]          = $version_string;
+=======
+		$this->versions[ $version_string ] = $initialization_callback;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return true;
 	}
 
@@ -53,6 +60,7 @@ class ActionScheduler_Versions {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get registered sources.
 	 *
 	 * Use with caution: this method is only available as of Action Scheduler's 3.9.1
@@ -68,6 +76,8 @@ class ActionScheduler_Versions {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get latest version registered.
 	 */
 	public function latest_version() {
@@ -114,6 +124,7 @@ class ActionScheduler_Versions {
 		$self = self::instance();
 		call_user_func( $self->latest_version_callback() );
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Returns information about the plugin or theme which contains the current active version
@@ -148,4 +159,6 @@ class ActionScheduler_Versions {
 		_deprecated_function( __METHOD__, '3.9.2', 'ActionScheduler_SystemInformation::active_source_path()' );
 		return ActionScheduler_SystemInformation::active_source_path();
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -73,6 +73,7 @@ __webpack_require__.d(selectors_namespaceObject, {
   get: () => (get)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// external ["wp","components"]
@@ -84,6 +85,19 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@wordpress/icons/build-module/library/check.js
+=======
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: external ["wp","components"]
+const external_wp_components_namespaceObject = window["wp"]["components"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: external ["wp","primitives"]
+const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/check.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -98,9 +112,15 @@ const check = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_check = (check);
 
+<<<<<<< HEAD
 ;// external ["wp","a11y"]
 const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
 ;// ./node_modules/@wordpress/preferences/build-module/store/reducer.js
+=======
+;// CONCATENATED MODULE: external ["wp","a11y"]
+const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/reducer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -195,7 +215,11 @@ const preferences = withPersistenceLayer((state = {}, action) => {
   preferences
 }));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/store/actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns an action object used in signalling that a preference should be
  * toggled.
@@ -282,10 +306,17 @@ async function setPersistenceLayer(persistenceLayer) {
   };
 }
 
+<<<<<<< HEAD
 ;// external ["wp","deprecated"]
 const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
 ;// ./node_modules/@wordpress/preferences/build-module/store/selectors.js
+=======
+;// CONCATENATED MODULE: external ["wp","deprecated"]
+const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
+var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/selectors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -317,7 +348,11 @@ const get = withDeprecatedKeys((state, scope, name) => {
   return value !== undefined ? value : state.defaults[scope]?.[name];
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/store/constants.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The identifier for the data store.
  *
@@ -325,7 +360,11 @@ const get = withDeprecatedKeys((state, scope, name) => {
  */
 const STORE_NAME = 'core/preferences';
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/store/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -353,7 +392,11 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 });
 (0,external_wp_data_namespaceObject.register)(store);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/components/preference-toggle-menu-item/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preference-toggle-menu-item/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -386,11 +429,19 @@ function PreferenceToggleMenuItem({
   } = (0,external_wp_data_namespaceObject.useDispatch)(store);
   const speakMessage = () => {
     if (isActive) {
+<<<<<<< HEAD
       const message = messageDeactivated || (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %s: preference name, e.g. 'Fullscreen mode' */
       (0,external_wp_i18n_namespaceObject.__)('Preference deactivated - %s'), label);
       (0,external_wp_a11y_namespaceObject.speak)(message);
     } else {
       const message = messageActivated || (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %s: preference name, e.g. 'Fullscreen mode' */
+=======
+      const message = messageDeactivated || (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: preference name, e.g. 'Fullscreen mode' */
+      (0,external_wp_i18n_namespaceObject.__)('Preference deactivated - %s'), label);
+      (0,external_wp_a11y_namespaceObject.speak)(message);
+    } else {
+      const message = messageActivated || (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: preference name, e.g. 'Fullscreen mode' */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       (0,external_wp_i18n_namespaceObject.__)('Preference activated - %s'), label);
       (0,external_wp_a11y_namespaceObject.speak)(message);
     }
@@ -413,15 +464,26 @@ function PreferenceToggleMenuItem({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/components/index.js
 
 
 ;// ./node_modules/@wordpress/preferences/build-module/components/preference-base-option/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/index.js
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preference-base-option/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function BaseOption({
   help,
   label,
@@ -442,7 +504,11 @@ function BaseOption({
 }
 /* harmony default export */ const preference_base_option = (BaseOption);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/components/preference-toggle-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preference-toggle-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -477,7 +543,11 @@ function PreferenceToggleControl(props) {
 }
 /* harmony default export */ const preference_toggle_control = (PreferenceToggleControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/components/preferences-modal/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preferences-modal/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -496,7 +566,12 @@ function PreferencesModal({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/components/preferences-modal-section/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preferences-modal-section/index.js
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 const Section = ({
   description,
@@ -520,11 +595,19 @@ const Section = ({
 });
 /* harmony default export */ const preferences_modal_section = (Section);
 
+<<<<<<< HEAD
 ;// external ["wp","compose"]
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// external ["wp","element"]
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// ./node_modules/@wordpress/icons/build-module/icon/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/icon/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -536,7 +619,11 @@ const external_wp_element_namespaceObject = window["wp"]["element"];
  * Return an SVG icon.
  *
  * @param {IconProps}                                 props icon is the SVG component to render
+<<<<<<< HEAD
  *                                                          size is a number specifying the icon size in pixels
+=======
+ *                                                          size is a number specifiying the icon size in pixels
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *                                                          Other props will be passed to wrapped SVG component
  * @param {import('react').ForwardedRef<HTMLElement>} ref   The forwarded ref to the SVG element.
  *
@@ -556,7 +643,11 @@ function Icon({
 }
 /* harmony default export */ const icon = ((0,external_wp_element_namespaceObject.forwardRef)(Icon));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/chevron-left.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-left.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -571,7 +662,11 @@ const chevronLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const chevron_left = (chevronLeft);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/chevron-right.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-right.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -586,9 +681,15 @@ const chevronRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const chevron_right = (chevronRight);
 
+<<<<<<< HEAD
 ;// external ["wp","privateApis"]
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// ./node_modules/@wordpress/preferences/build-module/lock-unlock.js
+=======
+;// CONCATENATED MODULE: external ["wp","privateApis"]
+const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/lock-unlock.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -598,7 +699,11 @@ const {
   unlock
 } = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/preferences');
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/components/preferences-modal-tabs/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preferences-modal-tabs/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -613,6 +718,10 @@ const {
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const {
   Tabs
 } = unlock(external_wp_components_namespaceObject.privateApis);
@@ -682,10 +791,17 @@ function PreferencesModalTabs({
       })
     });
   } else {
+<<<<<<< HEAD
     modalContent = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.Navigator, {
       initialPath: "/",
       className: "preferences__provider",
       children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Navigator.Screen, {
+=======
+    modalContent = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.__experimentalNavigatorProvider, {
+      initialPath: "/",
+      className: "preferences__provider",
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalNavigatorScreen, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         path: "/",
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Card, {
           isBorderless: true,
@@ -693,7 +809,11 @@ function PreferencesModalTabs({
           children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.CardBody, {
             children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalItemGroup, {
               children: tabs.map(tab => {
+<<<<<<< HEAD
                 return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Navigator.Button, {
+=======
+                return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalNavigatorButton, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                   path: `/${tab.name}`,
                   as: external_wp_components_namespaceObject.__experimentalItem,
                   isAction: true,
@@ -715,7 +835,11 @@ function PreferencesModalTabs({
           })
         })
       }), sections.length && sections.map(section => {
+<<<<<<< HEAD
         return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Navigator.Screen, {
+=======
+        return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalNavigatorScreen, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           path: `/${section.name}`,
           children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.Card, {
             isBorderless: true,
@@ -725,7 +849,11 @@ function PreferencesModalTabs({
               justify: "left",
               size: "small",
               gap: "6",
+<<<<<<< HEAD
               children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Navigator.BackButton, {
+=======
+              children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalNavigatorBackButton, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 icon: (0,external_wp_i18n_namespaceObject.isRTL)() ? chevron_right : chevron_left,
                 label: (0,external_wp_i18n_namespaceObject.__)('Back')
               }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalText, {
@@ -743,7 +871,11 @@ function PreferencesModalTabs({
   return modalContent;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/private-apis.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/private-apis.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -762,7 +894,11 @@ lock(privateApis, {
   PreferencesModalTabs: PreferencesModalTabs
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 

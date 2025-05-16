@@ -401,7 +401,11 @@ function update_right_now_message() {
  *
  * @since 2.9.0
  *
+<<<<<<< HEAD
  * @return object[]
+=======
+ * @return array
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function get_plugin_updates() {
 	$all_plugins     = get_plugins();
@@ -624,7 +628,11 @@ function wp_plugin_update_row( $file, $plugin_data ) {
  *
  * @since 2.9.0
  *
+<<<<<<< HEAD
  * @return WP_Theme[]
+=======
+ * @return array
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function get_theme_updates() {
 	$current = get_site_transient( 'update_themes' );

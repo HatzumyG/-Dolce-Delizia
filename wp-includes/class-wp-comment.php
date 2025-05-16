@@ -33,7 +33,11 @@ final class WP_Comment {
 	 * @since 4.4.0
 	 * @var string
 	 */
+<<<<<<< HEAD
 	public $comment_post_ID = '0';
+=======
+	public $comment_post_ID = 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Comment author name.
@@ -99,7 +103,11 @@ final class WP_Comment {
 	 * @since 4.4.0
 	 * @var string
 	 */
+<<<<<<< HEAD
 	public $comment_karma = '0';
+=======
+	public $comment_karma = 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Comment approval status.
@@ -134,7 +142,11 @@ final class WP_Comment {
 	 * @since 4.4.0
 	 * @var string
 	 */
+<<<<<<< HEAD
 	public $comment_parent = '0';
+=======
+	public $comment_parent = 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Comment author ID.
@@ -144,7 +156,11 @@ final class WP_Comment {
 	 * @since 4.4.0
 	 * @var string
 	 */
+<<<<<<< HEAD
 	public $user_id = '0';
+=======
+	public $user_id = 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Comment children.
@@ -351,16 +367,24 @@ final class WP_Comment {
 	 *
 	 * @since 4.4.0
 	 *
+<<<<<<< HEAD
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
+=======
+	 * @param string $name Property name.
+	 * @return bool
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __isset( $name ) {
 		if ( in_array( $name, $this->post_fields, true ) && 0 !== (int) $this->comment_post_ID ) {
 			$post = get_post( $this->comment_post_ID );
 			return property_exists( $post, $name );
 		}
+<<<<<<< HEAD
 
 		return false;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

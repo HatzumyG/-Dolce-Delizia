@@ -6,11 +6,16 @@ use Elementor\Element_Base;
 use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Assets extends Base {
 	const ASSETS_META_KEY = '_elementor_page_assets';
+<<<<<<< HEAD
 	/**
 	 * Default value must be empty.
 	 *
@@ -23,6 +28,13 @@ class Assets extends Base {
 	 *
 	 * @var array
 	 */
+=======
+
+	// Default value must be empty.
+	private $page_assets;
+
+	// Default value must be empty.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private $saved_page_assets;
 
 	public function element_action( Element_Base $element_data ) {

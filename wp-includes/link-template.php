@@ -3051,6 +3051,10 @@ function _navigation_markup( $links, $css_class = 'posts-navigation', $screen_re
 	 *
 	 * @param string $template  The default template.
 	 * @param string $css_class The class passed by the calling function.
+<<<<<<< HEAD
+=======
+	 * @return string Navigation template.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	$template = apply_filters( 'navigation_markup_template', $template, $css_class );
 
@@ -4246,12 +4250,20 @@ function wp_shortlink_header() {
  * Call like the_shortlink( __( 'Shortlinkage FTW' ) )
  *
  * @since 3.0.0
+<<<<<<< HEAD
  * @since 6.8.0 Removed title attribute.
  *
  * @param string $text   Optional. The link text or HTML to be displayed. Defaults to 'This is the short link.'
  * @param string $title  Unused.
  * @param string $before Optional. HTML to display before the link. Default empty.
  * @param string $after  Optional. HTML to display after the link. Default empty.
+=======
+ *
+ * @param string $text   Optional The link text or HTML to be displayed. Defaults to 'This is the short link.'
+ * @param string $title  Optional The tooltip for the link. Must be sanitized. Defaults to the sanitized post title.
+ * @param string $before Optional HTML to display before the link. Default empty.
+ * @param string $after  Optional HTML to display after the link. Default empty.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
 	$post = get_post();
@@ -4260,10 +4272,21 @@ function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
 		$text = __( 'This is the short link.' );
 	}
 
+<<<<<<< HEAD
 	$shortlink = wp_get_shortlink( $post->ID );
 
 	if ( ! empty( $shortlink ) ) {
 		$link = '<a rel="shortlink" href="' . esc_url( $shortlink ) . '">' . $text . '</a>';
+=======
+	if ( empty( $title ) ) {
+		$title = the_title_attribute( array( 'echo' => false ) );
+	}
+
+	$shortlink = wp_get_shortlink( $post->ID );
+
+	if ( ! empty( $shortlink ) ) {
+		$link = '<a rel="shortlink" href="' . esc_url( $shortlink ) . '" title="' . $title . '">' . $text . '</a>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		/**
 		 * Filters the short link anchor tag for a post.
@@ -4273,7 +4296,11 @@ function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
 		 * @param string $link      Shortlink anchor tag.
 		 * @param string $shortlink Shortlink URL.
 		 * @param string $text      Shortlink's text.
+<<<<<<< HEAD
 		 * @param string $title     Shortlink's title attribute. Unused.
+=======
+		 * @param string $title     Shortlink's title attribute.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 */
 		$link = apply_filters( 'the_shortlink', $link, $shortlink, $text, $title );
 		echo $before, $link, $after;
@@ -4285,7 +4312,11 @@ function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
  *
  * @since 4.2.0
  *
+<<<<<<< HEAD
  * @param mixed $id_or_email The avatar to retrieve a URL for. Accepts a user ID, Gravatar SHA-256 or MD5 hash,
+=======
+ * @param mixed $id_or_email The avatar to retrieve a URL for. Accepts a user ID, Gravatar MD5 hash,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *                           user email, WP_User object, WP_Post object, or WP_Comment object.
  * @param array $args {
  *     Optional. Arguments to use instead of the default arguments.
@@ -4349,9 +4380,14 @@ function is_avatar_comment_type( $comment_type ) {
  *
  * @since 4.2.0
  * @since 6.7.0 Gravatar URLs always use HTTPS.
+<<<<<<< HEAD
  * @since 6.8.0 Gravatar URLs use the SHA-256 hashing algorithm.
  *
  * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar SHA-256 or MD5 hash,
+=======
+ *
+ * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *                           user email, WP_User object, WP_Post object, or WP_Comment object.
  * @param array $args {
  *     Optional. Arguments to use instead of the default arguments.
@@ -4471,7 +4507,11 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 * @since 4.2.0
 	 *
 	 * @param array $args        Arguments passed to get_avatar_data(), after processing.
+<<<<<<< HEAD
 	 * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar SHA-256 or MD5 hash,
+=======
+	 * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *                           user email, WP_User object, WP_Post object, or WP_Comment object.
 	 */
 	$args = apply_filters( 'pre_get_avatar_data', $args, $id_or_email );
@@ -4493,10 +4533,14 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	if ( is_numeric( $id_or_email ) ) {
 		$user = get_user_by( 'id', absint( $id_or_email ) );
 	} elseif ( is_string( $id_or_email ) ) {
+<<<<<<< HEAD
 		if ( str_contains( $id_or_email, '@sha256.gravatar.com' ) ) {
 			// SHA-256 hash.
 			list( $email_hash ) = explode( '@', $id_or_email );
 		} elseif ( str_contains( $id_or_email, '@md5.gravatar.com' ) ) {
+=======
+		if ( str_contains( $id_or_email, '@md5.gravatar.com' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// MD5 hash.
 			list( $email_hash ) = explode( '@', $id_or_email );
 		} else {
@@ -4530,7 +4574,11 @@ function get_avatar_data( $id_or_email, $args = null ) {
 		}
 
 		if ( $email ) {
+<<<<<<< HEAD
 			$email_hash = hash( 'sha256', strtolower( trim( $email ) ) );
+=======
+			$email_hash = md5( strtolower( trim( $email ) ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -4564,7 +4612,11 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 * @since 4.2.0
 	 *
 	 * @param string $url         The URL of the avatar.
+<<<<<<< HEAD
 	 * @param mixed  $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar SHA-256 or MD5 hash,
+=======
+	 * @param mixed  $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *                            user email, WP_User object, WP_Post object, or WP_Comment object.
 	 * @param array  $args        Arguments passed to get_avatar_data(), after processing.
 	 */
@@ -4576,7 +4628,11 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 * @since 4.2.0
 	 *
 	 * @param array $args        Arguments passed to get_avatar_data(), after processing.
+<<<<<<< HEAD
 	 * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar SHA-256 or MD5 hash,
+=======
+	 * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *                           user email, WP_User object, WP_Post object, or WP_Comment object.
 	 */
 	return apply_filters( 'get_avatar_data', $args, $id_or_email );

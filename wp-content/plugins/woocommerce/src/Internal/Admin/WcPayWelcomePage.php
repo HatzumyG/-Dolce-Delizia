@@ -9,7 +9,10 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists;
 use Automattic\WooCommerce\Admin\PageController;
 use Automattic\WooCommerce\Internal\Admin\Suggestions\PaymentExtensionSuggestionIncentives;
 use Automattic\WooCommerce\Internal\Admin\Suggestions\PaymentExtensionSuggestions;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Class WCPayWelcomePage
@@ -69,7 +72,11 @@ class WcPayWelcomePage {
 	 */
 	public function delayed_register() {
 		// Don't do anything if the feature is enabled.
+<<<<<<< HEAD
 		if ( FeaturesUtil::feature_is_enabled( 'reactify-classic-payments-settings' ) ) {
+=======
+		if ( Features::is_enabled( 'reactify-classic-payments-settings' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 

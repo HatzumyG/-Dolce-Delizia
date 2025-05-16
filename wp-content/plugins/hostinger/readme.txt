@@ -1,9 +1,15 @@
 === Hostinger Tools ===
 Tags: hostinger, tools, maintenance, security, redirects, https, xml-rpc
 Requires at least: 5.5
+<<<<<<< HEAD
 Tested up to: 6.8
 Requires PHP: 8.0
 Stable tag: 3.0.36
+=======
+Tested up to: 6.7
+Requires PHP: 8.0
+Stable tag: 3.0.32
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -466,6 +472,7 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 - Fixed bypass code regeneration
 
+<<<<<<< HEAD
 3.0.28 (2025-02-12)
 
 - Added correct reseller link to PHP update
@@ -501,3 +508,24 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 3.0.36 (2024-04-29)
 
 - Style corrections
+=======
+3.0.28 (2024-02-12)
+
+- Added correct reseller link to PHP update
+
+3.0.29 (2024-02-21)
+
+- Update packages
+
+3.0.30 (2024-02-24)
+
+- Enhanced WordPress application security settings
+
+3.0.31 (2024-02-24)
+
+- Fixed assets load issue
+
+3.0.32 (2024-031-04)
+
+- Updated compatibility
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

@@ -187,7 +187,11 @@ class PluginUtil {
 				$full_matches[] = $wp_plugin;
 			}
 
+<<<<<<< HEAD
 			if ( ! empty( $file_name ) && false !== strpos( $wp_plugin, $file_name ) ) {
+=======
+			if ( false !== strpos( $wp_plugin, $file_name ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$partial_matches[] = $wp_plugin;
 			}
 		}

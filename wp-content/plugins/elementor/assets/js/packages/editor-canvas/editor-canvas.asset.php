@@ -12,12 +12,18 @@ return [
 		'elementor-v2-editor-elements',
 		'elementor-v2-editor-props',
 		'elementor-v2-editor-responsive',
+<<<<<<< HEAD
 		'elementor-v2-editor-styles',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'elementor-v2-editor-styles-repository',
 		'elementor-v2-editor-v1-adapters',
 		'elementor-v2-ui',
 		'elementor-v2-utils',
+<<<<<<< HEAD
 		'elementor-v2-wp-media',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'react',
 		'react-dom',
 	],

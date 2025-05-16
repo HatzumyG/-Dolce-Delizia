@@ -8,9 +8,13 @@
 
 use Automattic\Jetpack\Constants;
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
+=======
+use Automattic\WooCommerce\Enums\ProductType;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Internal\Orders\CouponsController;
 use Automattic\WooCommerce\Internal\Orders\TaxesController;
 use Automattic\WooCommerce\Internal\Admin\Orders\MetaBoxes\CustomMetaBox;
@@ -835,8 +839,15 @@ class WC_AJAX {
 		$variation_object = wc_get_product_object( ProductType::VARIATION );
 		$variation_object->set_parent_id( $product_id );
 		$variation_object->set_attributes( array_fill_keys( array_map( 'sanitize_title', array_keys( $product_object->get_variation_attributes() ) ), '' ) );
+<<<<<<< HEAD
 		$variation_object->save();
 		self::render_variation_html( $product_object, $variation_object, $loop, self::base_cost_or_null( $product_object ) );
+=======
+		$variation_id   = $variation_object->save();
+		$variation      = get_post( $variation_id );
+		$variation_data = array_merge( get_post_custom( $variation_id ), wc_get_product_variation_attributes( $variation_id ) ); // kept for BW compatibility.
+		include __DIR__ . '/admin/meta-boxes/views/html-variation-admin.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wp_die();
 	}
 
@@ -2411,10 +2422,19 @@ class WC_AJAX {
 		if ( $variations ) {
 			wc_render_invalid_variation_notice( $product_object );
 
+<<<<<<< HEAD
 			$base_cost = self::base_cost_or_null( $product_object );
 			foreach ( $variations as $variation_object ) {
 				self::render_variation_html( $product_object, $variation_object, $loop, $base_cost );
 				++$loop;
+=======
+			foreach ( $variations as $variation_object ) {
+				$variation_id   = $variation_object->get_id();
+				$variation      = get_post( $variation_id );
+				$variation_data = array_merge( get_post_custom( $variation_id ), wc_get_product_variation_attributes( $variation_id ) ); // kept for BW compatibility.
+				include __DIR__ . '/admin/meta-boxes/views/html-variation-admin.php';
+				$loop++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 		wp_die();
@@ -2542,7 +2562,11 @@ class WC_AJAX {
 	 * @used-by bulk_edit_variations
 	 */
 	private static function variation_bulk_action_variable_stock_status_instock( $variations, $data ) {
+<<<<<<< HEAD
 		self::variation_bulk_set( $variations, 'stock_status', ProductStockStatus::IN_STOCK );
+=======
+		self::variation_bulk_set( $variations, 'stock_status', 'instock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -2554,7 +2578,11 @@ class WC_AJAX {
 	 * @used-by bulk_edit_variations
 	 */
 	private static function variation_bulk_action_variable_stock_status_outofstock( $variations, $data ) {
+<<<<<<< HEAD
 		self::variation_bulk_set( $variations, 'stock_status', ProductStockStatus::OUT_OF_STOCK );
+=======
+		self::variation_bulk_set( $variations, 'stock_status', 'outofstock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -2566,7 +2594,11 @@ class WC_AJAX {
 	 * @used-by bulk_edit_variations
 	 */
 	private static function variation_bulk_action_variable_stock_status_onbackorder( $variations, $data ) {
+<<<<<<< HEAD
 		self::variation_bulk_set( $variations, 'stock_status', ProductStockStatus::ON_BACKORDER );
+=======
+		self::variation_bulk_set( $variations, 'stock_status', 'onbackorder' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -2788,6 +2820,7 @@ class WC_AJAX {
 		self::variation_bulk_adjust_price( $variations, 'sale_price', '-', wc_clean( $data['value'] ) );
 	}
 
+<<<<<<< HEAD
 	// phpcs:disable Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 	/**
 	 * Bulk action - Unset cost values.
@@ -2810,6 +2843,8 @@ class WC_AJAX {
 	}
 	// phpcs:enable Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Bulk action - Set Price.
 	 *
@@ -3676,6 +3711,7 @@ class WC_AJAX {
 		return wc_get_container()->get( Automattic\WooCommerce\Internal\Admin\Orders\EditLock::class )->check_locked_orders_ajax( $response, $data );
 	}
 
+<<<<<<< HEAD
 	// phpcs:disable Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 	/**
 	 * Render a variation editor.
@@ -3705,6 +3741,8 @@ class WC_AJAX {
 	private static function base_cost_or_null( WC_Product $product_object ): ?float {
 		return wc_get_container()->get( CostOfGoodsSoldController::class )->feature_is_enabled() ? ( $product_object->get_cogs_value() ?? 0 ) : null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 WC_AJAX::init();

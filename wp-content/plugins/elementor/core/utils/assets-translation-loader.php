@@ -33,7 +33,10 @@ class Assets_Translation_Loader {
 	 * that contains all the translations for the specific script (including dynamically loaded chunks).
 	 *
 	 * Want to go deeper? Read the following article:
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @see https://developer.wordpress.com/2022/01/06/wordpress-plugin-i18n-webpack-and-composer/
 	 *
 	 * @param array $handles

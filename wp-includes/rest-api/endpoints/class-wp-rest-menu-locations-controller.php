@@ -80,7 +80,19 @@ class WP_REST_Menu_Locations_Controller extends WP_REST_Controller {
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
 	 */
 	public function get_items_permissions_check( $request ) {
+<<<<<<< HEAD
 		return $this->check_has_read_only_access( $request );
+=======
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+			return new WP_Error(
+				'rest_cannot_view',
+				__( 'Sorry, you are not allowed to view menu locations.' ),
+				array( 'status' => rest_authorization_required_code() )
+			);
+		}
+
+		return true;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -115,7 +127,19 @@ class WP_REST_Menu_Locations_Controller extends WP_REST_Controller {
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
 	 */
 	public function get_item_permissions_check( $request ) {
+<<<<<<< HEAD
 		return $this->check_has_read_only_access( $request );
+=======
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+			return new WP_Error(
+				'rest_cannot_view',
+				__( 'Sorry, you are not allowed to view menu locations.' ),
+				array( 'status' => rest_authorization_required_code() )
+			);
+		}
+
+		return true;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -142,6 +166,7 @@ class WP_REST_Menu_Locations_Controller extends WP_REST_Controller {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Checks whether the current user has read permission for the endpoint.
 	 *
 	 * @since 6.8.0
@@ -168,6 +193,8 @@ class WP_REST_Menu_Locations_Controller extends WP_REST_Controller {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Prepares a menu location object for serialization.
 	 *
 	 * @since 5.9.0

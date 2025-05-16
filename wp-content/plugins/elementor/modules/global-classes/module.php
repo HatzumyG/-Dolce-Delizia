@@ -17,9 +17,13 @@ class Module extends BaseModule {
 	const NAME = 'global_classes';
 
 	// TODO: Add global classes package
+<<<<<<< HEAD
 	const PACKAGES = [
 		'editor-global-classes',
 	];
+=======
+	const PACKAGES = [];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	public function get_name() {
 		return 'global-classes';
@@ -28,6 +32,11 @@ class Module extends BaseModule {
 	public function __construct() {
 		parent::__construct();
 
+<<<<<<< HEAD
+=======
+		$this->register_experiment();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$is_feature_active = Plugin::$instance->experiments->is_feature_active( self::NAME );
 		$is_atomic_widgets_active = Plugin::$instance->experiments->is_feature_active( Atomic_Widgets_Module::EXPERIMENT_NAME );
 
@@ -36,18 +45,28 @@ class Module extends BaseModule {
 			add_filter( 'elementor/editor/v2/packages', fn( $packages ) => $this->add_packages( $packages ) );
 
 			( new Global_Classes_REST_API() )->register_hooks();
+<<<<<<< HEAD
 			( new Global_Classes_CSS() )->register_hooks();
 		}
 	}
 
 	public static function get_experimental_data(): array {
 		return [
+=======
+			( new Global_Classes_Injector() )->register_hooks();
+		}
+	}
+
+	private function register_experiment() {
+		Plugin::$instance->experiments->add_feature( [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'name' => self::NAME,
 			'title' => esc_html__( 'Global Classes', 'elementor' ),
 			'description' => esc_html__( 'Enable global CSS classes.', 'elementor' ),
 			'hidden' => true,
 			'default' => Experiments_Manager::STATE_INACTIVE,
 			'release_status' => Experiments_Manager::RELEASE_STATUS_ALPHA,
+<<<<<<< HEAD
 		];
 	}
 
@@ -56,6 +75,12 @@ class Module extends BaseModule {
 			return $packages;
 		}
 
+=======
+		] );
+	}
+
+	private function add_packages( $packages ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return array_merge( $packages, self::PACKAGES );
 	}
 }

@@ -5,10 +5,16 @@
  * @package HelloElementor
  */
 
+<<<<<<< HEAD
+=======
+use Elementor\WPNotificationsPackage\V110\Notifications as ThemeNotifications;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+<<<<<<< HEAD
 define( 'HELLO_ELEMENTOR_VERSION', '3.4.1' );
 define( 'EHP_THEME_SLUG', 'hello-elementor' );
 
@@ -22,6 +28,9 @@ define( 'HELLO_THEME_STYLE_PATH', HELLO_THEME_ASSETS_PATH . 'css/' );
 define( 'HELLO_THEME_STYLE_URL', HELLO_THEME_ASSETS_URL . 'css/' );
 define( 'HELLO_THEME_IMAGES_PATH', HELLO_THEME_ASSETS_PATH . 'images/' );
 define( 'HELLO_THEME_IMAGES_URL', HELLO_THEME_ASSETS_URL . 'images/' );
+=======
+define( 'HELLO_ELEMENTOR_VERSION', '3.3.0' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 800; // Pixels.
@@ -216,6 +225,14 @@ if ( ! function_exists( 'hello_elementor_add_description_meta_tag' ) ) {
 }
 add_action( 'wp_head', 'hello_elementor_add_description_meta_tag' );
 
+<<<<<<< HEAD
+=======
+// Admin notice
+if ( is_admin() ) {
+	require get_template_directory() . '/includes/admin-functions.php';
+}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Settings page
 require get_template_directory() . '/includes/settings-functions.php';
 
@@ -269,6 +286,26 @@ if ( ! function_exists( 'hello_elementor_body_open' ) ) {
 	}
 }
 
+<<<<<<< HEAD
 require HELLO_THEME_PATH . '/theme.php';
 
 HelloTheme\Theme::instance();
+=======
+function hello_elementor_get_theme_notifications(): ThemeNotifications {
+	static $notifications = null;
+
+	if ( null === $notifications ) {
+		require get_template_directory() . '/vendor/autoload.php';
+
+		$notifications = new ThemeNotifications(
+			'hello-elementor',
+			HELLO_ELEMENTOR_VERSION,
+			'theme'
+		);
+	}
+
+	return $notifications;
+}
+
+hello_elementor_get_theme_notifications();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

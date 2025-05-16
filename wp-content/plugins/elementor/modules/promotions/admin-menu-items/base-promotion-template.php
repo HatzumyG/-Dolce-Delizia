@@ -8,11 +8,16 @@ use Elementor\Settings;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class Base_Promotion_Template implements Admin_Menu_Item_With_Page {
 
+<<<<<<< HEAD
 	abstract protected function get_promotion_title(): string;
 
 	abstract protected function get_cta_url(): string;
@@ -20,6 +25,15 @@ abstract class Base_Promotion_Template implements Admin_Menu_Item_With_Page {
 	abstract protected function get_content_lines(): array;
 
 	abstract protected function get_video_url(): string;
+=======
+	abstract protected function get_promotion_title():string;
+
+	abstract protected function get_cta_url():string;
+
+	abstract protected function get_content_lines():array;
+
+	abstract protected function get_video_url():string;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	public function is_visible() {
 		return true;
@@ -39,10 +53,16 @@ abstract class Base_Promotion_Template implements Admin_Menu_Item_With_Page {
 
 	/**
 	 * Should the promotion have a side note.
+<<<<<<< HEAD
 	 *
 	 * @return string
 	 */
 	protected function get_side_note(): string {
+=======
+	 * @return string
+	 */
+	protected function get_side_note():string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return '';
 	}
 

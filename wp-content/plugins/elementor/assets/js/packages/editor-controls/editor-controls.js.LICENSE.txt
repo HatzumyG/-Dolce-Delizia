@@ -2,12 +2,17 @@
 
 /*! @elementor/icons */
 
+<<<<<<< HEAD
 /*! @elementor/session */
 
 /*! @elementor/ui */
 
 /*! @elementor/utils */
 
+=======
+/*! @elementor/ui */
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*! @elementor/wp-media */
 
 /*! @wordpress/i18n */
@@ -30,6 +35,7 @@
   !*** external ["elementorV2","icons"] ***!
   \****************************************/
 
+<<<<<<< HEAD
 /*!****************************************!*\
   !*** external ["elementorV2","utils"] ***!
   \****************************************/
@@ -38,6 +44,8 @@
   !*** external ["elementorV2","session"] ***!
   \******************************************/
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*!******************************************!*\
   !*** external ["elementorV2","wpMedia"] ***!
   \******************************************/

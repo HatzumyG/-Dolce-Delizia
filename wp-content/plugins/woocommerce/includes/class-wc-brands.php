@@ -83,10 +83,13 @@ class WC_Brands {
 
 		// Product Editor compatibility.
 		add_action( 'woocommerce_layout_template_after_instantiation', array( $this, 'wc_brands_on_block_template_register' ), 10, 3 );
+<<<<<<< HEAD
 
 		// Block theme integration.
 		add_filter( 'hooked_block_types', array( $this, 'hook_product_brand_block' ), 10, 4 );
 		add_filter( 'hooked_block_core/post-terms', array( $this, 'configure_product_brand_block' ), 10, 5 );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -175,10 +178,13 @@ class WC_Brands {
 			return $permalink;
 		}
 
+<<<<<<< HEAD
 		if ( empty( $permalink ) ) {
 			return $permalink;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Abort early if the placeholder rewrite tag isn't in the generated URL.
 		if ( false === strpos( $permalink, '%' ) ) {
 			return $permalink;
@@ -187,6 +193,7 @@ class WC_Brands {
 		// Get the custom taxonomy terms in use by this post.
 		$terms = get_the_terms( $post->ID, 'product_brand' );
 
+<<<<<<< HEAD
 		// If no terms are assigned to this post, use a string instead (can't leave the placeholder there).
 		$product_brand = _x( 'uncategorized', 'slug', 'woocommerce' );
 
@@ -196,6 +203,15 @@ class WC_Brands {
 			if ( $first_term instanceof WP_Term ) {
 				$product_brand = $first_term->slug;
 			}
+=======
+		if ( empty( $terms ) ) {
+			// If no terms are assigned to this post, use a string instead (can't leave the placeholder there).
+			$product_brand = _x( 'uncategorized', 'slug', 'woocommerce' );
+		} else {
+			// Replace the placeholder rewrite tag with the first term's slug.
+			$first_term    = array_shift( $terms );
+			$product_brand = $first_term->slug;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$find = array(
@@ -408,6 +424,7 @@ class WC_Brands {
 			$labels   = $taxonomy->labels;
 
 			/* translators: %s - Label name */
+<<<<<<< HEAD
 			$brand_output = wc_get_brands( $post->ID, ', ', ' <span class="posted_in">' . sprintf( _n( '%s: ', '%s: ', $brand_count, 'woocommerce' ), $labels->singular_name, $labels->name ), '</span>' );
 
 			/**
@@ -420,6 +437,9 @@ class WC_Brands {
 			 * @param int    $post_id      The product ID.
 			 */
 			echo apply_filters( 'woocommerce_product_brands_output', $brand_output, $terms, $post->ID ); // phpcs:ignore WordPress.Security.EscapeOutput
+=======
+			echo wc_get_brands( $post->ID, ', ', ' <span class="posted_in">' . sprintf( _n( '%s: ', '%s: ', $brand_count, 'woocommerce' ), $labels->singular_name, $labels->name ), '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -432,10 +452,13 @@ class WC_Brands {
 	public function add_structured_data( $markup ) {
 		global $post;
 
+<<<<<<< HEAD
 		if ( ! is_array( $markup ) ) {
 			$markup = array();
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( array_key_exists( 'brand', $markup ) ) {
 			return $markup;
 		}
@@ -493,10 +516,13 @@ class WC_Brands {
 
 		$brands = wp_get_post_terms( $args['post_id'], 'product_brand', array( 'fields' => 'ids' ) );
 
+<<<<<<< HEAD
 		if ( is_wp_error( $brands ) ) {
 			return '';
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Bail early if we don't have any brands registered.
 		if ( 0 === count( $brands ) ) {
 			return '';
@@ -1095,6 +1121,7 @@ class WC_Brands {
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Hooks the product brand terms block into single product templates.
@@ -1170,6 +1197,8 @@ class WC_Brands {
 
 		return $parsed_hooked_block;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 $GLOBALS['WC_Brands'] = new WC_Brands();

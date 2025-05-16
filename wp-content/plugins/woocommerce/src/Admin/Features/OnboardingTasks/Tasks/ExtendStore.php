@@ -23,7 +23,11 @@ class ExtendStore extends Task {
 	 * @return string
 	 */
 	public function get_title() {
+<<<<<<< HEAD
 		return __( 'Power up your store with business-critical features', 'woocommerce' );
+=======
+		return __( 'Enhance your store with extensions', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -36,6 +40,7 @@ class ExtendStore extends Task {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Additional info.
 	 *
 	 * @return string
@@ -48,6 +53,8 @@ class ExtendStore extends Task {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Time.
 	 *
 	 * @return string

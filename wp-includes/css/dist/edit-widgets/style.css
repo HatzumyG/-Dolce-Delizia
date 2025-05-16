@@ -16,6 +16,7 @@
   }
 }
 
+<<<<<<< HEAD
 .interface-complementary-area-header{
   background:#fff;
   gap:4px;
@@ -23,6 +24,44 @@
 }
 .interface-complementary-area-header .interface-complementary-area-header__title{
   margin:0 auto 0 0;
+=======
+.components-panel__header.interface-complementary-area-header__small{
+  background:#fff;
+  padding-right:4px;
+}
+.components-panel__header.interface-complementary-area-header__small .interface-complementary-area-header__small-title{
+  margin:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:100%;
+}
+@media (min-width:782px){
+  .components-panel__header.interface-complementary-area-header__small{
+    display:none;
+  }
+}
+
+.interface-complementary-area-header{
+  background:#fff;
+  gap:8px;
+  padding-right:12px;
+}
+.interface-complementary-area-header .interface-complementary-area-header__title{
+  margin:0;
+}
+.interface-complementary-area-header .components-button.has-icon{
+  display:none;
+  margin-left:auto;
+}
+.interface-complementary-area-header .components-button.has-icon~.components-button{
+  margin-left:0;
+}
+@media (min-width:782px){
+  .interface-complementary-area-header .components-button.has-icon{
+    display:flex;
+  }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 .interface-complementary-area{
@@ -52,7 +91,16 @@
   z-index:1;
 }
 .interface-complementary-area .components-panel__header.editor-sidebar__panel-tabs{
+<<<<<<< HEAD
   top:0;
+=======
+  top:48px;
+}
+@media (min-width:782px){
+  .interface-complementary-area .components-panel__header.editor-sidebar__panel-tabs{
+    top:0;
+  }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 .interface-complementary-area p:not(.components-base-control__help,.components-form-token-field__help){
   margin-top:0;
@@ -442,7 +490,10 @@ body.is-dragging-components-draggable .wp-block[data-type="core/widget-area"] .c
   align-items:center;
   display:flex;
   flex-shrink:2;
+<<<<<<< HEAD
   height:60px;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   justify-content:center;
   overflow:hidden;
   padding-left:16px;
@@ -458,12 +509,21 @@ body.is-dragging-components-draggable .wp-block[data-type="core/widget-area"] .c
 .edit-widgets-header__actions{
   align-items:center;
   display:flex;
+<<<<<<< HEAD
   gap:8px;
   padding-right:4px;
 }
 @media (min-width:600px){
   .edit-widgets-header__actions{
     padding-right:8px;
+=======
+  gap:4px;
+  padding-right:16px;
+}
+@media (min-width:600px){
+  .edit-widgets-header__actions{
+    gap:8px;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 }
 
@@ -500,9 +560,19 @@ body.is-dragging-components-draggable .wp-block[data-type="core/widget-area"] .c
 .edit-widgets-header-toolbar__inserter-toggle.edit-widgets-header-toolbar__inserter-toggle:after{
   content:none;
 }
+<<<<<<< HEAD
 @media not (prefers-reduced-motion){
   .edit-widgets-header-toolbar__inserter-toggle.edit-widgets-header-toolbar__inserter-toggle svg{
     transition:transform .2s cubic-bezier(.165, .84, .44, 1);
+=======
+.edit-widgets-header-toolbar__inserter-toggle.edit-widgets-header-toolbar__inserter-toggle svg{
+  transition:transform .2s cubic-bezier(.165, .84, .44, 1);
+}
+@media (prefers-reduced-motion:reduce){
+  .edit-widgets-header-toolbar__inserter-toggle.edit-widgets-header-toolbar__inserter-toggle svg{
+    transition-delay:0s;
+    transition-duration:0s;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 }
 .edit-widgets-header-toolbar__inserter-toggle.edit-widgets-header-toolbar__inserter-toggle.is-pressed svg{
@@ -623,6 +693,16 @@ body.is-fullscreen-mode .edit-widgets-notices__snackbar{
   overflow:hidden;
 }
 
+<<<<<<< HEAD
+=======
+.edit-widgets-layout__inserter-panel-header{
+  display:flex;
+  justify-content:flex-end;
+  padding-right:8px;
+  padding-top:8px;
+}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .edit-widgets-layout__inserter-panel-content{
   height:calc(100% - 44px);
 }
@@ -709,7 +789,11 @@ body.is-fullscreen-mode .edit-widgets-notices__snackbar{
   height:48px;
   justify-content:space-between;
   padding-left:16px;
+<<<<<<< HEAD
   padding-right:8px;
+=======
+  padding-right:4px;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 body.js.appearance_page_gutenberg-widgets,body.js.widgets-php{

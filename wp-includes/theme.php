@@ -14,7 +14,11 @@
  *
  * @since 3.4.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param array $args {
  *     Optional. The search arguments.
@@ -105,7 +109,11 @@ function wp_get_themes( $args = array() ) {
  *
  * @since 3.4.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param string $stylesheet Optional. Directory name for the theme. Defaults to active theme.
  * @param string $theme_root Optional. Absolute path of the theme root to look in.
@@ -380,7 +388,11 @@ function get_template_directory_uri() {
  *
  * @since 2.9.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @return array|string An array of theme roots keyed by template/stylesheet
  *                      or a single theme root if all themes have the same root.
@@ -405,7 +417,11 @@ function get_theme_roots() {
  *
  * @since 2.9.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param string $directory Either the full filesystem path to a theme folder
  *                          or a folder within WP_CONTENT_DIR.
@@ -441,7 +457,11 @@ function register_theme_directory( $directory ) {
  *
  * @since 2.9.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param bool $force Optional. Whether to force a new directory scan. Default false.
  * @return array|false Valid themes found on success, false on failure.
@@ -591,7 +611,11 @@ function search_theme_directories( $force = false ) {
  *
  * @since 1.5.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param string $stylesheet_or_template Optional. The stylesheet or template name of the theme.
  *                                       Default is to leverage the main theme root.
@@ -636,7 +660,11 @@ function get_theme_root( $stylesheet_or_template = '' ) {
  *
  * @since 1.5.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param string $stylesheet_or_template Optional. The stylesheet or template name of the theme.
  *                                       Default is to leverage the main theme root.
@@ -687,7 +715,11 @@ function get_theme_root_uri( $stylesheet_or_template = '', $theme_root = '' ) {
  *
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @global string[] $wp_theme_directories
+=======
+ * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param string $stylesheet_or_template The stylesheet or template name of the theme.
  * @param bool   $skip_cache             Optional. Whether to skip the cache.
@@ -750,7 +782,11 @@ function locale_stylesheet() {
  *
  * @since 2.5.0
  *
+<<<<<<< HEAD
  * @global string[]             $wp_theme_directories
+=======
+ * @global array                $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @global WP_Customize_Manager $wp_customize
  * @global array                $sidebars_widgets
  * @global array                $wp_registered_sidebars
@@ -1893,7 +1929,11 @@ function _custom_background_cb() {
 		return;
 	}
 
+<<<<<<< HEAD
 	$style = $color ? 'background-color: ' . maybe_hash_hex_color( $color ) . ';' : '';
+=======
+	$style = $color ? "background-color: #$color;" : '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	if ( $background ) {
 		$image = ' background-image: url("' . sanitize_url( $background ) . '");';
@@ -3001,7 +3041,11 @@ function _custom_logo_header_styles() {
 		<style id="custom-logo-css"<?php echo $type_attr; ?>>
 			<?php echo $classes; ?> {
 				position: absolute;
+<<<<<<< HEAD
 				clip-path: inset(50%);
+=======
+				clip: rect(1px, 1px, 1px, 1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		</style>
 		<?php
@@ -4352,11 +4396,14 @@ function create_initial_theme_features() {
  * @return bool Whether the active theme is a block-based theme or not.
  */
 function wp_is_block_theme() {
+<<<<<<< HEAD
 	if ( empty( $GLOBALS['wp_theme_directories'] ) ) {
 		_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before the theme directory is registered.' ), '6.8.0' );
 		return false;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	return wp_get_theme()->is_block_theme();
 }
 
@@ -4400,7 +4447,10 @@ function _add_default_theme_supports() {
 	add_theme_support( 'automatic-feed-links' );
 
 	add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+<<<<<<< HEAD
 	add_filter( 'should_load_block_assets_on_demand', '__return_true' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/*
 	 * Remove the Customizer's Menus panel when block theme is active.

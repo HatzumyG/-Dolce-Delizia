@@ -12,7 +12,11 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 7.0.1
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -23,6 +27,7 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 
 ?>
 <div class="woocommerce-form-coupon-toggle">
+<<<<<<< HEAD
 	<?php
 		/**
 		 * Filter checkout coupon message.
@@ -37,6 +42,14 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 </div>
 
 <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none" id="woocommerce-checkout-form-coupon">
+=======
+	<?php wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', esc_html__( 'Have a coupon?', 'woocommerce' ) . ' <a href="#" class="showcoupon">' . esc_html__( 'Click here to enter your code', 'woocommerce' ) . '</a>' ), 'notice' ); ?>
+</div>
+
+<form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
+
+	<p><?php esc_html_e( 'If you have a coupon code, please apply it below.', 'woocommerce' ); ?></p>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	<p class="form-row form-row-first">
 		<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>

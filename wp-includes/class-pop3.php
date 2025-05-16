@@ -59,8 +59,13 @@ class POP3 {
         if(!empty($timeout)) {
             settype($timeout,"integer");
             $this->TIMEOUT = $timeout;
+<<<<<<< HEAD
             // Extend POP3 request timeout to the specified TIMEOUT property.
             if(function_exists("set_time_limit")){
+=======
+            if(function_exists("set_time_limit")){
+                // Extends POP3 request timeout to specified TIMEOUT property.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 set_time_limit($timeout);
             }
         }
@@ -75,8 +80,13 @@ class POP3 {
 	}
 
     function update_timer () {
+<<<<<<< HEAD
         // Extend POP3 request timeout to the specified TIMEOUT property.
         if(function_exists("set_time_limit")){
+=======
+        if(function_exists("set_time_limit")){
+            // Allows additional extension of POP3 request timeout to specified TIMEOUT property when update_timer is called.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             set_time_limit($this->TIMEOUT);
         }
         return true;

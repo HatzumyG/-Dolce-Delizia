@@ -22,7 +22,11 @@ window.wp = window.wp || {};
 				$$ = tinymce.$;
 
 				/**
+<<<<<<< HEAD
 				 * Handles onclick events for the Visual/Code tabs.
+=======
+				 * Handles onclick events for the Visual/Text tabs.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				 *
 				 * @since 4.3.0
 				 *
@@ -62,7 +66,11 @@ window.wp = window.wp || {};
 		}
 
 		/**
+<<<<<<< HEAD
 		 * Switches the editor between Visual and Code mode.
+=======
+		 * Switches the editor between Visual and Text mode.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *
 		 * @since 2.5.0
 		 *
@@ -838,7 +846,11 @@ window.wp = window.wp || {};
 			}
 		}
 
+<<<<<<< HEAD
 		// Restore the selection when the editor is initialized. Needed when the Code editor is the default.
+=======
+		// Restore the selection when the editor is initialized. Needed when the Text editor is the default.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$( document ).on( 'tinymce-editor-init.keep-scroll-position', function( event, editor ) {
 			if ( editor.$( '.mce_SELRES_start' ).length ) {
 				focusHTMLBookmarkInVisualEditor( editor );
@@ -1203,7 +1215,11 @@ window.wp = window.wp || {};
 	/**
 	 * Initialize TinyMCE and/or Quicktags. For use with wp_enqueue_editor() (PHP).
 	 *
+<<<<<<< HEAD
 	 * Intended for use with an existing textarea that will become the Code editor tab.
+=======
+	 * Intended for use with an existing textarea that will become the Text editor tab.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * The editor width will be the width of the textarea container, height will be adjustable.
 	 *
 	 * Settings for both TinyMCE and Quicktags can be passed on initialization, and are "filtered"
@@ -1246,7 +1262,11 @@ window.wp = window.wp || {};
 			};
 		}
 
+<<<<<<< HEAD
 		// Add wrap and the Visual|Code tabs.
+=======
+		// Add wrap and the Visual|Text tabs.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( settings.tinymce && settings.quicktags ) {
 			var $textarea = $( '#' + id );
 
@@ -1293,7 +1313,11 @@ window.wp = window.wp || {};
 						.append( $button.attr({
 							id: id + '-html',
 							'class': 'wp-switch-editor switch-html'
+<<<<<<< HEAD
 						}).text( window.tinymce.translate( 'Code|tab' ) ) )
+=======
+						}).text( window.tinymce.translate( 'Text' ) ) )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					).append( $editorContainer )
 			);
 

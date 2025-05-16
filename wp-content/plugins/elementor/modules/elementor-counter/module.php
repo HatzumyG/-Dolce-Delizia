@@ -39,7 +39,11 @@ class Module extends BaseModule implements Elementor_Counter_Adapter_Interface {
 	 *
 	 * @return int | null
 	 */
+<<<<<<< HEAD
 	public function get_count( $key ): ?int {
+=======
+	public function get_count( $key ) : ?int {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->is_key_allowed( $key )
 			? (int) $this->wordpress_adapter->get_option( $key, 0 )
 			: null;
@@ -49,7 +53,11 @@ class Module extends BaseModule implements Elementor_Counter_Adapter_Interface {
 	 * @param self::EDITOR_COUNTER_KEY $key
 	 * @param int $count
 	 */
+<<<<<<< HEAD
 	public function set_count( $key, $count = 0 ): void {
+=======
+	public function set_count( $key, $count = 0 ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! $this->is_key_allowed( $key ) || ! is_int( $count ) ) {
 			return;
 		}
@@ -60,7 +68,11 @@ class Module extends BaseModule implements Elementor_Counter_Adapter_Interface {
 	/**
 	 * @param self::EDITOR_COUNTER_KEY $key
 	 */
+<<<<<<< HEAD
 	public function increment( $key ): void {
+=======
+	public function increment( $key ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! $this->is_key_allowed( $key ) ) {
 			return;
 		}
@@ -70,7 +82,11 @@ class Module extends BaseModule implements Elementor_Counter_Adapter_Interface {
 		$this->set_count( $key, $count + 1 );
 	}
 
+<<<<<<< HEAD
 	public function is_key_allowed( $key ): bool {
+=======
+	public function is_key_allowed( $key ) : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return in_array( $key, [ self::EDITOR_COUNTER_KEY ] );
 	}
 }

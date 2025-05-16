@@ -11,10 +11,13 @@
 	overflow-y: scroll;
 }
 
+<<<<<<< HEAD
 .themes-php #adminmenuwrap {
 	z-index: 10001; /* above Theme Overlay */
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 body.js .theme-browser.search-loading {
 	display: none;
 }
@@ -376,7 +379,10 @@ body.js .theme-browser.search-loading {
 	background: #f0f0f1;
 	background: rgba(240, 240, 241, 0.9);
 	z-index: 10000; /* Over WP Pointers. */
+<<<<<<< HEAD
 	min-height: calc(100vh - var(--wp-admin--admin-bar--height, 32px));
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 .theme-overlay .theme-header {
@@ -920,10 +926,13 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 		padding-left: 4%;
 		padding-right: 4%;
 	}
+<<<<<<< HEAD
 
 	.theme-install-php .wp-filter .filter-count {
 		margin-top: 10px;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 @media only screen and (max-width: 650px) {
@@ -944,7 +953,10 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 	.theme-overlay .theme-screenshots {
 		width: 100%;
 		float: none;
+<<<<<<< HEAD
 		margin: 0;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	.theme-overlay .theme-info {
@@ -1648,6 +1660,7 @@ body.full-overlay-active {
 }
 
 /* Animations */
+<<<<<<< HEAD
 @media (prefers-reduced-motion: no-preference) {
 	.wp-full-overlay,
 	.wp-full-overlay-sidebar,
@@ -1656,6 +1669,14 @@ body.full-overlay-active {
 		transition-property: left, right, top, bottom, width, margin;
 		transition-duration: 0.2s;
 	}
+=======
+.wp-full-overlay,
+.wp-full-overlay-sidebar,
+.wp-full-overlay .collapse-sidebar,
+.wp-full-overlay-main {
+	transition-property: left, right, top, bottom, width, margin;
+	transition-duration: 0.2s;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /* Device/preview size toggles */

@@ -17,10 +17,17 @@ class Renderer {
 	 *
 	 * @var array
 	 */
+<<<<<<< HEAD
 	private $render_state = array(
 		'has_results'          => false,
 		'has_no_results_block' => false,
 	);
+=======
+	private $render_state = [
+		'has_results'          => false,
+		'has_no_results_block' => false,
+	];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * The Block with its attributes before it gets rendered
@@ -59,7 +66,11 @@ class Renderer {
 		);
 		add_filter( 'render_block_core/query-pagination', array( $this, 'add_navigation_link_directives' ), 10, 3 );
 
+<<<<<<< HEAD
 		// Provide location context into block's context.
+=======
+		// // Provide location context into block's context.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_filter( 'render_block_context', array( $this, 'provide_location_context_for_inner_blocks' ), 11, 1 );
 	}
 
@@ -114,7 +125,11 @@ class Renderer {
 	 * Enhances the Product Collection block with client-side pagination.
 	 *
 	 * This function identifies Product Collection blocks and adds necessary data attributes
+<<<<<<< HEAD
 	 * to enable client-side navigation. It also enqueues the Interactivity API runtime.
+=======
+	 * to enable client-side navigation and animation effects. It also enqueues the Interactivity API runtime.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param string $block_content The HTML content of the block.
 	 * @param array  $block         Block details, including its attributes.
@@ -125,6 +140,7 @@ class Renderer {
 		$is_product_collection_block = $block['attrs']['query']['isProductCollectionBlock'] ?? false;
 
 		if ( $is_product_collection_block ) {
+<<<<<<< HEAD
 			wp_enqueue_script_module( 'woocommerce/product-collection' );
 
 			$collection                     = $block['attrs']['collection'] ?? '';
@@ -156,10 +172,31 @@ class Renderer {
 			$block_content = $this->add_store_notices_fallback( $block_content );
 		}
 
+=======
+			// Enqueue the Interactivity API runtime and set the namespace.
+			wp_enqueue_script( 'wc-interactivity' );
+			$p = new \WP_HTML_Tag_Processor( $block_content );
+			if ( $this->is_next_tag_product_collection( $p ) ) {
+				$this->set_product_collection_namespace( $p );
+			}
+			// Check if dimensions need to be set and handle accordingly.
+			$this->handle_block_dimensions( $p, $block );
+			$block_content = $p->get_updated_html();
+
+			$collection    = $block['attrs']['collection'] ?? '';
+			$block_content = $this->add_rendering_callback( $block_content, $collection );
+
+			$is_enhanced_pagination_enabled = ! ( $block['attrs']['forcePageReload'] ?? false );
+			if ( $is_enhanced_pagination_enabled ) {
+				$block_content = $this->enable_client_side_navigation( $block_content );
+			}
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $block_content;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Add a fallback store notices div to the block content.
 	 *
 	 * @param string $block_content The block content.
@@ -217,6 +254,25 @@ class Renderer {
 		</div>
 		<?php
 		return ob_get_clean();
+=======
+	 * Check if next tag is a PC block.
+	 *
+	 * @param WP_HTML_Tag_processor $p Initial tag processor.
+	 *
+	 * @return bool Answer if PC block is available.
+	 */
+	private function is_next_tag_product_collection( $p ) {
+		return $p->next_tag( array( 'class_name' => 'wp-block-woocommerce-product-collection' ) );
+	}
+
+	/**
+	 * Set PC block namespace for Interactivity API.
+	 *
+	 * @param WP_HTML_Tag_processor $p Initial tag processor.
+	 */
+	private function set_product_collection_namespace( $p ) {
+		$p->set_attribute( 'data-wc-interactive', wp_json_encode( array( 'namespace' => 'woocommerce/product-collection' ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -260,6 +316,105 @@ class Renderer {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Attach the init directive to Product Collection block to call
+	 * the onRender callback.
+	 *
+	 * @param string $block_content The HTML content of the block.
+	 * @param string $collection Collection type.
+	 *
+	 * @return string Updated HTML content.
+	 */
+	private function add_rendering_callback( $block_content, $collection ) {
+		$p = new \WP_HTML_Tag_Processor( $block_content );
+
+		// Add `data-init to the product collection block so we trigger JS event on render.
+		if ( $this->is_next_tag_product_collection( $p ) ) {
+			$p->set_attribute(
+				'data-wc-init',
+				'callbacks.onRender'
+			);
+			$p->set_attribute(
+				'data-wc-context',
+				$collection ? wp_json_encode(
+					array( 'collection' => $collection ),
+					JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP
+				) : '{}'
+			);
+		}
+
+		return $p->get_updated_html();
+	}
+
+	/**
+	 * Attach all the Interactivity API directives responsible
+	 * for client-side navigation.
+	 *
+	 * @param string $block_content The HTML content of the block.
+	 *
+	 * @return string Updated HTML content.
+	 */
+	private function enable_client_side_navigation( $block_content ) {
+		$p = new \WP_HTML_Tag_Processor( $block_content );
+
+		// Add `data-wc-navigation-id to the product collection block.
+		if ( $this->is_next_tag_product_collection( $p ) && isset( $this->parsed_block ) ) {
+			$p->set_attribute(
+				'data-wc-navigation-id',
+				'wc-product-collection-' . $this->parsed_block['attrs']['queryId']
+			);
+			$current_context = json_decode( $p->get_attribute( 'data-wc-context' ) ?? '{}', true );
+			$p->set_attribute(
+				'data-wc-context',
+				wp_json_encode(
+					array_merge(
+						$current_context,
+						array(
+							// The message to be announced by the screen reader when the page is loading or loaded.
+							'accessibilityLoadingMessage'  => __( 'Loading page, please wait.', 'woocommerce' ),
+							'accessibilityLoadedMessage'   => __( 'Page Loaded.', 'woocommerce' ),
+							// We don't prefetch the links if user haven't clicked on pagination links yet.
+							// This way we avoid prefetching when the page loads.
+							'isPrefetchNextOrPreviousLink' => false,
+						),
+					),
+					JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP
+				)
+			);
+			$block_content = $p->get_updated_html();
+		}
+
+		/**
+		 * Add two div's:
+		 * 1. Pagination animation for visual users.
+		 * 2. Accessibility div for screen readers, to announce page load states.
+		 */
+		$last_tag_position                = strripos( $block_content, '</div>' );
+		$accessibility_and_animation_html = '
+				<div
+					data-wc-interactive="{&quot;namespace&quot;:&quot;woocommerce/product-collection&quot;}"
+					class="wc-block-product-collection__pagination-animation"
+					data-wc-class--start-animation="state.startAnimation"
+					data-wc-class--finish-animation="state.finishAnimation">
+				</div>
+				<div
+					data-wc-interactive="{&quot;namespace&quot;:&quot;woocommerce/product-collection&quot;}"
+					class="screen-reader-text"
+					aria-live="polite"
+					data-wc-text="context.accessibilityMessage">
+				</div>
+			';
+		return substr_replace(
+			$block_content,
+			$accessibility_and_animation_html,
+			$last_tag_position,
+			0
+		);
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Add interactive links to all anchors inside the Query Pagination block.
 	 * This enabled client-side navigation for the product collection block.
 	 *
@@ -277,6 +432,7 @@ class Renderer {
 		// Only proceed if the block is a product collection block,
 		// enhanced pagination is enabled and query IDs match.
 		if ( $is_product_collection_block && $is_enhanced_pagination_enabled && $query_id === $parsed_query_id ) {
+<<<<<<< HEAD
 			$p = new \WP_HTML_Tag_Processor( $block_content );
 			$p->next_tag( array( 'class_name' => 'wp-block-query-pagination' ) );
 
@@ -298,12 +454,70 @@ class Renderer {
 			}
 
 			return $p->get_updated_html();
+=======
+			$block_content = $this->process_pagination_links( $block_content );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $block_content;
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Process pagination links within the block content.
+	 *
+	 * @param string $block_content The block content.
+	 * @return string The updated block content.
+	 */
+	private function process_pagination_links( $block_content ) {
+		if ( ! $block_content ) {
+			return $block_content;
+		}
+
+		$p = new \WP_HTML_Tag_Processor( $block_content );
+		$p->next_tag( array( 'class_name' => 'wp-block-query-pagination' ) );
+
+		// This will help us to find the start of the block content using the `seek` method.
+		$p->set_bookmark( 'start' );
+
+		$this->update_pagination_anchors( $p, 'page-numbers', 'product-collection-pagination-numbers' );
+		$this->update_pagination_anchors( $p, 'wp-block-query-pagination-next', 'product-collection-pagination--next' );
+		$this->update_pagination_anchors( $p, 'wp-block-query-pagination-previous', 'product-collection-pagination--previous' );
+
+		return $p->get_updated_html();
+	}
+
+	/**
+	 * Sets up data attributes required for interactivity and client-side navigation.
+	 *
+	 * @param \WP_HTML_Tag_Processor $processor The HTML tag processor.
+	 * @param string                 $class_name The class name of the anchor tags.
+	 * @param string                 $key_prefix The prefix for the data-wc-key attribute.
+	 */
+	private function update_pagination_anchors( $processor, $class_name, $key_prefix ) {
+		// Start from the beginning of the block content.
+		$processor->seek( 'start' );
+
+		while ( $processor->next_tag(
+			array(
+				'tag_name'   => 'a',
+				'class_name' => $class_name,
+			)
+		) ) {
+			$this->set_product_collection_namespace( $processor );
+			$processor->set_attribute( 'data-wc-on--click', 'actions.navigate' );
+			$processor->set_attribute( 'data-wc-key', $key_prefix . '--' . esc_attr( wp_rand() ) );
+
+			if ( in_array( $class_name, array( 'wp-block-query-pagination-next', 'wp-block-query-pagination-previous' ), true ) ) {
+				$processor->set_attribute( 'data-wc-watch', 'callbacks.prefetch' );
+				$processor->set_attribute( 'data-wc-on--mouseenter', 'actions.prefetchOnHover' );
+			}
+		}
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Provides the location context to each inner block of the product collection block.
 	 * Hint: Only blocks using the 'query' context will be affected.
 	 *

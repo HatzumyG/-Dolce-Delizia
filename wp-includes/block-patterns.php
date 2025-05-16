@@ -35,6 +35,7 @@ function _register_core_block_patterns_and_categories() {
 		}
 	}
 
+<<<<<<< HEAD
 	register_block_pattern_category(
 		'banner',
 		array(
@@ -42,6 +43,9 @@ function _register_core_block_patterns_and_categories() {
 			'description' => __( 'Bold sections designed to showcase key content.' ),
 		)
 	);
+=======
+	register_block_pattern_category( 'banner', array( 'label' => _x( 'Banners', 'Block pattern category' ) ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	register_block_pattern_category(
 		'buttons',
 		array(
@@ -80,7 +84,11 @@ function _register_core_block_patterns_and_categories() {
 	register_block_pattern_category(
 		'call-to-action',
 		array(
+<<<<<<< HEAD
 			'label'       => _x( 'Call to action', 'Block pattern category' ),
+=======
+			'label'       => _x( 'Call to Action', 'Block pattern category' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'description' => __( 'Sections whose purpose is to trigger a specific action.' ),
 		)
 	);

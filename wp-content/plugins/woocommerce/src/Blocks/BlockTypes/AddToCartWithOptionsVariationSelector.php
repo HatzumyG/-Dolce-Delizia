@@ -308,6 +308,7 @@ class AddToCartWithOptionsVariationSelector extends AbstractBlock {
 	 * @return string Rendered block output.
 	 */
 	protected function render( $attributes, $content, $block ): string {
+<<<<<<< HEAD
 		global $product;
 
 		if ( $product instanceof \WC_Product && $product->is_type( 'variable' ) ) {
@@ -315,5 +316,21 @@ class AddToCartWithOptionsVariationSelector extends AbstractBlock {
 		}
 
 		return '';
+=======
+		if ( ! isset( $block->context['postId'] ) ) {
+			return '';
+		}
+
+		global $product;
+		$previous_product = $product;
+		$product          = wc_get_product( $block->context['postId'] );
+
+		if ( ! $product instanceof \WC_Product || ! $product->is_type( 'variable' ) ) {
+			$product = $previous_product;
+			return '';
+		}
+
+		return $this->render_variation_form( $product, $attributes );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

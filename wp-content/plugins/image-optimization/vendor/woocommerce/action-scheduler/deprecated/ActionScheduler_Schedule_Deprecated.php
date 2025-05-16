@@ -13,7 +13,11 @@ abstract class ActionScheduler_Schedule_Deprecated implements ActionScheduler_Sc
 	 *
 	 * @return DateTime|null
 	 */
+<<<<<<< HEAD
 	public function next( DateTime $after = null ) {
+=======
+	public function next( ?DateTime $after = null ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( empty( $after ) ) {
 			$return_value       = $this->get_date();
 			$replacement_method = 'get_date()';

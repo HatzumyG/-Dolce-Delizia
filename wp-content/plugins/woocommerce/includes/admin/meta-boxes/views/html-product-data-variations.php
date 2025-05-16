@@ -5,8 +5,11 @@
  * @package WooCommerce\Admin\Metaboxes\Views
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -112,11 +115,14 @@ $arrow_img_url          = WC_ADMIN_IMAGES_FOLDER_URL . '/product_data/no-variati
 						<option value="variable_download_limit"><?php esc_html_e( 'Download limit', 'woocommerce' ); ?></option>
 						<option value="variable_download_expiry"><?php esc_html_e( 'Download expiry', 'woocommerce' ); ?></option>
 					</optgroup>
+<<<<<<< HEAD
 					<?php if ( wc_get_container()->get( CostOfGoodsSoldController::class )->feature_is_enabled() ) : ?>
 						<optgroup label="<?php esc_attr_e( 'Cost of goods', 'woocommerce' ); ?>">
 							<option value="variable_unset_cogs_value"><?php esc_html_e( 'Remove custom costs', 'woocommerce' ); ?></option>
 						</optgroup>
 					<?php endif; ?>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					<?php /* phpcs:disable WooCommerce.Commenting.CommentHooks.MissingHookComment */ ?>
 					<?php do_action( 'woocommerce_variable_product_bulk_edit_actions' ); ?>
 					<?php /* phpcs:enable */ ?>

@@ -22,7 +22,11 @@ class CostOfGoodsSoldController implements RegisterHooksInterface {
 	 * Register hooks.
 	 */
 	public function register() {
+<<<<<<< HEAD
 		add_filter( 'woocommerce_debug_tools', array( $this, 'add_debug_tools_entry' ), 999, 1 );
+=======
+		add_action( 'woocommerce_register_feature_definitions', array( $this, 'add_feature_definition' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -64,6 +68,7 @@ class CostOfGoodsSoldController implements RegisterHooksInterface {
 			$definition
 		);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Add the entry for "add/remove COGS value column to/from the product meta lookup table" to the WooCommerce admin tools.
@@ -145,4 +150,6 @@ class CostOfGoodsSoldController implements RegisterHooksInterface {
 			)
 		);
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

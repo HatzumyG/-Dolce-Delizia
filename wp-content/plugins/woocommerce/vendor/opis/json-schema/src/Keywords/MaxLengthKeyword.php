@@ -43,6 +43,13 @@ class MaxLengthKeyword implements Keyword
      */
     public function validate(ValidationContext $context, Schema $schema): ?ValidationError
     {
+<<<<<<< HEAD
+=======
+        if ($this->length === 0) {
+            return null;
+        }
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         $length = $context->getStringLength();
 
         if ($length <= $this->length) {

@@ -3,12 +3,19 @@ declare( strict_types=1 );
 
 namespace Automattic\WooCommerce\Internal\Admin\Settings;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Internal\Features\FeaturesController;
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 use Exception;
 use WC_Gateway_BACS;
 use WC_Gateway_Cheque;
 use WC_Gateway_COD;
+=======
+use Automattic\WooCommerce\Admin\Features\Features;
+use Automattic\WooCommerce\Internal\Admin\Suggestions\PaymentExtensionSuggestions;
+use Exception;
+use WooCommerce\Admin\Experimental_Abtest;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 defined( 'ABSPATH' ) || exit;
 /**
@@ -29,6 +36,16 @@ class PaymentsController {
 	 * Register hooks.
 	 */
 	public function register() {
+<<<<<<< HEAD
+=======
+		// Filter the feature config to allow the experiment to have effect.
+		// Use a priority of 9 to ensure that the filter runs before the user-set feature values
+		// are applied by the WC Beta Tester plugin.
+		// This way we allow users to control the feature flag via the WC Beta Tester plugin and disregard the experiment.
+		// @see plugins/woocommerce-beta-tester/plugin.php.
+		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_feature_config_experiment' ), 9 );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Because we gate the hooking based on a feature flag,
 		// we need to delay the registration until the 'woocommerce_init' hook.
 		// Otherwise, we end up in an infinite loop.
@@ -36,18 +53,54 @@ class PaymentsController {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Filter the feature flags list to modify the new Payments Settings page feature based on the experiment.
+	 *
+	 * @param array $features The feature flags list.
+	 *
+	 * @return array The updated feature flags list.
+	 */
+	public function filter_feature_config_experiment( $features ) {
+		// If the feature flag is not present or has been disabled, don't do anything.
+		if ( empty( $features['reactify-classic-payments-settings'] ) ) {
+			return $features;
+		}
+
+		// If the feature flag is enabled, but the user is NOT in the experiment treatment group, disable the feature.
+		if ( ! Experimental_Abtest::in_treatment_handled_exception( 'woocommerce_payment_settings_2025_v1' ) ) {
+			return array_merge(
+				$features,
+				array(
+					'reactify-classic-payments-settings' => false,
+				)
+			);
+		}
+
+		return $features;
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Delayed hook registration.
 	 */
 	public function delayed_register() {
 		// Don't do anything if the feature is not enabled.
+<<<<<<< HEAD
 		if ( ! FeaturesUtil::feature_is_enabled( 'reactify-classic-payments-settings' ) ) {
+=======
+		if ( ! Features::is_enabled( 'reactify-classic-payments-settings' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_filter( 'woocommerce_admin_shared_settings', array( $this, 'preload_settings' ) );
 		add_filter( 'woocommerce_admin_allowed_promo_notes', array( $this, 'add_allowed_promo_notes' ) );
+<<<<<<< HEAD
 		add_filter( 'woocommerce_get_sections_checkout', array( $this, 'handle_sections' ), 20 );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -67,12 +120,19 @@ class PaymentsController {
 	public function add_menu() {
 		global $menu;
 
+<<<<<<< HEAD
 		// When WooPayments account is onboarded, WooPayments will own the Payments menu item since it is the native Woo payments solution.
 		if ( $this->is_woopayments_account_onboarded() ) {
 			return;
 		} else {
 			// Otherwise, remove Payments menu item linking to the connect page to avoid Payments menu item duplication.
 			remove_menu_page( 'wc-admin&path=/payments/connect' );
+=======
+		// The WooPayments plugin must not be active.
+		// When active, WooPayments will own the Payments menu item since it is the native Woo payments solution.
+		if ( $this->is_woopayments_active() ) {
+			return;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$menu_title = esc_html__( 'Payments', 'woocommerce' );
@@ -124,10 +184,17 @@ class PaymentsController {
 		}
 
 		// Add the business location country to the settings.
+<<<<<<< HEAD
 		if ( ! isset( $settings[ Payments::PAYMENTS_NOX_PROFILE_KEY ] ) ) {
 			$settings[ Payments::PAYMENTS_NOX_PROFILE_KEY ] = array();
 		}
 		$settings[ Payments::PAYMENTS_NOX_PROFILE_KEY ]['business_country_code'] = $this->payments->get_country();
+=======
+		if ( ! isset( $settings[ Payments::USER_PAYMENTS_NOX_PROFILE_KEY ] ) ) {
+			$settings[ Payments::USER_PAYMENTS_NOX_PROFILE_KEY ] = array();
+		}
+		$settings[ Payments::USER_PAYMENTS_NOX_PROFILE_KEY ]['business_country_code'] = $this->payments->get_country();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return $settings;
 	}
@@ -158,6 +225,7 @@ class PaymentsController {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Alter the Payments tab sections under certain conditions.
 	 *
 	 * @param array $sections The payments/checkout tab sections.
@@ -176,6 +244,8 @@ class PaymentsController {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Check if the store has any enabled gateways (including offline payment methods).
 	 *
 	 * @return bool True if the store has any enabled gateways, false otherwise.
@@ -207,6 +277,7 @@ class PaymentsController {
 
 		// Go through the providers and check if any of them have a "prominently" visible incentive (i.e., modal or banner).
 		foreach ( $providers as $provider ) {
+<<<<<<< HEAD
 			if ( empty( $provider['_incentive'] ) ) {
 				continue;
 			}
@@ -266,12 +337,25 @@ class PaymentsController {
 
 			// The modal was dismissed more than 30 days ago, so the banner is visible.
 			return true;
+=======
+			// We check to see if the incentive was dismissed in the banner context.
+			// In case an incentive uses the modal surface also (like the WooPayments Switch incentive),
+			// we rely on the fact that the modal falls back to the banner, once dismissed.
+			if ( ! empty( $provider['_incentive'] ) &&
+				( empty( $provider['_incentive']['_dismissals'] ) ||
+					! in_array( 'wc_settings_payments__banner', $provider['_incentive']['_dismissals'], true )
+				)
+			) {
+				return true;
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return false;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Check if the WooPayments account is onboarded.
 	 *
 	 * @return boolean
@@ -293,5 +377,13 @@ class PaymentsController {
 		// We consider the store to have WooPayments account connected if account data in the WooPayments account cache
 		// contains details_submitted = true entry. This implies that WooPayments was connected.
 		return $account_data['data']['details_submitted'];
+=======
+	 * Check if the WooPayments plugin is active.
+	 *
+	 * @return boolean
+	 */
+	private function is_woopayments_active(): bool {
+		return class_exists( '\WC_Payments' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

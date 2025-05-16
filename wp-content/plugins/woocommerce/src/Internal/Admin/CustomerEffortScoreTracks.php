@@ -453,6 +453,7 @@ class CustomerEffortScoreTracks {
 			return;
 		}
 
+<<<<<<< HEAD
 		$queue = get_option(
 			self::CES_TRACKS_QUEUE_OPTION_NAME,
 			array()
@@ -460,6 +461,12 @@ class CustomerEffortScoreTracks {
 
 		$queue = is_array( $queue ) ? $queue : array();
 
+=======
+		$queue           = get_option(
+			self::CES_TRACKS_QUEUE_OPTION_NAME,
+			array()
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$remaining_items = array_filter(
 			$queue,
 			function ( $item ) use ( $clear_ces_tracks_queue_for_page ) {

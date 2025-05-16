@@ -4,10 +4,13 @@
 
 .wp-block-rss__placeholder-form .wp-block-rss__placeholder-input{
   flex:1 1 auto;
+<<<<<<< HEAD
 }
 
 .wp-block-rss .wp-block-rss{
   all:inherit;
   margin:0;
   padding:0;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

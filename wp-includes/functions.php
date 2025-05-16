@@ -5,11 +5,14 @@
  * @package WordPress
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 require ABSPATH . WPINC . '/option.php';
 
 /**
@@ -599,10 +602,17 @@ function get_weekstartend( $mysqlstring, $start_of_week = '' ) {
 	$day = mktime( 0, 0, 0, $md, $mm, $my );
 
 	// The day of the week from the timestamp.
+<<<<<<< HEAD
 	$weekday = (int) gmdate( 'w', $day );
 
 	if ( ! is_numeric( $start_of_week ) ) {
 		$start_of_week = (int) get_option( 'start_of_week' );
+=======
+	$weekday = gmdate( 'w', $day );
+
+	if ( ! is_numeric( $start_of_week ) ) {
+		$start_of_week = get_option( 'start_of_week' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	if ( $weekday < $start_of_week ) {
@@ -614,7 +624,10 @@ function get_weekstartend( $mysqlstring, $start_of_week = '' ) {
 
 	// $start + 1 week - 1 second.
 	$end = $start + WEEK_IN_SECONDS - 1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	return compact( 'start', 'end' );
 }
 
@@ -1489,18 +1502,31 @@ function status_header( $code, $description = '' ) {
  * Gets the HTTP header information to prevent caching.
  *
  * The several different headers cover the different ways cache prevention
+<<<<<<< HEAD
  * is handled by different browsers or intermediate caches such as proxy servers.
+=======
+ * is handled by different browsers.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @since 2.8.0
  * @since 6.3.0 The `Cache-Control` header for logged in users now includes the
  *              `no-store` and `private` directives.
+<<<<<<< HEAD
  * @since 6.8.0 The `Cache-Control` header now includes the `no-store` and `private`
  *              directives regardless of whether a user is logged in.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @return array The associative array of header names and field values.
  */
 function wp_get_nocache_headers() {
+<<<<<<< HEAD
 	$cache_control = 'no-cache, must-revalidate, max-age=0, no-store, private';
+=======
+	$cache_control = ( function_exists( 'is_user_logged_in' ) && is_user_logged_in() )
+		? 'no-cache, must-revalidate, max-age=0, no-store, private'
+		: 'no-cache, must-revalidate, max-age=0';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	$headers = array(
 		'Expires'       => 'Wed, 11 Jan 1984 05:00:00 GMT',
@@ -1715,7 +1741,11 @@ function do_robots() {
 	do_action( 'do_robotstxt' );
 
 	$output = "User-agent: *\n";
+<<<<<<< HEAD
 	$public = (bool) get_option( 'blog_public' );
+=======
+	$public = get_option( 'blog_public' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	$site_url = parse_url( site_url() );
 	$path     = ( ! empty( $site_url['path'] ) ) ? $site_url['path'] : '';
@@ -3124,6 +3154,7 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 			$mime_to_ext = apply_filters(
 				'getimagesize_mimes_to_exts',
 				array(
+<<<<<<< HEAD
 					'image/jpeg'          => 'jpg',
 					'image/png'           => 'png',
 					'image/gif'           => 'gif',
@@ -3131,6 +3162,15 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 					'image/tiff'          => 'tif',
 					'image/webp'          => 'webp',
 					'image/avif'          => 'avif',
+=======
+					'image/jpeg' => 'jpg',
+					'image/png'  => 'png',
+					'image/gif'  => 'gif',
+					'image/bmp'  => 'bmp',
+					'image/tiff' => 'tif',
+					'image/webp' => 'webp',
+					'image/avif' => 'avif',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 					/*
 					 * In theory there are/should be file extensions that correspond to the
@@ -3138,8 +3178,13 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 					 * with any of the mime types commonly have a .heic file extension.
 					 * Seems keeping the status quo here is best for compatibility.
 					 */
+<<<<<<< HEAD
 					'image/heic'          => 'heic',
 					'image/heif'          => 'heic',
+=======
+					'image/heic' => 'heic',
+					'image/heif' => 'heic',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'image/heic-sequence' => 'heic',
 					'image/heif-sequence' => 'heic',
 				)
@@ -3423,7 +3468,10 @@ function wp_get_image_mime( $file ) {
  * @since 4.2.0 Support was added for GIMP (.xcf) files.
  * @since 4.9.2 Support was added for Flac (.flac) files.
  * @since 4.9.6 Support was added for AAC (.aac) files.
+<<<<<<< HEAD
  * @since 6.8.0 Support was added for `audio/x-wav`.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @return string[] Array of mime types keyed by the file extension regex corresponding to those types.
  */
@@ -3488,7 +3536,11 @@ function wp_get_mime_types() {
 			'mp3|m4a|m4b'                  => 'audio/mpeg',
 			'aac'                          => 'audio/aac',
 			'ra|ram'                       => 'audio/x-realaudio',
+<<<<<<< HEAD
 			'wav|x-wav'                    => 'audio/wav',
+=======
+			'wav'                          => 'audio/wav',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'ogg|oga'                      => 'audio/ogg',
 			'flac'                         => 'audio/flac',
 			'mid|midi'                     => 'audio/midi',
@@ -3672,7 +3724,11 @@ function get_allowed_mime_types( $user = null ) {
  */
 function wp_nonce_ays( $action ) {
 	// Default title and response code.
+<<<<<<< HEAD
 	$title         = __( 'An error occurred.' );
+=======
+	$title         = __( 'Something went wrong.' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$response_code = 403;
 
 	if ( 'log-out' === $action ) {
@@ -6273,7 +6329,11 @@ function validate_file( $file, $allowed_files = array() ) {
  *
  * @since 2.6.0
  *
+<<<<<<< HEAD
  * @param string|bool|null $force Optional. Whether to force SSL in admin screens. Default null.
+=======
+ * @param string|bool $force Optional. Whether to force SSL in admin screens. Default null.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @return bool True if forced, false if not forced.
  */
 function force_ssl_admin( $force = null ) {
@@ -6281,7 +6341,11 @@ function force_ssl_admin( $force = null ) {
 
 	if ( ! is_null( $force ) ) {
 		$old_forced = $forced;
+<<<<<<< HEAD
 		$forced     = (bool) $force;
+=======
+		$forced     = $force;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $old_forced;
 	}
 
@@ -7145,6 +7209,7 @@ function send_frame_options_header() {
 }
 
 /**
+<<<<<<< HEAD
  * Sends a referrer policy header so referrers are not sent externally from administration screens.
  *
  * @since 4.9.0
@@ -7169,6 +7234,8 @@ function wp_admin_headers() {
 }
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Retrieves a list of protocols to allow in HTML attributes.
  *
  * @since 3.3.0
@@ -8070,9 +8137,15 @@ function wp_cache_set_last_changed( $group ) {
 	 *
 	 * @since 6.3.0
 	 *
+<<<<<<< HEAD
 	 * @param string       $group         The cache group name.
 	 * @param string       $time          The new last changed time (msec sec).
 	 * @param string|false $previous_time The previous last changed time. False if not previously set.
+=======
+	 * @param string    $group         The cache group name.
+	 * @param int       $time          The new last changed time.
+	 * @param int|false $previous_time The previous last changed time. False if not previously set.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	do_action( 'wp_cache_set_last_changed', $group, $time, $previous_time );
 
@@ -9114,6 +9187,7 @@ function wp_is_heic_image_mime_type( $mime_type ) {
 
 	return in_array( $mime_type, $heic_mime_types, true );
 }
+<<<<<<< HEAD
 
 /**
  * Returns a cryptographically secure hash of a message using a fast generic hash function.
@@ -9205,3 +9279,5 @@ function wp_unique_id_from_values( array $data, string $prefix = '' ): string {
 	$hash       = substr( md5( $serialized ), 0, 8 );
 	return $prefix . $hash;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

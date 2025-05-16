@@ -46,7 +46,11 @@
 }
 
 .wp-block-media-text__media a{
+<<<<<<< HEAD
   display:block;
+=======
+  display:inline-block;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 .wp-block-media-text__media img,.wp-block-media-text__media video{

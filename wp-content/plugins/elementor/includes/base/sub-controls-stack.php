@@ -2,7 +2,11 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -44,10 +48,17 @@ abstract class Sub_Controls_Stack {
 	 * Initializing the base class by setting parent stack.
 	 *
 	 * @access public
+<<<<<<< HEAD
 	 * @param Controls_Stack $element_parent
 	 */
 	public function __construct( $element_parent ) {
 		$this->parent = $element_parent;
+=======
+	 * @param Controls_Stack $parent
+	 */
+	public function __construct( $parent ) {
+		$this->parent = $parent;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -125,6 +136,10 @@ abstract class Sub_Controls_Stack {
 	 * @param string $group_name Group control name.
 	 * @param array  $args       Group control arguments. Default is an empty array.
 	 * @param array  $options
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function add_group_control( $group_name, $args, $options = [] ) {
 		$args['name'] = $this->get_control_id( $args['name'] );
@@ -183,6 +198,10 @@ abstract class Sub_Controls_Stack {
 	 * @param string $id   Section ID.
 	 * @param array  $args Section arguments.
 	 */
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function start_controls_section( $id, $args = [] ) {
 		$this->parent->start_controls_section( $this->get_control_id( $id ), $args );
 	}

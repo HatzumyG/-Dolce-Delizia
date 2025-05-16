@@ -1861,13 +1861,22 @@ class Fonts {
 		} );
 	}
 
+<<<<<<< HEAD
 	public static function is_google_fonts_enabled(): bool {
+=======
+	public static function is_google_fonts_enabled() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( null === static::$is_google_fonts_enabled ) {
 			$default_value = '1';
 
 			// TODO: For future use, using for new installs.
+<<<<<<< HEAD
 			// $is_new_site = Upgrade_Manager::install_compare( '3.10.0', '>=' );
 			// $default_value = $is_new_site ? '0' : '1';.
+=======
+			//$is_new_site = Upgrade_Manager::install_compare( '3.10.0', '>=' );
+			//$default_value = $is_new_site ? '0' : '1';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			$option = get_option( 'elementor_google_font', $default_value );
 

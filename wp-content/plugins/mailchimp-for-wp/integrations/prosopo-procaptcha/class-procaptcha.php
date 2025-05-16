@@ -212,6 +212,7 @@ class MC4WP_Procaptcha
             /** @var MC4WP_Debug_Log */
             $logger = mc4wp('log');
             $logger->error(sprintf('ProCaptcha request error: %d %s - %s', wp_remote_retrieve_response_code($response), wp_remote_retrieve_response_message($response), wp_remote_retrieve_body($response)));
+<<<<<<< HEAD
 
             // the check failed, but we don't want to break the form in case of Prosopo having server issues
             // so we write to log and act as if this user is human...
@@ -229,6 +230,15 @@ class MC4WP_Procaptcha
         }
 
         $is_verified = isset($data['verified']) && $data['verified'];
+=======
+            return false;
+        }
+
+        $body        = wp_remote_retrieve_body($response);
+        $body        = json_decode($body, true);
+        $is_verified = is_array($body) && isset($body['verified']) && $body['verified'];
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         return true === $is_verified;
     }
 

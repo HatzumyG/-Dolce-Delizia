@@ -122,8 +122,11 @@ final class ProductFilterStatus extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$stock_status_data       = $this->get_stock_status_counts( $block );
 		$stock_statuses          = wc_get_product_stock_status_options();
 		$filter_params           = $block->context['filterParams'] ?? array();
@@ -151,8 +154,13 @@ final class ProductFilterStatus extends AbstractBlock {
 		);
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive'  => $this->get_full_block_name(),
 			'data-wp-context'      => wp_json_encode(
+=======
+			'data-wc-interactive'  => wp_json_encode( array( 'namespace' => $this->get_full_block_name() ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-context'      => wp_json_encode(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				array(
 					'hasFilterOptions'    => ! empty( $filter_options ),
 					/* translators: {{label}} is the status filter item label. */
@@ -160,7 +168,11 @@ final class ProductFilterStatus extends AbstractBlock {
 				),
 				JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP
 			),
+<<<<<<< HEAD
 			'data-wp-bind--hidden' => '!context.hasFilterOptions',
+=======
+			'data-wc-bind--hidden' => '!context.hasFilterOptions',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		if ( empty( $filter_options ) ) {
@@ -225,6 +237,7 @@ final class ProductFilterStatus extends AbstractBlock {
 			}
 		);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -236,4 +249,6 @@ final class ProductFilterStatus extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

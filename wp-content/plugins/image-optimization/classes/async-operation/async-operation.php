@@ -50,6 +50,7 @@ class Async_Operation {
 		);
 	}
 
+<<<<<<< HEAD
 	public static function create_recurring( int $timestamp, int $interval_in_seconds, string $hook, array $args, string $queue, int $priority = 10, $unique = false ): int {
 		self::check_library_is_registered();
 
@@ -76,6 +77,8 @@ class Async_Operation {
 		);
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * @param Operation_Query_Interface $query
 	 *
@@ -131,6 +134,7 @@ class Async_Operation {
 		return $actions;
 	}
 
+<<<<<<< HEAD
 	public static function get_by_id( int $action_id ): ?Async_Operation_Item {
 		self::check_library_is_registered();
 
@@ -167,6 +171,8 @@ class Async_Operation {
 				->set_logs( $logger->get_logs( $action_id ) );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * @throws Async_Operation_Exception
 	 */

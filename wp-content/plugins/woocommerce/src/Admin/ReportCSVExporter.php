@@ -158,6 +158,7 @@ class ReportCSVExporter extends \WC_CSV_Batch_Exporter {
 	 * @return bool|WC_REST_Reports_Controller Report controller instance or boolean false on error.
 	 */
 	protected function map_report_controller() {
+<<<<<<< HEAD
 		/**
 		 * Used to add custom report controllers.
 		 *
@@ -181,6 +182,20 @@ class ReportCSVExporter extends \WC_CSV_Batch_Exporter {
 				'customers'  => 'Automattic\WooCommerce\Admin\API\Reports\Customers\Controller',
 				'revenue'    => 'Automattic\WooCommerce\Admin\API\Reports\Revenue\Stats\Controller',
 			)
+=======
+		// @todo - Add filter to this list.
+		$controller_map = array(
+			'products'   => 'Automattic\WooCommerce\Admin\API\Reports\Products\Controller',
+			'variations' => 'Automattic\WooCommerce\Admin\API\Reports\Variations\Controller',
+			'orders'     => 'Automattic\WooCommerce\Admin\API\Reports\Orders\Controller',
+			'categories' => 'Automattic\WooCommerce\Admin\API\Reports\Categories\Controller',
+			'taxes'      => 'Automattic\WooCommerce\Admin\API\Reports\Taxes\Controller',
+			'coupons'    => 'Automattic\WooCommerce\Admin\API\Reports\Coupons\Controller',
+			'stock'      => 'Automattic\WooCommerce\Admin\API\Reports\Stock\Controller',
+			'downloads'  => 'Automattic\WooCommerce\Admin\API\Reports\Downloads\Controller',
+			'customers'  => 'Automattic\WooCommerce\Admin\API\Reports\Customers\Controller',
+			'revenue'    => 'Automattic\WooCommerce\Admin\API\Reports\Revenue\Stats\Controller',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		if ( isset( $controller_map[ $this->report_type ] ) ) {
@@ -247,6 +262,7 @@ class ReportCSVExporter extends \WC_CSV_Batch_Exporter {
 	 * Prepare data for export.
 	 */
 	public function prepare_data_to_export() {
+<<<<<<< HEAD
 		/**
 		 * Used to add/overwrite report data endpoint.
 		 *
@@ -264,6 +280,9 @@ class ReportCSVExporter extends \WC_CSV_Batch_Exporter {
 		);
 
 		$request  = new \WP_REST_Request( 'GET', $report_endpoint );
+=======
+		$request  = new \WP_REST_Request( 'GET', "/wc-analytics/reports/{$this->report_type}" );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$params   = $this->controller->get_collection_params();
 		$defaults = array();
 

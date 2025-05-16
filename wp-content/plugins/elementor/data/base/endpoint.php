@@ -46,9 +46,17 @@ abstract class Endpoint {
 	/**
 	 * Endpoint constructor.
 	 *
+<<<<<<< HEAD
 	 * @param \Elementor\Data\Base\Controller $controller
 	 *
 	 * @throws \Exception If invalid controller.
+=======
+	 * run `$this->>register()`.
+	 *
+	 * @param \Elementor\Data\Base\Controller $controller
+	 *
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __construct( $controller ) {
 		if ( ! ( $controller instanceof Controller ) ) {
@@ -90,7 +98,11 @@ abstract class Endpoint {
 	 *
 	 * By default: register get items route.
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception If invalid endpoint registered.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function register() {
 		$this->register_items_route();
@@ -103,7 +115,11 @@ abstract class Endpoint {
 	 * @param string $endpoint_class
 	 *
 	 * @return \Elementor\Data\Base\SubEndpoint
+<<<<<<< HEAD
 	 * @throws \Exception If invalid endpoint.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function register_sub_endpoint( $route, $endpoint_class ) {
 		$endpoint_instance = new $endpoint_class( $route, $this );
@@ -140,7 +156,11 @@ abstract class Endpoint {
 	 * @param bool $is_multi
 	 *
 	 * @return mixed|\WP_Error|\WP_HTTP_Response|\WP_REST_Response
+<<<<<<< HEAD
 	 * @throws \Exception If invalid method.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function base_callback( $methods, $request, $is_multi = false ) {
 		// TODO: Find better solution.
@@ -283,11 +303,19 @@ abstract class Endpoint {
 	/**
 	 * Register item route.
 	 *
+<<<<<<< HEAD
 	 * @param string $methods
 	 * @param array  $args
 	 * @param string $route
 	 *
 	 * @throws \Exception If invalid method.
+=======
+	 * @param array $args
+	 * @param string $route
+	 * @param string $methods
+	 *
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function register_item_route( $methods = WP_REST_Server::READABLE, $args = [], $route = '/' ) {
 		$args = array_merge( [
@@ -311,7 +339,11 @@ abstract class Endpoint {
 	 *
 	 * @param string $methods
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception If invalid method.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function register_items_route( $methods = WP_REST_Server::READABLE ) {
 		$this->register_route( '', $methods, function ( $request ) use ( $methods ) {
@@ -328,7 +360,11 @@ abstract class Endpoint {
 	 * @param array $args
 	 *
 	 * @return bool
+<<<<<<< HEAD
 	 * @throws \Exception If invalid method.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function register_route( $route = '', $methods = WP_REST_Server::READABLE, $callback = null, $args = [] ) {
 		if ( ! in_array( $methods, self::AVAILABLE_METHODS, true ) ) {

@@ -10,8 +10,11 @@
 
 define( 'MS_FILES_REQUEST', true );
 define( 'SHORTINIT', true );
+<<<<<<< HEAD
 
 /** Load WordPress Bootstrap */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
 if ( ! is_multisite() ) {

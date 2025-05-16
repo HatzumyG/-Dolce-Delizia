@@ -45,11 +45,21 @@
     position:absolute;
     right:9px;
     top:9px;
+<<<<<<< HEAD
   }
 }
 @media (min-width:782px) and (not (prefers-reduced-motion)){
   .edit-post-fullscreen-mode-close.components-button:before{
     transition:box-shadow .1s ease;
+=======
+    transition:box-shadow .1s ease;
+  }
+}
+@media (min-width:782px) and (prefers-reduced-motion:reduce){
+  .edit-post-fullscreen-mode-close.components-button:before{
+    transition-delay:0s;
+    transition-duration:0s;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 }
 @media (min-width:782px){
@@ -146,11 +156,21 @@
   outline-offset:-2px;
   position:absolute;
   transform:translateX(50%);
+<<<<<<< HEAD
   width:inherit;
 }
 @media not (prefers-reduced-motion){
   .is-resizable.edit-post-meta-boxes-main .edit-post-meta-boxes-main__presenter>button:before{
     transition:width .3s ease-out;
+=======
+  transition:width .3s ease-out;
+  width:inherit;
+}
+@media (prefers-reduced-motion:reduce){
+  .is-resizable.edit-post-meta-boxes-main .edit-post-meta-boxes-main__presenter>button:before{
+    transition-delay:0s;
+    transition-duration:0s;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 }
 .is-resizable.edit-post-meta-boxes-main .edit-post-meta-boxes-main__presenter:is(:hover,:focus-within)>button:before{

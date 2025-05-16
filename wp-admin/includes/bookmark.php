@@ -215,7 +215,10 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 	$link_rss         = ( ! empty( $parsed_args['link_rss'] ) ) ? $parsed_args['link_rss'] : '';
 	$link_rel         = ( ! empty( $parsed_args['link_rel'] ) ) ? $parsed_args['link_rel'] : '';
 	$link_category    = ( ! empty( $parsed_args['link_category'] ) ) ? $parsed_args['link_category'] : array();
+<<<<<<< HEAD
 	$link_updated     = gmdate( 'Y-m-d H:i:s', current_time( 'timestamp', 0 ) );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	// Make sure we set a valid category.
 	if ( ! is_array( $link_category ) || 0 === count( $link_category ) ) {
@@ -223,7 +226,11 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 	}
 
 	if ( $update ) {
+<<<<<<< HEAD
 		if ( false === $wpdb->update( $wpdb->links, compact( 'link_url', 'link_name', 'link_image', 'link_target', 'link_description', 'link_visible', 'link_owner', 'link_rating', 'link_rel', 'link_notes', 'link_rss', 'link_updated' ), compact( 'link_id' ) ) ) {
+=======
+		if ( false === $wpdb->update( $wpdb->links, compact( 'link_url', 'link_name', 'link_image', 'link_target', 'link_description', 'link_visible', 'link_owner', 'link_rating', 'link_rel', 'link_notes', 'link_rss' ), compact( 'link_id' ) ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( $wp_error ) {
 				return new WP_Error( 'db_update_error', __( 'Could not update link in the database.' ), $wpdb->last_error );
 			} else {
@@ -231,7 +238,11 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 			}
 		}
 	} else {
+<<<<<<< HEAD
 		if ( false === $wpdb->insert( $wpdb->links, compact( 'link_url', 'link_name', 'link_image', 'link_target', 'link_description', 'link_visible', 'link_owner', 'link_rating', 'link_rel', 'link_notes', 'link_rss', 'link_updated' ) ) ) {
+=======
+		if ( false === $wpdb->insert( $wpdb->links, compact( 'link_url', 'link_name', 'link_image', 'link_target', 'link_description', 'link_visible', 'link_owner', 'link_rating', 'link_rel', 'link_notes', 'link_rss' ) ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( $wp_error ) {
 				return new WP_Error( 'db_insert_error', __( 'Could not insert link into the database.' ), $wpdb->last_error );
 			} else {

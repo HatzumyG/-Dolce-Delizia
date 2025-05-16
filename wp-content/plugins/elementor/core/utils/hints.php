@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 namespace Elementor\Core\Utils;
+=======
+namespace elementor\core\utils;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -9,23 +13,35 @@ use Elementor\User;
 use Elementor\Utils;
 
 class Hints {
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const INFO = 'info';
 	const SUCCESS = 'success';
 	const WARNING = 'warning';
 	const DANGER = 'danger';
 
 	const DEFINED = 'defined';
+<<<<<<< HEAD
 	const NOT_DEFINED = 'not_defined';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const DISMISSED = 'dismissed';
 	const CAPABILITY = 'capability';
 	const PLUGIN_INSTALLED = 'plugin_installed';
 	const PLUGIN_ACTIVE = 'plugin_active';
+<<<<<<< HEAD
 	const NOT_HAS_OPTION = 'not_has_option';
 
 	/**
 	 * Get_notice_types
 	 *
+=======
+
+	/**
+	 * get_notice_types
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return string[]
 	 */
 	public static function get_notice_types(): array {
@@ -38,7 +54,11 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_hints
+=======
+	 * get_hints
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param $hint_key
 	 *
@@ -61,12 +81,15 @@ class Hints {
 				self::CAPABILITY => 'install_plugins',
 				self::DEFINED => 'IMAGE_OPTIMIZATION_VERSION',
 			],
+<<<<<<< HEAD
 			'image-optimization-connect' => [
 				self::DISMISSED => 'image_optimizer_hint',
 				self::CAPABILITY => 'manage_options',
 				self::NOT_DEFINED => 'IMAGE_OPTIMIZATION_VERSION',
 				self::NOT_HAS_OPTION => 'image_optimizer_access_token',
 			],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'image-optimization-media-modal' => [
 				self::DISMISSED => 'image-optimization-media-modal',
 				self::CAPABILITY => 'install_plugins',
@@ -81,8 +104,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_notice_icon
 	 *
+=======
+	 * get_notice_icon
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return string
 	 */
 	public static function get_notice_icon(): string {
@@ -94,10 +121,16 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_notice_template
 	 *
 	 * Print or Retrieve the notice template.
 	 *
+=======
+	 * get_notice_template
+	 *
+	 * Print or Retrieve the notice template.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param array $notice
 	 * @param bool $return
 	 *
@@ -144,7 +177,11 @@ class Hints {
 		}
 
 		if ( ! empty( $notice_settings['button_text'] ) ) {
+<<<<<<< HEAD
 			$button_settings = ( ! empty( $notice_settings['button_data'] ) ) ? ' data-settings="' . esc_attr( wp_json_encode( $notice_settings['button_data'] ) ) . '"' : '';
+=======
+			$button_settings = ( ! empty( $notice_settings['button_data'] ) ) ? ' data-settings="' . esc_attr( json_encode( $notice_settings['button_data'] ) ) . '"' : '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$button = '<div class="elementor-control-notice-main-actions">
 				<button type="button" class="e-btn e-' . $notice_settings['type'] . ' e-btn-1" data-event="' . $notice_settings['button_event'] . '"' . $button_settings . '>
 					' . $notice_settings['button_text'] . '
@@ -183,8 +220,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_plugin_install_url
 	 *
+=======
+	 * get_plugin_install_url
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $plugin_slug
 	 *
 	 * @return string
@@ -204,8 +245,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_plugin_activate_url
 	 *
+=======
+	 * get_plugin_activate_url
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $plugin_slug
 	 *
 	 * @return string
@@ -219,8 +264,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Is_dismissed
 	 *
+=======
+	 * is_dismissed
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $key
 	 *
 	 * @return bool
@@ -231,8 +280,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Should_display_hint
 	 *
+=======
+	 * should_display_hint
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $hint_key
 	 *
 	 * @return bool
@@ -249,20 +302,29 @@ class Hints {
 					if ( self::is_dismissed( $value ) ) {
 						return false;
 					}
+<<<<<<< HEAD
 
 					break;
 
+=======
+					break;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				case self::CAPABILITY:
 					if ( ! current_user_can( $value ) ) {
 						return false;
 					}
+<<<<<<< HEAD
 
 					break;
 
+=======
+					break;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				case self::DEFINED:
 					if ( defined( $value ) ) {
 						return false;
 					}
+<<<<<<< HEAD
 
 					break;
 
@@ -273,17 +335,25 @@ class Hints {
 
 					break;
 
+=======
+					break;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				case self::PLUGIN_INSTALLED:
 					if ( ! self::is_plugin_installed( $value ) ) {
 						return false;
 					}
+<<<<<<< HEAD
 
 					break;
 
+=======
+					break;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				case self::PLUGIN_ACTIVE:
 					if ( ! self::is_plugin_active( $value ) ) {
 						return false;
 					}
+<<<<<<< HEAD
 
 					break;
 
@@ -293,6 +363,8 @@ class Hints {
 						return false;
 					}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					break;
 			}
 		}
@@ -326,21 +398,33 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Is_plugin_installed
 	 *
+=======
+	 * is_plugin_installed
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $plugin
 	 *
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public static function is_plugin_installed( $plugin ): bool {
+=======
+	public static function is_plugin_installed( $plugin ) : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$plugins = get_plugins();
 		$plugin = self::ensure_plugin_folder( $plugin );
 		return ! empty( $plugins[ $plugin ] );
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Is_plugin_active
 	 *
+=======
+	 * is_plugin_active
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $plugin
 	 *
 	 * @return bool
@@ -351,8 +435,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_plugin_action_url
 	 *
+=======
+	 * get_plugin_action_url
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $plugin
 	 *
 	 * @return string
@@ -370,8 +458,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Ensure_plugin_folder
 	 *
+=======
+	 * ensure_plugin_folder
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $plugin
 	 *
 	 * @return string
@@ -384,8 +476,12 @@ class Hints {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get_notice_allowed_html
 	 *
+=======
+	 * get_notice_allowed_html
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return array[]
 	 */
 	public static function get_notice_allowed_html(): array {

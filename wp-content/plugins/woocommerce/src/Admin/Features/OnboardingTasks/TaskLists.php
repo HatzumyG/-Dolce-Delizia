@@ -7,8 +7,11 @@ namespace Automattic\WooCommerce\Admin\Features\OnboardingTasks;
 
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\ReviewShippingOptions;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Task Lists class.
  */
@@ -135,7 +138,11 @@ class TaskLists {
 		}
 
 		// If the React-based Payments settings page is enabled, we don't need the dedicated WooPayments task.
+<<<<<<< HEAD
 		if ( FeaturesUtil::feature_is_enabled( 'reactify-classic-payments-settings' ) ) {
+=======
+		if ( Features::is_enabled( 'reactify-classic-payments-settings' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$key = array_search( 'WooCommercePayments', $tasks, true );
 			if ( false !== $key ) {
 				unset( $tasks[ $key ] );
@@ -465,6 +472,7 @@ class TaskLists {
 	 * @return array
 	 */
 	public static function task_list_preloaded_settings( $settings ) {
+<<<<<<< HEAD
 		$settings['visibleTaskListIds']   = self::all_hidden() ? array() : array_keys( self::get_visible() );
 		$settings['completedTaskListIds'] = get_option( TaskList::COMPLETED_OPTION, array() );
 
@@ -480,4 +488,10 @@ class TaskLists {
 		$hidden_lists = get_option( TaskList::HIDDEN_OPTION, array() );
 		return count( $hidden_lists ) === count( self::get_lists() );
 	}
+=======
+		$settings['visibleTaskListIds'] = array_keys( self::get_visible() );
+
+		return $settings;
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

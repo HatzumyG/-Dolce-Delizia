@@ -21,6 +21,7 @@ class ComingSoonRequestHandler {
 	private $coming_soon_helper = null;
 
 	/**
+<<<<<<< HEAD
 	 * Whether the coming soon screen should be shown. Cache the result to avoid multiple calls to the helper.
 	 *
 	 * @var bool
@@ -28,6 +29,8 @@ class ComingSoonRequestHandler {
 	private static $show_coming_soon = false;
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Sets up the hook.
 	 *
 	 * @internal
@@ -36,6 +39,7 @@ class ComingSoonRequestHandler {
 	 */
 	final public function init( ComingSoonHelper $coming_soon_helper ) {
 		$this->coming_soon_helper = $coming_soon_helper;
+<<<<<<< HEAD
 		// Hook into plugins_loaded to ensure features are initialized to determine coming soon status.
 		add_action(
 			'plugins_loaded',
@@ -66,6 +70,13 @@ class ComingSoonRequestHandler {
 		$container->get( BlockTemplatesRegistry::class )->init();
 		$container->get( BlockTemplatesController::class )->init();
 	}
+=======
+		add_filter( 'template_include', array( $this, 'handle_template_include' ) );
+		add_filter( 'wp_theme_json_data_theme', array( $this, 'experimental_filter_theme_json_theme' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+	}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Replaces the page template with a 'coming soon' when the site is in coming soon mode.
@@ -76,7 +87,13 @@ class ComingSoonRequestHandler {
 	 * @return string The path to the 'coming soon' template or any empty string to prevent further template loading in FSE themes.
 	 */
 	public function handle_template_include( $template ) {
+<<<<<<< HEAD
 		if ( ! $this->should_show_coming_soon() ) {
+=======
+		global $wp;
+
+		if ( ! $this->should_show_coming_soon( $wp ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $template;
 		}
 
@@ -85,6 +102,18 @@ class ComingSoonRequestHandler {
 
 		$is_fse_theme         = wc_current_theme_is_fse_theme();
 		$is_store_coming_soon = $this->coming_soon_helper->is_store_coming_soon();
+<<<<<<< HEAD
+=======
+
+		if ( ! $is_fse_theme && ! current_theme_supports( 'block-template-parts' ) ) {
+			// Initialize block templates for use in classic theme.
+			BlocksPackage::init();
+			$container = BlocksPackage::container();
+			$container->get( BlockTemplatesRegistry::class )->init();
+			$container->get( BlockTemplatesController::class )->init();
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_theme_support( 'block-templates' );
 
 		$coming_soon_template = get_query_template( 'coming-soon' );
@@ -126,6 +155,7 @@ class ComingSoonRequestHandler {
 	/**
 	 * Determines whether the coming soon screen should be shown.
 	 *
+<<<<<<< HEAD
 	 * @return bool
 	 */
 	private function should_show_coming_soon() {
@@ -134,6 +164,13 @@ class ComingSoonRequestHandler {
 			return true;
 		}
 
+=======
+	 * @param \WP $wp Current WordPress environment instance.
+	 *
+	 * @return bool
+	 */
+	private function should_show_coming_soon( \WP &$wp ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Early exit if LYS feature is disabled.
 		if ( ! Features::is_enabled( 'launch-your-store' ) ) {
 			return false;
@@ -149,8 +186,15 @@ class ComingSoonRequestHandler {
 			return false;
 		}
 
+<<<<<<< HEAD
 		// Early exit if the current page doesn't need a coming soon screen.
 		if ( ! $this->coming_soon_helper->is_current_page_coming_soon() ) {
+=======
+		// Early exit if the URL doesn't need a coming soon screen.
+		$url = $this->coming_soon_helper->get_url_from_wp( $wp );
+
+		if ( ! $this->coming_soon_helper->is_url_coming_soon( $url ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return false;
 		}
 
@@ -177,8 +221,11 @@ class ComingSoonRequestHandler {
 				return false;
 			}
 		}
+<<<<<<< HEAD
 
 		self::$show_coming_soon = true;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return true;
 	}
 

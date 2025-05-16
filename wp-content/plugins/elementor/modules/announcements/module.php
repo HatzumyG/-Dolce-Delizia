@@ -66,7 +66,11 @@ class Module extends BaseApp {
 
 		foreach ( $active_announcements as $announcement ) {
 			$additional_settings[] = $announcement->get_prepared_data();
+<<<<<<< HEAD
 			// @TODO - replace with ajax request from the front after actually triggered
+=======
+			//@TODO - replace with ajax request from the front after actually triggered
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$announcement->after_triggered();
 		}
 

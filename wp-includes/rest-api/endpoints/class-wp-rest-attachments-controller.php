@@ -134,6 +134,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
+<<<<<<< HEAD
 		$files = $request->get_file_params();
 
 		/**
@@ -172,6 +173,8 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 				);
 			}
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return true;
 	}

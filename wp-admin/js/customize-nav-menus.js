@@ -223,9 +223,12 @@
 
 			this.$el.on( 'input', '#custom-menu-item-name.invalid, #custom-menu-item-url.invalid', function() {
 				$( this ).removeClass( 'invalid' );
+<<<<<<< HEAD
 				var errorMessageId = $( this ).attr( 'aria-describedby' );
 				$( '#' + errorMessageId ).hide();
 				$( this ).removeAttr( 'aria-invalid' ).removeAttr( 'aria-describedby' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			});
 
 			// Load available items if it looks like we'll need them.
@@ -549,11 +552,16 @@
 			var menuItem,
 				itemName = $( '#custom-menu-item-name' ),
 				itemUrl = $( '#custom-menu-item-url' ),
+<<<<<<< HEAD
 				urlErrorMessage = $( '#custom-url-error' ),
 				nameErrorMessage = $( '#custom-name-error' ),
 				url = itemUrl.val().trim(),
 				urlRegex,
 				errorText;
+=======
+				url = itemUrl.val().trim(),
+				urlRegex;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( ! this.currentMenuControl ) {
 				return;
@@ -572,6 +580,7 @@
 			 * so this pattern does not need to be complete.
 			 */
 			urlRegex = /^((\w+:)?\/\/\w.*|\w+:(?!\/\/$)|\/|\?|#)/;
+<<<<<<< HEAD
 			if ( ! urlRegex.test( url ) || '' === itemName.val() ) {
 				if ( ! urlRegex.test( url ) ) {
 					itemUrl.addClass( 'invalid' )
@@ -603,6 +612,17 @@
 				.removeAttr( 'aria-invalid', 'true' )
 				.removeAttr( 'aria-describedby', 'custom-name-error' );
 
+=======
+
+			if ( '' === itemName.val() ) {
+				itemName.addClass( 'invalid' );
+				return;
+			} else if ( ! urlRegex.test( url ) ) {
+				itemUrl.addClass( 'invalid' );
+				return;
+			}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			menuItem = {
 				'title': itemName.val(),
 				'url': url,

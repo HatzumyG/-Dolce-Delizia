@@ -21,6 +21,7 @@ class Image_Src_Prop_Type extends Object_Prop_Type {
 		];
 	}
 
+<<<<<<< HEAD
 	public function default_url( string $url ): self {
 		$this->default( [
 			'id' => null,
@@ -30,6 +31,8 @@ class Image_Src_Prop_Type extends Object_Prop_Type {
 		return $this;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	protected function validate_value( $value ): bool {
 		$only_one_key = count( array_filter( $value ) ) === 1;
 

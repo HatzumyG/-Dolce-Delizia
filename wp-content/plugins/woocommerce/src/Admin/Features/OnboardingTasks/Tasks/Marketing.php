@@ -4,12 +4,17 @@ namespace Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks;
 
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
+<<<<<<< HEAD
+=======
+use Automattic\WooCommerce\Internal\Admin\RemoteFreeExtensions\Init as RemoteFreeExtensions;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Marketing Task
  */
 class Marketing extends Task {
 	/**
+<<<<<<< HEAD
 	 * Constructor
 	 *
 	 * @param TaskList $task_list Parent task list.
@@ -36,6 +41,8 @@ class Marketing extends Task {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Used to cache is_complete() method result.
 	 *
 	 * @var null

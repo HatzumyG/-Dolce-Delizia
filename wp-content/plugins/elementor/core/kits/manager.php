@@ -7,7 +7,11 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Plugin;
 use Elementor\Core\Files\CSS\Post as Post_CSS;
+<<<<<<< HEAD
 use Elementor\Core\Files\CSS\Post_Preview;
+=======
+use Elementor\Core\Files\CSS\Post_Preview as Post_Preview;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\Core\Documents_Manager;
 use Elementor\Core\Kits\Documents\Kit;
 use Elementor\TemplateLibrary\Source_Local;
@@ -72,7 +76,11 @@ class Manager {
 	 * Returns an empty kit for situation when there is no kit in the site.
 	 *
 	 * @return Kit
+<<<<<<< HEAD
 	 * @throws \Exception If the kit instance cannot be created.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function get_empty_kit_instance() {
 		return new Kit( [
@@ -300,7 +308,11 @@ class Manager {
 	 *
 	 * Convert a given scheme value to its corresponding default global value
 	 *
+<<<<<<< HEAD
 	 * @param string $type 'color'/'typography'.
+=======
+	 * @param string $type 'color'/'typography'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $value
 	 * @return mixed
 	 */
@@ -335,7 +347,11 @@ class Manager {
 	 */
 	public function convert_scheme_to_global( $scheme ) {
 		if ( isset( $scheme['type'] ) && isset( $scheme['value'] ) ) {
+<<<<<<< HEAD
 			// _deprecated_argument( $args['scheme'], '3.0.0', 'Schemes are now deprecated - use $args[\'global\'] instead.' );
+=======
+			//_deprecated_argument( $args['scheme'], '3.0.0', 'Schemes are now deprecated - use $args[\'global\'] instead.' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $this->map_scheme_to_global( $scheme['type'], $scheme['value'] );
 		}
 
@@ -374,8 +390,13 @@ class Manager {
 	/**
 	 * Send a confirm message before move a kit to trash, or if delete permanently not for trash.
 	 *
+<<<<<<< HEAD
 	 * @param $post_id
 	 * @param bool    $is_permanently_delete
+=======
+	 * @param       $post_id
+	 * @param false $is_permanently_delete
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function before_delete_kit( $post_id, $is_permanently_delete = false ) {
 		if ( $this->should_skip_trash_kit_confirmation ) {

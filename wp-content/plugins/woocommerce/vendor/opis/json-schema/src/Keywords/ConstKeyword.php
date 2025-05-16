@@ -44,8 +44,16 @@ class ConstKeyword implements Keyword
             return null;
         }
 
+<<<<<<< HEAD
         return $this->error($schema, $context, 'const', 'The data must match the const value', [
             'const' => $this->const
         ]);
     }
 }
+=======
+        return $this->error($schema, $context, 'const', 'The data must must match the const value', [
+            'const' => $this->const
+        ]);
+    }
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

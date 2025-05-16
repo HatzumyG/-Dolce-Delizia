@@ -8,8 +8,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Widget recently viewed.
  */
@@ -75,7 +78,11 @@ class WC_Widget_Recently_Viewed extends WC_Widget {
 				array(
 					'taxonomy' => 'product_visibility',
 					'field'    => 'name',
+<<<<<<< HEAD
 					'terms'    => ProductStockStatus::OUT_OF_STOCK,
+=======
+					'terms'    => 'outofstock',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'operator' => 'NOT IN',
 				),
 			); // WPCS: slow query ok.

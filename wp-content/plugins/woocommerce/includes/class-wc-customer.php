@@ -8,7 +8,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+<<<<<<< HEAD
 require_once __DIR__ . '/legacy/class-wc-legacy-customer.php';
+=======
+require_once dirname( __FILE__ ) . '/legacy/class-wc-legacy-customer.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Customer class.
@@ -268,10 +272,15 @@ class WC_Customer extends WC_Legacy_Customer {
 				return true;
 			}
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return false;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Checks whether the address is "full" in the sense that it contains all required fields to calculate shipping rates.
 	 * This method uses the current country's locale to determine if a field is required, or falls back to the default
 	 * locale if there's no country-specific setting for that field.
@@ -322,6 +331,8 @@ class WC_Customer extends WC_Legacy_Customer {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get if customer is VAT exempt?
 	 *
 	 * @since 3.0.0

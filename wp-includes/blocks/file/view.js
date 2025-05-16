@@ -23,13 +23,21 @@ import * as __WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__ from "
 /************************************************************************/
 var __webpack_exports__ = {};
 
+<<<<<<< HEAD
 ;// external "@wordpress/interactivity"
+=======
+;// CONCATENATED MODULE: external "@wordpress/interactivity"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
 const interactivity_namespaceObject = x({ ["store"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.store) });
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/block-library/build-module/file/utils/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/file/utils/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Uses a combination of user agent matching and feature detection to determine whether
  * the current browser supports rendering PDFs inline.
@@ -42,7 +50,11 @@ const browserSupportsPdfs = () => {
     return false;
   }
 
+<<<<<<< HEAD
   // Android tablets are the notable exception.
+=======
+  // Android tablets are the noteable exception.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   if (window.navigator.userAgent.indexOf('Android') > -1) {
     return false;
   }
@@ -76,7 +88,11 @@ const createActiveXObject = type => {
   return ax;
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/block-library/build-module/file/view.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/file/view.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */

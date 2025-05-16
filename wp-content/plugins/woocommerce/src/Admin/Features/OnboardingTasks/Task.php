@@ -463,6 +463,7 @@ abstract class Task {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * If a task is always accessible, relevant for when a task list is hidden but a task can still be viewed.
 	 *
 	 * @return bool
@@ -472,6 +473,8 @@ abstract class Task {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Check if the task has been visited.
 	 *
 	 * @return bool
@@ -613,4 +616,8 @@ abstract class Task {
 		}
 		return $result;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

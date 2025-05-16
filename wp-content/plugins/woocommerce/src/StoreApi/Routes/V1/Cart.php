@@ -45,8 +45,12 @@ class Cart extends AbstractCartRoute {
 					'context' => $this->get_context_param( [ 'default' => 'view' ] ),
 				],
 			],
+<<<<<<< HEAD
 			'schema'      => [ $this->schema, 'get_public_item_schema' ],
 			'allow_batch' => [ 'v1' => true ],
+=======
+			'schema' => [ $this->schema, 'get_public_item_schema' ],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 	}
 

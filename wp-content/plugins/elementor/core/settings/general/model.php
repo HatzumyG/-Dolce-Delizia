@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\Core\Settings\General;
 
 use Elementor\Plugin;
@@ -13,6 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @deprecated 3.0.0 Use `Plugin::$instance->kits_manager->get_active_kit_for_frontend()` instead.
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 class Model {
 
 	/**

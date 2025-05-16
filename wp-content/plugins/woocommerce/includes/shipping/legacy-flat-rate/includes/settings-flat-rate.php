@@ -9,8 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $cost_desc = __( 'Enter a cost (excl. tax) or sum, e.g. <code>10.00 * [qty]</code>.', 'woocommerce' ) . '<br/>' . __( 'Supports the following placeholders: <code>[qty]</code> = number of items, <code>[cost]</code> = cost of items, <code>[fee percent="10" min_fee="20"]</code> = Percentage based fee.', 'woocommerce' );
 
 /**
@@ -55,10 +58,17 @@ $settings = array(
 		'title'   => __( 'Tax status', 'woocommerce' ),
 		'type'    => 'select',
 		'class'   => 'wc-enhanced-select',
+<<<<<<< HEAD
 		'default' => ProductTaxStatus::TAXABLE,
 		'options' => array(
 			ProductTaxStatus::TAXABLE => __( 'Taxable', 'woocommerce' ),
 			ProductTaxStatus::NONE    => _x( 'None', 'Tax status', 'woocommerce' ),
+=======
+		'default' => 'taxable',
+		'options' => array(
+			'taxable' => __( 'Taxable', 'woocommerce' ),
+			'none'    => _x( 'None', 'Tax status', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 	),
 	'cost'         => array(

@@ -56,7 +56,11 @@ class WP_Block {
 	 * @var array
 	 * @access protected
 	 */
+<<<<<<< HEAD
 	protected $available_context = array();
+=======
+	protected $available_context;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Block type registry.
@@ -140,6 +144,7 @@ class WP_Block {
 
 		$this->available_context = $available_context;
 
+<<<<<<< HEAD
 		$this->refresh_context_dependents();
 	}
 
@@ -162,6 +167,8 @@ class WP_Block {
 		 */
 		$this->available_context = array_merge( $this->available_context, $this->context );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! empty( $this->block_type->uses_context ) ) {
 			foreach ( $this->block_type->uses_context as $context_name ) {
 				if ( array_key_exists( $context_name, $this->available_context ) ) {
@@ -170,6 +177,7 @@ class WP_Block {
 			}
 		}
 
+<<<<<<< HEAD
 		$this->refresh_parsed_block_dependents();
 	}
 
@@ -187,6 +195,9 @@ class WP_Block {
 	 */
 	public function refresh_parsed_block_dependents() {
 		if ( ! empty( $this->parsed_block['innerBlocks'] ) ) {
+=======
+		if ( ! empty( $block['innerBlocks'] ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$child_context = $this->available_context;
 
 			if ( ! empty( $this->block_type->provides_context ) ) {
@@ -197,6 +208,7 @@ class WP_Block {
 				}
 			}
 
+<<<<<<< HEAD
 			$this->inner_blocks = new WP_Block_List( $this->parsed_block['innerBlocks'], $child_context, $this->registry );
 		}
 
@@ -206,6 +218,17 @@ class WP_Block {
 
 		if ( ! empty( $this->parsed_block['innerContent'] ) ) {
 			$this->inner_content = $this->parsed_block['innerContent'];
+=======
+			$this->inner_blocks = new WP_Block_List( $block['innerBlocks'], $child_context, $registry );
+		}
+
+		if ( ! empty( $block['innerHTML'] ) ) {
+			$this->inner_html = $block['innerHTML'];
+		}
+
+		if ( ! empty( $block['innerContent'] ) ) {
+			$this->inner_content = $block['innerContent'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -412,7 +435,11 @@ class WP_Block {
 
 				foreach ( $selectors as $selector ) {
 					// If the parent tag, or any of its children, matches the selector, replace the HTML.
+<<<<<<< HEAD
 					if ( strcasecmp( $block_reader->get_tag(), $selector ) === 0 || $block_reader->next_tag(
+=======
+					if ( strcasecmp( $block_reader->get_tag( $selector ), $selector ) === 0 || $block_reader->next_tag(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						array(
 							'tag_name' => $selector,
 						)
@@ -544,8 +571,12 @@ class WP_Block {
 					if ( ! is_null( $pre_render ) ) {
 						$block_content .= $pre_render;
 					} else {
+<<<<<<< HEAD
 						$source_block        = $inner_block->parsed_block;
 						$inner_block_context = $inner_block->context;
+=======
+						$source_block = $inner_block->parsed_block;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 						/** This filter is documented in wp-includes/blocks.php */
 						$inner_block->parsed_block = apply_filters( 'render_block_data', $inner_block->parsed_block, $source_block, $parent_block );
@@ -553,6 +584,7 @@ class WP_Block {
 						/** This filter is documented in wp-includes/blocks.php */
 						$inner_block->context = apply_filters( 'render_block_context', $inner_block->context, $inner_block->parsed_block, $parent_block );
 
+<<<<<<< HEAD
 						/*
 						 * The `refresh_context_dependents()` method already calls `refresh_parsed_block_dependents()`.
 						 * Therefore the second condition is irrelevant if the first one is satisfied.
@@ -563,6 +595,8 @@ class WP_Block {
 							$inner_block->refresh_parsed_block_dependents();
 						}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						$block_content .= $inner_block->render();
 					}
 
@@ -608,11 +642,14 @@ class WP_Block {
 			}
 		}
 
+<<<<<<< HEAD
 		/*
 		 * For Core blocks, these styles are only enqueued if `wp_should_load_separate_core_block_assets()` returns
 		 * true. Otherwise these `wp_enqueue_style()` calls will not have any effect, as the Core blocks are relying on
 		 * the combined 'wp-block-library' stylesheet instead, which is unconditionally enqueued.
 		 */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ( ! empty( $this->block_type->style_handles ) ) ) {
 			foreach ( $this->block_type->style_handles as $style_handle ) {
 				wp_enqueue_style( $style_handle );

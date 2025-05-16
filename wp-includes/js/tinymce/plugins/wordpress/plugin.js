@@ -116,7 +116,11 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 
 				event.content = event.content.replace( /<!--more(.*?)-->/g, function( match, moretext ) {
 					return '<img src="' + tinymce.Env.transparentSrc + '" data-wp-more="more" data-wp-more-text="' + moretext + '" ' +
+<<<<<<< HEAD
 						'class="wp-more-tag mce-wp-more" alt="' + title + '" data-mce-resize="false" data-mce-placeholder="1" />';
+=======
+						'class="wp-more-tag mce-wp-more" alt="" title="' + title + '" data-mce-resize="false" data-mce-placeholder="1" />';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				});
 			}
 
@@ -125,7 +129,11 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 
 				event.content = event.content.replace( /<!--nextpage-->/g,
 					'<img src="' + tinymce.Env.transparentSrc + '" data-wp-more="nextpage" class="wp-more-tag mce-wp-nextpage" ' +
+<<<<<<< HEAD
 						'alt="' + title + '" data-mce-resize="false" data-mce-placeholder="1" />' );
+=======
+						'alt="" title="' + title + '" data-mce-resize="false" data-mce-placeholder="1" />' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			if ( event.load && event.format !== 'raw' ) {
@@ -144,9 +152,16 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 						'data-wp-preserve="' + encodeURIComponent( match ) + '" ' +
 						'data-mce-resize="false" ' +
 						'data-mce-placeholder="1" '+
+<<<<<<< HEAD
 						'class="mce-object mce-object-' + tag + '" ' +
 						'width="20" height="20" '+
 						'alt="&lt;' + tag + '&gt;" ' +
+=======
+						'class="mce-object" ' +
+						'width="20" height="20" '+
+						'alt="&lt;' + tag + '&gt;" ' +
+						'title="&lt;' + tag + '&gt;" ' +
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'/>';
 				} );
 			}
@@ -213,7 +228,11 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 		classname += ' mce-wp-' + tag;
 		title = tag === 'more' ? 'Read more...' : 'Next page';
 		title = __( title );
+<<<<<<< HEAD
 		html = '<img src="' + tinymce.Env.transparentSrc + '" alt="' + title + '" class="' + classname + '" ' +
+=======
+		html = '<img src="' + tinymce.Env.transparentSrc + '" alt="" title="' + title + '" class="' + classname + '" ' +
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'data-wp-more="' + tag + '" data-mce-resize="false" data-mce-placeholder="1" />';
 
 		// Most common case.

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 .wp-block-read-more{display:block;width:fit-content}.wp-block-read-more:where(:not([style*=text-decoration])){text-decoration:none}.wp-block-read-more:where(:not([style*=text-decoration])):active,.wp-block-read-more:where(:not([style*=text-decoration])):focus{text-decoration:none}
+=======
+.wp-block-read-more{display:block;width:-moz-fit-content;width:fit-content}.wp-block-read-more:where(:not([style*=text-decoration])){text-decoration:none}.wp-block-read-more:where(:not([style*=text-decoration])):active,.wp-block-read-more:where(:not([style*=text-decoration])):focus{text-decoration:none}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

@@ -227,7 +227,10 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 	 * Retrieves terms associated with a taxonomy.
 	 *
 	 * @since 4.7.0
+<<<<<<< HEAD
 	 * @since 6.8.0 Respect default query arguments set for the taxonomy upon registration.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -296,6 +299,7 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 			}
 		}
 
+<<<<<<< HEAD
 		/*
 		 * When a taxonomy is registered with an 'args' array,
 		 * those params override the `$args` passed to this function.
@@ -320,6 +324,8 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 			$prepared_args['update_term_meta_cache'] = false;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Filters get_terms() arguments when querying terms via the REST API.
 		 *
@@ -362,6 +368,7 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 			$total_terms = 0;
 		}
 
+<<<<<<< HEAD
 		if ( ! $is_head_request ) {
 			$response = array();
 			foreach ( $query_result as $term ) {
@@ -371,6 +378,16 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 		}
 
 		$response = $is_head_request ? new WP_REST_Response( array() ) : rest_ensure_response( $response );
+=======
+		$response = array();
+
+		foreach ( $query_result as $term ) {
+			$data       = $this->prepare_item_for_response( $term, $request );
+			$response[] = $this->prepare_response_for_collection( $data );
+		}
+
+		$response = rest_ensure_response( $response );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Store pagination values for headers.
 		$per_page = (int) $prepared_args['number'];
@@ -896,12 +913,15 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 	 */
 	public function prepare_item_for_response( $item, $request ) {
 
+<<<<<<< HEAD
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
 			/** This filter is documented in wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php */
 			return apply_filters( "rest_prepare_{$this->taxonomy}", new WP_REST_Response( array() ), $item, $request );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$fields = $this->get_fields_for_response( $request );
 		$data   = array();
 

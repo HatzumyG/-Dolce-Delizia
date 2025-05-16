@@ -411,6 +411,22 @@ class Widget_Video extends Widget_Base {
 		);
 
 		$this->add_control(
+<<<<<<< HEAD
+=======
+			'modestbranding',
+			[
+				'label' => esc_html__( 'Modest Branding', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'condition' => [
+					'video_type' => [ 'youtube' ],
+					'controls' => 'yes',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'cc_load_policy',
 			[
 				'label' => esc_html__( 'Captions', 'elementor' ),
@@ -946,7 +962,11 @@ class Widget_Video extends Widget_Base {
 					'unit' => '%',
 				],
 				// 'selectors' => [
+<<<<<<< HEAD
 				// '(desktop+)#elementor-lightbox-{{ID}} .elementor-video-container' => 'width: {{SIZE}}{{UNIT}};',
+=======
+				// 	'(desktop+)#elementor-lightbox-{{ID}} .elementor-video-container' => 'width: {{SIZE}}{{UNIT}};',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				// ],
 				'condition' => [
 					'lightbox_video_width!' => '',
@@ -967,7 +987,11 @@ class Widget_Video extends Widget_Base {
 					'top' => esc_html__( 'Top', 'elementor' ),
 				],
 				// 'selectors' => [
+<<<<<<< HEAD
 				// '#elementor-lightbox-{{ID}} .elementor-video-container' => '{{VALUE}}; transform: translateX(-50%);',
+=======
+				// 	'#elementor-lightbox-{{ID}} .elementor-video-container' => '{{VALUE}}; transform: translateX(-50%);',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				// ],
 				'selectors_dictionary' => [
 					'top' => 'top: 60px',
@@ -1182,6 +1206,10 @@ class Widget_Video extends Widget_Base {
 				'controls',
 				'mute',
 				'rel',
+<<<<<<< HEAD
+=======
+				'modestbranding',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'cc_load_policy',
 			];
 
@@ -1321,6 +1349,10 @@ class Widget_Video extends Widget_Base {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * @param bool $from_media
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 * @since 2.1.0

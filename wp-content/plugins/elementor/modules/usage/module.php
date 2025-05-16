@@ -18,6 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Elementor usage module handler class is responsible for registering and
  * managing Elementor usage data.
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 class Module extends BaseModule {
 	const GENERAL_TAB = 'general';
@@ -84,7 +88,11 @@ class Module extends BaseModule {
 	 *
 	 * Retrieve formatted usage, for frontend.
 	 *
+<<<<<<< HEAD
 	 * @param String $format Optional. Default is 'html'.
+=======
+	 * @param String format
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array
 	 */
@@ -361,7 +369,11 @@ class Module extends BaseModule {
 			if ( $value !== $control_config['default'] ) {
 				$this->increase_controls_count( $element_ref, $tab, $section, $control, 1 );
 
+<<<<<<< HEAD
 				++$changed_controls_count;
+=======
+				$changed_controls_count++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
@@ -578,7 +590,11 @@ class Module extends BaseModule {
 				] );
 
 				return;
+<<<<<<< HEAD
 			}
+=======
+			};
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

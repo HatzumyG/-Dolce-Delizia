@@ -604,6 +604,7 @@ class StyleAttributesUtils {
 	 * @return array
 	 */
 	public static function get_text_align_class_and_style( $attributes ) {
+<<<<<<< HEAD
 		// Check if the text align is set in the attributes manually (legacy) or in the global styles.
 		$text_align = $attributes['textAlign'] ?? $attributes['style']['typography']['textAlign'] ?? null;
 
@@ -613,6 +614,15 @@ class StyleAttributesUtils {
 				'style' => null,
 			);
 		}
+=======
+		if ( isset( $attributes['textAlign'] ) ) {
+			return array(
+				'class' => 'has-text-align-' . $attributes['textAlign'],
+				'style' => null,
+			);
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return self::EMPTY_STYLE;
 	}
 

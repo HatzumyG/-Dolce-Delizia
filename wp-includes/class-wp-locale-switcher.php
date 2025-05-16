@@ -273,12 +273,19 @@ class WP_Locale_Switcher {
 	 * @since 4.7.0
 	 *
 	 * @global WP_Locale $wp_locale WordPress date and time locale object.
+<<<<<<< HEAD
 	 * @global PHPMailer\PHPMailer\PHPMailer $phpmailer
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param string $locale The locale to change to.
 	 */
 	private function change_locale( $locale ) {
+<<<<<<< HEAD
 		global $wp_locale, $phpmailer;
+=======
+		global $wp_locale;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->load_translations( $locale );
 
@@ -286,10 +293,13 @@ class WP_Locale_Switcher {
 
 		WP_Translation_Controller::get_instance()->set_locale( $locale );
 
+<<<<<<< HEAD
 		if ( $phpmailer instanceof WP_PHPMailer ) {
 			$phpmailer->SetLanguage();
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Fires when the locale is switched to or restored.
 		 *

@@ -31,7 +31,11 @@ __webpack_require__.d(__webpack_exports__, {
 
 // UNUSED EXPORTS: attrs, fromMatch, next, regexp, replace, string
 
+<<<<<<< HEAD
 ;// ./node_modules/memize/dist/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/memize/dist/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Memize options object.
  *
@@ -193,12 +197,47 @@ function memize(fn, options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/shortcode/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/shortcode/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+/**
+ * Shortcode attributes object.
+ *
+ * @typedef {Object} WPShortcodeAttrs
+ *
+ * @property {Object} named   Object with named attributes.
+ * @property {Array}  numeric Array with numeric attributes.
+ */
+
+/**
+ * Shortcode object.
+ *
+ * @typedef {Object} WPShortcode
+ *
+ * @property {string}           tag     Shortcode tag.
+ * @property {WPShortcodeAttrs} attrs   Shortcode attributes.
+ * @property {string}           content Shortcode content.
+ * @property {string}           type    Shortcode type: `self-closing`,
+ *                                      `closed`, or `single`.
+ */
+
+/**
+ * @typedef {Object} WPShortcodeMatch
+ *
+ * @property {number}      index     Index the shortcode is found at.
+ * @property {string}      content   Matched content.
+ * @property {WPShortcode} shortcode Shortcode instance of the match.
+ */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Find the next matching shortcode.
@@ -207,7 +246,11 @@ function memize(fn, options) {
  * @param {string} text  Text to search.
  * @param {number} index Index to start search from.
  *
+<<<<<<< HEAD
  * @return {import('./types').ShortcodeMatch | undefined} Matched information.
+=======
+ * @return {WPShortcodeMatch | undefined} Matched information.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function next(tag, text, index = 0) {
   const re = regexp(tag);
@@ -244,10 +287,17 @@ function next(tag, text, index = 0) {
 /**
  * Replace matching shortcodes in a block of text.
  *
+<<<<<<< HEAD
  * @param {string}                            tag      Shortcode tag.
  * @param {string}                            text     Text to search.
  * @param {import('./types').ReplaceCallback} callback Function to process the match and return
  *                                                     replacement string.
+=======
+ * @param {string}   tag      Shortcode tag.
+ * @param {string}   text     Text to search.
+ * @param {Function} callback Function to process the match and return
+ *                            replacement string.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @return {string} Text with shortcodes replaced.
  */
@@ -324,7 +374,11 @@ function regexp(tag) {
  *
  * @param {string} text Serialised shortcode attributes.
  *
+<<<<<<< HEAD
  * @return {import('./types').ShortcodeAttrs} Parsed shortcode attributes.
+=======
+ * @return {WPShortcodeAttrs} Parsed shortcode attributes.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 const attrs = memize(text => {
   const named = {};
@@ -379,9 +433,15 @@ const attrs = memize(text => {
  * by `regexp()`. `match` can also be set to the `arguments` from a callback
  * passed to `regexp.replace()`.
  *
+<<<<<<< HEAD
  * @param {import('./types').Match} match Match array.
  *
  * @return {InstanceType<import('./types').shortcode>} Shortcode instance.
+=======
+ * @param {Array} match Match array.
+ *
+ * @return {WPShortcode} Shortcode instance.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function fromMatch(match) {
   let type;
@@ -408,7 +468,13 @@ function fromMatch(match) {
  * the `type` of the shortcode ('single', 'self-closing', or 'closed'), and a
  * `content` string.
  *
+<<<<<<< HEAD
  * @type {import('./types').shortcode} Shortcode instance.
+=======
+ * @param {Object} options Options as described.
+ *
+ * @return {WPShortcode} Shortcode instance.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 const shortcode = Object.assign(function (options) {
   const {
@@ -476,7 +542,11 @@ Object.assign(shortcode.prototype, {
    * @param {(number|string)} attr  Attribute key.
    * @param {string}          value Attribute value.
    *
+<<<<<<< HEAD
    * @return {InstanceType< import('./types').shortcode >} Shortcode instance.
+=======
+   * @return {WPShortcode} Shortcode instance.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
    */
   set(attr, value) {
     this.attrs[typeof attr === 'number' ? 'numeric' : 'named'][attr] = value;

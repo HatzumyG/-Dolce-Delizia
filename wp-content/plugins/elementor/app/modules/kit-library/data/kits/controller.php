@@ -60,6 +60,10 @@ class Controller extends Base_Controller {
 	}
 
 	public function get_permission_callback( $request ) {
+<<<<<<< HEAD
 		return current_user_can( 'manage_options' );
+=======
+		return current_user_can( 'administrator' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

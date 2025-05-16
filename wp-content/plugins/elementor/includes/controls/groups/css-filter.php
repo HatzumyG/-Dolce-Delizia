@@ -24,7 +24,11 @@ class Group_Control_Css_Filter extends Group_Control_Base {
 	 * @since 2.1.0
 	 * @access protected
 	 *
+<<<<<<< HEAD
 	 * @var array $fields CSS filter control fields.
+=======
+	 * @param array $fields CSS filter control fields.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array Processed fields.
 	 */

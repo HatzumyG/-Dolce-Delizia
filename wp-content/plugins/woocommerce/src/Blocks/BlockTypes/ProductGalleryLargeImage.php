@@ -1,6 +1,9 @@
 <?php
+<<<<<<< HEAD
 declare(strict_types=1);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\Blocks\BlockTypes;
 
 use Automattic\WooCommerce\Blocks\Utils\ProductGalleryUtils;
@@ -73,7 +76,14 @@ class ProductGalleryLargeImage extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
+=======
+		if ( class_exists( 'WC_Frontend_Scripts' ) ) {
+			$frontend_scripts = new \WC_Frontend_Scripts();
+			$frontend_scripts::load_scripts();
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$processor = new \WP_HTML_Tag_Processor( $content );
 		$processor->next_tag();
@@ -117,6 +127,7 @@ class ProductGalleryLargeImage extends AbstractBlock {
 	private function get_main_images_html( $context, $product_id ) {
 		$attributes = array(
 			'class'                  => 'wc-block-woocommerce-product-gallery-large-image__image',
+<<<<<<< HEAD
 			'data-wp-watch'          => 'callbacks.scrollInto',
 			'data-wp-bind--tabindex' => 'state.thumbnailTabIndex',
 			'data-wp-on--keydown'    => 'actions.onSelectedLargeImageKeyDown',
@@ -124,6 +135,12 @@ class ProductGalleryLargeImage extends AbstractBlock {
 			'data-wp-on--touchstart' => 'actions.onTouchStart',
 			'data-wp-on--touchmove'  => 'actions.onTouchMove',
 			'data-wp-on--touchend'   => 'actions.onTouchEnd',
+=======
+			'data-wc-watch'          => 'callbacks.scrollInto',
+			'data-wc-bind--tabindex' => 'state.thumbnailTabIndex',
+			'data-wc-on--keydown'    => 'actions.onSelectedLargeImageKeyDown',
+			'data-wc-class--wc-block-woocommerce-product-gallery-large-image__image--active-image-slide' => 'state.isSelected',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		if ( $context['fullScreenOnClick'] ) {
@@ -132,7 +149,11 @@ class ProductGalleryLargeImage extends AbstractBlock {
 
 		if ( $context['hoverZoom'] ) {
 			$attributes['class']              .= ' wc-block-woocommerce-product-gallery-large-image__image--hoverZoom';
+<<<<<<< HEAD
 			$attributes['data-wp-bind--style'] = 'state.styles';
+=======
+			$attributes['data-wc-bind--style'] = 'state.styles';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$main_images = ProductGalleryUtils::get_product_gallery_images(
@@ -179,11 +200,26 @@ class ProductGalleryLargeImage extends AbstractBlock {
 		if ( ! $block_context['hoverZoom'] ) {
 			return array();
 		}
+<<<<<<< HEAD
 
 		return array(
 			'data-wp-interactive'    => 'woocommerce/product-gallery',
 			'data-wp-on--mousemove'  => 'actions.startZoom',
 			'data-wp-on--mouseleave' => 'actions.resetZoom',
+=======
+		$context = array(
+			'styles' => array(
+				'transform'        => 'scale(1.0)',
+				'transform-origin' => '',
+			),
+		);
+
+		return array(
+			'data-wc-interactive'    => wp_json_encode( array( 'namespace' => 'woocommerce/product-gallery' ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-context'        => wp_json_encode( $context, JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-on--mousemove'  => 'actions.startZoom',
+			'data-wc-on--mouseleave' => 'actions.resetZoom',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 	}
 
@@ -200,6 +236,7 @@ class ProductGalleryLargeImage extends AbstractBlock {
 		}
 
 		return array(
+<<<<<<< HEAD
 			'data-wp-on--click' => 'actions.openDialog',
 		);
 	}
@@ -214,4 +251,9 @@ class ProductGalleryLargeImage extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+			'data-wc-on--click' => 'actions.openDialog',
+		);
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

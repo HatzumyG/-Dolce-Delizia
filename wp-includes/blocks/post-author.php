@@ -26,10 +26,13 @@ function render_block_core_post_author( $attributes, $content, $block ) {
 		return '';
 	}
 
+<<<<<<< HEAD
 	if ( isset( $block->context['postType'] ) && ! post_type_supports( $block->context['postType'], 'author' ) ) {
 		return '';
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$avatar = ! empty( $attributes['avatarSize'] ) ? get_avatar(
 		$author_id,
 		$attributes['avatarSize']

@@ -9,6 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Elementor HTML widget.
  *
  * Elementor widget that insert a custom HTML code into the page.
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 class Widget_Read_More extends Widget_Base {
 

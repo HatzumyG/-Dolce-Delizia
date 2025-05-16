@@ -7,11 +7,19 @@ use Elementor\Core\Base\Module as BaseModule;
 use Elementor\Core\Kits\Documents\Kit;
 use Elementor\Plugin;
 use Elementor\Utils;
+<<<<<<< HEAD
 use Elementor\Core\DocumentTypes\PageBase;
 use Elementor\Modules\Library\Documents\Page as LibraryPageDocument;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
+=======
+use Elementor\Core\DocumentTypes\PageBase as PageBase;
+use Elementor\Modules\Library\Documents\Page as LibraryPageDocument;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -288,9 +296,13 @@ class Module extends BaseModule {
 		$document->end_injection();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * The $options variable is an array of $control_options to overwrite the default.
 	 */
+=======
+	// The $options variable is an array of $control_options to overwrite the default
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function add_template_controls( Document $document, $control_id, $control_options ) {
 		// Default Control Options
 		$default_control_options = [

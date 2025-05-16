@@ -128,6 +128,10 @@ function wp_enqueue_block_template_skip_link() {
 	$skip_link_styles = '
 		.skip-link.screen-reader-text {
 			border: 0;
+<<<<<<< HEAD
+=======
+			clip: rect(1px,1px,1px,1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			clip-path: inset(50%);
 			height: 1px;
 			margin: -1px;
@@ -140,6 +144,10 @@ function wp_enqueue_block_template_skip_link() {
 
 		.skip-link.screen-reader-text:focus {
 			background-color: #eee;
+<<<<<<< HEAD
+=======
+			clip: auto !important;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			clip-path: none;
 			color: #444;
 			display: block;
@@ -201,9 +209,14 @@ function wp_enqueue_block_template_skip_link() {
 		// Create the skip link.
 		skipLink = document.createElement( 'a' );
 		skipLink.classList.add( 'skip-link', 'screen-reader-text' );
+<<<<<<< HEAD
 		skipLink.id = 'wp-skip-link';
 		skipLink.href = '#' + skipLinkTargetID;
 		skipLink.innerText = '<?php /* translators: Hidden accessibility text. Do not use HTML entities (&nbsp;, etc.). */ esc_html_e( 'Skip to content' ); ?>';
+=======
+		skipLink.href = '#' + skipLinkTargetID;
+		skipLink.innerHTML = '<?php /* translators: Hidden accessibility text. */ esc_html_e( 'Skip to content' ); ?>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Inject the skip link.
 		sibling.parentElement.insertBefore( skipLink, sibling );

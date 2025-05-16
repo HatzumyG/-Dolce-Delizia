@@ -53,7 +53,11 @@ class WP_REST_Edit_Site_Export_Controller extends WP_REST_Controller {
 	 * @return true|WP_Error True if the request has access, or WP_Error object.
 	 */
 	public function permissions_check() {
+<<<<<<< HEAD
 		if ( current_user_can( 'export' ) ) {
+=======
+		if ( current_user_can( 'edit_theme_options' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return true;
 		}
 

@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 declare( strict_types=1 );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\StoreApi;
 
 use Automattic\WooCommerce\StoreApi\Utilities\RateLimits;
@@ -22,7 +25,10 @@ class Authentication {
 		add_action( 'set_logged_in_cookie', array( $this, 'set_logged_in_cookie' ) );
 		add_filter( 'rest_pre_serve_request', array( $this, 'send_cors_headers' ), 10, 3 );
 		add_filter( 'rest_allowed_cors_headers', array( $this, 'allowed_cors_headers' ) );
+<<<<<<< HEAD
 		add_filter( 'rest_exposed_cors_headers', array( $this, 'exposed_cors_headers' ) );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Remove the default CORS headers--we will add our own.
 		remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
@@ -41,6 +47,7 @@ class Authentication {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Expose Store API headers in CORS responses.
 	 * We're explicitly exposing the Cart-Token, not the nonce. Only one of them is needed.
 	 *
@@ -53,6 +60,8 @@ class Authentication {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Add CORS headers to a response object.
 	 *
 	 * These checks prevent access to the Store API from non-allowed origins. By default, the WordPress REST API allows
@@ -63,12 +72,21 @@ class Authentication {
 	 *
 	 * Users of valid Cart Tokens are also allowed access from any origin.
 	 *
+<<<<<<< HEAD
 	 * @param bool             $value  Whether the request has already been served.
 	 * @param \WP_REST_Server  $server The REST server instance.
 	 * @param \WP_REST_Request $request The REST request instance.
 	 * @return bool
 	 */
 	public function send_cors_headers( $value, $server, $request ) {
+=======
+	 * @param bool              $value  Whether the request has already been served.
+	 * @param \WP_HTTP_Response $result  Result to send to the client. Usually a `WP_REST_Response`.
+	 * @param \WP_REST_Request  $request Request used to generate the response.
+	 * @return bool
+	 */
+	public function send_cors_headers( $value, $result, $request ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$origin = get_http_origin();
 
 		if ( 'null' !== $origin ) {
@@ -83,7 +101,11 @@ class Authentication {
 
 		// Allow preflight requests, certain http origins, and any origin if a cart token is present. Preflight requests
 		// are allowed because we'll be unable to validate cart token headers at that point.
+<<<<<<< HEAD
 		if ( $this->is_preflight() || JsonWebToken::validate( $this->get_cart_token( $request ), $this->get_cart_token_secret() ) || is_allowed_http_origin( $origin ) ) {
+=======
+		if ( $this->is_preflight() || $this->has_valid_cart_token( $request ) || is_allowed_http_origin( $origin ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$server->send_header( 'Access-Control-Allow-Origin', $origin );
 		}
 
@@ -106,6 +128,7 @@ class Authentication {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Gets the cart token from the request header.
 	 *
 	 * @param \WP_REST_Request $request The REST request instance.
@@ -113,6 +136,17 @@ class Authentication {
 	 */
 	protected function get_cart_token( \WP_REST_Request $request ) {
 		return wc_clean( wp_unslash( $request->get_header( 'Cart-Token' ) ?? '' ) );
+=======
+	 * Checks if we're using a cart token to access the Store API.
+	 *
+	 * @param \WP_REST_Request $request Request object.
+	 * @return boolean
+	 */
+	protected function has_valid_cart_token( \WP_REST_Request $request ) {
+		$cart_token = $request->get_header( 'Cart-Token' );
+
+		return $cart_token && JsonWebToken::validate( $cart_token, $this->get_cart_token_secret() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -191,13 +225,25 @@ class Authentication {
 		$rate_limiting_options = RateLimits::get_options();
 
 		if ( $rate_limiting_options->enabled ) {
+<<<<<<< HEAD
 			$action_id = 'store_api_request_' . self::get_rate_limiting_id( $rate_limiting_options->proxy_support );
+=======
+			$action_id = 'store_api_request_';
+
+			if ( is_user_logged_in() ) {
+				$action_id .= get_current_user_id();
+			} else {
+				$ip_address = self::get_ip_address( $rate_limiting_options->proxy_support );
+				$action_id .= md5( $ip_address );
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			$retry  = RateLimits::is_exceeded_retry_after( $action_id );
 			$server = rest_get_server();
 			$server->send_header( 'RateLimit-Limit', $rate_limiting_options->limit );
 
 			if ( false !== $retry ) {
+<<<<<<< HEAD
 				$server->send_header( 'RateLimit-Remaining', 0 );
 				$server->send_header( 'RateLimit-Retry-After', $retry );
 				$server->send_header( 'RateLimit-Reset', time() + $retry );
@@ -216,6 +262,21 @@ class Authentication {
 					self::get_ip_address( $rate_limiting_options->proxy_support ),
 					$action_id
 				);
+=======
+				$server->send_header( 'RateLimit-Retry-After', $retry );
+				$server->send_header( 'RateLimit-Remaining', 0 );
+				$server->send_header( 'RateLimit-Reset', time() + $retry );
+
+				$ip_address = $ip_address ?? self::get_ip_address( $rate_limiting_options->proxy_support );
+				/**
+				 * Fires when the rate limit is exceeded.
+				 *
+				 * @since 8.9.0
+				 *
+				 * @param string $ip_address The IP address of the request.
+				 */
+				do_action( 'woocommerce_store_api_rate_limit_exceeded', $ip_address );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				return new \WP_Error(
 					'rate_limit_exceeded',
@@ -236,6 +297,7 @@ class Authentication {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Generates the request grouping identifier for the rate limiting.
 	 *
 	 * @param bool $proxy_support Rate Limiting proxy support.
@@ -263,6 +325,8 @@ class Authentication {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Check if is request to the Store API.
 	 *
 	 * @return bool

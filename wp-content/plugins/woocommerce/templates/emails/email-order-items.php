@@ -12,7 +12,11 @@
  *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 9.7.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
@@ -86,6 +90,7 @@ foreach ( $items as $item_id => $item ) :
 							 */
 							do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );
 
+<<<<<<< HEAD
 							$item_meta = wc_display_item_meta(
 								$item,
 								array(
@@ -106,6 +111,9 @@ foreach ( $items as $item_id => $item ) :
 								)
 							);
 							echo '</div>';
+=======
+							wc_display_item_meta( $item );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 							/**
 							 * Allow other plugins to add additional product information.

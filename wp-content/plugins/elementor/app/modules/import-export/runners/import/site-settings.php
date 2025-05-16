@@ -23,7 +23,11 @@ class Site_Settings extends Import_Runner_Base {
 	 */
 	private $imported_kit_id;
 
+<<<<<<< HEAD
 	public static function get_name(): string {
+=======
+	public static function get_name() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 'site-settings';
 	}
 
@@ -75,7 +79,11 @@ class Site_Settings extends Import_Runner_Base {
 		return $result;
 	}
 
+<<<<<<< HEAD
 	public function get_import_session_metadata(): array {
+=======
+	public function get_import_session_metadata() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [
 			'previous_kit_id' => $this->previous_kit_id,
 			'active_kit_id' => $this->active_kit_id,

@@ -10,7 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Fix issue with 'Potentially polymorphic call. The code may be inoperable depending on the actual class instance passed as the argument.'.
  * Its tells to the editor that instance() return right module. instead of base module.
+<<<<<<< HEAD
  *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @method Module instance()
  */
 class Module extends App {

@@ -8,6 +8,7 @@ class ActionScheduler_ActionFactory {
 	/**
 	 * Return stored actions for given params.
 	 *
+<<<<<<< HEAD
 	 * @param string                        $status The action's status in the data store.
 	 * @param string                        $hook The hook to trigger when this action runs.
 	 * @param array                         $args Args to pass to callbacks when the hook is triggered.
@@ -19,6 +20,19 @@ class ActionScheduler_ActionFactory {
 	 * @return ActionScheduler_Action An instance of the stored action.
 	 */
 	public function get_stored_action( $status, $hook, array $args = array(), ?ActionScheduler_Schedule $schedule = null, $group = '' ) {
+=======
+	 * @param string                   $status The action's status in the data store.
+	 * @param string                   $hook The hook to trigger when this action runs.
+	 * @param array                    $args Args to pass to callbacks when the hook is triggered.
+	 * @param ActionScheduler_Schedule $schedule The action's schedule.
+	 * @param string                   $group A group to put the action in.
+	 * phpcs:ignore Squiz.Commenting.FunctionComment.ExtraParamComment
+	 * @param int                      $priority The action priority.
+	 *
+	 * @return ActionScheduler_Action An instance of the stored action.
+	 */
+	public function get_stored_action( $status, $hook, array $args = array(), ActionScheduler_Schedule $schedule = null, $group = '' ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// The 6th parameter ($priority) is not formally declared in the method signature to maintain compatibility with
 		// third-party subclasses created before this param was added.
 		$priority = func_num_args() >= 6 ? (int) func_get_arg( 5 ) : 10;

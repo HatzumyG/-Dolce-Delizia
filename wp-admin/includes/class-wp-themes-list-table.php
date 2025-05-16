@@ -211,7 +211,11 @@ class WP_Themes_List_Table extends WP_List_Table {
 
 			$actions             = array();
 			$actions['activate'] = sprintf(
+<<<<<<< HEAD
 				'<a href="%s" class="activatelink" aria-label="%s">%s</a>',
+=======
+				'<a href="%s" class="activatelink" title="%s">%s</a>',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$activate_link,
 				/* translators: %s: Theme name. */
 				esc_attr( sprintf( _x( 'Activate &#8220;%s&#8221;', 'theme' ), $title ) ),

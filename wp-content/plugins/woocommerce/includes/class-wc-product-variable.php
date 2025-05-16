@@ -9,7 +9,10 @@
  */
 
 use Automattic\WooCommerce\Enums\ProductType;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 defined( 'ABSPATH' ) || exit;
 
@@ -530,7 +533,11 @@ class WC_Product_Variable extends WC_Product {
 	 * @return boolean
 	 */
 	public function child_is_on_backorder() {
+<<<<<<< HEAD
 		return $this->data_store->child_has_stock_status( $this, ProductStockStatus::ON_BACKORDER );
+=======
+		return $this->data_store->child_has_stock_status( $this, 'onbackorder' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

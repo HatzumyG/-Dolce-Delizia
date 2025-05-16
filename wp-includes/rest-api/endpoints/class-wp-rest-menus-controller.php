@@ -84,12 +84,15 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	 * @return true|WP_Error True if the current user has permission, WP_Error object otherwise.
 	 */
 	protected function check_has_read_only_access( $request ) {
+<<<<<<< HEAD
 		/** This filter is documented in wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php */
 		$read_only_access = apply_filters( 'rest_menu_read_access', false, $request, $this );
 		if ( $read_only_access ) {
 			return true;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( current_user_can( 'edit_theme_options' ) ) {
 			return true;
 		}

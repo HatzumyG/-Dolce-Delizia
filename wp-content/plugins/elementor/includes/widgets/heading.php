@@ -9,6 +9,10 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Modules\ContentSanitizer\Interfaces\Sanitizable;
 use Elementor\Modules\Promotions\Controls\Promotion_Control;
+<<<<<<< HEAD
+=======
+use Elementor\Utils;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Elementor heading widget.
@@ -116,7 +120,11 @@ class Widget_Heading extends Widget_Base implements Sanitizable {
 	/**
 	 * Remove data attributes from the html.
 	 *
+<<<<<<< HEAD
 	 * @param string $content Heading title.
+=======
+	 * @param string $content Heading title
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return string
 	 */
 	public function sanitize( $content ): string {
@@ -371,10 +379,17 @@ class Widget_Heading extends Widget_Base implements Sanitizable {
 		$this->add_control(
 			'title_hover_color',
 			[
+<<<<<<< HEAD
 				'label' => esc_html__( 'Link Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-heading-title a:hover, {{WRAPPER}} .elementor-heading-title a:focus' => 'color: {{VALUE}};',
+=======
+				'label' => esc_html__( 'Text Color', 'elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-heading-title:hover' => 'color: {{VALUE}};',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				],
 			]
 		);
@@ -389,7 +404,11 @@ class Widget_Heading extends Widget_Base implements Sanitizable {
 					'unit' => 's',
 				],
 				'selectors' => [
+<<<<<<< HEAD
 					'{{WRAPPER}} .elementor-heading-title a' => 'transition-duration: {{SIZE}}{{UNIT}};',
+=======
+					'{{WRAPPER}} .elementor-heading-title' => 'transition-duration: {{SIZE}}{{UNIT}};',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				],
 			]
 		);
@@ -426,7 +445,11 @@ class Widget_Heading extends Widget_Base implements Sanitizable {
 
 		$this->add_inline_editing_attributes( 'title' );
 
+<<<<<<< HEAD
 		$title = $this->should_sanitize( $settings ) ? wp_kses_post( $settings['title'] ) : $settings['title'];
+=======
+		$title = wp_kses_post( $settings['title'] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( ! empty( $settings['link']['url'] ) ) {
 			$this->add_link_attributes( 'url', $settings['link'] );
@@ -474,6 +497,7 @@ class Widget_Heading extends Widget_Base implements Sanitizable {
 		#>
 		<?php
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Check if the content should be sanitized. Sanitizing should be applied for non-admin users in the editor and for shortcodes.
@@ -483,4 +507,6 @@ class Widget_Heading extends Widget_Base implements Sanitizable {
 	private function should_sanitize( array $settings ): bool {
 		return ( is_admin() && ! current_user_can( 'manage_options' ) ) || ! empty( $settings['isShortcode'] );
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

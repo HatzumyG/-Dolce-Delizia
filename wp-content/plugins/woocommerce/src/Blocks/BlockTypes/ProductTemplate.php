@@ -91,6 +91,7 @@ class ProductTemplate extends AbstractBlock {
 			// This ensures that for the inner instances of the Post Template block, we do not render any block supports.
 			$block_instance['blockName'] = 'core/null';
 
+<<<<<<< HEAD
 			// Relay the block context to the inner blocks.
 			$available_context = array_merge(
 				(array) $block->context,
@@ -100,23 +101,45 @@ class ProductTemplate extends AbstractBlock {
 				)
 			);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// Render the inner blocks of the Post Template block with `dynamic` set to `false` to prevent calling
 			// `render_callback` and ensure that no wrapper markup is included.
 			$block_content = (
 				new WP_Block(
 					$block_instance,
+<<<<<<< HEAD
 					$available_context
 				)
 			)->render( array( 'dynamic' => false ) );
 
+=======
+					array(
+						'postType' => get_post_type(),
+						'postId'   => $product_id,
+					)
+				)
+			)->render( array( 'dynamic' => false ) );
+
+			$interactive = array(
+				'namespace' => 'woocommerce/product-collection',
+			);
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$context = array(
 				'productId' => $product_id,
 			);
 
 			$li_directives = '
+<<<<<<< HEAD
 				data-wp-interactive="woocommerce/product-collection"
 				data-wp-context=\'' . wp_json_encode( $context, JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) . '\'
 				data-wp-key="product-item-' . $product_id . '"
+=======
+				data-wc-interactive=\'' . wp_json_encode( $interactive, JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) . '\'
+				data-wc-context=\'' . wp_json_encode( $context, JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) . '\'
+				data-wc-key="product-item-' . $product_id . '"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			';
 
 			// Wrap the render inner blocks in a `li` element with the appropriate post classes.

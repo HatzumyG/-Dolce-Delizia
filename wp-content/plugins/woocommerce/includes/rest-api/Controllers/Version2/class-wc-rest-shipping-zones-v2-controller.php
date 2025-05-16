@@ -122,11 +122,15 @@ class WC_REST_Shipping_Zones_V2_Controller extends WC_REST_Shipping_Zones_Contro
 			$data[] = $zone;
 		}
 
+<<<<<<< HEAD
 		$total    = count( $data );
 		$response = rest_ensure_response( $data );
 		$response->header( 'X-WP-Total', $total );
 		$response->header( 'X-WP-TotalPages', 1 );
 		return $response;
+=======
+		return rest_ensure_response( $data );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

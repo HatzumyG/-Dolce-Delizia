@@ -36,8 +36,12 @@ class CartController {
 		wc_load_cart();
 
 		// Load cart from session.
+<<<<<<< HEAD
 		$cart               = $this->get_cart_instance();
 		$cart->cart_context = 'store-api';
+=======
+		$cart = $this->get_cart_instance();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$cart->get_cart();
 	}
 
@@ -481,9 +485,12 @@ class CartController {
 		remove_action( 'woocommerce_check_cart_items', array( $cart, 'check_cart_items' ), 1 );
 		remove_action( 'woocommerce_check_cart_items', array( $cart, 'check_cart_coupons' ), 1 );
 
+<<<<<<< HEAD
 		// Before running actions, store notices.
 		$previous_notices = WC()->session->get( 'wc_notices', array() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Fires when cart items are being validated.
 		 *
@@ -500,9 +507,12 @@ class CartController {
 
 		$cart_errors = NoticeHandler::convert_notices_to_wp_errors( 'woocommerce_rest_cart_item_error' );
 
+<<<<<<< HEAD
 		// Restore notices.
 		WC()->session->set( 'wc_notices', $previous_notices );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $cart_errors->has_errors() ) {
 			throw new InvalidCartException(
 				'woocommerce_cart_error',
@@ -1375,6 +1385,7 @@ class CartController {
 				continue;
 			}
 
+<<<<<<< HEAD
 			// Sanitized attribute (same as the product page) e.g. attribute_size.
 			$variation_attribute_name = wc_variation_attribute_name( $attribute['name'] );
 			if ( isset( $variation_data[ $variation_attribute_name ] ) ) {
@@ -1394,6 +1405,13 @@ class CartController {
 			// Attribute labels e.g. Size.
 			$attribute_label           = wc_attribute_label( $attribute['name'] );
 			$lowercase_attribute_label = strtolower( $attribute_label );
+=======
+			$attribute_label           = wc_attribute_label( $attribute['name'] );
+			$lowercase_attribute_label = strtolower( $attribute_label );
+			$variation_attribute_name  = wc_variation_attribute_name( $attribute['name'] );
+
+			// Attribute labels e.g. Size.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( isset( $variation_data[ $attribute_label ] ) || isset( $variation_data[ $lowercase_attribute_label ] ) ) {
 
 				// Check both the original and lowercase attribute label.

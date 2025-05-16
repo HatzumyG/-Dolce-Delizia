@@ -43,9 +43,14 @@ const { style, tag } = useButton(props);
       class="button-v2__icon"
       :name="iconPrepend"
       :color="style.icon.color"
+<<<<<<< HEAD
       :dimensions="style.icon.size"
     />
 
+=======
+      :size="style.icon.size"
+    />
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     <div class="button-v2__loader">
       <CircleLoader
         v-show="isLoading"
@@ -65,7 +70,11 @@ const { style, tag } = useButton(props);
       class="button-v2__icon"
       :name="iconAppend"
       :color="style.icon.color"
+<<<<<<< HEAD
       :dimensions="style.icon.size"
+=======
+      :size="style.icon.size"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     />
   </Component>
 </template>
@@ -86,7 +95,11 @@ const { style, tag } = useButton(props);
   position: relative;
   transition: background-color 0.1s ease-in-out;
   text-decoration: none;
+<<<<<<< HEAD
   font-size: 12px;
+=======
+  font-size: 14px;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   line-height: 24px;
   font-weight: 700;
   width: fit-content;

@@ -1,11 +1,19 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\Core\Experiments;
 
 use Elementor\Core\Experiments\Manager as Experiments_Manager;
 use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Wp_Cli extends \WP_CLI_Command {
@@ -140,7 +148,11 @@ class Wp_Cli extends \WP_CLI_Command {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param string $experiments_str comma delimited string of experiments.
+=======
+	 * @param string $experiments_str comma delimited string of experiments
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array array of experiments
 	 */
@@ -149,7 +161,11 @@ class Wp_Cli extends \WP_CLI_Command {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param array $experiments experiments.
+=======
+	 * @param array $experiments experiments
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string plural
 	 */
@@ -158,8 +174,13 @@ class Wp_Cli extends \WP_CLI_Command {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param Experiments_Manager $experiments_manager manager.
 	 * @param array $experiments experiments.
+=======
+	 * @param Experiments_Manager $experiments_manager manager
+	 * @param array $experiments experiments
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return bool true when all experiments exist, otherwise false
 	 */

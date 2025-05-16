@@ -23,11 +23,14 @@
  * @package WordPress
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Strip, trim, kses, special chars for string saves.
 foreach ( array( 'pre_term_name', 'pre_comment_author_name', 'pre_link_name', 'pre_link_target', 'pre_link_rel', 'pre_user_display_name', 'pre_user_first_name', 'pre_user_last_name', 'pre_user_nickname' ) as $filter ) {
 	add_filter( $filter, 'sanitize_text_field' );
@@ -197,7 +200,10 @@ add_filter( 'the_title', 'wptexturize' );
 add_filter( 'the_title', 'convert_chars' );
 add_filter( 'the_title', 'trim' );
 
+<<<<<<< HEAD
 add_filter( 'the_content', 'apply_block_hooks_to_content_from_post_object', 8 ); // BEFORE do_blocks().
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 add_filter( 'the_content', 'do_blocks', 9 );
 add_filter( 'the_content', 'wptexturize' );
 add_filter( 'the_content', 'convert_smilies', 20 );
@@ -358,7 +364,10 @@ add_action( 'wp_head', 'rel_canonical' );
 add_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 add_action( 'wp_head', 'wp_custom_css_cb', 101 );
 add_action( 'wp_head', 'wp_site_icon', 99 );
+<<<<<<< HEAD
 add_action( 'wp_footer', 'wp_print_speculation_rules' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 add_action( 'wp_footer', 'wp_print_footer_scripts', 20 );
 add_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
 add_action( 'wp_print_footer_scripts', '_wp_footer_scripts' );
@@ -372,6 +381,7 @@ add_action( 'after_switch_theme', '_wp_sidebars_changed' );
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
 add_action( 'wp_print_styles', 'print_emoji_styles' ); // Retained for backwards-compatibility. Unhooked by wp_enqueue_emoji_styles().
 
+<<<<<<< HEAD
 if (
 	// Comment reply link.
 	isset( $_GET['replytocom'] )
@@ -379,6 +389,9 @@ if (
 	// Unapproved comment preview.
 	( isset( $_GET['unapproved'] ) && isset( $_GET['moderation-hash'] ) )
 ) {
+=======
+if ( isset( $_GET['replytocom'] ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	add_filter( 'wp_robots', 'wp_robots_no_robots' );
 }
 
@@ -390,7 +403,10 @@ add_action( 'login_head', 'print_admin_styles', 9 );
 add_action( 'login_head', 'wp_site_icon', 99 );
 add_action( 'login_footer', 'wp_print_footer_scripts', 20 );
 add_action( 'login_init', 'send_frame_options_header', 10, 0 );
+<<<<<<< HEAD
 add_action( 'login_init', 'wp_admin_headers' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Feed generator tags.
 foreach ( array( 'rss2_head', 'commentsrss2_head', 'rss_head', 'rdf_header', 'atom_head', 'comments_atom_head', 'opml_head', 'app_head' ) as $action ) {
@@ -551,9 +567,12 @@ add_action( 'transition_post_status', '_wp_keep_alive_customize_changeset_depend
 // Block Theme Previews.
 add_action( 'plugins_loaded', 'wp_initialize_theme_preview_hooks', 1 );
 
+<<<<<<< HEAD
 // Site preview for Classic Theme.
 add_action( 'init', 'wp_initialize_site_preview_hooks', 1 );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Calendar widget cache.
 add_action( 'save_post', 'delete_get_calendar_cache' );
 add_action( 'delete_post', 'delete_get_calendar_cache' );
@@ -591,7 +610,10 @@ add_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_classic_theme_styles' );
 add_action( 'admin_enqueue_scripts', 'wp_localize_jquery_ui_datepicker', 1000 );
 add_action( 'admin_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
+<<<<<<< HEAD
 add_action( 'enqueue_block_assets', 'wp_enqueue_classic_theme_styles' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 add_action( 'enqueue_block_assets', 'wp_enqueue_registered_block_scripts_and_styles' );
 add_action( 'enqueue_block_assets', 'enqueue_block_styles_assets', 30 );
 /*
@@ -616,6 +638,10 @@ add_action( 'wp_print_scripts', 'wp_just_in_time_script_localization' );
 add_filter( 'print_scripts_array', 'wp_prototype_before_jquery' );
 add_action( 'customize_controls_print_styles', 'wp_resource_hints', 1 );
 add_action( 'admin_head', 'wp_check_widget_editor_deps' );
+<<<<<<< HEAD
+=======
+add_filter( 'block_editor_settings_all', 'wp_add_editor_classic_theme_styles' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Global styles can be enqueued in both the header and the footer. See https://core.trac.wordpress.org/ticket/53494.
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
@@ -776,6 +802,7 @@ add_action( 'init', '_wp_register_default_font_collections' );
 add_filter( 'rest_pre_insert_wp_template', 'inject_ignored_hooked_blocks_metadata_attributes' );
 add_filter( 'rest_pre_insert_wp_template_part', 'inject_ignored_hooked_blocks_metadata_attributes' );
 
+<<<<<<< HEAD
 // Update ignoredHookedBlocks postmeta for some post types.
 add_filter( 'rest_pre_insert_page', 'update_ignored_hooked_blocks_postmeta' );
 add_filter( 'rest_pre_insert_post', 'update_ignored_hooked_blocks_postmeta' );
@@ -786,6 +813,12 @@ add_filter( 'rest_pre_insert_wp_navigation', 'update_ignored_hooked_blocks_postm
 add_filter( 'rest_prepare_page', 'insert_hooked_blocks_into_rest_response', 10, 2 );
 add_filter( 'rest_prepare_post', 'insert_hooked_blocks_into_rest_response', 10, 2 );
 add_filter( 'rest_prepare_wp_block', 'insert_hooked_blocks_into_rest_response', 10, 2 );
+=======
+// Update ignoredHookedBlocks postmeta for wp_navigation post type.
+add_filter( 'rest_pre_insert_wp_navigation', 'update_ignored_hooked_blocks_postmeta' );
+
+// Inject hooked blocks into the wp_navigation post type REST response.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 add_filter( 'rest_prepare_wp_navigation', 'insert_hooked_blocks_into_rest_response', 10, 2 );
 
 unset( $filter, $action );

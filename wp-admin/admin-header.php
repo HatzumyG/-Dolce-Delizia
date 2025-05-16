@@ -6,11 +6,14 @@
  * @subpackage Administration
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 if ( ! defined( 'WP_ADMIN' ) ) {
 	require_once __DIR__ . '/admin.php';
@@ -214,11 +217,14 @@ if ( $current_screen->is_block_editor() ) {
 	$admin_body_class .= ' block-editor-page wp-embed-responsive';
 }
 
+<<<<<<< HEAD
 $admin_body_class .= ' wp-theme-' . sanitize_html_class( get_template() );
 if ( is_child_theme() ) {
 	$admin_body_class .= ' wp-child-theme-' . sanitize_html_class( get_stylesheet() );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $error_get_last = error_get_last();
 
 // Print a CSS class to make PHP errors visible.

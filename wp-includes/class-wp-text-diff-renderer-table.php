@@ -7,11 +7,14 @@
  * @since 4.7.0
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Table renderer to display the diff lines.
  *

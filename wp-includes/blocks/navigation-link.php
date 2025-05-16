@@ -177,6 +177,7 @@ function render_block_core_navigation_link( $attributes, $content, $block ) {
 	// Don't render the block's subtree if it is a draft or if the ID does not exist.
 	if ( $is_post_type && $navigation_link_has_id ) {
 		$post = get_post( $attributes['id'] );
+<<<<<<< HEAD
 		/**
 		 * Filter allowed post_status for navigation link block to render.
 		 *
@@ -193,6 +194,9 @@ function render_block_core_navigation_link( $attributes, $content, $block ) {
 			$block
 		);
 		if ( ! $post || ! in_array( $post->post_status, $allowed_post_status, true ) ) {
+=======
+		if ( ! $post || 'publish' !== $post->post_status ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return '';
 		}
 	}

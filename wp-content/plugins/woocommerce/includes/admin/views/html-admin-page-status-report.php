@@ -1088,6 +1088,7 @@ if ( 0 < $mu_plugins_count ) :
 </table>
 
 <?php
+<<<<<<< HEAD
 	/**
 	 * Action fired when the WooCommerce system status report is rendered.
 	 *
@@ -1097,6 +1098,14 @@ if ( 0 < $mu_plugins_count ) :
 	 * @param array|WP_Error $report Report data.
 	 */
 	do_action( 'woocommerce_system_status_report', $report );
+=======
+	// phpcs:disable WooCommerce.Commenting.CommentHooks.MissingSinceComment
+	/**
+	 * Action fired when the WooCommerce system status report is rendered.
+	 */
+	do_action( 'woocommerce_system_status_report' );
+	// phpcs:enable WooCommerce.Commenting.CommentHooks.MissingSinceComment
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 ?>
 
 <table class="wc_status_table widefat" cellspacing="0">

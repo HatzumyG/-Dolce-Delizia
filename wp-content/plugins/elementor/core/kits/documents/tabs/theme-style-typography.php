@@ -1,11 +1,19 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\Core\Kits\Documents\Tabs;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Theme_Style_Typography extends Tab_Base {
@@ -90,7 +98,11 @@ class Theme_Style_Typography extends Tab_Base {
 			]
 		);
 
+<<<<<<< HEAD
 		// Link Selectors
+=======
+		//Link Selectors
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$link_selectors = [
 			'{{WRAPPER}} a',
 		];

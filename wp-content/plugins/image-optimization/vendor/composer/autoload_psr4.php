@@ -6,5 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'Elementor\\WPNotificationsPackage\\' => array($vendorDir . '/elementor/wp-notifications-package/src'),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 );

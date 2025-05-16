@@ -5,7 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+<<<<<<< HEAD
 /**
+=======
+/*
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Originally made by WordPress.
  *
  * What changed:
@@ -193,7 +197,11 @@ class WP_Exporter {
 	/**
 	 * Return a cat_name XML tag from a given category object.
 	 *
+<<<<<<< HEAD
 	 * @param \WP_Term $category Category Object.
+=======
+	 * @param \WP_Term $category Category Object
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */
@@ -208,7 +216,11 @@ class WP_Exporter {
 	/**
 	 * Return a category_description XML tag from a given category object.
 	 *
+<<<<<<< HEAD
 	 * @param \WP_Term $category Category Object.
+=======
+	 * @param \WP_Term $category Category Object
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */
@@ -223,7 +235,11 @@ class WP_Exporter {
 	/**
 	 * Return a tag_name XML tag from a given tag object.
 	 *
+<<<<<<< HEAD
 	 * @param \WP_Term $tag Tag Object.
+=======
+	 * @param \WP_Term $tag Tag Object
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */
@@ -238,7 +254,11 @@ class WP_Exporter {
 	/**
 	 * Return a tag_description XML tag from a given tag object.
 	 *
+<<<<<<< HEAD
 	 * @param \WP_Term $tag Tag Object.
+=======
+	 * @param \WP_Term $tag Tag Object
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */
@@ -253,7 +273,11 @@ class WP_Exporter {
 	/**
 	 * Return a term_name XML tag from a given term object.
 	 *
+<<<<<<< HEAD
 	 * @param \WP_Term $term Term Object.
+=======
+	 * @param \WP_Term $term Term Object
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */
@@ -268,7 +292,11 @@ class WP_Exporter {
 	/**
 	 * Return a term_description XML tag from a given term object.
 	 *
+<<<<<<< HEAD
 	 * @param \WP_Term $term Term Object.
+=======
+	 * @param \WP_Term $term Term Object
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */

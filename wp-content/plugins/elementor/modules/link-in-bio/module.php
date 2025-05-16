@@ -8,15 +8,27 @@ use Elementor\Plugin;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Module extends BaseModule {
 
+<<<<<<< HEAD
 	const WIDGET_HAS_CUSTOM_BREAKPOINTS = true;
 
 	public function get_name(): string {
 		return 'link-in-bio';
+=======
+	const EXPERIMENT_NAME = 'link-in-bio';
+	const WIDGET_HAS_CUSTOM_BREAKPOINTS = true;
+
+	public function get_name(): string {
+		return static::EXPERIMENT_NAME;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	public function get_widgets(): array {
@@ -25,6 +37,21 @@ class Module extends BaseModule {
 		];
 	}
 
+<<<<<<< HEAD
+=======
+	// TODO: This is a hidden experiment which needs to remain enabled like this until 3.26 for pro compatibility.
+	public static function get_experimental_data() {
+		return [
+			'name' => self::EXPERIMENT_NAME,
+			'title' => esc_html__( 'Link In Bio', 'elementor' ),
+			'hidden' => true,
+			'default' => Manager::STATE_ACTIVE,
+			'release_status' => Manager::RELEASE_STATUS_STABLE,
+			'mutable' => false,
+		];
+	}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function __construct() {
 		parent::__construct();
 
@@ -56,7 +83,11 @@ class Module extends BaseModule {
 		}
 	}
 
+<<<<<<< HEAD
 	private function get_widgets_style_list(): array {
+=======
+	private function get_widgets_style_list():array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [
 			'widget-link-in-bio' => self::WIDGET_HAS_CUSTOM_BREAKPOINTS, // TODO: Remove in v3.27.0 [ED-15717]
 			'widget-link-in-bio-base' => self::WIDGET_HAS_CUSTOM_BREAKPOINTS,

@@ -6,6 +6,7 @@
  * @since 2.3.0
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
@@ -15,6 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Checks WordPress version against the newest version.
  *
  * The WordPress version, PHP version, and locale is sent to api.wordpress.org.
+=======
+/**
+ * Checks WordPress version against the newest version.
+ *
+ * The WordPress version, PHP version, and locale is sent.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * Checks against the WordPress server at api.wordpress.org. Will only check
  * if WordPress isn't installing.
@@ -154,7 +161,10 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 * Please exercise extreme caution.
 	 *
 	 * @since 4.9.0
+<<<<<<< HEAD
 	 * @since 6.1.0 Added `$extensions`, `$platform_flags`, and `$image_support` to the `$query` parameter.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param array $query {
 	 *     Version check query arguments.
@@ -168,9 +178,12 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 *     @type int    $users              Number of users on this WordPress installation.
 	 *     @type int    $multisite_enabled  Whether this WordPress installation uses Multisite.
 	 *     @type int    $initial_db_version Database version of WordPress at time of installation.
+<<<<<<< HEAD
 	 *     @type array  $extensions         List of PHP extensions and their versions.
 	 *     @type array  $platform_flags     List containing the operating system name and bit support.
 	 *     @type array  $image_support      List of image formats supported by GD and Imagick.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * }
 	 */
 	$query = apply_filters( 'core_version_check_query_args', $query );
@@ -310,7 +323,11 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
  *
+<<<<<<< HEAD
  * A list of all plugins installed is sent to api.wordpress.org, along with the site locale.
+=======
+ * A list of all plugins installed is sent to WP, along with the site locale.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * Checks against the WordPress server at api.wordpress.org. Will only check
  * if WordPress isn't installing.
@@ -341,6 +358,15 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$current = new stdClass();
 	}
 
+<<<<<<< HEAD
+=======
+	$updates               = new stdClass();
+	$updates->last_checked = time();
+	$updates->response     = array();
+	$updates->translations = array();
+	$updates->no_update    = array();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$doing_cron = wp_doing_cron();
 
 	// Check for update on a different schedule, depending on the page.
@@ -369,6 +395,11 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$plugin_changed = false;
 
 		foreach ( $plugins as $file => $p ) {
+<<<<<<< HEAD
+=======
+			$updates->checked[ $file ] = $p['Version'];
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( ! isset( $current->checked[ $file ] ) || (string) $current->checked[ $file ] !== (string) $p['Version'] ) {
 				$plugin_changed = true;
 			}
@@ -457,6 +488,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 		return;
 	}
 
+<<<<<<< HEAD
 	$updates               = new stdClass();
 	$updates->last_checked = time();
 	$updates->response     = array();
@@ -466,6 +498,8 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$updates->checked[ $file ] = $p['Version'];
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
 
 	if ( $response && is_array( $response ) ) {
@@ -493,6 +527,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 		 * @param array|false $update {
 		 *     The plugin update data with the latest details. Default false.
 		 *
+<<<<<<< HEAD
 		 *     @type string   $id           Optional. ID of the plugin for update purposes, should be a URI
 		 *                                  specified in the `Update URI` header field.
 		 *     @type string   $slug         Slug of the plugin.
@@ -506,6 +541,21 @@ function wp_update_plugins( $extra_stats = array() ) {
 		 *     @type string[] $banners      Optional. Array of plugin banners.
 		 *     @type string[] $banners_rtl  Optional. Array of plugin RTL banners.
 		 *     @type array    $translations {
+=======
+		 *     @type string $id           Optional. ID of the plugin for update purposes, should be a URI
+		 *                                specified in the `Update URI` header field.
+		 *     @type string $slug         Slug of the plugin.
+		 *     @type string $version      The version of the plugin.
+		 *     @type string $url          The URL for details of the plugin.
+		 *     @type string $package      Optional. The update ZIP for the plugin.
+		 *     @type string $tested       Optional. The version of WordPress the plugin is tested against.
+		 *     @type string $requires_php Optional. The version of PHP which the plugin requires.
+		 *     @type bool   $autoupdate   Optional. Whether the plugin should automatically update.
+		 *     @type array  $icons        Optional. Array of plugin icons.
+		 *     @type array  $banners      Optional. Array of plugin banners.
+		 *     @type array  $banners_rtl  Optional. Array of plugin RTL banners.
+		 *     @type array  $translations {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *         Optional. List of translation updates for the plugin.
 		 *
 		 *         @type string $language   The language the translation update is for.
@@ -583,7 +633,11 @@ function wp_update_plugins( $extra_stats = array() ) {
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
  *
+<<<<<<< HEAD
  * A list of all themes installed is sent to api.wordpress.org, along with the site locale.
+=======
+ * A list of all themes installed is sent to WP, along with the site locale.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * Checks against the WordPress server at api.wordpress.org. Will only check
  * if WordPress isn't installing.
@@ -896,12 +950,16 @@ function wp_get_translation_updates() {
  *
  * @since 3.3.0
  *
+<<<<<<< HEAD
  * @return array {
  *     Fetched update data.
  *
  *     @type int[]   $counts       An array of counts for available plugin, theme, and WordPress updates.
  *     @type string  $update_title Titles of available updates.
  * }
+=======
+ * @return array
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function wp_get_update_data() {
 	$counts = array(
@@ -984,7 +1042,11 @@ function wp_get_update_data() {
 	 * @param array $update_data {
 	 *     Fetched update data.
 	 *
+<<<<<<< HEAD
 	 *     @type int[]   $counts       An array of counts for available plugin, theme, and WordPress updates.
+=======
+	 *     @type array   $counts       An array of counts for available plugin, theme, and WordPress updates.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *     @type string  $update_title Titles of available updates.
 	 * }
 	 * @param array $titles An array of update counts and UI strings for available updates.
@@ -996,6 +1058,11 @@ function wp_get_update_data() {
  * Determines whether core should be updated.
  *
  * @since 2.8.0
+<<<<<<< HEAD
+=======
+ *
+ * @global string $wp_version The WordPress version string.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function _maybe_update_core() {
 	$current = get_site_transient( 'update_core' );
@@ -1121,7 +1188,11 @@ function _wp_delete_all_temp_backups() {
 	global $wp_filesystem;
 
 	if ( ! function_exists( 'WP_Filesystem' ) ) {
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/includes/file.php';
+=======
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	ob_start();

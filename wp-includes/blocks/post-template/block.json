@@ -4,7 +4,11 @@
 	"name": "core/post-template",
 	"title": "Post Template",
 	"category": "theme",
+<<<<<<< HEAD
 	"ancestor": [ "core/query" ],
+=======
+	"parent": [ "core/query" ],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"description": "Contains the block elements used to render a post, like the title, date, featured image, content or excerpt, and more.",
 	"textdomain": "default",
 	"usesContext": [
@@ -13,8 +17,12 @@
 		"displayLayout",
 		"templateSlug",
 		"previewPostType",
+<<<<<<< HEAD
 		"enhancedPagination",
 		"postType"
+=======
+		"enhancedPagination"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	],
 	"supports": {
 		"reusable": false,
@@ -43,25 +51,35 @@
 			}
 		},
 		"spacing": {
+<<<<<<< HEAD
 			"margin": true,
 			"padding": true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			"blockGap": {
 				"__experimentalDefault": "1.25em"
 			},
 			"__experimentalDefaultControls": {
+<<<<<<< HEAD
 				"blockGap": true,
 				"padding": false,
 				"margin": false
+=======
+				"blockGap": true
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		},
 		"interactivity": {
 			"clientNavigation": true
+<<<<<<< HEAD
 		},
 		"__experimentalBorder": {
 			"radius": true,
 			"color": true,
 			"width": true,
 			"style": true
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"style": "wp-block-post-template",

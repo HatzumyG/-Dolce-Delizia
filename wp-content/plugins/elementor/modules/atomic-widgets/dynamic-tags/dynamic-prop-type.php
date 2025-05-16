@@ -63,10 +63,14 @@ class Dynamic_Prop_Type extends Plain_Prop_Type {
 
 		$sanitized = Props_Parser::make( $tag['props_schema'] )->sanitize( $value['settings'] );
 
+<<<<<<< HEAD
 		return [
 			'name' => $value['name'],
 			'settings' => $sanitized,
 		];
+=======
+		return $sanitized;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function is_tag_in_supported_categories( array $tag ): bool {

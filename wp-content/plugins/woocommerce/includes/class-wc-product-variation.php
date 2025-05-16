@@ -10,7 +10,10 @@
 
 use Automattic\WooCommerce\Enums\ProductStatus;
 use Automattic\WooCommerce\Enums\ProductType;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\CatalogVisibility;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 defined( 'ABSPATH' ) || exit;
 
@@ -481,7 +484,11 @@ class WC_Product_Variation extends WC_Product_Simple {
 				'shipping_class_id'  => 0,
 				'image_id'           => 0,
 				'purchase_note'      => '',
+<<<<<<< HEAD
 				'catalog_visibility' => CatalogVisibility::VISIBLE,
+=======
+				'catalog_visibility' => 'visible',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		);
 

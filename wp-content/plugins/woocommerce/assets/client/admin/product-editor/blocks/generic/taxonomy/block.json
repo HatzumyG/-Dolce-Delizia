@@ -10,6 +10,7 @@
     "attributes": {
         "slug": {
             "type": "string",
+<<<<<<< HEAD
             "role": "content"
         },
         "property": {
@@ -35,6 +36,33 @@
         "help": {
             "type": "string",
             "role": "content"
+=======
+            "__experimentalRole": "content"
+        },
+        "property": {
+            "type": "string",
+            "__experimentalRole": "content"
+        },
+        "label": {
+            "type": "string",
+            "__experimentalRole": "content"
+        },
+        "createTitle": {
+            "type": "string",
+            "__experimentalRole": "content"
+        },
+        "dialogNameHelpText": {
+            "type": "string",
+            "__experimentalRole": "content"
+        },
+        "parentTaxonomyText": {
+            "type": "string",
+            "__experimentalRole": "content"
+        },
+        "help": {
+            "type": "string",
+            "__experimentalRole": "content"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         }
     },
     "supports": {

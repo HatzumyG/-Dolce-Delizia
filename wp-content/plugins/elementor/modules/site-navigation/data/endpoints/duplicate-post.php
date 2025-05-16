@@ -63,10 +63,17 @@ class Duplicate_Post extends Endpoint {
 			return new \WP_Error( 500, 'Error while duplicating post.' );
 		}
 
+<<<<<<< HEAD
 		// Duplicate all post meta
 		$this->duplicate_post_meta( $post_id, $new_post_id );
 
 		// Duplicate all taxonomies
+=======
+		//Duplicate all post meta
+		$this->duplicate_post_meta( $post_id, $new_post_id );
+
+		//Duplicate all taxonomies
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->duplicate_post_taxonomies( $post_id, $new_post_id );
 
 		return [
@@ -131,7 +138,11 @@ class Duplicate_Post extends Endpoint {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Duplicate_post_taxonomies
+=======
+	 * duplicate_post_taxonomies
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param int $post_id
 	 * @param int $new_post_id

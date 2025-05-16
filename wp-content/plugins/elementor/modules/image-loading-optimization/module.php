@@ -4,7 +4,11 @@ namespace Elementor\Modules\ImageLoadingOptimization;
 use Elementor\Core\Base\Module as BaseModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Module extends BaseModule {
@@ -70,7 +74,14 @@ class Module extends BaseModule {
 	 * Stop WordPress core fetchpriority logic by setting the wp_high_priority_element_flag flag to false.
 	 */
 	public function stop_core_fetchpriority_high_logic() {
+<<<<<<< HEAD
 		wp_high_priority_element_flag( false );
+=======
+		// wp_high_priority_element_flag was only introduced in 6.3.0
+		if ( function_exists( 'wp_high_priority_element_flag' ) ) {
+			wp_high_priority_element_flag( false );
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -240,7 +251,10 @@ class Module extends BaseModule {
 					esc_html__( 'An image should not be lazy-loaded and marked as high priority at the same time.', 'elementor' ),
 					''
 				);
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				/*
 				 * Set `fetchpriority` here for backward-compatibility as we should
 				 * not override what a developer decided, even though it seems

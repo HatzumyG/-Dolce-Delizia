@@ -161,7 +161,11 @@ class Init {
 			return;
 		}
 		wp_enqueue_style( 'wc-product-editor' );
+<<<<<<< HEAD
 		wp_enqueue_style( 'wp-editor' );
+=======
+		wp_enqueue_style( 'wp-edit-blocks' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wp_enqueue_style( 'wp-format-library' );
 		wp_enqueue_editor();
 		/**

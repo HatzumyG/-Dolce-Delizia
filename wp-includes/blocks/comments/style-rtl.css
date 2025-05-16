@@ -100,8 +100,11 @@
 
 :where(.wp-block-post-comments input[type=submit]){
   border:none;
+<<<<<<< HEAD
 }
 
 .wp-block-comments{
   box-sizing:border-box;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

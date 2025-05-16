@@ -247,7 +247,11 @@ class App extends BaseApp {
 			'version' => ELEMENTOR_VERSION,
 			'isRTL' => is_rtl(),
 			'isDebug' => ( defined( 'WP_DEBUG' ) && WP_DEBUG ),
+<<<<<<< HEAD
 			'isElementorDebug' => Utils::is_elementor_debug(),
+=======
+			'isElementorDebug' => ( defined( 'ELEMENTOR_DEBUG' ) && ELEMENTOR_DEBUG ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'activeModules' => array_keys( $this->get_components() ),
 			'experimentalFeatures' => $active_experimental_features,
 			'urls' => [
@@ -275,7 +279,10 @@ class App extends BaseApp {
 	 * Add default templates.
 	 *
 	 * Register common app default templates.
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since 2.3.0
 	 * @access private
 	 */

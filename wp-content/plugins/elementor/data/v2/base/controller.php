@@ -6,7 +6,11 @@ use Elementor\Data\V2\Manager;
 use WP_REST_Controller;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -224,7 +228,11 @@ abstract class Controller extends WP_REST_Controller {
 		}
 
 		if ( $result instanceof \WP_Error ) {
+<<<<<<< HEAD
 			throw new WP_Error_Exception( esc_html( $result ) );
+=======
+			throw new WP_Error_Exception( $result );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $result;
@@ -232,6 +240,10 @@ abstract class Controller extends WP_REST_Controller {
 
 	/**
 	 * Checks if a given request has access to create items.
+<<<<<<< HEAD
+=======
+	 **
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param \WP_REST_Request $request Full details about the request.
 	 *

@@ -13,5 +13,15 @@
 		"interactivity": true,
 		"html": false
 	},
+<<<<<<< HEAD
 	"usesContext": [ "query", "filterParams" ]
+=======
+	"usesContext": [ "query", "filterParams" ],
+	"attributes": {
+		"clearButton": {
+			"type": "boolean",
+			"default": true
+		}
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

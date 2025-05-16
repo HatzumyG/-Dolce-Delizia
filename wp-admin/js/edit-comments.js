@@ -1020,8 +1020,12 @@ window.commentReply = {
 
 		setTimeout(function() {
 			var rtop, rbottom, scrollTop, vp, scrollBottom,
+<<<<<<< HEAD
 				isComposing = false,
 				isContextMenuOpen = false;
+=======
+				isComposing = false;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			rtop = $('#replyrow').offset().top;
 			rbottom = rtop + $('#replyrow').height();
@@ -1036,6 +1040,7 @@ window.commentReply = {
 
 			$( '#replycontent' )
 				.trigger( 'focus' )
+<<<<<<< HEAD
 				.on( 'contextmenu keydown', function ( e ) {
 					// Check if the context menu is open and set state.
 					if ( e.type === 'contextmenu' ) {
@@ -1050,6 +1055,11 @@ window.commentReply = {
 				.on( 'keyup', function( e ) {
 					// Close on Escape unless Input Method Editors (IMEs) are in use or the context menu is open.
 					if ( e.which === 27 && ! isComposing && ! isContextMenuOpen ) {
+=======
+				.on( 'keyup', function( e ) {
+					// Close on Escape except when Input Method Editors (IMEs) are in use.
+					if ( e.which === 27 && ! isComposing ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						commentReply.revert();
 					}
 				} )

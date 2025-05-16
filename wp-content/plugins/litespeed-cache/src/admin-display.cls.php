@@ -37,9 +37,12 @@ class Admin_Display extends Base
 	const RULECONFLICT_ON = 'ExpiresDefault_1';
 	const RULECONFLICT_DISMISSED = 'ExpiresDefault_0';
 
+<<<<<<< HEAD
 	const TYPE_QC_HIDE_BANNER = 'qc_hide_banner';
 	const COOKIE_QC_HIDE_BANNER = 'litespeed_qc_hide_banner';
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	protected $messages = array();
 	protected $default_settings = array();
 	protected $_is_network_admin = false;
@@ -69,7 +72,11 @@ class Admin_Display extends Base
 			$manage = 'manage_options';
 		}
 		if (current_user_can($manage)) {
+<<<<<<< HEAD
 			if (!defined('LITESPEED_DISABLE_ALL') || !LITESPEED_DISABLE_ALL) {
+=======
+			if (!defined('LITESPEED_DISABLE_ALL')) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				add_action('wp_before_admin_bar_render', array(GUI::cls(), 'backend_shortcut'));
 			}
 
@@ -323,7 +330,11 @@ class Admin_Display extends Base
 	 * @param string $str The notice message.
 	 * @return string The built notice html.
 	 */
+<<<<<<< HEAD
 	public static function build_notice($color, $str, $irremovable = false, $additional_classes = '')
+=======
+	public static function build_notice($color, $str, $irremovable = false)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	{
 		$cls = $color;
 		if ($irremovable) {
@@ -331,9 +342,12 @@ class Admin_Display extends Base
 		} else {
 			$cls .= ' is-dismissible';
 		}
+<<<<<<< HEAD
 		if ($additional_classes) {
 			$cls .= ' ' . $additional_classes;
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// possible translation
 		$str = Lang::maybe_translate($str);
@@ -347,9 +361,15 @@ class Admin_Display extends Base
 	 * @since 1.6.5
 	 * @access public
 	 */
+<<<<<<< HEAD
 	public static function info($msg, $echo = false, $irremovable = false, $additional_classes = '')
 	{
 		self::add_notice(self::NOTICE_BLUE, $msg, $echo, $irremovable, $additional_classes);
+=======
+	public static function info($msg, $echo = false, $irremovable = false)
+	{
+		self::add_notice(self::NOTICE_BLUE, $msg, $echo, $irremovable);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -358,9 +378,15 @@ class Admin_Display extends Base
 	 * @since 1.6.5
 	 * @access public
 	 */
+<<<<<<< HEAD
 	public static function note($msg, $echo = false, $irremovable = false, $additional_classes = '')
 	{
 		self::add_notice(self::NOTICE_YELLOW, $msg, $echo, $irremovable, $additional_classes);
+=======
+	public static function note($msg, $echo = false, $irremovable = false)
+	{
+		self::add_notice(self::NOTICE_YELLOW, $msg, $echo, $irremovable);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -369,6 +395,7 @@ class Admin_Display extends Base
 	 * @since 1.6
 	 * @access public
 	 */
+<<<<<<< HEAD
 	public static function success($msg, $echo = false, $irremovable = false, $additional_classes = '')
 	{
 		self::add_notice(self::NOTICE_GREEN, $msg, $echo, $irremovable, $additional_classes);
@@ -378,6 +405,16 @@ class Admin_Display extends Base
 	public static function succeed($msg, $echo = false, $irremovable = false, $additional_classes = '')
 	{
 		self::success($msg, $echo, $irremovable, $additional_classes);
+=======
+	public static function success($msg, $echo = false, $irremovable = false)
+	{
+		self::add_notice(self::NOTICE_GREEN, $msg, $echo, $irremovable);
+	}
+	/** @deprecated 4.7 */
+	public static function succeed($msg, $echo = false, $irremovable = false)
+	{
+		self::success($msg, $echo, $irremovable);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -386,9 +423,15 @@ class Admin_Display extends Base
 	 * @since 1.6
 	 * @access public
 	 */
+<<<<<<< HEAD
 	public static function error($msg, $echo = false, $irremovable = false, $additional_classes = '')
 	{
 		self::add_notice(self::NOTICE_RED, $msg, $echo, $irremovable, $additional_classes);
+=======
+	public static function error($msg, $echo = false, $irremovable = false)
+	{
+		self::add_notice(self::NOTICE_RED, $msg, $echo, $irremovable);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -431,7 +474,11 @@ class Admin_Display extends Base
 	 * @since 1.0.7
 	 * @access public
 	 */
+<<<<<<< HEAD
 	public static function add_notice($color, $msg, $echo = false, $irremovable = false, $additional_classes = '')
+=======
+	public static function add_notice($color, $msg, $echo = false, $irremovable = false)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	{
 		// self::debug("add_notice msg", $msg);
 		// Bypass adding for CLI or cron
@@ -454,7 +501,11 @@ class Admin_Display extends Base
 		}
 
 		if ($echo) {
+<<<<<<< HEAD
 			echo self::build_notice($color, $msg, $irremovable, $additional_classes);
+=======
+			echo self::build_notice($color, $msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 
@@ -467,10 +518,17 @@ class Admin_Display extends Base
 
 		if (is_array($msg)) {
 			foreach ($msg as $k => $str) {
+<<<<<<< HEAD
 				$messages[$k] = self::build_notice($color, $str, $irremovable, $additional_classes);
 			}
 		} else {
 			$messages[] = self::build_notice($color, $msg, $irremovable, $additional_classes);
+=======
+				$messages[$k] = self::build_notice($color, $str, $irremovable);
+			}
+		} else {
+			$messages[] = self::build_notice($color, $msg, $irremovable);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 		$messages = array_unique($messages);
 		self::update_option($msg_name, $messages);
@@ -552,7 +610,11 @@ class Admin_Display extends Base
 		}
 
 		// Show disable all warning
+<<<<<<< HEAD
 		if (defined('LITESPEED_DISABLE_ALL') && LITESPEED_DISABLE_ALL) {
+=======
+		if (defined('LITESPEED_DISABLE_ALL')) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			Admin_Display::error(Error::msg('disabled_all'), true);
 		}
 
@@ -598,6 +660,7 @@ class Admin_Display extends Base
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Dismiss pinned msg by msg content
 	 *
 	 * @since 7.0
@@ -629,6 +692,8 @@ class Admin_Display extends Base
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Hooked to the in_widget_form action.
 	 * Appends LiteSpeed Cache settings to the widget edit settings screen.
 	 * This will append the esi on/off selector and ttl text.
@@ -649,7 +714,10 @@ class Admin_Display extends Base
 	 */
 	public function show_menu_dash()
 	{
+<<<<<<< HEAD
 		$this->cls('Cloud')->maybe_preview_banner();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		require_once LSCWP_DIR . 'tpl/dash/entry.tpl.php';
 	}
 
@@ -672,7 +740,10 @@ class Admin_Display extends Base
 	 */
 	public function show_menu_general()
 	{
+<<<<<<< HEAD
 		$this->cls('Cloud')->maybe_preview_banner();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		require_once LSCWP_DIR . 'tpl/general/entry.tpl.php';
 	}
 
@@ -684,11 +755,28 @@ class Admin_Display extends Base
 	 */
 	public function show_menu_cdn()
 	{
+<<<<<<< HEAD
 		$this->cls('Cloud')->maybe_preview_banner();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		require_once LSCWP_DIR . 'tpl/cdn/entry.tpl.php';
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Displays the CDN page.
+	 *
+	 * @since 3.0
+	 * @access public
+	 */
+	public function show_menu_auto_cdn_setup()
+	{
+		require_once LSCWP_DIR . 'tpl/auto_cdn_setup/entry.tpl.php';
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Outputs the LiteSpeed Cache settings page.
 	 *
 	 * @since 1.0.0
@@ -711,7 +799,10 @@ class Admin_Display extends Base
 	 */
 	public function show_toolbox()
 	{
+<<<<<<< HEAD
 		$this->cls('Cloud')->maybe_preview_banner();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		require_once LSCWP_DIR . 'tpl/toolbox/entry.tpl.php';
 	}
 
@@ -723,7 +814,10 @@ class Admin_Display extends Base
 	 */
 	public function show_crawler()
 	{
+<<<<<<< HEAD
 		$this->cls('Cloud')->maybe_preview_banner();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		require_once LSCWP_DIR . 'tpl/crawler/entry.tpl.php';
 	}
 
@@ -735,7 +829,10 @@ class Admin_Display extends Base
 	 */
 	public function show_img_optm()
 	{
+<<<<<<< HEAD
 		$this->cls('Cloud')->maybe_preview_banner();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		require_once LSCWP_DIR . 'tpl/img_optm/entry.tpl.php';
 	}
 
@@ -747,7 +844,10 @@ class Admin_Display extends Base
 	 */
 	public function show_page_optm()
 	{
+<<<<<<< HEAD
 		$this->cls('Cloud')->maybe_preview_banner();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		require_once LSCWP_DIR . 'tpl/page_optm/entry.tpl.php';
 	}
 
@@ -1347,6 +1447,7 @@ class Admin_Display extends Base
 
 		return $html;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Check if has qc hide banner cookie or not
@@ -1389,4 +1490,6 @@ class Admin_Display extends Base
 
 		Admin::redirect();
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

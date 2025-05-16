@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\App\Modules\ImportExport\Runners\Import;
 
 use Elementor\App\Modules\ImportExport\Utils as ImportExportUtils;
@@ -9,7 +13,11 @@ use Elementor\Utils;
 class Templates extends Import_Runner_Base {
 	private $import_session_id;
 
+<<<<<<< HEAD
 	public static function get_name(): string {
+=======
+	public static function get_name() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 'templates';
 	}
 
@@ -61,7 +69,11 @@ class Templates extends Import_Runner_Base {
 		);
 
 		if ( is_wp_error( $new_document ) ) {
+<<<<<<< HEAD
 			throw new \Exception( esc_html( $new_document->get_error_message() ) );
+=======
+			throw new \Exception( $new_document->get_error_message() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$template_data['import_settings'] = $template_settings;

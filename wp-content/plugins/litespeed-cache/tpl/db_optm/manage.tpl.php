@@ -174,7 +174,10 @@ $autoload_summary = DB_Optm::cls()->autoload_summary();
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col"><?php echo __('Option Name', 'litespeed-cache'); ?></th>
+<<<<<<< HEAD
 					<th scope="col"><?php echo __('Autoload', 'litespeed-cache'); ?></th>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					<th scope="col"><?php echo __('Size', 'litespeed-cache'); ?></th>
 				</tr>
 			</thead>
@@ -183,7 +186,10 @@ $autoload_summary = DB_Optm::cls()->autoload_summary();
 					<tr>
 						<td><?php echo $k + 1; ?></td>
 						<td><?php echo $v->option_name; ?></td>
+<<<<<<< HEAD
 						<td><?php echo $v->autoload; ?></td>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						<td><?php echo $v->option_value_length; ?></td>
 					</tr>
 				<?php endforeach; ?>

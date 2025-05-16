@@ -1,7 +1,11 @@
 <?php
+<<<<<<< HEAD
 
 namespace LiteSpeed;
 
+=======
+namespace LiteSpeed;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 defined('WPINC') || exit();
 
 wp_nonce_field(self::POST_NONCE_ACTION, Router::NONCE);
@@ -20,6 +24,7 @@ foreach ($this->_postmeta_settings as $k => $v) {
 		echo '</div>';
 	} else {
 		echo '<div style="display:flex;margin-bottom:10px;align-items: center;gap: 2ch;justify-content: space-between;"><label for="' . $k . '">' . $v . '</label>';
+<<<<<<< HEAD
 		echo '<input class="litespeed-tiny-toggle" id="' .
 			Str::trim_quotes($k) .
 			'" name="' .
@@ -27,6 +32,9 @@ foreach ($this->_postmeta_settings as $k => $v) {
 			'" type="checkbox" value="1" ' .
 			($existing_val ? 'checked' : '') .
 			' />';
+=======
+		echo '<input class="litespeed-tiny-toggle" id="' . Str::trim_quotes($k) . '" name="' . Str::trim_quotes($k) . '" type="checkbox" value="1" ' . ($existing_val ? 'checked' : '') . ' />';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		echo '</div>';
 	}
 }

@@ -112,6 +112,7 @@ abstract class AbstractBlock {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Are we currently on the admin block editor screen?
 	 */
 	protected function is_block_editor() {
@@ -124,6 +125,8 @@ abstract class AbstractBlock {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Initialize this block type.
 	 *
 	 * - Hook into WP lifecycle.

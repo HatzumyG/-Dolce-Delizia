@@ -704,6 +704,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 		global $status, $totals;
 
 		if ( $theme->errors() ) {
+<<<<<<< HEAD
 			$pre = 'broken' === $status ? '<strong class="error-message">' . __( 'Broken Theme:' ) . '</strong> ' : '';
 			wp_admin_notice(
 				$pre . $theme->errors()->get_error_message(),
@@ -712,6 +713,10 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 					'additional_classes' => 'inline',
 				)
 			);
+=======
+			$pre = 'broken' === $status ? __( 'Broken Theme:' ) . ' ' : '';
+			echo '<p><strong class="error-message">' . $pre . $theme->errors()->get_error_message() . '</strong></p>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( $this->is_site_themes ) {

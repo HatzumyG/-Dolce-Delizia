@@ -3,12 +3,20 @@ namespace Elementor\Core\Kits\Documents;
 
 use Elementor\Core\DocumentTypes\PageBase;
 use Elementor\Core\Files\CSS\Post as Post_CSS;
+<<<<<<< HEAD
+=======
+use Elementor\Core\Kits\Documents\Tabs;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\Core\Settings\Manager as SettingsManager;
 use Elementor\Core\Settings\Page\Manager as PageManager;
 use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Kit extends PageBase {
@@ -111,10 +119,17 @@ class Kit extends PageBase {
 	 * Register a kit settings menu.
 	 *
 	 * @param $id
+<<<<<<< HEAD
 	 * @param $class_name
 	 */
 	public function register_tab( $id, $class_name ) {
 		$this->tabs[ $id ] = new $class_name( $this );
+=======
+	 * @param $class
+	 */
+	public function register_tab( $id, $class ) {
+		$this->tabs[ $id ] = new $class( $this );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -173,7 +188,11 @@ class Kit extends PageBase {
 		$page_settings_manager = SettingsManager::get_settings_managers( 'page' );
 		$page_settings_manager->save_settings( $document_settings, $this->get_id() );
 
+<<<<<<< HEAD
 		/** @var Kit $autosave */
+=======
+		/** @var Kit $autosave **/
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$autosave = $this->get_autosave();
 
 		if ( $autosave ) {

@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 <?php //phpcs:ignore Generic.PHP.RequireStrictTypes.MissingDeclaration
 // many places seem to be calling round with a string, and that causes PHP > 8.1 to throw a TypeError.
 // It's not respecting the 'mixed' type hint in the docblock, and type unions aren't supported until PHP > 8.0.
 // so I'm not sure how to handle this since adding the type union will cause errors below PHP < 8.0.
+=======
+<?php
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * A class of utilities for dealing with numbers.
  */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\Utilities;
 
 /**
@@ -28,7 +35,11 @@ final class NumberUtil {
 	 *
 	 * @return float The value rounded to the given precision as a float, or the supplied default value.
 	 */
+<<<<<<< HEAD
 	public static function round( $val, int $precision = 0, int $mode = PHP_ROUND_HALF_UP ): float {
+=======
+	public static function round( $val, int $precision = 0, int $mode = PHP_ROUND_HALF_UP ) : float {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! is_numeric( $val ) ) {
 			$val = floatval( $val );
 		}
@@ -53,6 +64,7 @@ final class NumberUtil {
 
 		return array_sum( $sanitized_array );
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Sanitize a cost value based on the current locale decimal and thousand separators.
@@ -150,4 +162,6 @@ final class NumberUtil {
 
 		return $value;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

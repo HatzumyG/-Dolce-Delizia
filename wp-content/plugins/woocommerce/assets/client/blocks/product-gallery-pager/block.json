@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "woocommerce/product-gallery-pager",
@@ -29,3 +30,26 @@
 	},
 	"usesContext": [ "postId" ]
 }
+=======
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "woocommerce/product-gallery-pager",
+    "version": "1.0.0",
+    "title": "Pager",
+    "description": "Display the gallery pager.",
+    "category": "woocommerce",
+    "keywords": [
+        "WooCommerce"
+    ],
+    "textdomain": "woocommerce",
+    "ancestor": [
+        "woocommerce/product-gallery"
+    ],
+    "usesContext": [
+        "pagerDisplayMode",
+        "productGalleryClientId",
+        "thumbnailsNumberOfThumbnails",
+        "postId"
+    ]
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

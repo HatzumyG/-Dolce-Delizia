@@ -14,11 +14,19 @@ class Elementor_Content extends Revert_Runner_Base {
 		$this->init_page_on_front_data();
 	}
 
+<<<<<<< HEAD
 	public static function get_name(): string {
 		return 'elementor-content';
 	}
 
 	public function should_revert( array $data ): bool {
+=======
+	public static function get_name() : string {
+		return 'elementor-content';
+	}
+
+	public function should_revert( array $data ) : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return (
 			isset( $data['runners'] ) &&
 			array_key_exists( static::get_name(), $data['runners'] )

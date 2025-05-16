@@ -146,7 +146,11 @@ function create_initial_taxonomies() {
 				'all_items'                  => __( 'All Link Categories' ),
 				'edit_item'                  => __( 'Edit Link Category' ),
 				'update_item'                => __( 'Update Link Category' ),
+<<<<<<< HEAD
 				'add_new_item'               => __( 'Add Link Category' ),
+=======
+				'add_new_item'               => __( 'Add New Link Category' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'new_item_name'              => __( 'New Link Category Name' ),
 				'separate_items_with_commas' => null,
 				'add_or_remove_items'        => null,
@@ -233,7 +237,11 @@ function create_initial_taxonomies() {
 			'labels'             => array(
 				'name'                       => _x( 'Pattern Categories', 'taxonomy general name' ),
 				'singular_name'              => _x( 'Pattern Category', 'taxonomy singular name' ),
+<<<<<<< HEAD
 				'add_new_item'               => __( 'Add Category' ),
+=======
+				'add_new_item'               => __( 'Add New Category' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'add_or_remove_items'        => __( 'Add or remove pattern categories' ),
 				'back_to_items'              => __( '&larr; Go to Pattern Categories' ),
 				'choose_from_most_used'      => __( 'Choose from the most used pattern categories' ),
@@ -678,7 +686,11 @@ function unregister_taxonomy( $taxonomy ) {
  *     @type string $edit_item                  Default 'Edit Tag'/'Edit Category'.
  *     @type string $view_item                  Default 'View Tag'/'View Category'.
  *     @type string $update_item                Default 'Update Tag'/'Update Category'.
+<<<<<<< HEAD
  *     @type string $add_new_item               Default 'Add Tag'/'Add Category'.
+=======
+ *     @type string $add_new_item               Default 'Add New Tag'/'Add New Category'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     @type string $new_item_name              Default 'New Tag Name'/'New Category Name'.
  *     @type string $template_name              Default 'Tag Archives'/'Category Archives'.
  *     @type string $separate_items_with_commas This label is only used for non-hierarchical taxonomies. Default
@@ -1386,6 +1398,7 @@ function get_terms( $args = array(), $deprecated = '' ) {
  *
  * @param int    $term_id    Term ID.
  * @param string $meta_key   Metadata name.
+<<<<<<< HEAD
  * @param mixed  $meta_value Metadata value. Arrays and objects are stored as serialized data and
  *                           will be returned as the same type when retrieved. Other data types will
  *                           be stored as strings in the database:
@@ -1393,6 +1406,9 @@ function get_terms( $args = array(), $deprecated = '' ) {
  *                           - true is stored and retrieved as '1'
  *                           - numbers (both integer and float) are stored and retrieved as strings
  *                           Must be serializable if non-scalar.
+=======
+ * @param mixed  $meta_value Metadata value. Must be serializable if non-scalar.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param bool   $unique     Optional. Whether the same key should not be added.
  *                           Default false.
  * @return int|false|WP_Error Meta ID on success, false on failure.
@@ -1438,11 +1454,14 @@ function delete_term_meta( $term_id, $meta_key, $meta_value = '' ) {
  *               False for an invalid `$term_id` (non-numeric, zero, or negative value).
  *               An empty array if a valid but non-existing term ID is passed and `$single` is false.
  *               An empty string if a valid but non-existing term ID is passed and `$single` is true.
+<<<<<<< HEAD
  *               Note: Non-serialized values are returned as strings:
  *               - false values are returned as empty strings ('')
  *               - true values are returned as '1'
  *               - numbers are returned as strings
  *               Arrays and objects retain their original type.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function get_term_meta( $term_id, $key = '', $single = false ) {
 	return get_metadata( 'term', $term_id, $key, $single );

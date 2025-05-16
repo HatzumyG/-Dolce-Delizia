@@ -365,6 +365,7 @@ abstract class Source_Base {
 
 		return $element_data;
 	}
+<<<<<<< HEAD
 
 	public function get_item_children( array $args = [] ) {
 		return [];
@@ -414,4 +415,6 @@ abstract class Source_Base {
 		// PHPCS - Export widget json
 		echo $file_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

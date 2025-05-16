@@ -34,12 +34,15 @@ class WC_Tracks {
 	public static function get_blog_details( $user_id ) {
 		$blog_details = get_transient( 'wc_tracks_blog_details' );
 		if ( false === $blog_details ) {
+<<<<<<< HEAD
 			// Ensure the store ID is set.
 			if ( ! class_exists( '\WC_Install' ) ) {
 				include_once WC_ABSPATH . 'includes/class-wc-install.php';
 			}
 			\WC_Install::maybe_set_store_id();
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$blog_details = array(
 				'url'            => home_url(),
 				'blog_lang'      => get_user_locale( $user_id ),

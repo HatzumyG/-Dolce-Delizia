@@ -58,12 +58,21 @@ class Crawler extends Base
 		if ($summary['curr_crawler'] >= count($crawler_list)) {
 			$summary['curr_crawler'] = 0;
 		}
+<<<<<<< HEAD
 		$is_running = time() - $summary['is_running'] <= 900;
 
 		$CRAWLER_RUN_INTERVAL = defined('LITESPEED_CRAWLER_RUN_INTERVAL') ? LITESPEED_CRAWLER_RUN_INTERVAL : 600; // Specify time in seconds for the time between each run interval
 		if ($CRAWLER_RUN_INTERVAL > 0) {
 			$recurrence = '';
 			$hours = (int) floor($CRAWLER_RUN_INTERVAL / 3600);
+=======
+		$is_running = time() - $summary['is_running'] <= $this->conf(Base::O_CRAWLER_RUN_DURATION);
+
+		$seconds = $this->conf(Base::O_CRAWLER_RUN_INTERVAL);
+		if ($seconds > 0) {
+			$recurrence = '';
+			$hours = (int) floor($seconds / 3600);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ($hours) {
 				if ($hours > 1) {
 					$recurrence .= sprintf(__('%d hours', 'litespeed-cache'), $hours);
@@ -71,7 +80,11 @@ class Crawler extends Base
 					$recurrence .= sprintf(__('%d hour', 'litespeed-cache'), $hours);
 				}
 			}
+<<<<<<< HEAD
 			$minutes = (int) floor(($CRAWLER_RUN_INTERVAL % 3600) / 60);
+=======
+			$minutes = (int) floor(($seconds % 3600) / 60);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ($minutes) {
 				$recurrence .= ' ';
 				if ($minutes > 1) {
@@ -84,6 +97,7 @@ class Crawler extends Base
 
 		$list = array();
 		foreach ($crawler_list as $i => $v) {
+<<<<<<< HEAD
 			$hit = !empty($summary['crawler_stats'][$i][Crawler2::STATUS_HIT]) ? $summary['crawler_stats'][$i][Crawler2::STATUS_HIT] : 0;
 			$miss = !empty($summary['crawler_stats'][$i][Crawler2::STATUS_MISS]) ? $summary['crawler_stats'][$i][Crawler2::STATUS_MISS] : 0;
 
@@ -92,6 +106,16 @@ class Crawler extends Base
 
 			if (isset($summary['crawler_stats'][$i][Crawler2::STATUS_WAIT])) {
 				$waiting = $summary['crawler_stats'][$i][Crawler2::STATUS_WAIT] ?: 0;
+=======
+			$hit = !empty($summary['crawler_stats'][$i]['H']) ? $summary['crawler_stats'][$i]['H'] : 0;
+			$miss = !empty($summary['crawler_stats'][$i]['M']) ? $summary['crawler_stats'][$i]['M'] : 0;
+
+			$blacklisted = !empty($summary['crawler_stats'][$i]['B']) ? $summary['crawler_stats'][$i]['B'] : 0;
+			$blacklisted += !empty($summary['crawler_stats'][$i]['N']) ? $summary['crawler_stats'][$i]['N'] : 0;
+
+			if (isset($summary['crawler_stats'][$i]['W'])) {
+				$waiting = $summary['crawler_stats'][$i]['W'] ?: 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			} else {
 				$waiting = $summary['list_size'] - $hit - $miss - $blacklisted;
 			}

@@ -14,12 +14,42 @@
 	"textdomain": "woocommerce",
 	"usesContext": [ "postId" ],
 	"providesContext": {
+<<<<<<< HEAD
 		"hoverZoom": "hoverZoom",
 		"fullScreenOnClick": "fullScreenOnClick",
+=======
+		"thumbnailsPosition": "thumbnailsPosition",
+		"thumbnailsNumberOfThumbnails": "thumbnailsNumberOfThumbnails",
+		"productGalleryClientId": "productGalleryClientId",
+		"nextPreviousButtonsPosition": "nextPreviousButtonsPosition",
+		"pagerDisplayMode": "pagerDisplayMode",
+		"hoverZoom": "hoverZoom",
+		"fullScreenOnClick": "fullScreenOnClick",
+		"mode": "mode",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		"cropImages": "cropImages"
 	},
 	"ancestor": [ "woocommerce/single-product" ],
 	"attributes": {
+<<<<<<< HEAD
+=======
+		"thumbnailsPosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"thumbnailsNumberOfThumbnails": {
+			"type": "number",
+			"default": 3
+		},
+		"pagerDisplayMode": {
+			"type": "string",
+			"default": "dots"
+		},
+		"productGalleryClientId": {
+			"type": "string",
+			"default": ""
+		},
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		"cropImages": {
 			"type": "boolean",
 			"default": false
@@ -31,6 +61,17 @@
 		"fullScreenOnClick": {
 			"type": "boolean",
 			"default": true
+<<<<<<< HEAD
+=======
+		},
+		"nextPreviousButtonsPosition": {
+			"type": "string",
+			"default": "insideTheImage"
+		},
+		"mode": {
+			"type": "string",
+			"default": "standard"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"viewScript": "wc-product-gallery-frontend",

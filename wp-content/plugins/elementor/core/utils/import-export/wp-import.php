@@ -54,6 +54,7 @@ class WP_Import extends \WP_Importer {
 		'errors' => [],
 	];
 
+<<<<<<< HEAD
 	/**
 	 * WXR attachment ID
 	 *
@@ -65,6 +66,14 @@ class WP_Import extends \WP_Importer {
 	 * Information to import from WXR file.
 	 */
 	// phpcs:ignore Squiz.Commenting.VariableComment.MissingVar
+=======
+	/*
+	 * WXR attachment ID
+	 */
+	private $id;
+
+	// Information to import from WXR file.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private $version;
 	private $authors = [];
 	private $posts = [];
@@ -73,10 +82,14 @@ class WP_Import extends \WP_Importer {
 	private $page_on_front;
 	private $base_blog_url = '';
 
+<<<<<<< HEAD
 	/**
 	 * Mappings from old information to new.
 	 */
 	// phpcs:ignore Squiz.Commenting.VariableComment.MissingVar
+=======
+	// Mappings from old information to new.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private $processed_taxonomies;
 	private $processed_terms = [];
 	private $processed_posts = [];
@@ -129,6 +142,10 @@ class WP_Import extends \WP_Importer {
 	 * @link  http://tools.ietf.org/html/rfc6266
 	 *
 	 * @see WP_REST_Attachments_Controller::get_filename_from_disposition()
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected static function get_filename_from_disposition( $disposition_header ) {
 		// Get the filename.
@@ -1028,7 +1045,11 @@ class WP_Import extends \WP_Importer {
 	 */
 	private function fetch_remote_file( $url, $post ) {
 		// Extract the file name from the URL.
+<<<<<<< HEAD
 		$file_name = basename( wp_parse_url( $url, PHP_URL_PATH ) );
+=======
+		$file_name = basename( parse_url( $url, PHP_URL_PATH ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( ! $file_name ) {
 			$file_name = md5( $url );

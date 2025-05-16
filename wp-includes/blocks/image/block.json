@@ -4,6 +4,7 @@
 	"name": "core/image",
 	"title": "Image",
 	"category": "media",
+<<<<<<< HEAD
 	"usesContext": [
 		"allowResize",
 		"imageCrop",
@@ -12,6 +13,9 @@
 		"postType",
 		"queryId"
 	],
+=======
+	"usesContext": [ "allowResize", "imageCrop", "fixedHeight" ],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"description": "Insert an image to make a visual statement.",
 	"keywords": [ "img", "photo", "picture" ],
 	"textdomain": "default",

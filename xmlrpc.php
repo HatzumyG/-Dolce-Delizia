@@ -22,7 +22,13 @@ if ( ! isset( $HTTP_RAW_POST_DATA ) ) {
 }
 
 // Fix for mozBlog and other cases where '<?xml' isn't on the very first line.
+<<<<<<< HEAD
 $HTTP_RAW_POST_DATA = trim( $HTTP_RAW_POST_DATA );
+=======
+if ( isset( $HTTP_RAW_POST_DATA ) ) {
+	$HTTP_RAW_POST_DATA = trim( $HTTP_RAW_POST_DATA );
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // phpcs:enable
 
 /** Include the bootstrap for setting up WordPress environment */

@@ -63,7 +63,11 @@ __webpack_require__.d(__webpack_exports__, {
   removeFilter: () => (/* binding */ removeFilter)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/validateNamespace.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/validateNamespace.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Validate a namespace string.
  *
@@ -87,7 +91,11 @@ function validateNamespace(namespace) {
 }
 /* harmony default export */ const build_module_validateNamespace = (validateNamespace);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/validateHookName.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/validateHookName.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Validate a hookName string.
  *
@@ -117,7 +125,11 @@ function validateHookName(hookName) {
 }
 /* harmony default export */ const build_module_validateHookName = (validateHookName);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createAddHook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createAddHook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -211,7 +223,11 @@ function createAddHook(hooks, storeKey) {
 }
 /* harmony default export */ const build_module_createAddHook = (createAddHook);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createRemoveHook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createRemoveHook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -291,7 +307,11 @@ function createRemoveHook(hooks, storeKey, removeAll = false) {
 }
 /* harmony default export */ const build_module_createRemoveHook = (createRemoveHook);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createHasHook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createHasHook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @callback HasHook
  *
@@ -326,7 +346,11 @@ function createHasHook(hooks, storeKey) {
 }
 /* harmony default export */ const build_module_createHasHook = (createHasHook);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createRunHook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createRunHook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns a function which, when invoked, will execute all callbacks
  * registered to a hook of the specified type, optionally returning the final
@@ -399,7 +423,11 @@ function createRunHook(hooks, storeKey, returnFirstArg, async) {
 }
 /* harmony default export */ const build_module_createRunHook = (createRunHook);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createCurrentHook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createCurrentHook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns a function which, when invoked, will return the name of the
  * currently running hook, or `null` if no hook of the given type is currently
@@ -420,7 +448,11 @@ function createCurrentHook(hooks, storeKey) {
 }
 /* harmony default export */ const build_module_createCurrentHook = (createCurrentHook);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createDoingHook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createDoingHook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @callback DoingHook
  * Returns whether a hook is currently being executed.
@@ -456,7 +488,11 @@ function createDoingHook(hooks, storeKey) {
 }
 /* harmony default export */ const build_module_createDoingHook = (createDoingHook);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createDidHook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createDidHook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -492,7 +528,11 @@ function createDidHook(hooks, storeKey) {
 }
 /* harmony default export */ const build_module_createDidHook = (createDidHook);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/createHooks.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/createHooks.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -553,7 +593,11 @@ function createHooks() {
 }
 /* harmony default export */ const build_module_createHooks = (createHooks);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/hooks/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/hooks/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

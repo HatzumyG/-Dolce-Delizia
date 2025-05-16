@@ -76,10 +76,13 @@ class Notice extends \WC_REST_Data_Controller {
 				update_user_meta( get_current_user_id(), PluginsHelper::DISMISS_DISCONNECT_NOTICE, time() );
 				$dismissed = true;
 				break;
+<<<<<<< HEAD
 			case 'woo-connect-notice':
 				update_user_meta( get_current_user_id(), PluginsHelper::DISMISS_CONNECT_NOTICE, time() );
 				$dismissed = true;
 				break;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return rest_ensure_response(

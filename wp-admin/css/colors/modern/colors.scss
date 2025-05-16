@@ -1,5 +1,6 @@
 @use "sass:color";
 
+<<<<<<< HEAD
 $highlight-color: #3858e9;
 
 @use "../_admin.scss" with (
@@ -14,3 +15,17 @@ $highlight-color: #3858e9;
 
 	$custom-welcome-panel: "false"
 );
+=======
+$scheme-name: "modern";
+$base-color: #1e1e1e;
+$highlight-color: #3858e9;
+$menu-submenu-focus-text: #33f078;
+$notification-color: $highlight-color;
+
+$link: $highlight-color;
+$link-focus: color.adjust($highlight-color, $lightness: -10%);
+
+$custom-welcome-panel: "false";
+
+@import "../_admin.scss";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

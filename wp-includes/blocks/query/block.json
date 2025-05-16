@@ -5,7 +5,10 @@
 	"title": "Query Loop",
 	"category": "theme",
 	"description": "An advanced block that allows displaying post types based on different query parameters and visual configurations.",
+<<<<<<< HEAD
 	"keywords": [ "posts", "list", "blog", "blogs", "custom post types" ],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"textdomain": "default",
 	"attributes": {
 		"queryId": {
@@ -42,7 +45,11 @@
 			"default": false
 		}
 	},
+<<<<<<< HEAD
 	"usesContext": [ "templateSlug" ],
+=======
+	"usesContext": [ "postType" ],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"providesContext": {
 		"queryId": "queryId",
 		"query": "query",

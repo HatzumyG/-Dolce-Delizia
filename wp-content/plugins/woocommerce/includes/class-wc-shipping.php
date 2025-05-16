@@ -367,12 +367,15 @@ class WC_Shipping {
 			 */
 			$package['rates'] = apply_filters( 'woocommerce_package_rates', $package['rates'], $package );
 
+<<<<<<< HEAD
 			// Package rates should be an array, if it was filtered into a non-array, reset it. Don't reset to the
 			// unfiltered value, as e.g. a 3pd could have set it to "false" to remove rates.
 			if ( ! is_array( $package['rates'] ) ) {
 				$package['rates'] = array();
 			}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// Store in session to avoid recalculation.
 			WC()->session->set(
 				$wc_session_key,

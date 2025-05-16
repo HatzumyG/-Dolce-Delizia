@@ -5,7 +5,11 @@ use Elementor\Modules\Home\Transformations\Base\Transformations_Abstract;
 use Elementor\User;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Filter_Condition_Introduction_Meta extends Transformations_Abstract {

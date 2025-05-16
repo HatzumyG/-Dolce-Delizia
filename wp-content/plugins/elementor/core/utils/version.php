@@ -77,7 +77,11 @@ class Version {
 	 * @return bool
 	 */
 	public static function is_valid_version( $version ) {
+<<<<<<< HEAD
 		return (bool) preg_match( '/^(\d+\.)?(\d+\.)?(\*|\d+)(-.+)?$/', $version );
+=======
+		return ! ! preg_match( '/^(\d+\.)?(\d+\.)?(\*|\d+)(-.+)?$/', $version );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -91,7 +95,11 @@ class Version {
 	 */
 	public static function create_from_string( $version, $should_validate = true ) {
 		if ( $should_validate && ! static::is_valid_version( $version ) ) {
+<<<<<<< HEAD
 			throw new \Exception( sprintf( '%s is an invalid version.', esc_html( $version ) ) );
+=======
+			throw new \Exception( "{$version} is an invalid version." );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$parts = explode( '.', $version );

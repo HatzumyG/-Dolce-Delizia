@@ -7,7 +7,11 @@ use Elementor\Core\Base\Document;
 use Elementor\Core\Files\Uploads_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Settings_Site_Identity extends Tab_Base {
@@ -104,11 +108,14 @@ class Settings_Site_Identity extends Tab_Base {
 					'100'
 				),
 				'export' => false,
+<<<<<<< HEAD
 				'ai' => [
 					'active' => true,
 					'type' => 'media',
 					'category' => 'vector',
 				],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			]
 		);
 

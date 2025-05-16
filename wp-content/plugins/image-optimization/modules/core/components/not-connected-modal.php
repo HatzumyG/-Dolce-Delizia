@@ -21,11 +21,14 @@ class Not_Connected_Modal {
 			style="display:none;"
 		>
 			<div class="image-optimizer__modal image-optimizer__modal--not-connected" data-modal-slug="<?php echo esc_attr( self::NOT_CONNECTED_MODAL_SLUG ); ?>">
+<<<<<<< HEAD
 				<button class="image-optimizer__modal--not-connected-close">
 					<svg viewBox="0 0 24 24" width="24" height="24">
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path>
 					</svg>
 				</button>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<img src="<?php echo esc_url( plugins_url( 'assets/static/connect.jpg', dirname( __FILE__, 3 ) ) ); ?>" alt="<?php esc_html_e( 'Connect now', 'image-optimization' ); ?>">
 				<h2><?php esc_html_e( 'Let\'s start optimizing your images!', 'image-optimization' ); ?></h2>
 				<p><?php esc_html_e( 'Connect the Image Optimizer plugin to speed up your site. We\'ll handle the rest.', 'image-optimization' ); ?></p>
@@ -35,7 +38,11 @@ class Not_Connected_Modal {
 					<li><?php esc_html_e( 'Convert to AVIF and WebP formats', 'image-optimization' ); ?></li>
 					<li><?php esc_html_e( 'Works across unlimited websites', 'image-optimization' ); ?></li>
 				</ul>
+<<<<<<< HEAD
 				<a href="<?php echo admin_url( 'admin.php?page=' . Module::SETTING_BASE_SLUG . '&action=connect' ); ?>" class="image-optimizer__modal--not-connected-connect">
+=======
+				<a href="<?php echo admin_url( 'admin.php?page=' . Module::SETTING_BASE_SLUG . '&action=connect' ); ?>">
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					<?php esc_html_e( 'Connect to start', 'image-optimization' ); ?>
 				</a>
 			</div>
@@ -58,6 +65,7 @@ class Not_Connected_Modal {
 							.css('margin-left', - TB_WIDTH / 2)
 							.css('margin-top', - TB_HEIGHT / 2)
 							.css('top', '50%');
+<<<<<<< HEAD
 
 						const hideModal = (e) => {
 							e.preventDefault();
@@ -74,6 +82,15 @@ class Not_Connected_Modal {
 						$closeButton.on( 'click', function (e) {
 							hideModal(e);
 						} );
+=======
+						const $closeButton = $modal.find( 'a' );
+						$closeButton.on( 'click', function (e) {
+							e.preventDefault();
+							localStorage.setItem('<?php echo esc_js( self::NOT_CONNECTED_MODAL_SLUG ); ?>', Date.now().toString());
+							tb_remove();
+							window.open( $( this ).attr( 'href' ), '_blank' ).focus();
+						} );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					} else {
 						$modal.remove();
 					}

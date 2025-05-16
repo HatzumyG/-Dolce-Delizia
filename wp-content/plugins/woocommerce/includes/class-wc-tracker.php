@@ -201,8 +201,12 @@ class WC_Tracker {
 		$data['settings'] = self::get_all_woocommerce_options_values();
 
 		// Template overrides.
+<<<<<<< HEAD
 		$template_overrides         = self::get_all_template_overrides();
 		$data['template_overrides'] = $template_overrides;
+=======
+		$data['template_overrides'] = self::get_all_template_overrides();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Cart & checkout tech (blocks or shortcodes).
 		$data['cart_checkout'] = self::get_cart_checkout_info();
@@ -227,9 +231,12 @@ class WC_Tracker {
 		$data['woocommerce_allow_tracking_last_modified'] = get_option( 'woocommerce_allow_tracking_last_modified', 'unknown' );
 		$data['woocommerce_allow_tracking_first_optin']   = get_option( 'woocommerce_allow_tracking_first_optin', 'unknown' );
 
+<<<<<<< HEAD
 		// Email improvements tracking data.
 		$data['email_improvements'] = self::get_email_improvements_info( $template_overrides );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Filter the data that's sent with the tracker.
 		 *
@@ -1438,6 +1445,7 @@ class WC_Tracker {
 			'last_20_orders'  => $last_20,
 		);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Get email improvements tracking data.
@@ -1524,4 +1532,6 @@ class WC_Tracker {
 			}
 		);
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

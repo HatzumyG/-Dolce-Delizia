@@ -65,6 +65,7 @@ const optimizedTemplate = ( data ) => {
 		<p class="image-optimization-control__property">
 			${ __( 'Image sizes optimized', 'image-optimization' ) }:
 
+<<<<<<< HEAD
 			<span>
 				${ data?.sizesOptimized }/${ data?.sizesTotal }
 
@@ -74,6 +75,9 @@ const optimizedTemplate = ( data ) => {
 					(+)
 				</button>
 			</span>
+=======
+			<span>${ data?.sizesOptimized }</span>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		</p>
 
 		<p class="image-optimization-control__property">

@@ -75,7 +75,11 @@ function create_initial_post_types() {
 			'labels'                => array(
 				'name'           => _x( 'Media', 'post type general name' ),
 				'name_admin_bar' => _x( 'Media', 'add new from admin bar' ),
+<<<<<<< HEAD
 				'add_new'        => __( 'Add Media File' ),
+=======
+				'add_new'        => __( 'Add New Media File' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'edit_item'      => __( 'Edit Media' ),
 				'view_item'      => ( '1' === get_option( 'wp_attachment_pages_enabled' ) ) ? __( 'View Attachment Page' ) : __( 'View Media File' ),
 				'attributes'     => __( 'Attachment Attributes' ),
@@ -202,8 +206,13 @@ function create_initial_post_types() {
 			'labels'           => array(
 				'name'               => _x( 'Changesets', 'post type general name' ),
 				'singular_name'      => _x( 'Changeset', 'post type singular name' ),
+<<<<<<< HEAD
 				'add_new'            => __( 'Add Changeset' ),
 				'add_new_item'       => __( 'Add Changeset' ),
+=======
+				'add_new'            => __( 'Add New Changeset' ),
+				'add_new_item'       => __( 'Add New Changeset' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'new_item'           => __( 'New Changeset' ),
 				'edit_item'          => __( 'Edit Changeset' ),
 				'view_item'          => __( 'View Changeset' ),
@@ -284,8 +293,13 @@ function create_initial_post_types() {
 			'labels'                => array(
 				'name'                     => _x( 'Patterns', 'post type general name' ),
 				'singular_name'            => _x( 'Pattern', 'post type singular name' ),
+<<<<<<< HEAD
 				'add_new'                  => __( 'Add Pattern' ),
 				'add_new_item'             => __( 'Add Pattern' ),
+=======
+				'add_new'                  => __( 'Add New Pattern' ),
+				'add_new_item'             => __( 'Add New Pattern' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'new_item'                 => __( 'New Pattern' ),
 				'edit_item'                => __( 'Edit Block Pattern' ),
 				'view_item'                => __( 'View Pattern' ),
@@ -350,8 +364,13 @@ function create_initial_post_types() {
 			'labels'                          => array(
 				'name'                  => _x( 'Templates', 'post type general name' ),
 				'singular_name'         => _x( 'Template', 'post type singular name' ),
+<<<<<<< HEAD
 				'add_new'               => __( 'Add Template' ),
 				'add_new_item'          => __( 'Add Template' ),
+=======
+				'add_new'               => __( 'Add New Template' ),
+				'add_new_item'          => __( 'Add New Template' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'new_item'              => __( 'New Template' ),
 				'edit_item'             => __( 'Edit Template' ),
 				'view_item'             => __( 'View Template' ),
@@ -415,8 +434,13 @@ function create_initial_post_types() {
 			'labels'                          => array(
 				'name'                  => _x( 'Template Parts', 'post type general name' ),
 				'singular_name'         => _x( 'Template Part', 'post type singular name' ),
+<<<<<<< HEAD
 				'add_new'               => __( 'Add Template Part' ),
 				'add_new_item'          => __( 'Add Template Part' ),
+=======
+				'add_new'               => __( 'Add New Template Part' ),
+				'add_new_item'          => __( 'Add New Template Part' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'new_item'              => __( 'New Template Part' ),
 				'edit_item'             => __( 'Edit Template Part' ),
 				'view_item'             => __( 'View Template Part' ),
@@ -522,8 +546,13 @@ function create_initial_post_types() {
 			'labels'                => array(
 				'name'                  => _x( 'Navigation Menus', 'post type general name' ),
 				'singular_name'         => _x( 'Navigation Menu', 'post type singular name' ),
+<<<<<<< HEAD
 				'add_new'               => __( 'Add Navigation Menu' ),
 				'add_new_item'          => __( 'Add Navigation Menu' ),
+=======
+				'add_new'               => __( 'Add New Navigation Menu' ),
+				'add_new_item'          => __( 'Add New Navigation Menu' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'new_item'              => __( 'New Navigation Menu' ),
 				'edit_item'             => __( 'Edit Navigation Menu' ),
 				'view_item'             => __( 'View Navigation Menu' ),
@@ -852,15 +881,23 @@ function get_attached_file( $attachment_id, $unfiltered = false ) {
  * Updates attachment file path based on attachment ID.
  *
  * Used to update the file path of the attachment, which uses post meta name
+<<<<<<< HEAD
  * `_wp_attached_file` to store the path of the attachment.
+=======
+ * '_wp_attached_file' to store the path of the attachment.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @since 2.1.0
  *
  * @param int    $attachment_id Attachment ID.
  * @param string $file          File path for the attachment.
+<<<<<<< HEAD
  * @return int|bool Meta ID if the `_wp_attached_file` key didn't exist for the attachment.
  *                  True on successful update, false on failure or if the `$file` value passed
  *                  to the function is the same as the one that is already in the database.
+=======
+ * @return bool True on success, false on failure.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function update_attached_file( $attachment_id, $file ) {
 	if ( ! get_post( $attachment_id ) ) {
@@ -1137,7 +1174,11 @@ function get_post( $post = null, $output = OBJECT, $filter = 'raw' ) {
 function get_post_ancestors( $post ) {
 	$post = get_post( $post );
 
+<<<<<<< HEAD
 	if ( ! $post || empty( $post->post_parent ) || $post->post_parent === $post->ID ) {
+=======
+	if ( ! $post || empty( $post->post_parent ) || $post->post_parent == $post->ID ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return array();
 	}
 
@@ -1148,9 +1189,13 @@ function get_post_ancestors( $post ) {
 
 	while ( $ancestor = get_post( $id ) ) {
 		// Loop detection: If the ancestor has been seen before, break.
+<<<<<<< HEAD
 		if ( empty( $ancestor->post_parent ) || $ancestor->post_parent === $post->ID
 			|| in_array( $ancestor->post_parent, $ancestors, true )
 		) {
+=======
+		if ( empty( $ancestor->post_parent ) || ( $ancestor->post_parent == $post->ID ) || in_array( $ancestor->post_parent, $ancestors, true ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			break;
 		}
 
@@ -2026,8 +2071,13 @@ function _post_type_meta_capabilities( $capabilities = null ) {
  * - `name` - General name for the post type, usually plural. The same and overridden
  *          by `$post_type_object->label`. Default is 'Posts' / 'Pages'.
  * - `singular_name` - Name for one object of this post type. Default is 'Post' / 'Page'.
+<<<<<<< HEAD
  * - `add_new` - Label for adding a new item. Default is 'Add Post' / 'Add Page'.
  * - `add_new_item` - Label for adding a new singular item. Default is 'Add Post' / 'Add Page'.
+=======
+ * - `add_new` - Label for adding a new item. Default is 'Add New' / 'Add New'.
+ * - `add_new_item` - Label for adding a new singular item. Default is 'Add New Post' / 'Add New Page'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * - `edit_item` - Label for editing a singular item. Default is 'Edit Post' / 'Edit Page'.
  * - `new_item` - Label for the new item page title. Default is 'New Post' / 'New Page'.
  * - `view_item` - Label for viewing a singular item. Default is 'View Post' / 'View Page'.
@@ -2476,6 +2526,7 @@ function is_post_publicly_viewable( $post = null ) {
 }
 
 /**
+<<<<<<< HEAD
  * Determines whether a post is embeddable.
  *
  * @since 6.8.0
@@ -2510,6 +2561,8 @@ function is_post_embeddable( $post = null ) {
 }
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Retrieves an array of the latest posts, or posts matching the given criteria.
  *
  * For more information on the accepted arguments, see the
@@ -2592,6 +2645,7 @@ function get_posts( $args = null ) {
  *
  * @param int    $post_id    Post ID.
  * @param string $meta_key   Metadata name.
+<<<<<<< HEAD
  * @param mixed  $meta_value Metadata value. Arrays and objects are stored as serialized data and
  *                           will be returned as the same type when retrieved. Other data types will
  *                           be stored as strings in the database:
@@ -2599,6 +2653,9 @@ function get_posts( $args = null ) {
  *                           - true is stored and retrieved as '1'
  *                           - numbers (both integer and float) are stored and retrieved as strings
  *                           Must be serializable if non-scalar.
+=======
+ * @param mixed  $meta_value Metadata value. Must be serializable if non-scalar.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param bool   $unique     Optional. Whether the same key should not be added.
  *                           Default false.
  * @return int|false Meta ID on success, false on failure.
@@ -2655,11 +2712,14 @@ function delete_post_meta( $post_id, $meta_key, $meta_value = '' ) {
  *               False for an invalid `$post_id` (non-numeric, zero, or negative value).
  *               An empty array if a valid but non-existing post ID is passed and `$single` is false.
  *               An empty string if a valid but non-existing post ID is passed and `$single` is true.
+<<<<<<< HEAD
  *               Note: Non-serialized values are returned as strings:
  *               - false values are returned as empty strings ('')
  *               - true values are returned as '1'
  *               - numbers (both integer and float) are returned as strings
  *               Arrays and objects retain their original type.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function get_post_meta( $post_id, $key = '', $single = false ) {
 	return get_metadata( 'post', $post_id, $key, $single );
@@ -2872,7 +2932,11 @@ function is_sticky( $post_id = 0 ) {
 function sanitize_post( $post, $context = 'display' ) {
 	if ( is_object( $post ) ) {
 		// Check if post already filtered for this context.
+<<<<<<< HEAD
 		if ( isset( $post->filter ) && $context === $post->filter ) {
+=======
+		if ( isset( $post->filter ) && $context == $post->filter ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $post;
 		}
 		if ( ! isset( $post->ID ) ) {
@@ -2884,7 +2948,11 @@ function sanitize_post( $post, $context = 'display' ) {
 		$post->filter = $context;
 	} elseif ( is_array( $post ) ) {
 		// Check if post already filtered for this context.
+<<<<<<< HEAD
 		if ( isset( $post['filter'] ) && $context === $post['filter'] ) {
+=======
+		if ( isset( $post['filter'] ) && $context == $post['filter'] ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $post;
 		}
 		if ( ! isset( $post['ID'] ) ) {
@@ -3437,8 +3505,12 @@ function wp_count_attachments( $mime_type = '' ) {
 	);
 
 	$counts = wp_cache_get( $cache_key, 'counts' );
+<<<<<<< HEAD
 
 	if ( false === $counts ) {
+=======
+	if ( false == $counts ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$and   = wp_post_mime_type_where( $mime_type );
 		$count = $wpdb->get_results( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' $and GROUP BY post_mime_type", ARRAY_A );
 
@@ -3906,11 +3978,19 @@ function _reset_front_page_settings_for_post( $post_id ) {
 		 * If the page is defined in option page_on_front or post_for_posts,
 		 * adjust the corresponding options.
 		 */
+<<<<<<< HEAD
 		if ( (int) get_option( 'page_on_front' ) === $post->ID ) {
 			update_option( 'show_on_front', 'posts' );
 			update_option( 'page_on_front', 0 );
 		}
 		if ( (int) get_option( 'page_for_posts' ) === $post->ID ) {
+=======
+		if ( get_option( 'page_on_front' ) == $post->ID ) {
+			update_option( 'show_on_front', 'posts' );
+			update_option( 'page_on_front', 0 );
+		}
+		if ( get_option( 'page_for_posts' ) == $post->ID ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			update_option( 'page_for_posts', 0 );
 		}
 	}
@@ -6108,9 +6188,15 @@ function get_page_by_path( $page_path, $output = OBJECT, $post_type = 'page' ) {
 
 	$revparts = array_reverse( $parts );
 
+<<<<<<< HEAD
 	$found_id = 0;
 	foreach ( (array) $pages as $page ) {
 		if ( $page->post_name === $revparts[0] ) {
+=======
+	$foundid = 0;
+	foreach ( (array) $pages as $page ) {
+		if ( $page->post_name == $revparts[0] ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$count = 0;
 			$p     = $page;
 
@@ -6118,21 +6204,34 @@ function get_page_by_path( $page_path, $output = OBJECT, $post_type = 'page' ) {
 			 * Loop through the given path parts from right to left,
 			 * ensuring each matches the post ancestry.
 			 */
+<<<<<<< HEAD
 			while ( 0 !== (int) $p->post_parent && isset( $pages[ $p->post_parent ] ) ) {
 				++$count;
 				$parent = $pages[ $p->post_parent ];
 				if ( ! isset( $revparts[ $count ] ) || $parent->post_name !== $revparts[ $count ] ) {
+=======
+			while ( 0 != $p->post_parent && isset( $pages[ $p->post_parent ] ) ) {
+				++$count;
+				$parent = $pages[ $p->post_parent ];
+				if ( ! isset( $revparts[ $count ] ) || $parent->post_name != $revparts[ $count ] ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					break;
 				}
 				$p = $parent;
 			}
 
+<<<<<<< HEAD
 			if ( 0 === (int) $p->post_parent
 				&& count( $revparts ) === $count + 1
 				&& $p->post_name === $revparts[ $count ]
 			) {
 				$found_id = $page->ID;
 				if ( $page->post_type === $post_type ) {
+=======
+			if ( 0 == $p->post_parent && count( $revparts ) === $count + 1 && $p->post_name == $revparts[ $count ] ) {
+				$foundid = $page->ID;
+				if ( $page->post_type == $post_type ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					break;
 				}
 			}
@@ -6140,10 +6239,17 @@ function get_page_by_path( $page_path, $output = OBJECT, $post_type = 'page' ) {
 	}
 
 	// We cache misses as well as hits.
+<<<<<<< HEAD
 	wp_cache_set( $cache_key, $found_id, 'post-queries' );
 
 	if ( $found_id ) {
 		return get_post( $found_id, $output );
+=======
+	wp_cache_set( $cache_key, $foundid, 'post-queries' );
+
+	if ( $foundid ) {
+		return get_post( $foundid, $output );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	return null;
@@ -6404,7 +6510,11 @@ function get_pages( $args = array() ) {
 			$query_args['author__in'] = array();
 			foreach ( $post_authors as $post_author ) {
 				// Do we have an author id or an author login?
+<<<<<<< HEAD
 				if ( 0 === (int) $post_author ) {
+=======
+				if ( 0 == (int) $post_author ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$post_author = get_user_by( 'login', $post_author );
 					if ( empty( $post_author ) ) {
 						continue;
@@ -7257,14 +7367,22 @@ function wp_mime_type_icon( $mime = 0, $preferred_ext = '.png' ) {
  */
 function wp_check_for_changed_slugs( $post_id, $post, $post_before ) {
 	// Don't bother if it hasn't changed.
+<<<<<<< HEAD
 	if ( $post->post_name === $post_before->post_name ) {
+=======
+	if ( $post->post_name == $post_before->post_name ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return;
 	}
 
 	// We're only concerned with published, non-hierarchical objects.
+<<<<<<< HEAD
 	if ( ! ( 'publish' === $post->post_status || ( 'attachment' === $post->post_type && 'inherit' === $post->post_status ) )
 		|| is_post_type_hierarchical( $post->post_type )
 	) {
+=======
+	if ( ! ( 'publish' === $post->post_status || ( 'attachment' === get_post_type( $post ) && 'inherit' === $post->post_status ) ) || is_post_type_hierarchical( $post->post_type ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return;
 	}
 
@@ -7305,14 +7423,22 @@ function wp_check_for_changed_dates( $post_id, $post, $post_before ) {
 	$new_date      = gmdate( 'Y-m-d', strtotime( $post->post_date ) );
 
 	// Don't bother if it hasn't changed.
+<<<<<<< HEAD
 	if ( $new_date === $previous_date ) {
+=======
+	if ( $new_date == $previous_date ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return;
 	}
 
 	// We're only concerned with published, non-hierarchical objects.
+<<<<<<< HEAD
 	if ( ! ( 'publish' === $post->post_status || ( 'attachment' === $post->post_type && 'inherit' === $post->post_status ) )
 		|| is_post_type_hierarchical( $post->post_type )
 	) {
+=======
+	if ( ! ( 'publish' === $post->post_status || ( 'attachment' === get_post_type( $post ) && 'inherit' === $post->post_status ) ) || is_post_type_hierarchical( $post->post_type ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return;
 	}
 
@@ -7408,7 +7534,11 @@ function get_posts_by_author_sql( $post_type, $full = true, $post_author = null,
 				$id = get_current_user_id();
 				if ( null === $post_author || ! $full ) {
 					$post_status_sql .= " OR post_status = 'private' AND post_author = $id";
+<<<<<<< HEAD
 				} elseif ( $id === (int) $post_author ) {
+=======
+				} elseif ( $id == (int) $post_author ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$post_status_sql .= " OR post_status = 'private'";
 				} // Else none.
 			} // Else none.
@@ -7984,7 +8114,11 @@ function wp_check_post_hierarchy_for_loops( $post_parent, $post_id ) {
 	}
 
 	// Can't be its own parent.
+<<<<<<< HEAD
 	if ( $post_parent === $post_id ) {
+=======
+	if ( $post_parent == $post_id ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 0;
 	}
 

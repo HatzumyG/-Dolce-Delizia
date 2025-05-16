@@ -38,10 +38,17 @@ abstract class Skin_Base extends Sub_Controls_Stack {
 	 *
 	 * @since 1.0.0
 	 * @access public
+<<<<<<< HEAD
 	 * @param Widget_Base $element_parent
 	 */
 	public function __construct( Widget_Base $element_parent ) {
 		parent::__construct( $element_parent );
+=======
+	 * @param Widget_Base $parent
+	 */
+	public function __construct( Widget_Base $parent ) {
+		parent::__construct( $parent );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->_register_controls_actions();
 	}
@@ -161,6 +168,10 @@ abstract class Skin_Base extends Sub_Controls_Stack {
 
 	 * @since 3.0.0 New `$options` parameter added.
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function add_control( $id, $args = [], $options = [] ) {
 		$args['condition']['_skin'] = $this->get_id();
@@ -197,6 +208,10 @@ abstract class Skin_Base extends Sub_Controls_Stack {
 	 *
 	 * @since  1.0.5
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function add_responsive_control( $id, $args, $options = [] ) {
 		$args['condition']['_skin'] = $this->get_id();
@@ -246,6 +261,10 @@ abstract class Skin_Base extends Sub_Controls_Stack {
 	 *
 	 * @since  1.0.0
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	final public function add_group_control( $group_name, $args = [], $options = [] ) {
 		$args['condition']['_skin'] = $this->get_id();
@@ -260,9 +279,16 @@ abstract class Skin_Base extends Sub_Controls_Stack {
 	 * @since 1.0.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param Widget_Base $element_parent Parent widget.
 	 */
 	public function set_parent( $element_parent ) {
 		$this->parent = $element_parent;
+=======
+	 * @param Widget_Base $parent Parent widget.
+	 */
+	public function set_parent( $parent ) {
+		$this->parent = $parent;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

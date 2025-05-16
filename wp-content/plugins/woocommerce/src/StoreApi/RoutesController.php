@@ -61,8 +61,11 @@ class RoutesController {
 				Routes\V1\ProductAttributeTerms::IDENTIFIER => Routes\V1\ProductAttributeTerms::class,
 				Routes\V1\ProductCategories::IDENTIFIER  => Routes\V1\ProductCategories::class,
 				Routes\V1\ProductCategoriesById::IDENTIFIER => Routes\V1\ProductCategoriesById::class,
+<<<<<<< HEAD
 				Routes\V1\ProductBrands::IDENTIFIER      => Routes\V1\ProductBrands::class,
 				Routes\V1\ProductBrandsById::IDENTIFIER  => Routes\V1\ProductBrandsById::class,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				Routes\V1\ProductCollectionData::IDENTIFIER => Routes\V1\ProductCollectionData::class,
 				Routes\V1\ProductReviews::IDENTIFIER     => Routes\V1\ProductReviews::class,
 				Routes\V1\ProductTags::IDENTIFIER        => Routes\V1\ProductTags::class,

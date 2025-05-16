@@ -37,8 +37,12 @@ class Announcement {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Is Active is_active
 	 *
+=======
+	 * is_active
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return bool
 	 */
 	public function is_active(): bool {

@@ -50,6 +50,7 @@ class ComingSoonTemplate extends AbstractPageTemplate {
 	protected function is_active_template() {
 		return false;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Returns the font family for the body and heading.
@@ -104,4 +105,6 @@ class ComingSoonTemplate extends AbstractPageTemplate {
 
 		return $default_fonts;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

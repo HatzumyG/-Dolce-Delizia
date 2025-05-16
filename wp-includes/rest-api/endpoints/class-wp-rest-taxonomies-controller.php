@@ -113,10 +113,13 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
+<<<<<<< HEAD
 		if ( $request->is_method( 'HEAD' ) ) {
 			// Return early as this handler doesn't add any response headers.
 			return new WP_REST_Response( array() );
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Retrieve the list of registered collection query parameters.
 		$registered = $this->get_collection_params();
@@ -214,12 +217,15 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 		// Restores the more descriptive, specific name for use within this method.
 		$taxonomy = $item;
 
+<<<<<<< HEAD
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
 			/** This filter is documented in wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php */
 			return apply_filters( 'rest_prepare_taxonomy', new WP_REST_Response( array() ), $taxonomy, $request );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$base = ! empty( $taxonomy->rest_base ) ? $taxonomy->rest_base : $taxonomy->name;
 
 		$fields = $this->get_fields_for_response( $request );

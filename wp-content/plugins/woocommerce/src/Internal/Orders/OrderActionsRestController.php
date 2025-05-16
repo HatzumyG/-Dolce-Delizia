@@ -3,6 +3,7 @@ declare( strict_types=1 );
 
 namespace Automattic\WooCommerce\Internal\Orders;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\OrderStatus;
 use Automattic\WooCommerce\Internal\RestApiControllerBase;
 use WC_Data_Exception;
@@ -10,6 +11,11 @@ use WC_Email;
 use WC_Order;
 use WP_Error;
 use WP_REST_Request, WP_REST_Response, WP_REST_Server;
+=======
+use Automattic\WooCommerce\Internal\RestApiControllerBase;
+use WP_Error;
+use WP_REST_Request;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Controller for the REST endpoint to run actions on orders.
@@ -17,6 +23,10 @@ use WP_REST_Request, WP_REST_Response, WP_REST_Server;
  * This first version only supports sending the order details to the customer (`send_order_details`).
  */
 class OrderActionsRestController extends RestApiControllerBase {
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Get the WooCommerce REST API namespace for the class.
 	 *
@@ -29,6 +39,7 @@ class OrderActionsRestController extends RestApiControllerBase {
 	/**
 	 * Register the REST API endpoints handled by this controller.
 	 */
+<<<<<<< HEAD
 	public function register_routes(): void {
 		register_rest_route(
 			$this->route_namespace,
@@ -70,10 +81,14 @@ class OrderActionsRestController extends RestApiControllerBase {
 			)
 		);
 
+=======
+	public function register_routes() {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		register_rest_route(
 			$this->route_namespace,
 			'/orders/(?P<id>[\d]+)/actions/send_order_details',
 			array(
+<<<<<<< HEAD
 				'args'   => array(
 					'id' => array(
 						'description' => __( 'Unique identifier of the order.', 'woocommerce' ),
@@ -87,11 +102,21 @@ class OrderActionsRestController extends RestApiControllerBase {
 					'args'                => $this->get_args_for_order_actions( 'send_order_details', WP_REST_Server::CREATABLE ),
 				),
 				'schema' => array( $this, 'get_schema_for_order_actions' ),
+=======
+				array(
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => fn( $request ) => $this->run( $request, 'send_order_details' ),
+					'permission_callback' => fn( $request ) => $this->check_permissions( $request ),
+					'args'                => $this->get_args_for_order_actions(),
+					'schema'              => $this->get_schema_for_order_actions(),
+				),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		);
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Validate the order ID that is part of the endpoint URL.
 	 *
 	 * @param WP_REST_Request $request The incoming HTTP REST request.
@@ -128,16 +153,26 @@ class OrderActionsRestController extends RestApiControllerBase {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Permission check for REST API endpoint.
 	 *
 	 * @param WP_REST_Request $request The request for which the permission is checked.
 	 * @return bool|WP_Error True if the current user has the capability, otherwise a WP_Error object.
 	 */
 	private function check_permissions( WP_REST_Request $request ) {
+<<<<<<< HEAD
 		$order_id = $this->validate_order_id( $request );
 
 		if ( is_wp_error( $order_id ) ) {
 			return $order_id;
+=======
+		$order_id = $request->get_param( 'id' );
+		$order    = wc_get_order( $order_id );
+
+		if ( ! $order ) {
+			return new WP_Error( 'woocommerce_rest_not_found', __( 'Order not found', 'woocommerce' ), array( 'status' => 404 ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $this->check_permission( $request, 'read_shop_order', $order_id );
@@ -146,6 +181,7 @@ class OrderActionsRestController extends RestApiControllerBase {
 	/**
 	 * Get the accepted arguments for the POST request.
 	 *
+<<<<<<< HEAD
 	 * @param string $action_slug The endpoint slug for the order action.
 	 *
 	 * @return array[]
@@ -214,10 +250,47 @@ class OrderActionsRestController extends RestApiControllerBase {
 			),
 		);
 
+=======
+	 * @return array[]
+	 */
+	private function get_args_for_order_actions(): array {
+		return array(
+			'id'    => array(
+				'description' => __( 'Unique identifier of the order.', 'woocommerce' ),
+				'type'        => 'integer',
+				'context'     => array( 'view', 'edit' ),
+				'readonly'    => true,
+			),
+			'email' => array(
+				'description'       => __( 'Email address to send the order details to.', 'woocommerce' ),
+				'type'              => 'string',
+				'format'            => 'email',
+				'required'          => false,
+				'validate_callback' => 'rest_validate_request_arg',
+			),
+		);
+	}
+
+	/**
+	 * Get the schema for both the GET and the POST requests.
+	 *
+	 * @return array[]
+	 */
+	private function get_schema_for_order_actions(): array {
+		$schema['properties'] = array(
+			'message' => array(
+				'description' => __( 'A message indicating that the action completed successfully.', 'woocommerce' ),
+				'type'        => 'string',
+				'context'     => array( 'view', 'edit' ),
+				'readonly'    => true,
+			),
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $schema;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get the schema for all order actions that don't have a separate schema.
 	 *
 	 * @return array
@@ -518,11 +591,14 @@ class OrderActionsRestController extends RestApiControllerBase {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Handle the POST /orders/{id}/actions/send_order_details.
 	 *
 	 * @param WP_REST_Request $request The received request.
 	 * @return array|WP_Error Request response or an error.
 	 */
+<<<<<<< HEAD
 	protected function send_order_details( WP_REST_Request $request ) {
 		$order    = wc_get_order( $request->get_param( 'id' ) );
 		$email    = $request->get_param( 'email' );
@@ -543,6 +619,22 @@ class OrderActionsRestController extends RestApiControllerBase {
 				__( 'Order does not have an email address.', 'woocommerce' ),
 				array( 'status' => 400 )
 			);
+=======
+	public function send_order_details( WP_REST_Request $request ) {
+		$order_id = $request->get_param( 'id' );
+		$order    = wc_get_order( $order_id );
+		if ( ! $order ) {
+			return new WP_Error( 'woocommerce_rest_invalid_order', __( 'Invalid order ID.', 'woocommerce' ), array( 'status' => 404 ) );
+		}
+
+		$email = $request->get_param( 'email' );
+		if ( $email ) {
+			$order->set_billing_email( $email );
+		}
+
+		if ( ! is_email( $order->get_billing_email() ) ) {
+			return new WP_Error( 'woocommerce_rest_missing_email', __( 'Order does not have an email address.', 'woocommerce' ), array( 'status' => 400 ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		// phpcs:disable WooCommerce.Commenting.CommentHooks.MissingSinceComment
@@ -554,23 +646,32 @@ class OrderActionsRestController extends RestApiControllerBase {
 		WC()->mailer()->customer_invoice( $order );
 
 		$user_agent = esc_html( $request->get_header( 'User-Agent' ) );
+<<<<<<< HEAD
 		$messages[] = sprintf(
+=======
+		$note       = sprintf(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// translators: %1$s is the customer email, %2$s is the user agent that requested the action.
 			esc_html__( 'Order details sent to %1$s, via %2$s.', 'woocommerce' ),
 			esc_html( $order->get_billing_email() ),
 			$user_agent ? $user_agent : 'REST API'
 		);
+<<<<<<< HEAD
 
 		$messages = array_filter( $messages );
 		foreach ( $messages as $message ) {
 			$order->add_order_note( $message, false, true );
 		}
+=======
+		$order->add_order_note( $note, false, true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// phpcs:disable WooCommerce.Commenting.CommentHooks.MissingSinceComment
 		/** This action is documented in includes/admin/meta-boxes/class-wc-meta-box-order-actions.php */
 		do_action( 'woocommerce_after_resend_order_email', $order, 'customer_invoice' );
 
 		return array(
+<<<<<<< HEAD
 			'message' => implode( ' ', $messages ),
 		);
 	}
@@ -646,4 +747,9 @@ class OrderActionsRestController extends RestApiControllerBase {
 
 		return (bool) $partially_refunded;
 	}
+=======
+			'message' => __( 'Order details email sent to customer.', 'woocommerce' ),
+		);
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

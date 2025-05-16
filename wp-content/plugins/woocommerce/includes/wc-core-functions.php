@@ -1660,6 +1660,7 @@ function wc_back_link( $label, $url ) {
 }
 
 /**
+<<<<<<< HEAD
  * Outputs a header with "back" link so admin screens can easily jump back a page.
  *
  * @param string $title Title of the current page.
@@ -1674,6 +1675,8 @@ function wc_back_header( $title, $label, $url ) {
 }
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Display a WooCommerce help tip.
  *
  * @since  2.5.0
@@ -2700,6 +2703,7 @@ function wc_cache_get_multiple( $keys, $group = '', $force = false ) {
 	}
 	return $values;
 }
+<<<<<<< HEAD
 
 /**
  * Delete multiple transients in a single operation.
@@ -2821,3 +2825,5 @@ function _wc_delete_transients( $transients ) {
 		}
 	}
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

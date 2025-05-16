@@ -142,6 +142,7 @@ module.exports = deepmerge_1;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 83:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -384,6 +385,8 @@ exports.isValidElementType=function(a){return"string"===typeof a||"function"===t
 
 /***/ }),
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ 7734:
 /***/ ((module) => {
 
@@ -1072,6 +1075,156 @@ module.exports =
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ 1880:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var reactIs = __webpack_require__(1178);
+
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+var REACT_STATICS = {
+  childContextTypes: true,
+  contextType: true,
+  contextTypes: true,
+  defaultProps: true,
+  displayName: true,
+  getDefaultProps: true,
+  getDerivedStateFromError: true,
+  getDerivedStateFromProps: true,
+  mixins: true,
+  propTypes: true,
+  type: true
+};
+var KNOWN_STATICS = {
+  name: true,
+  length: true,
+  prototype: true,
+  caller: true,
+  callee: true,
+  arguments: true,
+  arity: true
+};
+var FORWARD_REF_STATICS = {
+  '$$typeof': true,
+  render: true,
+  defaultProps: true,
+  displayName: true,
+  propTypes: true
+};
+var MEMO_STATICS = {
+  '$$typeof': true,
+  compare: true,
+  defaultProps: true,
+  displayName: true,
+  propTypes: true,
+  type: true
+};
+var TYPE_STATICS = {};
+TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
+TYPE_STATICS[reactIs.Memo] = MEMO_STATICS;
+
+function getStatics(component) {
+  // React v16.11 and below
+  if (reactIs.isMemo(component)) {
+    return MEMO_STATICS;
+  } // React v16.12 and above
+
+
+  return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
+}
+
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = Object.prototype;
+function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+  if (typeof sourceComponent !== 'string') {
+    // don't hoist over string (html) components
+    if (objectPrototype) {
+      var inheritedComponent = getPrototypeOf(sourceComponent);
+
+      if (inheritedComponent && inheritedComponent !== objectPrototype) {
+        hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+      }
+    }
+
+    var keys = getOwnPropertyNames(sourceComponent);
+
+    if (getOwnPropertySymbols) {
+      keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+    }
+
+    var targetStatics = getStatics(targetComponent);
+    var sourceStatics = getStatics(sourceComponent);
+
+    for (var i = 0; i < keys.length; ++i) {
+      var key = keys[i];
+
+      if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
+        var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+
+        try {
+          // Avoid failures from read-only properties
+          defineProperty(targetComponent, key, descriptor);
+        } catch (e) {}
+      }
+    }
+  }
+
+  return targetComponent;
+}
+
+module.exports = hoistNonReactStatics;
+
+
+/***/ }),
+
+/***/ 2950:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/** @license React v16.13.1
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?
+Symbol.for("react.suspense_list"):60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.block"):60121,w=b?Symbol.for("react.fundamental"):60117,x=b?Symbol.for("react.responder"):60118,y=b?Symbol.for("react.scope"):60119;
+function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}exports.AsyncMode=l;exports.ConcurrentMode=m;exports.ContextConsumer=k;exports.ContextProvider=h;exports.Element=c;exports.ForwardRef=n;exports.Fragment=e;exports.Lazy=t;exports.Memo=r;exports.Portal=d;
+exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;exports.isAsyncMode=function(a){return A(a)||z(a)===l};exports.isConcurrentMode=A;exports.isContextConsumer=function(a){return z(a)===k};exports.isContextProvider=function(a){return z(a)===h};exports.isElement=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===c};exports.isForwardRef=function(a){return z(a)===n};exports.isFragment=function(a){return z(a)===e};exports.isLazy=function(a){return z(a)===t};
+exports.isMemo=function(a){return z(a)===r};exports.isPortal=function(a){return z(a)===d};exports.isProfiler=function(a){return z(a)===g};exports.isStrictMode=function(a){return z(a)===f};exports.isSuspense=function(a){return z(a)===p};
+exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};exports.typeOf=z;
+
+
+/***/ }),
+
+/***/ 1178:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(2950);
+} else {}
+
+
+/***/ }),
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ 9681:
 /***/ ((module) => {
 
@@ -1558,6 +1711,49 @@ module.exports.has = hasAccents;
 module.exports.remove = removeAccents;
 
 
+<<<<<<< HEAD
+=======
+/***/ }),
+
+/***/ 8477:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/**
+ * @license React
+ * use-sync-external-store-shim.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var e=__webpack_require__(1609);function h(a,b){return a===b&&(0!==a||1/a===1/b)||a!==a&&b!==b}var k="function"===typeof Object.is?Object.is:h,l=e.useState,m=e.useEffect,n=e.useLayoutEffect,p=e.useDebugValue;function q(a,b){var d=b(),f=l({inst:{value:d,getSnapshot:b}}),c=f[0].inst,g=f[1];n(function(){c.value=d;c.getSnapshot=b;r(c)&&g({inst:c})},[a,d,b]);m(function(){r(c)&&g({inst:c});return a(function(){r(c)&&g({inst:c})})},[a]);p(d);return d}
+function r(a){var b=a.getSnapshot;a=a.value;try{var d=b();return!k(a,d)}catch(f){return!0}}function t(a,b){return b()}var u="undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement?t:q;exports.useSyncExternalStore=void 0!==e.useSyncExternalStore?e.useSyncExternalStore:u;
+
+
+/***/ }),
+
+/***/ 422:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(8477);
+} else {}
+
+
+/***/ }),
+
+/***/ 1609:
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["React"];
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ })
 
 /******/ 	});
@@ -1664,7 +1860,11 @@ module.exports.remove = removeAccents;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+<<<<<<< HEAD
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+=======
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 (() => {
 "use strict";
 // ESM COMPAT FLAG
@@ -1678,9 +1878,12 @@ __webpack_require__.d(__webpack_exports__, {
   Autocomplete: () => (/* reexport */ Autocomplete),
   BaseControl: () => (/* reexport */ base_control),
   BlockQuotation: () => (/* reexport */ external_wp_primitives_namespaceObject.BlockQuotation),
+<<<<<<< HEAD
   BorderBoxControl: () => (/* reexport */ border_box_control_component),
   BorderControl: () => (/* reexport */ border_control_component),
   BoxControl: () => (/* reexport */ box_control),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   Button: () => (/* reexport */ build_module_button),
   ButtonGroup: () => (/* reexport */ button_group),
   Card: () => (/* reexport */ card_component),
@@ -1737,7 +1940,10 @@ __webpack_require__.d(__webpack_exports__, {
   MenuItemsChoice: () => (/* reexport */ menu_items_choice),
   Modal: () => (/* reexport */ modal),
   NavigableMenu: () => (/* reexport */ navigable_container_menu),
+<<<<<<< HEAD
   Navigator: () => (/* reexport */ navigator_Navigator),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   Notice: () => (/* reexport */ build_module_notice),
   NoticeList: () => (/* reexport */ list),
   Panel: () => (/* reexport */ panel),
@@ -1807,11 +2013,19 @@ __webpack_require__.d(__webpack_exports__, {
   __experimentalNavigationGroup: () => (/* reexport */ group),
   __experimentalNavigationItem: () => (/* reexport */ navigation_item),
   __experimentalNavigationMenu: () => (/* reexport */ navigation_menu),
+<<<<<<< HEAD
   __experimentalNavigatorBackButton: () => (/* reexport */ legacy_NavigatorBackButton),
   __experimentalNavigatorButton: () => (/* reexport */ legacy_NavigatorButton),
   __experimentalNavigatorProvider: () => (/* reexport */ NavigatorProvider),
   __experimentalNavigatorScreen: () => (/* reexport */ legacy_NavigatorScreen),
   __experimentalNavigatorToParentButton: () => (/* reexport */ legacy_NavigatorToParentButton),
+=======
+  __experimentalNavigatorBackButton: () => (/* reexport */ NavigatorBackButton),
+  __experimentalNavigatorButton: () => (/* reexport */ NavigatorButton),
+  __experimentalNavigatorProvider: () => (/* reexport */ NavigatorProvider),
+  __experimentalNavigatorScreen: () => (/* reexport */ NavigatorScreen),
+  __experimentalNavigatorToParentButton: () => (/* reexport */ NavigatorToParentButton),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   __experimentalNumberControl: () => (/* reexport */ number_control),
   __experimentalPaletteEdit: () => (/* reexport */ palette_edit),
   __experimentalParseQuantityAndUnitFromRawValue: () => (/* reexport */ parseQuantityAndUnitFromRawValue),
@@ -1849,6 +2063,10 @@ __webpack_require__.d(__webpack_exports__, {
   __unstableDisclosureContent: () => (/* reexport */ disclosure_DisclosureContent),
   __unstableGetAnimateClassName: () => (/* reexport */ getAnimateClassName),
   __unstableMotion: () => (/* reexport */ motion),
+<<<<<<< HEAD
+=======
+  __unstableMotionContext: () => (/* reexport */ MotionContext),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   __unstableUseAutocompleteProps: () => (/* reexport */ useAutocompleteProps),
   __unstableUseCompositeState: () => (/* reexport */ useCompositeState),
   __unstableUseNavigateRegions: () => (/* reexport */ useNavigateRegions),
@@ -1856,7 +2074,10 @@ __webpack_require__.d(__webpack_exports__, {
   navigateRegions: () => (/* reexport */ navigate_regions),
   privateApis: () => (/* reexport */ privateApis),
   useBaseControlProps: () => (/* reexport */ useBaseControlProps),
+<<<<<<< HEAD
   useNavigator: () => (/* reexport */ useNavigator),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   withConstrainedTabbing: () => (/* reexport */ with_constrained_tabbing),
   withFallbackStyles: () => (/* reexport */ with_fallback_styles),
   withFilters: () => (/* reexport */ withFilters),
@@ -1883,12 +2104,19 @@ __webpack_require__.d(text_styles_namespaceObject, {
 var toggle_group_control_option_base_styles_namespaceObject = {};
 __webpack_require__.r(toggle_group_control_option_base_styles_namespaceObject);
 __webpack_require__.d(toggle_group_control_option_base_styles_namespaceObject, {
+<<<<<<< HEAD
   Rp: () => (ButtonContentView),
   y0: () => (LabelView),
+=======
+  ButtonContentView: () => (ButtonContentView),
+  LabelView: () => (LabelView),
+  ou: () => (backdropView),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   uG: () => (buttonView),
   eh: () => (labelBlock)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","primitives"]
 const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// ./node_modules/clsx/dist/clsx.mjs
@@ -1900,6 +2128,19 @@ const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// external ["wp","element"]
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/3YLGPPWQ.js
+=======
+;// CONCATENATED MODULE: external ["wp","primitives"]
+const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
+;// CONCATENATED MODULE: ./node_modules/clsx/dist/clsx.mjs
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const dist_clsx = (clsx);
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/3YLGPPWQ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -1935,7 +2176,11 @@ var __objRest = (source, exclude) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/3YLGPPWQ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/3YLGPPWQ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 var _3YLGPPWQ_defProp = Object.defineProperty;
 var _3YLGPPWQ_defProps = Object.defineProperties;
@@ -1971,7 +2216,11 @@ var _3YLGPPWQ_objRest = (source, exclude) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/PBFD2E7P.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/PBFD2E7P.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -2114,7 +2363,11 @@ function defaultValue(...values) {
 var external_React_ = __webpack_require__(1609);
 var external_React_namespaceObject = /*#__PURE__*/__webpack_require__.t(external_React_, 2);
 var external_React_default = /*#__PURE__*/__webpack_require__.n(external_React_);
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/SK3NAZA3.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/SK3NAZA3.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -2172,7 +2425,11 @@ function mergeProps(base, overrides) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/DTR5TSDJ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/HWOIWM4O.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/utils/dom.ts
@@ -2182,6 +2439,7 @@ function checkIsBrowser() {
   return typeof window !== "undefined" && !!((_a = window.document) == null ? void 0 : _a.createElement);
 }
 function getDocument(node) {
+<<<<<<< HEAD
   if (!node) return document;
   if ("self" in node) return node.document;
   return node.ownerDocument || document;
@@ -2189,6 +2447,11 @@ function getDocument(node) {
 function getWindow(node) {
   if (!node) return self;
   if ("self" in node) return node.self;
+=======
+  return node ? node.ownerDocument || node : document;
+}
+function getWindow(node) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return getDocument(node).defaultView || window;
 }
 function getActiveElement(node, activeDescendant = false) {
@@ -2312,6 +2575,7 @@ function scrollIntoViewIfNeeded(element, arg) {
 }
 function getScrollingElement(element) {
   if (!element) return null;
+<<<<<<< HEAD
   const isScrollableOverflow = (overflow) => {
     if (overflow === "auto") return true;
     if (overflow === "scroll") return true;
@@ -2323,6 +2587,16 @@ function getScrollingElement(element) {
   } else if (element.clientWidth && element.scrollWidth > element.clientWidth) {
     const { overflowX } = getComputedStyle(element);
     if (isScrollableOverflow(overflowX)) return element;
+=======
+  if (element.clientHeight && element.scrollHeight > element.clientHeight) {
+    const { overflowY } = getComputedStyle(element);
+    const isScrollable = overflowY !== "visible" && overflowY !== "hidden";
+    if (isScrollable) return element;
+  } else if (element.clientWidth && element.scrollWidth > element.clientWidth) {
+    const { overflowX } = getComputedStyle(element);
+    const isScrollable = overflowX !== "visible" && overflowX !== "hidden";
+    if (isScrollable) return element;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
   return getScrollingElement(element.parentElement) || document.scrollingElement || document.body;
 }
@@ -2347,6 +2621,7 @@ function setSelectionRange(element, ...args) {
     element.setSelectionRange(...args);
   }
 }
+<<<<<<< HEAD
 function sortBasedOnDOMPosition(items, getElement) {
   const pairs = items.map((item, index) => [index, item]);
   let isOrderDifferent = false;
@@ -2380,6 +2655,12 @@ function isElementPreceding(a, b) {
 
 
 ;// ./node_modules/@ariakit/core/esm/__chunks/QAGXQEUG.js
+=======
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/US4USQPI.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -2403,7 +2684,11 @@ function isMac() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/utils/events.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/utils/events.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -2520,7 +2805,11 @@ function addGlobalEventListener(type, listener, options, scope = window) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/ABQUS43J.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/Z32BISHQ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -2611,7 +2900,11 @@ function useId(defaultId) {
   const [id, setId] = (0,external_React_.useState)(defaultId);
   useSafeLayoutEffect(() => {
     if (defaultId || id) return;
+<<<<<<< HEAD
     const random = Math.random().toString(36).slice(2, 8);
+=======
+    const random = Math.random().toString(36).substr(2, 6);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     setId(`id-${random}`);
   }, [defaultId, id]);
   return defaultId || id;
@@ -2640,20 +2933,34 @@ function useTagName(refOrElement, type) {
   return tagName;
 }
 function useAttribute(refOrElement, attributeName, defaultValue) {
+<<<<<<< HEAD
   const initialValue = useInitialValue(defaultValue);
   const [attribute, setAttribute] = (0,external_React_.useState)(initialValue);
   (0,external_React_.useEffect)(() => {
+=======
+  const [attribute, setAttribute] = (0,external_React_.useState)(defaultValue);
+  useSafeLayoutEffect(() => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const element = refOrElement && "current" in refOrElement ? refOrElement.current : refOrElement;
     if (!element) return;
     const callback = () => {
       const value = element.getAttribute(attributeName);
+<<<<<<< HEAD
       setAttribute(value == null ? initialValue : value);
+=======
+      if (value == null) return;
+      setAttribute(value);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     };
     const observer = new MutationObserver(callback);
     observer.observe(element, { attributeFilter: [attributeName] });
     callback();
     return () => observer.disconnect();
+<<<<<<< HEAD
   }, [refOrElement, attributeName, initialValue]);
+=======
+  }, [refOrElement, attributeName]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return attribute;
 }
 function useUpdateEffect(effect, deps) {
@@ -2751,7 +3058,11 @@ function resetMouseMoving() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/BCALMBPZ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/EQQLU3CG.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -2926,7 +3237,11 @@ function mergeStore(...stores) {
     return Object.assign(state, nextState);
   }, {});
   const store = createStore(initialState, ...stores);
+<<<<<<< HEAD
   return Object.assign({}, ...stores, store);
+=======
+  return store;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 function throwOnConflictingProps(props, store) {
   if (true) return;
@@ -2965,7 +3280,11 @@ If there's a particular need for this, please submit a feature request at https:
 
 // EXTERNAL MODULE: ./node_modules/use-sync-external-store/shim/index.js
 var shim = __webpack_require__(422);
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/YV4JVR4I.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/2GXGCHW6.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -2998,6 +3317,7 @@ function useStoreState(store, keyOrSelector = identity) {
   };
   return useSyncExternalStore(storeSubscribe, getSnapshot, getSnapshot);
 }
+<<<<<<< HEAD
 function useStoreStateObject(store, object) {
   const objRef = external_React_.useRef(
     {}
@@ -3039,6 +3359,8 @@ function useStoreStateObject(store, object) {
   };
   return useSyncExternalStore(storeSubscribe, getSnapshot, getSnapshot);
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useStoreProps(store, props, key, setKey) {
   const value = PBFD2E7P_hasOwnProperty(props, key) ? props[key] : void 0;
   const setValue = setKey ? props[setKey] : void 0;
@@ -3061,7 +3383,11 @@ function useStoreProps(store, props, key, setKey) {
     });
   });
 }
+<<<<<<< HEAD
 function YV4JVR4I_useStore(createStore, props) {
+=======
+function _2GXGCHW6_useStore(createStore, props) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const [store, setStore] = external_React_.useState(() => createStore(props));
   useSafeLayoutEffect(() => init(store), [store]);
   const useState2 = external_React_.useCallback(
@@ -3080,7 +3406,11 @@ function YV4JVR4I_useStore(createStore, props) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/C3IKGW5T.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/TCAGH6BH.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -3099,7 +3429,11 @@ function useCollectionStore(props = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/CYQWQL4J.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/6DHTHWXD.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -3107,6 +3441,38 @@ function useCollectionStore(props = {}) {
 
 
 // src/collection/collection-store.ts
+<<<<<<< HEAD
+=======
+function isElementPreceding(a, b) {
+  return Boolean(
+    b.compareDocumentPosition(a) & Node.DOCUMENT_POSITION_PRECEDING
+  );
+}
+function sortBasedOnDOMPosition(items) {
+  const pairs = items.map((item, index) => [index, item]);
+  let isOrderDifferent = false;
+  pairs.sort(([indexA, a], [indexB, b]) => {
+    const elementA = a.element;
+    const elementB = b.element;
+    if (elementA === elementB) return 0;
+    if (!elementA || !elementB) return 0;
+    if (isElementPreceding(elementA, elementB)) {
+      if (indexA > indexB) {
+        isOrderDifferent = true;
+      }
+      return -1;
+    }
+    if (indexA < indexB) {
+      isOrderDifferent = true;
+    }
+    return 1;
+  });
+  if (isOrderDifferent) {
+    return pairs.map(([_, item]) => item);
+  }
+  return items;
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function getCommonParent(items) {
   var _a;
   const firstItem = items.find((item) => !!item.element);
@@ -3146,7 +3512,11 @@ function createCollectionStore(props = {}) {
   );
   const collection = createStore(initialState, props.store);
   const sortItems = (renderedItems) => {
+<<<<<<< HEAD
     const sortedItems = sortBasedOnDOMPosition(renderedItems, (i) => i.element);
+=======
+    const sortedItems = sortBasedOnDOMPosition(renderedItems);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     privateStore.setState("renderedItems", sortedItems);
     collection.setState("renderedItems", sortedItems);
   };
@@ -3239,7 +3609,11 @@ function createCollectionStore(props = {}) {
       if (!id) return null;
       let item = itemsMap.get(id);
       if (!item) {
+<<<<<<< HEAD
         const { items: items2 } = privateStore.getState();
+=======
+        const { items: items2 } = collection.getState();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         item = items2.find((item2) => item2.id === id);
         if (item) {
           itemsMap.set(id, item);
@@ -3254,7 +3628,11 @@ function createCollectionStore(props = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/7PRQYBBV.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/7PRQYBBV.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/utils/array.ts
@@ -3283,7 +3661,11 @@ function reverseArray(array) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/AJZ4BYF3.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/D7EIQZAU.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -3309,6 +3691,14 @@ function getEnabledItems(items, excludeId) {
     return !item.disabled;
   });
 }
+<<<<<<< HEAD
+=======
+function getOppositeOrientation(orientation) {
+  if (orientation === "vertical") return "horizontal";
+  if (orientation === "horizontal") return "vertical";
+  return;
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function getItemsInRow(items, rowId) {
   return items.filter((item) => item.rowId === rowId);
 }
@@ -3396,11 +3786,14 @@ function createCompositeStore(props = {}) {
     props.defaultActiveId
   );
   const initialState = _chunks_3YLGPPWQ_spreadProps(_chunks_3YLGPPWQ_spreadValues({}, collection.getState()), {
+<<<<<<< HEAD
     id: defaultValue(
       props.id,
       syncState == null ? void 0 : syncState.id,
       `id-${Math.random().toString(36).slice(2, 8)}`
     ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     activeId,
     baseElement: defaultValue(syncState == null ? void 0 : syncState.baseElement, null),
     includesBaseElement: defaultValue(
@@ -3435,6 +3828,7 @@ function createCompositeStore(props = {}) {
       });
     })
   );
+<<<<<<< HEAD
   const getNextId = (direction = "next", options = {}) => {
     var _a2, _b;
     const defaultState = composite.getState();
@@ -3469,16 +3863,50 @@ function createCompositeStore(props = {}) {
     const nextItems = items.slice(activeIndex + 1);
     const nextItemsInRow = getItemsInRow(nextItems, activeItem.rowId);
     if (skip) {
+=======
+  const getNextId = (items, orientation, hasNullItem, skip) => {
+    var _a2, _b;
+    const { activeId: activeId2, rtl, focusLoop, focusWrap, includesBaseElement } = composite.getState();
+    const isHorizontal = orientation !== "vertical";
+    const isRTL = rtl && isHorizontal;
+    const allItems = isRTL ? reverseArray(items) : items;
+    if (activeId2 == null) {
+      return (_a2 = findFirstEnabledItem(allItems)) == null ? void 0 : _a2.id;
+    }
+    const activeItem = allItems.find((item) => item.id === activeId2);
+    if (!activeItem) {
+      return (_b = findFirstEnabledItem(allItems)) == null ? void 0 : _b.id;
+    }
+    const isGrid = !!activeItem.rowId;
+    const activeIndex = allItems.indexOf(activeItem);
+    const nextItems = allItems.slice(activeIndex + 1);
+    const nextItemsInRow = getItemsInRow(nextItems, activeItem.rowId);
+    if (skip !== void 0) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       const nextEnabledItemsInRow = getEnabledItems(nextItemsInRow, activeId2);
       const nextItem2 = nextEnabledItemsInRow.slice(skip)[0] || // If we can't find an item, just return the last one.
       nextEnabledItemsInRow[nextEnabledItemsInRow.length - 1];
       return nextItem2 == null ? void 0 : nextItem2.id;
     }
+<<<<<<< HEAD
     const canLoop = focusLoop && (isVerticalDirection ? focusLoop !== "horizontal" : focusLoop !== "vertical");
     const canWrap = isGrid && focusWrap && (isVerticalDirection ? focusWrap !== "horizontal" : focusWrap !== "vertical");
     const hasNullItem = isNextDirection ? (!isGrid || isVerticalDirection) && canLoop && includesBaseElement : isVerticalDirection ? includesBaseElement : false;
     if (canLoop) {
       const loopItems = canWrap && !hasNullItem ? items : getItemsInRow(items, activeItem.rowId);
+=======
+    const oppositeOrientation = getOppositeOrientation(
+      // If it's a grid and orientation is not set, it's a next/previous call,
+      // which is inherently horizontal. up/down will call next with orientation
+      // set to vertical by default (see below on up/down methods).
+      isGrid ? orientation || "horizontal" : orientation
+    );
+    const canLoop = focusLoop && focusLoop !== oppositeOrientation;
+    const canWrap = isGrid && focusWrap && focusWrap !== oppositeOrientation;
+    hasNullItem = hasNullItem || !isGrid && canLoop && includesBaseElement;
+    if (canLoop) {
+      const loopItems = canWrap && !hasNullItem ? allItems : getItemsInRow(allItems, activeItem.rowId);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       const sortedItems = flipItems(loopItems, activeId2, hasNullItem);
       const nextItem2 = findFirstEnabledItem(sortedItems, activeId2);
       return nextItem2 == null ? void 0 : nextItem2.id;
@@ -3519,6 +3947,7 @@ function createCompositeStore(props = {}) {
       var _a2;
       return (_a2 = findFirstEnabledItem(reverseArray(composite.getState().renderedItems))) == null ? void 0 : _a2.id;
     },
+<<<<<<< HEAD
     next: (options) => {
       if (options !== void 0 && typeof options === "number") {
         options = { skip: options };
@@ -3542,17 +3971,74 @@ function createCompositeStore(props = {}) {
         options = { skip: options };
       }
       return getNextId("up", options);
+=======
+    next: (skip) => {
+      const { renderedItems, orientation } = composite.getState();
+      return getNextId(renderedItems, orientation, false, skip);
+    },
+    previous: (skip) => {
+      var _a2;
+      const { renderedItems, orientation, includesBaseElement } = composite.getState();
+      const isGrid = !!((_a2 = findFirstEnabledItem(renderedItems)) == null ? void 0 : _a2.rowId);
+      const hasNullItem = !isGrid && includesBaseElement;
+      return getNextId(
+        reverseArray(renderedItems),
+        orientation,
+        hasNullItem,
+        skip
+      );
+    },
+    down: (skip) => {
+      const {
+        activeId: activeId2,
+        renderedItems,
+        focusShift,
+        focusLoop,
+        includesBaseElement
+      } = composite.getState();
+      const shouldShift = focusShift && !skip;
+      const verticalItems = verticalizeItems(
+        flatten2DArray(
+          normalizeRows(groupItemsByRows(renderedItems), activeId2, shouldShift)
+        )
+      );
+      const canLoop = focusLoop && focusLoop !== "horizontal";
+      const hasNullItem = canLoop && includesBaseElement;
+      return getNextId(verticalItems, "vertical", hasNullItem, skip);
+    },
+    up: (skip) => {
+      const { activeId: activeId2, renderedItems, focusShift, includesBaseElement } = composite.getState();
+      const shouldShift = focusShift && !skip;
+      const verticalItems = verticalizeItems(
+        reverseArray(
+          flatten2DArray(
+            normalizeRows(
+              groupItemsByRows(renderedItems),
+              activeId2,
+              shouldShift
+            )
+          )
+        )
+      );
+      const hasNullItem = includesBaseElement;
+      return getNextId(verticalItems, "vertical", hasNullItem, skip);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
   });
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/4CMBR7SL.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/UVQLZ7T5.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
+<<<<<<< HEAD
 
 
 // src/composite/composite-store.ts
@@ -3561,6 +4047,10 @@ function useCompositeStoreOptions(props) {
   const id = useId(props.id);
   return _3YLGPPWQ_spreadValues({ id }, props);
 }
+=======
+// src/composite/composite-store.ts
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useCompositeStoreProps(store, update, props) {
   store = useCollectionStoreProps(store, update, props);
   useStoreProps(store, props, "activeId", "setActiveId");
@@ -3574,14 +4064,22 @@ function useCompositeStoreProps(store, update, props) {
   return store;
 }
 function useCompositeStore(props = {}) {
+<<<<<<< HEAD
   props = useCompositeStoreOptions(props);
   const [store, update] = YV4JVR4I_useStore(createCompositeStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createCompositeStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useCompositeStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/5VQZOHHZ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/5VQZOHHZ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/composite/utils.ts
@@ -3657,9 +4155,15 @@ function isItem(store, element, exclude) {
 
 
 
+<<<<<<< HEAD
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/LMDWO4NN.js
+=======
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/HKOOKEDE.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -3676,7 +4180,11 @@ function forwardRef2(render) {
 function memo2(Component, propsAreEqual) {
   return external_React_.memo(Component, propsAreEqual);
 }
+<<<<<<< HEAD
 function LMDWO4NN_createElement(Type, props) {
+=======
+function HKOOKEDE_createElement(Type, props) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const _a = props, { wrapElement, render } = _a, rest = __objRest(_a, ["wrapElement", "render"]);
   const mergedRef = useMergeRefs(props.ref, getRefProperty(render));
   let element;
@@ -3741,7 +4249,11 @@ function createStoreContext(providers = [], scopedProviders = []) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/VDHZ5F7K.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/FMYQNSCK.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -3755,13 +4267,18 @@ var CollectionScopedContextProvider = ctx.ScopedContextProvider;
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/P7GR5CS5.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/WENSINUV.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/composite/composite-context.tsx
 
+<<<<<<< HEAD
 var P7GR5CS5_ctx = createStoreContext(
   [CollectionContextProvider],
   [CollectionScopedContextProvider]
@@ -3771,6 +4288,17 @@ var useCompositeScopedContext = P7GR5CS5_ctx.useScopedContext;
 var useCompositeProviderContext = P7GR5CS5_ctx.useProviderContext;
 var CompositeContextProvider = P7GR5CS5_ctx.ContextProvider;
 var CompositeScopedContextProvider = P7GR5CS5_ctx.ScopedContextProvider;
+=======
+var WENSINUV_ctx = createStoreContext(
+  [CollectionContextProvider],
+  [CollectionScopedContextProvider]
+);
+var useCompositeContext = WENSINUV_ctx.useContext;
+var useCompositeScopedContext = WENSINUV_ctx.useScopedContext;
+var useCompositeProviderContext = WENSINUV_ctx.useProviderContext;
+var CompositeContextProvider = WENSINUV_ctx.ContextProvider;
+var CompositeScopedContextProvider = WENSINUV_ctx.ScopedContextProvider;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var CompositeItemContext = (0,external_React_.createContext)(
   void 0
 );
@@ -3780,7 +4308,11 @@ var CompositeRowContext = (0,external_React_.createContext)(
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/SWN3JYXT.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/SWN3JYXT.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/focusable/focusable-context.tsx
@@ -3789,7 +4321,11 @@ var FocusableContext = (0,external_React_.createContext)(true);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/utils/focus.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/utils/focus.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -3998,7 +4534,11 @@ function focusIntoView(element, options) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/LVA2YJMS.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/OD7ALSX5.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -4310,12 +4850,20 @@ var useFocusable = createHook(
 );
 var Focusable = forwardRef2(function Focusable2(props) {
   const htmlProps = useFocusable(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/ITI7HKP4.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/2BDG6X5K.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -4332,7 +4880,11 @@ var Focusable = forwardRef2(function Focusable2(props) {
 
 
 
+<<<<<<< HEAD
 var ITI7HKP4_TagName = "div";
+=======
+var _2BDG6X5K_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isGrid(items) {
   return items.some((item) => !!item.rowId);
 }
@@ -4537,7 +5089,11 @@ var useComposite = createHook(
       if (event.defaultPrevented) return;
       if (!store) return;
       if (!isSelfTarget(event)) return;
+<<<<<<< HEAD
       const { orientation, renderedItems, activeId: activeId2 } = store.getState();
+=======
+      const { orientation, items, renderedItems, activeId: activeId2 } = store.getState();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       const activeItem = getEnabledItem(store, activeId2);
       if ((_a2 = activeItem == null ? void 0 : activeItem.element) == null ? void 0 : _a2.isConnected) return;
       const isVertical = orientation !== "horizontal";
@@ -4547,7 +5103,11 @@ var useComposite = createHook(
       if (isHorizontalKey && isTextField(event.currentTarget)) return;
       const up = () => {
         if (grid) {
+<<<<<<< HEAD
           const item = findFirstEnabledItemInTheLastRow(renderedItems);
+=======
+          const item = items && findFirstEnabledItemInTheLastRow(items);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           return item == null ? void 0 : item.id;
         }
         return store == null ? void 0 : store.last();
@@ -4602,14 +5162,24 @@ var useComposite = createHook(
     return props;
   }
 );
+<<<<<<< HEAD
 var ITI7HKP4_Composite = forwardRef2(function Composite2(props) {
   const htmlProps = useComposite(props);
   return LMDWO4NN_createElement(ITI7HKP4_TagName, htmlProps);
+=======
+var _2BDG6X5K_Composite = forwardRef2(function Composite2(props) {
+  const htmlProps = useComposite(props);
+  return HKOOKEDE_createElement(_2BDG6X5K_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -4622,7 +5192,11 @@ var ITI7HKP4_Composite = forwardRef2(function Composite2(props) {
 const CompositeContext = (0,external_wp_element_namespaceObject.createContext)({});
 const context_useCompositeContext = () => (0,external_wp_element_namespaceObject.useContext)(CompositeContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/7HVFURXT.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/7HVFURXT.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/group/group-label-context.tsx
@@ -4631,7 +5205,11 @@ var GroupLabelContext = (0,external_React_.createContext)(void 0);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/36LIF33V.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/ZPO4YZYE.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -4642,7 +5220,11 @@ var GroupLabelContext = (0,external_React_.createContext)(void 0);
 
 
 
+<<<<<<< HEAD
 var _36LIF33V_TagName = "div";
+=======
+var ZPO4YZYE_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useGroup = createHook(
   function useGroup2(props) {
     const [labelId, setLabelId] = (0,external_React_.useState)();
@@ -4660,19 +5242,31 @@ var useGroup = createHook(
 );
 var Group = forwardRef2(function Group2(props) {
   const htmlProps = useGroup(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(_36LIF33V_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(ZPO4YZYE_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/YORGHBM4.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/IEKMDIUY.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 
 // src/composite/composite-group.tsx
+<<<<<<< HEAD
 var YORGHBM4_TagName = "div";
+=======
+var IEKMDIUY_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useCompositeGroup = createHook(
   function useCompositeGroup2(_a) {
     var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
@@ -4680,14 +5274,24 @@ var useCompositeGroup = createHook(
     return props;
   }
 );
+<<<<<<< HEAD
 var YORGHBM4_CompositeGroup = forwardRef2(function CompositeGroup2(props) {
   const htmlProps = useCompositeGroup(props);
   return LMDWO4NN_createElement(YORGHBM4_TagName, htmlProps);
+=======
+var IEKMDIUY_CompositeGroup = forwardRef2(function CompositeGroup2(props) {
+  const htmlProps = useCompositeGroup(props);
+  return HKOOKEDE_createElement(IEKMDIUY_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/group.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/group.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -4712,14 +5316,22 @@ const CompositeGroup = (0,external_wp_element_namespaceObject.forwardRef)(functi
   // legacy compat layer. The `store` prop is documented, but its type is
   // obfuscated to discourage its use outside of the component's internals.
   const store = (_props$store = props.store) !== null && _props$store !== void 0 ? _props$store : context.store;
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(YORGHBM4_CompositeGroup, {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(IEKMDIUY_CompositeGroup, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     store: store,
     ...props,
     ref: ref
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/YUOJWFSO.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/IGFP5YPG.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -4729,7 +5341,11 @@ const CompositeGroup = (0,external_wp_element_namespaceObject.forwardRef)(functi
 // src/group/group-label.tsx
 
 
+<<<<<<< HEAD
 var YUOJWFSO_TagName = "div";
+=======
+var IGFP5YPG_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useGroupLabel = createHook(
   function useGroupLabel2(props) {
     const setLabelId = (0,external_React_.useContext)(GroupLabelContext);
@@ -4747,32 +5363,54 @@ var useGroupLabel = createHook(
 );
 var GroupLabel = forwardRef2(function GroupLabel2(props) {
   const htmlProps = useGroupLabel(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(YUOJWFSO_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(IGFP5YPG_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/SWSPTQMT.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/Y2MAXF6C.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 
 // src/composite/composite-group-label.tsx
+<<<<<<< HEAD
 var SWSPTQMT_TagName = "div";
+=======
+var Y2MAXF6C_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useCompositeGroupLabel = createHook(function useCompositeGroupLabel2(_a) {
   var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
   props = useGroupLabel(props);
   return props;
 });
+<<<<<<< HEAD
 var SWSPTQMT_CompositeGroupLabel = forwardRef2(function CompositeGroupLabel2(props) {
   const htmlProps = useCompositeGroupLabel(props);
   return LMDWO4NN_createElement(SWSPTQMT_TagName, htmlProps);
+=======
+var Y2MAXF6C_CompositeGroupLabel = forwardRef2(function CompositeGroupLabel2(props) {
+  const htmlProps = useCompositeGroupLabel(props);
+  return HKOOKEDE_createElement(Y2MAXF6C_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/group-label.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/group-label.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -4797,14 +5435,22 @@ const CompositeGroupLabel = (0,external_wp_element_namespaceObject.forwardRef)(f
   // legacy compat layer. The `store` prop is documented, but its type is
   // obfuscated to discourage its use outside of the component's internals.
   const store = (_props$store = props.store) !== null && _props$store !== void 0 ? _props$store : context.store;
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SWSPTQMT_CompositeGroupLabel, {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Y2MAXF6C_CompositeGroupLabel, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     store: store,
     ...props,
     ref: ref
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/UQQRIHDV.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/OBZMLI6J.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -4816,7 +5462,11 @@ const CompositeGroupLabel = (0,external_wp_element_namespaceObject.forwardRef)(f
 
 
 
+<<<<<<< HEAD
 var UQQRIHDV_TagName = "div";
+=======
+var OBZMLI6J_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function getMouseDestination(event) {
   const relatedTarget = event.relatedTarget;
   if ((relatedTarget == null ? void 0 : relatedTarget.nodeType) === Node.ELEMENT_NODE) {
@@ -4898,16 +5548,27 @@ var useCompositeHover = createHook(
     return removeUndefinedValues(props);
   }
 );
+<<<<<<< HEAD
 var UQQRIHDV_CompositeHover = memo2(
   forwardRef2(function CompositeHover2(props) {
     const htmlProps = useCompositeHover(props);
     return LMDWO4NN_createElement(UQQRIHDV_TagName, htmlProps);
+=======
+var OBZMLI6J_CompositeHover = memo2(
+  forwardRef2(function CompositeHover2(props) {
+    const htmlProps = useCompositeHover(props);
+    return HKOOKEDE_createElement(OBZMLI6J_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   })
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/hover.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/hover.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -4932,14 +5593,22 @@ const CompositeHover = (0,external_wp_element_namespaceObject.forwardRef)(functi
   // legacy compat layer. The `store` prop is documented, but its type is
   // obfuscated to discourage its use outside of the component's internals.
   const store = (_props$store = props.store) !== null && _props$store !== void 0 ? _props$store : context.store;
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(UQQRIHDV_CompositeHover, {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(OBZMLI6J_CompositeHover, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     store: store,
     ...props,
     ref: ref
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/RZ4GPYOB.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/PLQDTVXM.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -4949,7 +5618,11 @@ const CompositeHover = (0,external_wp_element_namespaceObject.forwardRef)(functi
 // src/collection/collection-item.tsx
 
 
+<<<<<<< HEAD
 var RZ4GPYOB_TagName = "div";
+=======
+var PLQDTVXM_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useCollectionItem = createHook(
   function useCollectionItem2(_a) {
     var _b = _a, {
@@ -4984,12 +5657,20 @@ var useCollectionItem = createHook(
 );
 var CollectionItem = forwardRef2(function CollectionItem2(props) {
   const htmlProps = useCollectionItem(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(RZ4GPYOB_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(PLQDTVXM_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/KUU7WJ55.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/HGP5L2ST.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -5002,7 +5683,11 @@ var CollectionItem = forwardRef2(function CollectionItem2(props) {
 
 
 
+<<<<<<< HEAD
 var KUU7WJ55_TagName = "button";
+=======
+var HGP5L2ST_TagName = "button";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isNativeClick(event) {
   if (!event.isTrusted) return false;
   const element = event.currentTarget;
@@ -5014,12 +5699,24 @@ function isNativeClick(event) {
   }
   return false;
 }
+<<<<<<< HEAD
 var KUU7WJ55_symbol = Symbol("command");
+=======
+var HGP5L2ST_symbol = Symbol("command");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useCommand = createHook(
   function useCommand2(_a) {
     var _b = _a, { clickOnEnter = true, clickOnSpace = true } = _b, props = __objRest(_b, ["clickOnEnter", "clickOnSpace"]);
     const ref = (0,external_React_.useRef)(null);
+<<<<<<< HEAD
     const [isNativeButton, setIsNativeButton] = (0,external_React_.useState)(false);
+=======
+    const tagName = useTagName(ref);
+    const type = props.type;
+    const [isNativeButton, setIsNativeButton] = (0,external_React_.useState)(
+      () => !!tagName && isButton({ tagName, type })
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     (0,external_React_.useEffect)(() => {
       if (!ref.current) return;
       setIsNativeButton(isButton(ref.current));
@@ -5027,7 +5724,11 @@ var useCommand = createHook(
     const [active, setActive] = (0,external_React_.useState)(false);
     const activeRef = (0,external_React_.useRef)(false);
     const disabled = disabledFromProps(props);
+<<<<<<< HEAD
     const [isDuplicate, metadataProps] = useMetadataProps(props, KUU7WJ55_symbol, true);
+=======
+    const [isDuplicate, metadataProps] = useMetadataProps(props, HGP5L2ST_symbol, true);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const onKeyDownProp = props.onKeyDown;
     const onKeyDown = useEvent((event) => {
       onKeyDownProp == null ? void 0 : onKeyDownProp(event);
@@ -5101,12 +5802,20 @@ var useCommand = createHook(
 );
 var Command = forwardRef2(function Command2(props) {
   const htmlProps = useCommand(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(KUU7WJ55_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(HGP5L2ST_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/P2CTZE2T.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/7QKWW6TW.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -5124,7 +5833,11 @@ var Command = forwardRef2(function Command2(props) {
 
 
 
+<<<<<<< HEAD
 var P2CTZE2T_TagName = "button";
+=======
+var _7QKWW6TW_TagName = "button";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isEditableElement(element) {
   if (isTextbox(element)) return true;
   return element.tagName === "INPUT" && !isButton(element);
@@ -5206,6 +5919,7 @@ var useCompositeItem = createHook(
     const id = useId(props.id);
     const ref = (0,external_React_.useRef)(null);
     const row = (0,external_React_.useContext)(CompositeRowContext);
+<<<<<<< HEAD
     const disabled = disabledFromProps(props);
     const trulyDisabled = disabled && !props.accessibleWhenDisabled;
     const {
@@ -5265,6 +5979,23 @@ var useCompositeItem = createHook(
           rowId,
           disabled: !!trulyDisabled,
           children: (_a2 = item.element) == null ? void 0 : _a2.textContent
+=======
+    const rowId = useStoreState(store, (state) => {
+      if (rowIdProp) return rowIdProp;
+      if (!state) return;
+      if (!(row == null ? void 0 : row.baseElement)) return;
+      if (row.baseElement !== state.baseElement) return;
+      return row.id;
+    });
+    const disabled = disabledFromProps(props);
+    const trulyDisabled = disabled && !props.accessibleWhenDisabled;
+    const getItem = (0,external_React_.useCallback)(
+      (item) => {
+        const nextItem = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, item), {
+          id: id || item.id,
+          rowId,
+          disabled: !!trulyDisabled
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         });
         if (getItemProp) {
           return getItemProp(nextItem);
@@ -5384,6 +6115,13 @@ var useCompositeItem = createHook(
         }
       }
     });
+<<<<<<< HEAD
+=======
+    const baseElement = useStoreState(
+      store,
+      (state) => (state == null ? void 0 : state.baseElement) || void 0
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const providerValue = (0,external_React_.useMemo)(
       () => ({ id, baseElement }),
       [id, baseElement]
@@ -5393,6 +6131,36 @@ var useCompositeItem = createHook(
       (element) => /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(CompositeItemContext.Provider, { value: providerValue, children: element }),
       [providerValue]
     );
+<<<<<<< HEAD
+=======
+    const isActiveItem = useStoreState(
+      store,
+      (state) => !!state && state.activeId === id
+    );
+    const ariaSetSize = useStoreState(store, (state) => {
+      if (ariaSetSizeProp != null) return ariaSetSizeProp;
+      if (!state) return;
+      if (!(row == null ? void 0 : row.ariaSetSize)) return;
+      if (row.baseElement !== state.baseElement) return;
+      return row.ariaSetSize;
+    });
+    const ariaPosInSet = useStoreState(store, (state) => {
+      if (ariaPosInSetProp != null) return ariaPosInSetProp;
+      if (!state) return;
+      if (!(row == null ? void 0 : row.ariaPosInSet)) return;
+      if (row.baseElement !== state.baseElement) return;
+      const itemsInRow = state.renderedItems.filter(
+        (item) => item.rowId === rowId
+      );
+      return row.ariaPosInSet + itemsInRow.findIndex((item) => item.id === id);
+    });
+    const isTabbable = useStoreState(store, (state) => {
+      if (!(state == null ? void 0 : state.renderedItems.length)) return true;
+      if (state.virtualFocus) return false;
+      if (tabbable) return true;
+      return state.activeId === id;
+    });
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
       id,
       "data-active-item": isActiveItem || void 0
@@ -5416,16 +6184,27 @@ var useCompositeItem = createHook(
     }));
   }
 );
+<<<<<<< HEAD
 var P2CTZE2T_CompositeItem = memo2(
   forwardRef2(function CompositeItem2(props) {
     const htmlProps = useCompositeItem(props);
     return LMDWO4NN_createElement(P2CTZE2T_TagName, htmlProps);
+=======
+var _7QKWW6TW_CompositeItem = memo2(
+  forwardRef2(function CompositeItem2(props) {
+    const htmlProps = useCompositeItem(props);
+    return HKOOKEDE_createElement(_7QKWW6TW_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   })
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/item.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/item.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -5450,14 +6229,32 @@ const CompositeItem = (0,external_wp_element_namespaceObject.forwardRef)(functio
   // legacy compat layer. The `store` prop is documented, but its type is
   // obfuscated to discourage its use outside of the component's internals.
   const store = (_props$store = props.store) !== null && _props$store !== void 0 ? _props$store : context.store;
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(P2CTZE2T_CompositeItem, {
     store: store,
+=======
+
+  // If the active item is not connected, Composite may end up in a state
+  // where none of the items are tabbable. In this case, we force all items to
+  // be tabbable, so that as soon as an item received focus, it becomes active
+  // and Composite goes back to working as expected.
+  const tabbable = useStoreState(store, state => {
+    return state?.activeId !== null && !store?.item(state?.activeId)?.element?.isConnected;
+  });
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(_7QKWW6TW_CompositeItem, {
+    store: store,
+    tabbable: tabbable,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...props,
     ref: ref
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/J2LQO3EC.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/6BE7QOX5.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -5468,7 +6265,11 @@ const CompositeItem = (0,external_wp_element_namespaceObject.forwardRef)(functio
 
 
 
+<<<<<<< HEAD
 var J2LQO3EC_TagName = "div";
+=======
+var _6BE7QOX5_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useCompositeRow = createHook(
   function useCompositeRow2(_a) {
     var _b = _a, {
@@ -5503,14 +6304,24 @@ var useCompositeRow = createHook(
     return removeUndefinedValues(props);
   }
 );
+<<<<<<< HEAD
 var J2LQO3EC_CompositeRow = forwardRef2(function CompositeRow2(props) {
   const htmlProps = useCompositeRow(props);
   return LMDWO4NN_createElement(J2LQO3EC_TagName, htmlProps);
+=======
+var _6BE7QOX5_CompositeRow = forwardRef2(function CompositeRow2(props) {
+  const htmlProps = useCompositeRow(props);
+  return HKOOKEDE_createElement(_6BE7QOX5_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/row.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/row.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -5535,14 +6346,22 @@ const CompositeRow = (0,external_wp_element_namespaceObject.forwardRef)(function
   // legacy compat layer. The `store` prop is documented, but its type is
   // obfuscated to discourage its use outside of the component's internals.
   const store = (_props$store = props.store) !== null && _props$store !== void 0 ? _props$store : context.store;
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(J2LQO3EC_CompositeRow, {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(_6BE7QOX5_CompositeRow, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     store: store,
     ...props,
     ref: ref
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/T7VMP3TM.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/DS36B3MQ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -5555,7 +6374,11 @@ const CompositeRow = (0,external_wp_element_namespaceObject.forwardRef)(function
 
 
 
+<<<<<<< HEAD
 var T7VMP3TM_TagName = "div";
+=======
+var DS36B3MQ_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var chars = "";
 function clearChars() {
   chars = "";
@@ -5573,7 +6396,11 @@ function isSelfTargetOrItem(event, items) {
   const isItem = items.some((item) => item.element === target);
   return isItem;
 }
+<<<<<<< HEAD
 function T7VMP3TM_getEnabledItems(items) {
+=======
+function DS36B3MQ_getEnabledItems(items) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return items.filter((item) => !item.disabled);
 }
 function itemTextStartsWith(item, text) {
@@ -5613,6 +6440,7 @@ var useCompositeTypeahead = createHook(function useCompositeTypeahead2(_a) {
     if (event.defaultPrevented) return;
     if (!typeahead) return;
     if (!store) return;
+<<<<<<< HEAD
     if (!isValidTypeaheadEvent(event)) {
       return clearChars();
     }
@@ -5630,6 +6458,13 @@ var useCompositeTypeahead = createHook(function useCompositeTypeahead2(_a) {
     if (offscreenItems.length) {
       enabledItems = sortBasedOnDOMPosition(enabledItems, (i) => i.element);
     }
+=======
+    const { renderedItems, items, activeId } = store.getState();
+    if (!isValidTypeaheadEvent(event)) return clearChars();
+    let enabledItems = DS36B3MQ_getEnabledItems(
+      renderedItems.length ? renderedItems : items
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (!isSelfTargetOrItem(event, enabledItems)) return clearChars();
     event.preventDefault();
     window.clearTimeout(cleanupTimeoutRef.current);
@@ -5651,14 +6486,24 @@ var useCompositeTypeahead = createHook(function useCompositeTypeahead2(_a) {
   });
   return removeUndefinedValues(props);
 });
+<<<<<<< HEAD
 var T7VMP3TM_CompositeTypeahead = forwardRef2(function CompositeTypeahead2(props) {
   const htmlProps = useCompositeTypeahead(props);
   return LMDWO4NN_createElement(T7VMP3TM_TagName, htmlProps);
+=======
+var DS36B3MQ_CompositeTypeahead = forwardRef2(function CompositeTypeahead2(props) {
+  const htmlProps = useCompositeTypeahead(props);
+  return HKOOKEDE_createElement(DS36B3MQ_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/typeahead.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/typeahead.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -5683,14 +6528,22 @@ const CompositeTypeahead = (0,external_wp_element_namespaceObject.forwardRef)(fu
   // legacy compat layer. The `store` prop is documented, but its type is
   // obfuscated to discourage its use outside of the component's internals.
   const store = (_props$store = props.store) !== null && _props$store !== void 0 ? _props$store : context.store;
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(T7VMP3TM_CompositeTypeahead, {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DS36B3MQ_CompositeTypeahead, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     store: store,
     ...props,
     ref: ref
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Composite is a component that may contain navigable items represented by
  * Composite.Item. It's inspired by the WAI-ARIA Composite Role and implements
@@ -5774,7 +6627,11 @@ const Composite = Object.assign((0,external_wp_element_namespaceObject.forwardRe
   const contextValue = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     store
   }), [store]);
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ITI7HKP4_Composite, {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(_2BDG6X5K_Composite, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     disabled: disabled,
     store: store,
     ...props,
@@ -5927,7 +6784,11 @@ const Composite = Object.assign((0,external_wp_element_namespaceObject.forwardRe
   })
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/RCQ5P4YE.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/6E4KKOSB.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -5991,7 +6852,11 @@ function createDisclosureStore(props = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/WYCIER3C.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/KGK2TTFO.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6006,13 +6871,21 @@ function useDisclosureStoreProps(store, update, props) {
   return Object.assign(store, { disclosure: props.disclosure });
 }
 function useDisclosureStore(props = {}) {
+<<<<<<< HEAD
   const [store, update] = YV4JVR4I_useStore(createDisclosureStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createDisclosureStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useDisclosureStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/FZZ2AVHF.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/YOHCVXJB.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6023,7 +6896,11 @@ function createDialogStore(props = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/BM6PGYQY.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/QYS5FHDY.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6034,13 +6911,21 @@ function useDialogStoreProps(store, update, props) {
   return useDisclosureStoreProps(store, update, props);
 }
 function useDialogStore(props = {}) {
+<<<<<<< HEAD
   const [store, update] = YV4JVR4I_useStore(createDialogStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createDialogStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useDialogStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/O2PQ2652.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/CBC47ZYL.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6060,7 +6945,11 @@ function usePopoverStore(props = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/FTXTWCCT.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/XMDAT5SM.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6080,7 +6969,11 @@ function useHovercardStore(props = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/ME2CUF3F.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/3UYWTADI.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6131,7 +7024,11 @@ function createPopoverStore(_a = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/__chunks/JTLIIJ4U.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/__chunks/EACLTACN.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6164,7 +7061,11 @@ function createHovercardStore(props = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/tooltip/tooltip-store.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/tooltip/tooltip-store.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6196,7 +7097,11 @@ function createTooltipStore(props = {}) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/YTDK2NGG.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/2D53SX6Q.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6209,19 +7114,32 @@ function useTooltipStoreProps(store, update, props) {
   return useHovercardStoreProps(store, update, props);
 }
 function useTooltipStore(props = {}) {
+<<<<<<< HEAD
   const [store, update] = YV4JVR4I_useStore(createTooltipStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createTooltipStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useTooltipStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/XL7CSKGW.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/AXRBYZQP.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 // src/role/role.tsx
+<<<<<<< HEAD
 var XL7CSKGW_TagName = "div";
 var XL7CSKGW_elements = [
+=======
+var AXRBYZQP_TagName = "div";
+var AXRBYZQP_elements = [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   "a",
   "button",
   "details",
@@ -6258,14 +7176,24 @@ var useRole = createHook(
 var Role = forwardRef2(
   // @ts-expect-error
   function Role2(props) {
+<<<<<<< HEAD
     return LMDWO4NN_createElement(XL7CSKGW_TagName, props);
+=======
+    return HKOOKEDE_createElement(AXRBYZQP_TagName, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 );
 Object.assign(
   Role,
+<<<<<<< HEAD
   XL7CSKGW_elements.reduce((acc, element) => {
     acc[element] = forwardRef2(function Role3(props) {
       return LMDWO4NN_createElement(element, props);
+=======
+  AXRBYZQP_elements.reduce((acc, element) => {
+    acc[element] = forwardRef2(function Role3(props) {
+      return HKOOKEDE_createElement(element, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     });
     return acc;
   }, {})
@@ -6273,11 +7201,16 @@ Object.assign(
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/S6EF7IVO.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/RGUP62TM.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 // src/disclosure/disclosure-context.tsx
+<<<<<<< HEAD
 var S6EF7IVO_ctx = createStoreContext();
 var useDisclosureContext = S6EF7IVO_ctx.useContext;
 var useDisclosureScopedContext = S6EF7IVO_ctx.useScopedContext;
@@ -6288,12 +7221,25 @@ var DisclosureScopedContextProvider = S6EF7IVO_ctx.ScopedContextProvider;
 
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/RS7LB2H4.js
+=======
+var RGUP62TM_ctx = createStoreContext();
+var useDisclosureContext = RGUP62TM_ctx.useContext;
+var useDisclosureScopedContext = RGUP62TM_ctx.useScopedContext;
+var useDisclosureProviderContext = RGUP62TM_ctx.useProviderContext;
+var DisclosureContextProvider = RGUP62TM_ctx.ContextProvider;
+var DisclosureScopedContextProvider = RGUP62TM_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/DU4D3UCJ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/dialog/dialog-context.tsx
 
+<<<<<<< HEAD
 var RS7LB2H4_ctx = createStoreContext(
   [DisclosureContextProvider],
   [DisclosureScopedContextProvider]
@@ -6303,17 +7249,33 @@ var useDialogScopedContext = RS7LB2H4_ctx.useScopedContext;
 var useDialogProviderContext = RS7LB2H4_ctx.useProviderContext;
 var DialogContextProvider = RS7LB2H4_ctx.ContextProvider;
 var DialogScopedContextProvider = RS7LB2H4_ctx.ScopedContextProvider;
+=======
+var DU4D3UCJ_ctx = createStoreContext(
+  [DisclosureContextProvider],
+  [DisclosureScopedContextProvider]
+);
+var useDialogContext = DU4D3UCJ_ctx.useContext;
+var useDialogScopedContext = DU4D3UCJ_ctx.useScopedContext;
+var useDialogProviderContext = DU4D3UCJ_ctx.useProviderContext;
+var DialogContextProvider = DU4D3UCJ_ctx.ContextProvider;
+var DialogScopedContextProvider = DU4D3UCJ_ctx.ScopedContextProvider;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var DialogHeadingContext = (0,external_React_.createContext)(void 0);
 var DialogDescriptionContext = (0,external_React_.createContext)(void 0);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/MTZPJQMC.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/54MGSIOI.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/popover/popover-context.tsx
+<<<<<<< HEAD
 var MTZPJQMC_ctx = createStoreContext(
   [DialogContextProvider],
   [DialogScopedContextProvider]
@@ -6327,11 +7289,27 @@ var PopoverScopedContextProvider = MTZPJQMC_ctx.ScopedContextProvider;
 
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/EM5CXX6A.js
+=======
+var _54MGSIOI_ctx = createStoreContext(
+  [DialogContextProvider],
+  [DialogScopedContextProvider]
+);
+var usePopoverContext = _54MGSIOI_ctx.useContext;
+var usePopoverScopedContext = _54MGSIOI_ctx.useScopedContext;
+var usePopoverProviderContext = _54MGSIOI_ctx.useProviderContext;
+var PopoverContextProvider = _54MGSIOI_ctx.ContextProvider;
+var PopoverScopedContextProvider = _54MGSIOI_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/CTQR3VDU.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/hovercard/hovercard-context.tsx
+<<<<<<< HEAD
 var EM5CXX6A_ctx = createStoreContext(
   [PopoverContextProvider],
   [PopoverScopedContextProvider]
@@ -6345,6 +7323,21 @@ var HovercardScopedContextProvider = EM5CXX6A_ctx.ScopedContextProvider;
 
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/BYC7LY2E.js
+=======
+var CTQR3VDU_ctx = createStoreContext(
+  [PopoverContextProvider],
+  [PopoverScopedContextProvider]
+);
+var useHovercardContext = CTQR3VDU_ctx.useContext;
+var useHovercardScopedContext = CTQR3VDU_ctx.useScopedContext;
+var useHovercardProviderContext = CTQR3VDU_ctx.useProviderContext;
+var HovercardContextProvider = CTQR3VDU_ctx.ContextProvider;
+var HovercardScopedContextProvider = CTQR3VDU_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/CF4NC545.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6356,7 +7349,11 @@ var HovercardScopedContextProvider = EM5CXX6A_ctx.ScopedContextProvider;
 
 
 
+<<<<<<< HEAD
 var BYC7LY2E_TagName = "a";
+=======
+var CF4NC545_TagName = "a";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useHovercardAnchor = createHook(
   function useHovercardAnchor2(_a) {
     var _b = _a, { store, showOnHover = true } = _b, props = __objRest(_b, ["store", "showOnHover"]);
@@ -6438,17 +7435,26 @@ var useHovercardAnchor = createHook(
 );
 var HovercardAnchor = forwardRef2(function HovercardAnchor2(props) {
   const htmlProps = useHovercardAnchor(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(BYC7LY2E_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(CF4NC545_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/F4IYJ42G.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/TWCRTUOB.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/tooltip/tooltip-context.tsx
+<<<<<<< HEAD
 var F4IYJ42G_ctx = createStoreContext(
   [HovercardContextProvider],
   [HovercardScopedContextProvider]
@@ -6462,6 +7468,21 @@ var TooltipScopedContextProvider = F4IYJ42G_ctx.ScopedContextProvider;
 
 
 ;// ./node_modules/@ariakit/react-core/esm/tooltip/tooltip-anchor.js
+=======
+var TWCRTUOB_ctx = createStoreContext(
+  [HovercardContextProvider],
+  [HovercardScopedContextProvider]
+);
+var useTooltipContext = TWCRTUOB_ctx.useContext;
+var useTooltipScopedContext = TWCRTUOB_ctx.useScopedContext;
+var useTooltipProviderContext = TWCRTUOB_ctx.useProviderContext;
+var TooltipContextProvider = TWCRTUOB_ctx.ContextProvider;
+var TooltipScopedContextProvider = TWCRTUOB_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/tooltip/tooltip-anchor.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6581,11 +7602,19 @@ var useTooltipAnchor = createHook(
 );
 var TooltipAnchor = forwardRef2(function TooltipAnchor2(props) {
   const htmlProps = useTooltipAnchor(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(tooltip_anchor_TagName, htmlProps);
 });
 
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/X7QOZUD3.js
+=======
+  return HKOOKEDE_createElement(tooltip_anchor_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/X7QOZUD3.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/hovercard/utils/polygon.ts
@@ -6670,7 +7699,11 @@ function getElementPolygon(element, enterPoint) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/63XF7ACK.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/63XF7ACK.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/dialog/utils/is-backdrop.ts
@@ -6686,7 +7719,11 @@ function _63XF7ACK_isBackdrop(element, ...ids) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/K2ZF5NU7.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/K2ZF5NU7.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/dialog/utils/orchestrate.ts
@@ -6779,7 +7816,11 @@ function setCSSProperty(element, property, value) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/AOUGVQZ3.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/AOUGVQZ3.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6847,7 +7888,11 @@ function createWalkTreeSnapshot(id, elements) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/2PGBN2Y4.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/2PGBN2Y4.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6906,9 +7951,15 @@ function markTreeOutside(id, elements) {
 
 
 
+<<<<<<< HEAD
 ;// external "ReactDOM"
 const external_ReactDOM_namespaceObject = window["ReactDOM"];
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/VGCJ63VH.js
+=======
+;// CONCATENATED MODULE: external "ReactDOM"
+const external_ReactDOM_namespaceObject = window["ReactDOM"];
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/BSEL4YAF.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -6922,12 +7973,20 @@ const external_ReactDOM_namespaceObject = window["ReactDOM"];
 
 
 
+<<<<<<< HEAD
 var VGCJ63VH_TagName = "div";
+=======
+var BSEL4YAF_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function afterTimeout(timeoutMs, cb) {
   const timeoutId = setTimeout(cb, timeoutMs);
   return () => clearTimeout(timeoutId);
 }
+<<<<<<< HEAD
 function VGCJ63VH_afterPaint(cb) {
+=======
+function BSEL4YAF_afterPaint(cb) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   let raf = requestAnimationFrame(() => {
     raf = requestAnimationFrame(cb);
   });
@@ -6981,17 +8040,30 @@ var useDisclosureContent = createHook(function useDisclosureContent2(_a) {
       setTransition(null);
       return;
     }
+<<<<<<< HEAD
     return VGCJ63VH_afterPaint(() => {
+=======
+    return BSEL4YAF_afterPaint(() => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       setTransition(open ? "enter" : mounted ? "leave" : null);
     });
   }, [animated, contentElement, open, mounted]);
   useSafeLayoutEffect(() => {
     if (!store) return;
     if (!animated) return;
+<<<<<<< HEAD
     if (!transition) return;
     if (!contentElement) return;
     const stopAnimation = () => store == null ? void 0 : store.setState("animating", false);
     const stopAnimationSync = () => (0,external_ReactDOM_namespaceObject.flushSync)(stopAnimation);
+=======
+    const stopAnimation = () => store == null ? void 0 : store.setState("animating", false);
+    const stopAnimationSync = () => (0,external_ReactDOM_namespaceObject.flushSync)(stopAnimation);
+    if (!transition || !contentElement) {
+      stopAnimation();
+      return;
+    }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (transition === "leave" && open) return;
     if (transition === "enter" && !open) return;
     if (typeof animated === "number") {
@@ -7042,9 +8114,13 @@ var useDisclosureContent = createHook(function useDisclosureContent2(_a) {
   const hidden = isHidden(mounted, props.hidden, alwaysVisible);
   const styleProp = props.style;
   const style = (0,external_React_.useMemo)(() => {
+<<<<<<< HEAD
     if (hidden) {
       return _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, styleProp), { display: "none" });
     }
+=======
+    if (hidden) return _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, styleProp), { display: "none" });
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     return styleProp;
   }, [hidden, styleProp]);
   props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
@@ -7061,7 +8137,11 @@ var useDisclosureContent = createHook(function useDisclosureContent2(_a) {
 });
 var DisclosureContentImpl = forwardRef2(function DisclosureContentImpl2(props) {
   const htmlProps = useDisclosureContent(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(VGCJ63VH_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(BSEL4YAF_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 var DisclosureContent = forwardRef2(function DisclosureContent2(_a) {
   var _b = _a, {
@@ -7081,7 +8161,11 @@ var DisclosureContent = forwardRef2(function DisclosureContent2(_a) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/63FEHJZV.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/UQBPM777.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7090,7 +8174,10 @@ var DisclosureContent = forwardRef2(function DisclosureContent2(_a) {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // src/dialog/dialog-backdrop.tsx
 
 
@@ -7102,8 +8189,13 @@ function DialogBackdrop({
 }) {
   const ref = (0,external_React_.useRef)(null);
   const disclosure = useDisclosureStore({ disclosure: store });
+<<<<<<< HEAD
   const contentElement = useStoreState(store, "contentElement");
   (0,external_React_.useEffect)(() => {
+=======
+  const contentElement = store.useState("contentElement");
+  useSafeLayoutEffect(() => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const backdrop2 = ref.current;
     const dialog = contentElement;
     if (!backdrop2) return;
@@ -7142,6 +8234,7 @@ function DialogBackdrop({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/IGR4SXG2.js
 "use client";
 
@@ -7158,6 +8251,9 @@ function isFocusTrap(element, ...ids) {
 
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/ESSM74HH.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/ESSM74HH.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7184,7 +8280,11 @@ function disableAccessibilityTreeOutside(id, elements) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/677M2CI3.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/677M2CI3.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/dialog/utils/supports-inert.ts
@@ -7194,7 +8294,11 @@ function supportsInert() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/KZAQFFOU.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/NSFBIL2Z.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7202,7 +8306,10 @@ function supportsInert() {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // src/dialog/utils/disable-tree.ts
 
 
@@ -7241,7 +8348,10 @@ function disableTreeOutside(id, elements) {
     elements,
     (element) => {
       if (_63XF7ACK_isBackdrop(element, ...ids)) return;
+<<<<<<< HEAD
       if (isFocusTrap(element, ...ids)) return;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       cleanups.unshift(disableTree(element, elements));
     },
     (element) => {
@@ -7260,7 +8370,11 @@ function disableTreeOutside(id, elements) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/YKJECYU7.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/YJS26JVG.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7300,7 +8414,11 @@ function useRootDialog({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/BGQ3KQ5M.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/KB6RR6FL.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7370,7 +8488,11 @@ function usePreventBodyScroll(contentElement, contentId, enabled) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/TOU75OXH.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/T3RMEPVH.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7411,7 +8533,11 @@ function useNestedDialogs(store) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/HLTQOHKZ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/HLTQOHKZ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/dialog/utils/use-previous-mouse-down-ref.ts
@@ -7434,7 +8560,11 @@ function usePreviousMouseDownRef(enabled) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/WBDYNH73.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/BOZIQ7QT.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7553,7 +8683,11 @@ function useHideOnInteractOutside(store, hideOnInteractOutside, domReady) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/6GXEOXGT.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/6GXEOXGT.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/dialog/utils/prepend-hidden-dismiss.ts
@@ -7586,7 +8720,11 @@ function prependHiddenDismiss(container, onClick) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/ZWYATQFU.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/HT3UEUDM.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7595,7 +8733,11 @@ function prependHiddenDismiss(container, onClick) {
 
 // src/focusable/focusable-container.tsx
 
+<<<<<<< HEAD
 var ZWYATQFU_TagName = "div";
+=======
+var HT3UEUDM_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useFocusableContainer = createHook(function useFocusableContainer2(_a) {
   var _b = _a, { autoFocusOnShow = true } = _b, props = __objRest(_b, ["autoFocusOnShow"]);
   props = useWrapElement(
@@ -7607,12 +8749,20 @@ var useFocusableContainer = createHook(function useFocusableContainer2(_a) {
 });
 var FocusableContainer = forwardRef2(function FocusableContainer2(props) {
   const htmlProps = useFocusableContainer(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(ZWYATQFU_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(HT3UEUDM_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/CZ4GFWYL.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/CZ4GFWYL.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/heading/heading-context.tsx
@@ -7621,7 +8771,11 @@ var HeadingContext = (0,external_React_.createContext)(0);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/5M6RIVE2.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/5M6RIVE2.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7639,13 +8793,21 @@ function HeadingLevel({ level, children }) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/XX67R432.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/ILNAUGA4.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/visually-hidden/visually-hidden.tsx
+<<<<<<< HEAD
 var XX67R432_TagName = "span";
+=======
+var ILNAUGA4_TagName = "span";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useVisuallyHidden = createHook(
   function useVisuallyHidden2(props) {
     props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, props), {
@@ -7666,19 +8828,31 @@ var useVisuallyHidden = createHook(
 );
 var VisuallyHidden = forwardRef2(function VisuallyHidden2(props) {
   const htmlProps = useVisuallyHidden(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(XX67R432_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(ILNAUGA4_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/W3VI7GFU.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/LWDIJ7XK.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 
 // src/focus-trap/focus-trap.tsx
+<<<<<<< HEAD
 var W3VI7GFU_TagName = "span";
+=======
+var LWDIJ7XK_TagName = "span";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useFocusTrap = createHook(
   function useFocusTrap2(props) {
     props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
@@ -7699,12 +8873,20 @@ var useFocusTrap = createHook(
 );
 var FocusTrap = forwardRef2(function FocusTrap2(props) {
   const htmlProps = useFocusTrap(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(W3VI7GFU_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(LWDIJ7XK_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/AOQQTIBO.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/AOQQTIBO.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/portal/portal-context.tsx
@@ -7713,7 +8895,11 @@ var PortalContext = (0,external_React_.createContext)(null);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/O37CNYMR.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/UNZQGRPO.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7729,7 +8915,11 @@ var PortalContext = (0,external_React_.createContext)(null);
 
 
 
+<<<<<<< HEAD
 var O37CNYMR_TagName = "div";
+=======
+var UNZQGRPO_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function getRootElement(element) {
   return getDocument(element).body;
 }
@@ -7743,7 +8933,11 @@ function getPortalElement(element, portalElement) {
   return portalElement;
 }
 function getRandomId(prefix = "id") {
+<<<<<<< HEAD
   return `${prefix ? `${prefix}-` : ""}${Math.random().toString(36).slice(2, 8)}`;
+=======
+  return `${prefix ? `${prefix}-` : ""}${Math.random().toString(36).substr(2, 6)}`;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 function queueFocus(element) {
   queueMicrotask(() => {
@@ -7863,7 +9057,10 @@ var usePortal = createHook(function usePortal2(_a) {
           FocusTrap,
           {
             ref: innerBeforeRef,
+<<<<<<< HEAD
             "data-focus-trap": props.id,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             className: "__focus-trap-inner-before",
             onFocus: (event) => {
               if (isFocusEventOutside(event, portalNode)) {
@@ -7879,7 +9076,10 @@ var usePortal = createHook(function usePortal2(_a) {
           FocusTrap,
           {
             ref: innerAfterRef,
+<<<<<<< HEAD
             "data-focus-trap": props.id,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             className: "__focus-trap-inner-after",
             onFocus: (event) => {
               if (isFocusEventOutside(event, portalNode)) {
@@ -7899,7 +9099,10 @@ var usePortal = createHook(function usePortal2(_a) {
           FocusTrap,
           {
             ref: outerBeforeRef,
+<<<<<<< HEAD
             "data-focus-trap": props.id,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             className: "__focus-trap-outer-before",
             onFocus: (event) => {
               const fromOuter = event.relatedTarget === outerAfterRef.current;
@@ -7918,7 +9121,10 @@ var usePortal = createHook(function usePortal2(_a) {
           FocusTrap,
           {
             ref: outerAfterRef,
+<<<<<<< HEAD
             "data-focus-trap": props.id,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             className: "__focus-trap-outer-after",
             onFocus: (event) => {
               if (isFocusEventOutside(event, portalNode)) {
@@ -7958,12 +9164,20 @@ var usePortal = createHook(function usePortal2(_a) {
 });
 var Portal = forwardRef2(function Portal2(props) {
   const htmlProps = usePortal(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(O37CNYMR_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(UNZQGRPO_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/JC64G2H7.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/TMQXBAX4.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -7994,8 +9208,13 @@ var Portal = forwardRef2(function Portal2(props) {
 
 
 
+<<<<<<< HEAD
 var JC64G2H7_TagName = "div";
 var JC64G2H7_isSafariBrowser = isSafari();
+=======
+var TMQXBAX4_TagName = "div";
+var TMQXBAX4_isSafariBrowser = isSafari();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isAlreadyFocusingAnotherElement(dialog) {
   const activeElement = getActiveElement();
   if (!activeElement) return false;
@@ -8068,6 +9287,7 @@ var useDialog = createHook(function useDialog2(_a) {
   });
   const { portalRef, domReady } = usePortalRef(portal, props.portalRef);
   const preserveTabOrderProp = props.preserveTabOrder;
+<<<<<<< HEAD
   const preserveTabOrder = useStoreState(
     store,
     (state) => preserveTabOrderProp && !modal && state.mounted
@@ -8076,6 +9296,15 @@ var useDialog = createHook(function useDialog2(_a) {
   const open = useStoreState(store, "open");
   const mounted = useStoreState(store, "mounted");
   const contentElement = useStoreState(store, "contentElement");
+=======
+  const preserveTabOrder = store.useState(
+    (state) => preserveTabOrderProp && !modal && state.mounted
+  );
+  const id = useId(props.id);
+  const open = store.useState("open");
+  const mounted = store.useState("mounted");
+  const contentElement = store.useState("contentElement");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const hidden = isHidden(mounted, props.hidden, props.alwaysVisible);
   usePreventBodyScroll(contentElement, id, preventBodyScroll && !hidden);
   useHideOnInteractOutside(store, hideOnInteractOutside, domReady);
@@ -8090,7 +9319,11 @@ var useDialog = createHook(function useDialog2(_a) {
     if (dialog && contains(dialog, activeElement)) return;
     store.setDisclosureElement(activeElement);
   }, [store, open]);
+<<<<<<< HEAD
   if (JC64G2H7_isSafariBrowser) {
+=======
+  if (TMQXBAX4_isSafariBrowser) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     (0,external_React_.useEffect)(() => {
       if (!mounted) return;
       const { disclosureElement } = store.getState();
@@ -8116,6 +9349,7 @@ var useDialog = createHook(function useDialog2(_a) {
     }, [store, mounted]);
   }
   (0,external_React_.useEffect)(() => {
+<<<<<<< HEAD
     if (!mounted) return;
     if (!domReady) return;
     const dialog = ref.current;
@@ -8134,6 +9368,8 @@ var useDialog = createHook(function useDialog2(_a) {
     };
   }, [mounted, domReady]);
   (0,external_React_.useEffect)(() => {
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (!modal) return;
     if (!mounted) return;
     if (!domReady) return;
@@ -8212,7 +9448,11 @@ var useDialog = createHook(function useDialog2(_a) {
     setAutoFocusEnabled(true);
     queueMicrotask(() => {
       element.focus();
+<<<<<<< HEAD
       if (!JC64G2H7_isSafariBrowser) return;
+=======
+      if (!TMQXBAX4_isSafariBrowser) return;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       element.scrollIntoView({ block: "nearest", inline: "nearest" });
     });
   }, [
@@ -8381,14 +9621,22 @@ function createDialogComponent(Component, useProviderContext = useDialogProvider
 var Dialog = createDialogComponent(
   forwardRef2(function Dialog2(props) {
     const htmlProps = useDialog(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(JC64G2H7_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(TMQXBAX4_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }),
   useDialogProviderContext
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const floating_ui_utils_sides = (/* unused pure expression or super */ null && (['top', 'right', 'bottom', 'left']));
 const alignments = (/* unused pure expression or super */ null && (['start', 'end']));
 const floating_ui_utils_placements = /*#__PURE__*/(/* unused pure expression or super */ null && (floating_ui_utils_sides.reduce((acc, side) => acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]), [])));
@@ -8514,7 +9762,11 @@ function floating_ui_utils_rectToClientRect(rect) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@floating-ui/core/dist/floating-ui.core.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/@floating-ui/core/dist/floating-ui.core.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -9527,7 +10779,11 @@ const size = function (options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@floating-ui/dom/node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/@floating-ui/dom/node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Custom positioning reference element.
  * @see https://floating-ui.com/docs/virtual-elements
@@ -9667,7 +10923,11 @@ function dist_floating_ui_utils_rectToClientRect(rect) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@floating-ui/dom/node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/@floating-ui/dom/node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function hasWindow() {
   return typeof window !== 'undefined';
 }
@@ -9823,7 +11083,11 @@ function getFrameElement(win) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -10504,7 +11768,11 @@ const floating_ui_dom_computePosition = (reference, floating, options) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/T6C2RYFI.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/FK7DPXBE.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -10517,7 +11785,11 @@ const floating_ui_dom_computePosition = (reference, floating, options) => {
 
 
 
+<<<<<<< HEAD
 var T6C2RYFI_TagName = "div";
+=======
+var FK7DPXBE_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function createDOMRect(x = 0, y = 0, width = 0, height = 0) {
   if (typeof DOMRect === "function") {
     return new DOMRect(x, y, width, height);
@@ -10858,14 +12130,22 @@ var usePopover = createHook(
 var Popover = createDialogComponent(
   forwardRef2(function Popover2(props) {
     const htmlProps = usePopover(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(T6C2RYFI_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(FK7DPXBE_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }),
   usePopoverProviderContext
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/KQKDTOT4.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/4GR366MD.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -10883,7 +12163,11 @@ var Popover = createDialogComponent(
 
 
 
+<<<<<<< HEAD
 var KQKDTOT4_TagName = "div";
+=======
+var _4GR366MD_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isMovingOnHovercard(target, card, anchor, nested) {
   if (hasFocusWithin(card)) return true;
   if (!target) return false;
@@ -11113,14 +12397,22 @@ var useHovercard = createHook(
 var Hovercard = createDialogComponent(
   forwardRef2(function Hovercard2(props) {
     const htmlProps = useHovercard(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(KQKDTOT4_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(_4GR366MD_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }),
   useHovercardProviderContext
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/tooltip/tooltip.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/tooltip/tooltip.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -11164,7 +12456,10 @@ var Hovercard = createDialogComponent(
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // src/tooltip/tooltip.tsx
 
 
@@ -11228,16 +12523,27 @@ var useTooltip = createHook(
 var Tooltip = createDialogComponent(
   forwardRef2(function Tooltip2(props) {
     const htmlProps = useTooltip(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(tooltip_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(tooltip_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }),
   useTooltipProviderContext
 );
 
 
+<<<<<<< HEAD
 ;// external ["wp","deprecated"]
 const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
 ;// ./node_modules/@wordpress/components/build-module/shortcut/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","deprecated"]
+const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
+var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/shortcut/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Internal dependencies
@@ -11281,7 +12587,11 @@ function Shortcut(props) {
 }
 /* harmony default export */ const build_module_shortcut = (Shortcut);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/popover/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/popover/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -11530,13 +12840,21 @@ const getReferenceElement = ({
  */
 const computePopoverPosition = c => c === null || Number.isNaN(c) ? undefined : Math.round(c);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tooltip/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tooltip/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -11551,6 +12869,10 @@ const computePopoverPosition = c => c === null || Number.isNaN(c) ? undefined : 
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const TooltipInternalContext = (0,external_wp_element_namespaceObject.createContext)({
   isNestedInTooltip: false
 });
@@ -11651,7 +12973,11 @@ function UnforwardedTooltip(props, ref) {
 const tooltip_Tooltip = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTooltip);
 /* harmony default export */ const tooltip = (tooltip_Tooltip);
 
+<<<<<<< HEAD
 ;// external ["wp","warning"]
+=======
+;// CONCATENATED MODULE: external ["wp","warning"]
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const external_wp_warning_namespaceObject = window["wp"]["warning"];
 var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp_warning_namespaceObject);
 // EXTERNAL MODULE: ./node_modules/deepmerge/dist/cjs.js
@@ -11660,7 +12986,11 @@ var cjs_default = /*#__PURE__*/__webpack_require__.n(cjs);
 // EXTERNAL MODULE: ./node_modules/fast-deep-equal/es6/index.js
 var es6 = __webpack_require__(7734);
 var es6_default = /*#__PURE__*/__webpack_require__.n(es6);
+<<<<<<< HEAD
 ;// ./node_modules/is-plain-object/dist/is-plain-object.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/is-plain-object/dist/is-plain-object.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*!
  * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
  *
@@ -11696,7 +13026,11 @@ function isPlainObject(o) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/hooks/use-update-effect.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/hooks/use-update-effect.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -11718,9 +13052,17 @@ function use_update_effect_useUpdateEffect(effect, deps) {
     }
     mountedRef.current = true;
     return undefined;
+<<<<<<< HEAD
     // 1. This hook needs to pass a dep list that isn't an array literal
     // 2. `effect` is missing from the array, and will need to be added carefully to avoid additional warnings
     // see https://github.com/WordPress/gutenberg/pull/41166
+=======
+    // Disable reasons:
+    // 1. This hook needs to pass a dep list that isn't an array literal
+    // 2. `effect` is missing from the array, and will need to be added carefully to avoid additional warnings
+    // see https://github.com/WordPress/gutenberg/pull/41166
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, deps);
   (0,external_wp_element_namespaceObject.useEffect)(() => () => {
     mountedRef.current = false;
@@ -11728,7 +13070,11 @@ function use_update_effect_useUpdateEffect(effect, deps) {
 }
 /* harmony default export */ const use_update_effect = (use_update_effect_useUpdateEffect);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/context/context-system-provider.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/context/context-system-provider.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -11747,7 +13093,11 @@ function use_update_effect_useUpdateEffect(effect, deps) {
  */
 
 
+<<<<<<< HEAD
 const ComponentsContext = (0,external_wp_element_namespaceObject.createContext)(/** @type {Record<string, any>} */{});
+=======
+const ComponentsContext = (0,external_wp_element_namespaceObject.createContext)( /** @type {Record<string, any>} */{});
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const useComponentsContext = () => (0,external_wp_element_namespaceObject.useContext)(ComponentsContext);
 
 /**
@@ -11826,7 +13176,11 @@ const BaseContextSystemProvider = ({
 };
 const ContextSystemProvider = (0,external_wp_element_namespaceObject.memo)(BaseContextSystemProvider);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/context/constants.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/context/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const COMPONENT_NAMESPACE = 'data-wp-component';
 const CONNECTED_NAMESPACE = 'data-wp-c16t';
 
@@ -11836,7 +13190,11 @@ const CONNECTED_NAMESPACE = 'data-wp-c16t';
  */
 const CONNECT_STATIC_NAMESPACE = '__contextSystemKey__';
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/context/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/context/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -11877,7 +13235,11 @@ function getConnectedNamespace() {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/tslib/tslib.es6.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/tslib/tslib.es6.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -12280,7 +13642,11 @@ function __rewriteRelativeImportExtension(path, preserveJsx) {
   __rewriteRelativeImportExtension,
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/lower-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/lower-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Source: ftp://ftp.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt
  */
@@ -12329,7 +13695,11 @@ function lowerCase(str) {
     return str.toLowerCase();
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/no-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/no-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Support camel case ("camelCase" -> "camel Case" and "CAMELCase" -> "CAMEL Case").
 var DEFAULT_SPLIT_REGEXP = [/([a-z0-9])([A-Z])/g, /([A-Z])([A-Z][a-z])/g];
@@ -12361,7 +13731,11 @@ function dist_es2015_replace(input, re, value) {
     return re.reduce(function (input, re) { return input.replace(re, value); }, input);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/dot-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/dot-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function dotCase(input, options) {
@@ -12369,7 +13743,11 @@ function dotCase(input, options) {
     return noCase(input, __assign({ delimiter: "." }, options));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/param-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/param-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function paramCase(input, options) {
@@ -12377,7 +13755,11 @@ function paramCase(input, options) {
     return dotCase(input, __assign({ delimiter: "-" }, options));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/memize/dist/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/memize/dist/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Memize options object.
  *
@@ -12539,7 +13921,11 @@ function memize(fn, options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/context/get-styled-class-name-from-key.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/context/get-styled-class-name-from-key.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -12558,7 +13944,11 @@ function getStyledClassName(namespace) {
 }
 const getStyledClassNameFromKey = memize(getStyledClassName);
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*
 
 Based off glamor's StyleSheet, thanks Sunil ❤️
@@ -12700,7 +14090,11 @@ var StyleSheet = /*#__PURE__*/function () {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/stylis/src/Utility.js
+=======
+;// CONCATENATED MODULE: ./node_modules/stylis/src/Utility.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @param {number}
  * @return {number}
@@ -12817,7 +14211,11 @@ function Utility_combine (array, callback) {
 	return array.map(callback).join('')
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/stylis/src/Tokenizer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/stylis/src/Tokenizer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 var line = 1
@@ -13065,7 +14463,11 @@ function identifier (index) {
 	return slice(index, position)
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/stylis/src/Enum.js
+=======
+;// CONCATENATED MODULE: ./node_modules/stylis/src/Enum.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var Enum_MS = '-ms-'
 var Enum_MOZ = '-moz-'
 var Enum_WEBKIT = '-webkit-'
@@ -13087,7 +14489,11 @@ var FONT_FACE = '@font-face'
 var COUNTER_STYLE = '@counter-style'
 var FONT_FEATURE_VALUES = '@font-feature-values'
 
+<<<<<<< HEAD
 ;// ./node_modules/stylis/src/Serializer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/stylis/src/Serializer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -13124,7 +14530,11 @@ function stringify (element, index, children, callback) {
 	return Utility_strlen(children = Serializer_serialize(element.children, callback)) ? element.return = element.value + '{' + children + '}' : ''
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/stylis/src/Middleware.js
+=======
+;// CONCATENATED MODULE: ./node_modules/stylis/src/Middleware.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -13234,7 +14644,11 @@ function namespace (element) {
 	}
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/stylis/src/Parser.js
+=======
+;// CONCATENATED MODULE: ./node_modules/stylis/src/Parser.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -13427,7 +14841,11 @@ function declaration (value, root, parent, length) {
 	return node(value, root, parent, Enum_DECLARATION, Utility_substr(value, 0, length), Utility_substr(value, length + 1, -1), length)
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -13982,7 +15400,11 @@ var createCache = function createCache(options) {
 
 /* harmony default export */ const emotion_cache_browser_esm = (createCache);
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/hash/dist/emotion-hash.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/hash/dist/emotion-hash.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint-disable */
 // Inspired by https://github.com/garycourt/murmurhash-js
 // Ported from https://github.com/aappleby/smhasher/blob/61a0530f28277f2e850bfc39600ce61d02b518de/src/MurmurHash2.cpp#L37-L86
@@ -14039,7 +15461,11 @@ function murmur2(str) {
 
 /* harmony default export */ const emotion_hash_esm = (murmur2);
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/unitless/dist/emotion-unitless.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/unitless/dist/emotion-unitless.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var unitlessKeys = {
   animationIterationCount: 1,
   borderImageOutset: 1,
@@ -14091,7 +15517,11 @@ var unitlessKeys = {
 
 /* harmony default export */ const emotion_unitless_esm = (unitlessKeys);
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function memoize(fn) {
   var cache = Object.create(null);
   return function (arg) {
@@ -14102,7 +15532,11 @@ function memoize(fn) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -14351,7 +15785,11 @@ var emotion_serialize_browser_esm_serializeStyles = function serializeStyles(arg
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -14365,7 +15803,11 @@ var emotion_use_insertion_effect_with_fallbacks_browser_esm_useInsertionEffectWi
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/react/dist/emotion-element-6a883da9.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/react/dist/emotion-element-6a883da9.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -14579,7 +16021,11 @@ if (false) {}
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var isBrowser = "object" !== 'undefined';
 function emotion_utils_browser_esm_getRegisteredStyles(registered, registeredStyles, classNames) {
   var rawClassName = '';
@@ -14625,7 +16071,11 @@ var emotion_utils_browser_esm_insertStyles = function insertStyles(cache, serial
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/css/create-instance/dist/emotion-css-create-instance.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/css/create-instance/dist/emotion-css-create-instance.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -14769,7 +16219,11 @@ var classnames = function classnames(args) {
 
 /* harmony default export */ const emotion_css_create_instance_esm = (createEmotion);
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/css/dist/emotion-css.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/css/dist/emotion-css.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -14791,7 +16245,11 @@ var _createEmotion = emotion_css_create_instance_esm({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/hooks/use-cx.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/hooks/use-cx.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -14847,7 +16305,11 @@ const useCx = () => {
   return cx;
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/context/use-context-system.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/context/use-context-system.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -14920,7 +16382,12 @@ function useContextSystem(props, namespace) {
   return finalComponentProps;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/context/context-connect.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/context/context-connect.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -15038,7 +16505,11 @@ function hasConnectNamespace(Component, match) {
   return false;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/visually-hidden/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/visually-hidden/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -15057,6 +16528,7 @@ const visuallyHidden = {
   wordWrap: 'normal'
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@babel/runtime/helpers/esm/extends.js
 function extends_extends() {
   return extends_extends = Object.assign ? Object.assign.bind() : function (n) {
@@ -15069,6 +16541,24 @@ function extends_extends() {
 }
 
 ;// ./node_modules/@emotion/styled/node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+function extends_extends() {
+  extends_extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return extends_extends.apply(this, arguments);
+}
+;// CONCATENATED MODULE: ./node_modules/@emotion/styled/node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|enterKeyHint|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/; // https://esbench.com/bench/5bfee68a4cd7e6009ef61d23
@@ -15085,7 +16575,11 @@ var isPropValid = /* #__PURE__ */memoize(function (prop) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -15254,7 +16748,11 @@ var createStyled = function createStyled(tag, options) {
 
 /* harmony default export */ const emotion_styled_base_browser_esm = (createStyled);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/view/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/view/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -15304,7 +16802,11 @@ const View = Object.assign((0,external_wp_element_namespaceObject.forwardRef)(Un
 });
 /* harmony default export */ const component = (View);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/visually-hidden/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/visually-hidden/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -15351,7 +16853,11 @@ function UnconnectedVisuallyHidden(props, forwardedRef) {
 const component_VisuallyHidden = contextConnect(UnconnectedVisuallyHidden, 'VisuallyHidden');
 /* harmony default export */ const visually_hidden_component = (component_VisuallyHidden);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/alignment-matrix-control/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/alignment-matrix-control/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -15444,7 +16950,11 @@ function getAlignmentIndex(alignment = 'center') {
 
 // EXTERNAL MODULE: ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
 var hoist_non_react_statics_cjs = __webpack_require__(1880);
+<<<<<<< HEAD
 ;// ./node_modules/@emotion/react/dist/emotion-react.browser.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@emotion/react/dist/emotion-react.browser.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -15811,7 +17321,11 @@ if (false) { var globalKey, globalContext, isTestEnv, emotion_react_browser_esm_
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/space.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/space.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The argument value for the `space()` utility function.
  *
@@ -15853,7 +17367,11 @@ function space(value) {
   return `calc(${GRID_BASE} * ${value})`;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/colors-values.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/colors-values.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -15926,9 +17444,12 @@ const COLORS = Object.freeze({
    */
   gray: GRAY,
   // TODO: Stop exporting this when everything is migrated to `theme` or `ui`
+<<<<<<< HEAD
   /**
    * @deprecated Prefer theme-ready variables in `COLORS.theme`.
    */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   white,
   alert: ALERT,
   /**
@@ -15944,7 +17465,11 @@ const COLORS = Object.freeze({
 });
 /* harmony default export */ const colors_values = ((/* unused pure expression or super */ null && (COLORS)));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/config-values.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/config-values.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -15958,6 +17483,10 @@ const CONTROL_PROPS = {
   controlPaddingXLarge: 12 * 1.3334,
   // TODO: Deprecate
 
+<<<<<<< HEAD
+=======
+  controlBackgroundColor: COLORS.white,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   controlBoxShadowFocus: `0 0 0 0.5px ${COLORS.theme.accent}`,
   controlHeight: CONTROL_HEIGHT,
   controlHeightXSmall: `calc( ${CONTROL_HEIGHT} * 0.6 )`,
@@ -16023,7 +17552,11 @@ const CONTROL_PROPS = {
   transitionTimingFunctionControl: 'cubic-bezier(0.12, 0.8, 0.32, 1)'
 }));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/alignment-matrix-control/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/alignment-matrix-control/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -16067,7 +17600,11 @@ const Point = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
   target: "e1r95csn0"
 } : 0)("display:block;contain:strict;box-sizing:border-box;width:", POINT_SIZE, "px;aspect-ratio:1;margin:auto;color:", COLORS.theme.gray[400], ";border:", POINT_SIZE / 2, "px solid currentColor;", Cell, "[data-active-item] &{color:", COLORS.gray[900], ";transform:scale( calc( 5 / 3 ) );}", Cell, ":not([data-active-item]):hover &{color:", COLORS.theme.accent, ";}", Cell, "[data-focus-visible] &{outline:1px solid ", COLORS.theme.accent, ";outline-offset:1px;}@media not ( prefers-reduced-motion ){transition-property:color,transform;transition-duration:120ms;transition-timing-function:linear;}" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/alignment-matrix-control/cell.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/alignment-matrix-control/cell.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -16081,6 +17618,10 @@ const Point = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function cell_Cell({
   id,
   value,
@@ -16103,7 +17644,11 @@ function cell_Cell({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/alignment-matrix-control/icon.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/alignment-matrix-control/icon.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -16161,7 +17706,11 @@ function AlignmentMatrixControlIcon({
 }
 /* harmony default export */ const icon = (AlignmentMatrixControlIcon);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/alignment-matrix-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/alignment-matrix-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -16261,7 +17810,11 @@ const AlignmentMatrixControl = Object.assign(UnforwardedAlignmentMatrixControl, 
 });
 /* harmony default export */ const alignment_matrix_control = (AlignmentMatrixControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/animate/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/animate/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -16336,7 +17889,11 @@ function Animate({
 }
 /* harmony default export */ const animate = (Animate);
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -16350,14 +17907,22 @@ const MotionConfigContext = (0,external_React_.createContext)({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const MotionContext = (0,external_React_.createContext)({});
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/PresenceContext.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/PresenceContext.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -16367,12 +17932,20 @@ const PresenceContext_PresenceContext = (0,external_React_.createContext)(null);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/is-browser.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/is-browser.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const is_browser_isBrowser = typeof document !== "undefined";
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16380,14 +17953,22 @@ const useIsomorphicLayoutEffect = is_browser_isBrowser ? external_React_.useLayo
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/LazyContext.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/LazyContext.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const LazyContext = (0,external_React_.createContext)({ strict: false });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/camel-to-dash.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/camel-to-dash.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Convert camelCase to dash-case properties.
  */
@@ -16395,7 +17976,11 @@ const camelToDash = (str) => str.replace(/([a-z])([A-Z])/gu, "$1-$2").toLowerCas
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/optimized-appear/data-id.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/optimized-appear/data-id.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const optimizedAppearDataId = "framerAppearId";
@@ -16403,7 +17988,11 @@ const optimizedAppearDataAttribute = "data-" + camelToDash(optimizedAppearDataId
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/GlobalConfig.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/GlobalConfig.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const MotionGlobalConfig = {
     skipAnimations: false,
     useManualTiming: false,
@@ -16411,7 +18000,11 @@ const MotionGlobalConfig = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/frameloop/render-step.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/render-step.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 class Queue {
     constructor() {
         this.order = [];
@@ -16517,7 +18110,11 @@ function createRenderStep(runNextFrame) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/frameloop/batcher.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/batcher.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16584,14 +18181,22 @@ function createRenderBatcher(scheduleNextBatch, allowKeepAlive) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/frameloop/microtask.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/microtask.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const { schedule: microtask, cancel: cancelMicrotask } = createRenderBatcher(queueMicrotask, false);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16669,7 +18274,11 @@ function useVisualElement(Component, visualState, props, createVisualElement) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isRefObject(ref) {
     return (ref &&
         typeof ref === "object" &&
@@ -16678,7 +18287,11 @@ function isRefObject(ref) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16713,7 +18326,11 @@ function useMotionRef(visualState, visualElement, externalRef) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/is-variant-label.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/is-variant-label.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Decides if the supplied variable is variant label
  */
@@ -16723,7 +18340,11 @@ function isVariantLabel(v) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/utils/is-animation-controls.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-animation-controls.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isAnimationControls(v) {
     return (v !== null &&
         typeof v === "object" &&
@@ -16732,7 +18353,11 @@ function isAnimationControls(v) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/variant-props.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/variant-props.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const variantPriorityOrder = [
     "animate",
     "whileInView",
@@ -16746,7 +18371,11 @@ const variantProps = ["initial", ...variantPriorityOrder];
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/is-controlling-variants.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/is-controlling-variants.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16761,7 +18390,11 @@ function isVariantNode(props) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16780,7 +18413,11 @@ function getCurrentTreeVariants(props, context) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16795,7 +18432,11 @@ function variantLabelsAsDependency(prop) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/definitions.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/definitions.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const featureProps = {
     animation: [
         "animate",
@@ -16825,7 +18466,11 @@ for (const key in featureProps) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/load-features.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/load-features.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function loadFeatures(features) {
@@ -16839,14 +18484,22 @@ function loadFeatures(features) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const LayoutGroupContext = (0,external_React_.createContext)({});
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -16856,12 +18509,20 @@ const SwitchLayoutGroupContext = (0,external_React_.createContext)({});
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/utils/symbol.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/symbol.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const motionComponentSymbol = Symbol.for("motionComponentSymbol");
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -16940,7 +18601,11 @@ function useLayoutId({ layoutId }) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/motion-proxy.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/motion-proxy.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -16989,7 +18654,11 @@ function createMotionProxy(createConfig) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/lowercase-elements.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/lowercase-elements.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * We keep these listed seperately as we use the lowercase tag names as part
  * of the runtime bundle to detect SVG components
@@ -17024,7 +18693,11 @@ const lowercaseSVGElements = [
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function isSVGComponent(Component) {
@@ -17056,7 +18729,11 @@ function isSVGComponent(Component) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/styles/scale-correction.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/scale-correction.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const scaleCorrectors = {};
 function addScaleCorrector(correctors) {
     Object.assign(scaleCorrectors, correctors);
@@ -17064,7 +18741,11 @@ function addScaleCorrector(correctors) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/utils/transform.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/transform.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Generate a list of every possible transform key.
  */
@@ -17094,7 +18775,11 @@ const transformProps = new Set(transformPropOrder);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/utils/is-forced-motion-value.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/is-forced-motion-value.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17107,12 +18792,20 @@ function isForcedMotionValue(key, { layout, layoutId }) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/utils/is-motion-value.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/utils/is-motion-value.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const isMotionValue = (value) => Boolean(value && value.getVelocity);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/utils/build-transform.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/build-transform.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const translateAlias = {
@@ -17159,7 +18852,11 @@ function buildTransform(transform, { enableHardwareAcceleration = true, allowTra
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/is-css-variable.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/is-css-variable.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const checkStringStartsWith = (token) => (key) => typeof key === "string" && key.startsWith(token);
 const isCSSVariableName = checkStringStartsWith("--");
 const startsAsVariableToken = checkStringStartsWith("var(--");
@@ -17174,7 +18871,11 @@ const singleCssVariableRegex = /var\(--(?:[\w-]+\s*|[\w-]+\s*,(?:\s*[^)(\s]|\s*\
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/get-as-type.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/get-as-type.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Provided a value and a ValueType, returns the value as that value type.
  */
@@ -17186,7 +18887,11 @@ const getValueAsType = (value, type) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/clamp.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/clamp.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const clamp_clamp = (min, max, v) => {
     if (v > max)
         return max;
@@ -17197,7 +18902,11 @@ const clamp_clamp = (min, max, v) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/numbers/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/numbers/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const number = {
@@ -17216,7 +18925,11 @@ const scale = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/utils.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/utils.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * TODO: When we move from string as a source of truth to data models
  * everything in this folder should probably be referred to as models vs types
@@ -17233,7 +18946,11 @@ function isString(v) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/numbers/units.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/numbers/units.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const createUnitType = (unit) => ({
@@ -17254,7 +18971,11 @@ const progressPercentage = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/type-int.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/type-int.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const type_int_int = {
@@ -17264,7 +18985,11 @@ const type_int_int = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/number.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/number.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17340,7 +19065,11 @@ const numberValueTypes = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/utils/build-styles.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/build-styles.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17416,7 +19145,11 @@ function buildHTMLStyles(state, latestValues, options, transformTemplate) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const createHtmlRenderState = () => ({
     style: {},
     transform: {},
@@ -17426,7 +19159,11 @@ const createHtmlRenderState = () => ({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/use-props.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/use-props.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17485,7 +19222,11 @@ function useHTMLProps(props, visualState, isStatic) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * A list of all valid MotionProps.
  *
@@ -17544,7 +19285,11 @@ function isValidMotionProp(key) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 let shouldForward = (key) => !isValidMotionProp(key);
@@ -17605,7 +19350,11 @@ function filterProps(props, isDom, forwardMotionProps) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/transform-origin.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/transform-origin.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function calcOrigin(origin, offset, size) {
@@ -17625,7 +19374,11 @@ function calcSVGTransformOrigin(dimensions, originX, originY) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/path.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/path.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const dashKeys = {
@@ -17659,7 +19412,11 @@ function buildSVGPath(attrs, length, spacing = 1, offset = 0, useDashCase = true
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/build-attrs.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/build-attrs.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17713,7 +19470,11 @@ function buildSVGAttrs(state, { attrX, attrY, attrScale, originX, originY, pathL
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const createSvgRenderState = () => ({
@@ -17723,12 +19484,20 @@ const createSvgRenderState = () => ({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/is-svg-tag.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/is-svg-tag.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const isSVGTag = (tag) => typeof tag === "string" && tag.toLowerCase() === "svg";
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/use-props.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/use-props.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17754,7 +19523,11 @@ function useSVGProps(props, visualState, _isStatic, Component) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/use-render.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/use-render.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17789,7 +19562,11 @@ function createUseRender(forwardMotionProps = false) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/utils/render.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/render.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function renderHTML(element, { style, vars }, styleProp, projection) {
     Object.assign(element.style, style, projection && projection.getProjectionStyles(styleProp));
     // Loop over any CSS variables and assign those.
@@ -17800,7 +19577,11 @@ function renderHTML(element, { style, vars }, styleProp, projection) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/camel-case-attrs.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/camel-case-attrs.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * A set of attribute names that are always read/written as camel case.
  */
@@ -17832,7 +19613,11 @@ const camelCaseAttributes = new Set([
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/render.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/render.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17846,7 +19631,11 @@ function renderSVG(element, renderState, _styleProp, projection) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/utils/scrape-motion-values.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/scrape-motion-values.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17868,7 +19657,11 @@ function scrapeMotionValuesFromProps(props, prevProps, visualElement) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/utils/scrape-motion-values.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/scrape-motion-values.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17889,7 +19682,11 @@ function scrape_motion_values_scrapeMotionValuesFromProps(props, prevProps, visu
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/resolve-variants.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/resolve-variants.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function getValueState(visualElement) {
     const state = [{}, {}];
     visualElement === null || visualElement === void 0 ? void 0 : visualElement.values.forEach((value, key) => {
@@ -17927,7 +19724,11 @@ function resolveVariantFromProps(props, definition, custom, visualElement) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/use-constant.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/use-constant.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -17947,14 +19748,22 @@ function useConstant(init) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/utils/is-keyframes-target.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-keyframes-target.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const isKeyframesTarget = (v) => {
     return Array.isArray(v);
 };
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/resolve-value.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/resolve-value.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const isCustomValue = (v) => {
@@ -17967,7 +19776,11 @@ const resolveFinalValueInKeyframes = (v) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/utils/resolve-motion-value.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/utils/resolve-motion-value.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -17985,7 +19798,11 @@ function resolveMotionValue(value) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18068,12 +19885,20 @@ function makeLatestValues(props, context, presenceContext, scrapeMotionValues) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/noop.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/noop.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const noop_noop = (any) => any;
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/frameloop/frame.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/frame.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18081,7 +19906,11 @@ const { schedule: frame_frame, cancel: cancelFrame, state: frameData, steps, } =
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/config-motion.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/config-motion.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18123,7 +19952,11 @@ const svgMotionConfig = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/config-motion.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/config-motion.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18137,7 +19970,11 @@ const htmlMotionConfig = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/create-config.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/create-config.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18158,7 +19995,11 @@ function create_config_createDomMotionConfig(Component, { forwardMotionProps = f
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/events/add-dom-event.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/add-dom-event.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function addDomEvent(target, eventName, handler, options = { passive: true }) {
     target.addEventListener(eventName, handler, options);
     return () => target.removeEventListener(eventName, handler);
@@ -18166,7 +20007,11 @@ function addDomEvent(target, eventName, handler, options = { passive: true }) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/events/utils/is-primary-pointer.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/utils/is-primary-pointer.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const isPrimaryPointer = (event) => {
     if (event.pointerType === "mouse") {
         return typeof event.button !== "number" || event.button <= 0;
@@ -18186,7 +20031,11 @@ const isPrimaryPointer = (event) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/events/event-info.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/event-info.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function extractEventInfo(event, pointType = "page") {
@@ -18203,7 +20052,11 @@ const addPointerInfo = (handler) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/events/add-pointer-event.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/add-pointer-event.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18213,7 +20066,11 @@ function addPointerEvent(target, eventName, handler, options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/pipe.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/pipe.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Pipe
  * Compose other transformers to run linearily
@@ -18226,7 +20083,11 @@ const pipe = (...transformers) => transformers.reduce(combineFunctions);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/drag/utils/lock.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/drag/utils/lock.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function createLock(name) {
     let lock = null;
     return () => {
@@ -18281,7 +20142,11 @@ function isDragActive() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/Feature.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/Feature.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 class Feature {
     constructor(node) {
         this.isMounted = false;
@@ -18292,7 +20157,11 @@ class Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/hover.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/hover.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18327,7 +20196,11 @@ class HoverGesture extends Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/focus.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/focus.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18370,7 +20243,11 @@ class FocusGesture extends Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/utils/is-node-or-child.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/utils/is-node-or-child.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Recursively traverse up the tree to check whether the provided child node
  * is the parent or a descendant of it.
@@ -18392,7 +20269,11 @@ const isNodeOrChild = (parent, child) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/press.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/press.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18524,7 +20405,11 @@ class PressGesture extends Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Map an IntersectionHandler callback to an element. We only ever make one handler for one
  * element, so even though these handlers might all be triggered by different
@@ -18575,7 +20460,11 @@ function observeIntersection(element, options, callback) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/viewport/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/viewport/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18649,7 +20538,11 @@ function hasViewportOptionChanged({ viewport = {} }, { viewport: prevViewport = 
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/gestures.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/gestures.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18672,7 +20565,11 @@ const gestureAnimations = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/shallow-compare.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/shallow-compare.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function shallowCompare(next, prev) {
     if (!Array.isArray(prev))
         return false;
@@ -18688,7 +20585,11 @@ function shallowCompare(next, prev) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/resolve-dynamic-variants.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/resolve-dynamic-variants.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function resolveVariant(visualElement, definition, custom) {
@@ -18698,7 +20599,11 @@ function resolveVariant(visualElement, definition, custom) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/time-conversion.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/time-conversion.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Converts seconds to milliseconds
  *
@@ -18710,7 +20615,11 @@ const millisecondsToSeconds = (milliseconds) => milliseconds / 1000;
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/utils/default-transitions.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/default-transitions.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const underDampedSpring = {
@@ -18752,7 +20661,11 @@ const getDefaultTransition = (valueKey, { keyframes }) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/utils/transitions.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/transitions.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Decide whether a transition is defined on a given Transition.
  * This filters out orchestration options and returns true
@@ -18769,14 +20682,22 @@ function getValueTransition(transition, key) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/use-instant-transition-state.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/use-instant-transition-state.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const instantAnimationState = {
     current: false,
 };
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/get-final-keyframe.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/get-final-keyframe.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const isNotNull = (value) => value !== null;
 function getFinalKeyframe(keyframes, { repeat, repeatType = "loop" }, finalKeyframe) {
     const resolvedKeyframes = keyframes.filter(isNotNull);
@@ -18790,7 +20711,11 @@ function getFinalKeyframe(keyframes, { repeat, repeatType = "loop" }, finalKeyfr
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/frameloop/sync-time.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/sync-time.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18823,7 +20748,11 @@ const time = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/is-zero-value-string.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/is-zero-value-string.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Check if the value is a zero value string like "0px" or "0%"
  */
@@ -18831,7 +20760,11 @@ const isZeroValueString = (v) => /^0[^.\s]+$/u.test(v);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/utils/is-none.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-none.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function isNone(value) {
@@ -18848,7 +20781,11 @@ function isNone(value) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/errors.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/errors.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 let warning = noop_noop;
@@ -18857,7 +20794,11 @@ if (false) {}
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/is-numerical-string.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/is-numerical-string.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Check if value is a numerical string, ie a string that is purely a number eg "100" or "-100.1"
  */
@@ -18865,7 +20806,11 @@ const isNumericalString = (v) => /^-?(?:\d+(?:\.\d+)?|\.\d+)$/u.test(v);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/css-variables-conversion.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/css-variables-conversion.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18909,7 +20854,11 @@ function getVariableValue(current, element, depth = 1) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/unit-conversion.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/unit-conversion.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -18976,7 +20925,11 @@ positionalValues.translateY = positionalValues.y;
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/test.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/test.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Tests a provided value against a ValueType
  */
@@ -18984,7 +20937,11 @@ const testValueType = (v) => (type) => type.test(v);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/type-auto.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/type-auto.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * ValueType for "auto"
  */
@@ -18995,7 +20952,11 @@ const auto = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/dimensions.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/dimensions.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19012,7 +20973,11 @@ const findDimensionValueType = (v) => dimensionValueTypes.find(testValueType(v))
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/KeyframesResolver.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/KeyframesResolver.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19178,7 +21143,11 @@ class KeyframeResolver {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/color/utils.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/utils.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -19203,7 +21172,11 @@ const splitColor = (aName, bName, cName) => (v) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/color/rgba.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/rgba.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19230,7 +21203,11 @@ const rgba = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/color/hex.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/hex.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19272,7 +21249,11 @@ const hex = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/color/hsla.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/hsla.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19296,7 +21277,11 @@ const hsla = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/color/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19326,7 +21311,11 @@ const color = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/complex/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/complex/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19418,7 +21407,11 @@ const complex = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/types/complex/filter.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/complex/filter.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19450,7 +21443,11 @@ const filter = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/defaults.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/defaults.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19482,7 +21479,11 @@ const getDefaultValueType = (key) => defaultValueTypes[key];
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/animatable-none.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/animatable-none.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19499,7 +21500,11 @@ function animatable_none_getAnimatableNone(key, value) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/utils/make-none-animatable.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/make-none-animatable.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19531,7 +21536,11 @@ function makeNoneKeyframesAnimatable(unresolvedKeyframes, noneKeyframeIndexes, n
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/DOMKeyframesResolver.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/DOMKeyframesResolver.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19660,7 +21669,11 @@ class DOMKeyframesResolver extends KeyframeResolver {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/memo.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/memo.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function memo(callback) {
     let result;
     return () => {
@@ -19672,7 +21685,11 @@ function memo(callback) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/utils/is-animatable.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-animatable.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -19704,7 +21721,11 @@ const isAnimatable = (value, name) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/utils/can-animate.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/utils/can-animate.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19746,7 +21767,11 @@ function canAnimate(keyframes, name, type, velocity) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/BaseAnimation.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/BaseAnimation.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19832,7 +21857,11 @@ class BaseAnimation {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/velocity-per-second.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/velocity-per-second.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*
   Convert velocity into velocity per second
 
@@ -19845,7 +21874,11 @@ function velocityPerSecond(velocity, frameDuration) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/generators/utils/velocity.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/utils/velocity.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const velocitySampleDuration = 5; // ms
@@ -19856,7 +21889,11 @@ function calcGeneratorVelocity(resolveValue, t, current) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/generators/spring/find.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/spring/find.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -19947,7 +21984,11 @@ function calcAngularFreq(undampedFreq, dampingRatio) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/generators/spring/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/spring/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20080,7 +22121,11 @@ function spring({ keyframes, restDelta, restSpeed, ...options }) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/generators/inertia.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/inertia.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20169,7 +22214,11 @@ function inertia({ keyframes, velocity = 0.0, power = 0.8, timeConstant = 325, b
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/cubic-bezier.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/cubic-bezier.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /*
@@ -20222,7 +22271,11 @@ function cubicBezier(mX1, mY1, mX2, mY2) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/ease.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/ease.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const easeIn = cubicBezier(0.42, 0, 1, 1);
@@ -20231,28 +22284,44 @@ const easeInOut = cubicBezier(0.42, 0, 0.58, 1);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/utils/is-easing-array.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/utils/is-easing-array.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const isEasingArray = (ease) => {
     return Array.isArray(ease) && typeof ease[0] !== "number";
 };
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/modifiers/mirror.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/modifiers/mirror.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Accepts an easing function and returns a new one that outputs mirrored values for
 // the second half of the animation. Turns easeIn into easeInOut.
 const mirrorEasing = (easing) => (p) => p <= 0.5 ? easing(2 * p) / 2 : (2 - easing(2 * (1 - p))) / 2;
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/modifiers/reverse.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/modifiers/reverse.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Accepts an easing function and returns a new one that outputs reversed values.
 // Turns easeIn into easeOut.
 const reverseEasing = (easing) => (p) => 1 - easing(1 - p);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/circ.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/circ.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20262,7 +22331,11 @@ const circInOut = mirrorEasing(circIn);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/back.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/back.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20273,14 +22346,22 @@ const backInOut = mirrorEasing(backIn);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/anticipate.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/anticipate.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const anticipate = (p) => (p *= 2) < 1 ? 0.5 * backIn(p) : 0.5 * (2 - Math.pow(2, -10 * (p - 1)));
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/utils/map.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/utils/map.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20319,7 +22400,11 @@ const easingDefinitionToFunction = (definition) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/progress.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/progress.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*
   Progress within given range
 
@@ -20339,7 +22424,11 @@ const progress = (from, to, value) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/mix/number.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/number.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*
   Value in range from progress
 
@@ -20367,7 +22456,11 @@ const mixNumber = (from, to, progress) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/hsla-to-rgba.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/hsla-to-rgba.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Adapted from https://gist.github.com/mjackson/5311256
 function hueToRgb(p, q, t) {
     if (t < 0)
@@ -20411,7 +22504,11 @@ function hslaToRgba({ hue, saturation, lightness, alpha }) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/mix/color.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/color.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20454,7 +22551,11 @@ const mixColor = (from, to) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/mix/visibility.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/visibility.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const invisibleValues = new Set(["none", "hidden"]);
 /**
  * Returns a function that, when provided a progress value between 0 and 1,
@@ -20472,7 +22573,11 @@ function mixVisibility(origin, target) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/mix/complex.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/complex.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20570,7 +22675,11 @@ const mixComplex = (origin, target) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/mix/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20586,7 +22695,11 @@ function mix(from, to, p) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/interpolate.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/interpolate.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20663,7 +22776,11 @@ function interpolate(input, output, { clamp: isClamp = true, ease, mixer } = {})
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/offsets/fill.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/offsets/fill.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20677,7 +22794,11 @@ function fillOffset(offset, remaining) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/offsets/default.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/offsets/default.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function defaultOffset(arr) {
@@ -20688,14 +22809,22 @@ function defaultOffset(arr) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/offsets/time.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/offsets/time.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function convertOffsetToTimes(offset, duration) {
     return offset.map((o) => o * duration);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/generators/keyframes.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/keyframes.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20748,7 +22877,11 @@ function keyframes_keyframes({ duration = 300, keyframes: keyframeValues, times,
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/generators/utils/calc-duration.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/utils/calc-duration.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Implement a practical max duration for keyframe generation
  * to prevent infinite loops
@@ -20767,7 +22900,11 @@ function calcGeneratorDuration(generator) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/drivers/driver-frameloop.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/drivers/driver-frameloop.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -20786,7 +22923,11 @@ const frameloopDriver = (update) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/MainThreadAnimation.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/MainThreadAnimation.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -21168,12 +23309,20 @@ function animateValue(options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/easing/utils/is-bezier-definition.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/utils/is-bezier-definition.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const isBezierDefinition = (easing) => Array.isArray(easing) && typeof easing[0] === "number";
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/easing.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/easing.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function isWaapiSupportedEasing(easing) {
@@ -21215,7 +23364,11 @@ function mapEasingToNativeEasing(easing) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function animateStyle(element, valueName, keyframes, { delay = 0, duration = 300, repeat = 0, repeatType = "loop", ease, times, } = {}) {
@@ -21240,7 +23393,11 @@ function animateStyle(element, valueName, keyframes, { delay = 0, duration = 300
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/animators/AcceleratedAnimation.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/AcceleratedAnimation.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -21537,7 +23694,11 @@ class AcceleratedAnimation extends BaseAnimation {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/interfaces/motion-value.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/motion-value.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -21648,7 +23809,11 @@ const animateMotionValue = (name, value, target, transition = {}, element, isHan
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/use-will-change/is.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/use-will-change/is.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function isWillChangeMotionValue(value) {
@@ -21657,7 +23822,11 @@ function isWillChangeMotionValue(value) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/array.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/array.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function addUniqueItem(arr, item) {
     if (arr.indexOf(item) === -1)
         arr.push(item);
@@ -21680,7 +23849,11 @@ function moveItem([...arr], fromIndex, toIndex) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/subscription-manager.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/subscription-manager.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 class SubscriptionManager {
@@ -21722,7 +23895,11 @@ class SubscriptionManager {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/value/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22041,7 +24218,11 @@ function motionValue(init, options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/setters.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/setters.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22070,7 +24251,11 @@ function setTarget(visualElement, definition) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-target.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-target.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22153,7 +24338,11 @@ function animateTarget(visualElement, targetAndTransition, { delay = 0, transiti
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-variant.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-variant.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22221,7 +24410,11 @@ function sortByTreeOrder(a, b) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22252,7 +24445,11 @@ function animateVisualElement(visualElement, definition, options = {}) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/animation-state.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/animation-state.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22578,7 +24775,11 @@ function createState() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/animation/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/animation/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22618,7 +24819,11 @@ class AnimationFeature extends Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/animation/exit.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/animation/exit.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 let id = 0;
@@ -22651,7 +24856,11 @@ class ExitAnimationFeature extends Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/animations.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/animations.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22666,7 +24875,11 @@ const animations = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/distance.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/distance.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const distance = (a, b) => Math.abs(a - b);
 function distance2D(a, b) {
     // Multi-dimensional
@@ -22677,7 +24890,11 @@ function distance2D(a, b) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/pan/PanSession.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/pan/PanSession.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -22835,7 +25052,11 @@ function getVelocity(history, timeDelta) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/geometry/delta-calc.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/delta-calc.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function calcLength(axis) {
@@ -22878,7 +25099,11 @@ function calcRelativePosition(target, layout, parent) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/drag/utils/constraints.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/drag/utils/constraints.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23009,7 +25234,11 @@ function resolvePointElastic(dragElastic, label) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/geometry/models.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/models.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const createAxisDelta = () => ({
     translate: 0,
     scale: 1,
@@ -23028,14 +25257,22 @@ const createBox = () => ({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/utils/each-axis.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/utils/each-axis.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function eachAxis(callback) {
     return [callback("x"), callback("y")];
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/geometry/conversion.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/conversion.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Bounding boxes tend to be defined as top, left, right, bottom. For various operations
  * it's easier to consider each axis individually. This function returns a bounding box
@@ -23070,7 +25307,11 @@ function transformBoxPoints(point, transformPoint) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/utils/has-transform.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/utils/has-transform.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isIdentityScale(scale) {
     return scale === undefined || scale === 1;
 }
@@ -23098,7 +25339,11 @@ function is2DTranslate(value) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/geometry/delta-apply.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/delta-apply.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23222,7 +25467,11 @@ function transformBox(box, transform) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/utils/measure.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/utils/measure.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23241,7 +25490,11 @@ function measurePageBox(element, rootProjectionNode, transformPagePoint) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/get-context-window.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/get-context-window.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Fixes https://github.com/framer/motion/issues/2270
 const getContextWindow = ({ current }) => {
     return current ? current.ownerDocument.defaultView : null;
@@ -23249,7 +25502,11 @@ const getContextWindow = ({ current }) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23735,7 +25992,11 @@ function getCurrentDirection(offset, lockThreshold = 10) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/drag/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/drag/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23764,7 +26025,11 @@ class DragGesture extends Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/gestures/pan/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/pan/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23816,7 +26081,11 @@ class PanGesture extends Feature {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23884,7 +26153,11 @@ function isPresent(context) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/node/state.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/state.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * This should only ever be modified on the client otherwise it'll
  * persist through server requests. If we need instanced states we
@@ -23905,7 +26178,11 @@ const globalProjectionState = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/styles/scale-border-radius.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/scale-border-radius.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function pixelsToPercent(pixels, axis) {
@@ -23948,7 +26225,11 @@ const correctBorderRadius = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/styles/scale-box-shadow.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/scale-box-shadow.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -23985,7 +26266,11 @@ const correctBoxShadow = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -24120,7 +26405,11 @@ const defaultScaleCorrectors = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/animation/mix-values.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/animation/mix-values.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -24215,7 +26504,11 @@ function compress(min, max, easing) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/geometry/copy.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/copy.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Reset an axis to the provided origin box.
  *
@@ -24237,7 +26530,11 @@ function copyBoxInto(box, originBox) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/geometry/delta-remove.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/delta-remove.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -24293,7 +26590,11 @@ function removeBoxTransforms(box, transforms, originBox, sourceBox) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/geometry/utils.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/utils.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function isAxisDeltaZero(delta) {
@@ -24320,7 +26621,11 @@ function aspectRatio(box) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/shared/stack.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/shared/stack.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 class NodeStack {
@@ -24434,7 +26739,11 @@ class NodeStack {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/styles/transform.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/transform.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function buildProjectionTransform(delta, treeScale, latestTransform) {
     let transform = "";
     /**
@@ -24485,12 +26794,20 @@ function buildProjectionTransform(delta, treeScale, latestTransform) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/compare-by-depth.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/compare-by-depth.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const compareByDepth = (a, b) => a.depth - b.depth;
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/flat-tree.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/flat-tree.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -24516,7 +26833,11 @@ class FlatTree {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/delay.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/delay.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -24538,7 +26859,11 @@ function delay(callback, timeout) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/debug/record.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/debug/record.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function record(data) {
     if (window.MotionDebug) {
         window.MotionDebug.record(data);
@@ -24547,14 +26872,22 @@ function record(data) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-element.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-element.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isSVGElement(element) {
     return element instanceof SVGElement && element.tagName !== "svg";
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/animation/interfaces/single-value.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/single-value.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -24567,7 +26900,11 @@ function animateSingleValue(value, keyframes, options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/node/create-projection-node.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/create-projection-node.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26094,7 +28431,11 @@ function shouldAnimatePositionOnly(animationType, snapshot, layout) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/node/DocumentProjectionNode.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/DocumentProjectionNode.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26109,7 +28450,11 @@ const DocumentProjectionNode = createProjectionNode({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/projection/node/HTMLProjectionNode.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/HTMLProjectionNode.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26138,7 +28483,11 @@ const HTMLProjectionNode = createProjectionNode({
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/drag.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/drag.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26157,14 +28506,22 @@ const drag = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/reduced-motion/state.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/reduced-motion/state.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Does this device prefer reduced motion? Returns `null` server-side.
 const prefersReducedMotion = { current: null };
 const hasReducedMotionListener = { current: false };
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/reduced-motion/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/reduced-motion/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26185,7 +28542,11 @@ function initPrefersReducedMotion() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/utils/motion-values.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/motion-values.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26252,12 +28613,20 @@ function updateMotionValuesFromProps(element, next, prev) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/store.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/store.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const visualElementStore = new WeakMap();
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/value-types/find.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/find.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26274,7 +28643,11 @@ const findValueType = (v) => valueTypes.find(testValueType(v));
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/VisualElement.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/VisualElement.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26811,7 +29184,11 @@ class VisualElement {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/DOMVisualElement.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/DOMVisualElement.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26841,7 +29218,11 @@ class DOMVisualElement extends VisualElement {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/html/HTMLVisualElement.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/HTMLVisualElement.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26902,7 +29283,11 @@ class HTMLVisualElement extends DOMVisualElement {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/svg/SVGVisualElement.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/SVGVisualElement.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26951,7 +29336,11 @@ class SVGVisualElement extends DOMVisualElement {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26968,7 +29357,11 @@ const create_visual_element_createDomVisualElement = (Component, options) => {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/motion/features/layout.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/layout.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -26981,7 +29374,11 @@ const layout = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/render/dom/motion.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/motion.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -27025,7 +29422,11 @@ function createDomMotionComponent(key) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/use-is-mounted.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/use-is-mounted.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -27042,7 +29443,11 @@ function useIsMounted() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/use-force-update.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/use-force-update.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -27063,7 +29468,11 @@ function use_force_update_useForceUpdate() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -27141,7 +29550,11 @@ function PopChild({ children, isPresent }) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -27200,7 +29613,11 @@ function newChildrenMap() {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function useUnmountEffect(callback) {
@@ -27209,7 +29626,11 @@ function useUnmountEffect(callback) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -27376,7 +29797,11 @@ const AnimatePresence = ({ children, custom, initial = true, onExitComplete, exi
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/use-responsive-value.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/use-responsive-value.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -27428,7 +29853,11 @@ function useResponsiveValue(values, options = {}) {
   index >= array.length ? array.length - 1 : index];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -27468,7 +29897,11 @@ const ItemsRow =  true ? {
   styles: ">*{min-width:0;}"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/flex/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/flex/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27540,7 +29973,11 @@ function useFlex(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -27550,7 +29987,11 @@ const FlexContext = (0,external_wp_element_namespaceObject.createContext)({
 });
 const useFlexContext = () => (0,external_wp_element_namespaceObject.useContext)(FlexContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/flex/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/flex/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27610,7 +30051,11 @@ function UnconnectedFlex(props, forwardedRef) {
 const component_Flex = contextConnect(UnconnectedFlex, 'Flex');
 /* harmony default export */ const flex_component = (component_Flex);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/flex-item/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/flex-item/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27645,7 +30090,11 @@ function useFlexItem(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/flex-block/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/flex-block/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -27661,7 +30110,11 @@ function useFlexBlock(props) {
   return flexItemProps;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/flex-block/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/flex-block/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27701,7 +30154,11 @@ function UnconnectedFlexBlock(props, forwardedRef) {
 const FlexBlock = contextConnect(UnconnectedFlexBlock, 'FlexBlock');
 /* harmony default export */ const flex_block_component = (FlexBlock);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/rtl.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/rtl.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27790,7 +30247,11 @@ function rtl(ltrStyles = {}, rtlStyles) {
  */
 rtl.watch = () => (0,external_wp_i18n_namespaceObject.isRTL)();
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/spacer/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/spacer/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27803,9 +30264,13 @@ rtl.watch = () => (0,external_wp_i18n_namespaceObject.isRTL)();
 
 
 
+<<<<<<< HEAD
 function isDefined(o) {
   return typeof o !== 'undefined' && o !== null;
 }
+=======
+const isDefined = o => typeof o !== 'undefined' && o !== null;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useSpacer(props) {
   const {
     className,
@@ -27841,7 +30306,11 @@ function useSpacer(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/spacer/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/spacer/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27889,7 +30358,11 @@ function UnconnectedSpacer(props, forwardedRef) {
 const Spacer = contextConnect(UnconnectedSpacer, 'Spacer');
 /* harmony default export */ const spacer_component = (Spacer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/plus.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/plus.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -27904,7 +30377,11 @@ const plus = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 });
 /* harmony default export */ const library_plus = (plus);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/reset.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/reset.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -27919,7 +30396,11 @@ const reset_reset = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const library_reset = (reset_reset);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/flex/flex-item/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/flex/flex-item/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -27959,7 +30440,11 @@ function UnconnectedFlexItem(props, forwardedRef) {
 const FlexItem = contextConnect(UnconnectedFlexItem, 'FlexItem');
 /* harmony default export */ const flex_item_component = (FlexItem);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/truncate/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/truncate/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function truncate_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -27970,7 +30455,11 @@ const Truncate =  true ? {
   styles: "display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/values.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/values.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint-disable jsdoc/valid-types */
 /**
  * Determines if a value is null or undefined.
@@ -28034,7 +30523,11 @@ const ensureNumber = value => {
   return typeof value === 'string' ? stringToNumber(value) : value;
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/truncate/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/truncate/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -28107,7 +30600,11 @@ function truncateContent(words = '', props) {
   return truncatedContent;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/truncate/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/truncate/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -28164,6 +30661,7 @@ function useTruncate(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/colord/index.mjs
 var colord_r={grad:.9,turn:360,rad:360/(2*Math.PI)},t=function(r){return"string"==typeof r?r.length>0:"number"==typeof r},colord_n=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=Math.pow(10,t)),Math.round(n*r)/n+0},colord_e=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=1),r>n?n:r>t?r:t},u=function(r){return(r=isFinite(r)?r%360:0)>0?r:r+360},colord_a=function(r){return{r:colord_e(r.r,0,255),g:colord_e(r.g,0,255),b:colord_e(r.b,0,255),a:colord_e(r.a)}},colord_o=function(r){return{r:colord_n(r.r),g:colord_n(r.g),b:colord_n(r.b),a:colord_n(r.a,3)}},i=/^#([0-9a-f]{3,8})$/i,s=function(r){var t=r.toString(16);return t.length<2?"0"+t:t},h=function(r){var t=r.r,n=r.g,e=r.b,u=r.a,a=Math.max(t,n,e),o=a-Math.min(t,n,e),i=o?a===t?(n-e)/o:a===n?2+(e-t)/o:4+(t-n)/o:0;return{h:60*(i<0?i+6:i),s:a?o/a*100:0,v:a/255*100,a:u}},b=function(r){var t=r.h,n=r.s,e=r.v,u=r.a;t=t/360*6,n/=100,e/=100;var a=Math.floor(t),o=e*(1-n),i=e*(1-(t-a)*n),s=e*(1-(1-t+a)*n),h=a%6;return{r:255*[e,i,o,o,s,e][h],g:255*[s,e,e,i,o,o][h],b:255*[o,o,s,e,e,i][h],a:u}},g=function(r){return{h:u(r.h),s:colord_e(r.s,0,100),l:colord_e(r.l,0,100),a:colord_e(r.a)}},d=function(r){return{h:colord_n(r.h),s:colord_n(r.s),l:colord_n(r.l),a:colord_n(r.a,3)}},f=function(r){return b((n=(t=r).s,{h:t.h,s:(n*=((e=t.l)<50?e:100-e)/100)>0?2*n/(e+n)*100:0,v:e+n,a:t.a}));var t,n,e},c=function(r){return{h:(t=h(r)).h,s:(u=(200-(n=t.s))*(e=t.v)/100)>0&&u<200?n*e/100/(u<=100?u:200-u)*100:0,l:u/2,a:t.a};var t,n,e,u},l=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,p=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,v=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,m=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,y={string:[[function(r){var t=i.exec(r);return t?(r=t[1]).length<=4?{r:parseInt(r[0]+r[0],16),g:parseInt(r[1]+r[1],16),b:parseInt(r[2]+r[2],16),a:4===r.length?colord_n(parseInt(r[3]+r[3],16)/255,2):1}:6===r.length||8===r.length?{r:parseInt(r.substr(0,2),16),g:parseInt(r.substr(2,2),16),b:parseInt(r.substr(4,2),16),a:8===r.length?colord_n(parseInt(r.substr(6,2),16)/255,2):1}:null:null},"hex"],[function(r){var t=v.exec(r)||m.exec(r);return t?t[2]!==t[4]||t[4]!==t[6]?null:colord_a({r:Number(t[1])/(t[2]?100/255:1),g:Number(t[3])/(t[4]?100/255:1),b:Number(t[5])/(t[6]?100/255:1),a:void 0===t[7]?1:Number(t[7])/(t[8]?100:1)}):null},"rgb"],[function(t){var n=l.exec(t)||p.exec(t);if(!n)return null;var e,u,a=g({h:(e=n[1],u=n[2],void 0===u&&(u="deg"),Number(e)*(colord_r[u]||1)),s:Number(n[3]),l:Number(n[4]),a:void 0===n[5]?1:Number(n[5])/(n[6]?100:1)});return f(a)},"hsl"]],object:[[function(r){var n=r.r,e=r.g,u=r.b,o=r.a,i=void 0===o?1:o;return t(n)&&t(e)&&t(u)?colord_a({r:Number(n),g:Number(e),b:Number(u),a:Number(i)}):null},"rgb"],[function(r){var n=r.h,e=r.s,u=r.l,a=r.a,o=void 0===a?1:a;if(!t(n)||!t(e)||!t(u))return null;var i=g({h:Number(n),s:Number(e),l:Number(u),a:Number(o)});return f(i)},"hsl"],[function(r){var n=r.h,a=r.s,o=r.v,i=r.a,s=void 0===i?1:i;if(!t(n)||!t(a)||!t(o))return null;var h=function(r){return{h:u(r.h),s:colord_e(r.s,0,100),v:colord_e(r.v,0,100),a:colord_e(r.a)}}({h:Number(n),s:Number(a),v:Number(o),a:Number(s)});return b(h)},"hsv"]]},N=function(r,t){for(var n=0;n<t.length;n++){var e=t[n][0](r);if(e)return[e,t[n][1]]}return[null,void 0]},x=function(r){return"string"==typeof r?N(r.trim(),y.string):"object"==typeof r&&null!==r?N(r,y.object):[null,void 0]},I=function(r){return x(r)[1]},M=function(r,t){var n=c(r);return{h:n.h,s:colord_e(n.s+100*t,0,100),l:n.l,a:n.a}},H=function(r){return(299*r.r+587*r.g+114*r.b)/1e3/255},$=function(r,t){var n=c(r);return{h:n.h,s:n.s,l:colord_e(n.l+100*t,0,100),a:n.a}},j=function(){function r(r){this.parsed=x(r)[0],this.rgba=this.parsed||{r:0,g:0,b:0,a:1}}return r.prototype.isValid=function(){return null!==this.parsed},r.prototype.brightness=function(){return colord_n(H(this.rgba),2)},r.prototype.isDark=function(){return H(this.rgba)<.5},r.prototype.isLight=function(){return H(this.rgba)>=.5},r.prototype.toHex=function(){return r=colord_o(this.rgba),t=r.r,e=r.g,u=r.b,i=(a=r.a)<1?s(colord_n(255*a)):"","#"+s(t)+s(e)+s(u)+i;var r,t,e,u,a,i},r.prototype.toRgb=function(){return colord_o(this.rgba)},r.prototype.toRgbString=function(){return r=colord_o(this.rgba),t=r.r,n=r.g,e=r.b,(u=r.a)<1?"rgba("+t+", "+n+", "+e+", "+u+")":"rgb("+t+", "+n+", "+e+")";var r,t,n,e,u},r.prototype.toHsl=function(){return d(c(this.rgba))},r.prototype.toHslString=function(){return r=d(c(this.rgba)),t=r.h,n=r.s,e=r.l,(u=r.a)<1?"hsla("+t+", "+n+"%, "+e+"%, "+u+")":"hsl("+t+", "+n+"%, "+e+"%)";var r,t,n,e,u},r.prototype.toHsv=function(){return r=h(this.rgba),{h:colord_n(r.h),s:colord_n(r.s),v:colord_n(r.v),a:colord_n(r.a,3)};var r},r.prototype.invert=function(){return w({r:255-(r=this.rgba).r,g:255-r.g,b:255-r.b,a:r.a});var r},r.prototype.saturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,r))},r.prototype.desaturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,-r))},r.prototype.grayscale=function(){return w(M(this.rgba,-1))},r.prototype.lighten=function(r){return void 0===r&&(r=.1),w($(this.rgba,r))},r.prototype.darken=function(r){return void 0===r&&(r=.1),w($(this.rgba,-r))},r.prototype.rotate=function(r){return void 0===r&&(r=15),this.hue(this.hue()+r)},r.prototype.alpha=function(r){return"number"==typeof r?w({r:(t=this.rgba).r,g:t.g,b:t.b,a:r}):colord_n(this.rgba.a,3);var t},r.prototype.hue=function(r){var t=c(this.rgba);return"number"==typeof r?w({h:r,s:t.s,l:t.l,a:t.a}):colord_n(t.h)},r.prototype.isEqual=function(r){return this.toHex()===w(r).toHex()},r}(),w=function(r){return r instanceof j?r:new j(r)},S=[],k=function(r){r.forEach(function(r){S.indexOf(r)<0&&(r(j,y),S.push(r))})},E=function(){return new j({r:255*Math.random(),g:255*Math.random(),b:255*Math.random()})};
 
@@ -28171,6 +30669,15 @@ var colord_r={grad:.9,turn:360,rad:360/(2*Math.PI)},t=function(r){return"string"
 /* harmony default export */ function names(e,f){var a={white:"#ffffff",bisque:"#ffe4c4",blue:"#0000ff",cadetblue:"#5f9ea0",chartreuse:"#7fff00",chocolate:"#d2691e",coral:"#ff7f50",antiquewhite:"#faebd7",aqua:"#00ffff",azure:"#f0ffff",whitesmoke:"#f5f5f5",papayawhip:"#ffefd5",plum:"#dda0dd",blanchedalmond:"#ffebcd",black:"#000000",gold:"#ffd700",goldenrod:"#daa520",gainsboro:"#dcdcdc",cornsilk:"#fff8dc",cornflowerblue:"#6495ed",burlywood:"#deb887",aquamarine:"#7fffd4",beige:"#f5f5dc",crimson:"#dc143c",cyan:"#00ffff",darkblue:"#00008b",darkcyan:"#008b8b",darkgoldenrod:"#b8860b",darkkhaki:"#bdb76b",darkgray:"#a9a9a9",darkgreen:"#006400",darkgrey:"#a9a9a9",peachpuff:"#ffdab9",darkmagenta:"#8b008b",darkred:"#8b0000",darkorchid:"#9932cc",darkorange:"#ff8c00",darkslateblue:"#483d8b",gray:"#808080",darkslategray:"#2f4f4f",darkslategrey:"#2f4f4f",deeppink:"#ff1493",deepskyblue:"#00bfff",wheat:"#f5deb3",firebrick:"#b22222",floralwhite:"#fffaf0",ghostwhite:"#f8f8ff",darkviolet:"#9400d3",magenta:"#ff00ff",green:"#008000",dodgerblue:"#1e90ff",grey:"#808080",honeydew:"#f0fff0",hotpink:"#ff69b4",blueviolet:"#8a2be2",forestgreen:"#228b22",lawngreen:"#7cfc00",indianred:"#cd5c5c",indigo:"#4b0082",fuchsia:"#ff00ff",brown:"#a52a2a",maroon:"#800000",mediumblue:"#0000cd",lightcoral:"#f08080",darkturquoise:"#00ced1",lightcyan:"#e0ffff",ivory:"#fffff0",lightyellow:"#ffffe0",lightsalmon:"#ffa07a",lightseagreen:"#20b2aa",linen:"#faf0e6",mediumaquamarine:"#66cdaa",lemonchiffon:"#fffacd",lime:"#00ff00",khaki:"#f0e68c",mediumseagreen:"#3cb371",limegreen:"#32cd32",mediumspringgreen:"#00fa9a",lightskyblue:"#87cefa",lightblue:"#add8e6",midnightblue:"#191970",lightpink:"#ffb6c1",mistyrose:"#ffe4e1",moccasin:"#ffe4b5",mintcream:"#f5fffa",lightslategray:"#778899",lightslategrey:"#778899",navajowhite:"#ffdead",navy:"#000080",mediumvioletred:"#c71585",powderblue:"#b0e0e6",palegoldenrod:"#eee8aa",oldlace:"#fdf5e6",paleturquoise:"#afeeee",mediumturquoise:"#48d1cc",mediumorchid:"#ba55d3",rebeccapurple:"#663399",lightsteelblue:"#b0c4de",mediumslateblue:"#7b68ee",thistle:"#d8bfd8",tan:"#d2b48c",orchid:"#da70d6",mediumpurple:"#9370db",purple:"#800080",pink:"#ffc0cb",skyblue:"#87ceeb",springgreen:"#00ff7f",palegreen:"#98fb98",red:"#ff0000",yellow:"#ffff00",slateblue:"#6a5acd",lavenderblush:"#fff0f5",peru:"#cd853f",palevioletred:"#db7093",violet:"#ee82ee",teal:"#008080",slategray:"#708090",slategrey:"#708090",aliceblue:"#f0f8ff",darkseagreen:"#8fbc8f",darkolivegreen:"#556b2f",greenyellow:"#adff2f",seagreen:"#2e8b57",seashell:"#fff5ee",tomato:"#ff6347",silver:"#c0c0c0",sienna:"#a0522d",lavender:"#e6e6fa",lightgreen:"#90ee90",orange:"#ffa500",orangered:"#ff4500",steelblue:"#4682b4",royalblue:"#4169e1",turquoise:"#40e0d0",yellowgreen:"#9acd32",salmon:"#fa8072",saddlebrown:"#8b4513",sandybrown:"#f4a460",rosybrown:"#bc8f8f",darksalmon:"#e9967a",lightgoldenrodyellow:"#fafad2",snow:"#fffafa",lightgrey:"#d3d3d3",lightgray:"#d3d3d3",dimgray:"#696969",dimgrey:"#696969",olivedrab:"#6b8e23",olive:"#808000"},r={};for(var d in a)r[a[d]]=d;var l={};e.prototype.toName=function(f){if(!(this.rgba.a||this.rgba.r||this.rgba.g||this.rgba.b))return"transparent";var d,i,n=r[this.toHex()];if(n)return n;if(null==f?void 0:f.closest){var o=this.toRgb(),t=1/0,b="black";if(!l.length)for(var c in a)l[c]=new e(a[c]).toRgb();for(var g in a){var u=(d=o,i=l[g],Math.pow(d.r-i.r,2)+Math.pow(d.g-i.g,2)+Math.pow(d.b-i.b,2));u<t&&(t=u,b=g)}return b}};f.string.push([function(f){var r=f.toLowerCase(),d="transparent"===r?"#0000":a[r];return d?new e(d).toRgb():null},"name"])}
 
 ;// ./node_modules/@wordpress/components/build-module/utils/colors.js
+=======
+;// CONCATENATED MODULE: ./node_modules/colord/index.mjs
+var colord_r={grad:.9,turn:360,rad:360/(2*Math.PI)},t=function(r){return"string"==typeof r?r.length>0:"number"==typeof r},colord_n=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=Math.pow(10,t)),Math.round(n*r)/n+0},colord_e=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=1),r>n?n:r>t?r:t},u=function(r){return(r=isFinite(r)?r%360:0)>0?r:r+360},colord_a=function(r){return{r:colord_e(r.r,0,255),g:colord_e(r.g,0,255),b:colord_e(r.b,0,255),a:colord_e(r.a)}},colord_o=function(r){return{r:colord_n(r.r),g:colord_n(r.g),b:colord_n(r.b),a:colord_n(r.a,3)}},i=/^#([0-9a-f]{3,8})$/i,s=function(r){var t=r.toString(16);return t.length<2?"0"+t:t},h=function(r){var t=r.r,n=r.g,e=r.b,u=r.a,a=Math.max(t,n,e),o=a-Math.min(t,n,e),i=o?a===t?(n-e)/o:a===n?2+(e-t)/o:4+(t-n)/o:0;return{h:60*(i<0?i+6:i),s:a?o/a*100:0,v:a/255*100,a:u}},b=function(r){var t=r.h,n=r.s,e=r.v,u=r.a;t=t/360*6,n/=100,e/=100;var a=Math.floor(t),o=e*(1-n),i=e*(1-(t-a)*n),s=e*(1-(1-t+a)*n),h=a%6;return{r:255*[e,i,o,o,s,e][h],g:255*[s,e,e,i,o,o][h],b:255*[o,o,s,e,e,i][h],a:u}},g=function(r){return{h:u(r.h),s:colord_e(r.s,0,100),l:colord_e(r.l,0,100),a:colord_e(r.a)}},d=function(r){return{h:colord_n(r.h),s:colord_n(r.s),l:colord_n(r.l),a:colord_n(r.a,3)}},f=function(r){return b((n=(t=r).s,{h:t.h,s:(n*=((e=t.l)<50?e:100-e)/100)>0?2*n/(e+n)*100:0,v:e+n,a:t.a}));var t,n,e},c=function(r){return{h:(t=h(r)).h,s:(u=(200-(n=t.s))*(e=t.v)/100)>0&&u<200?n*e/100/(u<=100?u:200-u)*100:0,l:u/2,a:t.a};var t,n,e,u},l=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,p=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,v=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,m=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,y={string:[[function(r){var t=i.exec(r);return t?(r=t[1]).length<=4?{r:parseInt(r[0]+r[0],16),g:parseInt(r[1]+r[1],16),b:parseInt(r[2]+r[2],16),a:4===r.length?colord_n(parseInt(r[3]+r[3],16)/255,2):1}:6===r.length||8===r.length?{r:parseInt(r.substr(0,2),16),g:parseInt(r.substr(2,2),16),b:parseInt(r.substr(4,2),16),a:8===r.length?colord_n(parseInt(r.substr(6,2),16)/255,2):1}:null:null},"hex"],[function(r){var t=v.exec(r)||m.exec(r);return t?t[2]!==t[4]||t[4]!==t[6]?null:colord_a({r:Number(t[1])/(t[2]?100/255:1),g:Number(t[3])/(t[4]?100/255:1),b:Number(t[5])/(t[6]?100/255:1),a:void 0===t[7]?1:Number(t[7])/(t[8]?100:1)}):null},"rgb"],[function(t){var n=l.exec(t)||p.exec(t);if(!n)return null;var e,u,a=g({h:(e=n[1],u=n[2],void 0===u&&(u="deg"),Number(e)*(colord_r[u]||1)),s:Number(n[3]),l:Number(n[4]),a:void 0===n[5]?1:Number(n[5])/(n[6]?100:1)});return f(a)},"hsl"]],object:[[function(r){var n=r.r,e=r.g,u=r.b,o=r.a,i=void 0===o?1:o;return t(n)&&t(e)&&t(u)?colord_a({r:Number(n),g:Number(e),b:Number(u),a:Number(i)}):null},"rgb"],[function(r){var n=r.h,e=r.s,u=r.l,a=r.a,o=void 0===a?1:a;if(!t(n)||!t(e)||!t(u))return null;var i=g({h:Number(n),s:Number(e),l:Number(u),a:Number(o)});return f(i)},"hsl"],[function(r){var n=r.h,a=r.s,o=r.v,i=r.a,s=void 0===i?1:i;if(!t(n)||!t(a)||!t(o))return null;var h=function(r){return{h:u(r.h),s:colord_e(r.s,0,100),v:colord_e(r.v,0,100),a:colord_e(r.a)}}({h:Number(n),s:Number(a),v:Number(o),a:Number(s)});return b(h)},"hsv"]]},N=function(r,t){for(var n=0;n<t.length;n++){var e=t[n][0](r);if(e)return[e,t[n][1]]}return[null,void 0]},x=function(r){return"string"==typeof r?N(r.trim(),y.string):"object"==typeof r&&null!==r?N(r,y.object):[null,void 0]},I=function(r){return x(r)[1]},M=function(r,t){var n=c(r);return{h:n.h,s:colord_e(n.s+100*t,0,100),l:n.l,a:n.a}},H=function(r){return(299*r.r+587*r.g+114*r.b)/1e3/255},$=function(r,t){var n=c(r);return{h:n.h,s:n.s,l:colord_e(n.l+100*t,0,100),a:n.a}},j=function(){function r(r){this.parsed=x(r)[0],this.rgba=this.parsed||{r:0,g:0,b:0,a:1}}return r.prototype.isValid=function(){return null!==this.parsed},r.prototype.brightness=function(){return colord_n(H(this.rgba),2)},r.prototype.isDark=function(){return H(this.rgba)<.5},r.prototype.isLight=function(){return H(this.rgba)>=.5},r.prototype.toHex=function(){return r=colord_o(this.rgba),t=r.r,e=r.g,u=r.b,i=(a=r.a)<1?s(colord_n(255*a)):"","#"+s(t)+s(e)+s(u)+i;var r,t,e,u,a,i},r.prototype.toRgb=function(){return colord_o(this.rgba)},r.prototype.toRgbString=function(){return r=colord_o(this.rgba),t=r.r,n=r.g,e=r.b,(u=r.a)<1?"rgba("+t+", "+n+", "+e+", "+u+")":"rgb("+t+", "+n+", "+e+")";var r,t,n,e,u},r.prototype.toHsl=function(){return d(c(this.rgba))},r.prototype.toHslString=function(){return r=d(c(this.rgba)),t=r.h,n=r.s,e=r.l,(u=r.a)<1?"hsla("+t+", "+n+"%, "+e+"%, "+u+")":"hsl("+t+", "+n+"%, "+e+"%)";var r,t,n,e,u},r.prototype.toHsv=function(){return r=h(this.rgba),{h:colord_n(r.h),s:colord_n(r.s),v:colord_n(r.v),a:colord_n(r.a,3)};var r},r.prototype.invert=function(){return w({r:255-(r=this.rgba).r,g:255-r.g,b:255-r.b,a:r.a});var r},r.prototype.saturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,r))},r.prototype.desaturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,-r))},r.prototype.grayscale=function(){return w(M(this.rgba,-1))},r.prototype.lighten=function(r){return void 0===r&&(r=.1),w($(this.rgba,r))},r.prototype.darken=function(r){return void 0===r&&(r=.1),w($(this.rgba,-r))},r.prototype.rotate=function(r){return void 0===r&&(r=15),this.hue(this.hue()+r)},r.prototype.alpha=function(r){return"number"==typeof r?w({r:(t=this.rgba).r,g:t.g,b:t.b,a:r}):colord_n(this.rgba.a,3);var t},r.prototype.hue=function(r){var t=c(this.rgba);return"number"==typeof r?w({h:r,s:t.s,l:t.l,a:t.a}):colord_n(t.h)},r.prototype.isEqual=function(r){return this.toHex()===w(r).toHex()},r}(),w=function(r){return r instanceof j?r:new j(r)},S=[],k=function(r){r.forEach(function(r){S.indexOf(r)<0&&(r(j,y),S.push(r))})},E=function(){return new j({r:255*Math.random(),g:255*Math.random(),b:255*Math.random()})};
+
+;// CONCATENATED MODULE: ./node_modules/colord/plugins/names.mjs
+/* harmony default export */ function names(e,f){var a={white:"#ffffff",bisque:"#ffe4c4",blue:"#0000ff",cadetblue:"#5f9ea0",chartreuse:"#7fff00",chocolate:"#d2691e",coral:"#ff7f50",antiquewhite:"#faebd7",aqua:"#00ffff",azure:"#f0ffff",whitesmoke:"#f5f5f5",papayawhip:"#ffefd5",plum:"#dda0dd",blanchedalmond:"#ffebcd",black:"#000000",gold:"#ffd700",goldenrod:"#daa520",gainsboro:"#dcdcdc",cornsilk:"#fff8dc",cornflowerblue:"#6495ed",burlywood:"#deb887",aquamarine:"#7fffd4",beige:"#f5f5dc",crimson:"#dc143c",cyan:"#00ffff",darkblue:"#00008b",darkcyan:"#008b8b",darkgoldenrod:"#b8860b",darkkhaki:"#bdb76b",darkgray:"#a9a9a9",darkgreen:"#006400",darkgrey:"#a9a9a9",peachpuff:"#ffdab9",darkmagenta:"#8b008b",darkred:"#8b0000",darkorchid:"#9932cc",darkorange:"#ff8c00",darkslateblue:"#483d8b",gray:"#808080",darkslategray:"#2f4f4f",darkslategrey:"#2f4f4f",deeppink:"#ff1493",deepskyblue:"#00bfff",wheat:"#f5deb3",firebrick:"#b22222",floralwhite:"#fffaf0",ghostwhite:"#f8f8ff",darkviolet:"#9400d3",magenta:"#ff00ff",green:"#008000",dodgerblue:"#1e90ff",grey:"#808080",honeydew:"#f0fff0",hotpink:"#ff69b4",blueviolet:"#8a2be2",forestgreen:"#228b22",lawngreen:"#7cfc00",indianred:"#cd5c5c",indigo:"#4b0082",fuchsia:"#ff00ff",brown:"#a52a2a",maroon:"#800000",mediumblue:"#0000cd",lightcoral:"#f08080",darkturquoise:"#00ced1",lightcyan:"#e0ffff",ivory:"#fffff0",lightyellow:"#ffffe0",lightsalmon:"#ffa07a",lightseagreen:"#20b2aa",linen:"#faf0e6",mediumaquamarine:"#66cdaa",lemonchiffon:"#fffacd",lime:"#00ff00",khaki:"#f0e68c",mediumseagreen:"#3cb371",limegreen:"#32cd32",mediumspringgreen:"#00fa9a",lightskyblue:"#87cefa",lightblue:"#add8e6",midnightblue:"#191970",lightpink:"#ffb6c1",mistyrose:"#ffe4e1",moccasin:"#ffe4b5",mintcream:"#f5fffa",lightslategray:"#778899",lightslategrey:"#778899",navajowhite:"#ffdead",navy:"#000080",mediumvioletred:"#c71585",powderblue:"#b0e0e6",palegoldenrod:"#eee8aa",oldlace:"#fdf5e6",paleturquoise:"#afeeee",mediumturquoise:"#48d1cc",mediumorchid:"#ba55d3",rebeccapurple:"#663399",lightsteelblue:"#b0c4de",mediumslateblue:"#7b68ee",thistle:"#d8bfd8",tan:"#d2b48c",orchid:"#da70d6",mediumpurple:"#9370db",purple:"#800080",pink:"#ffc0cb",skyblue:"#87ceeb",springgreen:"#00ff7f",palegreen:"#98fb98",red:"#ff0000",yellow:"#ffff00",slateblue:"#6a5acd",lavenderblush:"#fff0f5",peru:"#cd853f",palevioletred:"#db7093",violet:"#ee82ee",teal:"#008080",slategray:"#708090",slategrey:"#708090",aliceblue:"#f0f8ff",darkseagreen:"#8fbc8f",darkolivegreen:"#556b2f",greenyellow:"#adff2f",seagreen:"#2e8b57",seashell:"#fff5ee",tomato:"#ff6347",silver:"#c0c0c0",sienna:"#a0522d",lavender:"#e6e6fa",lightgreen:"#90ee90",orange:"#ffa500",orangered:"#ff4500",steelblue:"#4682b4",royalblue:"#4169e1",turquoise:"#40e0d0",yellowgreen:"#9acd32",salmon:"#fa8072",saddlebrown:"#8b4513",sandybrown:"#f4a460",rosybrown:"#bc8f8f",darksalmon:"#e9967a",lightgoldenrodyellow:"#fafad2",snow:"#fffafa",lightgrey:"#d3d3d3",lightgray:"#d3d3d3",dimgray:"#696969",dimgrey:"#696969",olivedrab:"#6b8e23",olive:"#808000"},r={};for(var d in a)r[a[d]]=d;var l={};e.prototype.toName=function(f){if(!(this.rgba.a||this.rgba.r||this.rgba.g||this.rgba.b))return"transparent";var d,i,n=r[this.toHex()];if(n)return n;if(null==f?void 0:f.closest){var o=this.toRgb(),t=1/0,b="black";if(!l.length)for(var c in a)l[c]=new e(a[c]).toRgb();for(var g in a){var u=(d=o,i=l[g],Math.pow(d.r-i.r,2)+Math.pow(d.g-i.g,2)+Math.pow(d.b-i.b,2));u<t&&(t=u,b=g)}return b}};f.string.push([function(f){var r=f.toLowerCase(),d="transparent"===r?"#0000":a[r];return d?new e(d).toRgb():null},"name"])}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/colors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -28288,7 +30795,11 @@ function getOptimalTextShade(backgroundColor) {
   return result === '#000000' ? 'dark' : 'light';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/text/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/text/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function text_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -28299,7 +30810,11 @@ function text_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried t
  * Internal dependencies
  */
 
+<<<<<<< HEAD
 const Text = /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.theme.foreground, ";line-height:", config_values.fontLineHeightBase, ";margin:0;text-wrap:balance;text-wrap:pretty;" + ( true ? "" : 0),  true ? "" : 0);
+=======
+const Text = /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.gray[900], ";line-height:", config_values.fontLineHeightBase, ";margin:0;text-wrap:balance;text-wrap:pretty;" + ( true ? "" : 0),  true ? "" : 0);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const styles_block =  true ? {
   name: "4zleql",
   styles: "display:block"
@@ -28315,7 +30830,11 @@ const upperCase =  true ? {
 
 // EXTERNAL MODULE: ./node_modules/highlight-words-core/dist/index.js
 var dist = __webpack_require__(9664);
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/text/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/text/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -28344,7 +30863,11 @@ var dist = __webpack_require__(9664);
  * @property {string | Record<string, unknown>}                           [highlightClassName='']   Classname to apply to highlighted text or a Record of classnames to apply to given text (which should be the key).
  * @property {import('react').AllHTMLAttributes<HTMLDivElement>['style']} [highlightStyle={}]       Styles to apply to highlighted text.
  * @property {keyof JSX.IntrinsicElements}                                [highlightTag='mark']     Tag to use for the highlighted text.
+<<<<<<< HEAD
  * @property {import('highlight-words-core').FindAllArgs['sanitize']}     [sanitize]                Custom `sanitize` function to pass to `highlight-words-core`.
+=======
+ * @property {import('highlight-words-core').FindAllArgs['sanitize']}     [sanitize]                Custom `santize` function to pass to `highlight-words-core`.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @property {string[]}                                                   [searchWords=[]]          Words to search for and highlight.
  * @property {string}                                                     [unhighlightClassName=''] Classname to apply to unhighlighted text.
  * @property {import('react').AllHTMLAttributes<HTMLDivElement>['style']} [unhighlightStyle]        Style to apply to unhighlighted text.
@@ -28459,7 +30982,11 @@ function createHighlighterText({
   return textContent;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/font-size.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/font-size.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -28500,7 +31027,11 @@ function getHeadingFontSize(size = 3) {
   return config_values[headingSize];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/text/get-line-height.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/text/get-line-height.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -28535,7 +31066,11 @@ function getLineHeight(adjustLineHeightForInnerControls, lineHeight) {
   return value;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/text/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/text/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function hook_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -28625,8 +31160,11 @@ function useText(props) {
     sx.optimalTextColor = null;
     if (optimizeReadabilityFor) {
       const isOptimalTextColorDark = getOptimalTextShade(optimizeReadabilityFor) === 'dark';
+<<<<<<< HEAD
 
       // Should not use theme colors
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       sx.optimalTextColor = isOptimalTextColorDark ? /*#__PURE__*/emotion_react_browser_esm_css({
         color: COLORS.gray[900]
       },  true ? "" : 0,  true ? "" : 0) : /*#__PURE__*/emotion_react_browser_esm_css({
@@ -28673,7 +31211,11 @@ function useText(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/text/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/text/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -28714,7 +31256,11 @@ function UnconnectedText(props, forwardedRef) {
 const component_Text = contextConnect(UnconnectedText, 'Text');
 /* harmony default export */ const text_component = (component_Text);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/base-label.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/base-label.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function base_label_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -28728,7 +31274,11 @@ const baseLabelTypography =  true ? {
   styles: "font-size:11px;font-weight:500;line-height:1.4;text-transform:uppercase"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/styles/input-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/styles/input-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function input_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -28908,7 +31458,11 @@ const dragStyles = ({
 
 const Input = /*#__PURE__*/emotion_styled_base_browser_esm("input",  true ? {
   target: "em5sgkm3"
+<<<<<<< HEAD
 } : 0)("&&&{background-color:transparent;box-sizing:border-box;border:none;box-shadow:none!important;color:", COLORS.theme.foreground, ";display:block;font-family:inherit;margin:0;outline:none;width:100%;", dragStyles, " ", disabledStyles, " ", fontSizeStyles, " ", sizeStyles, " ", customPaddings, " &::-webkit-input-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}&::-moz-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}&:-ms-input-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}&[type='email'],&[type='url']{direction:ltr;}}" + ( true ? "" : 0));
+=======
+} : 0)("&&&{background-color:transparent;box-sizing:border-box;border:none;box-shadow:none!important;color:", COLORS.theme.foreground, ";display:block;font-family:inherit;margin:0;outline:none;width:100%;", dragStyles, " ", disabledStyles, " ", fontSizeStyles, " ", sizeStyles, " ", customPaddings, " &::-webkit-input-placeholder{line-height:normal;}}" + ( true ? "" : 0));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const BaseLabel = /*#__PURE__*/emotion_styled_base_browser_esm(text_component,  true ? {
   target: "em5sgkm2"
 } : 0)("&&&{", baseLabelTypography, ";box-sizing:border-box;display:block;padding-top:0;padding-bottom:0;max-width:100%;z-index:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}" + ( true ? "" : 0));
@@ -28951,7 +31505,11 @@ const PrefixSuffixWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div", 
   target: "em5sgkm0"
 } : 0)(prefixSuffixWrapperStyles, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/backdrop.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/backdrop.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -28975,7 +31533,11 @@ function Backdrop({
 const MemoizedBackdrop = (0,external_wp_element_namespaceObject.memo)(Backdrop);
 /* harmony default export */ const backdrop = (MemoizedBackdrop);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/label.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/label.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -29007,7 +31569,11 @@ function label_Label({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/use-deprecated-props.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/use-deprecated-props.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useDeprecated36pxDefaultSizeProp(props) {
   const {
     __next36pxDefaultSize,
@@ -29020,7 +31586,11 @@ function useDeprecated36pxDefaultSizeProp(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/input-base.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/input-base.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -29040,6 +31610,10 @@ function useDeprecated36pxDefaultSizeProp(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useUniqueId(idProp) {
   const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(InputBase);
   const id = `input-base-control-${instanceId}`;
@@ -29142,7 +31716,11 @@ function InputBase(props, ref) {
  */
 /* harmony default export */ const input_base = (contextConnect(InputBase, 'InputBase'));
 
+<<<<<<< HEAD
 ;// ./node_modules/@use-gesture/core/dist/maths-0ab39ae9.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@use-gesture/core/dist/maths-0ab39ae9.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function maths_0ab39ae9_esm_clamp(v, min, max) {
   return Math.max(min, Math.min(v, max));
 }
@@ -29183,7 +31761,11 @@ function computeRubberband(bounds, [Vx, Vy], [Rx, Ry]) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@use-gesture/core/dist/actions-fe213e88.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@use-gesture/core/dist/actions-fe213e88.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function _toPrimitive(input, hint) {
@@ -30583,7 +33165,11 @@ const actions_fe213e88_esm_wheelAction = {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@use-gesture/core/dist/use-gesture-core.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@use-gesture/core/dist/use-gesture-core.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -30904,7 +33490,11 @@ function use_gesture_core_esm_parseMergedHandlers(mergedHandlers, mergedConfig) 
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@use-gesture/react/dist/use-gesture-react.esm.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@use-gesture/react/dist/use-gesture-react.esm.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -30987,7 +33577,11 @@ function useGesture(handlers, config) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -31083,7 +33677,11 @@ function useDraft(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/reducer/state.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/reducer/state.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -31103,7 +33701,11 @@ const initialInputControlState = {
   value: ''
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/reducer/actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/reducer/actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -31124,7 +33726,11 @@ const PRESS_ENTER = 'PRESS_ENTER';
 const PRESS_UP = 'PRESS_UP';
 const RESET = 'RESET';
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/reducer/reducer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/reducer/reducer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -31355,7 +33961,11 @@ function useInputControlStateReducer(stateReducer = initialStateReducer, initial
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/with-ignore-ime-events.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/with-ignore-ime-events.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * A higher-order function that wraps a keydown event handler to ensure it is not an IME event.
  *
@@ -31384,7 +33994,11 @@ function withIgnoreIMEEvents(keydownHandler) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/input-field.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/input-field.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -31585,7 +34199,11 @@ function InputField({
 const ForwardedComponent = (0,external_wp_element_namespaceObject.forwardRef)(InputField);
 /* harmony default export */ const input_field = (ForwardedComponent);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/font-values.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/font-values.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* harmony default export */ const font_values = ({
   'default.fontFamily': "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
   'default.fontSize': '13px',
@@ -31593,7 +34211,11 @@ const ForwardedComponent = (0,external_wp_element_namespaceObject.forwardRef)(In
   mobileTextMinFontSize: '16px'
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/font.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/font.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -31609,7 +34231,11 @@ function font(value) {
   return (_FONT$value = font_values[value]) !== null && _FONT$value !== void 0 ? _FONT$value : '';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/box-sizing.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/box-sizing.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function box_sizing_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -31620,7 +34246,11 @@ const boxSizingReset =  true ? {
   styles: "box-sizing:border-box;*,*::before,*::after{box-sizing:inherit;}"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/base-control/styles/base-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/base-control/styles/base-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function base_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -31665,7 +34295,11 @@ const StyledVisualLabel = /*#__PURE__*/emotion_styled_base_browser_esm("span",  
   target: "ej5x27r0"
 } : 0)(labelStyles, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/base-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/base-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -31684,6 +34318,10 @@ const StyledVisualLabel = /*#__PURE__*/emotion_styled_base_browser_esm("span",  
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const UnconnectedBaseControl = props => {
   const {
     __nextHasNoMarginBottom = false,
@@ -31795,6 +34433,7 @@ const BaseControl = Object.assign(contextConnectWithoutRef(UnconnectedBaseContro
 });
 /* harmony default export */ const base_control = (BaseControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/deprecated-36px-size.js
 /**
  * WordPress dependencies
@@ -31817,6 +34456,9 @@ function maybeWarnDeprecated36pxSize({
 }
 
 ;// ./node_modules/@wordpress/components/build-module/input-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -31837,7 +34479,10 @@ function maybeWarnDeprecated36pxSize({
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const input_control_noop = () => {};
 function input_control_useUniqueId(idProp) {
   const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(InputControl);
@@ -31847,7 +34492,10 @@ function input_control_useUniqueId(idProp) {
 function UnforwardedInputControl(props, ref) {
   const {
     __next40pxDefaultSize,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     __unstableStateReducer: stateReducer = state => state,
     __unstableInputWidth,
     className,
@@ -31878,12 +34526,15 @@ function UnforwardedInputControl(props, ref) {
   const helpProp = !!help ? {
     'aria-describedby': `${id}__help`
   } : {};
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'InputControl',
     __next40pxDefaultSize,
     size,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(base_control, {
     className: classes,
     help: help,
@@ -31937,7 +34588,10 @@ function UnforwardedInputControl(props, ref) {
  *
  *   return (
  *  	<InputControl
+<<<<<<< HEAD
  * 			__next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *  		value={ value }
  *  		onChange={ ( nextValue ) => setValue( nextValue ?? '' ) }
  *  	/>
@@ -31948,7 +34602,11 @@ function UnforwardedInputControl(props, ref) {
 const InputControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedInputControl);
 /* harmony default export */ const input_control = (InputControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/dashicon/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dashicon/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * @typedef OwnProps
@@ -31992,7 +34650,11 @@ function Dashicon({
 }
 /* harmony default export */ const dashicon = (Dashicon);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/icon/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/icon/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -32008,6 +34670,7 @@ function Dashicon({
  */
 
 
+<<<<<<< HEAD
 /**
  * Renders a raw icon without any initial styling or wrappers.
  *
@@ -32017,6 +34680,8 @@ function Dashicon({
  * <Icon icon={ wordpress } />
  * ```
  */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function Icon({
   icon = null,
   size = 'string' === typeof icon ? 20 : 24,
@@ -32062,7 +34727,11 @@ function Icon({
 }
 /* harmony default export */ const build_module_icon = (Icon);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/button/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/button/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -32082,6 +34751,11 @@ function Icon({
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const disabledEventsOnDisabledButton = ['onMouseDown', 'onClick'];
 function button_useDeprecatedProps({
   __experimentalIsFocusable,
@@ -32310,7 +34984,11 @@ function UnforwardedButton(props, ref) {
 const Button = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedButton);
 /* harmony default export */ const build_module_button = (Button);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/number-control/styles/number-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/number-control/styles/number-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function number_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -32347,7 +35025,11 @@ const styles = {
   smallSpinButtons
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/math.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/math.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Parses and retrieves a number value.
  *
@@ -32368,7 +35050,11 @@ function getNumber(value) {
  * @return {number} The sum of values.
  */
 function add(...args) {
+<<<<<<< HEAD
   return args.reduce(/** @type {(sum:number, arg: number|string) => number} */
+=======
+  return args.reduce( /** @type {(sum:number, arg: number|string) => number} */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   (sum, arg) => sum + getNumber(arg), 0);
 }
 
@@ -32380,7 +35066,11 @@ function add(...args) {
  * @return {number} The difference of the values.
  */
 function subtract(...args) {
+<<<<<<< HEAD
   return args.reduce(/** @type {(diff:number, arg: number|string, index:number) => number} */
+=======
+  return args.reduce( /** @type {(diff:number, arg: number|string, index:number) => number} */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   (diff, arg, index) => {
     const value = getNumber(arg);
     return index === 0 ? value : diff - value;
@@ -32432,7 +35122,11 @@ function roundClamp(value = 0, min = Infinity, max = Infinity, step = 1) {
   return precision ? getNumber(clampedValue.toFixed(precision)) : clampedValue;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/h-stack/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/h-stack/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -32544,7 +35238,11 @@ function getAlignmentProps(alignment, direction = 'row') {
   return alignmentProps;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/get-valid-children.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/get-valid-children.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -32568,7 +35266,11 @@ function getValidChildren(children) {
   return external_wp_element_namespaceObject.Children.toArray(children).filter(child => (0,external_wp_element_namespaceObject.isValidElement)(child));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/h-stack/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/h-stack/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -32621,7 +35323,11 @@ function useHStack(props) {
   return flexProps;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/h-stack/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/h-stack/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -32663,7 +35369,11 @@ function UnconnectedHStack(props, forwardedRef) {
 const HStack = contextConnect(UnconnectedHStack, 'HStack');
 /* harmony default export */ const h_stack_component = (HStack);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/number-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/number-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -32690,6 +35400,10 @@ const HStack = contextConnect(UnconnectedHStack, 'HStack');
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const number_control_noop = () => {};
 function UnforwardedNumberControl(props, forwardedRef) {
   const {
@@ -32712,6 +35426,7 @@ function UnforwardedNumberControl(props, forwardedRef) {
     size = 'default',
     suffix,
     onChange = number_control_noop,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
     ...restProps
   } = useDeprecated36pxDefaultSizeProp(props);
@@ -32721,6 +35436,10 @@ function UnforwardedNumberControl(props, forwardedRef) {
     __next40pxDefaultSize: restProps.__next40pxDefaultSize,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+    ...restProps
+  } = useDeprecated36pxDefaultSizeProp(props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   if (hideHTMLArrows) {
     external_wp_deprecated_default()('wp.components.NumberControl hideHTMLArrows prop ', {
       alternative: 'spinControls="none"',
@@ -32845,8 +35564,13 @@ function UnforwardedNumberControl(props, forwardedRef) {
     hideHTMLArrows: spinControls !== 'native',
     isDragEnabled: isDragEnabled,
     label: label,
+<<<<<<< HEAD
     max: max === Infinity ? undefined : max,
     min: min === -Infinity ? undefined : min,
+=======
+    max: max,
+    min: min,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ref: mergedRef,
     required: required,
     step: step,
@@ -32860,7 +35584,10 @@ function UnforwardedNumberControl(props, forwardedRef) {
       return (_stateReducerProp = stateReducerProp?.(baseState, action)) !== null && _stateReducerProp !== void 0 ? _stateReducerProp : baseState;
     },
     size: size,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     suffix: spinControls === 'custom' ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
       children: [suffix, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(spacer_component, {
         marginBottom: 0,
@@ -32889,7 +35616,11 @@ function UnforwardedNumberControl(props, forwardedRef) {
 const NumberControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedNumberControl);
 /* harmony default export */ const number_control = (NumberControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/angle-picker-control/styles/angle-picker-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/angle-picker-control/styles/angle-picker-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function angle_picker_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -32921,7 +35652,11 @@ const UnitText = /*#__PURE__*/emotion_styled_base_browser_esm(text_component,  t
   target: "eln3bjz0"
 } : 0)("color:", COLORS.theme.accent, ";margin-right:", space(3), ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/angle-picker-control/angle-circle.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/angle-picker-control/angle-circle.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -33020,7 +35755,11 @@ function getAngle(centerX, centerY, pointX, pointY) {
 }
 /* harmony default export */ const angle_circle = (AngleCircle);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/angle-picker-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/angle-picker-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -33042,6 +35781,10 @@ function getAngle(centerX, centerY, pointX, pointY) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedAnglePickerControl(props, ref) {
   const {
     className,
@@ -33069,12 +35812,19 @@ function UnforwardedAnglePickerControl(props, ref) {
     gap: 2,
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(flex_block_component, {
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(number_control, {
+<<<<<<< HEAD
         __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         label: label,
         className: "components-angle-picker-control__input-field",
         max: 360,
         min: 0,
         onChange: handleOnNumberChange,
+<<<<<<< HEAD
+=======
+        size: "__unstable-large",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         step: "1",
         value: value,
         spinControls: "none",
@@ -33120,6 +35870,7 @@ const AnglePickerControl = (0,external_wp_element_namespaceObject.forwardRef)(Un
 // EXTERNAL MODULE: ./node_modules/remove-accents/index.js
 var remove_accents = __webpack_require__(9681);
 var remove_accents_default = /*#__PURE__*/__webpack_require__.n(remove_accents);
+<<<<<<< HEAD
 ;// external ["wp","richText"]
 const external_wp_richText_namespaceObject = window["wp"]["richText"];
 ;// external ["wp","a11y"]
@@ -33127,6 +35878,15 @@ const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
 ;// external ["wp","keycodes"]
 const external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
 ;// ./node_modules/@wordpress/components/build-module/utils/strings.js
+=======
+;// CONCATENATED MODULE: external ["wp","richText"]
+const external_wp_richText_namespaceObject = window["wp"]["richText"];
+;// CONCATENATED MODULE: external ["wp","a11y"]
+const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
+;// CONCATENATED MODULE: external ["wp","keycodes"]
+const external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/strings.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -33188,7 +35948,11 @@ function escapeRegExp(string) {
   return string.replace(/[\\^$.*+?()[\]{}|]/g, '\\$&');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/autocomplete/get-default-use-items.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/autocomplete/get-default-use-items.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -33279,7 +36043,11 @@ function getDefaultUseItems(autocompleter) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@floating-ui/react-dom/dist/floating-ui.react-dom.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/@floating-ui/react-dom/dist/floating-ui.react-dom.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -33554,7 +36322,11 @@ function useFloating(options) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/close.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/close.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -33569,7 +36341,11 @@ const close_close = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const library_close = (close_close);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/scroll-lock/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/scroll-lock/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -33649,7 +36425,11 @@ function ScrollLock() {
 }
 /* harmony default export */ const scroll_lock = (ScrollLock);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/slot-fill-context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/slot-fill-context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -33677,7 +36457,11 @@ const initialContextValue = {
 const SlotFillContext = (0,external_wp_element_namespaceObject.createContext)(initialContextValue);
 /* harmony default export */ const slot_fill_context = (SlotFillContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/use-slot.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/use-slot.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -33691,35 +36475,67 @@ const SlotFillContext = (0,external_wp_element_namespaceObject.createContext)(in
 function useSlot(name) {
   const registry = (0,external_wp_element_namespaceObject.useContext)(slot_fill_context);
   const slot = (0,external_wp_compose_namespaceObject.useObservableValue)(registry.slots, name);
+<<<<<<< HEAD
   return {
     ...slot
   };
 }
 
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/context.js
+=======
+  const api = (0,external_wp_element_namespaceObject.useMemo)(() => ({
+    updateSlot: fillProps => registry.updateSlot(name, fillProps),
+    unregisterSlot: ref => registry.unregisterSlot(name, ref),
+    registerFill: ref => registry.registerFill(name, ref),
+    unregisterFill: ref => registry.unregisterFill(name, ref)
+  }), [name, registry]);
+  return {
+    ...slot,
+    ...api
+  };
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 const initialValue = {
+<<<<<<< HEAD
   slots: (0,external_wp_compose_namespaceObject.observableMap)(),
   fills: (0,external_wp_compose_namespaceObject.observableMap)(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   registerSlot: () => {},
   unregisterSlot: () => {},
   registerFill: () => {},
   unregisterFill: () => {},
+<<<<<<< HEAD
   updateFill: () => {}
+=======
+  getSlot: () => undefined,
+  getFills: () => [],
+  subscribe: () => () => {}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 };
 const context_SlotFillContext = (0,external_wp_element_namespaceObject.createContext)(initialValue);
 /* harmony default export */ const context = (context_SlotFillContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/fill.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/use-slot.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -33729,10 +36545,40 @@ const context_SlotFillContext = (0,external_wp_element_namespaceObject.createCon
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+/**
+ * React hook returning the active slot given a name.
+ *
+ * @param name Slot name.
+ * @return Slot object.
+ */
+const use_slot_useSlot = name => {
+  const {
+    getSlot,
+    subscribe
+  } = (0,external_wp_element_namespaceObject.useContext)(context);
+  return (0,external_wp_element_namespaceObject.useSyncExternalStore)(subscribe, () => getSlot(name), () => getSlot(name));
+};
+/* harmony default export */ const use_slot = (use_slot_useSlot);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/fill.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function Fill({
   name,
   children
 }) {
+<<<<<<< HEAD
   const registry = (0,external_wp_element_namespaceObject.useContext)(context);
   const instanceRef = (0,external_wp_element_namespaceObject.useRef)({});
   const childrenRef = (0,external_wp_element_namespaceObject.useRef)(children);
@@ -33751,6 +36597,50 @@ function Fill({
 }
 
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/slot.js
+=======
+  const {
+    registerFill,
+    unregisterFill
+  } = (0,external_wp_element_namespaceObject.useContext)(context);
+  const slot = use_slot(name);
+  const ref = (0,external_wp_element_namespaceObject.useRef)({
+    name,
+    children
+  });
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    const refValue = ref.current;
+    registerFill(name, refValue);
+    return () => unregisterFill(name, refValue);
+    // Ignore reason: the useLayoutEffects here are written to fire at specific times, and introducing new dependencies could cause unexpected changes in behavior.
+    // We'll leave them as-is until a more detailed investigation/refactor can be performed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    ref.current.children = children;
+    if (slot) {
+      slot.forceUpdate();
+    }
+    // Ignore reason: the useLayoutEffects here are written to fire at specific times, and introducing new dependencies could cause unexpected changes in behavior.
+    // We'll leave them as-is until a more detailed investigation/refactor can be performed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [children]);
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    if (name === ref.current.name) {
+      // Ignore initial effect.
+      return;
+    }
+    unregisterFill(ref.current.name, ref.current);
+    ref.current.name = name;
+    registerFill(name, ref.current);
+    // Ignore reason: the useLayoutEffects here are written to fire at specific times, and introducing new dependencies could cause unexpected changes in behavior.
+    // We'll leave them as-is until a more detailed investigation/refactor can be performed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [name]);
+  return null;
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/slot.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -33760,12 +36650,19 @@ function Fill({
  */
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Whether the argument is a function.
  *
@@ -33775,6 +36672,7 @@ function Fill({
 function isFunction(maybeFunc) {
   return typeof maybeFunc === 'function';
 }
+<<<<<<< HEAD
 function addKeysToChildren(children) {
   return external_wp_element_namespaceObject.Children.map(children, (child, childIndex) => {
     if (!child || typeof child === 'string') {
@@ -33825,11 +36723,100 @@ function Slot(props) {
 /* harmony default export */ const slot = (Slot);
 
 ;// ./node_modules/@wordpress/components/node_modules/uuid/dist/esm-browser/native.js
+=======
+class SlotComponent extends external_wp_element_namespaceObject.Component {
+  constructor(props) {
+    super(props);
+    this.isUnmounted = false;
+  }
+  componentDidMount() {
+    const {
+      registerSlot
+    } = this.props;
+    this.isUnmounted = false;
+    registerSlot(this.props.name, this);
+  }
+  componentWillUnmount() {
+    const {
+      unregisterSlot
+    } = this.props;
+    this.isUnmounted = true;
+    unregisterSlot(this.props.name, this);
+  }
+  componentDidUpdate(prevProps) {
+    const {
+      name,
+      unregisterSlot,
+      registerSlot
+    } = this.props;
+    if (prevProps.name !== name) {
+      unregisterSlot(prevProps.name, this);
+      registerSlot(name, this);
+    }
+  }
+  forceUpdate() {
+    if (this.isUnmounted) {
+      return;
+    }
+    super.forceUpdate();
+  }
+  render() {
+    var _getFills;
+    const {
+      children,
+      name,
+      fillProps = {},
+      getFills
+    } = this.props;
+    const fills = ((_getFills = getFills(name, this)) !== null && _getFills !== void 0 ? _getFills : []).map(fill => {
+      const fillChildren = isFunction(fill.children) ? fill.children(fillProps) : fill.children;
+      return external_wp_element_namespaceObject.Children.map(fillChildren, (child, childIndex) => {
+        if (!child || typeof child === 'string') {
+          return child;
+        }
+        let childKey = childIndex;
+        if (typeof child === 'object' && 'key' in child && child?.key) {
+          childKey = child.key;
+        }
+        return (0,external_wp_element_namespaceObject.cloneElement)(child, {
+          key: childKey
+        });
+      });
+    }).filter(
+    // In some cases fills are rendered only when some conditions apply.
+    // This ensures that we only use non-empty fills when rendering, i.e.,
+    // it allows us to render wrappers only when the fills are actually present.
+    element => !(0,external_wp_element_namespaceObject.isEmptyElement)(element));
+    return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+      children: isFunction(children) ? children(fills) : fills
+    });
+  }
+}
+const Slot = props => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(context.Consumer, {
+  children: ({
+    registerSlot,
+    unregisterSlot,
+    getFills
+  }) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SlotComponent, {
+    ...props,
+    registerSlot: registerSlot,
+    unregisterSlot: unregisterSlot,
+    getFills: getFills
+  })
+});
+/* harmony default export */ const slot = (Slot);
+
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/native.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
 /* harmony default export */ const esm_browser_native = ({
   randomUUID
 });
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/node_modules/uuid/dist/esm-browser/rng.js
+=======
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/rng.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Unique ID creation requires a high quality random # generator. In the browser we therefore
 // require the crypto API and do not support built-in fallback to lower quality random number
 // generators (like Math.random()).
@@ -33848,7 +36835,11 @@ function rng() {
 
   return getRandomValues(rnds8);
 }
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/node_modules/uuid/dist/esm-browser/stringify.js
+=======
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/stringify.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Convert array of 16 byte values to UUID string format of the form:
@@ -33882,7 +36873,11 @@ function stringify_stringify(arr, offset = 0) {
 }
 
 /* harmony default export */ const esm_browser_stringify = ((/* unused pure expression or super */ null && (stringify_stringify)));
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/node_modules/uuid/dist/esm-browser/v4.js
+=======
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v4.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -33912,7 +36907,12 @@ function v4(options, buf, offset) {
 }
 
 /* harmony default export */ const esm_browser_v4 = (v4);
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/style-provider/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/style-provider/index.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -33963,19 +36963,27 @@ function StyleProvider(props) {
 }
 /* harmony default export */ const style_provider = (StyleProvider);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/fill.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/fill.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 
 
+<<<<<<< HEAD
 function fill_Fill({
   name,
   children
@@ -33994,6 +37002,48 @@ function fill_Fill({
     return () => registry.unregisterFill(name, instance);
   }, [registry, name]);
   if (!slot || !slot.ref.current) {
+=======
+function fill_useForceUpdate() {
+  const [, setState] = (0,external_wp_element_namespaceObject.useState)({});
+  const mountedRef = (0,external_wp_element_namespaceObject.useRef)(true);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
+  return () => {
+    if (mountedRef.current) {
+      setState({});
+    }
+  };
+}
+function fill_Fill(props) {
+  var _slot$fillProps;
+  const {
+    name,
+    children
+  } = props;
+  const {
+    registerFill,
+    unregisterFill,
+    ...slot
+  } = useSlot(name);
+  const rerender = fill_useForceUpdate();
+  const ref = (0,external_wp_element_namespaceObject.useRef)({
+    rerender
+  });
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    // We register fills so we can keep track of their existence.
+    // Some Slot implementations need to know if there're already fills
+    // registered so they can choose to render themselves or not.
+    registerFill(ref);
+    return () => {
+      unregisterFill(ref);
+    };
+  }, [registerFill, unregisterFill]);
+  if (!slot.ref || !slot.ref.current) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     return null;
   }
 
@@ -34008,7 +37058,11 @@ function fill_Fill({
   return (0,external_wp_element_namespaceObject.createPortal)(wrappedChildren, slot.ref.current);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/slot.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/slot.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -34032,6 +37086,7 @@ function slot_Slot(props, forwardedRef) {
     as,
     // `children` is not allowed. However, if it is passed,
     // it will be displayed as is, so remove `children`.
+<<<<<<< HEAD
     children,
     ...restProps
   } = props;
@@ -34052,6 +37107,33 @@ function slot_Slot(props, forwardedRef) {
   }, [registry, name]);
   (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
     registry.updateSlot(name, ref, fillPropsRef.current);
+=======
+    // @ts-ignore
+    children,
+    ...restProps
+  } = props;
+  const {
+    registerSlot,
+    unregisterSlot,
+    ...registry
+  } = (0,external_wp_element_namespaceObject.useContext)(slot_fill_context);
+  const ref = (0,external_wp_element_namespaceObject.useRef)(null);
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    registerSlot(name, ref, fillProps);
+    return () => {
+      unregisterSlot(name, ref);
+    };
+    // Ignore reason: We don't want to unregister and register the slot whenever
+    // `fillProps` change, which would cause the fill to be re-mounted. Instead,
+    // we can just update the slot (see hook below).
+    // For more context, see https://github.com/WordPress/gutenberg/pull/44403#discussion_r994415973
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [registerSlot, unregisterSlot, name]);
+  // fillProps may be an update that interacts with the layout, so we
+  // useLayoutEffect.
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    registry.updateSlot(name, fillProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(component, {
     as: as,
@@ -34061,10 +37143,17 @@ function slot_Slot(props, forwardedRef) {
 }
 /* harmony default export */ const bubbles_virtually_slot = ((0,external_wp_element_namespaceObject.forwardRef)(slot_Slot));
 
+<<<<<<< HEAD
 ;// external ["wp","isShallowEqual"]
 const external_wp_isShallowEqual_namespaceObject = window["wp"]["isShallowEqual"];
 var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(external_wp_isShallowEqual_namespaceObject);
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/slot-fill-provider.js
+=======
+;// CONCATENATED MODULE: external ["wp","isShallowEqual"]
+const external_wp_isShallowEqual_namespaceObject = window["wp"]["isShallowEqual"];
+var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(external_wp_isShallowEqual_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/slot-fill-provider.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -34081,6 +37170,7 @@ function createSlotRegistry() {
   const slots = (0,external_wp_compose_namespaceObject.observableMap)();
   const fills = (0,external_wp_compose_namespaceObject.observableMap)();
   const registerSlot = (name, ref, fillProps) => {
+<<<<<<< HEAD
     slots.set(name, {
       ref,
       fillProps
@@ -34100,10 +37190,28 @@ function createSlotRegistry() {
     slots.delete(name);
   };
   const updateSlot = (name, ref, fillProps) => {
+=======
+    const slot = slots.get(name);
+    slots.set(name, {
+      ...slot,
+      ref: ref || slot?.ref,
+      fillProps: fillProps || slot?.fillProps || {}
+    });
+  };
+  const unregisterSlot = (name, ref) => {
+    // Make sure we're not unregistering a slot registered by another element
+    // See https://github.com/WordPress/gutenberg/pull/19242#issuecomment-590295412
+    if (slots.get(name)?.ref === ref) {
+      slots.delete(name);
+    }
+  };
+  const updateSlot = (name, fillProps) => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const slot = slots.get(name);
     if (!slot) {
       return;
     }
+<<<<<<< HEAD
     if (slot.ref !== ref) {
       return;
     }
@@ -34114,6 +37222,17 @@ function createSlotRegistry() {
       ref,
       fillProps
     });
+=======
+    if (external_wp_isShallowEqual_default()(slot.fillProps, fillProps)) {
+      return;
+    }
+    slot.fillProps = fillProps;
+    const slotFills = fills.get(name);
+    if (slotFills) {
+      // Force update fills.
+      slotFills.forEach(fill => fill.current.rerender());
+    }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
   const registerFill = (name, ref) => {
     fills.set(name, [...(fills.get(name) || []), ref]);
@@ -34145,28 +37264,64 @@ function SlotFillProvider({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/provider.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/provider.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 
+<<<<<<< HEAD
 
 function provider_createSlotRegistry() {
   const slots = (0,external_wp_compose_namespaceObject.observableMap)();
   const fills = (0,external_wp_compose_namespaceObject.observableMap)();
   function registerSlot(name, instance) {
     slots.set(name, instance);
+=======
+function provider_createSlotRegistry() {
+  const slots = {};
+  const fills = {};
+  let listeners = [];
+  function registerSlot(name, slot) {
+    const previousSlot = slots[name];
+    slots[name] = slot;
+    triggerListeners();
+
+    // Sometimes the fills are registered after the initial render of slot
+    // But before the registerSlot call, we need to rerender the slot.
+    forceUpdateSlot(name);
+
+    // If a new instance of a slot is being mounted while another with the
+    // same name exists, force its update _after_ the new slot has been
+    // assigned into the instance, such that its own rendering of children
+    // will be empty (the new Slot will subsume all fills for this name).
+    if (previousSlot) {
+      previousSlot.forceUpdate();
+    }
+  }
+  function registerFill(name, instance) {
+    fills[name] = [...(fills[name] || []), instance];
+    forceUpdateSlot(name);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
   function unregisterSlot(name, instance) {
     // If a previous instance of a Slot by this name unmounts, do nothing,
     // as the slot and its fills should only be removed for the current
     // known instance.
+<<<<<<< HEAD
     if (slots.get(name) !== instance) {
       return;
     }
@@ -34211,11 +37366,57 @@ function provider_createSlotRegistry() {
   return {
     slots,
     fills,
+=======
+    if (slots[name] !== instance) {
+      return;
+    }
+    delete slots[name];
+    triggerListeners();
+  }
+  function unregisterFill(name, instance) {
+    var _fills$name$filter;
+    fills[name] = (_fills$name$filter = fills[name]?.filter(fill => fill !== instance)) !== null && _fills$name$filter !== void 0 ? _fills$name$filter : [];
+    forceUpdateSlot(name);
+  }
+  function getSlot(name) {
+    return slots[name];
+  }
+  function getFills(name, slotInstance) {
+    // Fills should only be returned for the current instance of the slot
+    // in which they occupy.
+    if (slots[name] !== slotInstance) {
+      return [];
+    }
+    return fills[name];
+  }
+  function forceUpdateSlot(name) {
+    const slot = getSlot(name);
+    if (slot) {
+      slot.forceUpdate();
+    }
+  }
+  function triggerListeners() {
+    listeners.forEach(listener => listener());
+  }
+  function subscribe(listener) {
+    listeners.push(listener);
+    return () => {
+      listeners = listeners.filter(l => l !== listener);
+    };
+  }
+  return {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     registerSlot,
     unregisterSlot,
     registerFill,
     unregisterFill,
+<<<<<<< HEAD
     updateFill
+=======
+    getSlot,
+    getFills,
+    subscribe
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
 }
 function provider_SlotFillProvider({
@@ -34229,7 +37430,11 @@ function provider_SlotFillProvider({
 }
 /* harmony default export */ const provider = (provider_SlotFillProvider);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -34252,6 +37457,11 @@ function provider_SlotFillProvider({
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function slot_fill_Fill(props) {
   // We're adding both Fills here so they can register themselves before
   // their respective slot has been registered. Only the Fill that has a slot
@@ -34309,6 +37519,7 @@ function createSlotFill(key) {
     ...props
   });
   SlotComponent.displayName = `${baseName}Slot`;
+<<<<<<< HEAD
   /**
    * @deprecated 6.8.0
    * Please use `slotFill.name` instead of `slotFill.Slot.__unstableName`.
@@ -34316,12 +37527,29 @@ function createSlotFill(key) {
   SlotComponent.__unstableName = key;
   return {
     name: key,
+=======
+  SlotComponent.__unstableName = key;
+  return {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     Fill: FillComponent,
     Slot: SlotComponent
   };
 }
+<<<<<<< HEAD
 
 ;// ./node_modules/@wordpress/components/build-module/popover/overlay-middlewares.js
+=======
+const createPrivateSlotFill = name => {
+  const privateKey = Symbol(name);
+  const privateSlotFill = createSlotFill(privateKey);
+  return {
+    privateKey,
+    ...privateSlotFill
+  };
+};
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/popover/overlay-middlewares.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -34359,7 +37587,11 @@ function overlayMiddlewares() {
   })];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/popover/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/popover/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -34377,7 +37609,10 @@ function overlayMiddlewares() {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -34395,6 +37630,11 @@ function overlayMiddlewares() {
  * @type {string}
  */
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const SLOT_NAME = 'Popover';
 
 // An SVG displaying a triangle facing down, filled with a solid
@@ -34653,10 +37893,15 @@ const UnforwardedPopover = (props, forwardedRef) => {
         children: headerTitle
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
         className: "components-popover__close",
+<<<<<<< HEAD
         size: "small",
         icon: library_close,
         onClick: onClose,
         label: (0,external_wp_i18n_namespaceObject.__)('Close')
+=======
+        icon: library_close,
+        onClick: onClose
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       })]
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       className: "components-popover__content",
@@ -34679,7 +37924,11 @@ const UnforwardedPopover = (props, forwardedRef) => {
       children: content
     });
   } else if (!inline) {
+<<<<<<< HEAD
     content = (0,external_wp_element_namespaceObject.createPortal)(/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StyleProvider, {
+=======
+    content = (0,external_wp_element_namespaceObject.createPortal)( /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StyleProvider, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       document: document,
       children: content
     }), getPopoverFallbackContainer());
@@ -34735,7 +37984,11 @@ popover_Popover.Slot = (0,external_wp_element_namespaceObject.forwardRef)(Popove
 popover_Popover.__unstableSlotNameProvider = slotNameContext.Provider;
 /* harmony default export */ const popover = (popover_Popover);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/autocomplete/autocompleter-ui.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/autocomplete/autocompleter-ui.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -34759,6 +38012,11 @@ popover_Popover.__unstableSlotNameProvider = slotNameContext.Provider;
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function ListBox({
   items,
   onSelect,
@@ -34775,7 +38033,10 @@ function ListBox({
     children: items.map((option, index) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
       id: `components-autocomplete-item-${instanceId}-${option.key}`,
       role: "option",
+<<<<<<< HEAD
       __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       "aria-selected": index === selectedIndex,
       accessibleWhenDisabled: true,
       disabled: option.isDisabled,
@@ -34829,10 +38090,17 @@ function getAutoCompleterUI(autocompleter) {
       }
       if (!!options.length) {
         if (filterValue) {
+<<<<<<< HEAD
           debouncedSpeak((0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %d: number of results. */
           (0,external_wp_i18n_namespaceObject._n)('%d result found, use up and down arrow keys to navigate.', '%d results found, use up and down arrow keys to navigate.', options.length), options.length), 'assertive');
         } else {
           debouncedSpeak((0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %d: number of results. */
+=======
+          debouncedSpeak((0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %d: number of results. */
+          (0,external_wp_i18n_namespaceObject._n)('%d result found, use up and down arrow keys to navigate.', '%d results found, use up and down arrow keys to navigate.', options.length), options.length), 'assertive');
+        } else {
+          debouncedSpeak((0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %d: number of results. */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           (0,external_wp_i18n_namespaceObject._n)('Initial %d result loaded. Type to filter all available results. Use up and down arrow keys to navigate.', 'Initial %d results loaded. Type to filter all available results. Use up and down arrow keys to navigate.', options.length), options.length), 'assertive');
         }
       } else {
@@ -34842,8 +38110,14 @@ function getAutoCompleterUI(autocompleter) {
     (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
       onChangeOptions(items);
       announce(items);
+<<<<<<< HEAD
       // We want to avoid introducing unexpected side effects.
       // See https://github.com/WordPress/gutenberg/pull/41820
+=======
+      // Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+      // See https://github.com/WordPress/gutenberg/pull/41820
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }, [items]);
     if (items.length === 0) {
       return null;
@@ -34864,7 +38138,11 @@ function getAutoCompleterUI(autocompleter) {
           listBoxId: listBoxId,
           className: className
         })
+<<<<<<< HEAD
       }), contentRef.current && needsA11yCompat && (0,external_ReactDOM_namespaceObject.createPortal)(/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ListBox, {
+=======
+      }), contentRef.current && needsA11yCompat && (0,external_ReactDOM_namespaceObject.createPortal)( /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ListBox, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         items: items,
         onSelect: onSelect,
         selectedIndex: selectedIndex,
@@ -34892,10 +38170,21 @@ function useOnClickOutside(ref, handler) {
       document.removeEventListener('mousedown', listener);
       document.removeEventListener('touchstart', listener);
     };
+<<<<<<< HEAD
   }, [handler, ref]);
 }
 
 ;// ./node_modules/@wordpress/components/build-module/autocomplete/index.js
+=======
+    // Disable reason: `ref` is a ref object and should not be included in a
+    // hook's dependency list.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [handler]);
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/autocomplete/index.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -34917,6 +38206,11 @@ function useOnClickOutside(ref, handler) {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const getNodeText = node => {
   if (node === null) {
     return '';
@@ -34945,9 +38239,12 @@ const getNodeText = node => {
   return '';
 };
 const EMPTY_FILTERED_OPTIONS = [];
+<<<<<<< HEAD
 
 // Used for generating the instance ID
 const AUTOCOMPLETE_HOOK_REFERENCE = {};
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useAutocomplete({
   record,
   onChange,
@@ -34955,13 +38252,21 @@ function useAutocomplete({
   completers,
   contentRef
 }) {
+<<<<<<< HEAD
   const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(AUTOCOMPLETE_HOOK_REFERENCE);
+=======
+  const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(useAutocomplete);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const [selectedIndex, setSelectedIndex] = (0,external_wp_element_namespaceObject.useState)(0);
   const [filteredOptions, setFilteredOptions] = (0,external_wp_element_namespaceObject.useState)(EMPTY_FILTERED_OPTIONS);
   const [filterValue, setFilterValue] = (0,external_wp_element_namespaceObject.useState)('');
   const [autocompleter, setAutocompleter] = (0,external_wp_element_namespaceObject.useState)(null);
   const [AutocompleterUI, setAutocompleterUI] = (0,external_wp_element_namespaceObject.useState)(null);
+<<<<<<< HEAD
   const backspacingRef = (0,external_wp_element_namespaceObject.useRef)(false);
+=======
+  const backspacing = (0,external_wp_element_namespaceObject.useRef)(false);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   function insertCompletion(replacement) {
     if (autocompleter === null) {
       return;
@@ -35021,7 +38326,11 @@ function useAutocomplete({
     setFilteredOptions(options);
   }
   function handleKeyDown(event) {
+<<<<<<< HEAD
     backspacingRef.current = event.key === 'Backspace';
+=======
+    backspacing.current = event.key === 'Backspace';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (!autocompleter) {
       return;
     }
@@ -35136,7 +38445,11 @@ function useAutocomplete({
     //
     // Ex: "Some text @marcelo sekkkk" <--- "kkkk" caused a mismatch, but
     // if the user presses backspace here, it will show the completion popup again.
+<<<<<<< HEAD
     const matchingWhileBackspacing = backspacingRef.current && wordsFromTrigger.length <= 3;
+=======
+    const matchingWhileBackspacing = backspacing.current && wordsFromTrigger.length <= 3;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (mismatch && !(matchingWhileBackspacing || hasOneTriggerWord)) {
       if (autocompleter) {
         reset();
@@ -35169,8 +38482,14 @@ function useAutocomplete({
     setAutocompleter(completer);
     setAutocompleterUI(() => completer !== autocompleter ? getAutoCompleterUI(completer) : AutocompleterUI);
     setFilterValue(query === null ? '' : query);
+<<<<<<< HEAD
     // We want to avoid introducing unexpected side effects.
     // See https://github.com/WordPress/gutenberg/pull/41820
+=======
+    // Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+    // See https://github.com/WordPress/gutenberg/pull/41820
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, [textContent]);
   const {
     key: selectedKey = ''
@@ -35266,7 +38585,11 @@ function Autocomplete({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/base-control/hooks.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/base-control/hooks.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35305,7 +38628,11 @@ function useBaseControlProps(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/link.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/link.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35320,7 +38647,11 @@ const link_link = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const library_link = (link_link);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/link-off.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/link-off.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35335,7 +38666,11 @@ const linkOff = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
 });
 /* harmony default export */ const link_off = (linkOff);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function border_box_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -35386,7 +38721,11 @@ const rightBorderControl = () => /*#__PURE__*/emotion_react_browser_esm_css(rtl(
   marginLeft: 'auto'
 })(), ";" + ( true ? "" : 0),  true ? "" : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-linked-button/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-linked-button/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35416,7 +38755,11 @@ function useBorderBoxControlLinkedButton(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-linked-button/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-linked-button/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35430,6 +38773,11 @@ function useBorderBoxControlLinkedButton(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const BorderBoxControlLinkedButton = (props, forwardedRef) => {
   const {
     className,
@@ -35437,6 +38785,7 @@ const BorderBoxControlLinkedButton = (props, forwardedRef) => {
     ...buttonProps
   } = useBorderBoxControlLinkedButton(props);
   const label = isLinked ? (0,external_wp_i18n_namespaceObject.__)('Unlink sides') : (0,external_wp_i18n_namespaceObject.__)('Link sides');
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
     ...buttonProps,
     size: "small",
@@ -35445,12 +38794,31 @@ const BorderBoxControlLinkedButton = (props, forwardedRef) => {
     label: label,
     ref: forwardedRef,
     className: className
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tooltip, {
+    text: label,
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(component, {
+      className: className,
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+        ...buttonProps,
+        size: "small",
+        icon: isLinked ? library_link : link_off,
+        iconSize: 24,
+        "aria-label": label,
+        ref: forwardedRef
+      })
+    })
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
 };
 const ConnectedBorderBoxControlLinkedButton = contextConnect(BorderBoxControlLinkedButton, 'BorderBoxControlLinkedButton');
 /* harmony default export */ const border_box_control_linked_button_component = (ConnectedBorderBoxControlLinkedButton);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-visualizer/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-visualizer/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35482,7 +38850,11 @@ function useBorderBoxControlVisualizer(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-visualizer/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-visualizer/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -35503,7 +38875,26 @@ const BorderBoxControlVisualizer = (props, forwardedRef) => {
 const ConnectedBorderBoxControlVisualizer = contextConnect(BorderBoxControlVisualizer, 'BorderBoxControlVisualizer');
 /* harmony default export */ const border_box_control_visualizer_component = (ConnectedBorderBoxControlVisualizer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/line-solid.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/close-small.js
+/**
+ * WordPress dependencies
+ */
+
+
+const closeSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+    d: "M12 13.06l3.712 3.713 1.061-1.06L13.061 12l3.712-3.712-1.06-1.06L12 10.938 8.288 7.227l-1.061 1.06L10.939 12l-3.712 3.712 1.06 1.061L12 13.061z"
+  })
+});
+/* harmony default export */ const close_small = (closeSmall);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/line-solid.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35518,7 +38909,11 @@ const lineSolid = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const line_solid = (lineSolid);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/line-dashed.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/line-dashed.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35535,7 +38930,11 @@ const lineDashed = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const line_dashed = (lineDashed);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/line-dotted.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/line-dotted.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35552,7 +38951,82 @@ const lineDotted = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const line_dotted = (lineDotted);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/DeprecatedLayoutGroupContext.mjs
+
+
+/**
+ * Note: Still used by components generated by old versions of Framer
+ *
+ * @deprecated
+ */
+const DeprecatedLayoutGroupContext = (0,external_React_.createContext)(null);
+
+
+
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/group.mjs
+const notify = (node) => !node.isLayoutDirty && node.willUpdate(false);
+function nodeGroup() {
+    const nodes = new Set();
+    const subscriptions = new WeakMap();
+    const dirtyAll = () => nodes.forEach(notify);
+    return {
+        add: (node) => {
+            nodes.add(node);
+            subscriptions.set(node, node.addEventListener("willUpdate", dirtyAll));
+        },
+        remove: (node) => {
+            nodes.delete(node);
+            const unsubscribe = subscriptions.get(node);
+            if (unsubscribe) {
+                unsubscribe();
+                subscriptions.delete(node);
+            }
+            dirtyAll();
+        },
+        dirty: dirtyAll,
+    };
+}
+
+
+
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/LayoutGroup/index.mjs
+
+
+
+
+
+
+
+const shouldInheritGroup = (inherit) => inherit === true;
+const shouldInheritId = (inherit) => shouldInheritGroup(inherit === true) || inherit === "id";
+const LayoutGroup = ({ children, id, inherit = true }) => {
+    const layoutGroupContext = (0,external_React_.useContext)(LayoutGroupContext);
+    const deprecatedLayoutGroupContext = (0,external_React_.useContext)(DeprecatedLayoutGroupContext);
+    const [forceRender, key] = use_force_update_useForceUpdate();
+    const context = (0,external_React_.useRef)(null);
+    const upstreamId = layoutGroupContext.id || deprecatedLayoutGroupContext;
+    if (context.current === null) {
+        if (shouldInheritId(inherit) && upstreamId) {
+            id = id ? upstreamId + "-" + id : upstreamId;
+        }
+        context.current = {
+            id,
+            group: shouldInheritGroup(inherit)
+                ? layoutGroupContext.group || nodeGroup()
+                : nodeGroup(),
+        };
+    }
+    const memoizedContext = (0,external_React_.useMemo)(() => ({ ...context.current, forceRender }), [key]);
+    return ((0,external_ReactJSXRuntime_namespaceObject.jsx)(LayoutGroupContext.Provider, { value: memoizedContext, children: children }));
+};
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function toggle_group_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -35567,7 +39041,11 @@ const toggleGroupControl = ({
   isBlock,
   isDeselectable,
   size
+<<<<<<< HEAD
 }) => /*#__PURE__*/emotion_react_browser_esm_css("background:", COLORS.ui.background, ";border:1px solid transparent;border-radius:", config_values.radiusSmall, ";display:inline-flex;min-width:0;position:relative;", toggleGroupControlSize(size), " ", !isDeselectable && enclosingBorders(isBlock), "@media not ( prefers-reduced-motion ){&[data-indicator-animated]::before{transition-property:transform,border-radius;transition-duration:0.2s;transition-timing-function:ease-out;}}&::before{content:'';position:absolute;pointer-events:none;background:", COLORS.theme.foreground, ";outline:2px solid transparent;outline-offset:-3px;--antialiasing-factor:100;border-radius:calc(\n\t\t\t\t", config_values.radiusXSmall, " /\n\t\t\t\t\t(\n\t\t\t\t\t\tvar( --selected-width, 0 ) /\n\t\t\t\t\t\t\tvar( --antialiasing-factor )\n\t\t\t\t\t)\n\t\t\t)/", config_values.radiusXSmall, ";left:-1px;width:calc( var( --antialiasing-factor ) * 1px );height:calc( var( --selected-height, 0 ) * 1px );transform-origin:left top;transform:translateX( calc( var( --selected-left, 0 ) * 1px ) ) scaleX(\n\t\t\t\tcalc(\n\t\t\t\t\tvar( --selected-width, 0 ) / var( --antialiasing-factor )\n\t\t\t\t)\n\t\t\t);}" + ( true ? "" : 0),  true ? "" : 0);
+=======
+}) => /*#__PURE__*/emotion_react_browser_esm_css("background:", COLORS.ui.background, ";border:1px solid transparent;border-radius:", config_values.radiusSmall, ";display:inline-flex;min-width:0;position:relative;", toggleGroupControlSize(size), " ", !isDeselectable && enclosingBorders(isBlock), ";" + ( true ? "" : 0),  true ? "" : 0);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const enclosingBorders = isBlock => {
   const enclosingBorder = /*#__PURE__*/emotion_react_browser_esm_css("border-color:", COLORS.ui.border, ";" + ( true ? "" : 0),  true ? "" : 0);
   return /*#__PURE__*/emotion_react_browser_esm_css(isBlock && enclosingBorder, " &:hover{border-color:", COLORS.ui.borderHover, ";}&:focus-within{border-color:", COLORS.ui.borderFocus, ";box-shadow:", config_values.controlBoxShadowFocus, ";z-index:1;outline:2px solid transparent;outline-offset:-2px;}" + ( true ? "" : 0),  true ? "" : 0);
@@ -35598,7 +39076,11 @@ const VisualLabelWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  
   styles: "display:flex"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/radio/radio-store.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/radio/radio-store.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -35631,7 +39113,11 @@ function createRadioStore(_a = {}) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/4BXJGRNH.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/DYHFBFEH.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -35644,18 +39130,27 @@ function useRadioStoreProps(store, update, props) {
   return store;
 }
 function useRadioStore(props = {}) {
+<<<<<<< HEAD
   const [store, update] = YV4JVR4I_useStore(createRadioStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createRadioStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useRadioStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/UVUMR3WP.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/SOKV3TSX.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/radio/radio-context.tsx
+<<<<<<< HEAD
 var UVUMR3WP_ctx = createStoreContext(
   [CompositeContextProvider],
   [CompositeScopedContextProvider]
@@ -35669,6 +39164,21 @@ var RadioScopedContextProvider = UVUMR3WP_ctx.ScopedContextProvider;
 
 
 ;// ./node_modules/@ariakit/react-core/esm/radio/radio-group.js
+=======
+var SOKV3TSX_ctx = createStoreContext(
+  [CompositeContextProvider],
+  [CompositeScopedContextProvider]
+);
+var useRadioContext = SOKV3TSX_ctx.useContext;
+var useRadioScopedContext = SOKV3TSX_ctx.useScopedContext;
+var useRadioProviderContext = SOKV3TSX_ctx.useProviderContext;
+var RadioContextProvider = SOKV3TSX_ctx.ContextProvider;
+var RadioScopedContextProvider = SOKV3TSX_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/radio/radio-group.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -35709,11 +39219,19 @@ var useRadioGroup = createHook(
 );
 var RadioGroup = forwardRef2(function RadioGroup2(props) {
   const htmlProps = useRadioGroup(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(radio_group_TagName, htmlProps);
 });
 
 
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/context.js
+=======
+  return HKOOKEDE_createElement(radio_group_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35727,7 +39245,11 @@ const ToggleGroupControlContext = (0,external_wp_element_namespaceObject.createC
 const useToggleGroupControlContext = () => (0,external_wp_element_namespaceObject.useContext)(ToggleGroupControlContext);
 /* harmony default export */ const toggle_group_control_context = (ToggleGroupControlContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35776,13 +39298,21 @@ function useComputeControlledOrUncontrolledValue(valueProp) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/as-radio-group.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/as-radio-group.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35805,7 +39335,10 @@ function UnforwardedToggleGroupControlAsRadioGroup({
   size,
   value: valueProp,
   id: idProp,
+<<<<<<< HEAD
   setSelectedElement,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   ...otherProps
 }, forwardedRef) {
   const generatedId = (0,external_wp_compose_namespaceObject.useInstanceId)(ToggleGroupControlAsRadioGroup, 'toggle-group-control-as-radio-group');
@@ -35845,12 +39378,18 @@ function UnforwardedToggleGroupControlAsRadioGroup({
     baseId,
     isBlock: !isAdaptiveWidth,
     size,
+<<<<<<< HEAD
     // @ts-expect-error - This is wrong and we should fix it.
     value: selectedValue,
     // @ts-expect-error - This is wrong and we should fix it.
     setValue,
     setSelectedElement
   }), [baseId, isAdaptiveWidth, radio, selectedValue, setSelectedElement, setValue, size]);
+=======
+    value: selectedValue,
+    setValue
+  }), [baseId, isAdaptiveWidth, radio, size, selectedValue, setValue]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(toggle_group_control_context.Provider, {
     value: groupContextValue,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(RadioGroup, {
@@ -35866,7 +39405,11 @@ function UnforwardedToggleGroupControlAsRadioGroup({
 }
 const ToggleGroupControlAsRadioGroup = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToggleGroupControlAsRadioGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/hooks/use-controlled-value.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/hooks/use-controlled-value.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35903,7 +39446,11 @@ function useControlledValue({
   return [value, setValue];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/as-button-group.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/as-button-group.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -35926,7 +39473,10 @@ function UnforwardedToggleGroupControlAsButtonGroup({
   size,
   value: valueProp,
   id: idProp,
+<<<<<<< HEAD
   setSelectedElement,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   ...otherProps
 }, forwardedRef) {
   const generatedId = (0,external_wp_compose_namespaceObject.useInstanceId)(ToggleGroupControlAsButtonGroup, 'toggle-group-control-as-button-group');
@@ -35951,9 +39501,14 @@ function UnforwardedToggleGroupControlAsButtonGroup({
     setValue: setSelectedValue,
     isBlock: !isAdaptiveWidth,
     isDeselectable: true,
+<<<<<<< HEAD
     size,
     setSelectedElement
   }), [baseId, selectedValue, setSelectedValue, isAdaptiveWidth, size, setSelectedElement]);
+=======
+    size
+  }), [baseId, selectedValue, setSelectedValue, isAdaptiveWidth, size]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(toggle_group_control_context.Provider, {
     value: groupContextValue,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(component, {
@@ -35967,6 +39522,7 @@ function UnforwardedToggleGroupControlAsButtonGroup({
 }
 const ToggleGroupControlAsButtonGroup = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToggleGroupControlAsButtonGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/element-rect.js
 /* eslint-disable jsdoc/require-param */
 /**
@@ -36219,15 +39775,27 @@ rect, {
 /* eslint-enable jsdoc/require-param */
 
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -36241,14 +39809,20 @@ rect, {
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnconnectedToggleGroupControl(props, forwardedRef) {
   const {
     __nextHasNoMarginBottom = false,
     __next40pxDefaultSize = false,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     className,
     isAdaptiveWidth = false,
     isBlock = false,
@@ -36262,6 +39836,7 @@ function UnconnectedToggleGroupControl(props, forwardedRef) {
     children,
     ...otherProps
   } = useContextSystem(props, 'ToggleGroupControl');
+<<<<<<< HEAD
   const normalizedSize = __next40pxDefaultSize && size === 'default' ? '__unstable-large' : size;
   const [selectedElement, setSelectedElement] = (0,external_wp_element_namespaceObject.useState)();
   const [controlElement, setControlElement] = (0,external_wp_element_namespaceObject.useState)();
@@ -36273,6 +39848,10 @@ function UnconnectedToggleGroupControl(props, forwardedRef) {
     transitionEndFilter: event => event.pseudoElement === '::before',
     roundRect: true
   });
+=======
+  const baseId = (0,external_wp_compose_namespaceObject.useInstanceId)(ToggleGroupControl, 'toggle-group-control');
+  const normalizedSize = __next40pxDefaultSize && size === 'default' ? '__unstable-large' : size;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const cx = useCx();
   const classes = (0,external_wp_element_namespaceObject.useMemo)(() => cx(toggleGroupControl({
     isBlock,
@@ -36280,12 +39859,15 @@ function UnconnectedToggleGroupControl(props, forwardedRef) {
     size: normalizedSize
   }), isBlock && toggle_group_control_styles_block, className), [className, cx, isBlock, isDeselectable, normalizedSize]);
   const MainControl = isDeselectable ? ToggleGroupControlAsButtonGroup : ToggleGroupControlAsRadioGroup;
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'ToggleGroupControl',
     size,
     __next40pxDefaultSize,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(base_control, {
     help: help,
     __nextHasNoMarginBottom: __nextHasNoMarginBottom,
@@ -36296,15 +39878,28 @@ function UnconnectedToggleGroupControl(props, forwardedRef) {
       })
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MainControl, {
       ...otherProps,
+<<<<<<< HEAD
       setSelectedElement: setSelectedElement,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       className: classes,
       isAdaptiveWidth: isAdaptiveWidth,
       label: label,
       onChange: onChange,
+<<<<<<< HEAD
       ref: refs,
       size: normalizedSize,
       value: value,
       children: children
+=======
+      ref: forwardedRef,
+      size: normalizedSize,
+      value: value,
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LayoutGroup, {
+        id: baseId,
+        children: children
+      })
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     })]
   });
 }
@@ -36335,7 +39930,10 @@ function UnconnectedToggleGroupControl(props, forwardedRef) {
  *       value="vertical"
  *       isBlock
  *       __nextHasNoMarginBottom
+<<<<<<< HEAD
  *       __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     >
  *       <ToggleGroupControlOption value="horizontal" label="Horizontal" />
  *       <ToggleGroupControlOption value="vertical" label="Vertical" />
@@ -36347,7 +39945,11 @@ function UnconnectedToggleGroupControl(props, forwardedRef) {
 const ToggleGroupControl = contextConnect(UnconnectedToggleGroupControl, 'ToggleGroupControl');
 /* harmony default export */ const toggle_group_control_component = (ToggleGroupControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/NLEBE274.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/6N3EKIOI.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -36359,7 +39961,11 @@ const ToggleGroupControl = contextConnect(UnconnectedToggleGroupControl, 'Toggle
 // src/radio/radio.tsx
 
 
+<<<<<<< HEAD
 var NLEBE274_TagName = "input";
+=======
+var _6N3EKIOI_TagName = "input";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function getIsChecked(value, storeValue) {
   if (storeValue === void 0) return;
   if (value != null && storeValue != null) {
@@ -36398,7 +40004,11 @@ var useRadio = createHook(function useRadio2(_a) {
     store == null ? void 0 : store.setActiveId(id);
   }, [store, isChecked, id]);
   const onChangeProp = props.onChange;
+<<<<<<< HEAD
   const tagName = useTagName(ref, NLEBE274_TagName);
+=======
+  const tagName = useTagName(ref, _6N3EKIOI_TagName);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const nativeRadio = isNativeRadio(tagName, props.type);
   const disabled = disabledFromProps(props);
   const [propertyUpdated, schedulePropertyUpdate] = useForceUpdate();
@@ -36422,7 +40032,10 @@ var useRadio = createHook(function useRadio2(_a) {
       event.stopPropagation();
       return;
     }
+<<<<<<< HEAD
     if ((store == null ? void 0 : store.getState().value) === value) return;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (!nativeRadio) {
       event.currentTarget.checked = true;
       schedulePropertyUpdate();
@@ -36473,13 +40086,21 @@ var useRadio = createHook(function useRadio2(_a) {
 var Radio = memo2(
   forwardRef2(function Radio2(props) {
     const htmlProps = useRadio(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(NLEBE274_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(_6N3EKIOI_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   })
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option-base/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option-base/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function toggle_group_control_option_base_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -36505,11 +40126,19 @@ const buttonView = ({
   isIcon,
   isPressed,
   size
+<<<<<<< HEAD
 }) => /*#__PURE__*/emotion_react_browser_esm_css("align-items:center;appearance:none;background:transparent;border:none;border-radius:", config_values.radiusXSmall, ";color:", COLORS.theme.gray[700], ";fill:currentColor;cursor:pointer;display:flex;font-family:inherit;height:100%;justify-content:center;line-height:100%;outline:none;padding:0 12px;position:relative;text-align:center;@media not ( prefers-reduced-motion ){transition:background ", config_values.transitionDurationFast, " linear,color ", config_values.transitionDurationFast, " linear,font-weight 60ms linear;}user-select:none;width:100%;z-index:2;&::-moz-focus-inner{border:0;}&[disabled]{opacity:0.4;cursor:default;}&:active{background:", COLORS.ui.background, ";}", isDeselectable && deselectable, " ", isIcon && isIconStyles({
   size
 }), " ", isPressed && pressed, ";" + ( true ? "" : 0),  true ? "" : 0);
 const pressed = /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.theme.foregroundInverted, ";&:active{background:transparent;}" + ( true ? "" : 0),  true ? "" : 0);
 const deselectable = /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.theme.foreground, ";&:focus{box-shadow:inset 0 0 0 1px ", COLORS.ui.background, ",0 0 0 ", config_values.borderWidthFocus, " ", COLORS.theme.accent, ";outline:2px solid transparent;}" + ( true ? "" : 0),  true ? "" : 0);
+=======
+}) => /*#__PURE__*/emotion_react_browser_esm_css("align-items:center;appearance:none;background:transparent;border:none;border-radius:", config_values.radiusXSmall, ";color:", COLORS.gray[700], ";fill:currentColor;cursor:pointer;display:flex;font-family:inherit;height:100%;justify-content:center;line-height:100%;outline:none;padding:0 12px;position:relative;text-align:center;@media not ( prefers-reduced-motion ){transition:background ", config_values.transitionDurationFast, " linear,color ", config_values.transitionDurationFast, " linear,font-weight 60ms linear;}user-select:none;width:100%;z-index:2;&::-moz-focus-inner{border:0;}&[disabled]{opacity:0.4;cursor:default;}&:active{background:", config_values.controlBackgroundColor, ";}", isDeselectable && deselectable, " ", isIcon && isIconStyles({
+  size
+}), " ", isPressed && pressed, ";" + ( true ? "" : 0),  true ? "" : 0);
+const pressed = /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.white, ";&:active{background:transparent;}" + ( true ? "" : 0),  true ? "" : 0);
+const deselectable = /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.gray[900], ";&:focus{box-shadow:inset 0 0 0 1px ", COLORS.white, ",0 0 0 ", config_values.borderWidthFocus, " ", COLORS.theme.accent, ";outline:2px solid transparent;}" + ( true ? "" : 0),  true ? "" : 0);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const ButtonContentView = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
   target: "et6ln9s0"
 } : 0)("display:flex;font-size:", config_values.fontSize, ";line-height:1;" + ( true ? "" : 0));
@@ -36520,16 +40149,28 @@ const isIconStyles = ({
     default: '30px',
     '__unstable-large': '32px'
   };
+<<<<<<< HEAD
   return /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.theme.foreground, ";height:", iconButtonSizes[size], ";aspect-ratio:1;padding-left:0;padding-right:0;" + ( true ? "" : 0),  true ? "" : 0);
 };
 
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option-base/component.js
+=======
+  return /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.gray[900], ";height:", iconButtonSizes[size], ";aspect-ratio:1;padding-left:0;padding-right:0;" + ( true ? "" : 0),  true ? "" : 0);
+};
+const backdropView = /*#__PURE__*/emotion_react_browser_esm_css("background:", COLORS.gray[900], ";border-radius:", config_values.radiusXSmall, ";position:absolute;inset:0;z-index:1;outline:2px solid transparent;outline-offset:-3px;" + ( true ? "" : 0),  true ? "" : 0);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option-base/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -36546,10 +40187,23 @@ const isIconStyles = ({
 
 
 
+<<<<<<< HEAD
 const {
   /* ButtonContentView */ "Rp": component_ButtonContentView,
   /* LabelView */ "y0": component_LabelView
 } = toggle_group_control_option_base_styles_namespaceObject;
+=======
+
+
+const {
+  ButtonContentView: component_ButtonContentView,
+  LabelView: component_LabelView
+} = toggle_group_control_option_base_styles_namespaceObject;
+const REDUCED_MOTION_TRANSITION_CONFIG = {
+  duration: 0
+};
+const LAYOUT_ID = 'toggle-group-backdrop-shared-layout-id';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const WithToolTip = ({
   showTooltip,
   text,
@@ -36567,6 +40221,10 @@ const WithToolTip = ({
   });
 };
 function ToggleGroupControlOptionBase(props, forwardedRef) {
+<<<<<<< HEAD
+=======
+  const shouldReduceMotion = (0,external_wp_compose_namespaceObject.useReducedMotion)();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const toggleGroupControlContext = useToggleGroupControlContext();
   const id = (0,external_wp_compose_namespaceObject.useInstanceId)(ToggleGroupControlOptionBase, toggleGroupControlContext.baseId || 'toggle-group-control-option-base');
   const buttonProps = useContextSystem({
@@ -36596,6 +40254,10 @@ function ToggleGroupControlOptionBase(props, forwardedRef) {
     isPressed,
     size
   }), className), [cx, isDeselectable, isIcon, isPressed, size, className]);
+<<<<<<< HEAD
+=======
+  const backdropClasses = (0,external_wp_element_namespaceObject.useMemo)(() => cx(backdropView), [cx]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const buttonOnClick = () => {
     if (isDeselectable && isPressed) {
       toggleGroupControlContext.setValue(undefined);
@@ -36609,6 +40271,7 @@ function ToggleGroupControlOptionBase(props, forwardedRef) {
     'data-value': value,
     ref: forwardedRef
   };
+<<<<<<< HEAD
   const labelRef = (0,external_wp_element_namespaceObject.useRef)(null);
   (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
     if (isPressed && labelRef.current) {
@@ -36619,6 +40282,11 @@ function ToggleGroupControlOptionBase(props, forwardedRef) {
     ref: labelRef,
     className: labelViewClasses,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WithToolTip, {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(component_LabelView, {
+    className: labelViewClasses,
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WithToolTip, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       showTooltip: showTooltip,
       text: otherButtonProps['aria-label'],
       children: isDeselectable ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("button", {
@@ -36650,7 +40318,20 @@ function ToggleGroupControlOptionBase(props, forwardedRef) {
           children: children
         })
       })
+<<<<<<< HEAD
     })
+=======
+    }), isPressed ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(motion.div, {
+      layout: true,
+      layoutRoot: true,
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(motion.div, {
+        className: backdropClasses,
+        transition: shouldReduceMotion ? REDUCED_MOTION_TRANSITION_CONFIG : undefined,
+        role: "presentation",
+        layoutId: LAYOUT_ID
+      })
+    }) : null]
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
 }
 
@@ -36678,7 +40359,11 @@ function ToggleGroupControlOptionBase(props, forwardedRef) {
 const ConnectedToggleGroupControlOptionBase = contextConnect(ToggleGroupControlOptionBase, 'ToggleGroupControlOptionBase');
 /* harmony default export */ const toggle_group_control_option_base_component = (ConnectedToggleGroupControlOptionBase);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option-icon/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option-icon/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -36727,7 +40412,11 @@ function UnforwardedToggleGroupControlOptionIcon(props, ref) {
  *
  * function Example() {
  *  return (
+<<<<<<< HEAD
  *    <ToggleGroupControl __nextHasNoMarginBottom __next40pxDefaultSize>
+=======
+ *    <ToggleGroupControl __nextHasNoMarginBottom>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *      <ToggleGroupControlOptionIcon
  *        value="uppercase"
  *        label="Uppercase"
@@ -36746,7 +40435,11 @@ function UnforwardedToggleGroupControlOptionIcon(props, ref) {
 const ToggleGroupControlOptionIcon = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToggleGroupControlOptionIcon);
 /* harmony default export */ const toggle_group_control_option_icon_component = (ToggleGroupControlOptionIcon);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-control/border-control-style-picker/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-control/border-control-style-picker/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -36795,7 +40488,11 @@ function UnconnectedBorderControlStylePicker({
 const BorderControlStylePicker = contextConnect(UnconnectedBorderControlStylePicker, 'BorderControlStylePicker');
 /* harmony default export */ const border_control_style_picker_component = (BorderControlStylePicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-indicator/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-indicator/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -36839,10 +40536,17 @@ function UnforwardedColorIndicator(props, forwardedRef) {
 const ColorIndicator = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedColorIndicator);
 /* harmony default export */ const color_indicator = (ColorIndicator);
 
+<<<<<<< HEAD
 ;// ./node_modules/colord/plugins/a11y.mjs
 var a11y_o=function(o){var t=o/255;return t<.04045?t/12.92:Math.pow((t+.055)/1.055,2.4)},a11y_t=function(t){return.2126*a11y_o(t.r)+.7152*a11y_o(t.g)+.0722*a11y_o(t.b)};/* harmony default export */ function a11y(o){o.prototype.luminance=function(){return o=a11y_t(this.rgba),void 0===(r=2)&&(r=0),void 0===n&&(n=Math.pow(10,r)),Math.round(n*o)/n+0;var o,r,n},o.prototype.contrast=function(r){void 0===r&&(r="#FFF");var n,a,i,e,v,u,d,c=r instanceof o?r:new o(r);return e=this.rgba,v=c.toRgb(),u=a11y_t(e),d=a11y_t(v),n=u>d?(u+.05)/(d+.05):(d+.05)/(u+.05),void 0===(a=2)&&(a=0),void 0===i&&(i=Math.pow(10,a)),Math.floor(i*n)/i+0},o.prototype.isReadable=function(o,t){return void 0===o&&(o="#FFF"),void 0===t&&(t={}),this.contrast(o)>=(e=void 0===(i=(r=t).size)?"normal":i,"AAA"===(a=void 0===(n=r.level)?"AA":n)&&"normal"===e?7:"AA"===a&&"large"===e?3:4.5);var r,n,a,i,e}}
 
 ;// ./node_modules/@wordpress/components/build-module/dropdown/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/colord/plugins/a11y.mjs
+var a11y_o=function(o){var t=o/255;return t<.04045?t/12.92:Math.pow((t+.055)/1.055,2.4)},a11y_t=function(t){return.2126*a11y_o(t.r)+.7152*a11y_o(t.g)+.0722*a11y_o(t.b)};/* harmony default export */ function a11y(o){o.prototype.luminance=function(){return o=a11y_t(this.rgba),void 0===(r=2)&&(r=0),void 0===n&&(n=Math.pow(10,r)),Math.round(n*o)/n+0;var o,r,n},o.prototype.contrast=function(r){void 0===r&&(r="#FFF");var n,a,i,e,v,u,d,c=r instanceof o?r:new o(r);return e=this.rgba,v=c.toRgb(),u=a11y_t(e),d=a11y_t(v),n=u>d?(u+.05)/(d+.05):(d+.05)/(u+.05),void 0===(a=2)&&(a=0),void 0===i&&(i=Math.pow(10,a)),Math.floor(i*n)/i+0},o.prototype.isReadable=function(o,t){return void 0===o&&(o="#FFF"),void 0===t&&(t={}),this.contrast(o)>=(e=void 0===(i=(r=t).size)?"normal":i,"AAA"===(a=void 0===(n=r.level)?"AA":n)&&"normal"===e?7:"AA"===a&&"large"===e?3:4.5);var r,n,a,i,e}}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -36861,6 +40565,10 @@ var a11y_o=function(o){var t=o/255;return t<.04045?t/12.92:Math.pow((t+.055)/1.0
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const UnconnectedDropdown = (props, forwardedRef) => {
   const {
     renderContent,
@@ -36987,7 +40695,11 @@ const UnconnectedDropdown = (props, forwardedRef) => {
 const Dropdown = contextConnect(UnconnectedDropdown, 'Dropdown');
 /* harmony default export */ const dropdown = (Dropdown);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/input-suffix-wrapper.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/input-suffix-wrapper.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -37025,7 +40737,11 @@ function UnconnectedInputControlSuffixWrapper(props, forwardedRef) {
 const InputControlSuffixWrapper = contextConnect(UnconnectedInputControlSuffixWrapper, 'InputControlSuffixWrapper');
 /* harmony default export */ const input_suffix_wrapper = (InputControlSuffixWrapper);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/select-control/styles/select-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/select-control/styles/select-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function select_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -37165,7 +40881,11 @@ const InputControlSuffixWrapperWithClickThrough = /*#__PURE__*/emotion_styled_ba
   right: 0
 }), ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/icon/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/icon/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -37177,7 +40897,11 @@ const InputControlSuffixWrapperWithClickThrough = /*#__PURE__*/emotion_styled_ba
  * Return an SVG icon.
  *
  * @param {IconProps}                                 props icon is the SVG component to render
+<<<<<<< HEAD
  *                                                          size is a number specifying the icon size in pixels
+=======
+ *                                                          size is a number specifiying the icon size in pixels
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *                                                          Other props will be passed to wrapped SVG component
  * @param {import('react').ForwardedRef<HTMLElement>} ref   The forwarded ref to the SVG element.
  *
@@ -37197,7 +40921,11 @@ function icon_Icon({
 }
 /* harmony default export */ const icons_build_module_icon = ((0,external_wp_element_namespaceObject.forwardRef)(icon_Icon));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/chevron-down.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-down.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -37212,7 +40940,11 @@ const chevronDown = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const chevron_down = (chevronDown);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/select-control/chevron-down.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/select-control/chevron-down.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -37235,7 +40967,11 @@ const SelectControlChevronDown = () => {
 };
 /* harmony default export */ const select_control_chevron_down = (SelectControlChevronDown);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/select-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/select-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -37255,7 +40991,10 @@ const SelectControlChevronDown = () => {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function select_control_useUniqueId(idProp) {
   const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(SelectControl);
   const id = `inspector-select-control-${instanceId}`;
@@ -37298,7 +41037,10 @@ function UnforwardedSelectControl(props, ref) {
     variant = 'default',
     __next40pxDefaultSize = false,
     __nextHasNoMarginBottom = false,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...restProps
   } = useDeprecated36pxDefaultSizeProp(props);
   const id = select_control_useUniqueId(idProp);
@@ -37326,12 +41068,15 @@ function UnforwardedSelectControl(props, ref) {
     });
   };
   const classes = dist_clsx('components-select-control', className);
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'SelectControl',
     __next40pxDefaultSize,
     size,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(base_control, {
     help: help,
     id: id,
@@ -37385,7 +41130,10 @@ function UnforwardedSelectControl(props, ref) {
  *
  *   return (
  *     <SelectControl
+<<<<<<< HEAD
  *       __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *       __nextHasNoMarginBottom
  *       label="Size"
  *       value={ size }
@@ -37403,7 +41151,11 @@ function UnforwardedSelectControl(props, ref) {
 const SelectControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedSelectControl);
 /* harmony default export */ const select_control = (SelectControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/hooks/use-controlled-state.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/hooks/use-controlled-state.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -37488,7 +41240,11 @@ function useControlledState(currentState, options = defaultOptions) {
 }
 /* harmony default export */ const use_controlled_state = (useControlledState);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/range-control/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/range-control/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -37545,7 +41301,11 @@ function useControlledRangeValue(settings) {
   return [state, setState];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/range-control/styles/range-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/range-control/styles/range-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function range_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -37589,8 +41349,12 @@ const wrapperMargin = ({
   }
   return '';
 };
+<<<<<<< HEAD
 const range_control_styles_Wrapper = /*#__PURE__*/emotion_styled_base_browser_esm('div',  true ? {
   shouldForwardProp: prop => !['color', '__nextHasNoMarginBottom', 'marks'].includes(prop),
+=======
+const range_control_styles_Wrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   target: "e1epgpqk13"
 } : 0)("display:block;flex:1;position:relative;width:100%;", wrapperColor, ";", rangeHeight, ";", wrapperMargin, ";" + ( true ? "" : 0));
 const BeforeIconWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
@@ -37632,6 +41396,7 @@ const trackBackgroundColor = ({
 };
 const Track = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
   target: "e1epgpqk9"
+<<<<<<< HEAD
 } : 0)("background-color:currentColor;border-radius:", config_values.radiusFull, ";height:", railHeight, "px;pointer-events:none;display:block;position:absolute;margin-top:", (rangeHeightValue - railHeight) / 2, "px;top:0;.is-marked &{@media not ( prefers-reduced-motion ){transition:width ease 0.1s;}}", trackBackgroundColor, ";" + ( true ? "" : 0));
 const MarksWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
   target: "e1epgpqk8"
@@ -37642,6 +41407,30 @@ const MarksWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true 
 const Mark = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
   target: "e1epgpqk7"
 } : 0)("position:absolute;left:0;top:-4px;height:4px;width:2px;transform:translateX( -50% );background-color:", COLORS.ui.background, ";z-index:1;" + ( true ? "" : 0));
+=======
+} : 0)("background-color:currentColor;border-radius:", config_values.radiusFull, ";height:", railHeight, "px;pointer-events:none;display:block;position:absolute;margin-top:", (rangeHeightValue - railHeight) / 2, "px;top:0;", trackBackgroundColor, ";" + ( true ? "" : 0));
+const MarksWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
+  target: "e1epgpqk8"
+} : 0)( true ? {
+  name: "l7tjj5",
+  styles: "display:block;pointer-events:none;position:relative;width:100%;user-select:none"
+} : 0);
+const markFill = ({
+  disabled,
+  isFilled
+}) => {
+  let backgroundColor = isFilled ? 'currentColor' : COLORS.gray[300];
+  if (disabled) {
+    backgroundColor = COLORS.gray[400];
+  }
+  return /*#__PURE__*/emotion_react_browser_esm_css({
+    backgroundColor
+  },  true ? "" : 0,  true ? "" : 0);
+};
+const Mark = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
+  target: "e1epgpqk7"
+} : 0)("height:", thumbSize, "px;left:0;position:absolute;top:9px;width:1px;", markFill, ";" + ( true ? "" : 0));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const markLabelFill = ({
   isFilled
 }) => {
@@ -37651,7 +41440,11 @@ const markLabelFill = ({
 };
 const MarkLabel = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
   target: "e1epgpqk6"
+<<<<<<< HEAD
 } : 0)("color:", COLORS.gray[300], ";font-size:11px;position:absolute;top:8px;white-space:nowrap;", rtl({
+=======
+} : 0)("color:", COLORS.gray[300], ";font-size:11px;position:absolute;top:22px;white-space:nowrap;", rtl({
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   left: 0
 }), ";", rtl({
   transform: 'translateX( -50% )'
@@ -37663,7 +41456,11 @@ const thumbColor = ({
 }) => disabled ? /*#__PURE__*/emotion_react_browser_esm_css("background-color:", COLORS.gray[400], ";" + ( true ? "" : 0),  true ? "" : 0) : /*#__PURE__*/emotion_react_browser_esm_css("background-color:", COLORS.theme.accent, ";" + ( true ? "" : 0),  true ? "" : 0);
 const ThumbWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
   target: "e1epgpqk5"
+<<<<<<< HEAD
 } : 0)("align-items:center;display:flex;height:", thumbSize, "px;justify-content:center;margin-top:", (rangeHeightValue - thumbSize) / 2, "px;outline:0;pointer-events:none;position:absolute;top:0;user-select:none;width:", thumbSize, "px;border-radius:", config_values.radiusRound, ";z-index:3;.is-marked &{@media not ( prefers-reduced-motion ){transition:left ease 0.1s;}}", thumbColor, ";", rtl({
+=======
+} : 0)("align-items:center;display:flex;height:", thumbSize, "px;justify-content:center;margin-top:", (rangeHeightValue - thumbSize) / 2, "px;outline:0;pointer-events:none;position:absolute;top:0;user-select:none;width:", thumbSize, "px;border-radius:", config_values.radiusRound, ";", thumbColor, ";", rtl({
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   marginLeft: -10
 }), ";", rtl({
   transform: 'translateX( 4.5px )'
@@ -37684,7 +41481,13 @@ const InputRange = /*#__PURE__*/emotion_styled_base_browser_esm("input",  true ?
 const tooltipShow = ({
   show
 }) => {
+<<<<<<< HEAD
   return /*#__PURE__*/emotion_react_browser_esm_css("display:", show ? 'inline-block' : 'none', ";opacity:", show ? 1 : 0, ";@media not ( prefers-reduced-motion ){transition:opacity 120ms ease,display 120ms ease allow-discrete;}@starting-style{opacity:0;}" + ( true ? "" : 0),  true ? "" : 0);
+=======
+  return /*#__PURE__*/emotion_react_browser_esm_css({
+    opacity: show ? 1 : 0
+  },  true ? "" : 0,  true ? "" : 0);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 };
 var range_control_styles_ref =  true ? {
   name: "1cypxip",
@@ -37705,7 +41508,11 @@ const tooltipPosition = ({
 };
 const range_control_styles_Tooltip = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
   target: "e1epgpqk2"
+<<<<<<< HEAD
 } : 0)("background:rgba( 0, 0, 0, 0.8 );border-radius:", config_values.radiusSmall, ";color:white;font-size:12px;min-width:32px;padding:4px 8px;pointer-events:none;position:absolute;text-align:center;user-select:none;line-height:1.4;", tooltipShow, ";", tooltipPosition, ";", rtl({
+=======
+} : 0)("background:rgba( 0, 0, 0, 0.8 );border-radius:", config_values.radiusSmall, ";color:white;display:inline-block;font-size:12px;min-width:32px;opacity:0;padding:4px 8px;pointer-events:none;position:absolute;text-align:center;user-select:none;line-height:1.4;@media not ( prefers-reduced-motion ){transition:opacity 120ms ease;}", tooltipShow, ";", tooltipPosition, ";", rtl({
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   transform: 'translateX(-50%)'
 }, {
   transform: 'translateX(50%)'
@@ -37724,7 +41531,11 @@ const ActionRightWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span", 
   marginLeft: 8
 }), ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/range-control/input-range.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/range-control/input-range.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -37756,7 +41567,11 @@ function input_range_InputRange(props, ref) {
 const input_range_ForwardedComponent = (0,external_wp_element_namespaceObject.forwardRef)(input_range_InputRange);
 /* harmony default export */ const input_range = (input_range_ForwardedComponent);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/range-control/mark.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/range-control/mark.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -37767,6 +41582,11 @@ const input_range_ForwardedComponent = (0,external_wp_element_namespaceObject.fo
  */
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function RangeMark(props) {
   const {
     className,
@@ -37782,6 +41602,10 @@ function RangeMark(props) {
       ...otherProps,
       "aria-hidden": "true",
       className: classes,
+<<<<<<< HEAD
+=======
+      isFilled: isFilled,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       style: style
     }), label && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MarkLabel, {
       "aria-hidden": "true",
@@ -37793,7 +41617,11 @@ function RangeMark(props) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/range-control/rail.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/range-control/rail.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -37806,6 +41634,11 @@ function RangeMark(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function RangeRail(props) {
   const {
     disabled = false,
@@ -37897,7 +41730,11 @@ function useMarks({
   return placedMarks;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/range-control/tooltip.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/range-control/tooltip.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -37936,7 +41773,11 @@ function SimpleTooltip(props) {
   };
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(range_control_styles_Tooltip, {
     ...restProps,
+<<<<<<< HEAD
     "aria-hidden": "false",
+=======
+    "aria-hidden": show,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     className: classes,
     position: position,
     show: show,
@@ -37967,7 +41808,11 @@ function useTooltipPosition({
   return position;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/range-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/range-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -38046,7 +41891,10 @@ function UnforwardedRangeControl(props, forwardedRef) {
     trackColor,
     value: valueProp,
     withInputField = true,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...otherProps
   } = props;
   const [value, setValue] = useControlledRangeValue({
@@ -38148,6 +41996,7 @@ function UnforwardedRangeControl(props, forwardedRef) {
   const offsetStyle = {
     [(0,external_wp_i18n_namespaceObject.isRTL)() ? 'right' : 'left']: fillValueOffset
   };
+<<<<<<< HEAD
 
   // Add default size deprecation warning.
   maybeWarnDeprecated36pxSize({
@@ -38156,6 +42005,8 @@ function UnforwardedRangeControl(props, forwardedRef) {
     size: undefined,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(base_control, {
     __nextHasNoMarginBottom: __nextHasNoMarginBottom,
     __associatedWPComponentName: "RangeControl",
@@ -38248,8 +42099,12 @@ function UnforwardedRangeControl(props, forwardedRef) {
         step: step
         // @ts-expect-error TODO: Investigate if the `null` value is necessary
         ,
+<<<<<<< HEAD
         value: inputSliderValue,
         __shouldNotWarnDeprecated36pxSize: true
+=======
+        value: inputSliderValue
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       }), allowReset && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ActionRightWrapper, {
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
           className: "components-range-control__reset"
@@ -38286,7 +42141,10 @@ function UnforwardedRangeControl(props, forwardedRef) {
  *   return (
  *     <RangeControl
  *       __nextHasNoMarginBottom
+<<<<<<< HEAD
  *       __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *       help="Please select how transparent you would like this."
  *       initialPosition={50}
  *       label="Opacity"
@@ -38301,7 +42159,11 @@ function UnforwardedRangeControl(props, forwardedRef) {
 const RangeControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedRangeControl);
 /* harmony default export */ const range_control = (RangeControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -38318,6 +42180,7 @@ const RangeControl = (0,external_wp_element_namespaceObject.forwardRef)(Unforwar
 
 
 
+<<<<<<< HEAD
 const NumberControlWrapper = /*#__PURE__*/emotion_styled_base_browser_esm(number_control,  true ? {
   target: "ez9hsf46"
 } : 0)("width:", space(24), ";" + ( true ? "" : 0));
@@ -38326,6 +42189,17 @@ const styles_SelectControl = /*#__PURE__*/emotion_styled_base_browser_esm(select
 } : 0)("margin-left:", space(-2), ";" + ( true ? "" : 0));
 const styles_RangeControl = /*#__PURE__*/emotion_styled_base_browser_esm(range_control,  true ? {
   target: "ez9hsf44"
+=======
+
+const NumberControlWrapper = /*#__PURE__*/emotion_styled_base_browser_esm(number_control,  true ? {
+  target: "ez9hsf47"
+} : 0)("width:", space(24), ";" + ( true ? "" : 0));
+const styles_SelectControl = /*#__PURE__*/emotion_styled_base_browser_esm(select_control,  true ? {
+  target: "ez9hsf46"
+} : 0)("margin-left:", space(-2), ";width:5em;" + ( true ? "" : 0));
+const styles_RangeControl = /*#__PURE__*/emotion_styled_base_browser_esm(range_control,  true ? {
+  target: "ez9hsf45"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 } : 0)("flex:1;margin-right:", space(2), ";" + ( true ? "" : 0));
 
 // Make the Hue circle picker not go out of the bar.
@@ -38335,6 +42209,7 @@ const interactiveHueStyles = `
 	margin-left: ${space(1)};
 }`;
 const AuxiliaryColorArtefactWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+<<<<<<< HEAD
   target: "ez9hsf43"
 } : 0)("padding-top:", space(2), ";padding-right:0;padding-left:0;padding-bottom:0;" + ( true ? "" : 0));
 const AuxiliaryColorArtefactHStackHeader = /*#__PURE__*/emotion_styled_base_browser_esm(h_stack_component,  true ? {
@@ -38348,6 +42223,24 @@ const ColorfulWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  tru
 } : 0)(boxSizingReset, ";width:216px;.react-colorful{display:flex;flex-direction:column;align-items:center;width:216px;height:auto;}.react-colorful__saturation{width:100%;border-radius:0;height:216px;margin-bottom:", space(4), ";border-bottom:none;}.react-colorful__hue,.react-colorful__alpha{width:184px;height:16px;border-radius:", config_values.radiusFull, ";margin-bottom:", space(2), ";}.react-colorful__pointer{height:16px;width:16px;border:none;box-shadow:0 0 2px 0 rgba( 0, 0, 0, 0.25 );outline:2px solid transparent;}.react-colorful__pointer-fill{box-shadow:inset 0 0 0 ", config_values.borderWidthFocus, " #fff;}", interactiveHueStyles, ";" + ( true ? "" : 0));
 
 ;// ./node_modules/@wordpress/icons/build-module/library/copy.js
+=======
+  target: "ez9hsf44"
+} : 0)("padding-top:", space(2), ";padding-right:0;padding-left:0;padding-bottom:0;" + ( true ? "" : 0));
+const AuxiliaryColorArtefactHStackHeader = /*#__PURE__*/emotion_styled_base_browser_esm(h_stack_component,  true ? {
+  target: "ez9hsf43"
+} : 0)("padding-left:", space(4), ";padding-right:", space(4), ";" + ( true ? "" : 0));
+const ColorInputWrapper = /*#__PURE__*/emotion_styled_base_browser_esm(flex_component,  true ? {
+  target: "ez9hsf42"
+} : 0)("padding-top:", space(4), ";padding-left:", space(4), ";padding-right:", space(3), ";padding-bottom:", space(5), ";" + ( true ? "" : 0));
+const ColorfulWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+  target: "ez9hsf41"
+} : 0)(boxSizingReset, ";width:216px;.react-colorful{display:flex;flex-direction:column;align-items:center;width:216px;height:auto;}.react-colorful__saturation{width:100%;border-radius:0;height:216px;margin-bottom:", space(4), ";border-bottom:none;}.react-colorful__hue,.react-colorful__alpha{width:184px;height:16px;border-radius:", config_values.radiusFull, ";margin-bottom:", space(2), ";}.react-colorful__pointer{height:16px;width:16px;border:none;box-shadow:0 0 2px 0 rgba( 0, 0, 0, 0.25 );outline:2px solid transparent;}.react-colorful__pointer-fill{box-shadow:inset 0 0 0 ", config_values.borderWidthFocus, " #fff;}", interactiveHueStyles, ";" + ( true ? "" : 0));
+const CopyButton = /*#__PURE__*/emotion_styled_base_browser_esm(build_module_button,  true ? {
+  target: "ez9hsf40"
+} : 0)("&&&&&{min-width:", space(6), ";padding:0;>svg{margin-right:0;}}" + ( true ? "" : 0));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/copy.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -38364,7 +42257,11 @@ const copy_copy = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const library_copy = (copy_copy);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/color-copy-button.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/color-copy-button.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -38420,6 +42317,7 @@ const ColorCopyButton = props => {
       }
     };
   }, []);
+<<<<<<< HEAD
   const label = copiedColor === color.toHex() ? (0,external_wp_i18n_namespaceObject.__)('Copied!') : (0,external_wp_i18n_namespaceObject.__)('Copy');
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tooltip, {
     delay: 0,
@@ -38428,6 +42326,14 @@ const ColorCopyButton = props => {
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Button, {
       size: "compact",
       "aria-label": label,
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tooltip, {
+    delay: 0,
+    hideOnClick: false,
+    text: copiedColor === color.toHex() ? (0,external_wp_i18n_namespaceObject.__)('Copied!') : (0,external_wp_i18n_namespaceObject.__)('Copy'),
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyButton, {
+      size: "small",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ref: copyRef,
       icon: library_copy,
       showTooltip: false
@@ -38435,7 +42341,11 @@ const ColorCopyButton = props => {
   });
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/input-control/input-prefix-wrapper.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/input-control/input-prefix-wrapper.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -38474,7 +42384,11 @@ function UnconnectedInputControlPrefixWrapper(props, forwardedRef) {
 const InputControlPrefixWrapper = contextConnect(UnconnectedInputControlPrefixWrapper, 'InputControlPrefixWrapper');
 /* harmony default export */ const input_prefix_wrapper = (InputControlPrefixWrapper);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/input-with-slider.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/input-with-slider.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -38484,6 +42398,10 @@ const InputControlPrefixWrapper = contextConnect(UnconnectedInputControlPrefixWr
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const InputWithSlider = ({
   min,
   max,
@@ -38506,7 +42424,10 @@ const InputWithSlider = ({
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(h_stack_component, {
     spacing: 4,
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(NumberControlWrapper, {
+<<<<<<< HEAD
       __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       min: min,
       max: max,
       label: label,
@@ -38520,7 +42441,12 @@ const InputWithSlider = ({
           children: abbreviation
         })
       }),
+<<<<<<< HEAD
       spinControls: "none"
+=======
+      spinControls: "none",
+      size: "__unstable-large"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(styles_RangeControl, {
       __nextHasNoMarginBottom: true,
       __next40pxDefaultSize: true,
@@ -38538,7 +42464,11 @@ const InputWithSlider = ({
   });
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/rgb-input.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/rgb-input.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -38549,6 +42479,11 @@ const InputWithSlider = ({
  */
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const RgbInput = ({
   color,
   onChange,
@@ -38613,7 +42548,11 @@ const RgbInput = ({
   });
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/hsl-input.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/hsl-input.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -38629,6 +42568,11 @@ const RgbInput = ({
  */
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const HslInput = ({
   color,
   onChange,
@@ -38718,7 +42662,11 @@ const HslInput = ({
   });
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/hex-input.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/hex-input.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -38781,7 +42729,11 @@ const HexInput = ({
   });
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/color-input.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/color-input.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -38817,11 +42769,19 @@ const ColorInput = ({
   }
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/react-colorful/dist/index.mjs
 function dist_u(){return(dist_u=Object.assign||function(e){for(var r=1;r<arguments.length;r++){var t=arguments[r];for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n])}return e}).apply(this,arguments)}function dist_c(e,r){if(null==e)return{};var t,n,o={},a=Object.keys(e);for(n=0;n<a.length;n++)r.indexOf(t=a[n])>=0||(o[t]=e[t]);return o}function dist_i(e){var t=(0,external_React_.useRef)(e),n=(0,external_React_.useRef)(function(e){t.current&&t.current(e)});return t.current=e,n.current}var dist_s=function(e,r,t){return void 0===r&&(r=0),void 0===t&&(t=1),e>t?t:e<r?r:e},dist_f=function(e){return"touches"in e},dist_v=function(e){return e&&e.ownerDocument.defaultView||self},dist_d=function(e,r,t){var n=e.getBoundingClientRect(),o=dist_f(r)?function(e,r){for(var t=0;t<e.length;t++)if(e[t].identifier===r)return e[t];return e[0]}(r.touches,t):r;return{left:dist_s((o.pageX-(n.left+dist_v(e).pageXOffset))/n.width),top:dist_s((o.pageY-(n.top+dist_v(e).pageYOffset))/n.height)}},dist_h=function(e){!dist_f(e)&&e.preventDefault()},dist_m=external_React_.memo(function(o){var a=o.onMove,l=o.onKey,s=dist_c(o,["onMove","onKey"]),m=(0,external_React_.useRef)(null),g=dist_i(a),p=dist_i(l),b=(0,external_React_.useRef)(null),_=(0,external_React_.useRef)(!1),x=(0,external_React_.useMemo)(function(){var e=function(e){dist_h(e),(dist_f(e)?e.touches.length>0:e.buttons>0)&&m.current?g(dist_d(m.current,e,b.current)):t(!1)},r=function(){return t(!1)};function t(t){var n=_.current,o=dist_v(m.current),a=t?o.addEventListener:o.removeEventListener;a(n?"touchmove":"mousemove",e),a(n?"touchend":"mouseup",r)}return[function(e){var r=e.nativeEvent,n=m.current;if(n&&(dist_h(r),!function(e,r){return r&&!dist_f(e)}(r,_.current)&&n)){if(dist_f(r)){_.current=!0;var o=r.changedTouches||[];o.length&&(b.current=o[0].identifier)}n.focus(),g(dist_d(n,r,b.current)),t(!0)}},function(e){var r=e.which||e.keyCode;r<37||r>40||(e.preventDefault(),p({left:39===r?.05:37===r?-.05:0,top:40===r?.05:38===r?-.05:0}))},t]},[p,g]),C=x[0],E=x[1],H=x[2];return (0,external_React_.useEffect)(function(){return H},[H]),external_React_.createElement("div",dist_u({},s,{onTouchStart:C,onMouseDown:C,className:"react-colorful__interactive",ref:m,onKeyDown:E,tabIndex:0,role:"slider"}))}),dist_g=function(e){return e.filter(Boolean).join(" ")},dist_p=function(r){var t=r.color,n=r.left,o=r.top,a=void 0===o?.5:o,l=dist_g(["react-colorful__pointer",r.className]);return external_React_.createElement("div",{className:l,style:{top:100*a+"%",left:100*n+"%"}},external_React_.createElement("div",{className:"react-colorful__pointer-fill",style:{backgroundColor:t}}))},dist_b=function(e,r,t){return void 0===r&&(r=0),void 0===t&&(t=Math.pow(10,r)),Math.round(t*e)/t},_={grad:.9,turn:360,rad:360/(2*Math.PI)},dist_x=function(e){return L(C(e))},C=function(e){return"#"===e[0]&&(e=e.substring(1)),e.length<6?{r:parseInt(e[0]+e[0],16),g:parseInt(e[1]+e[1],16),b:parseInt(e[2]+e[2],16),a:4===e.length?dist_b(parseInt(e[3]+e[3],16)/255,2):1}:{r:parseInt(e.substring(0,2),16),g:parseInt(e.substring(2,4),16),b:parseInt(e.substring(4,6),16),a:8===e.length?dist_b(parseInt(e.substring(6,8),16)/255,2):1}},dist_E=function(e,r){return void 0===r&&(r="deg"),Number(e)*(_[r]||1)},dist_H=function(e){var r=/hsla?\(?\s*(-?\d*\.?\d+)(deg|rad|grad|turn)?[,\s]+(-?\d*\.?\d+)%?[,\s]+(-?\d*\.?\d+)%?,?\s*[/\s]*(-?\d*\.?\d+)?(%)?\s*\)?/i.exec(e);return r?dist_N({h:dist_E(r[1],r[2]),s:Number(r[3]),l:Number(r[4]),a:void 0===r[5]?1:Number(r[5])/(r[6]?100:1)}):{h:0,s:0,v:0,a:1}},dist_M=dist_H,dist_N=function(e){var r=e.s,t=e.l;return{h:e.h,s:(r*=(t<50?t:100-t)/100)>0?2*r/(t+r)*100:0,v:t+r,a:e.a}},dist_w=function(e){return K(dist_I(e))},dist_y=function(e){var r=e.s,t=e.v,n=e.a,o=(200-r)*t/100;return{h:dist_b(e.h),s:dist_b(o>0&&o<200?r*t/100/(o<=100?o:200-o)*100:0),l:dist_b(o/2),a:dist_b(n,2)}},q=function(e){var r=dist_y(e);return"hsl("+r.h+", "+r.s+"%, "+r.l+"%)"},dist_k=function(e){var r=dist_y(e);return"hsla("+r.h+", "+r.s+"%, "+r.l+"%, "+r.a+")"},dist_I=function(e){var r=e.h,t=e.s,n=e.v,o=e.a;r=r/360*6,t/=100,n/=100;var a=Math.floor(r),l=n*(1-t),u=n*(1-(r-a)*t),c=n*(1-(1-r+a)*t),i=a%6;return{r:dist_b(255*[n,u,l,l,c,n][i]),g:dist_b(255*[c,n,n,u,l,l][i]),b:dist_b(255*[l,l,c,n,n,u][i]),a:dist_b(o,2)}},O=function(e){var r=/hsva?\(?\s*(-?\d*\.?\d+)(deg|rad|grad|turn)?[,\s]+(-?\d*\.?\d+)%?[,\s]+(-?\d*\.?\d+)%?,?\s*[/\s]*(-?\d*\.?\d+)?(%)?\s*\)?/i.exec(e);return r?A({h:dist_E(r[1],r[2]),s:Number(r[3]),v:Number(r[4]),a:void 0===r[5]?1:Number(r[5])/(r[6]?100:1)}):{h:0,s:0,v:0,a:1}},dist_j=O,z=function(e){var r=/rgba?\(?\s*(-?\d*\.?\d+)(%)?[,\s]+(-?\d*\.?\d+)(%)?[,\s]+(-?\d*\.?\d+)(%)?,?\s*[/\s]*(-?\d*\.?\d+)?(%)?\s*\)?/i.exec(e);return r?L({r:Number(r[1])/(r[2]?100/255:1),g:Number(r[3])/(r[4]?100/255:1),b:Number(r[5])/(r[6]?100/255:1),a:void 0===r[7]?1:Number(r[7])/(r[8]?100:1)}):{h:0,s:0,v:0,a:1}},B=z,D=function(e){var r=e.toString(16);return r.length<2?"0"+r:r},K=function(e){var r=e.r,t=e.g,n=e.b,o=e.a,a=o<1?D(dist_b(255*o)):"";return"#"+D(r)+D(t)+D(n)+a},L=function(e){var r=e.r,t=e.g,n=e.b,o=e.a,a=Math.max(r,t,n),l=a-Math.min(r,t,n),u=l?a===r?(t-n)/l:a===t?2+(n-r)/l:4+(r-t)/l:0;return{h:dist_b(60*(u<0?u+6:u)),s:dist_b(a?l/a*100:0),v:dist_b(a/255*100),a:o}},A=function(e){return{h:dist_b(e.h),s:dist_b(e.s),v:dist_b(e.v),a:dist_b(e.a,2)}},dist_S=external_React_.memo(function(r){var t=r.hue,n=r.onChange,o=dist_g(["react-colorful__hue",r.className]);return external_React_.createElement("div",{className:o},external_React_.createElement(dist_m,{onMove:function(e){n({h:360*e.left})},onKey:function(e){n({h:dist_s(t+360*e.left,0,360)})},"aria-label":"Hue","aria-valuenow":dist_b(t),"aria-valuemax":"360","aria-valuemin":"0"},external_React_.createElement(dist_p,{className:"react-colorful__hue-pointer",left:t/360,color:q({h:t,s:100,v:100,a:1})})))}),T=external_React_.memo(function(r){var t=r.hsva,n=r.onChange,o={backgroundColor:q({h:t.h,s:100,v:100,a:1})};return external_React_.createElement("div",{className:"react-colorful__saturation",style:o},external_React_.createElement(dist_m,{onMove:function(e){n({s:100*e.left,v:100-100*e.top})},onKey:function(e){n({s:dist_s(t.s+100*e.left,0,100),v:dist_s(t.v-100*e.top,0,100)})},"aria-label":"Color","aria-valuetext":"Saturation "+dist_b(t.s)+"%, Brightness "+dist_b(t.v)+"%"},external_React_.createElement(dist_p,{className:"react-colorful__saturation-pointer",top:1-t.v/100,left:t.s/100,color:q(t)})))}),F=function(e,r){if(e===r)return!0;for(var t in e)if(e[t]!==r[t])return!1;return!0},P=function(e,r){return e.replace(/\s/g,"")===r.replace(/\s/g,"")},X=function(e,r){return e.toLowerCase()===r.toLowerCase()||F(C(e),C(r))};function Y(e,t,l){var u=dist_i(l),c=(0,external_React_.useState)(function(){return e.toHsva(t)}),s=c[0],f=c[1],v=(0,external_React_.useRef)({color:t,hsva:s});(0,external_React_.useEffect)(function(){if(!e.equal(t,v.current.color)){var r=e.toHsva(t);v.current={hsva:r,color:t},f(r)}},[t,e]),(0,external_React_.useEffect)(function(){var r;F(s,v.current.hsva)||e.equal(r=e.fromHsva(s),v.current.color)||(v.current={hsva:s,color:r},u(r))},[s,e,u]);var d=(0,external_React_.useCallback)(function(e){f(function(r){return Object.assign({},r,e)})},[]);return[s,d]}var R,dist_V="undefined"!=typeof window?external_React_.useLayoutEffect:external_React_.useEffect,dist_$=function(){return R||( true?__webpack_require__.nc:0)},G=function(e){R=e},J=new Map,Q=function(e){dist_V(function(){var r=e.current?e.current.ownerDocument:document;if(void 0!==r&&!J.has(r)){var t=r.createElement("style");t.innerHTML='.react-colorful{position:relative;display:flex;flex-direction:column;width:200px;height:200px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default}.react-colorful__saturation{position:relative;flex-grow:1;border-color:transparent;border-bottom:12px solid #000;border-radius:8px 8px 0 0;background-image:linear-gradient(0deg,#000,transparent),linear-gradient(90deg,#fff,hsla(0,0%,100%,0))}.react-colorful__alpha-gradient,.react-colorful__pointer-fill{content:"";position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;border-radius:inherit}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}.react-colorful__alpha,.react-colorful__hue{position:relative;height:24px}.react-colorful__hue{background:linear-gradient(90deg,red 0,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{position:absolute;left:0;top:0;right:0;bottom:0;border-radius:inherit;outline:none;touch-action:none}.react-colorful__pointer{position:absolute;z-index:1;box-sizing:border-box;width:28px;height:28px;transform:translate(-50%,-50%);background-color:#fff;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.2)}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%) scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill-opacity=".05"><path d="M8 0h8v8H8zM0 8h8v8H0z"/></svg>\')}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}',J.set(r,t);var n=dist_$();n&&t.setAttribute("nonce",n),r.head.appendChild(t)}},[])},U=function(t){var n=t.className,o=t.colorModel,a=t.color,l=void 0===a?o.defaultColor:a,i=t.onChange,s=dist_c(t,["className","colorModel","color","onChange"]),f=(0,external_React_.useRef)(null);Q(f);var v=Y(o,l,i),d=v[0],h=v[1],m=dist_g(["react-colorful",n]);return external_React_.createElement("div",dist_u({},s,{ref:f,className:m}),external_React_.createElement(T,{hsva:d,onChange:h}),external_React_.createElement(dist_S,{hue:d.h,onChange:h,className:"react-colorful__last-control"}))},W={defaultColor:"000",toHsva:dist_x,fromHsva:function(e){return dist_w({h:e.h,s:e.s,v:e.v,a:1})},equal:X},Z=function(r){return e.createElement(U,dist_u({},r,{colorModel:W}))},ee=function(r){var t=r.className,n=r.hsva,o=r.onChange,a={backgroundImage:"linear-gradient(90deg, "+dist_k(Object.assign({},n,{a:0}))+", "+dist_k(Object.assign({},n,{a:1}))+")"},l=dist_g(["react-colorful__alpha",t]),u=dist_b(100*n.a);return external_React_.createElement("div",{className:l},external_React_.createElement("div",{className:"react-colorful__alpha-gradient",style:a}),external_React_.createElement(dist_m,{onMove:function(e){o({a:e.left})},onKey:function(e){o({a:dist_s(n.a+e.left)})},"aria-label":"Alpha","aria-valuetext":u+"%","aria-valuenow":u,"aria-valuemin":"0","aria-valuemax":"100"},external_React_.createElement(dist_p,{className:"react-colorful__alpha-pointer",left:n.a,color:dist_k(n)})))},re=function(t){var n=t.className,o=t.colorModel,a=t.color,l=void 0===a?o.defaultColor:a,i=t.onChange,s=dist_c(t,["className","colorModel","color","onChange"]),f=(0,external_React_.useRef)(null);Q(f);var v=Y(o,l,i),d=v[0],h=v[1],m=dist_g(["react-colorful",n]);return external_React_.createElement("div",dist_u({},s,{ref:f,className:m}),external_React_.createElement(T,{hsva:d,onChange:h}),external_React_.createElement(dist_S,{hue:d.h,onChange:h}),external_React_.createElement(ee,{hsva:d,onChange:h,className:"react-colorful__last-control"}))},te={defaultColor:"0001",toHsva:dist_x,fromHsva:dist_w,equal:X},ne=function(r){return e.createElement(re,dist_u({},r,{colorModel:te}))},oe={defaultColor:{h:0,s:0,l:0,a:1},toHsva:dist_N,fromHsva:dist_y,equal:F},ae=function(r){return e.createElement(re,dist_u({},r,{colorModel:oe}))},le={defaultColor:"hsla(0, 0%, 0%, 1)",toHsva:dist_H,fromHsva:dist_k,equal:P},ue=function(r){return e.createElement(re,dist_u({},r,{colorModel:le}))},ce={defaultColor:{h:0,s:0,l:0},toHsva:function(e){return dist_N({h:e.h,s:e.s,l:e.l,a:1})},fromHsva:function(e){return{h:(r=dist_y(e)).h,s:r.s,l:r.l};var r},equal:F},ie=function(r){return e.createElement(U,dist_u({},r,{colorModel:ce}))},se={defaultColor:"hsl(0, 0%, 0%)",toHsva:dist_M,fromHsva:q,equal:P},fe=function(r){return e.createElement(U,dist_u({},r,{colorModel:se}))},ve={defaultColor:{h:0,s:0,v:0,a:1},toHsva:function(e){return e},fromHsva:A,equal:F},de=function(r){return e.createElement(re,dist_u({},r,{colorModel:ve}))},he={defaultColor:"hsva(0, 0%, 0%, 1)",toHsva:O,fromHsva:function(e){var r=A(e);return"hsva("+r.h+", "+r.s+"%, "+r.v+"%, "+r.a+")"},equal:P},me=function(r){return e.createElement(re,dist_u({},r,{colorModel:he}))},ge={defaultColor:{h:0,s:0,v:0},toHsva:function(e){return{h:e.h,s:e.s,v:e.v,a:1}},fromHsva:function(e){var r=A(e);return{h:r.h,s:r.s,v:r.v}},equal:F},pe=function(r){return e.createElement(U,dist_u({},r,{colorModel:ge}))},be={defaultColor:"hsv(0, 0%, 0%)",toHsva:dist_j,fromHsva:function(e){var r=A(e);return"hsv("+r.h+", "+r.s+"%, "+r.v+"%)"},equal:P},_e=function(r){return e.createElement(U,dist_u({},r,{colorModel:be}))},xe={defaultColor:{r:0,g:0,b:0,a:1},toHsva:L,fromHsva:dist_I,equal:F},Ce=function(r){return e.createElement(re,dist_u({},r,{colorModel:xe}))},Ee={defaultColor:"rgba(0, 0, 0, 1)",toHsva:z,fromHsva:function(e){var r=dist_I(e);return"rgba("+r.r+", "+r.g+", "+r.b+", "+r.a+")"},equal:P},He=function(r){return external_React_.createElement(re,dist_u({},r,{colorModel:Ee}))},Me={defaultColor:{r:0,g:0,b:0},toHsva:function(e){return L({r:e.r,g:e.g,b:e.b,a:1})},fromHsva:function(e){return{r:(r=dist_I(e)).r,g:r.g,b:r.b};var r},equal:F},Ne=function(r){return e.createElement(U,dist_u({},r,{colorModel:Me}))},we={defaultColor:"rgb(0, 0, 0)",toHsva:B,fromHsva:function(e){var r=dist_I(e);return"rgb("+r.r+", "+r.g+", "+r.b+")"},equal:P},ye=function(r){return external_React_.createElement(U,dist_u({},r,{colorModel:we}))},qe=/^#?([0-9A-F]{3,8})$/i,ke=function(r){var t=r.color,l=void 0===t?"":t,s=r.onChange,f=r.onBlur,v=r.escape,d=r.validate,h=r.format,m=r.process,g=dist_c(r,["color","onChange","onBlur","escape","validate","format","process"]),p=o(function(){return v(l)}),b=p[0],_=p[1],x=dist_i(s),C=dist_i(f),E=a(function(e){var r=v(e.target.value);_(r),d(r)&&x(m?m(r):r)},[v,m,d,x]),H=a(function(e){d(e.target.value)||_(v(l)),C(e)},[l,v,d,C]);return n(function(){_(v(l))},[l,v]),e.createElement("input",dist_u({},g,{value:h?h(b):b,spellCheck:"false",onChange:E,onBlur:H}))},Ie=function(e){return"#"+e},Oe=function(r){var t=r.prefixed,n=r.alpha,o=dist_c(r,["prefixed","alpha"]),l=a(function(e){return e.replace(/([^0-9A-F]+)/gi,"").substring(0,n?8:6)},[n]),i=a(function(e){return function(e,r){var t=qe.exec(e),n=t?t[1].length:0;return 3===n||6===n||!!r&&4===n||!!r&&8===n}(e,n)},[n]);return e.createElement(ke,dist_u({},o,{escape:l,format:t?Ie:void 0,process:Ie,validate:i}))};
 //# sourceMappingURL=index.module.js.map
 
 ;// ./node_modules/@wordpress/components/build-module/color-picker/picker.js
+=======
+;// CONCATENATED MODULE: ./node_modules/react-colorful/dist/index.mjs
+function dist_u(){return(dist_u=Object.assign||function(e){for(var r=1;r<arguments.length;r++){var t=arguments[r];for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n])}return e}).apply(this,arguments)}function dist_c(e,r){if(null==e)return{};var t,n,o={},a=Object.keys(e);for(n=0;n<a.length;n++)r.indexOf(t=a[n])>=0||(o[t]=e[t]);return o}function dist_i(e){var t=(0,external_React_.useRef)(e),n=(0,external_React_.useRef)(function(e){t.current&&t.current(e)});return t.current=e,n.current}var dist_s=function(e,r,t){return void 0===r&&(r=0),void 0===t&&(t=1),e>t?t:e<r?r:e},dist_f=function(e){return"touches"in e},dist_v=function(e){return e&&e.ownerDocument.defaultView||self},dist_d=function(e,r,t){var n=e.getBoundingClientRect(),o=dist_f(r)?function(e,r){for(var t=0;t<e.length;t++)if(e[t].identifier===r)return e[t];return e[0]}(r.touches,t):r;return{left:dist_s((o.pageX-(n.left+dist_v(e).pageXOffset))/n.width),top:dist_s((o.pageY-(n.top+dist_v(e).pageYOffset))/n.height)}},dist_h=function(e){!dist_f(e)&&e.preventDefault()},dist_m=external_React_.memo(function(o){var a=o.onMove,l=o.onKey,s=dist_c(o,["onMove","onKey"]),m=(0,external_React_.useRef)(null),g=dist_i(a),p=dist_i(l),b=(0,external_React_.useRef)(null),_=(0,external_React_.useRef)(!1),x=(0,external_React_.useMemo)(function(){var e=function(e){dist_h(e),(dist_f(e)?e.touches.length>0:e.buttons>0)&&m.current?g(dist_d(m.current,e,b.current)):t(!1)},r=function(){return t(!1)};function t(t){var n=_.current,o=dist_v(m.current),a=t?o.addEventListener:o.removeEventListener;a(n?"touchmove":"mousemove",e),a(n?"touchend":"mouseup",r)}return[function(e){var r=e.nativeEvent,n=m.current;if(n&&(dist_h(r),!function(e,r){return r&&!dist_f(e)}(r,_.current)&&n)){if(dist_f(r)){_.current=!0;var o=r.changedTouches||[];o.length&&(b.current=o[0].identifier)}n.focus(),g(dist_d(n,r,b.current)),t(!0)}},function(e){var r=e.which||e.keyCode;r<37||r>40||(e.preventDefault(),p({left:39===r?.05:37===r?-.05:0,top:40===r?.05:38===r?-.05:0}))},t]},[p,g]),C=x[0],E=x[1],H=x[2];return (0,external_React_.useEffect)(function(){return H},[H]),external_React_.createElement("div",dist_u({},s,{onTouchStart:C,onMouseDown:C,className:"react-colorful__interactive",ref:m,onKeyDown:E,tabIndex:0,role:"slider"}))}),dist_g=function(e){return e.filter(Boolean).join(" ")},dist_p=function(r){var t=r.color,n=r.left,o=r.top,a=void 0===o?.5:o,l=dist_g(["react-colorful__pointer",r.className]);return external_React_.createElement("div",{className:l,style:{top:100*a+"%",left:100*n+"%"}},external_React_.createElement("div",{className:"react-colorful__pointer-fill",style:{backgroundColor:t}}))},dist_b=function(e,r,t){return void 0===r&&(r=0),void 0===t&&(t=Math.pow(10,r)),Math.round(t*e)/t},_={grad:.9,turn:360,rad:360/(2*Math.PI)},dist_x=function(e){return L(C(e))},C=function(e){return"#"===e[0]&&(e=e.substring(1)),e.length<6?{r:parseInt(e[0]+e[0],16),g:parseInt(e[1]+e[1],16),b:parseInt(e[2]+e[2],16),a:4===e.length?dist_b(parseInt(e[3]+e[3],16)/255,2):1}:{r:parseInt(e.substring(0,2),16),g:parseInt(e.substring(2,4),16),b:parseInt(e.substring(4,6),16),a:8===e.length?dist_b(parseInt(e.substring(6,8),16)/255,2):1}},dist_E=function(e,r){return void 0===r&&(r="deg"),Number(e)*(_[r]||1)},dist_H=function(e){var r=/hsla?\(?\s*(-?\d*\.?\d+)(deg|rad|grad|turn)?[,\s]+(-?\d*\.?\d+)%?[,\s]+(-?\d*\.?\d+)%?,?\s*[/\s]*(-?\d*\.?\d+)?(%)?\s*\)?/i.exec(e);return r?dist_N({h:dist_E(r[1],r[2]),s:Number(r[3]),l:Number(r[4]),a:void 0===r[5]?1:Number(r[5])/(r[6]?100:1)}):{h:0,s:0,v:0,a:1}},dist_M=dist_H,dist_N=function(e){var r=e.s,t=e.l;return{h:e.h,s:(r*=(t<50?t:100-t)/100)>0?2*r/(t+r)*100:0,v:t+r,a:e.a}},dist_w=function(e){return K(dist_I(e))},dist_y=function(e){var r=e.s,t=e.v,n=e.a,o=(200-r)*t/100;return{h:dist_b(e.h),s:dist_b(o>0&&o<200?r*t/100/(o<=100?o:200-o)*100:0),l:dist_b(o/2),a:dist_b(n,2)}},q=function(e){var r=dist_y(e);return"hsl("+r.h+", "+r.s+"%, "+r.l+"%)"},dist_k=function(e){var r=dist_y(e);return"hsla("+r.h+", "+r.s+"%, "+r.l+"%, "+r.a+")"},dist_I=function(e){var r=e.h,t=e.s,n=e.v,o=e.a;r=r/360*6,t/=100,n/=100;var a=Math.floor(r),l=n*(1-t),u=n*(1-(r-a)*t),c=n*(1-(1-r+a)*t),i=a%6;return{r:dist_b(255*[n,u,l,l,c,n][i]),g:dist_b(255*[c,n,n,u,l,l][i]),b:dist_b(255*[l,l,c,n,n,u][i]),a:dist_b(o,2)}},O=function(e){var r=/hsva?\(?\s*(-?\d*\.?\d+)(deg|rad|grad|turn)?[,\s]+(-?\d*\.?\d+)%?[,\s]+(-?\d*\.?\d+)%?,?\s*[/\s]*(-?\d*\.?\d+)?(%)?\s*\)?/i.exec(e);return r?A({h:dist_E(r[1],r[2]),s:Number(r[3]),v:Number(r[4]),a:void 0===r[5]?1:Number(r[5])/(r[6]?100:1)}):{h:0,s:0,v:0,a:1}},dist_j=O,z=function(e){var r=/rgba?\(?\s*(-?\d*\.?\d+)(%)?[,\s]+(-?\d*\.?\d+)(%)?[,\s]+(-?\d*\.?\d+)(%)?,?\s*[/\s]*(-?\d*\.?\d+)?(%)?\s*\)?/i.exec(e);return r?L({r:Number(r[1])/(r[2]?100/255:1),g:Number(r[3])/(r[4]?100/255:1),b:Number(r[5])/(r[6]?100/255:1),a:void 0===r[7]?1:Number(r[7])/(r[8]?100:1)}):{h:0,s:0,v:0,a:1}},B=z,D=function(e){var r=e.toString(16);return r.length<2?"0"+r:r},K=function(e){var r=e.r,t=e.g,n=e.b,o=e.a,a=o<1?D(dist_b(255*o)):"";return"#"+D(r)+D(t)+D(n)+a},L=function(e){var r=e.r,t=e.g,n=e.b,o=e.a,a=Math.max(r,t,n),l=a-Math.min(r,t,n),u=l?a===r?(t-n)/l:a===t?2+(n-r)/l:4+(r-t)/l:0;return{h:dist_b(60*(u<0?u+6:u)),s:dist_b(a?l/a*100:0),v:dist_b(a/255*100),a:o}},A=function(e){return{h:dist_b(e.h),s:dist_b(e.s),v:dist_b(e.v),a:dist_b(e.a,2)}},dist_S=external_React_.memo(function(r){var t=r.hue,n=r.onChange,o=dist_g(["react-colorful__hue",r.className]);return external_React_.createElement("div",{className:o},external_React_.createElement(dist_m,{onMove:function(e){n({h:360*e.left})},onKey:function(e){n({h:dist_s(t+360*e.left,0,360)})},"aria-label":"Hue","aria-valuenow":dist_b(t),"aria-valuemax":"360","aria-valuemin":"0"},external_React_.createElement(dist_p,{className:"react-colorful__hue-pointer",left:t/360,color:q({h:t,s:100,v:100,a:1})})))}),T=external_React_.memo(function(r){var t=r.hsva,n=r.onChange,o={backgroundColor:q({h:t.h,s:100,v:100,a:1})};return external_React_.createElement("div",{className:"react-colorful__saturation",style:o},external_React_.createElement(dist_m,{onMove:function(e){n({s:100*e.left,v:100-100*e.top})},onKey:function(e){n({s:dist_s(t.s+100*e.left,0,100),v:dist_s(t.v-100*e.top,0,100)})},"aria-label":"Color","aria-valuetext":"Saturation "+dist_b(t.s)+"%, Brightness "+dist_b(t.v)+"%"},external_React_.createElement(dist_p,{className:"react-colorful__saturation-pointer",top:1-t.v/100,left:t.s/100,color:q(t)})))}),F=function(e,r){if(e===r)return!0;for(var t in e)if(e[t]!==r[t])return!1;return!0},P=function(e,r){return e.replace(/\s/g,"")===r.replace(/\s/g,"")},X=function(e,r){return e.toLowerCase()===r.toLowerCase()||F(C(e),C(r))};function Y(e,t,l){var u=dist_i(l),c=(0,external_React_.useState)(function(){return e.toHsva(t)}),s=c[0],f=c[1],v=(0,external_React_.useRef)({color:t,hsva:s});(0,external_React_.useEffect)(function(){if(!e.equal(t,v.current.color)){var r=e.toHsva(t);v.current={hsva:r,color:t},f(r)}},[t,e]),(0,external_React_.useEffect)(function(){var r;F(s,v.current.hsva)||e.equal(r=e.fromHsva(s),v.current.color)||(v.current={hsva:s,color:r},u(r))},[s,e,u]);var d=(0,external_React_.useCallback)(function(e){f(function(r){return Object.assign({},r,e)})},[]);return[s,d]}var R,dist_V="undefined"!=typeof window?external_React_.useLayoutEffect:external_React_.useEffect,dist_$=function(){return R||( true?__webpack_require__.nc:0)},G=function(e){R=e},J=new Map,Q=function(e){dist_V(function(){var r=e.current?e.current.ownerDocument:document;if(void 0!==r&&!J.has(r)){var t=r.createElement("style");t.innerHTML='.react-colorful{position:relative;display:flex;flex-direction:column;width:200px;height:200px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default}.react-colorful__saturation{position:relative;flex-grow:1;border-color:transparent;border-bottom:12px solid #000;border-radius:8px 8px 0 0;background-image:linear-gradient(0deg,#000,transparent),linear-gradient(90deg,#fff,hsla(0,0%,100%,0))}.react-colorful__alpha-gradient,.react-colorful__pointer-fill{content:"";position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;border-radius:inherit}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}.react-colorful__alpha,.react-colorful__hue{position:relative;height:24px}.react-colorful__hue{background:linear-gradient(90deg,red 0,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{position:absolute;left:0;top:0;right:0;bottom:0;border-radius:inherit;outline:none;touch-action:none}.react-colorful__pointer{position:absolute;z-index:1;box-sizing:border-box;width:28px;height:28px;transform:translate(-50%,-50%);background-color:#fff;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.2)}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%) scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill-opacity=".05"><path d="M8 0h8v8H8zM0 8h8v8H0z"/></svg>\')}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}',J.set(r,t);var n=dist_$();n&&t.setAttribute("nonce",n),r.head.appendChild(t)}},[])},U=function(t){var n=t.className,o=t.colorModel,a=t.color,l=void 0===a?o.defaultColor:a,i=t.onChange,s=dist_c(t,["className","colorModel","color","onChange"]),f=(0,external_React_.useRef)(null);Q(f);var v=Y(o,l,i),d=v[0],h=v[1],m=dist_g(["react-colorful",n]);return external_React_.createElement("div",dist_u({},s,{ref:f,className:m}),external_React_.createElement(T,{hsva:d,onChange:h}),external_React_.createElement(dist_S,{hue:d.h,onChange:h,className:"react-colorful__last-control"}))},W={defaultColor:"000",toHsva:dist_x,fromHsva:function(e){return dist_w({h:e.h,s:e.s,v:e.v,a:1})},equal:X},Z=function(r){return e.createElement(U,dist_u({},r,{colorModel:W}))},ee=function(r){var t=r.className,n=r.hsva,o=r.onChange,a={backgroundImage:"linear-gradient(90deg, "+dist_k(Object.assign({},n,{a:0}))+", "+dist_k(Object.assign({},n,{a:1}))+")"},l=dist_g(["react-colorful__alpha",t]),u=dist_b(100*n.a);return external_React_.createElement("div",{className:l},external_React_.createElement("div",{className:"react-colorful__alpha-gradient",style:a}),external_React_.createElement(dist_m,{onMove:function(e){o({a:e.left})},onKey:function(e){o({a:dist_s(n.a+e.left)})},"aria-label":"Alpha","aria-valuetext":u+"%","aria-valuenow":u,"aria-valuemin":"0","aria-valuemax":"100"},external_React_.createElement(dist_p,{className:"react-colorful__alpha-pointer",left:n.a,color:dist_k(n)})))},re=function(t){var n=t.className,o=t.colorModel,a=t.color,l=void 0===a?o.defaultColor:a,i=t.onChange,s=dist_c(t,["className","colorModel","color","onChange"]),f=(0,external_React_.useRef)(null);Q(f);var v=Y(o,l,i),d=v[0],h=v[1],m=dist_g(["react-colorful",n]);return external_React_.createElement("div",dist_u({},s,{ref:f,className:m}),external_React_.createElement(T,{hsva:d,onChange:h}),external_React_.createElement(dist_S,{hue:d.h,onChange:h}),external_React_.createElement(ee,{hsva:d,onChange:h,className:"react-colorful__last-control"}))},te={defaultColor:"0001",toHsva:dist_x,fromHsva:dist_w,equal:X},ne=function(r){return e.createElement(re,dist_u({},r,{colorModel:te}))},oe={defaultColor:{h:0,s:0,l:0,a:1},toHsva:dist_N,fromHsva:dist_y,equal:F},ae=function(r){return e.createElement(re,dist_u({},r,{colorModel:oe}))},le={defaultColor:"hsla(0, 0%, 0%, 1)",toHsva:dist_H,fromHsva:dist_k,equal:P},ue=function(r){return e.createElement(re,dist_u({},r,{colorModel:le}))},ce={defaultColor:{h:0,s:0,l:0},toHsva:function(e){return dist_N({h:e.h,s:e.s,l:e.l,a:1})},fromHsva:function(e){return{h:(r=dist_y(e)).h,s:r.s,l:r.l};var r},equal:F},ie=function(r){return e.createElement(U,dist_u({},r,{colorModel:ce}))},se={defaultColor:"hsl(0, 0%, 0%)",toHsva:dist_M,fromHsva:q,equal:P},fe=function(r){return e.createElement(U,dist_u({},r,{colorModel:se}))},ve={defaultColor:{h:0,s:0,v:0,a:1},toHsva:function(e){return e},fromHsva:A,equal:F},de=function(r){return e.createElement(re,dist_u({},r,{colorModel:ve}))},he={defaultColor:"hsva(0, 0%, 0%, 1)",toHsva:O,fromHsva:function(e){var r=A(e);return"hsva("+r.h+", "+r.s+"%, "+r.v+"%, "+r.a+")"},equal:P},me=function(r){return e.createElement(re,dist_u({},r,{colorModel:he}))},ge={defaultColor:{h:0,s:0,v:0},toHsva:function(e){return{h:e.h,s:e.s,v:e.v,a:1}},fromHsva:function(e){var r=A(e);return{h:r.h,s:r.s,v:r.v}},equal:F},pe=function(r){return e.createElement(U,dist_u({},r,{colorModel:ge}))},be={defaultColor:"hsv(0, 0%, 0%)",toHsva:dist_j,fromHsva:function(e){var r=A(e);return"hsv("+r.h+", "+r.s+"%, "+r.v+"%)"},equal:P},_e=function(r){return e.createElement(U,dist_u({},r,{colorModel:be}))},xe={defaultColor:{r:0,g:0,b:0,a:1},toHsva:L,fromHsva:dist_I,equal:F},Ce=function(r){return e.createElement(re,dist_u({},r,{colorModel:xe}))},Ee={defaultColor:"rgba(0, 0, 0, 1)",toHsva:z,fromHsva:function(e){var r=dist_I(e);return"rgba("+r.r+", "+r.g+", "+r.b+", "+r.a+")"},equal:P},He=function(r){return external_React_.createElement(re,dist_u({},r,{colorModel:Ee}))},Me={defaultColor:{r:0,g:0,b:0},toHsva:function(e){return L({r:e.r,g:e.g,b:e.b,a:1})},fromHsva:function(e){return{r:(r=dist_I(e)).r,g:r.g,b:r.b};var r},equal:F},Ne=function(r){return e.createElement(U,dist_u({},r,{colorModel:Me}))},we={defaultColor:"rgb(0, 0, 0)",toHsva:B,fromHsva:function(e){var r=dist_I(e);return"rgb("+r.r+", "+r.g+", "+r.b+")"},equal:P},ye=function(r){return external_React_.createElement(U,dist_u({},r,{colorModel:we}))},qe=/^#?([0-9A-F]{3,8})$/i,ke=function(r){var t=r.color,l=void 0===t?"":t,s=r.onChange,f=r.onBlur,v=r.escape,d=r.validate,h=r.format,m=r.process,g=dist_c(r,["color","onChange","onBlur","escape","validate","format","process"]),p=o(function(){return v(l)}),b=p[0],_=p[1],x=dist_i(s),C=dist_i(f),E=a(function(e){var r=v(e.target.value);_(r),d(r)&&x(m?m(r):r)},[v,m,d,x]),H=a(function(e){d(e.target.value)||_(v(l)),C(e)},[l,v,d,C]);return n(function(){_(v(l))},[l,v]),e.createElement("input",dist_u({},g,{value:h?h(b):b,spellCheck:"false",onChange:E,onBlur:H}))},Ie=function(e){return"#"+e},Oe=function(r){var t=r.prefixed,n=r.alpha,o=dist_c(r,["prefixed","alpha"]),l=a(function(e){return e.replace(/([^0-9A-F]+)/gi,"").substring(0,n?8:6)},[n]),i=a(function(e){return function(e,r){var t=qe.exec(e),n=t?t[1].length:0;return 3===n||6===n||!!r&&4===n||!!r&&8===n}(e,n)},[n]);return e.createElement(ke,dist_u({},o,{escape:l,format:t?Ie:void 0,process:Ie,validate:i}))};
+//# sourceMappingURL=index.module.js.map
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/picker.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -38868,7 +42828,11 @@ const Picker = ({
   });
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -38893,6 +42857,10 @@ const Picker = ({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 k([names]);
 const options = [{
   label: 'RGB',
@@ -38940,7 +42908,10 @@ const UnconnectedColorPicker = (props, forwardedRef) => {
         justify: "space-between",
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(styles_SelectControl, {
           __nextHasNoMarginBottom: true,
+<<<<<<< HEAD
           size: "compact",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           options: options,
           value: colorType,
           onChange: nextColorType => setColorType(nextColorType),
@@ -38967,7 +42938,11 @@ const UnconnectedColorPicker = (props, forwardedRef) => {
 const ColorPicker = contextConnect(UnconnectedColorPicker, 'ColorPicker');
 /* harmony default export */ const color_picker_component = (ColorPicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/use-deprecated-props.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/use-deprecated-props.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39035,7 +43010,11 @@ function use_deprecated_props_useDeprecatedProps(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-picker/legacy-adapter.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/legacy-adapter.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -39048,7 +43027,11 @@ const LegacyAdapter = props => {
   });
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -39060,7 +43043,11 @@ const LegacyAdapter = props => {
 
 const CircularOptionPickerContext = (0,external_wp_element_namespaceObject.createContext)({});
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/check.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/check.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -39075,7 +43062,11 @@ const check = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_check = (check);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-option.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-option.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39094,17 +43085,29 @@ const check = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 
 
 
+<<<<<<< HEAD
 function UnforwardedOptionAsButton(props, forwardedRef) {
   const {
     isPressed,
     label,
+=======
+
+
+function UnforwardedOptionAsButton(props, forwardedRef) {
+  const {
+    isPressed,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...additionalProps
   } = props;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
     ...additionalProps,
     "aria-pressed": isPressed,
+<<<<<<< HEAD
     ref: forwardedRef,
     label: label
+=======
+    ref: forwardedRef
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
 }
 const OptionAsButton = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedOptionAsButton);
@@ -39112,7 +43115,10 @@ function UnforwardedOptionAsOption(props, forwardedRef) {
   const {
     id,
     isSelected,
+<<<<<<< HEAD
     label,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...additionalProps
   } = props;
   const {
@@ -39132,8 +43138,12 @@ function UnforwardedOptionAsOption(props, forwardedRef) {
       ...additionalProps,
       role: "option",
       "aria-selected": !!isSelected,
+<<<<<<< HEAD
       ref: forwardedRef,
       label: label
+=======
+      ref: forwardedRef
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }),
     id: id
   });
@@ -39154,29 +43164,49 @@ function Option({
   const commonProps = {
     id,
     className: 'components-circular-option-picker__option',
+<<<<<<< HEAD
     __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...additionalProps
   };
   const isListbox = setActiveId !== undefined;
   const optionControl = isListbox ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(OptionAsOption, {
     ...commonProps,
+<<<<<<< HEAD
     label: tooltipText,
     isSelected: isSelected
   }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(OptionAsButton, {
     ...commonProps,
     label: tooltipText,
+=======
+    isSelected: isSelected
+  }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(OptionAsButton, {
+    ...commonProps,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     isPressed: isSelected
   });
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
     className: dist_clsx(className, 'components-circular-option-picker__option-wrapper'),
+<<<<<<< HEAD
     children: [optionControl, isSelected && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(icons_build_module_icon, {
+=======
+    children: [tooltipText ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tooltip, {
+      text: tooltipText,
+      children: optionControl
+    }) : optionControl, isSelected && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(icons_build_module_icon, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       icon: library_check,
       ...selectedIconProps
     })]
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-option-group.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-option-group.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39200,7 +43230,11 @@ function OptionGroup({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker-actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39240,7 +43274,10 @@ function ButtonAction({
   ...additionalProps
 }) {
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
     __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     className: dist_clsx('components-circular-option-picker__clear', className),
     variant: "tertiary",
     ...additionalProps,
@@ -39248,7 +43285,11 @@ function ButtonAction({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/circular-option-picker/circular-option-picker.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39294,6 +43335,10 @@ function ButtonAction({
  * 						style={ { backgroundColor: color, color } }
  * 						isSelected={ index === currentColor }
  * 						onClick={ () => setCurrentColor( index ) }
+<<<<<<< HEAD
+=======
+ * 						aria-label={ name }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * 					/>
  * 				);
  * 			} ) }
@@ -39315,6 +43360,10 @@ function ButtonAction({
  * ```
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function ListboxCircularOptionPicker(props) {
   const {
     actions,
@@ -39361,7 +43410,10 @@ function ButtonsCircularOptionPicker(props) {
   }), [baseId]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
     ...additionalProps,
+<<<<<<< HEAD
     role: "group",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     id: baseId,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(CircularOptionPickerContext.Provider, {
       value: contextValue,
@@ -39403,7 +43455,11 @@ CircularOptionPicker.ButtonAction = ButtonAction;
 CircularOptionPicker.DropdownLinkAction = DropdownLinkAction;
 /* harmony default export */ const circular_option_picker = (CircularOptionPicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/circular-option-picker/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/circular-option-picker/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -39411,6 +43467,7 @@ CircularOptionPicker.DropdownLinkAction = DropdownLinkAction;
 
 
 
+<<<<<<< HEAD
 
 /* harmony default export */ const build_module_circular_option_picker = (circular_option_picker);
 
@@ -39441,6 +43498,11 @@ function getComputeCircularOptionPickerCommonProps(asButtons, loop, ariaLabel, a
 }
 
 ;// ./node_modules/@wordpress/components/build-module/v-stack/hook.js
+=======
+/* harmony default export */ const build_module_circular_option_picker = (circular_option_picker);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/v-stack/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -39462,7 +43524,11 @@ function useVStack(props) {
   return hStackProps;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/v-stack/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/v-stack/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39509,7 +43575,11 @@ function UnconnectedVStack(props, forwardedRef) {
 const VStack = contextConnect(UnconnectedVStack, 'VStack');
 /* harmony default export */ const v_stack_component = (VStack);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/truncate/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/truncate/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39554,7 +43624,11 @@ function UnconnectedTruncate(props, forwardedRef) {
 const component_Truncate = contextConnect(UnconnectedTruncate, 'Truncate');
 /* harmony default export */ const truncate_component = (component_Truncate);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/heading/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/heading/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -39567,7 +43641,11 @@ function useHeading(props) {
   const {
     as: asProp,
     level = 2,
+<<<<<<< HEAD
     color = COLORS.theme.foreground,
+=======
+    color = COLORS.gray[900],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     isBlock = true,
     weight = config_values.fontWeightHeading,
     ...otherProps
@@ -39593,7 +43671,11 @@ function useHeading(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/heading/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/heading/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39628,7 +43710,11 @@ function UnconnectedHeading(props, forwardedRef) {
 const Heading = contextConnect(UnconnectedHeading, 'Heading');
 /* harmony default export */ const heading_component = (Heading);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-palette/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-palette/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function color_palette_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -39646,7 +43732,11 @@ const ColorHeading = /*#__PURE__*/emotion_styled_base_browser_esm(heading_compon
   styles: "text-transform:uppercase;line-height:24px;font-weight:500;&&&{font-size:11px;margin-bottom:0;}"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/dropdown/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -39672,7 +43762,11 @@ const DropdownContentWrapperDiv = /*#__PURE__*/emotion_styled_base_browser_esm("
   target: "eovvns30"
 } : 0)("margin-left:", space(-2), ";margin-right:", space(-2), ";&:first-of-type{margin-top:", space(-2), ";}&:last-of-type{margin-bottom:", space(-2), ";}", padding, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/dropdown/dropdown-content-wrapper.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown/dropdown-content-wrapper.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39718,7 +43812,11 @@ function UnconnectedDropdownContentWrapper(props, forwardedRef) {
 const DropdownContentWrapper = contextConnect(UnconnectedDropdownContentWrapper, 'DropdownContentWrapper');
 /* harmony default export */ const dropdown_content_wrapper = (DropdownContentWrapper);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-palette/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-palette/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39806,7 +43904,11 @@ const normalizeColorValue = (value, element) => {
   return computedBackgroundColor ? w(computedBackgroundColor).toHex() : value;
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/color-palette/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-palette/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -39835,6 +43937,10 @@ const normalizeColorValue = (value, element) => {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 k([names, a11y]);
 function SinglePalette({
   className,
@@ -39863,7 +43969,16 @@ function SinglePalette({
           backgroundColor: color,
           color
         },
+<<<<<<< HEAD
         onClick: isSelected ? clearColor : () => onChange(color, index)
+=======
+        onClick: isSelected ? clearColor : () => onChange(color, index),
+        "aria-label": name ?
+        // translators: %s: The name of the color e.g: "vivid red".
+        (0,external_wp_i18n_namespaceObject.sprintf)((0,external_wp_i18n_namespaceObject.__)('Color: %s'), name) :
+        // translators: %s: color hex code e.g: "#f00".
+        (0,external_wp_i18n_namespaceObject.sprintf)((0,external_wp_i18n_namespaceObject.__)('Color code: %s'), color)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       }, `${color}-${index}`);
     });
   }, [colors, value, onChange, clearColor]);
@@ -39976,7 +44091,11 @@ function UnforwardedColorPalette(props, forwardedRef) {
   const displayValue = value?.replace(/^var\((.+)\)$/, '$1');
   const customColorAccessibleLabel = !!displayValue ? (0,external_wp_i18n_namespaceObject.sprintf)(
   // translators: 1: The name of the color e.g: "vivid red". 2: The color's hex code e.g: "#f00".
+<<<<<<< HEAD
   (0,external_wp_i18n_namespaceObject.__)('Custom color picker. The currently selected color is called "%1$s" and has a value of "%2$s".'), buttonLabelName, displayValue) : (0,external_wp_i18n_namespaceObject.__)('Custom color picker');
+=======
+  (0,external_wp_i18n_namespaceObject.__)('Custom color picker. The currently selected color is called "%1$s" and has a value of "%2$s".'), buttonLabelName, displayValue) : (0,external_wp_i18n_namespaceObject.__)('Custom color picker.');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const paletteCommonProps = {
     clearColor,
     onChange,
@@ -39984,6 +44103,7 @@ function UnforwardedColorPalette(props, forwardedRef) {
   };
   const actions = !!clearable && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker.ButtonAction, {
     onClick: clearColor,
+<<<<<<< HEAD
     accessibleWhenDisabled: true,
     disabled: !value,
     children: (0,external_wp_i18n_namespaceObject.__)('Clear')
@@ -39992,6 +44112,37 @@ function UnforwardedColorPalette(props, forwardedRef) {
     metaProps,
     labelProps
   } = getComputeCircularOptionPickerCommonProps(asButtons, loop, ariaLabel, ariaLabelledby);
+=======
+    children: (0,external_wp_i18n_namespaceObject.__)('Clear')
+  });
+  let metaProps;
+  if (asButtons) {
+    metaProps = {
+      asButtons: true
+    };
+  } else {
+    const _metaProps = {
+      asButtons: false,
+      loop
+    };
+    if (ariaLabel) {
+      metaProps = {
+        ..._metaProps,
+        'aria-label': ariaLabel
+      };
+    } else if (ariaLabelledby) {
+      metaProps = {
+        ..._metaProps,
+        'aria-labelledby': ariaLabelledby
+      };
+    } else {
+      metaProps = {
+        ..._metaProps,
+        'aria-label': (0,external_wp_i18n_namespaceObject.__)('Custom color picker.')
+      };
+    }
+  }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(v_stack_component, {
     spacing: 3,
     ref: forwardedRef,
@@ -40032,7 +44183,10 @@ function UnforwardedColorPalette(props, forwardedRef) {
       })
     }), (colors.length > 0 || actions) && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker, {
       ...metaProps,
+<<<<<<< HEAD
       ...labelProps,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       actions: actions,
       options: hasMultipleColorOrigins ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MultiplePalettes, {
         ...paletteCommonProps,
@@ -40075,7 +44229,11 @@ function UnforwardedColorPalette(props, forwardedRef) {
 const ColorPalette = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedColorPalette);
 /* harmony default export */ const color_palette = (ColorPalette);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/unit-control/styles/unit-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/unit-control/styles/unit-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -40126,8 +44284,12 @@ const UnitSelect = /*#__PURE__*/emotion_styled_base_browser_esm("select",  true 
   target: "e1bagdl30"
 } : 0)("&&&{appearance:none;background:transparent;border-radius:", config_values.radiusXSmall, ";border:none;display:block;outline:none;margin:0;min-height:auto;font-family:inherit;", baseUnitLabelStyles, ";", unitSelectSizes, ";&:not( :disabled ){cursor:pointer;}}" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-control/styles.js
 function border_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-control/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -40180,15 +44342,23 @@ const swatchGap = 12;
 const borderControlPopoverControls = /*#__PURE__*/emotion_react_browser_esm_css("width:", swatchSize * 6 + swatchGap * 5, "px;>div:first-of-type>", StyledLabel, "{margin-bottom:0;}&& ", StyledLabel, "+button:not( .has-text ){min-width:24px;padding:0;}" + ( true ? "" : 0),  true ? "" : 0);
 const borderControlPopoverContent = /*#__PURE__*/emotion_react_browser_esm_css( true ? "" : 0,  true ? "" : 0);
 const borderColorIndicator = /*#__PURE__*/emotion_react_browser_esm_css( true ? "" : 0,  true ? "" : 0);
+<<<<<<< HEAD
 const resetButtonWrapper =  true ? {
   name: "1ghe26v",
   styles: "display:flex;justify-content:flex-end;margin-top:12px"
 } : 0;
+=======
+const resetButton = /*#__PURE__*/emotion_react_browser_esm_css("justify-content:center;width:100%;&&{border-top:", config_values.borderWidth, " solid ", COLORS.gray[400], ";border-top-left-radius:0;border-top-right-radius:0;height:40px;}" + ( true ? "" : 0),  true ? "" : 0);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const borderSlider = () => /*#__PURE__*/emotion_react_browser_esm_css("flex:1 1 60%;", rtl({
   marginRight: space(3)
 })(), ";" + ( true ? "" : 0),  true ? "" : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/unit-control/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/unit-control/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -40585,7 +44755,11 @@ function getUnitsWithCurrentUnit(rawValue, legacyUnit, units = ALL_CSS_UNITS) {
   return unitsToReturn;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-control/border-control-dropdown/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-control/border-control-dropdown/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -40655,8 +44829,13 @@ function useBorderControlDropdown(props) {
   const popoverContentClassName = (0,external_wp_element_namespaceObject.useMemo)(() => {
     return cx(borderControlPopoverContent);
   }, [cx]);
+<<<<<<< HEAD
   const resetButtonWrapperClassName = (0,external_wp_element_namespaceObject.useMemo)(() => {
     return cx(resetButtonWrapper);
+=======
+  const resetButtonClassName = (0,external_wp_element_namespaceObject.useMemo)(() => {
+    return cx(resetButton);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, [cx]);
   return {
     ...otherProps,
@@ -40672,13 +44851,21 @@ function useBorderControlDropdown(props) {
     onReset,
     popoverContentClassName,
     popoverControlsClassName,
+<<<<<<< HEAD
     resetButtonWrapperClassName,
+=======
+    resetButtonClassName,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     size,
     __experimentalIsRenderedInSidebar
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-control/border-control-dropdown/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-control/border-control-dropdown/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -40688,6 +44875,10 @@ function useBorderControlDropdown(props) {
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -40702,6 +44893,13 @@ function useBorderControlDropdown(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const getAriaLabelColorValue = colorValue => {
   // Leave hex values as-is. Remove the `var()` wrapper from CSS vars.
   return colorValue.replace(/^var\((.+)\)$/, '$1');
@@ -40774,7 +44972,12 @@ const BorderControlDropdown = (props, forwardedRef) => {
     onStyleChange,
     popoverContentClassName,
     popoverControlsClassName,
+<<<<<<< HEAD
     resetButtonWrapperClassName,
+=======
+    resetButtonClassName,
+    showDropdownHeader,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     size,
     __unstablePopoverProps,
     ...otherProps
@@ -40785,7 +44988,11 @@ const BorderControlDropdown = (props, forwardedRef) => {
   } = border || {};
   const colorObject = getColorObject(color, colors);
   const toggleAriaLabel = getToggleAriaLabel(color, colorObject, style, enableStyle);
+<<<<<<< HEAD
   const enableResetButton = color || style && style !== 'none';
+=======
+  const showResetButton = color || style && style !== 'none';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const dropdownPosition = __experimentalIsRenderedInSidebar ? 'bottom left' : undefined;
   const renderToggle = ({
     onToggle
@@ -40796,7 +45003,11 @@ const BorderControlDropdown = (props, forwardedRef) => {
     tooltipPosition: dropdownPosition,
     label: (0,external_wp_i18n_namespaceObject.__)('Border color and style picker'),
     showTooltip: true,
+<<<<<<< HEAD
     __next40pxDefaultSize: size === '__unstable-large',
+=======
+    __next40pxDefaultSize: size === '__unstable-large' ? true : false,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("span", {
       className: indicatorWrapperClassName,
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(color_indicator, {
@@ -40805,6 +45016,7 @@ const BorderControlDropdown = (props, forwardedRef) => {
       })
     })
   });
+<<<<<<< HEAD
   const renderContent = () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_ReactJSXRuntime_namespaceObject.Fragment, {
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(dropdown_content_wrapper, {
       paddingSize: "medium",
@@ -40812,6 +45024,26 @@ const BorderControlDropdown = (props, forwardedRef) => {
         className: popoverControlsClassName,
         spacing: 6,
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(color_palette, {
+=======
+  const renderContent = ({
+    onClose
+  }) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(dropdown_content_wrapper, {
+      paddingSize: "medium",
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(v_stack_component, {
+        className: popoverControlsClassName,
+        spacing: 6,
+        children: [showDropdownHeader ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(h_stack_component, {
+          children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StyledLabel, {
+            children: (0,external_wp_i18n_namespaceObject.__)('Border color')
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+            size: "small",
+            label: (0,external_wp_i18n_namespaceObject.__)('Close border color'),
+            icon: close_small,
+            onClick: onClose
+          })]
+        }) : undefined, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(color_palette, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           className: popoverContentClassName,
           value: color,
           onChange: onColorChange,
@@ -40825,6 +45057,7 @@ const BorderControlDropdown = (props, forwardedRef) => {
           value: style,
           onChange: onStyleChange
         })]
+<<<<<<< HEAD
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
         className: resetButtonWrapperClassName,
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
@@ -40839,6 +45072,21 @@ const BorderControlDropdown = (props, forwardedRef) => {
         })
       })]
     })
+=======
+      })
+    }), showResetButton && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(dropdown_content_wrapper, {
+      paddingSize: "none",
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+        className: resetButtonClassName,
+        variant: "tertiary",
+        onClick: () => {
+          onReset();
+          onClose();
+        },
+        children: (0,external_wp_i18n_namespaceObject.__)('Reset')
+      })
+    })]
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(dropdown, {
     renderToggle: renderToggle,
@@ -40853,7 +45101,11 @@ const BorderControlDropdown = (props, forwardedRef) => {
 const ConnectedBorderControlDropdown = contextConnect(BorderControlDropdown, 'BorderControlDropdown');
 /* harmony default export */ const border_control_dropdown_component = (ConnectedBorderControlDropdown);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/unit-control/unit-select-control.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/unit-control/unit-select-control.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -40913,7 +45165,11 @@ function UnitSelectControl({
 }
 /* harmony default export */ const unit_select_control = ((0,external_wp_element_namespaceObject.forwardRef)(UnitSelectControl));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/unit-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/unit-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -40938,7 +45194,10 @@ function UnitSelectControl({
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedUnitControl(unitControlProps, forwardedRef) {
   const {
     __unstableStateReducer,
@@ -40959,6 +45218,7 @@ function UnforwardedUnitControl(unitControlProps, forwardedRef) {
     units: unitsProp = CSS_UNITS,
     value: valueProp,
     onFocus: onFocusProp,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
     ...props
   } = useDeprecated36pxDefaultSizeProp(unitControlProps);
@@ -40968,6 +45228,10 @@ function UnforwardedUnitControl(unitControlProps, forwardedRef) {
     size,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+    ...props
+  } = useDeprecated36pxDefaultSizeProp(unitControlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   if ('unit' in unitControlProps) {
     external_wp_deprecated_default()('UnitControl unit prop', {
       since: '5.6',
@@ -41070,7 +45334,10 @@ function UnforwardedUnitControl(unitControlProps, forwardedRef) {
   }
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ValueInput, {
     ...props,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     autoComplete: autoComplete,
     className: classes,
     disabled: disabled,
@@ -41101,7 +45368,11 @@ function UnforwardedUnitControl(unitControlProps, forwardedRef) {
  * const Example = () => {
  *   const [ value, setValue ] = useState( '10px' );
  *
+<<<<<<< HEAD
  *   return <UnitControl __next40pxDefaultSize onChange={ setValue } value={ value } />;
+=======
+ *   return <UnitControl onChange={ setValue } value={ value } />;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * };
  * ```
  */
@@ -41109,7 +45380,11 @@ const UnitControl = (0,external_wp_element_namespaceObject.forwardRef)(Unforward
 
 /* harmony default export */ const unit_control = (UnitControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-control/border-control/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-control/border-control/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -41122,8 +45397,11 @@ const UnitControl = (0,external_wp_element_namespaceObject.forwardRef)(Unforward
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // If either width or color are defined, the border is considered valid
 // and a border style can be set as well.
 const isValidBorder = border => {
@@ -41145,6 +45423,7 @@ function useBorderControl(props) {
     width,
     __experimentalIsRenderedInSidebar = false,
     __next40pxDefaultSize,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
     ...otherProps
   } = useContextSystem(props, 'BorderControl');
@@ -41154,6 +45433,10 @@ function useBorderControl(props) {
     size,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+    ...otherProps
+  } = useContextSystem(props, 'BorderControl');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const computedSize = size === 'default' && __next40pxDefaultSize ? '__unstable-large' : size;
   const [widthValue, originalWidthUnit] = parseQuantityAndUnitFromRawValue(border?.width);
   const widthUnit = originalWidthUnit || 'px';
@@ -41250,7 +45533,11 @@ function useBorderControl(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-control/border-control/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-control/border-control/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -41270,6 +45557,10 @@ function useBorderControl(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const BorderLabel = props => {
   const {
     label,
@@ -41326,8 +45617,11 @@ const UnconnectedBorderControl = (props, forwardedRef) => {
       spacing: 4,
       className: innerWrapperClassName,
       children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(unit_control, {
+<<<<<<< HEAD
         __next40pxDefaultSize: __next40pxDefaultSize,
         __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         prefix: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(spacer_component, {
           marginRight: 1,
           marginBottom: 0,
@@ -41341,6 +45635,10 @@ const UnconnectedBorderControl = (props, forwardedRef) => {
             isStyleSettable: isStyleSettable,
             onChange: onBorderChange,
             previousStyleSelection: previousStyleSelection,
+<<<<<<< HEAD
+=======
+            showDropdownHeader: showDropdownHeader,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             __experimentalIsRenderedInSidebar: __experimentalIsRenderedInSidebar,
             size: size
           })
@@ -41366,8 +45664,12 @@ const UnconnectedBorderControl = (props, forwardedRef) => {
         step: ['px', '%'].includes(widthUnit) ? 1 : 0.1,
         value: widthValue || undefined,
         withInputField: false,
+<<<<<<< HEAD
         __next40pxDefaultSize: __next40pxDefaultSize,
         __shouldNotWarnDeprecated36pxSize: true
+=======
+        __next40pxDefaultSize: __next40pxDefaultSize
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       })]
     })]
   });
@@ -41384,7 +45686,11 @@ const UnconnectedBorderControl = (props, forwardedRef) => {
  * a "shape" abstraction.
  *
  * ```jsx
+<<<<<<< HEAD
  * import { BorderControl } from '@wordpress/components';
+=======
+ * import { __experimentalBorderControl as BorderControl } from '@wordpress/components';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * import { __ } from '@wordpress/i18n';
  *
  * const colors = [
@@ -41398,7 +45704,10 @@ const UnconnectedBorderControl = (props, forwardedRef) => {
  *
  * 	return (
  * 		<BorderControl
+<<<<<<< HEAD
  * 			__next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * 			colors={ colors }
  * 			label={ __( 'Border' ) }
  * 			onChange={ onChange }
@@ -41411,7 +45720,11 @@ const UnconnectedBorderControl = (props, forwardedRef) => {
 const BorderControl = contextConnect(UnconnectedBorderControl, 'BorderControl');
 /* harmony default export */ const border_control_component = (BorderControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/grid/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/grid/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -41466,7 +45779,11 @@ function utils_getAlignmentProps(alignment) {
   return alignmentProps;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/grid/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/grid/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -41531,7 +45848,11 @@ function useGrid(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/grid/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/grid/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -41575,7 +45896,11 @@ function UnconnectedGrid(props, forwardedRef) {
 const Grid = contextConnect(UnconnectedGrid, 'Grid');
 /* harmony default export */ const grid_component = (Grid);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-split-controls/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-split-controls/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -41622,7 +45947,11 @@ function useBorderBoxControlSplitControls(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-split-controls/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control-split-controls/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -41639,6 +45968,10 @@ function useBorderBoxControlSplitControls(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const BorderBoxControlSplitControls = (props, forwardedRef) => {
   const {
     centeredClassName,
@@ -41674,14 +46007,22 @@ const BorderBoxControlSplitControls = (props, forwardedRef) => {
     enableStyle,
     isCompact: true,
     __experimentalIsRenderedInSidebar,
+<<<<<<< HEAD
     size,
     __shouldNotWarnDeprecated36pxSize: true
+=======
+    size
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
   const mergedRef = (0,external_wp_compose_namespaceObject.useMergeRefs)([setPopoverAnchor, forwardedRef]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(grid_component, {
     ...otherProps,
     ref: mergedRef,
+<<<<<<< HEAD
     gap: 3,
+=======
+    gap: 4,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(border_box_control_visualizer_component, {
       value: value,
       size: size
@@ -41722,7 +46063,11 @@ const BorderBoxControlSplitControls = (props, forwardedRef) => {
 const ConnectedBorderBoxControlSplitControls = contextConnect(BorderBoxControlSplitControls, 'BorderBoxControlSplitControls');
 /* harmony default export */ const border_box_control_split_controls_component = (ConnectedBorderBoxControlSplitControls);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/unit-values.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/unit-values.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const UNITED_VALUE_REGEX = /^([\d.\-+]*)\s*(fr|cm|mm|Q|in|pc|pt|px|em|ex|ch|rem|lh|vw|vh|vmin|vmax|%|cap|ic|rlh|vi|vb|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx|svw|lvw|dvw|svh|lvh|dvh|svi|lvi|dvi|svb|lvb|dvb|svmin|lvmin|dvmin|svmax|lvmax|dvmax)?$/;
 
 /**
@@ -41756,7 +46101,11 @@ function createCSSUnitValue(value, unit) {
   return `${value}${unit}`;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -41905,7 +46254,11 @@ function mode(values) {
   return currentMode;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -41918,7 +46271,10 @@ function mode(values) {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useBorderBoxControl(props) {
   const {
     className,
@@ -41932,11 +46288,14 @@ function useBorderBoxControl(props) {
     __next40pxDefaultSize,
     ...otherProps
   } = useContextSystem(props, 'BorderBoxControl');
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'BorderBoxControl',
     __next40pxDefaultSize,
     size
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const computedSize = size === 'default' && __next40pxDefaultSize ? '__unstable-large' : size;
   const mixedBorders = hasMixedBorders(value);
   const splitBorders = hasSplitBorders(value);
@@ -42028,7 +46387,11 @@ function useBorderBoxControl(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/border-box-control/border-box-control/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -42048,6 +46411,10 @@ function useBorderBoxControl(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const component_BorderLabel = props => {
   const {
     label,
@@ -42126,7 +46493,10 @@ const UnconnectedBorderBoxControl = (props, forwardedRef) => {
         withSlider: true,
         width: size === '__unstable-large' ? '116px' : '110px',
         __experimentalIsRenderedInSidebar: __experimentalIsRenderedInSidebar,
+<<<<<<< HEAD
         __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         size: size
       }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(border_box_control_split_controls_component, {
         colors: colors,
@@ -42149,11 +46519,30 @@ const UnconnectedBorderBoxControl = (props, forwardedRef) => {
 };
 
 /**
+<<<<<<< HEAD
  * An input control for the color, style, and width of the border of a box. The
  * border can be customized as a whole, or individually for each side of the box.
  *
  * ```jsx
  * import { BorderBoxControl } from '@wordpress/components';
+=======
+ * The `BorderBoxControl` effectively has two view states. The first, a "linked"
+ * view, allows configuration of a flat border via a single `BorderControl`.
+ * The second, a "split" view, contains a `BorderControl` for each side
+ * as well as a visualizer for the currently selected borders. Each view also
+ * contains a button to toggle between the two.
+ *
+ * When switching from the "split" view to "linked", if the individual side
+ * borders are not consistent, the "linked" view will display any border
+ * properties selections that are consistent while showing a mixed state for
+ * those that aren't. For example, if all borders had the same color and style
+ * but different widths, then the border dropdown in the "linked" view's
+ * `BorderControl` would show that consistent color and style but the "linked"
+ * view's width input would show "Mixed" placeholder text.
+ *
+ * ```jsx
+ * import { __experimentalBorderBoxControl as BorderBoxControl } from '@wordpress/components';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * import { __ } from '@wordpress/i18n';
  *
  * const colors = [
@@ -42177,7 +46566,10 @@ const UnconnectedBorderBoxControl = (props, forwardedRef) => {
  *
  * 	return (
  * 		<BorderBoxControl
+<<<<<<< HEAD
  * 			__next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * 			colors={ colors }
  * 			label={ __( 'Borders' ) }
  * 			onChange={ onChange }
@@ -42190,6 +46582,7 @@ const UnconnectedBorderBoxControl = (props, forwardedRef) => {
 const BorderBoxControl = contextConnect(UnconnectedBorderBoxControl, 'BorderBoxControl');
 /* harmony default export */ const border_box_control_component = (BorderBoxControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/settings.js
 /**
  * WordPress dependencies
@@ -42208,6 +46601,174 @@ const settings = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(
 /* harmony default export */ const library_settings = (settings);
 
 ;// ./node_modules/@wordpress/components/build-module/box-control/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/styles/box-control-icon-styles.js
+
+function box_control_icon_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+/**
+ * External dependencies
+ */
+
+const box_control_icon_styles_Root = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
+  target: "e1j5nr4z8"
+} : 0)( true ? {
+  name: "1w884gc",
+  styles: "box-sizing:border-box;display:block;width:24px;height:24px;position:relative;padding:4px"
+} : 0);
+const Viewbox = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
+  target: "e1j5nr4z7"
+} : 0)( true ? {
+  name: "i6vjox",
+  styles: "box-sizing:border-box;display:block;position:relative;width:100%;height:100%"
+} : 0);
+const strokeFocus = ({
+  isFocused
+}) => {
+  return /*#__PURE__*/emotion_react_browser_esm_css({
+    backgroundColor: 'currentColor',
+    opacity: isFocused ? 1 : 0.3
+  },  true ? "" : 0,  true ? "" : 0);
+};
+const Stroke = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
+  target: "e1j5nr4z6"
+} : 0)("box-sizing:border-box;display:block;pointer-events:none;position:absolute;", strokeFocus, ";" + ( true ? "" : 0));
+const VerticalStroke = /*#__PURE__*/emotion_styled_base_browser_esm(Stroke,  true ? {
+  target: "e1j5nr4z5"
+} : 0)( true ? {
+  name: "1k2w39q",
+  styles: "bottom:3px;top:3px;width:2px"
+} : 0);
+const HorizontalStroke = /*#__PURE__*/emotion_styled_base_browser_esm(Stroke,  true ? {
+  target: "e1j5nr4z4"
+} : 0)( true ? {
+  name: "1q9b07k",
+  styles: "height:2px;left:3px;right:3px"
+} : 0);
+const TopStroke = /*#__PURE__*/emotion_styled_base_browser_esm(HorizontalStroke,  true ? {
+  target: "e1j5nr4z3"
+} : 0)( true ? {
+  name: "abcix4",
+  styles: "top:0"
+} : 0);
+const RightStroke = /*#__PURE__*/emotion_styled_base_browser_esm(VerticalStroke,  true ? {
+  target: "e1j5nr4z2"
+} : 0)( true ? {
+  name: "1wf8jf",
+  styles: "right:0"
+} : 0);
+const BottomStroke = /*#__PURE__*/emotion_styled_base_browser_esm(HorizontalStroke,  true ? {
+  target: "e1j5nr4z1"
+} : 0)( true ? {
+  name: "8tapst",
+  styles: "bottom:0"
+} : 0);
+const LeftStroke = /*#__PURE__*/emotion_styled_base_browser_esm(VerticalStroke,  true ? {
+  target: "e1j5nr4z0"
+} : 0)( true ? {
+  name: "1ode3cm",
+  styles: "left:0"
+} : 0);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/icon.js
+/**
+ * Internal dependencies
+ */
+
+
+
+
+const BASE_ICON_SIZE = 24;
+function BoxControlIcon({
+  size = 24,
+  side = 'all',
+  sides,
+  ...props
+}) {
+  const isSideDisabled = value => sides?.length && !sides.includes(value);
+  const hasSide = value => {
+    if (isSideDisabled(value)) {
+      return false;
+    }
+    return side === 'all' || side === value;
+  };
+  const top = hasSide('top') || hasSide('vertical');
+  const right = hasSide('right') || hasSide('horizontal');
+  const bottom = hasSide('bottom') || hasSide('vertical');
+  const left = hasSide('left') || hasSide('horizontal');
+
+  // Simulates SVG Icon scaling.
+  const scale = size / BASE_ICON_SIZE;
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(box_control_icon_styles_Root, {
+    style: {
+      transform: `scale(${scale})`
+    },
+    ...props,
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(Viewbox, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TopStroke, {
+        isFocused: top
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(RightStroke, {
+        isFocused: right
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BottomStroke, {
+        isFocused: bottom
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LeftStroke, {
+        isFocused: left
+      })]
+    })
+  });
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/styles/box-control-styles.js
+
+function box_control_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+/**
+ * External dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+
+const StyledUnitControl = /*#__PURE__*/emotion_styled_base_browser_esm(unit_control,  true ? {
+  target: "e1jovhle5"
+} : 0)( true ? {
+  name: "1ejyr19",
+  styles: "max-width:90px"
+} : 0);
+const InputWrapper = /*#__PURE__*/emotion_styled_base_browser_esm(h_stack_component,  true ? {
+  target: "e1jovhle4"
+} : 0)( true ? {
+  name: "1j1lmoi",
+  styles: "grid-column:1/span 3"
+} : 0);
+const ResetButton = /*#__PURE__*/emotion_styled_base_browser_esm(build_module_button,  true ? {
+  target: "e1jovhle3"
+} : 0)( true ? {
+  name: "tkya7b",
+  styles: "grid-area:1/2;justify-self:end"
+} : 0);
+const LinkedButtonWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+  target: "e1jovhle2"
+} : 0)( true ? {
+  name: "1dfa8al",
+  styles: "grid-area:1/3;justify-self:end"
+} : 0);
+const FlexedBoxControlIcon = /*#__PURE__*/emotion_styled_base_browser_esm(BoxControlIcon,  true ? {
+  target: "e1jovhle1"
+} : 0)( true ? {
+  name: "ou8xsw",
+  styles: "flex:0 0 auto"
+} : 0);
+const FlexedRangeControl = /*#__PURE__*/emotion_styled_base_browser_esm(range_control,  true ? {
+  target: "e1jovhle0"
+} : 0)("width:100%;margin-inline-end:", space(2), ";" + ( true ? "" : 0));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -42217,7 +46778,10 @@ const settings = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(
  * Internal dependencies
  */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const CUSTOM_VALUE_SETTINGS = {
   px: {
     max: 300,
@@ -42338,6 +46902,10 @@ const LABELS = {
   bottom: (0,external_wp_i18n_namespaceObject.__)('Bottom side'),
   left: (0,external_wp_i18n_namespaceObject.__)('Left side'),
   right: (0,external_wp_i18n_namespaceObject.__)('Right side'),
+<<<<<<< HEAD
+=======
+  mixed: (0,external_wp_i18n_namespaceObject.__)('Mixed'),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   vertical: (0,external_wp_i18n_namespaceObject.__)('Top and bottom sides'),
   horizontal: (0,external_wp_i18n_namespaceObject.__)('Left and right sides')
 };
@@ -42361,13 +46929,21 @@ function utils_mode(arr) {
 }
 
 /**
+<<<<<<< HEAD
  * Gets the merged input value and unit from values data.
  *
  * @param values         Box values.
+=======
+ * Gets the 'all' input value and unit from values data.
+ *
+ * @param values         Box values.
+ * @param selectedUnits  Box units.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param availableSides Available box sides to evaluate.
  *
  * @return A value + unit for the 'all' input.
  */
+<<<<<<< HEAD
 function getMergedValue(values = {}, availableSides = ALL_SIDES) {
   const sides = normalizeSides(availableSides);
   if (sides.every(side => values[side] === values[sides[0]])) {
@@ -42386,6 +46962,37 @@ function getMergedValue(values = {}, availableSides = ALL_SIDES) {
 function isValueMixed(values = {}, availableSides = ALL_SIDES) {
   const sides = normalizeSides(availableSides);
   return sides.some(side => values[side] !== values[sides[0]]);
+=======
+function getAllValue(values = {}, selectedUnits, availableSides = ALL_SIDES) {
+  const sides = normalizeSides(availableSides);
+  const parsedQuantitiesAndUnits = sides.map(side => parseQuantityAndUnitFromRawValue(values[side]));
+  const allParsedQuantities = parsedQuantitiesAndUnits.map(value => {
+    var _value$;
+    return (_value$ = value[0]) !== null && _value$ !== void 0 ? _value$ : '';
+  });
+  const allParsedUnits = parsedQuantitiesAndUnits.map(value => value[1]);
+  const commonQuantity = allParsedQuantities.every(v => v === allParsedQuantities[0]) ? allParsedQuantities[0] : '';
+
+  /**
+   * The typeof === 'number' check is important. On reset actions, the incoming value
+   * may be null or an empty string.
+   *
+   * Also, the value may also be zero (0), which is considered a valid unit value.
+   *
+   * typeof === 'number' is more specific for these cases, rather than relying on a
+   * simple truthy check.
+   */
+  let commonUnit;
+  if (typeof commonQuantity === 'number') {
+    commonUnit = utils_mode(allParsedUnits);
+  } else {
+    var _getAllUnitFallback;
+    // Set meaningful unit selection if no commonQuantity and user has previously
+    // selected units without assigning values while controls were unlinked.
+    commonUnit = (_getAllUnitFallback = getAllUnitFallback(selectedUnits)) !== null && _getAllUnitFallback !== void 0 ? _getAllUnitFallback : utils_mode(allParsedUnits);
+  }
+  return [commonQuantity, commonUnit].join('');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -42403,6 +47010,24 @@ function getAllUnitFallback(selectedUnits) {
 }
 
 /**
+<<<<<<< HEAD
+=======
+ * Checks to determine if values are mixed.
+ *
+ * @param values        Box values.
+ * @param selectedUnits Box units.
+ * @param sides         Available box sides to evaluate.
+ *
+ * @return Whether values are mixed.
+ */
+function isValuesMixed(values = {}, selectedUnits, sides = ALL_SIDES) {
+  const allValue = getAllValue(values, selectedUnits, sides);
+  const isMixed = isNaN(parseFloat(allValue));
+  return isMixed;
+}
+
+/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Checks to determine if values are defined.
  *
  * @param values Box values.
@@ -42462,8 +47087,11 @@ function normalizeSides(sides) {
  * Applies a value to an object representing top, right, bottom and left sides
  * while taking into account any custom side configuration.
  *
+<<<<<<< HEAD
  * @deprecated
  *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param currentValues The current values for each side.
  * @param newValue      The value to apply to the sides object.
  * @param sides         Array defining valid sides.
@@ -42471,10 +47099,13 @@ function normalizeSides(sides) {
  * @return Object containing the updated values for each side.
  */
 function applyValueToSides(currentValues, newValue, sides) {
+<<<<<<< HEAD
   external_wp_deprecated_default()('applyValueToSides', {
     since: '6.8',
     version: '7.0'
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const newValues = {
     ...currentValues
   };
@@ -42496,6 +47127,7 @@ function applyValueToSides(currentValues, newValue, sides) {
   return newValues;
 }
 
+<<<<<<< HEAD
 /**
  * Return the allowed sides based on the sides configuration.
  *
@@ -42730,14 +47362,104 @@ const FlexedRangeControl = /*#__PURE__*/emotion_styled_base_browser_esm(range_co
 } : 0)("width:100%;margin-inline-end:", space(2), ";" + ( true ? "" : 0));
 
 ;// ./node_modules/@wordpress/components/build-module/box-control/input-control.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/all-input-control.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
+<<<<<<< HEAD
+=======
+/**
+ * Internal dependencies
+ */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+const all_input_control_noop = () => {};
+function AllInputControl({
+  __next40pxDefaultSize,
+  onChange = all_input_control_noop,
+  onFocus = all_input_control_noop,
+  values,
+  sides,
+  selectedUnits,
+  setSelectedUnits,
+  ...props
+}) {
+  var _CUSTOM_VALUE_SETTING, _CUSTOM_VALUE_SETTING2;
+  const inputId = (0,external_wp_compose_namespaceObject.useInstanceId)(AllInputControl, 'box-control-input-all');
+  const allValue = getAllValue(values, selectedUnits, sides);
+  const hasValues = isValuesDefined(values);
+  const isMixed = hasValues && isValuesMixed(values, selectedUnits, sides);
+  const allPlaceholder = isMixed ? LABELS.mixed : undefined;
+  const [parsedQuantity, parsedUnit] = parseQuantityAndUnitFromRawValue(allValue);
+  const handleOnFocus = event => {
+    onFocus(event, {
+      side: 'all'
+    });
+  };
+  const onValueChange = next => {
+    const isNumeric = next !== undefined && !isNaN(parseFloat(next));
+    const nextValue = isNumeric ? next : undefined;
+    const nextValues = applyValueToSides(values, nextValue, sides);
+    onChange(nextValues);
+  };
+  const sliderOnChange = next => {
+    onValueChange(next !== undefined ? [next, parsedUnit].join('') : undefined);
+  };
+
+  // Set selected unit so it can be used as fallback by unlinked controls
+  // when individual sides do not have a value containing a unit.
+  const handleOnUnitChange = unit => {
+    const newUnits = applyValueToSides(selectedUnits, unit, sides);
+    setSelectedUnits(newUnits);
+  };
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StyledUnitControl, {
+      ...props,
+      __next40pxDefaultSize: __next40pxDefaultSize,
+      className: "component-box-control__unit-control",
+      disableUnits: isMixed,
+      id: inputId,
+      isPressEnterToChange: true,
+      value: allValue,
+      onChange: onValueChange,
+      onUnitChange: handleOnUnitChange,
+      onFocus: handleOnFocus,
+      placeholder: allPlaceholder,
+      label: LABELS.all,
+      hideLabelFromVision: true
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(FlexedRangeControl, {
+      __nextHasNoMarginBottom: true,
+      __next40pxDefaultSize: __next40pxDefaultSize,
+      "aria-controls": inputId,
+      label: LABELS.all,
+      hideLabelFromVision: true,
+      onChange: sliderOnChange,
+      min: 0,
+      max: (_CUSTOM_VALUE_SETTING = CUSTOM_VALUE_SETTINGS[parsedUnit !== null && parsedUnit !== void 0 ? parsedUnit : 'px']?.max) !== null && _CUSTOM_VALUE_SETTING !== void 0 ? _CUSTOM_VALUE_SETTING : 10,
+      step: (_CUSTOM_VALUE_SETTING2 = CUSTOM_VALUE_SETTINGS[parsedUnit !== null && parsedUnit !== void 0 ? parsedUnit : 'px']?.step) !== null && _CUSTOM_VALUE_SETTING2 !== void 0 ? _CUSTOM_VALUE_SETTING2 : 0.1,
+      value: parsedQuantity !== null && parsedQuantity !== void 0 ? parsedQuantity : 0,
+      withInputField: false
+    })]
+  });
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/input-controls.js
+/**
+ * WordPress dependencies
+ */
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -42747,6 +47469,7 @@ const FlexedRangeControl = /*#__PURE__*/emotion_styled_base_browser_esm(range_co
 
 
 
+<<<<<<< HEAD
 const box_control_input_control_noop = () => {};
 function getSidesToModify(side, sides, isAlt) {
   const allowedSides = getAllowedSides(sides);
@@ -42786,10 +47509,19 @@ function BoxInputControl({
   __next40pxDefaultSize,
   onChange = box_control_input_control_noop,
   onFocus = box_control_input_control_noop,
+=======
+
+const input_controls_noop = () => {};
+function BoxInputControls({
+  __next40pxDefaultSize,
+  onChange = input_controls_noop,
+  onFocus = input_controls_noop,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   values,
   selectedUnits,
   setSelectedUnits,
   sides,
+<<<<<<< HEAD
   side,
   min = 0,
   presets,
@@ -42799,6 +47531,12 @@ function BoxInputControl({
   var _CUSTOM_VALUE_SETTING, _CUSTOM_VALUE_SETTING2;
   const defaultValuesToModify = getSidesToModify(side, sides);
   const handleOnFocus = event => {
+=======
+  ...props
+}) {
+  const generatedId = (0,external_wp_compose_namespaceObject.useInstanceId)(BoxInputControls, 'box-control-input');
+  const createHandleOnFocus = side => event => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     onFocus(event, {
       side
     });
@@ -42806,6 +47544,7 @@ function BoxInputControl({
   const handleOnChange = nextValues => {
     onChange(nextValues);
   };
+<<<<<<< HEAD
   const handleRawOnValueChange = next => {
     const nextValues = {
       ...values
@@ -42816,12 +47555,20 @@ function BoxInputControl({
     handleOnChange(nextValues);
   };
   const handleOnValueChange = (next, extra) => {
+=======
+  const handleOnValueChange = (side, next, extra) => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const nextValues = {
       ...values
     };
     const isNumeric = next !== undefined && !isNaN(parseFloat(next));
     const nextValue = isNumeric ? next : undefined;
+<<<<<<< HEAD
     const modifiedSides = getSidesToModify(side, sides,
+=======
+    nextValues[side] = nextValue;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     /**
      * Supports changing pair sides. For example, holding the ALT key
      * when changing the TOP will also update BOTTOM.
@@ -42829,6 +47576,7 @@ function BoxInputControl({
     // @ts-expect-error - TODO: event.altKey is only present when the change event was
     // triggered by a keyboard event. Should this feature be implemented differently so
     // it also works with drag events?
+<<<<<<< HEAD
     !!extra?.event.altKey);
     modifiedSides.forEach(modifiedSide => {
       nextValues[modifiedSide] = nextValue;
@@ -42944,6 +47692,201 @@ function BoxInputControl({
 }
 
 ;// ./node_modules/@wordpress/components/build-module/box-control/linked-button.js
+=======
+    if (extra?.event.altKey) {
+      switch (side) {
+        case 'top':
+          nextValues.bottom = nextValue;
+          break;
+        case 'bottom':
+          nextValues.top = nextValue;
+          break;
+        case 'left':
+          nextValues.right = nextValue;
+          break;
+        case 'right':
+          nextValues.left = nextValue;
+          break;
+      }
+    }
+    handleOnChange(nextValues);
+  };
+  const createHandleOnUnitChange = side => next => {
+    const newUnits = {
+      ...selectedUnits
+    };
+    newUnits[side] = next;
+    setSelectedUnits(newUnits);
+  };
+
+  // Filter sides if custom configuration provided, maintaining default order.
+  const filteredSides = sides?.length ? ALL_SIDES.filter(side => sides.includes(side)) : ALL_SIDES;
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+    children: filteredSides.map(side => {
+      var _CUSTOM_VALUE_SETTING, _CUSTOM_VALUE_SETTING2;
+      const [parsedQuantity, parsedUnit] = parseQuantityAndUnitFromRawValue(values[side]);
+      const computedUnit = values[side] ? parsedUnit : selectedUnits[side];
+      const inputId = [generatedId, side].join('-');
+      return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(InputWrapper, {
+        expanded: true,
+        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(FlexedBoxControlIcon, {
+          side: side,
+          sides: sides
+        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tooltip, {
+          placement: "top-end",
+          text: LABELS[side],
+          children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StyledUnitControl, {
+            ...props,
+            __next40pxDefaultSize: __next40pxDefaultSize,
+            className: "component-box-control__unit-control",
+            id: inputId,
+            isPressEnterToChange: true,
+            value: [parsedQuantity, computedUnit].join(''),
+            onChange: (nextValue, extra) => handleOnValueChange(side, nextValue, extra),
+            onUnitChange: createHandleOnUnitChange(side),
+            onFocus: createHandleOnFocus(side),
+            label: LABELS[side],
+            hideLabelFromVision: true
+          })
+        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(FlexedRangeControl, {
+          __nextHasNoMarginBottom: true,
+          __next40pxDefaultSize: __next40pxDefaultSize,
+          "aria-controls": inputId,
+          label: LABELS[side],
+          hideLabelFromVision: true,
+          onChange: newValue => {
+            handleOnValueChange(side, newValue !== undefined ? [newValue, computedUnit].join('') : undefined);
+          },
+          min: 0,
+          max: (_CUSTOM_VALUE_SETTING = CUSTOM_VALUE_SETTINGS[computedUnit !== null && computedUnit !== void 0 ? computedUnit : 'px']?.max) !== null && _CUSTOM_VALUE_SETTING !== void 0 ? _CUSTOM_VALUE_SETTING : 10,
+          step: (_CUSTOM_VALUE_SETTING2 = CUSTOM_VALUE_SETTINGS[computedUnit !== null && computedUnit !== void 0 ? computedUnit : 'px']?.step) !== null && _CUSTOM_VALUE_SETTING2 !== void 0 ? _CUSTOM_VALUE_SETTING2 : 0.1,
+          value: parsedQuantity !== null && parsedQuantity !== void 0 ? parsedQuantity : 0,
+          withInputField: false
+        })]
+      }, `box-control-${side}`);
+    })
+  });
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/axial-input-controls.js
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+
+
+
+const groupedSides = ['vertical', 'horizontal'];
+function AxialInputControls({
+  __next40pxDefaultSize,
+  onChange,
+  onFocus,
+  values,
+  selectedUnits,
+  setSelectedUnits,
+  sides,
+  ...props
+}) {
+  const generatedId = (0,external_wp_compose_namespaceObject.useInstanceId)(AxialInputControls, `box-control-input`);
+  const createHandleOnFocus = side => event => {
+    if (!onFocus) {
+      return;
+    }
+    onFocus(event, {
+      side
+    });
+  };
+  const handleOnValueChange = (side, next) => {
+    if (!onChange) {
+      return;
+    }
+    const nextValues = {
+      ...values
+    };
+    const isNumeric = next !== undefined && !isNaN(parseFloat(next));
+    const nextValue = isNumeric ? next : undefined;
+    if (side === 'vertical') {
+      nextValues.top = nextValue;
+      nextValues.bottom = nextValue;
+    }
+    if (side === 'horizontal') {
+      nextValues.left = nextValue;
+      nextValues.right = nextValue;
+    }
+    onChange(nextValues);
+  };
+  const createHandleOnUnitChange = side => next => {
+    const newUnits = {
+      ...selectedUnits
+    };
+    if (side === 'vertical') {
+      newUnits.top = next;
+      newUnits.bottom = next;
+    }
+    if (side === 'horizontal') {
+      newUnits.left = next;
+      newUnits.right = next;
+    }
+    setSelectedUnits(newUnits);
+  };
+
+  // Filter sides if custom configuration provided, maintaining default order.
+  const filteredSides = sides?.length ? groupedSides.filter(side => sides.includes(side)) : groupedSides;
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+    children: filteredSides.map(side => {
+      var _CUSTOM_VALUE_SETTING, _CUSTOM_VALUE_SETTING2;
+      const [parsedQuantity, parsedUnit] = parseQuantityAndUnitFromRawValue(side === 'vertical' ? values.top : values.left);
+      const selectedUnit = side === 'vertical' ? selectedUnits.top : selectedUnits.left;
+      const inputId = [generatedId, side].join('-');
+      return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(InputWrapper, {
+        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(FlexedBoxControlIcon, {
+          side: side,
+          sides: sides
+        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tooltip, {
+          placement: "top-end",
+          text: LABELS[side],
+          children: /*#__PURE__*/(0,external_React_.createElement)(StyledUnitControl, {
+            ...props,
+            __next40pxDefaultSize: __next40pxDefaultSize,
+            className: "component-box-control__unit-control",
+            id: inputId,
+            isPressEnterToChange: true,
+            value: [parsedQuantity, selectedUnit !== null && selectedUnit !== void 0 ? selectedUnit : parsedUnit].join(''),
+            onChange: newValue => handleOnValueChange(side, newValue),
+            onUnitChange: createHandleOnUnitChange(side),
+            onFocus: createHandleOnFocus(side),
+            label: LABELS[side],
+            hideLabelFromVision: true,
+            key: side
+          })
+        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(FlexedRangeControl, {
+          __nextHasNoMarginBottom: true,
+          __next40pxDefaultSize: __next40pxDefaultSize,
+          "aria-controls": inputId,
+          label: LABELS[side],
+          hideLabelFromVision: true,
+          onChange: newValue => handleOnValueChange(side, newValue !== undefined ? [newValue, selectedUnit !== null && selectedUnit !== void 0 ? selectedUnit : parsedUnit].join('') : undefined),
+          min: 0,
+          max: (_CUSTOM_VALUE_SETTING = CUSTOM_VALUE_SETTINGS[selectedUnit !== null && selectedUnit !== void 0 ? selectedUnit : 'px']?.max) !== null && _CUSTOM_VALUE_SETTING !== void 0 ? _CUSTOM_VALUE_SETTING : 10,
+          step: (_CUSTOM_VALUE_SETTING2 = CUSTOM_VALUE_SETTINGS[selectedUnit !== null && selectedUnit !== void 0 ? selectedUnit : 'px']?.step) !== null && _CUSTOM_VALUE_SETTING2 !== void 0 ? _CUSTOM_VALUE_SETTING2 : 0.1,
+          value: parsedQuantity !== null && parsedQuantity !== void 0 ? parsedQuantity : 0,
+          withInputField: false
+        })]
+      }, side);
+    })
+  });
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/linked-button.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -42955,11 +47898,16 @@ function BoxInputControl({
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function LinkedButton({
   isLinked,
   ...props
 }) {
   const label = isLinked ? (0,external_wp_i18n_namespaceObject.__)('Unlink sides') : (0,external_wp_i18n_namespaceObject.__)('Link sides');
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
     ...props,
     className: "component-box-control__linked-button",
@@ -42971,6 +47919,22 @@ function LinkedButton({
 }
 
 ;// ./node_modules/@wordpress/components/build-module/box-control/index.js
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tooltip, {
+    text: label,
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+      ...props,
+      className: "component-box-control__linked-button",
+      size: "small",
+      icon: isLinked ? library_link : link_off,
+      iconSize: 24,
+      "aria-label": label
+    })
+  });
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/box-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -42978,7 +47942,10 @@ function LinkedButton({
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -42992,6 +47959,11 @@ function LinkedButton({
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const defaultInputProps = {
   min: 0
 };
@@ -43002,6 +47974,7 @@ function box_control_useUniqueId(idProp) {
 }
 
 /**
+<<<<<<< HEAD
  * A control that lets users set values for top, right, bottom, and left. Can be
  * used as an input control for values like `padding` or `margin`.
  *
@@ -43024,6 +47997,29 @@ function box_control_useUniqueId(idProp) {
  *       onChange={ setValues }
  *     />
  *   );
+=======
+ * BoxControl components let users set values for Top, Right, Bottom, and Left.
+ * This can be used as an input control for values like `padding` or `margin`.
+ *
+ * ```jsx
+ * import { __experimentalBoxControl as BoxControl } from '@wordpress/components';
+ * import { useState } from '@wordpress/element';
+ *
+ * const Example = () => {
+ * 	const [ values, setValues ] = useState( {
+ * 		top: '50px',
+ * 		left: '10%',
+ * 		right: '10%',
+ * 		bottom: '50px',
+ * 	} );
+ *
+ * 	return (
+ * 		<BoxControl
+ * 			values={ values }
+ * 			onChange={ ( nextValues ) => setValues( nextValues ) }
+ * 		/>
+ * 	);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * };
  * ```
  */
@@ -43039,8 +48035,11 @@ function BoxControl({
   splitOnAxis = false,
   allowReset = true,
   resetValues = DEFAULT_VALUES,
+<<<<<<< HEAD
   presets,
   presetKey,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   onMouseOver,
   onMouseOut
 }) {
@@ -43051,7 +48050,11 @@ function BoxControl({
   const hasInitialValue = isValuesDefined(valuesProp);
   const hasOneSide = sides?.length === 1;
   const [isDirty, setIsDirty] = (0,external_wp_element_namespaceObject.useState)(hasInitialValue);
+<<<<<<< HEAD
   const [isLinked, setIsLinked] = (0,external_wp_element_namespaceObject.useState)(!hasInitialValue || !isValueMixed(inputValues) || hasOneSide);
+=======
+  const [isLinked, setIsLinked] = (0,external_wp_element_namespaceObject.useState)(!hasInitialValue || !isValuesMixed(inputValues) || hasOneSide);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const [side, setSide] = (0,external_wp_element_namespaceObject.useState)(getInitialSide(isLinked, splitOnAxis));
 
   // Tracking selected units via internal state allows filtering of CSS unit
@@ -43086,8 +48089,11 @@ function BoxControl({
     setIsDirty(false);
   };
   const inputControlProps = {
+<<<<<<< HEAD
     onMouseOver,
     onMouseOut,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...inputProps,
     onChange: handleOnChange,
     onFocus: handleOnFocus,
@@ -43097,6 +48103,7 @@ function BoxControl({
     setSelectedUnits,
     sides,
     values: inputValues,
+<<<<<<< HEAD
     __next40pxDefaultSize,
     presets,
     presetKey
@@ -43112,6 +48119,12 @@ function BoxControl({
     const missingProp = presets ? 'presetKey' : 'presets';
      true ? external_wp_warning_default()(`wp.components.BoxControl: the '${missingProp}' prop is required when the '${definedProp}' prop is defined.`) : 0;
   }
+=======
+    onMouseOver,
+    onMouseOut,
+    __next40pxDefaultSize
+  };
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(grid_component, {
     id: id,
     columns: 3,
@@ -43121,16 +48134,27 @@ function BoxControl({
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BaseControl.VisualLabel, {
       id: headingId,
       children: label
+<<<<<<< HEAD
     }), isLinked && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(InputWrapper, {
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BoxInputControl, {
         side: "all",
         ...inputControlProps
       })
+=======
+    }), isLinked && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(InputWrapper, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(FlexedBoxControlIcon, {
+        side: side,
+        sides: sides
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(AllInputControl, {
+        ...inputControlProps
+      })]
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }), !hasOneSide && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LinkedButtonWrapper, {
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LinkedButton, {
         onClick: toggleLinked,
         isLinked: isLinked
       })
+<<<<<<< HEAD
     }), !isLinked && splitOnAxis && ['vertical', 'horizontal'].map(axis => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BoxInputControl, {
       side: axis,
       ...inputControlProps
@@ -43138,6 +48162,13 @@ function BoxControl({
       side: axis,
       ...inputControlProps
     }, axis)), allowReset && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ResetButton, {
+=======
+    }), !isLinked && splitOnAxis && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(AxialInputControls, {
+      ...inputControlProps
+    }), !isLinked && !splitOnAxis && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BoxInputControls, {
+      ...inputControlProps
+    }), allowReset && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ResetButton, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       className: "component-box-control__reset-button",
       variant: "secondary",
       size: "small",
@@ -43150,7 +48181,11 @@ function BoxControl({
 
 /* harmony default export */ const box_control = (BoxControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/button-group/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/button-group/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43160,7 +48195,10 @@ function BoxControl({
  */
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -43168,6 +48206,7 @@ function BoxControl({
 function UnforwardedButtonGroup(props, ref) {
   const {
     className,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated,
     ...restProps
   } = props;
@@ -43178,6 +48217,11 @@ function UnforwardedButtonGroup(props, ref) {
       alternative: 'wp.components.__experimentalToggleGroupControl'
     });
   }
+=======
+    ...restProps
+  } = props;
+  const classes = dist_clsx('components-button-group', className);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
     ref: ref,
     role: "group",
@@ -43190,8 +48234,11 @@ function UnforwardedButtonGroup(props, ref) {
  * ButtonGroup can be used to group any related buttons together. To emphasize
  * related buttons, a group should share a common container.
  *
+<<<<<<< HEAD
  * @deprecated Use `ToggleGroupControl` instead.
  *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * ```jsx
  * import { Button, ButtonGroup } from '@wordpress/components';
  *
@@ -43206,7 +48253,11 @@ function UnforwardedButtonGroup(props, ref) {
 const ButtonGroup = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedButtonGroup);
 /* harmony default export */ const button_group = (ButtonGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/elevation/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/elevation/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function elevation_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -43217,7 +48268,11 @@ const Elevation =  true ? {
   styles: "background:transparent;display:block;margin:0!important;pointer-events:none;position:absolute;will-change:box-shadow"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/elevation/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/elevation/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43293,7 +48348,11 @@ function useElevation(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/elevation/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/elevation/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43340,7 +48399,11 @@ function UnconnectedElevation(props, forwardedRef) {
 const component_Elevation = contextConnect(UnconnectedElevation, 'Elevation');
 /* harmony default export */ const elevation_component = (component_Elevation);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function card_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -43405,7 +48468,11 @@ const cardPaddings = {
 };
 const shady = /*#__PURE__*/emotion_react_browser_esm_css("background-color:", COLORS.ui.backgroundDisabled, ";" + ( true ? "" : 0),  true ? "" : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/surface/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/surface/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43470,7 +48537,11 @@ const getVariant = (variant, surfaceBackgroundSize, surfaceBackgroundSizeDotted)
   }
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/surface/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/surface/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -43511,7 +48582,11 @@ function useSurface(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -43577,7 +48652,11 @@ function useCard(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43599,6 +48678,10 @@ function useCard(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnconnectedCard(props, forwardedRef) {
   const {
     children,
@@ -43610,7 +48693,11 @@ function UnconnectedCard(props, forwardedRef) {
   } = useCard(props);
   const elevationBorderRadius = isRounded ? config_values.radiusLarge : 0;
   const cx = useCx();
+<<<<<<< HEAD
   const elevationClassName = (0,external_wp_element_namespaceObject.useMemo)(() => cx(/*#__PURE__*/emotion_react_browser_esm_css({
+=======
+  const elevationClassName = (0,external_wp_element_namespaceObject.useMemo)(() => cx( /*#__PURE__*/emotion_react_browser_esm_css({
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     borderRadius: elevationBorderRadius
   },  true ? "" : 0,  true ? "" : 0)), [cx, elevationBorderRadius]);
   const contextProviderValue = (0,external_wp_element_namespaceObject.useMemo)(() => {
@@ -43680,7 +48767,11 @@ function UnconnectedCard(props, forwardedRef) {
 const component_Card = contextConnect(UnconnectedCard, 'Card');
 /* harmony default export */ const card_component = (component_Card);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/scrollable/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/scrollable/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function scrollable_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -43717,7 +48808,11 @@ const scrollAuto =  true ? {
   styles: "overflow-y:auto"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/scrollable/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/scrollable/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -43745,7 +48840,11 @@ function useScrollable(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/scrollable/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/scrollable/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43784,7 +48883,11 @@ function UnconnectedScrollable(props, forwardedRef) {
 const component_Scrollable = contextConnect(UnconnectedScrollable, 'Scrollable');
 /* harmony default export */ const scrollable_component = (component_Scrollable);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-body/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-body/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -43816,7 +48919,11 @@ function useCardBody(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-body/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-body/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43864,13 +48971,21 @@ function UnconnectedCardBody(props, forwardedRef) {
 const CardBody = contextConnect(UnconnectedCardBody, 'CardBody');
 /* harmony default export */ const card_body_component = (CardBody);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/A3CZKICO.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/LOI6GHIP.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/separator/separator.tsx
+<<<<<<< HEAD
 var A3CZKICO_TagName = "hr";
+=======
+var LOI6GHIP_TagName = "hr";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useSeparator = createHook(
   function useSeparator2(_a) {
     var _b = _a, { orientation = "horizontal" } = _b, props = __objRest(_b, ["orientation"]);
@@ -43883,12 +48998,20 @@ var useSeparator = createHook(
 );
 var Separator = forwardRef2(function Separator2(props) {
   const htmlProps = useSeparator(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(A3CZKICO_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(LOI6GHIP_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/divider/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/divider/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function divider_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -43951,7 +49074,11 @@ const DividerView = /*#__PURE__*/emotion_styled_base_browser_esm("hr",  true ? {
   target: "e19on6iw0"
 } : 0)("border:0;margin:0;", renderDisplay, " ", renderBorder, " ", renderSize, " ", renderMargin, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/divider/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/divider/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -43997,7 +49124,11 @@ function UnconnectedDivider(props, forwardedRef) {
 const component_Divider = contextConnect(UnconnectedDivider, 'Divider');
 /* harmony default export */ const divider_component = (component_Divider);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-divider/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-divider/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -44025,7 +49156,11 @@ function useCardDivider(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-divider/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-divider/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44063,7 +49198,11 @@ function UnconnectedCardDivider(props, forwardedRef) {
 const CardDivider = contextConnect(UnconnectedCardDivider, 'CardDivider');
 /* harmony default export */ const card_divider_component = (CardDivider);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-footer/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-footer/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -44096,7 +49235,11 @@ function useCardFooter(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-footer/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-footer/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44132,7 +49275,11 @@ function UnconnectedCardFooter(props, forwardedRef) {
 const CardFooter = contextConnect(UnconnectedCardFooter, 'CardFooter');
 /* harmony default export */ const card_footer_component = (CardFooter);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-header/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-header/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -44163,7 +49310,11 @@ function useCardHeader(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-header/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-header/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44199,7 +49350,11 @@ function UnconnectedCardHeader(props, forwardedRef) {
 const CardHeader = contextConnect(UnconnectedCardHeader, 'CardHeader');
 /* harmony default export */ const card_header_component = (CardHeader);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-media/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-media/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -44227,7 +49382,11 @@ function useCardMedia(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/card/card-media/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/card-media/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44269,7 +49428,11 @@ function UnconnectedCardMedia(props, forwardedRef) {
 const CardMedia = contextConnect(UnconnectedCardMedia, 'CardMedia');
 /* harmony default export */ const card_media_component = (CardMedia);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/checkbox-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/checkbox-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44288,6 +49451,10 @@ const CardMedia = contextConnect(UnconnectedCardMedia, 'CardMedia');
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Checkboxes allow the user to select one or more items from a set.
  *
@@ -44390,7 +49557,11 @@ function CheckboxControl(props) {
 }
 /* harmony default export */ const checkbox_control = (CheckboxControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/clipboard-button/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/clipboard-button/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44432,11 +49603,17 @@ function ClipboardButton({
     }
   });
   (0,external_wp_element_namespaceObject.useEffect)(() => {
+<<<<<<< HEAD
     return () => {
       if (timeoutIdRef.current) {
         clearTimeout(timeoutIdRef.current);
       }
     };
+=======
+    if (timeoutIdRef.current) {
+      clearTimeout(timeoutIdRef.current);
+    }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, []);
   const classes = dist_clsx('components-clipboard-button', className);
 
@@ -44458,7 +49635,11 @@ function ClipboardButton({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/more-vertical.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/more-vertical.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -44473,7 +49654,11 @@ const moreVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const more_vertical = (moreVertical);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/item-group/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/item-group/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function item_group_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -44518,6 +49703,7 @@ const itemSizes = {
   large: /*#__PURE__*/emotion_react_browser_esm_css("padding:", paddingYLarge, " ", config_values.controlPaddingXLarge, "px;" + ( true ? "" : 0),  true ? "" : 0)
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/item-group/context.js
 /**
  * WordPress dependencies
@@ -44629,6 +49815,9 @@ const component_Item = contextConnect(UnconnectedItem, 'Item');
 /* harmony default export */ const item_component = (component_Item);
 
 ;// ./node_modules/@wordpress/components/build-module/item-group/item-group/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/item-group/item-group/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -44660,7 +49849,26 @@ function useItemGroup(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/item-group/item-group/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/item-group/context.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+const ItemGroupContext = (0,external_wp_element_namespaceObject.createContext)({
+  size: 'medium'
+});
+const useItemGroupContext = () => (0,external_wp_element_namespaceObject.useContext)(ItemGroupContext);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/item-group/item-group/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44722,7 +49930,11 @@ function UnconnectedItemGroup(props, forwardedRef) {
 const ItemGroup = contextConnect(UnconnectedItemGroup, 'ItemGroup');
 /* harmony default export */ const item_group_component = (ItemGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/constants.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const GRADIENT_MARKERS_WIDTH = 16;
 const INSERT_POINT_WIDTH = 16;
 const MINIMUM_DISTANCE_BETWEEN_INSERTER_AND_POINT = 10;
@@ -44731,7 +49943,11 @@ const MINIMUM_SIGNIFICANT_MOVE = 5;
 const KEYBOARD_CONTROL_POINT_VARIATION = MINIMUM_DISTANCE_BETWEEN_INSERTER_AND_POINT;
 const MINIMUM_DISTANCE_BETWEEN_INSERTER_AND_MARKER = (INSERT_POINT_WIDTH + GRADIENT_MARKERS_WIDTH) / 2;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -44888,7 +50104,11 @@ function getHorizontalRelativeGradientPosition(mouseXCoordinate, containerElemen
   return Math.round(clampPercent(absolutePositionValue * 100 / width));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/control-points.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/control-points.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -44915,6 +50135,11 @@ function getHorizontalRelativeGradientPosition(mouseXCoordinate, containerElemen
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function ControlPointButton({
   isOpen,
   position,
@@ -44931,7 +50156,10 @@ function ControlPointButton({
       "aria-describedby": descriptionId,
       "aria-haspopup": "true",
       "aria-expanded": isOpen,
+<<<<<<< HEAD
       __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       className: dist_clsx('components-custom-gradient-picker__control-point-button', {
         'is-active': isOpen
       }),
@@ -45112,7 +50340,10 @@ function InsertPoint({
       isOpen,
       onToggle
     }) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
       __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       "aria-expanded": isOpen,
       "aria-haspopup": "true",
       onClick: () => {
@@ -45150,7 +50381,11 @@ function InsertPoint({
 ControlPoints.InsertPoint = InsertPoint;
 /* harmony default export */ const control_points = (ControlPoints);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/gradient-bar/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -45168,6 +50403,10 @@ ControlPoints.InsertPoint = InsertPoint;
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const customGradientBarReducer = (state, action) => {
   switch (action.type) {
     case 'MOVE_INSERTER':
@@ -45319,7 +50558,11 @@ function CustomGradientBar({
 
 // EXTERNAL MODULE: ./node_modules/gradient-parser/build/node.js
 var build_node = __webpack_require__(8924);
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/constants.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -45352,7 +50595,11 @@ const DIRECTIONAL_ORIENTATION_ANGLE_MAP = {
   'left top': 315
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/serializer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/serializer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -45410,7 +50657,11 @@ function serializeGradient({
   return `${type}(${[serializedOrientation, ...serializedColorStops].filter(Boolean).join(',')})`;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -45511,7 +50762,11 @@ function getStopCssColor(colorStop) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/styles/custom-gradient-picker-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/styles/custom-gradient-picker-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function custom_gradient_picker_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -45535,7 +50790,11 @@ const AccessoryWrapper = /*#__PURE__*/emotion_styled_base_browser_esm(flex_block
   styles: "flex-grow:5"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-gradient-picker/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-gradient-picker/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -45558,6 +50817,10 @@ const AccessoryWrapper = /*#__PURE__*/emotion_styled_base_browser_esm(flex_block
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const GradientAnglePicker = ({
   gradientAST,
   hasGradient,
@@ -45648,7 +50911,10 @@ const GradientTypePicker = ({
 function CustomGradientPicker({
   value,
   onChange,
+<<<<<<< HEAD
   enableAlpha = true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   __experimentalIsRenderedInSidebar = false
 }) {
   const {
@@ -45677,7 +50943,10 @@ function CustomGradientPicker({
     className: "components-custom-gradient-picker",
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CustomGradientBar, {
       __experimentalIsRenderedInSidebar: __experimentalIsRenderedInSidebar,
+<<<<<<< HEAD
       disableAlpha: !enableAlpha,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       background: background,
       hasGradient: hasGradient,
       value: controlPoints,
@@ -45705,7 +50974,11 @@ function CustomGradientPicker({
 }
 /* harmony default export */ const custom_gradient_picker = (CustomGradientPicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/gradient-picker/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/gradient-picker/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -45721,6 +50994,10 @@ function CustomGradientPicker({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // The Multiple Origin Gradients have a `gradients` property (an array of
 // gradient objects), while Single Origin ones have a `gradient` property.
 const isMultipleOriginObject = obj => Array.isArray(obj.gradients) && !('gradient' in obj);
@@ -45814,6 +51091,7 @@ function Component(props) {
   }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SingleOrigin, {
     ...additionalProps
   });
+<<<<<<< HEAD
   const {
     metaProps,
     labelProps
@@ -45821,17 +51099,53 @@ function Component(props) {
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker, {
     ...metaProps,
     ...labelProps,
+=======
+  let metaProps;
+  if (asButtons) {
+    metaProps = {
+      asButtons: true
+    };
+  } else {
+    const _metaProps = {
+      asButtons: false,
+      loop
+    };
+    if (ariaLabel) {
+      metaProps = {
+        ..._metaProps,
+        'aria-label': ariaLabel
+      };
+    } else if (ariaLabelledby) {
+      metaProps = {
+        ..._metaProps,
+        'aria-labelledby': ariaLabelledby
+      };
+    } else {
+      metaProps = {
+        ..._metaProps,
+        'aria-label': (0,external_wp_i18n_namespaceObject.__)('Custom color picker.')
+      };
+    }
+  }
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker, {
+    ...metaProps,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     actions: actions,
     options: options
   });
 }
 
 /**
+<<<<<<< HEAD
  * GradientPicker is a React component that renders a color gradient picker to
+=======
+ *  GradientPicker is a React component that renders a color gradient picker to
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * define a multi step gradient. There's either a _linear_ or a _radial_ type
  * available.
  *
  * ```jsx
+<<<<<<< HEAD
  * import { useState } from 'react';
  * import { GradientPicker } from '@wordpress/components';
  *
@@ -45865,6 +51179,41 @@ function Component(props) {
  *     />
  *   );
  * };
+=======
+ *import { GradientPicker } from '@wordpress/components';
+ *import { useState } from '@wordpress/element';
+ *
+ *const myGradientPicker = () => {
+ *	const [ gradient, setGradient ] = useState( null );
+ *
+ *	return (
+ *		<GradientPicker
+ *			value={ gradient }
+ *			onChange={ ( currentGradient ) => setGradient( currentGradient ) }
+ *			gradients={ [
+ *				{
+ *					name: 'JShine',
+ *					gradient:
+ *						'linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)',
+ *					slug: 'jshine',
+ *				},
+ *				{
+ *					name: 'Moonlit Asteroid',
+ *					gradient:
+ *						'linear-gradient(135deg,#0F2027 0%, #203A43 0%, #2c5364 100%)',
+ *					slug: 'moonlit-asteroid',
+ *				},
+ *				{
+ *					name: 'Rastafarie',
+ *					gradient:
+ *						'linear-gradient(135deg,#1E9600 0%, #FFF200 0%, #FF0000 100%)',
+ *					slug: 'rastafari',
+ *				},
+ *			] }
+ *		/>
+ *	);
+ *};
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *```
  *
  */
@@ -45874,7 +51223,10 @@ function GradientPicker({
   onChange,
   value,
   clearable = true,
+<<<<<<< HEAD
   enableAlpha = true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   disableCustomGradients = false,
   __experimentalIsRenderedInSidebar,
   headingLevel = 2,
@@ -45885,7 +51237,10 @@ function GradientPicker({
     spacing: gradients.length ? 4 : 0,
     children: [!disableCustomGradients && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(custom_gradient_picker, {
       __experimentalIsRenderedInSidebar: __experimentalIsRenderedInSidebar,
+<<<<<<< HEAD
       enableAlpha: enableAlpha,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       value: value,
       onChange: onChange
     }), (gradients.length > 0 || clearable) && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Component, {
@@ -45897,8 +51252,11 @@ function GradientPicker({
       value: value,
       actions: clearable && !disableCustomGradients && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker.ButtonAction, {
         onClick: clearGradient,
+<<<<<<< HEAD
         accessibleWhenDisabled: true,
         disabled: !value,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         children: (0,external_wp_i18n_namespaceObject.__)('Clear')
       }),
       headingLevel: headingLevel
@@ -45907,7 +51265,11 @@ function GradientPicker({
 }
 /* harmony default export */ const gradient_picker = (GradientPicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/menu.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/menu.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -45922,9 +51284,15 @@ const menu = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 });
 /* harmony default export */ const library_menu = (menu);
 
+<<<<<<< HEAD
 ;// external ["wp","dom"]
 const external_wp_dom_namespaceObject = window["wp"]["dom"];
 ;// ./node_modules/@wordpress/components/build-module/navigable-container/container.js
+=======
+;// CONCATENATED MODULE: external ["wp","dom"]
+const external_wp_dom_namespaceObject = window["wp"]["dom"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigable-container/container.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -46094,7 +51462,11 @@ const forwardedNavigableContainer = (props, ref) => {
 forwardedNavigableContainer.displayName = 'NavigableContainer';
 /* harmony default export */ const container = ((0,external_wp_element_namespaceObject.forwardRef)(forwardedNavigableContainer));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigable-container/menu.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigable-container/menu.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -46179,7 +51551,11 @@ function UnforwardedNavigableMenu({
 const NavigableMenu = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedNavigableMenu);
 /* harmony default export */ const navigable_container_menu = (NavigableMenu);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/dropdown-menu/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -46198,6 +51574,10 @@ const NavigableMenu = (0,external_wp_element_namespaceObject.forwardRef)(Unforwa
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function dropdown_menu_mergeProps(defaultProps = {}, props = {}) {
   const mergedProps = {
     ...defaultProps,
@@ -46310,7 +51690,10 @@ function UnconnectedDropdownMenu(dropdownMenuProps) {
         ...mergedMenuProps,
         role: "menu",
         children: [dropdown_menu_isFunction(children) ? children(props) : null, controlSets?.flatMap((controlSet, indexOfSet) => controlSet.map((control, indexOfControl) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
           __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           onClick: event => {
             event.stopPropagation();
             props.onClose();
@@ -46422,13 +51805,22 @@ function UnconnectedDropdownMenu(dropdownMenuProps) {
 const DropdownMenu = contextConnectWithoutRef(UnconnectedDropdownMenu, 'DropdownMenu');
 /* harmony default export */ const dropdown_menu = (DropdownMenu);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/palette-edit/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/palette-edit/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function palette_edit_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -46441,11 +51833,30 @@ function palette_edit_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have
 
 
 const IndicatorStyled = /*#__PURE__*/emotion_styled_base_browser_esm(color_indicator,  true ? {
+<<<<<<< HEAD
   target: "e1lpqc908"
 } : 0)("&&{flex-shrink:0;width:", space(6), ";height:", space(6), ";}" + ( true ? "" : 0));
 const NameInputControl = /*#__PURE__*/emotion_styled_base_browser_esm(input_control,  true ? {
   target: "e1lpqc907"
 } : 0)(Container, "{background:", COLORS.gray[100], ";border-radius:", config_values.radiusXSmall, ";", Input, Input, Input, Input, "{height:", space(8), ";}", BackdropUI, BackdropUI, BackdropUI, "{border-color:transparent;box-shadow:none;}}" + ( true ? "" : 0));
+=======
+  target: "e1lpqc909"
+} : 0)("&&{flex-shrink:0;width:", space(6), ";height:", space(6), ";}" + ( true ? "" : 0));
+const NameInputControl = /*#__PURE__*/emotion_styled_base_browser_esm(input_control,  true ? {
+  target: "e1lpqc908"
+} : 0)(Container, "{background:", COLORS.gray[100], ";border-radius:", config_values.radiusXSmall, ";", Input, Input, Input, Input, "{height:", space(8), ";}", BackdropUI, BackdropUI, BackdropUI, "{border-color:transparent;box-shadow:none;}}" + ( true ? "" : 0));
+const buttonStyleReset = ({
+  as
+}) => {
+  if (as === 'button') {
+    return /*#__PURE__*/emotion_react_browser_esm_css("display:flex;align-items:center;width:100%;appearance:none;background:transparent;border:none;border-radius:0;padding:0;cursor:pointer;&:hover{color:", COLORS.theme.accent, ";}" + ( true ? "" : 0),  true ? "" : 0);
+  }
+  return null;
+};
+const PaletteItem = /*#__PURE__*/emotion_styled_base_browser_esm(component,  true ? {
+  target: "e1lpqc907"
+} : 0)(buttonStyleReset, " padding-block:3px;padding-inline-start:", space(3), ";border:1px solid ", config_values.surfaceBorderColor, ";border-bottom-color:transparent;font-size:", font('default.fontSize'), ";&:focus-visible{border-color:transparent;box-shadow:0 0 0 var( --wp-admin-border-width-focus ) ", COLORS.theme.accent, ";outline:2px solid transparent;outline-offset:0;}border-top-left-radius:", config_values.radiusSmall, ";border-top-right-radius:", config_values.radiusSmall, ";&+&{border-top-left-radius:0;border-top-right-radius:0;}&:last-child{border-bottom-left-radius:", config_values.radiusSmall, ";border-bottom-right-radius:", config_values.radiusSmall, ";border-bottom-color:", config_values.surfaceBorderColor, ";}&.is-selected+&{border-top-color:transparent;}&.is-selected{border-color:", COLORS.theme.accent, ";}" + ( true ? "" : 0));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const NameContainer = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
   target: "e1lpqc906"
 } : 0)("line-height:", space(8), ";margin-left:", space(2), ";margin-right:", space(2), ";white-space:nowrap;overflow:hidden;" + ( true ? "" : 0));
@@ -46471,7 +51882,11 @@ const RemoveButton = /*#__PURE__*/emotion_styled_base_browser_esm(build_module_b
   target: "e1lpqc900"
 } : 0)("&&{margin-top:", space(1), ";}" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/palette-edit/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/palette-edit/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -46504,6 +51919,11 @@ const RemoveButton = /*#__PURE__*/emotion_styled_base_browser_esm(build_module_b
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const DEFAULT_COLOR = '#000';
 function NameInput({
   value,
@@ -46511,7 +51931,10 @@ function NameInput({
   label
 }) {
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(NameInputControl, {
+<<<<<<< HEAD
     size: "compact",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     label: label,
     hideLabelFromVision: true,
     value: value,
@@ -46567,7 +51990,11 @@ function getNameAndSlugForPosition(elements, slugPrefix) {
     return previousValue;
   }, 1);
   return {
+<<<<<<< HEAD
     name: (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %s: is an id for a custom color */
+=======
+    name: (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: is an id for a custom color */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     (0,external_wp_i18n_namespaceObject.__)('Color %s'), position),
     slug: `${slugPrefix}color-${position}`
   };
@@ -46637,6 +52064,7 @@ function palette_edit_Option({
     // Use the custom palette color item as the popover anchor.
     anchor: popoverAnchor
   }), [popoverAnchor, receivedPopoverProps]);
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(item_component, {
     ref: setPopoverAnchor,
     size: "small",
@@ -46644,6 +52072,14 @@ function palette_edit_Option({
       justify: "flex-start",
       children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
         size: "small",
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(PaletteItem, {
+    ref: setPopoverAnchor,
+    as: "div",
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(h_stack_component, {
+      justify: "flex-start",
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         onClick: () => {
           setIsEditingColor(true);
         },
@@ -46707,8 +52143,11 @@ function PaletteEditListView({
     spacing: 3,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(item_group_component, {
       isRounded: true,
+<<<<<<< HEAD
       isBordered: true,
       isSeparated: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       children: elements.map((element, index) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(palette_edit_Option, {
         isGradient: isGradient,
         canOnlyChangeValues: canOnlyChangeValues,
@@ -46842,7 +52281,10 @@ function PaletteEdit({
             children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(navigable_container_menu, {
               role: "menu",
               children: [!isEditing && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
                 __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 variant: "tertiary",
                 onClick: () => {
                   setIsEditing(true);
@@ -46851,7 +52293,10 @@ function PaletteEdit({
                 className: "components-palette-edit__menu-button",
                 children: (0,external_wp_i18n_namespaceObject.__)('Show details')
               }), !canOnlyChangeValues && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
                 __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 variant: "tertiary",
                 onClick: () => {
                   setEditingElement(null);
@@ -46862,8 +52307,11 @@ function PaletteEdit({
                 className: "components-palette-edit__menu-button",
                 children: isGradient ? (0,external_wp_i18n_namespaceObject.__)('Remove all gradients') : (0,external_wp_i18n_namespaceObject.__)('Remove all colors')
               }), canReset && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
                 __next40pxDefaultSize: true,
                 className: "components-palette-edit__menu-button",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 variant: "tertiary",
                 onClick: () => {
                   setEditingElement(null);
@@ -46920,6 +52368,7 @@ function PaletteEdit({
 }
 /* harmony default export */ const palette_edit = (PaletteEdit);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/close-small.js
 /**
  * WordPress dependencies
@@ -46936,6 +52385,9 @@ const closeSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 /* harmony default export */ const close_small = (closeSmall);
 
 ;// ./node_modules/@wordpress/components/build-module/combobox-control/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/combobox-control/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -46955,7 +52407,11 @@ const InputWrapperFlex = /*#__PURE__*/emotion_styled_base_browser_esm(flex_compo
   target: "evuatpg0"
 } : 0)("height:38px;padding-left:", space(2), ";padding-right:", space(2), ";", deprecatedDefaultSize, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/form-token-field/token-input.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/form-token-field/token-input.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -47026,7 +52482,11 @@ function UnForwardedTokenInput(props, ref) {
 const TokenInput = (0,external_wp_element_namespaceObject.forwardRef)(UnForwardedTokenInput);
 /* harmony default export */ const token_input = (TokenInput);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/form-token-field/suggestions-list.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/form-token-field/suggestions-list.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -47036,11 +52496,18 @@ const TokenInput = (0,external_wp_element_namespaceObject.forwardRef)(UnForwarde
  */
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const handleMouseDown = e => {
   // By preventing default here, we will not lose focus of <input> when clicking a suggestion.
   e.preventDefault();
@@ -47096,12 +52563,20 @@ function SuggestionsList({
       suggestionAfterMatch: transformedSuggestion.substring(indexOfMatch + matchText.length)
     };
   };
+<<<<<<< HEAD
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("ul", {
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("ul", {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ref: listRef,
     className: "components-form-token-field__suggestions-list",
     id: `components-form-token-suggestions-${instanceId}`,
     role: "listbox",
+<<<<<<< HEAD
     children: [suggestions.map((suggestion, index) => {
+=======
+    children: suggestions.map((suggestion, index) => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       const matchText = computeSuggestionMatch(suggestion);
       const isSelected = index === selectedIndex;
       const isDisabled = typeof suggestion === 'object' && suggestion?.disabled;
@@ -47139,15 +52614,23 @@ function SuggestionsList({
         children: output
       }, key);
       /* eslint-enable jsx-a11y/click-events-have-key-events */
+<<<<<<< HEAD
     }), suggestions.length === 0 && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("li", {
       className: "components-form-token-field__suggestion is-empty",
       children: (0,external_wp_i18n_namespaceObject.__)('No items found')
     })]
+=======
+    })
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
 }
 /* harmony default export */ const suggestions_list = (SuggestionsList);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/higher-order/with-focus-outside/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-focus-outside/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -47166,6 +52649,7 @@ function SuggestionsList({
   });
 }, 'withFocusOutside'));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/spinner/styles.js
 
 function spinner_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
@@ -47255,6 +52739,9 @@ const Spinner = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedSp
 /* harmony default export */ const spinner = (Spinner);
 
 ;// ./node_modules/@wordpress/components/build-module/combobox-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/combobox-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -47285,7 +52772,10 @@ const Spinner = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedSp
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const combobox_control_noop = () => {};
 const DetectOutside = with_focus_outside(class extends external_wp_element_namespaceObject.Component {
   handleFocusOutside(event) {
@@ -47327,7 +52817,10 @@ const getIndexOfMatchingSuggestion = (selectedSuggestion, matchingSuggestions) =
  * 	const [ filteredOptions, setFilteredOptions ] = useState( options );
  * 	return (
  * 		<ComboboxControl
+<<<<<<< HEAD
  * 			__next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * 			__nextHasNoMarginBottom
  * 			label="Font Size"
  * 			value={ fontSize }
@@ -47361,7 +52854,10 @@ function ComboboxControl(props) {
     help,
     allowReset = true,
     className,
+<<<<<<< HEAD
     isLoading = false,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     messages = {
       selected: (0,external_wp_i18n_namespaceObject.__)('Item selected.')
     },
@@ -47502,16 +52998,23 @@ function ComboboxControl(props) {
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     const hasMatchingSuggestions = matchingSuggestions.length > 0;
     if (isExpanded) {
+<<<<<<< HEAD
       const message = hasMatchingSuggestions ? (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %d: number of results. */
+=======
+      const message = hasMatchingSuggestions ? (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %d: number of results. */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       (0,external_wp_i18n_namespaceObject._n)('%d result found, use up and down arrow keys to navigate.', '%d results found, use up and down arrow keys to navigate.', matchingSuggestions.length), matchingSuggestions.length) : (0,external_wp_i18n_namespaceObject.__)('No results.');
       (0,external_wp_a11y_namespaceObject.speak)(message, 'polite');
     }
   }, [matchingSuggestions, isExpanded]);
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'ComboboxControl',
     __next40pxDefaultSize,
     size: undefined
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
   // Disable reason: There is no appropriate role which describes the
   // input container intended accessible usability.
@@ -47547,6 +53050,7 @@ function ComboboxControl(props) {
               selectedSuggestionIndex: getIndexOfMatchingSuggestion(selectedSuggestion, matchingSuggestions),
               onChange: onInputChange
             })
+<<<<<<< HEAD
           }), isLoading && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(spinner, {}), allowReset && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
             size: "small",
             icon: close_small
@@ -47559,6 +53063,22 @@ function ComboboxControl(props) {
             label: (0,external_wp_i18n_namespaceObject.__)('Reset')
           })]
         }), isExpanded && !isLoading && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(suggestions_list, {
+=======
+          }), allowReset && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(flex_item_component, {
+            children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+              className: "components-combobox-control__reset",
+              icon: close_small
+              // Disable reason: Focus returns to input field when reset is clicked.
+              // eslint-disable-next-line no-restricted-syntax
+              ,
+              disabled: !value,
+              onClick: handleOnReset,
+              onKeyDown: handleResetStopPropagation,
+              label: (0,external_wp_i18n_namespaceObject.__)('Reset')
+            })
+          })]
+        }), isExpanded && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(suggestions_list, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           instanceId: instanceId
           // The empty string for `value` here is not actually used, but is
           // just a quick way to satisfy the TypeScript requirements of SuggestionsList.
@@ -47583,7 +53103,11 @@ function ComboboxControl(props) {
 }
 /* harmony default export */ const combobox_control = (ComboboxControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/composite/legacy/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/composite/legacy/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Composite is a component that may contain navigable items represented by
  * CompositeItem. It's inspired by the WAI-ARIA Composite Role and implements
@@ -47659,11 +53183,16 @@ function proxyComposite(ProxiedComponent, propMap = {}) {
       store,
       ...rest
     } = mapLegacyStatePropsToComponentProps(legacyProps);
+<<<<<<< HEAD
     let props = rest;
     props = {
       ...props,
       id: (0,external_wp_compose_namespaceObject.useInstanceId)(store, props.baseId, props.id)
     };
+=======
+    const props = rest;
+    props.id = (0,external_wp_compose_namespaceObject.useInstanceId)(store, props.baseId, props.id);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     Object.entries(propMap).forEach(([from, to]) => {
       if (props.hasOwnProperty(from)) {
         Object.assign(props, {
@@ -47762,7 +53291,12 @@ function useCompositeState(legacyStateOptions = {}) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/modal/aria-helper.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/modal/aria-helper.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const LIVE_REGION_ARIA_ROLES = new Set(['alert', 'status', 'log', 'marquee', 'timer']);
 const hiddenElementsByDepth = [];
 
@@ -47802,7 +53336,11 @@ function modalize(modalElement) {
  */
 function elementShouldBeHidden(element) {
   const role = element.getAttribute('role');
+<<<<<<< HEAD
   return !(element.tagName === 'SCRIPT' || element.hasAttribute('hidden') || element.hasAttribute('aria-hidden') || element.hasAttribute('aria-live') || role && LIVE_REGION_ARIA_ROLES.has(role));
+=======
+  return !(element.tagName === 'SCRIPT' || element.hasAttribute('aria-hidden') || element.hasAttribute('aria-live') || role && LIVE_REGION_ARIA_ROLES.has(role));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -47818,7 +53356,11 @@ function unmodalize() {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/modal/use-modal-exit-animation.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/modal/use-modal-exit-animation.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -47887,7 +53429,12 @@ function useModalExitAnimation() {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/modal/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/modal/index.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -47914,6 +53461,11 @@ function useModalExitAnimation() {
 
 // Used to track and dismiss the prior modal when another opens unless nested.
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const ModalContext = (0,external_wp_element_namespaceObject.createContext)(new Set());
 
 // Used to track body class names applied while modals are open.
@@ -48151,9 +53703,15 @@ function UnforwardedModal(props, forwardedRef) {
             }), headerActions, isDismissible && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
               children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(spacer_component, {
                 marginBottom: 0,
+<<<<<<< HEAD
                 marginLeft: 2
               }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
                 size: "compact",
+=======
+                marginLeft: 3
+              }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+                size: "small",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 onClick: event => closeModal().then(() => onRequestClose(event)),
                 icon: library_close,
                 label: closeButtonLabel || (0,external_wp_i18n_namespaceObject.__)('Close')
@@ -48167,7 +53725,11 @@ function UnforwardedModal(props, forwardedRef) {
       })
     })
   });
+<<<<<<< HEAD
   return (0,external_wp_element_namespaceObject.createPortal)(/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ModalContext.Provider, {
+=======
+  return (0,external_wp_element_namespaceObject.createPortal)( /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ModalContext.Provider, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     value: nestedDismissers,
     children: modal
   }), document.body);
@@ -48207,7 +53769,11 @@ function UnforwardedModal(props, forwardedRef) {
 const Modal = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedModal);
 /* harmony default export */ const modal = (Modal);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/confirm-dialog/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/confirm-dialog/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function confirm_dialog_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -48227,7 +53793,11 @@ const styles_wrapper =  true ? {
   styles: "&&{z-index:1000001;}"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/confirm-dialog/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/confirm-dialog/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -48246,6 +53816,11 @@ const styles_wrapper =  true ? {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const UnconnectedConfirmDialog = (props, forwardedRef) => {
   const {
     isOpen: isOpenProp,
@@ -48393,7 +53968,11 @@ const UnconnectedConfirmDialog = (props, forwardedRef) => {
 const ConfirmDialog = contextConnect(UnconnectedConfirmDialog, 'ConfirmDialog');
 /* harmony default export */ const confirm_dialog_component = (ConfirmDialog);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/VEVQD5MH.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/DWZ7E5TJ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48404,6 +53983,7 @@ const ConfirmDialog = contextConnect(UnconnectedConfirmDialog, 'ConfirmDialog');
 var ComboboxListRoleContext = (0,external_React_.createContext)(
   void 0
 );
+<<<<<<< HEAD
 var VEVQD5MH_ctx = createStoreContext(
   [PopoverContextProvider, CompositeContextProvider],
   [PopoverScopedContextProvider, CompositeScopedContextProvider]
@@ -48413,6 +53993,17 @@ var useComboboxScopedContext = VEVQD5MH_ctx.useScopedContext;
 var useComboboxProviderContext = VEVQD5MH_ctx.useProviderContext;
 var ComboboxContextProvider = VEVQD5MH_ctx.ContextProvider;
 var ComboboxScopedContextProvider = VEVQD5MH_ctx.ScopedContextProvider;
+=======
+var DWZ7E5TJ_ctx = createStoreContext(
+  [PopoverContextProvider, CompositeContextProvider],
+  [PopoverScopedContextProvider, CompositeScopedContextProvider]
+);
+var useComboboxContext = DWZ7E5TJ_ctx.useContext;
+var useComboboxScopedContext = DWZ7E5TJ_ctx.useScopedContext;
+var useComboboxProviderContext = DWZ7E5TJ_ctx.useProviderContext;
+var ComboboxContextProvider = DWZ7E5TJ_ctx.ContextProvider;
+var ComboboxScopedContextProvider = DWZ7E5TJ_ctx.ScopedContextProvider;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var ComboboxItemValueContext = (0,external_React_.createContext)(
   void 0
 );
@@ -48420,7 +54011,11 @@ var ComboboxItemCheckedContext = (0,external_React_.createContext)(false);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/select/select-store.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/select/select-store.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48563,7 +54158,11 @@ function createSelectStore(_a = {}) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/S5WQ44SQ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/X5LAA6JI.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48574,6 +54173,7 @@ function createSelectStore(_a = {}) {
 
 // src/select/select-store.ts
 
+<<<<<<< HEAD
 function useSelectStoreOptions(props) {
   const combobox = useComboboxProviderContext();
   props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, props), {
@@ -48581,6 +54181,8 @@ function useSelectStoreOptions(props) {
   });
   return useCompositeStoreOptions(props);
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useSelectStoreProps(store, update, props) {
   useUpdateEffect(update, [props.combobox]);
   useStoreProps(store, props, "value", "setValue");
@@ -48595,14 +54197,26 @@ function useSelectStoreProps(store, update, props) {
   );
 }
 function useSelectStore(props = {}) {
+<<<<<<< HEAD
   props = useSelectStoreOptions(props);
   const [store, update] = YV4JVR4I_useStore(createSelectStore, props);
+=======
+  const combobox = useComboboxProviderContext();
+  props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, props), {
+    combobox: props.combobox !== void 0 ? props.combobox : combobox
+  });
+  const [store, update] = _2GXGCHW6_useStore(createSelectStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useSelectStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/KPEX55MY.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/KZ2S4ZC5.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48610,6 +54224,7 @@ function useSelectStore(props = {}) {
 
 // src/select/select-context.tsx
 
+<<<<<<< HEAD
 var KPEX55MY_ctx = createStoreContext(
   [PopoverContextProvider, CompositeContextProvider],
   [PopoverScopedContextProvider, CompositeScopedContextProvider]
@@ -48619,12 +54234,27 @@ var useSelectScopedContext = KPEX55MY_ctx.useScopedContext;
 var useSelectProviderContext = KPEX55MY_ctx.useProviderContext;
 var SelectContextProvider = KPEX55MY_ctx.ContextProvider;
 var SelectScopedContextProvider = KPEX55MY_ctx.ScopedContextProvider;
+=======
+var KZ2S4ZC5_ctx = createStoreContext(
+  [PopoverContextProvider, CompositeContextProvider],
+  [PopoverScopedContextProvider, CompositeScopedContextProvider]
+);
+var useSelectContext = KZ2S4ZC5_ctx.useContext;
+var useSelectScopedContext = KZ2S4ZC5_ctx.useScopedContext;
+var useSelectProviderContext = KZ2S4ZC5_ctx.useProviderContext;
+var SelectContextProvider = KZ2S4ZC5_ctx.ContextProvider;
+var SelectScopedContextProvider = KZ2S4ZC5_ctx.ScopedContextProvider;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var SelectItemCheckedContext = (0,external_React_.createContext)(false);
 var SelectHeadingContext = (0,external_React_.createContext)(null);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/select/select-label.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/select/select-label.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48674,12 +54304,20 @@ var useSelectLabel = createHook(
 var SelectLabel = memo2(
   forwardRef2(function SelectLabel2(props) {
     const htmlProps = useSelectLabel(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(select_label_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(select_label_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   })
 );
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/X5NMLKT6.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/HVQRJDA5.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48689,11 +54327,19 @@ var SelectLabel = memo2(
 // src/button/button.tsx
 
 
+<<<<<<< HEAD
 var X5NMLKT6_TagName = "button";
 var useButton = createHook(
   function useButton2(props) {
     const ref = (0,external_React_.useRef)(null);
     const tagName = useTagName(ref, X5NMLKT6_TagName);
+=======
+var HVQRJDA5_TagName = "button";
+var useButton = createHook(
+  function useButton2(props) {
+    const ref = (0,external_React_.useRef)(null);
+    const tagName = useTagName(ref, HVQRJDA5_TagName);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const [isNativeButton, setIsNativeButton] = (0,external_React_.useState)(
       () => !!tagName && isButton({ tagName, type: props.type })
     );
@@ -48710,14 +54356,24 @@ var useButton = createHook(
     return props;
   }
 );
+<<<<<<< HEAD
 var X5NMLKT6_Button = forwardRef2(function Button2(props) {
   const htmlProps = useButton(props);
   return LMDWO4NN_createElement(X5NMLKT6_TagName, htmlProps);
+=======
+var HVQRJDA5_Button = forwardRef2(function Button2(props) {
+  const htmlProps = useButton(props);
+  return HKOOKEDE_createElement(HVQRJDA5_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/P4IRICAX.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/WEUO55PT.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48728,8 +54384,13 @@ var X5NMLKT6_Button = forwardRef2(function Button2(props) {
 // src/disclosure/disclosure.tsx
 
 
+<<<<<<< HEAD
 var P4IRICAX_TagName = "button";
 var P4IRICAX_symbol = Symbol("disclosure");
+=======
+var WEUO55PT_TagName = "button";
+var WEUO55PT_symbol = Symbol("disclosure");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useDisclosure = createHook(
   function useDisclosure2(_a) {
     var _b = _a, { store, toggleOnClick = true } = _b, props = __objRest(_b, ["store", "toggleOnClick"]);
@@ -48753,7 +54414,11 @@ var useDisclosure = createHook(
     }, [disclosureElement, store, open]);
     const onClickProp = props.onClick;
     const toggleOnClickProp = useBooleanEvent(toggleOnClick);
+<<<<<<< HEAD
     const [isDuplicate, metadataProps] = useMetadataProps(props, P4IRICAX_symbol, true);
+=======
+    const [isDuplicate, metadataProps] = useMetadataProps(props, WEUO55PT_symbol, true);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const onClick = useEvent((event) => {
       onClickProp == null ? void 0 : onClickProp(event);
       if (event.defaultPrevented) return;
@@ -48776,12 +54441,20 @@ var useDisclosure = createHook(
 );
 var Disclosure = forwardRef2(function Disclosure2(props) {
   const htmlProps = useDisclosure(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(P4IRICAX_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(WEUO55PT_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/AXB53BZF.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/LNWM7V7G.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48791,7 +54464,11 @@ var Disclosure = forwardRef2(function Disclosure2(props) {
 // src/dialog/dialog-disclosure.tsx
 
 
+<<<<<<< HEAD
 var AXB53BZF_TagName = "button";
+=======
+var LNWM7V7G_TagName = "button";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useDialogDisclosure = createHook(
   function useDialogDisclosure2(_a) {
     var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
@@ -48811,12 +54488,20 @@ var useDialogDisclosure = createHook(
 );
 var DialogDisclosure = forwardRef2(function DialogDisclosure2(props) {
   const htmlProps = useDialogDisclosure(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(AXB53BZF_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(LNWM7V7G_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/OMU7RWRV.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/74NFH3UH.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48824,7 +54509,11 @@ var DialogDisclosure = forwardRef2(function DialogDisclosure2(props) {
 
 
 // src/popover/popover-anchor.tsx
+<<<<<<< HEAD
 var OMU7RWRV_TagName = "div";
+=======
+var _74NFH3UH_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var usePopoverAnchor = createHook(
   function usePopoverAnchor2(_a) {
     var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
@@ -48838,12 +54527,20 @@ var usePopoverAnchor = createHook(
 );
 var PopoverAnchor = forwardRef2(function PopoverAnchor2(props) {
   const htmlProps = usePopoverAnchor(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(OMU7RWRV_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(_74NFH3UH_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/QYJ6MIDR.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/52IKNGON.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48855,7 +54552,11 @@ var PopoverAnchor = forwardRef2(function PopoverAnchor2(props) {
 // src/popover/popover-disclosure.tsx
 
 
+<<<<<<< HEAD
 var QYJ6MIDR_TagName = "button";
+=======
+var _52IKNGON_TagName = "button";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var usePopoverDisclosure = createHook(function usePopoverDisclosure2(_a) {
   var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
   const context = usePopoverProviderContext();
@@ -48883,12 +54584,20 @@ var usePopoverDisclosure = createHook(function usePopoverDisclosure2(_a) {
 });
 var PopoverDisclosure = forwardRef2(function PopoverDisclosure2(props) {
   const htmlProps = usePopoverDisclosure(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(QYJ6MIDR_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(_52IKNGON_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/DR55NYVS.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/CAGM4AEJ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48898,7 +54607,11 @@ var PopoverDisclosure = forwardRef2(function PopoverDisclosure2(props) {
 
 
 
+<<<<<<< HEAD
 var DR55NYVS_TagName = "span";
+=======
+var CAGM4AEJ_TagName = "span";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var pointsMap = {
   top: "4,10 8,6 12,10",
   right: "6,4 10,8 6,12",
@@ -48949,13 +54662,21 @@ var usePopoverDisclosureArrow = createHook(function usePopoverDisclosureArrow2(_
 var PopoverDisclosureArrow = forwardRef2(
   function PopoverDisclosureArrow2(props) {
     const htmlProps = usePopoverDisclosureArrow(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(DR55NYVS_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(CAGM4AEJ_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/UD53QJDV.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/2UJDTHC7.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -48963,7 +54684,11 @@ var PopoverDisclosureArrow = forwardRef2(
 
 
 // src/select/select-arrow.tsx
+<<<<<<< HEAD
 var UD53QJDV_TagName = "span";
+=======
+var _2UJDTHC7_TagName = "span";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useSelectArrow = createHook(
   function useSelectArrow2(_a) {
     var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
@@ -48975,12 +54700,20 @@ var useSelectArrow = createHook(
 );
 var SelectArrow = forwardRef2(function SelectArrow2(props) {
   const htmlProps = useSelectArrow(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(UD53QJDV_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(_2UJDTHC7_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/select/select.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/select/select.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -49214,11 +54947,19 @@ var useSelect = createHook(function useSelect2(_a) {
 });
 var select_Select = forwardRef2(function Select2(props) {
   const htmlProps = useSelect(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(select_TagName, htmlProps);
 });
 
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/XRBJGF7I.js
+=======
+  return HKOOKEDE_createElement(select_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/EQC5P6YO.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -49233,7 +54974,11 @@ var select_Select = forwardRef2(function Select2(props) {
 
 
 
+<<<<<<< HEAD
 var XRBJGF7I_TagName = "div";
+=======
+var EQC5P6YO_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var SelectListContext = (0,external_React_.createContext)(null);
 var useSelectList = createHook(
   function useSelectList2(_a) {
@@ -49341,12 +55086,20 @@ var useSelectList = createHook(
 );
 var SelectList = forwardRef2(function SelectList2(props) {
   const htmlProps = useSelectList(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(XRBJGF7I_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(EQC5P6YO_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/select/select-popover.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/select/select-popover.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -49393,7 +55146,10 @@ var SelectList = forwardRef2(function SelectList2(props) {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // src/select/select-popover.tsx
 var select_popover_TagName = "div";
 var useSelectPopover = createHook(
@@ -49409,13 +55165,21 @@ var useSelectPopover = createHook(
 var SelectPopover = createDialogComponent(
   forwardRef2(function SelectPopover2(props) {
     const htmlProps = useSelectPopover(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(select_popover_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(select_popover_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }),
   useSelectProviderContext
 );
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/YF2ICFG4.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/select/select-item.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -49425,13 +55189,31 @@ var SelectPopover = createDialogComponent(
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // src/select/select-item.tsx
 
 
 
 
 
+<<<<<<< HEAD
 var YF2ICFG4_TagName = "div";
+=======
+var select_item_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isSelected(storeValue, itemValue) {
   if (itemValue == null) return;
   if (storeValue == null) return false;
@@ -49468,6 +55250,7 @@ var useSelectItem = createHook(
     );
     const id = useId(props.id);
     const disabled = disabledFromProps(props);
+<<<<<<< HEAD
     const { listElement, multiSelectable, selected, autoFocus } = useStoreStateObject(store, {
       listElement: "listElement",
       multiSelectable(state) {
@@ -49488,6 +55271,8 @@ var useSelectItem = createHook(
         return state.value === value;
       }
     });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const getItem = (0,external_React_.useCallback)(
       (item) => {
         const nextItem = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, item), {
@@ -49501,6 +55286,12 @@ var useSelectItem = createHook(
       },
       [disabled, value, getItemProp]
     );
+<<<<<<< HEAD
+=======
+    const multiSelectable = store.useState(
+      (state) => Array.isArray(state.value)
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     hideOnClick = hideOnClick != null ? hideOnClick : value != null && !multiSelectable;
     const onClickProp = props.onClick;
     const setValueOnClickProp = useBooleanEvent(setValueOnClick);
@@ -49523,11 +55314,28 @@ var useSelectItem = createHook(
         store == null ? void 0 : store.hide();
       }
     });
+<<<<<<< HEAD
+=======
+    const selected = store.useState((state) => isSelected(state.value, value));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     props = useWrapElement(
       props,
       (element) => /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(SelectItemCheckedContext.Provider, { value: selected != null ? selected : false, children: element }),
       [selected]
     );
+<<<<<<< HEAD
+=======
+    const listElement = store.useState("listElement");
+    const autoFocus = store.useState((state) => {
+      if (value == null) return false;
+      if (state.value == null) return false;
+      if (state.activeId !== id && (store == null ? void 0 : store.item(state.activeId))) return false;
+      if (Array.isArray(state.value)) {
+        return state.value[state.value.length - 1] === value;
+      }
+      return state.value === value;
+    });
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
       id,
       role: getPopupItemRole(listElement),
@@ -49561,13 +55369,21 @@ var useSelectItem = createHook(
 var SelectItem = memo2(
   forwardRef2(function SelectItem2(props) {
     const htmlProps = useSelectItem(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(YF2ICFG4_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(select_item_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   })
 );
 
 
+<<<<<<< HEAD
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/EYKMH5G5.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/EYKMH5G5.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 // src/checkbox/checkbox-checked-context.tsx
@@ -49576,7 +55392,11 @@ var CheckboxCheckedContext = (0,external_React_.createContext)(false);
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/5JCRYSSV.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/RPLYUYNN.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -49586,7 +55406,11 @@ var CheckboxCheckedContext = (0,external_React_.createContext)(false);
 
 
 
+<<<<<<< HEAD
 var _5JCRYSSV_TagName = "span";
+=======
+var RPLYUYNN_TagName = "span";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var checkmark = /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(
   "svg",
   {
@@ -49632,12 +55456,20 @@ var useCheckboxCheck = createHook(
 );
 var CheckboxCheck = forwardRef2(function CheckboxCheck2(props) {
   const htmlProps = useCheckboxCheck(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(_5JCRYSSV_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(RPLYUYNN_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/select/select-item-check.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/select/select-item-check.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -49666,11 +55498,19 @@ var useSelectItemCheck = createHook(
 );
 var SelectItemCheck = forwardRef2(function SelectItemCheck2(props) {
   const htmlProps = useSelectItemCheck(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(select_item_check_TagName, htmlProps);
 });
 
 
 ;// ./node_modules/@wordpress/components/build-module/custom-select-control-v2/styles.js
+=======
+  return HKOOKEDE_createElement(select_item_check_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-select-control-v2/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function custom_select_control_v2_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -49783,12 +55623,20 @@ const SelectedItemCheck = /*#__PURE__*/emotion_styled_base_browser_esm(SelectIte
   target: "e1p3eej70"
 } : 0)("display:flex;align-items:center;margin-inline-start:", space(2), ";align-self:start;margin-block-start:2px;font-size:0;", WithHintItemWrapper, "~&,&:not(:empty){font-size:24px;}" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-select-control-v2/custom-select.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-select-control-v2/custom-select.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -49804,6 +55652,10 @@ const SelectedItemCheck = /*#__PURE__*/emotion_styled_base_browser_esm(SelectIte
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const CustomSelectContext = (0,external_wp_element_namespaceObject.createContext)(undefined);
 function defaultRenderSelectedValue(value) {
   const isValueEmpty = Array.isArray(value) ? value.length === 0 : value === undefined || value === null;
@@ -49903,7 +55755,11 @@ function _CustomSelect(props) {
 }
 /* harmony default export */ const custom_select = (_CustomSelect);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-select-control-v2/item.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-select-control-v2/item.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -49916,6 +55772,10 @@ function _CustomSelect(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function CustomSelectItem({
   children,
   ...props
@@ -49936,7 +55796,11 @@ function CustomSelectItem({
 CustomSelectItem.displayName = 'CustomSelectControlV2.Item';
 /* harmony default export */ const custom_select_control_v2_item = (CustomSelectItem);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/custom-select-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/custom-select-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -49958,6 +55822,10 @@ CustomSelectItem.displayName = 'CustomSelectControlV2.Item';
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function custom_select_control_useDeprecatedProps({
   __experimentalShowSelectedHint,
   ...otherProps
@@ -49991,7 +55859,10 @@ function getDescribedBy(currentValue, describedBy) {
 function CustomSelectControl(props) {
   const {
     __next40pxDefaultSize = false,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     describedBy,
     options,
     onChange,
@@ -50001,12 +55872,15 @@ function CustomSelectControl(props) {
     showSelectedHint = false,
     ...restProps
   } = custom_select_control_useDeprecatedProps(props);
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'CustomSelectControl',
     __next40pxDefaultSize,
     size,
     __shouldNotWarnDeprecated36pxSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const descriptionId = (0,external_wp_compose_namespaceObject.useInstanceId)(CustomSelectControl, 'custom-select-control__description');
 
   // Forward props + store from v2 implementation
@@ -50065,7 +55939,13 @@ function CustomSelectControl(props) {
       })
     }, key);
   });
+<<<<<<< HEAD
   const currentValue = useStoreState(store, 'value');
+=======
+  const {
+    value: currentValue
+  } = store.getState();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const renderSelectedValueHint = () => {
     const selectedOptionHint = options?.map(applyOptionDeprecations)?.find(({
       name
@@ -50109,7 +55989,11 @@ function CustomSelectControl(props) {
 }
 /* harmony default export */ const custom_select_control = (CustomSelectControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/toDate.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/toDate.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @name toDate
  * @category Common Helpers
@@ -50169,7 +56053,11 @@ function toDate(argument) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_toDate = ((/* unused pure expression or super */ null && (toDate)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfDay.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfDay.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -50201,7 +56089,11 @@ function startOfDay(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfDay = ((/* unused pure expression or super */ null && (startOfDay)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/constructFrom.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/constructFrom.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @name constructFrom
  * @category Generic Helpers
@@ -50243,7 +56135,11 @@ function constructFrom(date, value) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_constructFrom = ((/* unused pure expression or super */ null && (constructFrom)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/addMonths.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/addMonths.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -50315,7 +56211,11 @@ function addMonths(date, amount) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_addMonths = ((/* unused pure expression or super */ null && (addMonths)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/subMonths.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/subMonths.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -50345,7 +56245,11 @@ function subMonths(date, amount) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_subMonths = ((/* unused pure expression or super */ null && (subMonths)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/en-US/_lib/formatDistance.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/en-US/_lib/formatDistance.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const formatDistanceLocale = {
   lessThanXSeconds: {
     one: "less than a second",
@@ -50448,7 +56352,11 @@ const formatDistance = (token, count, options) => {
   return result;
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/_lib/buildFormatLongFn.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/_lib/buildFormatLongFn.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function buildFormatLongFn(args) {
   return (options = {}) => {
     // TODO: Remove String()
@@ -50458,7 +56366,11 @@ function buildFormatLongFn(args) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/en-US/_lib/formatLong.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/en-US/_lib/formatLong.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const dateFormats = {
@@ -50499,7 +56411,11 @@ const formatLong = {
   }),
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/en-US/_lib/formatRelative.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/en-US/_lib/formatRelative.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const formatRelativeLocale = {
   lastWeek: "'last' eeee 'at' p",
   yesterday: "'yesterday at' p",
@@ -50512,7 +56428,11 @@ const formatRelativeLocale = {
 const formatRelative = (token, _date, _baseDate, _options) =>
   formatRelativeLocale[token];
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/_lib/buildLocalizeFn.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/_lib/buildLocalizeFn.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint-disable no-unused-vars */
 
 /**
@@ -50578,7 +56498,11 @@ function buildLocalizeFn(args) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/en-US/_lib/localize.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/en-US/_lib/localize.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 const eraValues = {
@@ -50767,7 +56691,11 @@ const localize = {
   }),
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/_lib/buildMatchFn.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/_lib/buildMatchFn.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function buildMatchFn(args) {
   return (string, options = {}) => {
     const width = options.width;
@@ -50826,7 +56754,11 @@ function findIndex(array, predicate) {
   return undefined;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/_lib/buildMatchPatternFn.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/_lib/buildMatchPatternFn.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function buildMatchPatternFn(args) {
   return (string, options = {}) => {
     const matchResult = string.match(args.matchPattern);
@@ -50848,7 +56780,11 @@ function buildMatchPatternFn(args) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/en-US/_lib/match.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/en-US/_lib/match.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -50982,7 +56918,11 @@ const match_match = {
   }),
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/locale/en-US.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/locale/en-US.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51013,7 +56953,11 @@ const enUS = {
 // Fallback for modularized imports:
 /* harmony default export */ const en_US = ((/* unused pure expression or super */ null && (enUS)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/_lib/defaultOptions.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/_lib/defaultOptions.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 let defaultOptions_defaultOptions = {};
 
 function getDefaultOptions() {
@@ -51024,7 +56968,11 @@ function setDefaultOptions(newOptions) {
   defaultOptions_defaultOptions = newOptions;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/constants.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/constants.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @module constants
  * @summary Useful constants
@@ -51229,7 +57177,11 @@ const secondsInMonth = secondsInYear / 12;
  */
 const secondsInQuarter = secondsInMonth * 3;
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -51260,7 +57212,11 @@ function getTimezoneOffsetInMilliseconds(date) {
   return +date - +utcDate;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/differenceInCalendarDays.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/differenceInCalendarDays.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51315,7 +57271,11 @@ function differenceInCalendarDays(dateLeft, dateRight) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_differenceInCalendarDays = ((/* unused pure expression or super */ null && (differenceInCalendarDays)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfYear.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfYear.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51350,7 +57310,11 @@ function startOfYear(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfYear = ((/* unused pure expression or super */ null && (startOfYear)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/getDayOfYear.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/getDayOfYear.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51384,7 +57348,11 @@ function getDayOfYear(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_getDayOfYear = ((/* unused pure expression or super */ null && (getDayOfYear)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfWeek.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfWeek.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51439,7 +57407,11 @@ function startOfWeek(date, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfWeek = ((/* unused pure expression or super */ null && (startOfWeek)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfISOWeek.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfISOWeek.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -51471,7 +57443,11 @@ function startOfISOWeek(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfISOWeek = ((/* unused pure expression or super */ null && (startOfISOWeek)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/getISOWeekYear.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/getISOWeekYear.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51524,7 +57500,11 @@ function getISOWeekYear(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_getISOWeekYear = ((/* unused pure expression or super */ null && (getISOWeekYear)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfISOWeekYear.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfISOWeekYear.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51563,7 +57543,11 @@ function startOfISOWeekYear(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfISOWeekYear = ((/* unused pure expression or super */ null && (startOfISOWeekYear)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/getISOWeek.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/getISOWeek.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51603,7 +57587,11 @@ function getISOWeek(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_getISOWeek = ((/* unused pure expression or super */ null && (getISOWeek)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/getWeekYear.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/getWeekYear.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51683,7 +57671,11 @@ function getWeekYear(date, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_getWeekYear = ((/* unused pure expression or super */ null && (getWeekYear)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfWeekYear.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfWeekYear.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51749,7 +57741,11 @@ function startOfWeekYear(date, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfWeekYear = ((/* unused pure expression or super */ null && (startOfWeekYear)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/getWeek.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/getWeek.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -51809,14 +57805,22 @@ function getWeek(date, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_getWeek = ((/* unused pure expression or super */ null && (getWeek)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/_lib/addLeadingZeros.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/_lib/addLeadingZeros.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function addLeadingZeros(number, targetLength) {
   const sign = number < 0 ? "-" : "";
   const output = Math.abs(number).toString().padStart(targetLength, "0");
   return sign + output;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/_lib/format/lightFormatters.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/_lib/format/lightFormatters.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /*
@@ -51910,7 +57914,11 @@ const lightFormatters = {
   },
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/_lib/format/formatters.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/_lib/format/formatters.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -52688,7 +58696,11 @@ function formatTimezone(offset, delimiter = "") {
   return sign + hours + delimiter + minutes;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/_lib/format/longFormatters.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/_lib/format/longFormatters.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const dateLongFormatter = (pattern, formatLong) => {
   switch (pattern) {
     case "P":
@@ -52754,7 +58766,11 @@ const longFormatters = {
   P: dateTimeLongFormatter,
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/_lib/protectedTokens.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/_lib/protectedTokens.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const dayOfYearTokenRE = /^D+$/;
 const weekYearTokenRE = /^Y+$/;
 
@@ -52779,7 +58795,11 @@ function message(token, format, input) {
   return `Use \`${token.toLowerCase()}\` instead of \`${token}\` (in \`${format}\`) for formatting ${subject} to the input \`${input}\`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md`;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/isDate.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/isDate.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @name isDate
  * @category Common Helpers
@@ -52823,7 +58843,11 @@ function isDate(value) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_isDate = ((/* unused pure expression or super */ null && (isDate)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/isValid.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/isValid.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -52871,7 +58895,11 @@ function isValid(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_isValid = ((/* unused pure expression or super */ null && (isValid)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/format.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/format.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -53305,7 +59333,11 @@ function cleanEscapedString(input) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_format = ((/* unused pure expression or super */ null && (format)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/isSameMonth.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/isSameMonth.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53345,7 +59377,11 @@ function isSameMonth(dateLeft, dateRight) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_isSameMonth = ((/* unused pure expression or super */ null && (isSameMonth)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/isEqual.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/isEqual.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53380,7 +59416,11 @@ function isEqual(leftDate, rightDate) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_isEqual = ((/* unused pure expression or super */ null && (isEqual)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/isSameDay.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/isSameDay.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53423,7 +59463,11 @@ function isSameDay(dateLeft, dateRight) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_isSameDay = ((/* unused pure expression or super */ null && (isSameDay)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/addDays.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/addDays.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -53461,7 +59505,11 @@ function addDays(date, amount) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_addDays = ((/* unused pure expression or super */ null && (addDays)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/addWeeks.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/addWeeks.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53492,7 +59540,11 @@ function addWeeks(date, amount) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_addWeeks = ((/* unused pure expression or super */ null && (addWeeks)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/subWeeks.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/subWeeks.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53522,7 +59574,11 @@ function subWeeks(date, amount) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_subWeeks = ((/* unused pure expression or super */ null && (subWeeks)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/endOfWeek.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/endOfWeek.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -53577,7 +59633,11 @@ function endOfWeek(date, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_endOfWeek = ((/* unused pure expression or super */ null && (endOfWeek)));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/arrow-right.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/arrow-right.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -53592,7 +59652,11 @@ const arrowRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const arrow_right = (arrowRight);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/arrow-left.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/arrow-left.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -53607,9 +59671,15 @@ const arrowLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const arrow_left = (arrowLeft);
 
+<<<<<<< HEAD
 ;// external ["wp","date"]
 const external_wp_date_namespaceObject = window["wp"]["date"];
 ;// ./node_modules/date-fns/isAfter.mjs
+=======
+;// CONCATENATED MODULE: external ["wp","date"]
+const external_wp_date_namespaceObject = window["wp"]["date"];
+;// CONCATENATED MODULE: ./node_modules/date-fns/isAfter.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53641,7 +59711,11 @@ function isAfter(date, dateToCompare) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_isAfter = ((/* unused pure expression or super */ null && (isAfter)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/isBefore.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/isBefore.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53673,7 +59747,11 @@ function isBefore(date, dateToCompare) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_isBefore = ((/* unused pure expression or super */ null && (isBefore)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/getDaysInMonth.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/getDaysInMonth.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -53709,7 +59787,11 @@ function getDaysInMonth(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_getDaysInMonth = ((/* unused pure expression or super */ null && (getDaysInMonth)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/setMonth.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/setMonth.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -53752,7 +59834,11 @@ function setMonth(date, month) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_setMonth = ((/* unused pure expression or super */ null && (setMonth)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/set.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/set.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -53832,7 +59918,11 @@ function set(date, values) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_set = ((/* unused pure expression or super */ null && (set)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfToday.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfToday.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53858,7 +59948,11 @@ function startOfToday() {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfToday = ((/* unused pure expression or super */ null && (startOfToday)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/setYear.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/setYear.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -53897,7 +59991,11 @@ function setYear(date, year) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_setYear = ((/* unused pure expression or super */ null && (setYear)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/addYears.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/addYears.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53927,7 +60025,11 @@ function addYears(date, amount) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_addYears = ((/* unused pure expression or super */ null && (addYears)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/subYears.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/subYears.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -53957,7 +60059,11 @@ function subYears(date, amount) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_subYears = ((/* unused pure expression or super */ null && (subYears)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/eachDayOfInterval.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/eachDayOfInterval.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -54023,7 +60129,11 @@ function eachDayOfInterval(interval, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_eachDayOfInterval = ((/* unused pure expression or super */ null && (eachDayOfInterval)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/eachMonthOfInterval.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/eachMonthOfInterval.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -54090,7 +60200,11 @@ function eachMonthOfInterval(interval, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_eachMonthOfInterval = ((/* unused pure expression or super */ null && (eachMonthOfInterval)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfMonth.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfMonth.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -54123,7 +60237,11 @@ function startOfMonth(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfMonth = ((/* unused pure expression or super */ null && (startOfMonth)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/endOfMonth.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/endOfMonth.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -54157,7 +60275,11 @@ function endOfMonth(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_endOfMonth = ((/* unused pure expression or super */ null && (endOfMonth)));
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/eachWeekOfInterval.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/eachWeekOfInterval.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -54239,7 +60361,11 @@ function eachWeekOfInterval(interval, options) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_eachWeekOfInterval = ((/* unused pure expression or super */ null && (eachWeekOfInterval)));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/date/use-lilius/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/date/use-lilius/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * This source is a local copy of the use-lilius library, since the original
  * library is not actively maintained.
@@ -54398,7 +60524,11 @@ const useLilius = ({
   };
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/date/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/date/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -54471,7 +60601,11 @@ const DayButton = /*#__PURE__*/emotion_styled_base_browser_esm(build_module_butt
 		}
 		`, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -54551,10 +60685,17 @@ function validateInputElementTarget(event) {
   return event.target.validity.valid;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/constants.js
 const TIMEZONELESS_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
 
 ;// ./node_modules/@wordpress/components/build-module/date-time/date/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/constants.js
+const TIMEZONELESS_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/date/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -54596,6 +60737,10 @@ const TIMEZONELESS_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
  * ```
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function DatePicker({
   currentDate,
   onChange,
@@ -54755,9 +60900,15 @@ function date_Day({
     }
     // isFocusAllowed is not a dep as there is no point calling focus() on
     // an already focused element.
+<<<<<<< HEAD
   }, [isFocusable]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DayButton, {
     __next40pxDefaultSize: true,
+=======
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFocusable]);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DayButton, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ref: ref,
     className: "components-datetime__date__day" // Unused, for backwards compatibility.
     ,
@@ -54795,7 +60946,11 @@ function getDayLabel(date, isSelected, numEvents) {
 }
 /* harmony default export */ const date = (DatePicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/date-fns/startOfMinute.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/date-fns/startOfMinute.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -54827,7 +60982,11 @@ function startOfMinute(date) {
 // Fallback for modularized imports:
 /* harmony default export */ const date_fns_startOfMinute = ((/* unused pure expression or super */ null && (startOfMinute)));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/time/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/time/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function time_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -54887,7 +61046,11 @@ const TimeZone = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
   styles: "text-decoration:underline dotted"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/time/timezone.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/time/timezone.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -54942,7 +61105,11 @@ const timezone_TimeZone = () => {
 };
 /* harmony default export */ const timezone = (timezone_TimeZone);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-group-control/toggle-group-control-option/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -54989,7 +61156,10 @@ function UnforwardedToggleGroupControlOption(props, ref) {
  *       value="vertical"
  *       isBlock
  *       __nextHasNoMarginBottom
+<<<<<<< HEAD
  *       __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     >
  *       <ToggleGroupControlOption value="horizontal" label="Horizontal" />
  *       <ToggleGroupControlOption value="vertical" label="Vertical" />
@@ -55001,7 +61171,11 @@ function UnforwardedToggleGroupControlOption(props, ref) {
 const ToggleGroupControlOption = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToggleGroupControlOption);
 /* harmony default export */ const toggle_group_control_option_component = (ToggleGroupControlOption);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/time/time-input/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/time/time-input/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -55023,6 +61197,10 @@ const ToggleGroupControlOption = (0,external_wp_element_namespaceObject.forwardR
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function TimeInput({
   value: valueProp,
   defaultValue,
@@ -55150,7 +61328,11 @@ function TimeInput({
 }
 /* harmony default export */ const time_input = ((/* unused pure expression or super */ null && (TimeInput)));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/time/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/time/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -55176,6 +61358,10 @@ function TimeInput({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const VALID_DATE_ORDERS = ['dmy', 'mdy', 'ymd'];
 
 /**
@@ -55430,7 +61616,11 @@ Object.assign(TimePicker.TimeInput, {
 });
 /* harmony default export */ const date_time_time = (TimePicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/date-time/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/date-time/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function date_time_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -55448,7 +61638,11 @@ const date_time_styles_Wrapper = /*#__PURE__*/emotion_styled_base_browser_esm(v_
   styles: "box-sizing:border-box"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/date-time/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/date-time/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -55466,6 +61660,11 @@ const date_time_styles_Wrapper = /*#__PURE__*/emotion_styled_base_browser_esm(v_
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const date_time_noop = () => {};
 function UnforwardedDateTimePicker({
   currentDate,
@@ -55524,7 +61723,11 @@ function UnforwardedDateTimePicker({
 const DateTimePicker = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedDateTimePicker);
 /* harmony default export */ const date_time = (DateTimePicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/date-time/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/date-time/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -55534,7 +61737,11 @@ const DateTimePicker = (0,external_wp_element_namespaceObject.forwardRef)(Unforw
 
 /* harmony default export */ const build_module_date_time = (date_time);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/dimension-control/sizes.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dimension-control/sizes.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Sizes
  *
@@ -55578,7 +61785,11 @@ const findSizeBySlug = (sizes, slug) => sizes.find(size => slug === size.slug);
   slug: 'xlarge'
 }]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/dimension-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dimension-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -55599,6 +61810,10 @@ const findSizeBySlug = (sizes, slug) => sizes.find(size => slug === size.slug);
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const dimension_control_CONTEXT_VALUE = {
   BaseControl: {
     // Temporary during deprecation grace period: Overrides the underlying `__associatedWPComponentName`
@@ -55623,7 +61838,10 @@ const dimension_control_CONTEXT_VALUE = {
  *
  * 	return (
  * 		<DimensionControl
+<<<<<<< HEAD
  * 			__next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * 			__nextHasNoMarginBottom
  * 			label={ 'Padding' }
  * 			icon={ 'desktop' }
@@ -55649,11 +61867,14 @@ function DimensionControl(props) {
     since: '6.7',
     version: '7.0'
   });
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'DimensionControl',
     __next40pxDefaultSize,
     size: undefined
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const onChangeSpacingSize = val => {
     const theSize = findSizeBySlug(sizes, val);
     if (!theSize || value === theSize.slug) {
@@ -55684,7 +61905,10 @@ function DimensionControl(props) {
     value: dimension_control_CONTEXT_VALUE,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(select_control, {
       __next40pxDefaultSize: __next40pxDefaultSize,
+<<<<<<< HEAD
       __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       __nextHasNoMarginBottom: __nextHasNoMarginBottom,
       className: dist_clsx(className, 'block-editor-dimension-control'),
       label: selectLabel,
@@ -55697,7 +61921,11 @@ function DimensionControl(props) {
 }
 /* harmony default export */ const dimension_control = (DimensionControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/disabled/styles/disabled-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/disabled/styles/disabled-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function disabled_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
@@ -55708,7 +61936,11 @@ const disabled_styles_disabledStyles =  true ? {
   styles: "position:relative;pointer-events:none;&::after{content:'';position:absolute;top:0;right:0;bottom:0;left:0;}*{pointer-events:none;}"
 } : 0;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/disabled/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/disabled/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -55743,6 +61975,7 @@ const {
  * const MyDisabled = () => {
  * 	const [ isDisabled, setIsDisabled ] = useState( true );
  *
+<<<<<<< HEAD
  *	let input = (
  *		<TextControl
  *			__next40pxDefaultSize
@@ -55751,6 +61984,9 @@ const {
  *			onChange={ () => {} }
  *		/>
  *	);
+=======
+ * 	let input = <TextControl label="Input" onChange={ () => {} } />;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * 	if ( isDisabled ) {
  * 		input = <Disabled>{ input }</Disabled>;
  * 	}
@@ -55792,7 +62028,11 @@ Disabled.Context = Context;
 Disabled.Consumer = Consumer;
 /* harmony default export */ const disabled = (Disabled);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/disclosure/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/disclosure/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -55829,7 +62069,11 @@ const UnforwardedDisclosureContent = ({
 const disclosure_DisclosureContent = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedDisclosureContent);
 /* harmony default export */ const disclosure = ((/* unused pure expression or super */ null && (disclosure_DisclosureContent)));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/draggable/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/draggable/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -55844,6 +62088,11 @@ const disclosure_DisclosureContent = (0,external_wp_element_namespaceObject.forw
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const dragImageClass = 'components-draggable__invisible-drag-image';
 const cloneWrapperClass = 'components-draggable__clone';
 const clonePadding = 0;
@@ -56057,7 +62306,11 @@ function Draggable({
 }
 /* harmony default export */ const draggable = (Draggable);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/upload.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/upload.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -56072,7 +62325,11 @@ const upload = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_upload = (upload);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/drop-zone/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/drop-zone/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -56091,6 +62348,10 @@ const upload = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * `DropZone` is a component creating a drop zone area taking the full size of its parent element. It supports dropping files, HTML content or any other HTML drop event.
  *
@@ -56120,11 +62381,15 @@ function DropZoneComponent({
   onFilesDrop,
   onHTMLDrop,
   onDrop,
+<<<<<<< HEAD
   isEligible = () => true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   ...restProps
 }) {
   const [isDraggingOverDocument, setIsDraggingOverDocument] = (0,external_wp_element_namespaceObject.useState)();
   const [isDraggingOverElement, setIsDraggingOverElement] = (0,external_wp_element_namespaceObject.useState)();
+<<<<<<< HEAD
   const [isActive, setIsActive] = (0,external_wp_element_namespaceObject.useState)();
   const ref = (0,external_wp_compose_namespaceObject.__experimentalUseDropZone)({
     onDrop(event) {
@@ -56133,6 +62398,13 @@ function DropZoneComponent({
       }
       const files = (0,external_wp_dom_namespaceObject.getFilesFromDataTransfer)(event.dataTransfer);
       const html = event.dataTransfer.getData('text/html');
+=======
+  const [type, setType] = (0,external_wp_element_namespaceObject.useState)();
+  const ref = (0,external_wp_compose_namespaceObject.__experimentalUseDropZone)({
+    onDrop(event) {
+      const files = event.dataTransfer ? (0,external_wp_dom_namespaceObject.getFilesFromDataTransfer)(event.dataTransfer) : [];
+      const html = event.dataTransfer?.getData('text/html');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
       /**
        * From Windows Chrome 96, the `event.dataTransfer` returns both file object and HTML.
@@ -56148,14 +62420,19 @@ function DropZoneComponent({
     },
     onDragStart(event) {
       setIsDraggingOverDocument(true);
+<<<<<<< HEAD
       if (!event.dataTransfer) {
         return;
       }
+=======
+      let _type = 'default';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
       /**
        * From Windows Chrome 96, the `event.dataTransfer` returns both file object and HTML.
        * The order of the checks is important to recognize the HTML drop.
        */
+<<<<<<< HEAD
       if (event.dataTransfer.types.includes('text/html')) {
         setIsActive(!!onHTMLDrop);
       } else if (
@@ -56166,11 +62443,26 @@ function DropZoneComponent({
       } else {
         setIsActive(!!onDrop && isEligible(event.dataTransfer));
       }
+=======
+      if (event.dataTransfer?.types.includes('text/html')) {
+        _type = 'html';
+      } else if (
+      // Check for the types because sometimes the files themselves
+      // are only available on drop.
+      event.dataTransfer?.types.includes('Files') || (event.dataTransfer ? (0,external_wp_dom_namespaceObject.getFilesFromDataTransfer)(event.dataTransfer) : []).length > 0) {
+        _type = 'file';
+      }
+      setType(_type);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     },
     onDragEnd() {
       setIsDraggingOverElement(false);
       setIsDraggingOverDocument(false);
+<<<<<<< HEAD
       setIsActive(undefined);
+=======
+      setType(undefined);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     },
     onDragEnter() {
       setIsDraggingOverElement(true);
@@ -56180,9 +62472,16 @@ function DropZoneComponent({
     }
   });
   const classes = dist_clsx('components-drop-zone', className, {
+<<<<<<< HEAD
     'is-active': isActive,
     'is-dragging-over-document': isDraggingOverDocument,
     'is-dragging-over-element': isDraggingOverElement
+=======
+    'is-active': (isDraggingOverDocument || isDraggingOverElement) && (type === 'file' && onFilesDrop || type === 'html' && onHTMLDrop || type === 'default' && onDrop),
+    'is-dragging-over-document': isDraggingOverDocument,
+    'is-dragging-over-element': isDraggingOverElement,
+    [`is-dragging-${type}`]: !!type
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
     ...restProps,
@@ -56205,7 +62504,11 @@ function DropZoneComponent({
 }
 /* harmony default export */ const drop_zone = (DropZoneComponent);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/drop-zone/provider.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/drop-zone/provider.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -56220,7 +62523,11 @@ function DropZoneProvider({
   return children;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/swatch.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/swatch.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -56235,7 +62542,11 @@ const swatch = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_swatch = (swatch);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/duotone-picker/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/duotone-picker/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -56328,7 +62639,11 @@ function getColorsFromColorStops(colorStops = []) {
   }) => color);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/duotone-picker/duotone-swatch.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/duotone-picker/duotone-swatch.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -56352,7 +62667,11 @@ function DuotoneSwatch({
 }
 /* harmony default export */ const duotone_swatch = (DuotoneSwatch);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/duotone-picker/color-list-picker/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/duotone-picker/color-list-picker/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -56369,6 +62688,12 @@ function DuotoneSwatch({
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function ColorOption({
   label,
   value,
@@ -56383,6 +62708,7 @@ function ColorOption({
   const contentId = `${idRoot}__content`;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
       __next40pxDefaultSize: true,
       className: "components-color-list-picker__swatch-button",
       id: labelId,
@@ -56396,6 +62722,25 @@ function ColorOption({
         icon: library_swatch
       }),
       text: label
+=======
+      className: "components-color-list-picker__swatch-button",
+      onClick: () => setIsOpen(prev => !prev),
+      "aria-expanded": isOpen,
+      "aria-controls": contentId,
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(h_stack_component, {
+        justify: "flex-start",
+        spacing: 2,
+        children: [value ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(color_indicator, {
+          colorValue: value,
+          className: "components-color-list-picker__swatch-color"
+        }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_icon, {
+          icon: library_swatch
+        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("span", {
+          id: labelId,
+          children: label
+        })]
+      })
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       role: "group",
       id: contentId,
@@ -56440,7 +62785,11 @@ function ColorListPicker({
 }
 /* harmony default export */ const color_list_picker = (ColorListPicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/duotone-picker/custom-duotone-bar.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/duotone-picker/custom-duotone-bar.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -56468,7 +62817,11 @@ function CustomDuotoneBar({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/duotone-picker/duotone-picker.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/duotone-picker/duotone-picker.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -56490,6 +62843,10 @@ function CustomDuotoneBar({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * ```jsx
  * import { DuotonePicker, DuotoneSwatch } from '@wordpress/components';
@@ -56578,20 +62935,56 @@ function DuotonePicker({
       }
     }, slug);
   });
+<<<<<<< HEAD
   const {
     metaProps,
     labelProps
   } = getComputeCircularOptionPickerCommonProps(asButtons, loop, ariaLabel, ariaLabelledby);
+=======
+  let metaProps;
+  if (asButtons) {
+    metaProps = {
+      asButtons: true
+    };
+  } else {
+    const _metaProps = {
+      asButtons: false,
+      loop
+    };
+    if (ariaLabel) {
+      metaProps = {
+        ..._metaProps,
+        'aria-label': ariaLabel
+      };
+    } else if (ariaLabelledby) {
+      metaProps = {
+        ..._metaProps,
+        'aria-labelledby': ariaLabelledby
+      };
+    } else {
+      metaProps = {
+        ..._metaProps,
+        'aria-label': (0,external_wp_i18n_namespaceObject.__)('Custom color picker.')
+      };
+    }
+  }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const options = unsetable ? [unsetOption, ...duotoneOptions] : duotoneOptions;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker, {
     ...otherProps,
     ...metaProps,
+<<<<<<< HEAD
     ...labelProps,
     options: options,
     actions: !!clearable && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker.ButtonAction, {
       onClick: () => onChange(undefined),
       accessibleWhenDisabled: true,
       disabled: !value,
+=======
+    options: options,
+    actions: !!clearable && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_circular_option_picker.ButtonAction, {
+      onClick: () => onChange(undefined),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       children: (0,external_wp_i18n_namespaceObject.__)('Clear')
     }),
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(spacer_component, {
@@ -56627,7 +63020,12 @@ function DuotonePicker({
 }
 /* harmony default export */ const duotone_picker = (DuotonePicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/external-link/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/external-link/index.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -56642,6 +63040,10 @@ function DuotonePicker({
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedExternalLink(props, ref) {
   const {
     href,
@@ -56664,6 +63066,7 @@ function UnforwardedExternalLink(props, ref) {
       props.onClick(event);
     }
   };
+<<<<<<< HEAD
   return /*#__PURE__*/ /* eslint-disable react/jsx-no-target-blank */(0,external_ReactJSXRuntime_namespaceObject.jsxs)("a", {
     ...additionalProps,
     className: classes,
@@ -56683,6 +63086,31 @@ function UnforwardedExternalLink(props, ref) {
     })]
   })
   /* eslint-enable react/jsx-no-target-blank */;
+=======
+  return (
+    /*#__PURE__*/
+    /* eslint-disable react/jsx-no-target-blank */
+    (0,external_ReactJSXRuntime_namespaceObject.jsxs)("a", {
+      ...additionalProps,
+      className: classes,
+      href: href,
+      onClick: onClickHandler,
+      target: "_blank",
+      rel: optimizedRel,
+      ref: ref,
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("span", {
+        className: "components-external-link__contents",
+        children: children
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("span", {
+        className: "components-external-link__icon",
+        "aria-label": /* translators: accessibility text */
+        (0,external_wp_i18n_namespaceObject.__)('(opens in a new tab)'),
+        children: "\u2197"
+      })]
+    })
+    /* eslint-enable react/jsx-no-target-blank */
+  );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -56699,7 +63127,11 @@ function UnforwardedExternalLink(props, ref) {
 const ExternalLink = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedExternalLink);
 /* harmony default export */ const external_link = (ExternalLink);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const INITIAL_BOUNDS = {
   width: 200,
   height: 170
@@ -56740,7 +63172,11 @@ function fractionToPercentage(fraction) {
   return Math.round(fraction * 100);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/styles/focal-point-picker-style.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/styles/focal-point-picker-style.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function focal_point_picker_style_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -56817,7 +63253,11 @@ const GridLineY = /*#__PURE__*/emotion_styled_base_browser_esm(GridLine,  true ?
   styles: "width:1px;top:1px;bottom:1px"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/controls.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/controls.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -56829,6 +63269,10 @@ const GridLineY = /*#__PURE__*/emotion_styled_base_browser_esm(GridLine,  true ?
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const TEXTCONTROL_MIN = 0;
 const TEXTCONTROL_MAX = 100;
 const controls_noop = () => {};
@@ -56890,7 +63334,11 @@ function FocalPointUnitControl(props) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/styles/focal-point-style.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/styles/focal-point-style.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -56910,7 +63358,11 @@ const PointerCircle = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true 
 			cursor: grabbing;
 			`, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/focal-point.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/focal-point.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -56936,12 +63388,20 @@ function FocalPoint({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/grid.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/grid.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function FocalPointPickerGrid({
   bounds,
   ...props
@@ -56973,7 +63433,11 @@ function FocalPointPickerGrid({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/media.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/media.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -57022,7 +63486,11 @@ function media_Media({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focal-point-picker/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focal-point-picker/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -57047,6 +63515,10 @@ function media_Media({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const GRID_OVERLAY_TIMEOUT = 600;
 
 /**
@@ -57308,7 +63780,11 @@ function FocalPointPicker({
 }
 /* harmony default export */ const focal_point_picker = (FocalPointPicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/focusable-iframe/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/focusable-iframe/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -57337,7 +63813,29 @@ function FocusableIframe({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/font-size-picker/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/settings.js
+/**
+ * WordPress dependencies
+ */
+
+
+
+const settings = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+    d: "m19 7.5h-7.628c-.3089-.87389-1.1423-1.5-2.122-1.5-.97966 0-1.81309.62611-2.12197 1.5h-2.12803v1.5h2.12803c.30888.87389 1.14231 1.5 2.12197 1.5.9797 0 1.8131-.62611 2.122-1.5h7.628z"
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+    d: "m19 15h-2.128c-.3089-.8739-1.1423-1.5-2.122-1.5s-1.8131.6261-2.122 1.5h-7.628v1.5h7.628c.3089.8739 1.1423 1.5 2.122 1.5s1.8131-.6261 2.122-1.5h2.128z"
+  })]
+});
+/* harmony default export */ const library_settings = (settings);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/font-size-picker/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -57376,7 +63874,11 @@ function getCommonSizeUnit(fontSizes) {
   return areAllSizesSameUnit ? firstUnit : null;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/font-size-picker/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/font-size-picker/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function font_size_picker_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -57394,8 +63896,13 @@ function font_size_picker_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You 
 const styles_Container = /*#__PURE__*/emotion_styled_base_browser_esm("fieldset",  true ? {
   target: "e8tqeku4"
 } : 0)( true ? {
+<<<<<<< HEAD
   name: "k2q51s",
   styles: "border:0;margin:0;padding:0;display:contents"
+=======
+  name: "1t1ytme",
+  styles: "border:0;margin:0;padding:0"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 } : 0);
 const styles_Header = /*#__PURE__*/emotion_styled_base_browser_esm(h_stack_component,  true ? {
   target: "e8tqeku3"
@@ -57410,7 +63917,11 @@ const HeaderHint = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? 
   target: "e8tqeku0"
 } : 0)("color:", COLORS.gray[700], ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/font-size-picker/font-size-picker-select.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/font-size-picker/font-size-picker-select.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -57428,14 +63939,28 @@ const DEFAULT_OPTION = {
   name: (0,external_wp_i18n_namespaceObject.__)('Default'),
   value: undefined
 };
+<<<<<<< HEAD
+=======
+const CUSTOM_OPTION = {
+  key: 'custom',
+  name: (0,external_wp_i18n_namespaceObject.__)('Custom')
+};
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const FontSizePickerSelect = props => {
   var _options$find;
   const {
     __next40pxDefaultSize,
     fontSizes,
     value,
+<<<<<<< HEAD
     size,
     onChange
+=======
+    disableCustomFontSizes,
+    size,
+    onChange,
+    onSelectCustom
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   } = props;
   const areAllSizesSameUnit = !!getCommonSizeUnit(fontSizes);
   const options = [DEFAULT_OPTION, ...fontSizes.map(fontSize => {
@@ -57454,11 +63979,18 @@ const FontSizePickerSelect = props => {
       value: fontSize.size,
       hint
     };
+<<<<<<< HEAD
   })];
   const selectedOption = (_options$find = options.find(option => option.value === value)) !== null && _options$find !== void 0 ? _options$find : DEFAULT_OPTION;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(custom_select_control, {
     __next40pxDefaultSize: __next40pxDefaultSize,
     __shouldNotWarnDeprecated36pxSize: true,
+=======
+  }), ...(disableCustomFontSizes ? [] : [CUSTOM_OPTION])];
+  const selectedOption = value ? (_options$find = options.find(option => option.value === value)) !== null && _options$find !== void 0 ? _options$find : CUSTOM_OPTION : DEFAULT_OPTION;
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(custom_select_control, {
+    __next40pxDefaultSize: __next40pxDefaultSize,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     className: "components-font-size-picker__select",
     label: (0,external_wp_i18n_namespaceObject.__)('Font size'),
     hideLabelFromVision: true,
@@ -57471,14 +64003,26 @@ const FontSizePickerSelect = props => {
     onChange: ({
       selectedItem
     }) => {
+<<<<<<< HEAD
       onChange(selectedItem.value);
+=======
+      if (selectedItem === CUSTOM_OPTION) {
+        onSelectCustom();
+      } else {
+        onChange(selectedItem.value);
+      }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     },
     size: size
   });
 };
 /* harmony default export */ const font_size_picker_select = (FontSizePickerSelect);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/font-size-picker/constants.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/font-size-picker/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -57505,7 +64049,11 @@ const T_SHIRT_ABBREVIATIONS = [/* translators: S stands for 'small' and is a siz
  */
 const T_SHIRT_NAMES = [(0,external_wp_i18n_namespaceObject.__)('Small'), (0,external_wp_i18n_namespaceObject.__)('Medium'), (0,external_wp_i18n_namespaceObject.__)('Large'), (0,external_wp_i18n_namespaceObject.__)('Extra Large'), (0,external_wp_i18n_namespaceObject.__)('Extra Extra Large')];
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/font-size-picker/font-size-picker-toggle-group.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/font-size-picker/font-size-picker-toggle-group.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -57528,7 +64076,10 @@ const FontSizePickerToggleGroup = props => {
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(toggle_group_control_component, {
     __nextHasNoMarginBottom: true,
     __next40pxDefaultSize: __next40pxDefaultSize,
+<<<<<<< HEAD
     __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     label: (0,external_wp_i18n_namespaceObject.__)('Font size'),
     hideLabelFromVision: true,
     value: value,
@@ -57545,7 +64096,11 @@ const FontSizePickerToggleGroup = props => {
 };
 /* harmony default export */ const font_size_picker_toggle_group = (FontSizePickerToggleGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/font-size-picker/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/font-size-picker/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -57633,11 +64188,14 @@ const UnforwardedFontSizePicker = (props, ref) => {
   const [valueQuantity, valueUnit] = parseQuantityAndUnitFromRawValue(value, units);
   const isValueUnitRelative = !!valueUnit && ['em', 'rem', 'vw', 'vh'].includes(valueUnit);
   const isDisabled = value === undefined;
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'FontSizePicker',
     __next40pxDefaultSize,
     size
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(styles_Container, {
     ref: ref,
     className: "components-font-size-picker",
@@ -57694,7 +64252,10 @@ const UnforwardedFontSizePicker = (props, ref) => {
           isBlock: true,
           children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(unit_control, {
             __next40pxDefaultSize: __next40pxDefaultSize,
+<<<<<<< HEAD
             __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             label: (0,external_wp_i18n_namespaceObject.__)('Custom'),
             labelPosition: "top",
             hideLabelFromVision: true,
@@ -57719,7 +64280,10 @@ const UnforwardedFontSizePicker = (props, ref) => {
             children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(range_control, {
               __nextHasNoMarginBottom: true,
               __next40pxDefaultSize: __next40pxDefaultSize,
+<<<<<<< HEAD
               __shouldNotWarnDeprecated36pxSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
               className: "components-font-size-picker__custom-input",
               label: (0,external_wp_i18n_namespaceObject.__)('Custom Size'),
               hideLabelFromVision: true,
@@ -57761,7 +64325,11 @@ const UnforwardedFontSizePicker = (props, ref) => {
 const FontSizePicker = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedFontSizePicker);
 /* harmony default export */ const font_size_picker = (FontSizePicker);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/form-file-upload/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/form-file-upload/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -57774,14 +64342,21 @@ const FontSizePicker = (0,external_wp_element_namespaceObject.forwardRef)(Unforw
 
 
 /**
+<<<<<<< HEAD
  * FormFileUpload allows users to select files from their local device.
+=======
+ * FormFileUpload is a component that allows users to select files from their local device.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * ```jsx
  * import { FormFileUpload } from '@wordpress/components';
  *
  * const MyFormFileUpload = () => (
  *   <FormFileUpload
+<<<<<<< HEAD
  *     __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     accept="image/*"
  *     onChange={ ( event ) => console.log( event.currentTarget.files ) }
  *   >
@@ -57790,7 +64365,10 @@ const FontSizePicker = (0,external_wp_element_namespaceObject.forwardRef)(Unforw
  * );
  * ```
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function FormFileUpload({
   accept,
   children,
@@ -57804,6 +64382,7 @@ function FormFileUpload({
   const openFileDialog = () => {
     ref.current?.click();
   };
+<<<<<<< HEAD
   if (!render) {
     maybeWarnDeprecated36pxSize({
       componentName: 'FormFileUpload',
@@ -57812,6 +64391,8 @@ function FormFileUpload({
       size: props.size
     });
   }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const ui = render ? render({
     openFileDialog
   }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
@@ -57843,7 +64424,11 @@ function FormFileUpload({
 }
 /* harmony default export */ const form_file_upload = (FormFileUpload);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/form-toggle/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/form-toggle/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -57857,6 +64442,10 @@ function FormFileUpload({
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const form_toggle_noop = () => {};
 function UnforwardedFormToggle(props, ref) {
   const {
@@ -57912,7 +64501,11 @@ function UnforwardedFormToggle(props, ref) {
 const FormToggle = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedFormToggle);
 /* harmony default export */ const form_toggle = (FormToggle);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/form-token-field/token.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/form-token-field/token.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -57931,6 +64524,10 @@ const FormToggle = (0,external_wp_element_namespaceObject.forwardRef)(Unforwarde
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const token_noop = () => {};
 function Token({
   value,
@@ -57958,7 +64555,11 @@ function Token({
     value
   });
   const transformedValue = displayTransform(value);
+<<<<<<< HEAD
   const termPositionAndCount = (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: 1: term name, 2: term position in a set of terms, 3: total term set count. */
+=======
+  const termPositionAndCount = (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: 1: term name, 2: term position in a set of terms, 3: total term set count. */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   (0,external_wp_i18n_namespaceObject.__)('%1$s (%2$s of %3$s)'), transformedValue, termPosition, termsCount);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("span", {
     className: tokenClasses,
@@ -57977,7 +64578,10 @@ function Token({
       })]
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
       className: "components-form-token-field__remove-token",
+<<<<<<< HEAD
       size: "small",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       icon: close_small,
       onClick: !disabled ? onClick : undefined
       // Disable reason: Even when FormTokenField itself is accessibly disabled, token reset buttons shouldn't be in the tab sequence.
@@ -57990,7 +64594,11 @@ function Token({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/form-token-field/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/form-token-field/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -58012,7 +64620,12 @@ const TokensAndInputWrapperFlex = /*#__PURE__*/emotion_styled_base_browser_esm(f
   target: "ehq8nmi0"
 } : 0)("padding:7px;", boxSizingReset, " ", deprecatedPaddings, ";" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/form-token-field/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/form-token-field/index.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -58094,11 +64707,14 @@ function FormTokenField(props) {
       hint: 'Set the `__nextHasNoMarginBottom` prop to true to start opting into the new styles, which will become the default in a future version.'
     });
   }
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'FormTokenField',
     size: undefined,
     __next40pxDefaultSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(FormTokenField);
 
   // We reset to these initial values again in the onBlur
@@ -58126,12 +64742,24 @@ function FormTokenField(props) {
     }
 
     // TODO: updateSuggestions() should first be refactored so its actual deps are clearer.
+<<<<<<< HEAD
   }, [suggestions, prevSuggestions, value, prevValue]);
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     updateSuggestions();
   }, [incompleteTokenValue]);
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     updateSuggestions();
+=======
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [suggestions, prevSuggestions, value, prevValue]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    updateSuggestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [incompleteTokenValue]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    updateSuggestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, [__experimentalAutoSelectFirstMatch]);
   if (disabled && isActive) {
     setIsActive(false);
@@ -58464,7 +65092,11 @@ function FormTokenField(props) {
       }
     }
     if (inputHasMinimumChars) {
+<<<<<<< HEAD
       const message = hasMatchingSuggestions ? (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %d: number of results. */
+=======
+      const message = hasMatchingSuggestions ? (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %d: number of results. */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       (0,external_wp_i18n_namespaceObject._n)('%d result found, use up and down arrow keys to navigate.', '%d results found, use up and down arrow keys to navigate.', matchingSuggestions.length), matchingSuggestions.length) : (0,external_wp_i18n_namespaceObject.__)('No results.');
       debouncedSpeak(message, 'assertive');
     }
@@ -58579,7 +65211,11 @@ function FormTokenField(props) {
 }
 /* harmony default export */ const form_token_field = (FormTokenField);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/guide/icons.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/guide/icons.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -58597,7 +65233,11 @@ const PageControlIcon = () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespace
   })
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/guide/page-control.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/guide/page-control.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -58623,9 +65263,14 @@ function PageControl({
       // Set aria-current="step" on the active page, see https://www.w3.org/TR/wai-aria-1.1/#aria-current
       "aria-current": page === currentPage ? 'step' : undefined,
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
         size: "small",
         icon: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PageControlIcon, {}),
         "aria-label": (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: 1: current page number 2: total number of pages */
+=======
+        icon: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PageControlIcon, {}),
+        "aria-label": (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: 1: current page number 2: total number of pages */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         (0,external_wp_i18n_namespaceObject.__)('Page %1$d of %2$d'), page + 1, numberOfPages),
         onClick: () => setCurrentPage(page)
       }, page)
@@ -58633,7 +65278,11 @@ function PageControl({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/guide/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/guide/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -58653,6 +65302,10 @@ function PageControl({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * `Guide` is a React component that renders a _user guide_ in a modal. The guide consists of several pages which the user can step through one by one. The guide is finished when the modal is closed or when the user clicks _Finish_ on the last page of the guide.
  *
@@ -58784,7 +65437,11 @@ function Guide({
 }
 /* harmony default export */ const guide = (Guide);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/guide/page.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/guide/page.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -58807,7 +65464,11 @@ function GuidePage(props) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/button/deprecated.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/button/deprecated.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -58846,7 +65507,106 @@ function UnforwardedIconButton({
 }
 /* harmony default export */ const deprecated = ((0,external_wp_element_namespaceObject.forwardRef)(UnforwardedIconButton));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/keyboard-shortcuts/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/item-group/item/hook.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+function useItem(props) {
+  const {
+    as: asProp,
+    className,
+    onClick,
+    role = 'listitem',
+    size: sizeProp,
+    ...otherProps
+  } = useContextSystem(props, 'Item');
+  const {
+    spacedAround,
+    size: contextSize
+  } = useItemGroupContext();
+  const size = sizeProp || contextSize;
+  const as = asProp || (typeof onClick !== 'undefined' ? 'button' : 'div');
+  const cx = useCx();
+  const classes = (0,external_wp_element_namespaceObject.useMemo)(() => cx((as === 'button' || as === 'a') && unstyledButton(as), itemSizes[size] || itemSizes.medium, item, spacedAround && styles_spacedAround, className), [as, className, cx, size, spacedAround]);
+  const wrapperClassName = cx(itemWrapper);
+  return {
+    as,
+    className: classes,
+    onClick,
+    wrapperClassName,
+    role,
+    ...otherProps
+  };
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/item-group/item/component.js
+/**
+ * External dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+function UnconnectedItem(props, forwardedRef) {
+  const {
+    role,
+    wrapperClassName,
+    ...otherProps
+  } = useItem(props);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
+    role: role,
+    className: wrapperClassName,
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(component, {
+      ...otherProps,
+      ref: forwardedRef
+    })
+  });
+}
+
+/**
+ * `Item` is used in combination with `ItemGroup` to display a list of items
+ * grouped and styled together.
+ *
+ * ```jsx
+ * import {
+ *   __experimentalItemGroup as ItemGroup,
+ *   __experimentalItem as Item,
+ * } from '@wordpress/components';
+ *
+ * function Example() {
+ *   return (
+ *     <ItemGroup>
+ *       <Item>Code</Item>
+ *       <Item>is</Item>
+ *       <Item>Poetry</Item>
+ *     </ItemGroup>
+ *   );
+ * }
+ * ```
+ */
+const component_Item = contextConnect(UnconnectedItem, 'Item');
+/* harmony default export */ const item_component = (component_Item);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/keyboard-shortcuts/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -58857,6 +65617,11 @@ function UnforwardedIconButton({
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function KeyboardShortcut({
   target,
   callback,
@@ -58931,7 +65696,11 @@ function KeyboardShortcuts({
 }
 /* harmony default export */ const keyboard_shortcuts = (KeyboardShortcuts);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/menu-group/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/menu-group/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -58947,6 +65716,10 @@ function KeyboardShortcuts({
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * `MenuGroup` wraps a series of related `MenuItem` components into a common
  * section.
@@ -58993,7 +65766,11 @@ function MenuGroup(props) {
 }
 /* harmony default export */ const menu_group = (MenuGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/menu-item/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/menu-item/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59012,6 +65789,10 @@ function MenuGroup(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedMenuItem(props, ref) {
   let {
     children,
@@ -59046,7 +65827,10 @@ function UnforwardedMenuItem(props, ref) {
     });
   }
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(build_module_button, {
+<<<<<<< HEAD
     __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ref: ref
     // Make sure aria-checked matches spec https://www.w3.org/TR/wai-aria-1.1/#aria-checked
     ,
@@ -59093,7 +65877,11 @@ function UnforwardedMenuItem(props, ref) {
 const MenuItem = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedMenuItem);
 /* harmony default export */ const menu_item = (MenuItem);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/menu-items-choice/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/menu-items-choice/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59104,6 +65892,10 @@ const MenuItem = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedM
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const menu_items_choice_noop = () => {};
 
 /**
@@ -59171,7 +65963,11 @@ function MenuItemsChoice({
 }
 /* harmony default export */ const menu_items_choice = (MenuItemsChoice);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigable-container/tabbable.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigable-container/tabbable.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59261,11 +66057,19 @@ function UnforwardedTabbableContainer({
 const TabbableContainer = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTabbableContainer);
 /* harmony default export */ const tabbable = (TabbableContainer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/constants.js
 const ROOT_MENU = 'root';
 const SEARCH_FOCUS_DELAY = 100;
 
 ;// ./node_modules/@wordpress/components/build-module/navigation/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/constants.js
+const ROOT_MENU = 'root';
+const SEARCH_FOCUS_DELAY = 100;
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59298,7 +66102,11 @@ const NavigationContext = (0,external_wp_element_namespaceObject.createContext)(
 });
 const useNavigationContext = () => (0,external_wp_element_namespaceObject.useContext)(NavigationContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/styles/navigation-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/styles/navigation-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function navigation_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -59355,7 +66163,11 @@ const ItemBaseUI = /*#__PURE__*/emotion_styled_base_browser_esm("li",  true ? {
   textAlign: 'left'
 }, {
   textAlign: 'right'
+<<<<<<< HEAD
 }), " &:hover,&:focus:not( [aria-disabled='true'] ):active,&:active:not( [aria-disabled='true'] ):active{color:inherit;opacity:1;}}&.is-active{background-color:", COLORS.theme.accent, ";color:", COLORS.theme.accentInverted, ";>button,.components-button:hover,>a{color:", COLORS.theme.accentInverted, ";opacity:1;}}>svg path{color:", COLORS.gray[600], ";}" + ( true ? "" : 0));
+=======
+}), " &:hover,&:focus:not( [aria-disabled='true'] ):active,&:active:not( [aria-disabled='true'] ):active{color:inherit;opacity:1;}}&.is-active{background-color:", COLORS.theme.accent, ";color:", COLORS.white, ";>button,>a{color:", COLORS.white, ";opacity:1;}}>svg path{color:", COLORS.gray[600], ";}" + ( true ? "" : 0));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const ItemUI = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
   target: "eeiismy3"
 } : 0)("display:flex;align-items:center;height:auto;min-height:40px;margin:0;padding:", space(1.5), " ", space(4), ";font-weight:400;line-height:20px;width:100%;color:inherit;opacity:0.7;" + ( true ? "" : 0));
@@ -59369,7 +66181,11 @@ const ItemTitleUI = /*#__PURE__*/emotion_styled_base_browser_esm(text_component,
   target: "eeiismy0"
 } : 0)(() => (0,external_wp_i18n_namespaceObject.isRTL)() ? 'margin-left: auto;' : 'margin-right: auto;', " font-size:14px;line-height:20px;color:inherit;" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/use-navigation-tree-nodes.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/use-navigation-tree-nodes.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59404,7 +66220,11 @@ function useNavigationTreeNodes() {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/use-create-navigation-tree.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/use-create-navigation-tree.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59495,7 +66315,11 @@ const useCreateNavigationTree = () => {
   };
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59507,7 +66331,10 @@ const useCreateNavigationTree = () => {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -59572,11 +66399,14 @@ function Navigation({
   const [slideOrigin, setSlideOrigin] = (0,external_wp_element_namespaceObject.useState)();
   const navigationTree = useCreateNavigationTree();
   const defaultSlideOrigin = (0,external_wp_i18n_namespaceObject.isRTL)() ? 'right' : 'left';
+<<<<<<< HEAD
   external_wp_deprecated_default()('wp.components.Navigation (and all subcomponents)', {
     since: '6.8',
     version: '7.1',
     alternative: 'wp.components.Navigator'
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const setActiveMenu = (menuId, slideInOrigin = defaultSlideOrigin) => {
     if (!navigationTree.getMenu(menuId)) {
       return;
@@ -59597,8 +66427,14 @@ function Navigation({
     if (activeMenu !== menu) {
       setActiveMenu(activeMenu);
     }
+<<<<<<< HEAD
     // Not adding deps for now, as it would require either a larger refactor or some questionable workarounds.
     // See https://github.com/WordPress/gutenberg/pull/41612 for context.
+=======
+    // Ignore exhaustive-deps here, as it would require either a larger refactor or some questionable workarounds.
+    // See https://github.com/WordPress/gutenberg/pull/41612 for context.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, [activeMenu]);
   const context = {
     activeItem,
@@ -59626,7 +66462,11 @@ function Navigation({
 }
 /* harmony default export */ const navigation = (Navigation);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/chevron-right.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-right.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59641,7 +66481,11 @@ const chevronRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const chevron_right = (chevronRight);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/chevron-left.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-left.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59656,7 +66500,11 @@ const chevronLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const chevron_left = (chevronLeft);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/back-button/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/back-button/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59674,6 +66522,10 @@ const chevronLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedNavigationBackButton({
   backButtonLabel,
   className,
@@ -59698,7 +66550,10 @@ function UnforwardedNavigationBackButton({
   };
   const icon = (0,external_wp_i18n_namespaceObject.isRTL)() ? chevron_right : chevron_left;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(MenuBackButtonUI, {
+<<<<<<< HEAD
     __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     className: classes,
     href: href,
     variant: "tertiary",
@@ -59716,7 +66571,11 @@ function UnforwardedNavigationBackButton({
 const NavigationBackButton = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedNavigationBackButton);
 /* harmony default export */ const back_button = (NavigationBackButton);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/group/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/group/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59731,7 +66590,11 @@ const NavigationGroupContext = (0,external_wp_element_namespaceObject.createCont
 });
 const useNavigationGroupContext = () => (0,external_wp_element_namespaceObject.useContext)(NavigationGroupContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/group/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/group/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59749,6 +66612,10 @@ const useNavigationGroupContext = () => (0,external_wp_element_namespaceObject.u
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 let uniqueId = 0;
 
 /**
@@ -59797,12 +66664,21 @@ function NavigationGroup({
 }
 /* harmony default export */ const group = (NavigationGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/item/base-content.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/item/base-content.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function NavigationItemBaseContent(props) {
   const {
     badge,
@@ -59820,7 +66696,11 @@ function NavigationItemBaseContent(props) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/menu/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/menu/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59836,7 +66716,11 @@ const NavigationMenuContext = (0,external_wp_element_namespaceObject.createConte
 });
 const useNavigationMenuContext = () => (0,external_wp_element_namespaceObject.useContext)(NavigationMenuContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59846,7 +66730,11 @@ const useNavigationMenuContext = () => (0,external_wp_element_namespaceObject.us
 const normalizeInput = input => remove_accents_default()(input).replace(/^\//, '').toLowerCase();
 const normalizedSearch = (title, search) => -1 !== normalizeInput(title).indexOf(normalizeInput(search));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/item/use-navigation-tree-item.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/item/use-navigation-tree-item.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -59886,12 +66774,21 @@ const useNavigationTreeItem = (itemId, props) => {
     return () => {
       removeItem(itemId);
     };
+<<<<<<< HEAD
     // Not adding deps for now, as it would require either a larger refactor.
     // See https://github.com/WordPress/gutenberg/pull/41639
   }, [activeMenu, search]);
 };
 
 ;// ./node_modules/@wordpress/components/build-module/navigation/item/base.js
+=======
+    // Ignore exhaustive-deps rule for now. See https://github.com/WordPress/gutenberg/pull/41639
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeMenu, search]);
+};
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/item/base.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59935,7 +66832,11 @@ function NavigationItemBase(props) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/item/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/item/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -59956,6 +66857,10 @@ function NavigationItemBase(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const item_noop = () => {};
 
 /**
@@ -60007,7 +66912,10 @@ function NavigationItem(props) {
   };
   const itemProps = isText ? restProps : {
     as: build_module_button,
+<<<<<<< HEAD
     __next40pxDefaultSize: 'as' in restProps ? restProps.as === undefined : true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     href,
     onClick: onItemClick,
     'aria-current': isActive ? 'page' : undefined,
@@ -60033,7 +66941,11 @@ function NavigationItem(props) {
 }
 /* harmony default export */ const navigation_item = (NavigationItem);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/menu/use-navigation-tree-menu.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/menu/use-navigation-tree-menu.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -60060,12 +66972,21 @@ const useNavigationTreeMenu = props => {
     return () => {
       removeMenu(key);
     };
+<<<<<<< HEAD
     // Not adding deps for now, as it would require either a larger refactor
     // See https://github.com/WordPress/gutenberg/pull/44090
   }, []);
 };
 
 ;// ./node_modules/@wordpress/icons/build-module/library/search.js
+=======
+    // Ignore exhaustive-deps rule for now. See https://github.com/WordPress/gutenberg/pull/44090
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+};
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/search.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -60080,7 +67001,11 @@ const search = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_search = (search);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/higher-order/with-spoken-messages/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-spoken-messages/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -60105,7 +67030,11 @@ const search = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
   debouncedSpeak: (0,external_wp_compose_namespaceObject.useDebounce)(external_wp_a11y_namespaceObject.speak, 500)
 }), 'withSpokenMessages'));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/search-control/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/search-control/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -60129,7 +67058,11 @@ const StyledInputControl = /*#__PURE__*/emotion_styled_base_browser_esm(input_co
   target: "effl84m0"
 } : 0)("input[type='search']{&::-webkit-search-decoration,&::-webkit-search-cancel-button,&::-webkit-search-results-button,&::-webkit-search-results-decoration{-webkit-appearance:none;}}&:not( :focus-within ){--wp-components-color-background:", COLORS.theme.gray[100], ";}" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/search-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/search-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -60143,7 +67076,10 @@ const StyledInputControl = /*#__PURE__*/emotion_styled_base_browser_esm(input_co
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -60162,11 +67098,14 @@ function SuffixItem({
       icon: library_search
     });
   }
+<<<<<<< HEAD
   if (onClose) {
     external_wp_deprecated_default()('`onClose` prop in wp.components.SearchControl', {
       since: '6.8'
     });
   }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const onReset = () => {
     onChange('');
     searchRef.current?.focus();
@@ -60192,16 +67131,24 @@ function UnforwardedSearchControl({
 }, forwardedRef) {
   // @ts-expect-error The `disabled` prop is not yet supported in the SearchControl component.
   // Work with the design team (@WordPress/gutenberg-design) if you need this feature.
+<<<<<<< HEAD
   const {
     disabled,
     ...filteredRestProps
   } = restProps;
+=======
+  delete restProps.disabled;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const searchRef = (0,external_wp_element_namespaceObject.useRef)(null);
   const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(SearchControl, 'components-search-control');
   const contextValue = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     BaseControl: {
       // Overrides the underlying BaseControl `__nextHasNoMarginBottom` via the context system
+<<<<<<< HEAD
       // to provide backwards compatible margin for SearchControl.
+=======
+      // to provide backwards compatibile margin for SearchControl.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       // (In a standard InputControl, the BaseControl `__nextHasNoMarginBottom` is always set to true.)
       _overrides: {
         __nextHasNoMarginBottom
@@ -60237,7 +67184,11 @@ function UnforwardedSearchControl({
           onClose: onClose
         })
       }),
+<<<<<<< HEAD
       ...filteredRestProps
+=======
+      ...restProps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     })
   });
 }
@@ -60265,7 +67216,11 @@ function UnforwardedSearchControl({
 const SearchControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedSearchControl);
 /* harmony default export */ const search_control = (SearchControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/menu/menu-title-search.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/menu/menu-title-search.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -60314,11 +67269,19 @@ function MenuTitleSearch({
       return;
     }
     const count = Object.values(items).filter(item => item._isVisible).length;
+<<<<<<< HEAD
     const resultsFoundMessage = (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %d: number of results. */
     (0,external_wp_i18n_namespaceObject._n)('%d result found.', '%d results found.', count), count);
     debouncedSpeak(resultsFoundMessage);
     // Not adding deps for now, as it would require either a larger refactor.
     // See https://github.com/WordPress/gutenberg/pull/44090
+=======
+    const resultsFoundMessage = (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %d: number of results. */
+    (0,external_wp_i18n_namespaceObject._n)('%d result found.', '%d results found.', count), count);
+    debouncedSpeak(resultsFoundMessage);
+    // Ignore exhaustive-deps rule for now. See https://github.com/WordPress/gutenberg/pull/44090
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, [items, search]);
   const onClose = () => {
     onSearch?.('');
@@ -60331,7 +67294,11 @@ function MenuTitleSearch({
     }
   };
   const inputId = `components-navigation__menu-title-search-${menu}`;
+<<<<<<< HEAD
   const placeholder = (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: placeholder for menu search box. %s: menu title */
+=======
+  const placeholder = (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: placeholder for menu search box. %s: menu title */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   (0,external_wp_i18n_namespaceObject.__)('Search %s'), title?.toLowerCase()).trim();
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MenuTitleSearchControlWrapper, {
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(search_control, {
@@ -60349,7 +67316,11 @@ function MenuTitleSearch({
 }
 /* harmony default export */ const menu_title_search = (with_spoken_messages(MenuTitleSearch));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/menu/menu-title.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/menu/menu-title.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -60367,6 +67338,10 @@ function MenuTitleSearch({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function NavigationMenuTitle({
   hasSearch,
   onSearch,
@@ -60430,7 +67405,11 @@ function NavigationMenuTitle({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/menu/search-no-results-found.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/menu/search-no-results-found.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -60442,6 +67421,10 @@ function NavigationMenuTitle({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function NavigationSearchNoResultsFound({
   search
 }) {
@@ -60461,7 +67444,11 @@ function NavigationSearchNoResultsFound({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigation/menu/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigation/menu/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -60485,6 +67472,10 @@ function NavigationSearchNoResultsFound({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @deprecated Use `Navigator` instead.
  */
@@ -60552,7 +67543,11 @@ function NavigationMenu(props) {
 }
 /* harmony default export */ const navigation_menu = (NavigationMenu);
 
+<<<<<<< HEAD
 ;// ./node_modules/path-to-regexp/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/path-to-regexp/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Tokenize input string.
  */
@@ -60968,7 +67963,11 @@ function pathToRegexp(path, keys, options) {
     return stringToRegexp(path, keys, options);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigator/utils/router.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/utils/router.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -61014,7 +68013,11 @@ function findParent(path, screens) {
   return parentPath;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigator/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -61035,12 +68038,17 @@ const context_initialContextValue = {
 };
 const NavigatorContext = (0,external_wp_element_namespaceObject.createContext)(context_initialContextValue);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigator/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function navigator_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
  * External dependencies
  */
 
+<<<<<<< HEAD
 const navigatorWrapper =  true ? {
   name: "1br0vvk",
   styles: "position:relative;overflow-x:clip;contain:layout;display:grid;grid-template-columns:1fr;grid-template-rows:1fr;align-items:start"
@@ -61118,6 +68126,46 @@ const navigatorScreen =  true ? {
 } : 0;
 
 ;// ./node_modules/@wordpress/components/build-module/navigator/navigator/component.js
+=======
+const navigatorProviderWrapper =  true ? {
+  name: "xpkswc",
+  styles: "overflow-x:hidden;contain:content"
+} : 0;
+const fadeInFromRight = emotion_react_browser_esm_keyframes({
+  '0%': {
+    opacity: 0,
+    transform: `translateX( 50px )`
+  },
+  '100%': {
+    opacity: 1,
+    transform: 'none'
+  }
+});
+const fadeInFromLeft = emotion_react_browser_esm_keyframes({
+  '0%': {
+    opacity: 0,
+    transform: `translateX( -50px )`
+  },
+  '100%': {
+    opacity: 1,
+    transform: 'none'
+  }
+});
+const navigatorScreenAnimation = ({
+  isInitial,
+  isBack,
+  isRTL
+}) => {
+  if (isInitial && !isBack) {
+    return;
+  }
+  const animationName = isRTL && isBack || !isRTL && !isBack ? fadeInFromRight : fadeInFromLeft;
+  return /*#__PURE__*/emotion_react_browser_esm_css("animation-duration:0.14s;animation-timing-function:ease-in-out;will-change:transform,opacity;animation-name:", animationName, ";@media ( prefers-reduced-motion ){animation-duration:0s;}" + ( true ? "" : 0),  true ? "" : 0);
+};
+const navigatorScreen = props => /*#__PURE__*/emotion_react_browser_esm_css("overflow-x:auto;max-height:100%;", navigatorScreenAnimation(props), ";" + ( true ? "" : 0),  true ? "" : 0);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/navigator-provider/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -61295,13 +68343,21 @@ function routerReducer(state, action) {
     focusSelectors
   };
 }
+<<<<<<< HEAD
 function UnconnectedNavigator(props, forwardedRef) {
+=======
+function UnconnectedNavigatorProvider(props, forwardedRef) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const {
     initialPath: initialPathProp,
     children,
     className,
     ...otherProps
+<<<<<<< HEAD
   } = useContextSystem(props, 'Navigator');
+=======
+  } = useContextSystem(props, 'NavigatorProvider');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const [routerState, dispatch] = (0,external_wp_element_namespaceObject.useReducer)(routerReducer, initialPathProp, path => ({
     screens: [],
     currentLocation: {
@@ -61360,7 +68416,11 @@ function UnconnectedNavigator(props, forwardedRef) {
     };
   }, [currentLocation, matchedPath, methods]);
   const cx = useCx();
+<<<<<<< HEAD
   const classes = (0,external_wp_element_namespaceObject.useMemo)(() => cx(navigatorWrapper, className), [className, cx]);
+=======
+  const classes = (0,external_wp_element_namespaceObject.useMemo)(() => cx(navigatorProviderWrapper, className), [className, cx]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(component, {
     ref: forwardedRef,
     className: classes,
@@ -61371,6 +68431,7 @@ function UnconnectedNavigator(props, forwardedRef) {
     })
   });
 }
+<<<<<<< HEAD
 const component_Navigator = contextConnect(UnconnectedNavigator, 'Navigator');
 
 ;// external ["wp","escapeHtml"]
@@ -61483,6 +68544,48 @@ function useScreenAnimatePresence({
 }
 
 ;// ./node_modules/@wordpress/components/build-module/navigator/navigator-screen/component.js
+=======
+
+/**
+ * The `NavigatorProvider` component allows rendering nested views/panels/menus
+ * (via the `NavigatorScreen` component and navigate between these different
+ * view (via the `NavigatorButton` and `NavigatorBackButton` components or the
+ * `useNavigator` hook).
+ *
+ * ```jsx
+ * import {
+ *   __experimentalNavigatorProvider as NavigatorProvider,
+ *   __experimentalNavigatorScreen as NavigatorScreen,
+ *   __experimentalNavigatorButton as NavigatorButton,
+ *   __experimentalNavigatorBackButton as NavigatorBackButton,
+ * } from '@wordpress/components';
+ *
+ * const MyNavigation = () => (
+ *   <NavigatorProvider initialPath="/">
+ *     <NavigatorScreen path="/">
+ *       <p>This is the home screen.</p>
+ *        <NavigatorButton path="/child">
+ *          Navigate to child screen.
+ *       </NavigatorButton>
+ *     </NavigatorScreen>
+ *
+ *     <NavigatorScreen path="/child">
+ *       <p>This is the child screen.</p>
+ *       <NavigatorBackButton>
+ *         Go back
+ *       </NavigatorBackButton>
+ *     </NavigatorScreen>
+ *   </NavigatorProvider>
+ * );
+ * ```
+ */
+const NavigatorProvider = contextConnect(UnconnectedNavigatorProvider, 'NavigatorProvider');
+/* harmony default export */ const navigator_provider_component = ((/* unused pure expression or super */ null && (NavigatorProvider)));
+
+;// CONCATENATED MODULE: external ["wp","escapeHtml"]
+const external_wp_escapeHtml_namespaceObject = window["wp"]["escapeHtml"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/navigator-screen/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -61496,6 +68599,10 @@ function useScreenAnimatePresence({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -61506,25 +68613,37 @@ function useScreenAnimatePresence({
 
 
 
+<<<<<<< HEAD
 
 function UnconnectedNavigatorScreen(props, forwardedRef) {
   if (!/^\//.test(props.path)) {
      true ? external_wp_warning_default()('wp.components.Navigator.Screen: the `path` should follow a URL-like scheme; it should start with and be separated by the `/` character.') : 0;
+=======
+function UnconnectedNavigatorScreen(props, forwardedRef) {
+  if (!/^\//.test(props.path)) {
+     true ? external_wp_warning_default()('wp.components.NavigatorScreen: the `path` should follow a URL-like scheme; it should start with and be separated by the `/` character.') : 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
   const screenId = (0,external_wp_element_namespaceObject.useId)();
   const {
     children,
     className,
     path,
+<<<<<<< HEAD
     onAnimationEnd: onAnimationEndProp,
     ...otherProps
   } = useContextSystem(props, 'Navigator.Screen');
+=======
+    ...otherProps
+  } = useContextSystem(props, 'NavigatorScreen');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const {
     location,
     match,
     addScreen,
     removeScreen
   } = (0,external_wp_element_namespaceObject.useContext)(NavigatorContext);
+<<<<<<< HEAD
   const {
     isInitial,
     isBack,
@@ -61536,6 +68655,10 @@ function UnconnectedNavigatorScreen(props, forwardedRef) {
   const skipAnimationAndFocusRestoration = !!isInitial && !isBack;
 
   // Register / unregister screen with the navigator context.
+=======
+  const isMatch = match === screenId;
+  const wrapperRef = (0,external_wp_element_namespaceObject.useRef)(null);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     const screen = {
       id: screenId,
@@ -61544,6 +68667,7 @@ function UnconnectedNavigatorScreen(props, forwardedRef) {
     addScreen(screen);
     return () => removeScreen(screen);
   }, [screenId, path, addScreen, removeScreen]);
+<<<<<<< HEAD
 
   // Animation.
   const {
@@ -61560,18 +68684,39 @@ function UnconnectedNavigatorScreen(props, forwardedRef) {
   const classes = (0,external_wp_element_namespaceObject.useMemo)(() => cx(navigatorScreen, animationStyles, className), [className, cx, animationStyles]);
 
   // Focus restoration
+=======
+  const isRTL = (0,external_wp_i18n_namespaceObject.isRTL)();
+  const {
+    isInitial,
+    isBack
+  } = location;
+  const cx = useCx();
+  const classes = (0,external_wp_element_namespaceObject.useMemo)(() => cx(navigatorScreen({
+    isInitial,
+    isBack,
+    isRTL
+  }), className), [className, cx, isInitial, isBack, isRTL]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const locationRef = (0,external_wp_element_namespaceObject.useRef)(location);
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     locationRef.current = location;
   }, [location]);
+<<<<<<< HEAD
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     const wrapperEl = wrapperRef.current;
+=======
+
+  // Focus restoration
+  const isInitialLocation = location.isInitial && !location.isBack;
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     // Only attempt to restore focus:
     // - if the current location is not the initial one (to avoid moving focus on page load)
     // - when the screen becomes visible
     // - if the wrapper ref has been assigned
     // - if focus hasn't already been restored for the current location
     // - if the `skipFocus` option is not set to `true`. This is useful when we trigger the navigation outside of NavigatorScreen.
+<<<<<<< HEAD
     if (skipAnimationAndFocusRestoration || !isMatch || !wrapperEl || locationRef.current.hasRestoredFocus || skipFocus) {
       return;
     }
@@ -61580,19 +68725,35 @@ function UnconnectedNavigatorScreen(props, forwardedRef) {
     // If an element is already focused within the wrapper do not focus the
     // element. This prevents inputs or buttons from losing focus unnecessarily.
     if (wrapperEl.contains(activeElement)) {
+=======
+    if (isInitialLocation || !isMatch || !wrapperRef.current || locationRef.current.hasRestoredFocus || location.skipFocus) {
+      return;
+    }
+    const activeElement = wrapperRef.current.ownerDocument.activeElement;
+
+    // If an element is already focused within the wrapper do not focus the
+    // element. This prevents inputs or buttons from losing focus unnecessarily.
+    if (wrapperRef.current.contains(activeElement)) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       return;
     }
     let elementToFocus = null;
 
     // When navigating back, if a selector is provided, use it to look for the
     // target element (assumed to be a node inside the current NavigatorScreen)
+<<<<<<< HEAD
     if (isBack && focusTargetSelector) {
       elementToFocus = wrapperEl.querySelector(focusTargetSelector);
+=======
+    if (location.isBack && location.focusTargetSelector) {
+      elementToFocus = wrapperRef.current.querySelector(location.focusTargetSelector);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
 
     // If the previous query didn't run or find any element to focus, fallback
     // to the first tabbable element in the screen (or the screen itself).
     if (!elementToFocus) {
+<<<<<<< HEAD
       const [firstTabbable] = external_wp_dom_namespaceObject.focus.tabbable.find(wrapperEl);
       elementToFocus = firstTabbable !== null && firstTabbable !== void 0 ? firstTabbable : wrapperEl;
     }
@@ -61604,13 +68765,67 @@ function UnconnectedNavigatorScreen(props, forwardedRef) {
     ref: mergedWrapperRef,
     className: classes,
     ...screenProps,
+=======
+      const [firstTabbable] = external_wp_dom_namespaceObject.focus.tabbable.find(wrapperRef.current);
+      elementToFocus = firstTabbable !== null && firstTabbable !== void 0 ? firstTabbable : wrapperRef.current;
+    }
+    locationRef.current.hasRestoredFocus = true;
+    elementToFocus.focus();
+  }, [isInitialLocation, isMatch, location.isBack, location.focusTargetSelector, location.skipFocus]);
+  const mergedWrapperRef = (0,external_wp_compose_namespaceObject.useMergeRefs)([forwardedRef, wrapperRef]);
+  return isMatch ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(component, {
+    ref: mergedWrapperRef,
+    className: classes,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ...otherProps,
     children: children
   }) : null;
 }
+<<<<<<< HEAD
 const NavigatorScreen = contextConnect(UnconnectedNavigatorScreen, 'Navigator.Screen');
 
 ;// ./node_modules/@wordpress/components/build-module/navigator/use-navigator.js
+=======
+
+/**
+ * The `NavigatorScreen` component represents a single view/screen/panel and
+ * should be used in combination with the `NavigatorProvider`, the
+ * `NavigatorButton` and the `NavigatorBackButton` components (or the `useNavigator`
+ * hook).
+ *
+ * @example
+ * ```jsx
+ * import {
+ *   __experimentalNavigatorProvider as NavigatorProvider,
+ *   __experimentalNavigatorScreen as NavigatorScreen,
+ *   __experimentalNavigatorButton as NavigatorButton,
+ *   __experimentalNavigatorBackButton as NavigatorBackButton,
+ * } from '@wordpress/components';
+ *
+ * const MyNavigation = () => (
+ *   <NavigatorProvider initialPath="/">
+ *     <NavigatorScreen path="/">
+ *       <p>This is the home screen.</p>
+ *        <NavigatorButton path="/child">
+ *          Navigate to child screen.
+ *       </NavigatorButton>
+ *     </NavigatorScreen>
+ *
+ *     <NavigatorScreen path="/child">
+ *       <p>This is the child screen.</p>
+ *       <NavigatorBackButton>
+ *         Go back
+ *       </NavigatorBackButton>
+ *     </NavigatorScreen>
+ *   </NavigatorProvider>
+ * );
+ * ```
+ */
+const NavigatorScreen = contextConnect(UnconnectedNavigatorScreen, 'NavigatorScreen');
+/* harmony default export */ const navigator_screen_component = ((/* unused pure expression or super */ null && (NavigatorScreen)));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/use-navigator.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -61621,10 +68836,14 @@ const NavigatorScreen = contextConnect(UnconnectedNavigatorScreen, 'Navigator.Sc
  */
 
 /**
+<<<<<<< HEAD
  * Retrieves a `navigator` instance. This hook provides advanced functionality,
  * such as imperatively navigating to a new location (with options like
  * navigating back or skipping focus restoration) and accessing the current
  * location and path parameters.
+=======
+ * Retrieves a `navigator` instance.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function useNavigator() {
   const {
@@ -61643,7 +68862,11 @@ function useNavigator() {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigator/navigator-button/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/navigator-button/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -61665,7 +68888,11 @@ function useNavigatorButton(props) {
     as = build_module_button,
     attributeName = 'id',
     ...otherProps
+<<<<<<< HEAD
   } = useContextSystem(props, 'Navigator.Button');
+=======
+  } = useContextSystem(props, 'NavigatorButton');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const escapedPath = (0,external_wp_escapeHtml_namespaceObject.escapeAttribute)(path);
   const {
     goTo
@@ -61685,7 +68912,11 @@ function useNavigatorButton(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigator/navigator-button/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/navigator-button/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -61705,9 +68936,50 @@ function UnconnectedNavigatorButton(props, forwardedRef) {
     ...navigatorButtonProps
   });
 }
+<<<<<<< HEAD
 const NavigatorButton = contextConnect(UnconnectedNavigatorButton, 'Navigator.Button');
 
 ;// ./node_modules/@wordpress/components/build-module/navigator/navigator-back-button/hook.js
+=======
+
+/**
+ * The `NavigatorButton` component can be used to navigate to a screen and should
+ * be used in combination with the `NavigatorProvider`, the `NavigatorScreen`
+ * and the `NavigatorBackButton` components (or the `useNavigator` hook).
+ *
+ * @example
+ * ```jsx
+ * import {
+ *   __experimentalNavigatorProvider as NavigatorProvider,
+ *   __experimentalNavigatorScreen as NavigatorScreen,
+ *   __experimentalNavigatorButton as NavigatorButton,
+ *   __experimentalNavigatorBackButton as NavigatorBackButton,
+ * } from '@wordpress/components';
+ *
+ * const MyNavigation = () => (
+ *   <NavigatorProvider initialPath="/">
+ *     <NavigatorScreen path="/">
+ *       <p>This is the home screen.</p>
+ *        <NavigatorButton path="/child">
+ *          Navigate to child screen.
+ *       </NavigatorButton>
+ *     </NavigatorScreen>
+ *
+ *     <NavigatorScreen path="/child">
+ *       <p>This is the child screen.</p>
+ *       <NavigatorBackButton>
+ *         Go back
+ *       </NavigatorBackButton>
+ *     </NavigatorScreen>
+ *   </NavigatorProvider>
+ * );
+ * ```
+ */
+const NavigatorButton = contextConnect(UnconnectedNavigatorButton, 'NavigatorButton');
+/* harmony default export */ const navigator_button_component = ((/* unused pure expression or super */ null && (NavigatorButton)));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/navigator-back-button/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -61725,7 +68997,11 @@ function useNavigatorBackButton(props) {
     onClick,
     as = build_module_button,
     ...otherProps
+<<<<<<< HEAD
   } = useContextSystem(props, 'Navigator.BackButton');
+=======
+  } = useContextSystem(props, 'NavigatorBackButton');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const {
     goBack
   } = useNavigator();
@@ -61741,7 +69017,11 @@ function useNavigatorBackButton(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/navigator/navigator-back-button/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/navigator-back-button/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -61761,6 +69041,7 @@ function UnconnectedNavigatorBackButton(props, forwardedRef) {
     ...navigatorBackButtonProps
   });
 }
+<<<<<<< HEAD
 const NavigatorBackButton = contextConnect(UnconnectedNavigatorBackButton, 'Navigator.BackButton');
 
 ;// ./node_modules/@wordpress/components/build-module/navigator/navigator-to-parent-button/component.js
@@ -61911,11 +69192,18 @@ const legacy_NavigatorScreen = Object.assign(NavigatorScreen, {
 const legacy_NavigatorButton = Object.assign(NavigatorButton, {
   displayName: 'NavigatorButton'
 });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * The `NavigatorBackButton` component can be used to navigate to a screen and
  * should be used in combination with the `NavigatorProvider`, the
+<<<<<<< HEAD
  * `NavigatorScreen` and the `NavigatorButton` components.
+=======
+ * `NavigatorScreen` and the `NavigatorButton` components (or the `useNavigator`
+ * hook).
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @example
  * ```jsx
@@ -61945,9 +69233,37 @@ const legacy_NavigatorButton = Object.assign(NavigatorButton, {
  * );
  * ```
  */
+<<<<<<< HEAD
 const legacy_NavigatorBackButton = Object.assign(NavigatorBackButton, {
   displayName: 'NavigatorBackButton'
 });
+=======
+const NavigatorBackButton = contextConnect(UnconnectedNavigatorBackButton, 'NavigatorBackButton');
+/* harmony default export */ const navigator_back_button_component = ((/* unused pure expression or super */ null && (NavigatorBackButton)));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/navigator/navigator-to-parent-button/component.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+function UnconnectedNavigatorToParentButton(props, forwardedRef) {
+  external_wp_deprecated_default()('wp.components.NavigatorToParentButton', {
+    since: '6.7',
+    alternative: 'wp.components.NavigatorBackButton'
+  });
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(NavigatorBackButton, {
+    ref: forwardedRef,
+    ...props
+  });
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * _Note: this component is deprecated. Please use the `NavigatorBackButton`
@@ -61955,6 +69271,7 @@ const legacy_NavigatorBackButton = Object.assign(NavigatorBackButton, {
  *
  * @deprecated
  */
+<<<<<<< HEAD
 const legacy_NavigatorToParentButton = Object.assign(NavigatorToParentButton, {
   displayName: 'NavigatorToParentButton'
 });
@@ -62093,6 +69410,12 @@ const navigator_Navigator = Object.assign(component_Navigator, {
 });
 
 ;// ./node_modules/@wordpress/components/build-module/notice/index.js
+=======
+const NavigatorToParentButton = contextConnect(UnconnectedNavigatorToParentButton, 'NavigatorToParentButton');
+/* harmony default export */ const navigator_to_parent_button_component = ((/* unused pure expression or super */ null && (NavigatorToParentButton)));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/notice/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -62112,6 +69435,10 @@ const navigator_Navigator = Object.assign(component_Navigator, {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const notice_noop = () => {};
 
 /**
@@ -62215,7 +69542,10 @@ function Notice({
             computedVariant = 'primary';
           }
           return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
             __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             href: url,
             variant: computedVariant,
             onClick: url ? undefined : onClick,
@@ -62225,7 +69555,10 @@ function Notice({
         })
       })]
     }), isDismissible && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
       size: "small",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       className: "components-notice__dismiss",
       icon: library_close,
       label: (0,external_wp_i18n_namespaceObject.__)('Close'),
@@ -62235,7 +69568,11 @@ function Notice({
 }
 /* harmony default export */ const build_module_notice = (Notice);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/notice/list.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/notice/list.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -62300,7 +69637,12 @@ function NoticeList({
 }
 /* harmony default export */ const list = (NoticeList);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/panel/header.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/panel/header.js
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Internal dependencies
@@ -62324,7 +69666,11 @@ function PanelHeader({
 }
 /* harmony default export */ const panel_header = (PanelHeader);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/panel/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/panel/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -62340,6 +69686,10 @@ function PanelHeader({
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedPanel({
   header,
   className,
@@ -62374,7 +69724,11 @@ function UnforwardedPanel({
 const Panel = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedPanel);
 /* harmony default export */ const panel = (Panel);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/chevron-up.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-up.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -62389,7 +69743,11 @@ const chevronUp = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const chevron_up = (chevronUp);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/panel/body.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/panel/body.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -62410,6 +69768,10 @@ const chevronUp = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const body_noop = () => {};
 function UnforwardedPanelBody(props, ref) {
   const {
@@ -62486,7 +69848,10 @@ const PanelBodyTitle = (0,external_wp_element_namespaceObject.forwardRef)(({
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h2", {
     className: "components-panel__body-title",
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(build_module_button, {
+<<<<<<< HEAD
       __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       className: "components-panel__body-toggle",
       "aria-expanded": isOpened,
       ref: ref,
@@ -62508,7 +69873,11 @@ const PanelBodyTitle = (0,external_wp_element_namespaceObject.forwardRef)(({
 const PanelBody = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedPanelBody);
 /* harmony default export */ const body = (PanelBody);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/panel/row.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/panel/row.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -62541,7 +69910,11 @@ function UnforwardedPanelRow({
 const PanelRow = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedPanelRow);
 /* harmony default export */ const row = (PanelRow);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/placeholder/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/placeholder/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -62560,6 +69933,10 @@ const PanelRow = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedP
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const PlaceholderIllustration = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
   className: "components-placeholder__illustration",
   fill: "none",
@@ -62640,7 +70017,11 @@ function Placeholder(props) {
 }
 /* harmony default export */ const placeholder = (Placeholder);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/progress-bar/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/progress-bar/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function progress_bar_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -62697,7 +70078,11 @@ const ProgressElement = /*#__PURE__*/emotion_styled_base_browser_esm("progress",
   styles: "position:absolute;top:0;left:0;opacity:0;width:100%;height:100%"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/progress-bar/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/progress-bar/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -62713,6 +70098,10 @@ const ProgressElement = /*#__PURE__*/emotion_styled_base_browser_esm("progress",
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedProgressBar(props, ref) {
   const {
     className,
@@ -62755,7 +70144,11 @@ function UnforwardedProgressBar(props, ref) {
 const ProgressBar = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedProgressBar);
 /* harmony default export */ const progress_bar = (ProgressBar);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/query-controls/terms.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/query-controls/terms.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -62807,9 +70200,15 @@ function buildTermsTree(flatTerms) {
   return fillWithChildren(termsByParent['0'] || []);
 }
 
+<<<<<<< HEAD
 ;// external ["wp","htmlEntities"]
 const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
 ;// ./node_modules/@wordpress/components/build-module/tree-select/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","htmlEntities"]
+const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-select/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -62823,7 +70222,10 @@ const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const tree_select_CONTEXT_VALUE = {
   BaseControl: {
     // Temporary during deprecation grace period: Overrides the underlying `__associatedWPComponentName`
@@ -62841,11 +70243,19 @@ function getSelectOptions(tree, level = 0) {
 }
 
 /**
+<<<<<<< HEAD
  * Generates a hierarchical select input.
  *
  * ```jsx
  * import { useState } from 'react';
  * import { TreeSelect } from '@wordpress/components';
+=======
+ * TreeSelect component is used to generate select input fields.
+ *
+ * ```jsx
+ * import { TreeSelect } from '@wordpress/components';
+ * import { useState } from '@wordpress/element';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * const MyTreeSelect = () => {
  * 	const [ page, setPage ] = useState( 'p21' );
@@ -62853,7 +70263,10 @@ function getSelectOptions(tree, level = 0) {
  * 	return (
  * 		<TreeSelect
  * 			__nextHasNoMarginBottom
+<<<<<<< HEAD
  * 			__next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * 			label="Parent page"
  * 			noOptionLabel="No parent page"
  * 			onChange={ ( newPage ) => setPage( newPage ) }
@@ -62904,6 +70317,7 @@ function TreeSelect(props) {
       label: noOptionLabel
     }, ...getSelectOptions(tree)].filter(option => !!option);
   }, [noOptionLabel, tree]);
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'TreeSelect',
     size: restProps.size,
@@ -62913,6 +70327,11 @@ function TreeSelect(props) {
     value: tree_select_CONTEXT_VALUE,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SelectControl, {
       __shouldNotWarnDeprecated36pxSize: true,
+=======
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ContextSystemProvider, {
+    value: tree_select_CONTEXT_VALUE,
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SelectControl, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       label,
       options,
       onChange,
@@ -62923,7 +70342,11 @@ function TreeSelect(props) {
 }
 /* harmony default export */ const tree_select = (TreeSelect);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/query-controls/author-select.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/query-controls/author-select.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -62953,7 +70376,11 @@ function AuthorSelect({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/query-controls/category-select.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/query-controls/category-select.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -62989,7 +70416,11 @@ function CategorySelect({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/query-controls/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/query-controls/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -63014,6 +70445,7 @@ function isSingleCategorySelection(props) {
 function isMultipleCategorySelection(props) {
   return 'categorySuggestions' in props;
 }
+<<<<<<< HEAD
 const defaultOrderByOptions = [{
   label: (0,external_wp_i18n_namespaceObject.__)('Newest to oldest'),
   value: 'date/desc'
@@ -63029,6 +70461,8 @@ const defaultOrderByOptions = [{
   label: (0,external_wp_i18n_namespaceObject.__)('Z → A'),
   value: 'title/desc'
 }];
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Controls to query for posts.
@@ -63036,7 +70470,11 @@ const defaultOrderByOptions = [{
  * ```jsx
  * const MyQueryControls = () => (
  *   <QueryControls
+<<<<<<< HEAD
  *     { ...{ maxItems, minItems, numberOfItems, order, orderBy, orderByOptions } }
+=======
+ *     { ...{ maxItems, minItems, numberOfItems, order, orderBy } }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     onOrderByChange={ ( newOrderBy ) => {
  *       updateQuery( { orderBy: newOrderBy } )
  *     }
@@ -63061,7 +70499,10 @@ function QueryControls({
   numberOfItems,
   order,
   orderBy,
+<<<<<<< HEAD
   orderByOptions = defaultOrderByOptions,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   maxItems = DEFAULT_MAX_ITEMS,
   minItems = DEFAULT_MIN_ITEMS,
   onAuthorChange,
@@ -63080,7 +70521,25 @@ function QueryControls({
       __next40pxDefaultSize: true,
       label: (0,external_wp_i18n_namespaceObject.__)('Order by'),
       value: orderBy === undefined || order === undefined ? undefined : `${orderBy}/${order}`,
+<<<<<<< HEAD
       options: orderByOptions,
+=======
+      options: [{
+        label: (0,external_wp_i18n_namespaceObject.__)('Newest to oldest'),
+        value: 'date/desc'
+      }, {
+        label: (0,external_wp_i18n_namespaceObject.__)('Oldest to newest'),
+        value: 'date/asc'
+      }, {
+        /* translators: Label for ordering posts by title in ascending order. */
+        label: (0,external_wp_i18n_namespaceObject.__)('A → Z'),
+        value: 'title/asc'
+      }, {
+        /* translators: Label for ordering posts by title in descending order. */
+        label: (0,external_wp_i18n_namespaceObject.__)('Z → A'),
+        value: 'title/desc'
+      }],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       onChange: value => {
         if (typeof value !== 'string') {
           return;
@@ -63136,7 +70595,11 @@ function QueryControls({
 }
 /* harmony default export */ const query_controls = (QueryControls);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/radio-group/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/radio-group/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -63150,7 +70613,11 @@ const RadioGroupContext = (0,external_wp_element_namespaceObject.createContext)(
   disabled: undefined
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/radio-group/radio.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/radio-group/radio.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -63161,13 +70628,20 @@ const RadioGroupContext = (0,external_wp_element_namespaceObject.createContext)(
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedRadio({
   value,
   children,
@@ -63179,11 +70653,14 @@ function UnforwardedRadio({
   } = (0,external_wp_element_namespaceObject.useContext)(RadioGroupContext);
   const selectedValue = useStoreState(store, 'value');
   const isChecked = selectedValue !== undefined && selectedValue === value;
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'Radio',
     size: undefined,
     __next40pxDefaultSize: props.__next40pxDefaultSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Radio, {
     disabled: disabled,
     store: store,
@@ -63203,7 +70680,11 @@ function UnforwardedRadio({
 const radio_Radio = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedRadio);
 /* harmony default export */ const radio_group_radio = (radio_Radio);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/radio-group/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/radio-group/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -63214,8 +70695,11 @@ const radio_Radio = (0,external_wp_element_namespaceObject.forwardRef)(Unforward
  */
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -63236,23 +70720,33 @@ function UnforwardedRadioGroup({
     defaultValue: defaultChecked,
     setValue: newValue => {
       onChange?.(newValue !== null && newValue !== void 0 ? newValue : undefined);
+<<<<<<< HEAD
     },
     rtl: (0,external_wp_i18n_namespaceObject.isRTL)()
+=======
+    }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
   const contextValue = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     store: radioStore,
     disabled
   }), [radioStore, disabled]);
+<<<<<<< HEAD
   external_wp_deprecated_default()('wp.components.__experimentalRadioGroup', {
     alternative: 'wp.components.RadioControl or wp.components.__experimentalToggleGroupControl',
     since: '6.8'
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(RadioGroupContext.Provider, {
     value: contextValue,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(RadioGroup, {
       store: radioStore,
       render: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(button_group, {
+<<<<<<< HEAD
         __shouldNotWarnDeprecated: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         children: children
       }),
       "aria-label": label,
@@ -63268,7 +70762,11 @@ function UnforwardedRadioGroup({
 const radio_group_RadioGroup = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedRadioGroup);
 /* harmony default export */ const radio_group = (radio_group_RadioGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/radio-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/radio-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -63286,6 +70784,10 @@ const radio_group_RadioGroup = (0,external_wp_element_namespaceObject.forwardRef
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function generateOptionDescriptionId(radioGroupId, index) {
   return `${radioGroupId}-${index}-option-description`;
 }
@@ -63386,7 +70888,11 @@ function RadioControl(props) {
 }
 /* harmony default export */ const radio_control = (RadioControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/re-resizable/lib/resizer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/re-resizable/lib/resizer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var resizer_extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -63460,7 +70966,11 @@ var Resizer = /** @class */ (function (_super) {
 }(external_React_.PureComponent));
 
 
+<<<<<<< HEAD
 ;// ./node_modules/re-resizable/lib/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/re-resizable/lib/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var lib_extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -64218,7 +71728,11 @@ var Resizable = /** @class */ (function (_super) {
 }(external_React_.PureComponent));
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -64424,7 +71938,11 @@ function getSizeLabel({
   return undefined;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/styles/resize-tooltip.styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/styles/resize-tooltip.styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function resize_tooltip_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -64459,7 +71977,11 @@ const LabelText = /*#__PURE__*/emotion_styled_base_browser_esm(text_component,  
   target: "e1wq7y4k0"
 } : 0)("&&&{color:", COLORS.theme.foregroundInverted, ";display:block;font-size:13px;line-height:1.4;white-space:nowrap;}" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/label.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/label.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -64536,7 +72058,11 @@ function resize_tooltip_label_Label({
 const label_ForwardedComponent = (0,external_wp_element_namespaceObject.forwardRef)(resize_tooltip_label_Label);
 /* harmony default export */ const resize_tooltip_label = (label_ForwardedComponent);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/resizable-box/resize-tooltip/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -64553,6 +72079,10 @@ const label_ForwardedComponent = (0,external_wp_element_namespaceObject.forwardR
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const resize_tooltip_noop = () => {};
 function ResizeTooltip({
   axis,
@@ -64597,7 +72127,11 @@ function ResizeTooltip({
 const resize_tooltip_ForwardedComponent = (0,external_wp_element_namespaceObject.forwardRef)(ResizeTooltip);
 /* harmony default export */ const resize_tooltip = (resize_tooltip_ForwardedComponent);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/resizable-box/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/resizable-box/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -64613,6 +72147,10 @@ const resize_tooltip_ForwardedComponent = (0,external_wp_element_namespaceObject
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const HANDLE_CLASS_NAME = 'components-resizable-box__handle';
 const SIDE_HANDLE_CLASS_NAME = 'components-resizable-box__side-handle';
 const CORNER_HANDLE_CLASS_NAME = 'components-resizable-box__corner-handle';
@@ -64655,6 +72193,7 @@ function UnforwardedResizableBox({
   ...props
 }, ref) {
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(Resizable, {
+<<<<<<< HEAD
     className: dist_clsx('components-resizable-box__container', showHandle && 'has-show-handle', className)
     // Add a focusable element within the drag handle. Unfortunately,
     // `re-resizable` does not make them properly focusable by default,
@@ -64664,6 +72203,9 @@ function UnforwardedResizableBox({
     handleComponent: Object.fromEntries(Object.keys(HANDLE_CLASSES).map(key => [key, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       tabIndex: -1
     }, key)])),
+=======
+    className: dist_clsx('components-resizable-box__container', showHandle && 'has-show-handle', className),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     handleClasses: HANDLE_CLASSES,
     handleStyles: HANDLE_STYLES,
     ref: ref,
@@ -64676,7 +72218,11 @@ function UnforwardedResizableBox({
 const ResizableBox = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedResizableBox);
 /* harmony default export */ const resizable_box = (ResizableBox);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/responsive-wrapper/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/responsive-wrapper/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -64736,7 +72282,11 @@ function ResponsiveWrapper({
 }
 /* harmony default export */ const responsive_wrapper = (ResponsiveWrapper);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/sandbox/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/sandbox/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -64747,6 +72297,10 @@ function ResponsiveWrapper({
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const observeAndResizeJS = function () {
   const {
     MutationObserver
@@ -64951,6 +72505,7 @@ function SandBox({
       iframe?.removeEventListener('load', tryNoForceSandBox, false);
       defaultView?.removeEventListener('message', checkMessageForResize);
     };
+<<<<<<< HEAD
     // Passing `exhaustive-deps` will likely involve a more detailed refactor.
     // See https://github.com/WordPress/gutenberg/pull/44378
   }, []);
@@ -64963,6 +72518,23 @@ function SandBox({
     trySandBox(true);
     // Passing `exhaustive-deps` will likely involve a more detailed refactor.
     // See https://github.com/WordPress/gutenberg/pull/44378
+=======
+    // Ignore reason: passing `exhaustive-deps` will likely involve a more detailed refactor.
+    // See https://github.com/WordPress/gutenberg/pull/44378
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    trySandBox();
+    // Ignore reason: passing `exhaustive-deps` will likely involve a more detailed refactor.
+    // See https://github.com/WordPress/gutenberg/pull/44378
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [title, styles, scripts]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    trySandBox(true);
+    // Ignore reason: passing `exhaustive-deps` will likely involve a more detailed refactor.
+    // See https://github.com/WordPress/gutenberg/pull/44378
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }, [html, type]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("iframe", {
     ref: (0,external_wp_compose_namespaceObject.useMergeRefs)([ref, (0,external_wp_compose_namespaceObject.useFocusableIframe)()]),
@@ -64977,7 +72549,11 @@ function SandBox({
 }
 /* harmony default export */ const sandbox = (SandBox);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/snackbar/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/snackbar/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -64997,6 +72573,10 @@ function SandBox({
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const NOTICE_TIMEOUT = 10000;
 
 /**
@@ -65102,9 +72682,14 @@ function UnforwardedSnackbar({
         url
       }, index) => {
         return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
           __next40pxDefaultSize: true,
           href: url,
           variant: "link",
+=======
+          href: url,
+          variant: "tertiary",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
           onClick: event => onActionClick(event, onClick),
           className: "components-snackbar__action",
           children: label
@@ -65137,7 +72722,11 @@ function UnforwardedSnackbar({
 const Snackbar = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedSnackbar);
 /* harmony default export */ const snackbar = (Snackbar);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/snackbar/list.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/snackbar/list.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -65155,6 +72744,10 @@ const Snackbar = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedS
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const SNACKBAR_VARIANTS = {
   init: {
     height: 0,
@@ -65243,7 +72836,100 @@ function SnackbarList({
 }
 /* harmony default export */ const snackbar_list = (SnackbarList);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/surface/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/spinner/styles.js
+
+function spinner_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+/**
+ * External dependencies
+ */
+
+
+
+/**
+ * Internal dependencies
+ */
+
+const spinAnimation = emotion_react_browser_esm_keyframes`
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+ `;
+const StyledSpinner = /*#__PURE__*/emotion_styled_base_browser_esm("svg",  true ? {
+  target: "ea4tfvq2"
+} : 0)("width:", config_values.spinnerSize, "px;height:", config_values.spinnerSize, "px;display:inline-block;margin:5px 11px 0;position:relative;color:", COLORS.theme.accent, ";overflow:visible;opacity:1;background-color:transparent;" + ( true ? "" : 0));
+const commonPathProps =  true ? {
+  name: "9s4963",
+  styles: "fill:transparent;stroke-width:1.5px"
+} : 0;
+const SpinnerTrack = /*#__PURE__*/emotion_styled_base_browser_esm("circle",  true ? {
+  target: "ea4tfvq1"
+} : 0)(commonPathProps, ";stroke:", COLORS.gray[300], ";" + ( true ? "" : 0));
+const SpinnerIndicator = /*#__PURE__*/emotion_styled_base_browser_esm("path",  true ? {
+  target: "ea4tfvq0"
+} : 0)(commonPathProps, ";stroke:currentColor;stroke-linecap:round;transform-origin:50% 50%;animation:1.4s linear infinite both ", spinAnimation, ";" + ( true ? "" : 0));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/spinner/index.js
+/**
+ * External dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+function UnforwardedSpinner({
+  className,
+  ...props
+}, forwardedRef) {
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(StyledSpinner, {
+    className: dist_clsx('components-spinner', className),
+    viewBox: "0 0 100 100",
+    width: "16",
+    height: "16",
+    xmlns: "http://www.w3.org/2000/svg",
+    role: "presentation",
+    focusable: "false",
+    ...props,
+    ref: forwardedRef,
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SpinnerTrack, {
+      cx: "50",
+      cy: "50",
+      r: "50",
+      vectorEffect: "non-scaling-stroke"
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SpinnerIndicator, {
+      d: "m 50 0 a 50 50 0 0 1 50 50",
+      vectorEffect: "non-scaling-stroke"
+    })]
+  });
+}
+/**
+ * `Spinner` is a component used to notify users that their action is being processed.
+ *
+ * ```js
+ *   import { Spinner } from '@wordpress/components';
+ *
+ *   function Example() {
+ *     return <Spinner />;
+ *   }
+ * ```
+ */
+const Spinner = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedSpinner);
+/* harmony default export */ const spinner = (Spinner);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/surface/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -65286,7 +72972,11 @@ function UnconnectedSurface(props, forwardedRef) {
 const component_Surface = contextConnect(UnconnectedSurface, 'Surface');
 /* harmony default export */ const surface_component = (component_Surface);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/tab/tab-store.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/tab/tab-store.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -65446,7 +73136,11 @@ function createTabStore(_a = {}) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/PY4NZ6HS.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/JZUY7XL6.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -65463,7 +73157,11 @@ function useTabStoreProps(store, update, props) {
   store = useCompositeStoreProps(store, update, props);
   useStoreProps(store, props, "selectedId", "setSelectedId");
   useStoreProps(store, props, "selectOnMove");
+<<<<<<< HEAD
   const [panels, updatePanels] = YV4JVR4I_useStore(() => store.panels, {});
+=======
+  const [panels, updatePanels] = _2GXGCHW6_useStore(() => store.panels, {});
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   useUpdateEffect(updatePanels, [store, updatePanels]);
   return Object.assign(
     (0,external_React_.useMemo)(() => _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, store), { panels }), [store, panels]),
@@ -65477,18 +73175,27 @@ function useTabStore(props = {}) {
     composite: props.composite !== void 0 ? props.composite : composite,
     combobox: props.combobox !== void 0 ? props.combobox : combobox
   });
+<<<<<<< HEAD
   const [store, update] = YV4JVR4I_useStore(createTabStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createTabStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useTabStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/UYGDZTLQ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/TNITL632.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/tab/tab-context.tsx
+<<<<<<< HEAD
 var UYGDZTLQ_ctx = createStoreContext(
   [CompositeContextProvider],
   [CompositeScopedContextProvider]
@@ -65502,6 +73209,21 @@ var TabScopedContextProvider = UYGDZTLQ_ctx.ScopedContextProvider;
 
 
 ;// ./node_modules/@ariakit/react-core/esm/tab/tab-list.js
+=======
+var TNITL632_ctx = createStoreContext(
+  [CompositeContextProvider],
+  [CompositeScopedContextProvider]
+);
+var useTabContext = TNITL632_ctx.useContext;
+var useTabScopedContext = TNITL632_ctx.useScopedContext;
+var useTabProviderContext = TNITL632_ctx.useProviderContext;
+var TabContextProvider = TNITL632_ctx.ContextProvider;
+var TabScopedContextProvider = TNITL632_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/tab/tab-list.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -65549,6 +73271,7 @@ var useTabList = createHook(
     return props;
   }
 );
+<<<<<<< HEAD
 var TabList = forwardRef2(function TabList2(props) {
   const htmlProps = useTabList(props);
   return LMDWO4NN_createElement(tab_list_TagName, htmlProps);
@@ -65556,6 +73279,15 @@ var TabList = forwardRef2(function TabList2(props) {
 
 
 ;// ./node_modules/@ariakit/react-core/esm/tab/tab.js
+=======
+var tab_list_TabList = forwardRef2(function TabList2(props) {
+  const htmlProps = useTabList(props);
+  return HKOOKEDE_createElement(tab_list_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/tab/tab.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -65646,14 +73378,23 @@ var useTab = createHook(function useTab2(_a) {
       accessibleWhenDisabled,
       store: store.composite,
       shouldRegisterItem: canRegisterComposedItem && shouldRegisterItem,
+<<<<<<< HEAD
       rowId: props.rowId,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       render: props.render
     };
     props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, props), {
       render: /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(
+<<<<<<< HEAD
         P2CTZE2T_CompositeItem,
         _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, defaultProps), {
           render: store.combobox && store.composite !== store.combobox ? /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(P2CTZE2T_CompositeItem, _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, defaultProps), { store: store.combobox })) : defaultProps.render
+=======
+        _7QKWW6TW_CompositeItem,
+        _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, defaultProps), {
+          render: store.combobox && store.composite !== store.combobox ? /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(_7QKWW6TW_CompositeItem, _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, defaultProps), { store: store.combobox })) : defaultProps.render
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         })
       )
     });
@@ -65670,12 +73411,20 @@ var useTab = createHook(function useTab2(_a) {
 var Tab = memo2(
   forwardRef2(function Tab2(props) {
     const htmlProps = useTab(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(tab_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(tab_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   })
 );
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/tab/tab-panel.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/tab/tab-panel.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -65698,6 +73447,10 @@ var Tab = memo2(
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var tab_panel_TagName = "div";
 var useTabPanel = createHook(
   function useTabPanel2(_a) {
@@ -65705,16 +73458,24 @@ var useTabPanel = createHook(
       store,
       unmountOnHide,
       tabId: tabIdProp,
+<<<<<<< HEAD
       getItem: getItemProp,
       scrollRestoration,
       scrollElement
+=======
+      getItem: getItemProp
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     } = _b, props = __objRest(_b, [
       "store",
       "unmountOnHide",
       "tabId",
+<<<<<<< HEAD
       "getItem",
       "scrollRestoration",
       "scrollElement"
+=======
+      "getItem"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ]);
     const context = useTabProviderContext();
     store = store || context;
@@ -65724,6 +73485,7 @@ var useTabPanel = createHook(
     );
     const ref = (0,external_React_.useRef)(null);
     const id = useId(props.id);
+<<<<<<< HEAD
     const tabId = useStoreState(
       store.panels,
       () => {
@@ -65776,6 +73538,8 @@ var useTabPanel = createHook(
         element.removeEventListener("scroll", onScroll);
       };
     }, [scrollRestoration, mounted, tabId, getScrollElement, store]);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const [hasTabbableChildren, setHasTabbableChildren] = (0,external_React_.useState)(false);
     (0,external_React_.useEffect)(() => {
       const element = ref.current;
@@ -65798,6 +73562,7 @@ var useTabPanel = createHook(
       onKeyDownProp == null ? void 0 : onKeyDownProp(event);
       if (event.defaultPrevented) return;
       if (!(store == null ? void 0 : store.composite)) return;
+<<<<<<< HEAD
       const keyMap = {
         ArrowLeft: store.previous,
         ArrowRight: store.next,
@@ -65808,6 +73573,20 @@ var useTabPanel = createHook(
       if (!action) return;
       const { selectedId } = store.getState();
       const nextId = action({ activeId: selectedId });
+=======
+      const state = store.getState();
+      const tab = createTabStore(_3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, state), { activeId: state.selectedId }));
+      tab.setState("renderedItems", state.renderedItems);
+      const keyMap = {
+        ArrowLeft: tab.previous,
+        ArrowRight: tab.next,
+        Home: tab.first,
+        End: tab.last
+      };
+      const action = keyMap[event.key];
+      if (!action) return;
+      const nextId = action();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       if (!nextId) return;
       event.preventDefault();
       store.move(nextId);
@@ -65817,6 +73596,20 @@ var useTabPanel = createHook(
       (element) => /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(TabScopedContextProvider, { value: store, children: element }),
       [store]
     );
+<<<<<<< HEAD
+=======
+    const tabId = store.panels.useState(
+      () => {
+        var _a2;
+        return tabIdProp || ((_a2 = store == null ? void 0 : store.panels.item(id)) == null ? void 0 : _a2.tabId);
+      }
+    );
+    const open = store.useState(
+      (state) => !!tabId && state.selectedId === tabId
+    );
+    const disclosure = useDisclosureStore({ open });
+    const mounted = disclosure.useState("mounted");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
       id,
       role: "tabpanel",
@@ -65838,29 +73631,48 @@ var useTabPanel = createHook(
 );
 var TabPanel = forwardRef2(function TabPanel2(props) {
   const htmlProps = useTabPanel(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(tab_panel_TagName, htmlProps);
 });
 
 
 ;// ./node_modules/@wordpress/components/build-module/tab-panel/index.js
+=======
+  return HKOOKEDE_createElement(tab_panel_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tab-panel/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Separate the actual tab name from the instance ID. This is
 // necessary because Ariakit internally uses the element ID when
 // a new tab is selected, but our implementation looks specifically
@@ -65942,8 +73754,12 @@ const UnforwardedTabPanel = ({
     },
     orientation,
     selectOnMove,
+<<<<<<< HEAD
     defaultSelectedId: prependInstanceId(initialTabName),
     rtl: (0,external_wp_i18n_namespaceObject.isRTL)()
+=======
+    defaultSelectedId: prependInstanceId(initialTabName)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   });
   const selectedTabName = extractTabName(useStoreState(tabStore, 'selectedId'));
   const setTabStoreSelectedId = (0,external_wp_element_namespaceObject.useCallback)(tabName => {
@@ -66003,7 +73819,11 @@ const UnforwardedTabPanel = ({
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
     className: className,
     ref: ref,
+<<<<<<< HEAD
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TabList, {
+=======
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tab_list_TabList, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       store: tabStore,
       className: "components-tab-panel__tabs",
       children: tabs.map(tab => {
@@ -66015,7 +73835,10 @@ const UnforwardedTabPanel = ({
           disabled: tab.disabled,
           "aria-controls": `${prependInstanceId(tab.name)}-view`,
           render: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
             __next40pxDefaultSize: true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             icon: tab.icon,
             label: tab.icon && tab.title,
             showTooltip: !!tab.icon
@@ -66035,7 +73858,11 @@ const UnforwardedTabPanel = ({
 const tab_panel_TabPanel = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTabPanel);
 /* harmony default export */ const tab_panel = (tab_panel_TabPanel);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/text-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/text-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -66053,7 +73880,10 @@ const tab_panel_TabPanel = (0,external_wp_element_namespaceObject.forwardRef)(Un
  */
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedTextControl(props, ref) {
   const {
     __nextHasNoMarginBottom,
@@ -66070,11 +73900,14 @@ function UnforwardedTextControl(props, ref) {
   } = props;
   const id = (0,external_wp_compose_namespaceObject.useInstanceId)(TextControl, 'inspector-text-control', idProp);
   const onChangeValue = event => onChange(event.target.value);
+<<<<<<< HEAD
   maybeWarnDeprecated36pxSize({
     componentName: 'TextControl',
     size: undefined,
     __next40pxDefaultSize
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(base_control, {
     __nextHasNoMarginBottom: __nextHasNoMarginBottom,
     __associatedWPComponentName: "TextControl",
@@ -66111,7 +73944,10 @@ function UnforwardedTextControl(props, ref) {
  *   return (
  *     <TextControl
  *       __nextHasNoMarginBottom
+<<<<<<< HEAD
  *       __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *       label="Additional CSS Class"
  *       value={ className }
  *       onChange={ ( value ) => setClassName( value ) }
@@ -66123,7 +73959,11 @@ function UnforwardedTextControl(props, ref) {
 const TextControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTextControl);
 /* harmony default export */ const text_control = (TextControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/breakpoint-values.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/breakpoint-values.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* harmony default export */ const breakpoint_values = ({
   huge: '1440px',
   wide: '1280px',
@@ -66137,7 +73977,11 @@ const TextControl = (0,external_wp_element_namespaceObject.forwardRef)(Unforward
   'zoomed-in': '280px'
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/utils/breakpoint.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/breakpoint.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -66149,7 +73993,11 @@ const TextControl = (0,external_wp_element_namespaceObject.forwardRef)(Unforward
  */
 const breakpoint = point => `@media (min-width: ${breakpoint_values[point]})`;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/textarea-control/styles/textarea-control-styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/textarea-control/styles/textarea-control-styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * External dependencies
@@ -66168,9 +74016,15 @@ const inputStyleNeutral = /*#__PURE__*/emotion_react_browser_esm_css("box-shadow
 const inputStyleFocus = /*#__PURE__*/emotion_react_browser_esm_css("border-color:", COLORS.theme.accent, ";box-shadow:0 0 0 calc( ", config_values.borderWidthFocus, " - ", config_values.borderWidth, " ) ", COLORS.theme.accent, ";outline:2px solid transparent;" + ( true ? "" : 0),  true ? "" : 0);
 const StyledTextarea = /*#__PURE__*/emotion_styled_base_browser_esm("textarea",  true ? {
   target: "e1w5nnrk0"
+<<<<<<< HEAD
 } : 0)("width:100%;display:block;font-family:", font('default.fontFamily'), ";line-height:20px;padding:9px 11px;", inputStyleNeutral, ";font-size:", font('mobileTextMinFontSize'), ";", breakpoint('small'), "{font-size:", font('default.fontSize'), ";}&:focus{", inputStyleFocus, ";}&::-webkit-input-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}&::-moz-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}&:-ms-input-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}.is-dark-theme &{&::-webkit-input-placeholder{color:", COLORS.ui.lightGrayPlaceholder, ";}&::-moz-placeholder{color:", COLORS.ui.lightGrayPlaceholder, ";}&:-ms-input-placeholder{color:", COLORS.ui.lightGrayPlaceholder, ";}}" + ( true ? "" : 0));
 
 ;// ./node_modules/@wordpress/components/build-module/textarea-control/index.js
+=======
+} : 0)("width:100%;display:block;font-family:", font('default.fontFamily'), ";line-height:20px;padding:9px 11px;", inputStyleNeutral, ";font-size:", font('mobileTextMinFontSize'), ";", breakpoint('small'), "{font-size:", font('default.fontSize'), ";}&:focus{", inputStyleFocus, ";}&::-webkit-input-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}&::-moz-placeholder{opacity:1;color:", COLORS.ui.darkGrayPlaceholder, ";}&:-ms-input-placeholder{color:", COLORS.ui.darkGrayPlaceholder, ";}.is-dark-theme &{&::-webkit-input-placeholder{color:", COLORS.ui.lightGrayPlaceholder, ";}&::-moz-placeholder{opacity:1;color:", COLORS.ui.lightGrayPlaceholder, ";}&:-ms-input-placeholder{color:", COLORS.ui.lightGrayPlaceholder, ";}}" + ( true ? "" : 0));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/textarea-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -66246,7 +74100,11 @@ function UnforwardedTextareaControl(props, ref) {
 const TextareaControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTextareaControl);
 /* harmony default export */ const textarea_control = (TextareaControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/text-highlight/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/text-highlight/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -66257,6 +74115,10 @@ const TextareaControl = (0,external_wp_element_namespaceObject.forwardRef)(Unfor
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Highlights occurrences of a given string within another string of text. Wraps
  * each match with a `<mark>` tag which provides browser default styling.
@@ -66290,7 +74152,11 @@ const TextHighlight = props => {
 };
 /* harmony default export */ const text_highlight = (TextHighlight);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/tip.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/tip.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -66305,7 +74171,11 @@ const tip = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(extern
 });
 /* harmony default export */ const library_tip = (tip);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tip/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tip/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -66315,6 +74185,10 @@ const tip = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(extern
  * Internal dependencies
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function Tip(props) {
   const {
     children
@@ -66330,7 +74204,11 @@ function Tip(props) {
 }
 /* harmony default export */ const build_module_tip = (Tip);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toggle-control/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toggle-control/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -66355,6 +74233,10 @@ function Tip(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedToggleControl({
   __nextHasNoMarginBottom,
   label,
@@ -66450,12 +74332,17 @@ function UnforwardedToggleControl({
 const ToggleControl = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToggleControl);
 /* harmony default export */ const toggle_control = (ToggleControl);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/A3WPL2ZJ.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/IIER4YBF.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
 
 // src/toolbar/toolbar-context.tsx
+<<<<<<< HEAD
 var A3WPL2ZJ_ctx = createStoreContext(
   [CompositeContextProvider],
   [CompositeScopedContextProvider]
@@ -66469,6 +74356,21 @@ var ToolbarScopedContextProvider = A3WPL2ZJ_ctx.ScopedContextProvider;
 
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/BOLVLGVE.js
+=======
+var IIER4YBF_ctx = createStoreContext(
+  [CompositeContextProvider],
+  [CompositeScopedContextProvider]
+);
+var useToolbarContext = IIER4YBF_ctx.useContext;
+var useToolbarScopedContext = IIER4YBF_ctx.useScopedContext;
+var useToolbarProviderContext = IIER4YBF_ctx.useProviderContext;
+var ToolbarContextProvider = IIER4YBF_ctx.ContextProvider;
+var ToolbarScopedContextProvider = IIER4YBF_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/IE4UOD3X.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -66476,7 +74378,11 @@ var ToolbarScopedContextProvider = A3WPL2ZJ_ctx.ScopedContextProvider;
 
 
 // src/toolbar/toolbar-item.tsx
+<<<<<<< HEAD
 var BOLVLGVE_TagName = "button";
+=======
+var IE4UOD3X_TagName = "button";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useToolbarItem = createHook(
   function useToolbarItem2(_a) {
     var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
@@ -66489,13 +74395,21 @@ var useToolbarItem = createHook(
 var ToolbarItem = memo2(
   forwardRef2(function ToolbarItem2(props) {
     const htmlProps = useToolbarItem(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(BOLVLGVE_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(IE4UOD3X_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   })
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-context/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-context/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -66507,7 +74421,11 @@ var ToolbarItem = memo2(
 const ToolbarContext = (0,external_wp_element_namespaceObject.createContext)(undefined);
 /* harmony default export */ const toolbar_context = (ToolbarContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-item/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-item/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -66563,7 +74481,11 @@ function toolbar_item_ToolbarItem({
 }
 /* harmony default export */ const toolbar_item = ((0,external_wp_element_namespaceObject.forwardRef)(toolbar_item_ToolbarItem));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-button/toolbar-button-container.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-button/toolbar-button-container.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Internal dependencies
@@ -66578,7 +74500,11 @@ const ToolbarButtonContainer = ({
 });
 /* harmony default export */ const toolbar_button_container = (ToolbarButtonContainer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-button/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-button/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -66622,7 +74548,10 @@ function UnforwardedToolbarButton(props, ref) {
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
         ref: ref,
         icon: restProps.icon,
+<<<<<<< HEAD
         size: "compact",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         label: title,
         shortcut: restProps.shortcut,
         "data-subscript": restProps.subscript,
@@ -66653,7 +74582,10 @@ function UnforwardedToolbarButton(props, ref) {
     ...restProps,
     ref: ref,
     children: toolbarItemProps => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_button, {
+<<<<<<< HEAD
       size: "compact",
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       label: title,
       isPressed: isActive,
       ...toolbarItemProps,
@@ -66686,7 +74618,11 @@ function UnforwardedToolbarButton(props, ref) {
 const ToolbarButton = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToolbarButton);
 /* harmony default export */ const toolbar_button = (ToolbarButton);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-group/toolbar-group-container.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-group/toolbar-group-container.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Internal dependencies
@@ -66703,7 +74639,11 @@ const ToolbarGroupContainer = ({
 });
 /* harmony default export */ const toolbar_group_container = (ToolbarGroupContainer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-group/toolbar-group-collapsed.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-group/toolbar-group-collapsed.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -66742,7 +74682,11 @@ function ToolbarGroupCollapsed({
 }
 /* harmony default export */ const toolbar_group_collapsed = (ToolbarGroupCollapsed);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-group/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-group/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -66761,6 +74705,10 @@ function ToolbarGroupCollapsed({
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function isNestedArray(arr) {
   return Array.isArray(arr) && Array.isArray(arr[0]);
 }
@@ -66841,7 +74789,11 @@ function ToolbarGroup({
 }
 /* harmony default export */ const toolbar_group = (ToolbarGroup);
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/toolbar/toolbar-store.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/toolbar/toolbar-store.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -66866,7 +74818,11 @@ function createToolbarStore(props = {}) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/7M5THDKH.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/GO2SPXQX.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -66877,13 +74833,21 @@ function useToolbarStoreProps(store, update, props) {
   return useCompositeStoreProps(store, update, props);
 }
 function useToolbarStore(props = {}) {
+<<<<<<< HEAD
   const [store, update] = YV4JVR4I_useStore(createToolbarStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createToolbarStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useToolbarStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/toolbar/toolbar.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/toolbar/toolbar.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -66946,11 +74910,19 @@ var useToolbar = createHook(
 );
 var Toolbar = forwardRef2(function Toolbar2(props) {
   const htmlProps = useToolbar(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(toolbar_TagName, htmlProps);
 });
 
 
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar/toolbar-container.js
+=======
+  return HKOOKEDE_createElement(toolbar_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar/toolbar-container.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -66991,7 +74963,11 @@ function UnforwardedToolbarContainer({
 const ToolbarContainer = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToolbarContainer);
 /* harmony default export */ const toolbar_container = (ToolbarContainer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -67026,9 +75002,12 @@ function UnforwardedToolbar({
       },
       Dropdown: {
         variant: 'toolbar'
+<<<<<<< HEAD
       },
       Menu: {
         variant: 'toolbar'
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       }
     };
   }, [isVariantDefined]);
@@ -67085,7 +75064,11 @@ function UnforwardedToolbar({
 const toolbar_Toolbar = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedToolbar);
 /* harmony default export */ const toolbar = (toolbar_Toolbar);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/toolbar/toolbar-dropdown-menu/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar/toolbar-dropdown-menu/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -67127,7 +75110,11 @@ function ToolbarDropdownMenu(props, ref) {
 }
 /* harmony default export */ const toolbar_dropdown_menu = ((0,external_wp_element_namespaceObject.forwardRef)(ToolbarDropdownMenu));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function tools_panel_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -67189,7 +75176,11 @@ const ResetLabel = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? 
 }), " text-transform:uppercase;" + ( true ? "" : 0));
 const DefaultControlsItem = /*#__PURE__*/emotion_react_browser_esm_css("color:", COLORS.gray[900], ";&&[aria-disabled='true']{color:", COLORS.gray[700], ";opacity:1;&:hover{color:", COLORS.gray[700], ";}", ResetLabel, "{opacity:0.3;}}" + ( true ? "" : 0),  true ? "" : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -67217,7 +75208,11 @@ const ToolsPanelContext = (0,external_wp_element_namespaceObject.createContext)(
 });
 const useToolsPanelContext = () => (0,external_wp_element_namespaceObject.useContext)(ToolsPanelContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-header/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-header/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -67267,7 +75262,11 @@ function useToolsPanelHeader(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-header/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-header/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -67291,6 +75290,11 @@ function useToolsPanelHeader(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const DefaultControlsGroup = ({
   itemClassName,
   items,
@@ -67448,7 +75452,11 @@ const component_ToolsPanelHeader = (props, forwardedRef) => {
 const ConnectedToolsPanelHeader = contextConnect(component_ToolsPanelHeader, 'ToolsPanelHeader');
 /* harmony default export */ const tools_panel_header_component = (ConnectedToolsPanelHeader);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -67791,7 +75799,11 @@ function useToolsPanel(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -67805,6 +75817,10 @@ function useToolsPanel(props) {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const UnconnectedToolsPanel = (props, forwardedRef) => {
   const {
     children,
@@ -67863,7 +75879,10 @@ const UnconnectedToolsPanel = (props, forwardedRef) => {
  *         onDeselect={ () => setHeight() }
  *       >
  *         <UnitControl
+<<<<<<< HEAD
  *           __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *           label={ __( 'Height' ) }
  *           onChange={ setHeight }
  *           value={ height }
@@ -67875,7 +75894,10 @@ const UnconnectedToolsPanel = (props, forwardedRef) => {
  *         onDeselect={ () => setWidth() }
  *       >
  *         <UnitControl
+<<<<<<< HEAD
  *           __next40pxDefaultSize
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *           label={ __( 'Width' ) }
  *           onChange={ setWidth }
  *           value={ width }
@@ -67889,7 +75911,11 @@ const UnconnectedToolsPanel = (props, forwardedRef) => {
 const component_ToolsPanel = contextConnect(UnconnectedToolsPanel, 'ToolsPanel');
 /* harmony default export */ const tools_panel_component = (component_ToolsPanel);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-item/hook.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-item/hook.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -67934,9 +75960,17 @@ function useToolsPanelItem(props) {
 
   // hasValue is a new function on every render, so do not add it as a
   // dependency to the useCallback hook! If needed, we should use a ref.
+<<<<<<< HEAD
   const hasValueCallback = (0,external_wp_element_namespaceObject.useCallback)(hasValue, [panelId]);
   // resetAllFilter is a new function on every render, so do not add it as a
   // dependency to the useCallback hook! If needed, we should use a ref.
+=======
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const hasValueCallback = (0,external_wp_element_namespaceObject.useCallback)(hasValue, [panelId]);
+  // resetAllFilter is a new function on every render, so do not add it as a
+  // dependency to the useCallback hook! If needed, we should use a ref.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const resetAllFilterCallback = (0,external_wp_element_namespaceObject.useCallback)(resetAllFilter, [panelId]);
   const previousPanelId = (0,external_wp_compose_namespaceObject.usePrevious)(currentPanelId);
   const hasMatchingPanel = currentPanelId === panelId || currentPanelId === null;
@@ -68025,7 +76059,11 @@ function useToolsPanelItem(props) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-item/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tools-panel/tools-panel-item/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -68061,7 +76099,11 @@ const UnconnectedToolsPanelItem = (props, forwardedRef) => {
 const component_ToolsPanelItem = contextConnect(UnconnectedToolsPanelItem, 'ToolsPanelItem');
 /* harmony default export */ const tools_panel_item_component = (component_ToolsPanelItem);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tree-grid/roving-tab-index-context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/roving-tab-index-context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68070,7 +76112,11 @@ const RovingTabIndexContext = (0,external_wp_element_namespaceObject.createConte
 const useRovingTabIndexContext = () => (0,external_wp_element_namespaceObject.useContext)(RovingTabIndexContext);
 const RovingTabIndexProvider = RovingTabIndexContext.Provider;
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tree-grid/roving-tab-index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/roving-tab-index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68105,7 +76151,11 @@ function RovingTabIndex({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tree-grid/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68425,7 +76475,11 @@ const TreeGrid = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedT
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tree-grid/row.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/row.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68465,7 +76519,11 @@ function UnforwardedTreeGridRow({
 const TreeGridRow = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTreeGridRow);
 /* harmony default export */ const tree_grid_row = (TreeGridRow);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tree-grid/roving-tab-index-item.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/roving-tab-index-item.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68517,7 +76575,11 @@ const RovingTabIndexItem = (0,external_wp_element_namespaceObject.forwardRef)(fu
 });
 /* harmony default export */ const roving_tab_index_item = (RovingTabIndexItem);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tree-grid/item.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/item.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68549,7 +76611,11 @@ function UnforwardedTreeGridItem({
 const TreeGridItem = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTreeGridItem);
 /* harmony default export */ const tree_grid_item = (TreeGridItem);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tree-grid/cell.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/cell.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68560,6 +76626,10 @@ const TreeGridItem = (0,external_wp_element_namespaceObject.forwardRef)(Unforwar
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function UnforwardedTreeGridCell({
   children,
   withoutGridItem = false,
@@ -68569,10 +76639,14 @@ function UnforwardedTreeGridCell({
     ...props,
     role: "gridcell",
     children: withoutGridItem ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+<<<<<<< HEAD
       children: typeof children === 'function' ? children({
         ...props,
         ref
       }) : children
+=======
+      children: children
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tree_grid_item, {
       ref: ref,
       children: children
@@ -68590,7 +76664,11 @@ function UnforwardedTreeGridCell({
 const TreeGridCell = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedTreeGridCell);
 /* harmony default export */ const cell = (TreeGridCell);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/isolated-event-container/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/isolated-event-container/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -68621,7 +76699,11 @@ const IsolatedEventContainer = (0,external_wp_element_namespaceObject.forwardRef
 });
 /* harmony default export */ const isolated_event_container = (IsolatedEventContainer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/use-slot-fills.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/slot-fill/bubbles-virtually/use-slot-fills.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68637,7 +76719,11 @@ function useSlotFills(name) {
   return (0,external_wp_compose_namespaceObject.useObservableValue)(registry.fills, name);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/z-stack/styles.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/z-stack/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function z_stack_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -68666,7 +76752,11 @@ const ZStackView = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
 }) => isLayered ? // When `isLayered` is true, all items overlap in the same grid cell
 z_stack_styles_ref : undefined, ";}" + ( true ? "" : 0));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/z-stack/component.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/z-stack/component.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -68735,7 +76825,11 @@ function UnconnectedZStack(props, forwardedRef) {
 const ZStack = contextConnect(UnconnectedZStack, 'ZStack');
 /* harmony default export */ const z_stack_component = (ZStack);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/higher-order/navigate-regions/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/navigate-regions/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68852,7 +76946,11 @@ function useNavigateRegions(shortcuts = defaultShortcuts) {
   })
 }), 'navigateRegions'));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/higher-order/with-constrained-tabbing/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-constrained-tabbing/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -68879,7 +76977,11 @@ const withConstrainedTabbing = (0,external_wp_compose_namespaceObject.createHigh
 }, 'withConstrainedTabbing');
 /* harmony default export */ const with_constrained_tabbing = (withConstrainedTabbing);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/higher-order/with-fallback-styles/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-fallback-styles/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -68891,6 +76993,10 @@ const withConstrainedTabbing = (0,external_wp_compose_namespaceObject.createHigh
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* harmony default export */ const with_fallback_styles = (mapNodeToProps => (0,external_wp_compose_namespaceObject.createHigherOrderComponent)(WrappedComponent => {
   return class extends external_wp_element_namespaceObject.Component {
     constructor(props) {
@@ -68942,9 +77048,15 @@ const withConstrainedTabbing = (0,external_wp_compose_namespaceObject.createHigh
   };
 }, 'withFallbackStyles'));
 
+<<<<<<< HEAD
 ;// external ["wp","hooks"]
 const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
 ;// ./node_modules/@wordpress/components/build-module/higher-order/with-filters/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","hooks"]
+const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-filters/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -69074,7 +77186,11 @@ function withFilters(hookName) {
   }, 'withFilters');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/higher-order/with-focus-return/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-focus-return/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -69105,7 +77221,11 @@ function isComponentLike(object) {
  *                describing the component and the
  *                focus return characteristics.
  *
+<<<<<<< HEAD
  * @return Higher Order Component with the focus restoration behaviour.
+=======
+ * @return Higher Order Component with the focus restauration behaviour.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 /* harmony default export */ const with_focus_return = ((0,external_wp_compose_namespaceObject.createHigherOrderComponent)(
 // @ts-expect-error TODO: Reconcile with intended `createHigherOrderComponent` types
@@ -69140,7 +77260,11 @@ const with_focus_return_Provider = ({
   return children;
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/higher-order/with-notices/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-notices/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -69244,7 +77368,11 @@ const with_focus_return_Provider = ({
   return Component;
 }, 'withNotices'));
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/B2J376ND.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/LG4RFBHV.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -69253,6 +77381,7 @@ const with_focus_return_Provider = ({
 
 // src/menu/menu-context.tsx
 
+<<<<<<< HEAD
 var B2J376ND_menu = createStoreContext(
   [CompositeContextProvider, HovercardContextProvider],
   [CompositeScopedContextProvider, HovercardScopedContextProvider]
@@ -69262,6 +77391,17 @@ var useMenuScopedContext = B2J376ND_menu.useScopedContext;
 var useMenuProviderContext = B2J376ND_menu.useProviderContext;
 var MenuContextProvider = B2J376ND_menu.ContextProvider;
 var MenuScopedContextProvider = B2J376ND_menu.ScopedContextProvider;
+=======
+var LG4RFBHV_menu = createStoreContext(
+  [CompositeContextProvider, HovercardContextProvider],
+  [CompositeScopedContextProvider, HovercardScopedContextProvider]
+);
+var useMenuContext = LG4RFBHV_menu.useContext;
+var useMenuScopedContext = LG4RFBHV_menu.useScopedContext;
+var useMenuProviderContext = LG4RFBHV_menu.useProviderContext;
+var MenuContextProvider = LG4RFBHV_menu.ContextProvider;
+var MenuScopedContextProvider = LG4RFBHV_menu.ScopedContextProvider;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var useMenuBarContext = (/* unused pure expression or super */ null && (useMenubarContext));
 var useMenuBarScopedContext = (/* unused pure expression or super */ null && (useMenubarScopedContext));
 var useMenuBarProviderContext = (/* unused pure expression or super */ null && (useMenubarProviderContext));
@@ -69273,7 +77413,11 @@ var MenuItemCheckedContext = (0,external_React_.createContext)(
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/62UHHO2X.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/WSQNIDGC.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -69284,18 +77428,31 @@ var menubar = createStoreContext(
   [CompositeContextProvider],
   [CompositeScopedContextProvider]
 );
+<<<<<<< HEAD
 var _62UHHO2X_useMenubarContext = menubar.useContext;
 var _62UHHO2X_useMenubarScopedContext = menubar.useScopedContext;
 var _62UHHO2X_useMenubarProviderContext = menubar.useProviderContext;
 var _62UHHO2X_MenubarContextProvider = menubar.ContextProvider;
 var _62UHHO2X_MenubarScopedContextProvider = menubar.ScopedContextProvider;
 var _62UHHO2X_MenuItemCheckedContext = (0,external_React_.createContext)(
+=======
+var WSQNIDGC_useMenubarContext = menubar.useContext;
+var WSQNIDGC_useMenubarScopedContext = menubar.useScopedContext;
+var WSQNIDGC_useMenubarProviderContext = menubar.useProviderContext;
+var WSQNIDGC_MenubarContextProvider = menubar.ContextProvider;
+var WSQNIDGC_MenubarScopedContextProvider = menubar.ScopedContextProvider;
+var WSQNIDGC_MenuItemCheckedContext = (0,external_React_.createContext)(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   void 0
 );
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/core/esm/menu/menu-store.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/menu/menu-store.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -69409,7 +77566,11 @@ function createMenuStore(_a = {}) {
 }
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/MRTXKBQF.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/MS4VD4RJ.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -69440,19 +77601,28 @@ function useMenuStoreProps(store, update, props) {
 }
 function useMenuStore(props = {}) {
   const parent = useMenuContext();
+<<<<<<< HEAD
   const menubar = _62UHHO2X_useMenubarContext();
+=======
+  const menubar = WSQNIDGC_useMenubarContext();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const combobox = useComboboxProviderContext();
   props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, props), {
     parent: props.parent !== void 0 ? props.parent : parent,
     menubar: props.menubar !== void 0 ? props.menubar : menubar,
     combobox: props.combobox !== void 0 ? props.combobox : combobox
   });
+<<<<<<< HEAD
   const [store, update] = YV4JVR4I_useStore(createMenuStore, props);
+=======
+  const [store, update] = _2GXGCHW6_useStore(createMenuStore, props);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return useMenuStoreProps(store, update, props);
 }
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/menu/context.js
 /**
  * WordPress dependencies
@@ -70595,6 +78765,9 @@ const ItemHelpText = (0,external_wp_element_namespaceObject.forwardRef)(function
 });
 
 ;// ./node_modules/@ariakit/react-core/esm/menu/menu-button.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu-button.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -70690,8 +78863,12 @@ var useMenuButton = createHook(
         showMenu();
       }
     });
+<<<<<<< HEAD
     const dir = useStoreState(
       store,
+=======
+    const dir = store.useState(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       (state) => state.placement.split("-")[0]
     );
     const onKeyDownProp = props.onKeyDown;
@@ -70788,6 +78965,7 @@ var useMenuButton = createHook(
 );
 var MenuButton = forwardRef2(function MenuButton2(props) {
   const htmlProps = useMenuButton(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(menu_button_TagName, htmlProps);
 });
 
@@ -70897,6 +79075,13 @@ const SubmenuTriggerItem = (0,external_wp_element_namespaceObject.forwardRef)(fu
 });
 
 ;// ./node_modules/@ariakit/react-core/esm/__chunks/ASGALOAX.js
+=======
+  return HKOOKEDE_createElement(menu_button_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/GFJK2WVK.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -70911,7 +79096,11 @@ const SubmenuTriggerItem = (0,external_wp_element_namespaceObject.forwardRef)(fu
 
 
 
+<<<<<<< HEAD
 var ASGALOAX_TagName = "div";
+=======
+var GFJK2WVK_TagName = "div";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function useAriaLabelledBy(_a) {
   var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
   const [id, setId] = (0,external_React_.useState)(void 0);
@@ -71035,12 +79224,20 @@ var useMenuList = createHook(
 );
 var MenuList = forwardRef2(function MenuList2(props) {
   const htmlProps = useMenuList(props);
+<<<<<<< HEAD
   return LMDWO4NN_createElement(ASGALOAX_TagName, htmlProps);
+=======
+  return HKOOKEDE_createElement(GFJK2WVK_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 });
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@ariakit/react-core/esm/menu/menu.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "use client";
 
 
@@ -71091,7 +79288,10 @@ var MenuList = forwardRef2(function MenuList2(props) {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // src/menu/menu.tsx
 
 
@@ -71237,19 +79437,849 @@ var useMenu = createHook(function useMenu2(_a) {
 var Menu = createDialogComponent(
   forwardRef2(function Menu2(props) {
     const htmlProps = useMenu(props);
+<<<<<<< HEAD
     return LMDWO4NN_createElement(menu_TagName, htmlProps);
+=======
+    return HKOOKEDE_createElement(menu_TagName, htmlProps);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }),
   useMenuProviderContext
 );
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/menu/popover.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-right-small.js
+/**
+ * WordPress dependencies
+ */
+
+
+const chevronRightSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+    d: "M10.8622 8.04053L14.2805 12.0286L10.8622 16.0167L9.72327 15.0405L12.3049 12.0286L9.72327 9.01672L10.8622 8.04053Z"
+  })
+});
+/* harmony default export */ const chevron_right_small = (chevronRightSmall);
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/UQC4RYOT.js
+"use client";
+
+
+
+
+
+
+
+
+
+// src/menu/menu-item.tsx
+
+
+
+
+var UQC4RYOT_TagName = "div";
+function menuHasFocus(baseElement, items, currentTarget) {
+  var _a;
+  if (!baseElement) return false;
+  if (hasFocusWithin(baseElement)) return true;
+  const expandedItem = items == null ? void 0 : items.find((item) => {
+    var _a2;
+    if (item.element === currentTarget) return false;
+    return ((_a2 = item.element) == null ? void 0 : _a2.getAttribute("aria-expanded")) === "true";
+  });
+  const expandedMenuId = (_a = expandedItem == null ? void 0 : expandedItem.element) == null ? void 0 : _a.getAttribute("aria-controls");
+  if (!expandedMenuId) return false;
+  const doc = getDocument(baseElement);
+  const expandedMenu = doc.getElementById(expandedMenuId);
+  if (!expandedMenu) return false;
+  if (hasFocusWithin(expandedMenu)) return true;
+  return !!expandedMenu.querySelector("[role=menuitem][aria-expanded=true]");
+}
+var useMenuItem = createHook(
+  function useMenuItem2(_a) {
+    var _b = _a, {
+      store,
+      hideOnClick = true,
+      preventScrollOnKeyDown = true,
+      focusOnHover,
+      blurOnHoverEnd
+    } = _b, props = __objRest(_b, [
+      "store",
+      "hideOnClick",
+      "preventScrollOnKeyDown",
+      "focusOnHover",
+      "blurOnHoverEnd"
+    ]);
+    const menuContext = useMenuScopedContext(true);
+    const menubarContext = WSQNIDGC_useMenubarScopedContext();
+    store = store || menuContext || menubarContext;
+    invariant(
+      store,
+       false && 0
+    );
+    const onClickProp = props.onClick;
+    const hideOnClickProp = useBooleanEvent(hideOnClick);
+    const hideMenu = "hideAll" in store ? store.hideAll : void 0;
+    const isWithinMenu = !!hideMenu;
+    const onClick = useEvent((event) => {
+      onClickProp == null ? void 0 : onClickProp(event);
+      if (event.defaultPrevented) return;
+      if (isDownloading(event)) return;
+      if (isOpeningInNewTab(event)) return;
+      if (!hideMenu) return;
+      const popupType = event.currentTarget.getAttribute("aria-haspopup");
+      if (popupType === "menu") return;
+      if (!hideOnClickProp(event)) return;
+      hideMenu();
+    });
+    const contentElement = useStoreState(
+      store,
+      (state) => "contentElement" in state ? state.contentElement : null
+    );
+    const role = getPopupItemRole(contentElement, "menuitem");
+    props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
+      role
+    }, props), {
+      onClick
+    });
+    props = useCompositeItem(_3YLGPPWQ_spreadValues({
+      store,
+      preventScrollOnKeyDown
+    }, props));
+    props = useCompositeHover(_3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
+      store
+    }, props), {
+      focusOnHover(event) {
+        const getFocusOnHover = () => {
+          if (typeof focusOnHover === "function") return focusOnHover(event);
+          if (focusOnHover != null) return focusOnHover;
+          return true;
+        };
+        if (!store) return false;
+        if (!getFocusOnHover()) return false;
+        const { baseElement, items } = store.getState();
+        if (isWithinMenu) {
+          if (event.currentTarget.hasAttribute("aria-expanded")) {
+            event.currentTarget.focus();
+          }
+          return true;
+        }
+        if (menuHasFocus(baseElement, items, event.currentTarget)) {
+          event.currentTarget.focus();
+          return true;
+        }
+        return false;
+      },
+      blurOnHoverEnd(event) {
+        if (typeof blurOnHoverEnd === "function") return blurOnHoverEnd(event);
+        if (blurOnHoverEnd != null) return blurOnHoverEnd;
+        return isWithinMenu;
+      }
+    }));
+    return props;
+  }
+);
+var UQC4RYOT_MenuItem = memo2(
+  forwardRef2(function MenuItem2(props) {
+    const htmlProps = useMenuItem(props);
+    return HKOOKEDE_createElement(UQC4RYOT_TagName, htmlProps);
+  })
+);
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/AUGWLYYL.js
+"use client";
+
+
+// src/checkbox/checkbox-context.tsx
+var AUGWLYYL_ctx = createStoreContext();
+var useCheckboxContext = AUGWLYYL_ctx.useContext;
+var useCheckboxScopedContext = AUGWLYYL_ctx.useScopedContext;
+var useCheckboxProviderContext = AUGWLYYL_ctx.useProviderContext;
+var CheckboxContextProvider = AUGWLYYL_ctx.ContextProvider;
+var CheckboxScopedContextProvider = AUGWLYYL_ctx.ScopedContextProvider;
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/U5ZVLSUU.js
+"use client";
+
+
+
+
+
+
+
+
+// src/checkbox/checkbox.tsx
+
+
+
+var U5ZVLSUU_TagName = "input";
+function setMixed(element, mixed) {
+  if (mixed) {
+    element.indeterminate = true;
+  } else if (element.indeterminate) {
+    element.indeterminate = false;
+  }
+}
+function isNativeCheckbox(tagName, type) {
+  return tagName === "input" && (!type || type === "checkbox");
+}
+function getPrimitiveValue(value) {
+  if (Array.isArray(value)) {
+    return value.toString();
+  }
+  return value;
+}
+var useCheckbox = createHook(
+  function useCheckbox2(_a) {
+    var _b = _a, {
+      store,
+      name,
+      value: valueProp,
+      checked: checkedProp,
+      defaultChecked
+    } = _b, props = __objRest(_b, [
+      "store",
+      "name",
+      "value",
+      "checked",
+      "defaultChecked"
+    ]);
+    const context = useCheckboxContext();
+    store = store || context;
+    const [_checked, setChecked] = (0,external_React_.useState)(defaultChecked != null ? defaultChecked : false);
+    const checked = useStoreState(store, (state) => {
+      if (checkedProp !== void 0) return checkedProp;
+      if ((state == null ? void 0 : state.value) === void 0) return _checked;
+      if (valueProp != null) {
+        if (Array.isArray(state.value)) {
+          const primitiveValue = getPrimitiveValue(valueProp);
+          return state.value.includes(primitiveValue);
+        }
+        return state.value === valueProp;
+      }
+      if (Array.isArray(state.value)) return false;
+      if (typeof state.value === "boolean") return state.value;
+      return false;
+    });
+    const ref = (0,external_React_.useRef)(null);
+    const tagName = useTagName(ref, U5ZVLSUU_TagName);
+    const nativeCheckbox = isNativeCheckbox(tagName, props.type);
+    const mixed = checked ? checked === "mixed" : void 0;
+    const isChecked = checked === "mixed" ? false : checked;
+    const disabled = disabledFromProps(props);
+    const [propertyUpdated, schedulePropertyUpdate] = useForceUpdate();
+    (0,external_React_.useEffect)(() => {
+      const element = ref.current;
+      if (!element) return;
+      setMixed(element, mixed);
+      if (nativeCheckbox) return;
+      element.checked = isChecked;
+      if (name !== void 0) {
+        element.name = name;
+      }
+      if (valueProp !== void 0) {
+        element.value = `${valueProp}`;
+      }
+    }, [propertyUpdated, mixed, nativeCheckbox, isChecked, name, valueProp]);
+    const onChangeProp = props.onChange;
+    const onChange = useEvent((event) => {
+      if (disabled) {
+        event.stopPropagation();
+        event.preventDefault();
+        return;
+      }
+      setMixed(event.currentTarget, mixed);
+      if (!nativeCheckbox) {
+        event.currentTarget.checked = !event.currentTarget.checked;
+        schedulePropertyUpdate();
+      }
+      onChangeProp == null ? void 0 : onChangeProp(event);
+      if (event.defaultPrevented) return;
+      const elementChecked = event.currentTarget.checked;
+      setChecked(elementChecked);
+      store == null ? void 0 : store.setValue((prevValue) => {
+        if (valueProp == null) return elementChecked;
+        const primitiveValue = getPrimitiveValue(valueProp);
+        if (!Array.isArray(prevValue)) {
+          return prevValue === primitiveValue ? false : primitiveValue;
+        }
+        if (elementChecked) {
+          if (prevValue.includes(primitiveValue)) {
+            return prevValue;
+          }
+          return [...prevValue, primitiveValue];
+        }
+        return prevValue.filter((v) => v !== primitiveValue);
+      });
+    });
+    const onClickProp = props.onClick;
+    const onClick = useEvent((event) => {
+      onClickProp == null ? void 0 : onClickProp(event);
+      if (event.defaultPrevented) return;
+      if (nativeCheckbox) return;
+      onChange(event);
+    });
+    props = useWrapElement(
+      props,
+      (element) => /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(CheckboxCheckedContext.Provider, { value: isChecked, children: element }),
+      [isChecked]
+    );
+    props = _3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({
+      role: !nativeCheckbox ? "checkbox" : void 0,
+      type: nativeCheckbox ? "checkbox" : void 0,
+      "aria-checked": checked
+    }, props), {
+      ref: useMergeRefs(ref, props.ref),
+      onChange,
+      onClick
+    });
+    props = useCommand(_3YLGPPWQ_spreadValues({ clickOnEnter: !nativeCheckbox }, props));
+    return removeUndefinedValues(_3YLGPPWQ_spreadValues({
+      name: nativeCheckbox ? name : void 0,
+      value: nativeCheckbox ? valueProp : void 0,
+      checked: isChecked
+    }, props));
+  }
+);
+var Checkbox = forwardRef2(function Checkbox2(props) {
+  const htmlProps = useCheckbox(props);
+  return HKOOKEDE_createElement(U5ZVLSUU_TagName, htmlProps);
+});
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/core/esm/checkbox/checkbox-store.js
+"use client";
+
+
+
+
+// src/checkbox/checkbox-store.ts
+function createCheckboxStore(props = {}) {
+  var _a;
+  throwOnConflictingProps(props, props.store);
+  const syncState = (_a = props.store) == null ? void 0 : _a.getState();
+  const initialState = {
+    value: defaultValue(
+      props.value,
+      syncState == null ? void 0 : syncState.value,
+      props.defaultValue,
+      false
+    )
+  };
+  const checkbox = createStore(initialState, props.store);
+  return _chunks_3YLGPPWQ_spreadProps(_chunks_3YLGPPWQ_spreadValues({}, checkbox), {
+    setValue: (value) => checkbox.setState("value", value)
+  });
+}
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/EJOTW52C.js
+"use client";
+
+
+
+// src/checkbox/checkbox-store.ts
+
+function useCheckboxStoreProps(store, update, props) {
+  useUpdateEffect(update, [props.store]);
+  useStoreProps(store, props, "value", "setValue");
+  return store;
+}
+function useCheckboxStore(props = {}) {
+  const [store, update] = _2GXGCHW6_useStore(createCheckboxStore, props);
+  return useCheckboxStoreProps(store, update, props);
+}
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu-item-checkbox.js
+"use client";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// src/menu/menu-item-checkbox.tsx
+
+
+var menu_item_checkbox_TagName = "div";
+function menu_item_checkbox_getPrimitiveValue(value) {
+  if (Array.isArray(value)) {
+    return value.toString();
+  }
+  return value;
+}
+function getValue(storeValue, value, checked) {
+  if (value === void 0) {
+    if (Array.isArray(storeValue)) return storeValue;
+    return !!checked;
+  }
+  const primitiveValue = menu_item_checkbox_getPrimitiveValue(value);
+  if (!Array.isArray(storeValue)) {
+    if (checked) {
+      return primitiveValue;
+    }
+    return storeValue === primitiveValue ? false : storeValue;
+  }
+  if (checked) {
+    if (storeValue.includes(primitiveValue)) {
+      return storeValue;
+    }
+    return [...storeValue, primitiveValue];
+  }
+  return storeValue.filter((v) => v !== primitiveValue);
+}
+var useMenuItemCheckbox = createHook(
+  function useMenuItemCheckbox2(_a) {
+    var _b = _a, {
+      store,
+      name,
+      value,
+      checked,
+      defaultChecked: defaultCheckedProp,
+      hideOnClick = false
+    } = _b, props = __objRest(_b, [
+      "store",
+      "name",
+      "value",
+      "checked",
+      "defaultChecked",
+      "hideOnClick"
+    ]);
+    const context = useMenuScopedContext();
+    store = store || context;
+    invariant(
+      store,
+       false && 0
+    );
+    const defaultChecked = useInitialValue(defaultCheckedProp);
+    (0,external_React_.useEffect)(() => {
+      store == null ? void 0 : store.setValue(name, (prevValue = []) => {
+        if (!defaultChecked) return prevValue;
+        return getValue(prevValue, value, true);
+      });
+    }, [store, name, value, defaultChecked]);
+    (0,external_React_.useEffect)(() => {
+      if (checked === void 0) return;
+      store == null ? void 0 : store.setValue(name, (prevValue) => {
+        return getValue(prevValue, value, checked);
+      });
+    }, [store, name, value, checked]);
+    const checkboxStore = useCheckboxStore({
+      value: store.useState((state) => state.values[name]),
+      setValue(internalValue) {
+        store == null ? void 0 : store.setValue(name, () => {
+          if (checked === void 0) return internalValue;
+          const nextValue = getValue(internalValue, value, checked);
+          if (!Array.isArray(nextValue)) return nextValue;
+          if (!Array.isArray(internalValue)) return nextValue;
+          if (shallowEqual(internalValue, nextValue)) return internalValue;
+          return nextValue;
+        });
+      }
+    });
+    props = _3YLGPPWQ_spreadValues({
+      role: "menuitemcheckbox"
+    }, props);
+    props = useCheckbox(_3YLGPPWQ_spreadValues({
+      store: checkboxStore,
+      name,
+      value,
+      checked
+    }, props));
+    props = useMenuItem(_3YLGPPWQ_spreadValues({ store, hideOnClick }, props));
+    return props;
+  }
+);
+var MenuItemCheckbox = memo2(
+  forwardRef2(function MenuItemCheckbox2(props) {
+    const htmlProps = useMenuItemCheckbox(props);
+    return HKOOKEDE_createElement(menu_item_checkbox_TagName, htmlProps);
+  })
+);
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu-item-radio.js
+"use client";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// src/menu/menu-item-radio.tsx
+
+
+
+var menu_item_radio_TagName = "div";
+function menu_item_radio_getValue(prevValue, value, checked) {
+  if (checked === void 0) return prevValue;
+  if (checked) return value;
+  return prevValue;
+}
+var useMenuItemRadio = createHook(
+  function useMenuItemRadio2(_a) {
+    var _b = _a, {
+      store,
+      name,
+      value,
+      checked,
+      onChange: onChangeProp,
+      hideOnClick = false
+    } = _b, props = __objRest(_b, [
+      "store",
+      "name",
+      "value",
+      "checked",
+      "onChange",
+      "hideOnClick"
+    ]);
+    const context = useMenuScopedContext();
+    store = store || context;
+    invariant(
+      store,
+       false && 0
+    );
+    const defaultChecked = useInitialValue(props.defaultChecked);
+    (0,external_React_.useEffect)(() => {
+      store == null ? void 0 : store.setValue(name, (prevValue = false) => {
+        return menu_item_radio_getValue(prevValue, value, defaultChecked);
+      });
+    }, [store, name, value, defaultChecked]);
+    (0,external_React_.useEffect)(() => {
+      if (checked === void 0) return;
+      store == null ? void 0 : store.setValue(name, (prevValue) => {
+        return menu_item_radio_getValue(prevValue, value, checked);
+      });
+    }, [store, name, value, checked]);
+    const isChecked = store.useState((state) => state.values[name] === value);
+    props = useWrapElement(
+      props,
+      (element) => /* @__PURE__ */ (0,external_ReactJSXRuntime_namespaceObject.jsx)(MenuItemCheckedContext.Provider, { value: !!isChecked, children: element }),
+      [isChecked]
+    );
+    props = _3YLGPPWQ_spreadValues({
+      role: "menuitemradio"
+    }, props);
+    props = useRadio(_3YLGPPWQ_spreadValues({
+      name,
+      value,
+      checked: isChecked,
+      onChange(event) {
+        onChangeProp == null ? void 0 : onChangeProp(event);
+        if (event.defaultPrevented) return;
+        const element = event.currentTarget;
+        store == null ? void 0 : store.setValue(name, (prevValue) => {
+          return menu_item_radio_getValue(prevValue, value, checked != null ? checked : element.checked);
+        });
+      }
+    }, props));
+    props = useMenuItem(_3YLGPPWQ_spreadValues({ store, hideOnClick }, props));
+    return props;
+  }
+);
+var MenuItemRadio = memo2(
+  forwardRef2(function MenuItemRadio2(props) {
+    const htmlProps = useMenuItemRadio(props);
+    return HKOOKEDE_createElement(menu_item_radio_TagName, htmlProps);
+  })
+);
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu-group.js
+"use client";
+
+
+
+
+
+
+
+
+// src/menu/menu-group.tsx
+var menu_group_TagName = "div";
+var useMenuGroup = createHook(
+  function useMenuGroup2(props) {
+    props = useCompositeGroup(props);
+    return props;
+  }
+);
+var menu_group_MenuGroup = forwardRef2(function MenuGroup2(props) {
+  const htmlProps = useMenuGroup(props);
+  return HKOOKEDE_createElement(menu_group_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu-group-label.js
+"use client";
+
+
+
+
+
+
+
+
+// src/menu/menu-group-label.tsx
+var menu_group_label_TagName = "div";
+var useMenuGroupLabel = createHook(
+  function useMenuGroupLabel2(props) {
+    props = useCompositeGroupLabel(props);
+    return props;
+  }
+);
+var MenuGroupLabel = forwardRef2(function MenuGroupLabel2(props) {
+  const htmlProps = useMenuGroupLabel(props);
+  return HKOOKEDE_createElement(menu_group_label_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/__chunks/WEEEI3KU.js
+"use client";
+
+
+
+
+
+// src/composite/composite-separator.tsx
+
+var WEEEI3KU_TagName = "hr";
+var useCompositeSeparator = createHook(function useCompositeSeparator2(_a) {
+  var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
+  const context = useCompositeContext();
+  store = store || context;
+  invariant(
+    store,
+     false && 0
+  );
+  const orientation = store.useState(
+    (state) => state.orientation === "horizontal" ? "vertical" : "horizontal"
+  );
+  props = useSeparator(_3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, props), { orientation }));
+  return props;
+});
+var CompositeSeparator = forwardRef2(function CompositeSeparator2(props) {
+  const htmlProps = useCompositeSeparator(props);
+  return HKOOKEDE_createElement(WEEEI3KU_TagName, htmlProps);
+});
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu-separator.js
+"use client";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// src/menu/menu-separator.tsx
+var menu_separator_TagName = "hr";
+var useMenuSeparator = createHook(
+  function useMenuSeparator2(_a) {
+    var _b = _a, { store } = _b, props = __objRest(_b, ["store"]);
+    const context = useMenuContext();
+    store = store || context;
+    props = useCompositeSeparator(_3YLGPPWQ_spreadValues({ store }, props));
+    return props;
+  }
+);
+var MenuSeparator = forwardRef2(function MenuSeparator2(props) {
+  const htmlProps = useMenuSeparator(props);
+  return HKOOKEDE_createElement(menu_separator_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/styles.js
+
+function dropdown_menu_v2_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
 /**
+<<<<<<< HEAD
+=======
+ * Internal dependencies
+ */
+
+
+
+
+const styles_ANIMATION_PARAMS = {
+  SCALE_AMOUNT_OUTER: 0.82,
+  SCALE_AMOUNT_CONTENT: 0.9,
+  DURATION: {
+    IN: '400ms',
+    OUT: '200ms'
+  },
+  EASING: 'cubic-bezier(0.33, 0, 0, 1)'
+};
+const CONTENT_WRAPPER_PADDING = space(1);
+const ITEM_PADDING_BLOCK = space(2);
+const ITEM_PADDING_INLINE = space(3);
+
+// TODO:
+// - border color and divider color are different from COLORS.theme variables
+// - lighter text color is not defined in COLORS.theme, should it be?
+// - lighter background color is not defined in COLORS.theme, should it be?
+const DEFAULT_BORDER_COLOR = COLORS.theme.gray[300];
+const DIVIDER_COLOR = COLORS.theme.gray[200];
+const LIGHTER_TEXT_COLOR = COLORS.theme.gray[700];
+const LIGHT_BACKGROUND_COLOR = COLORS.theme.gray[100];
+const TOOLBAR_VARIANT_BORDER_COLOR = COLORS.theme.foreground;
+const DEFAULT_BOX_SHADOW = `0 0 0 ${config_values.borderWidth} ${DEFAULT_BORDER_COLOR}, ${config_values.elevationMedium}`;
+const TOOLBAR_VARIANT_BOX_SHADOW = `0 0 0 ${config_values.borderWidth} ${TOOLBAR_VARIANT_BORDER_COLOR}`;
+const GRID_TEMPLATE_COLS = 'minmax( 0, max-content ) 1fr';
+const MenuPopoverOuterWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+  target: "e1kdzosf14"
+} : 0)("position:relative;background-color:", COLORS.ui.background, ";border-radius:", config_values.radiusMedium, ";", props => /*#__PURE__*/emotion_react_browser_esm_css("box-shadow:", props.variant === 'toolbar' ? TOOLBAR_VARIANT_BOX_SHADOW : DEFAULT_BOX_SHADOW, ";" + ( true ? "" : 0),  true ? "" : 0), " overflow:hidden;@media not ( prefers-reduced-motion ){transition-property:transform,opacity;transition-timing-function:", styles_ANIMATION_PARAMS.EASING, ";transition-duration:", styles_ANIMATION_PARAMS.DURATION.IN, ";will-change:transform,opacity;opacity:0;&:has( [data-enter] ){opacity:1;}&:has( [data-leave] ){transition-duration:", styles_ANIMATION_PARAMS.DURATION.OUT, ";}&:has( [data-side='bottom'] ),&:has( [data-side='top'] ){transform:scaleY( ", styles_ANIMATION_PARAMS.SCALE_AMOUNT_OUTER, " );}&:has( [data-side='bottom'] ){transform-origin:top;}&:has( [data-side='top'] ){transform-origin:bottom;}&:has( [data-enter][data-side='bottom'] ),&:has( [data-enter][data-side='top'] ),&:has( [data-leave][data-side='bottom'] ),&:has( [data-leave][data-side='top'] ){transform:scaleY( 1 );}}" + ( true ? "" : 0));
+const MenuPopoverInnerWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+  target: "e1kdzosf13"
+} : 0)("position:relative;z-index:1000000;display:grid;grid-template-columns:", GRID_TEMPLATE_COLS, ";grid-template-rows:auto;box-sizing:border-box;min-width:160px;max-width:320px;max-height:var( --popover-available-height );padding:", CONTENT_WRAPPER_PADDING, ";overscroll-behavior:contain;overflow:auto;outline:2px solid transparent!important;@media not ( prefers-reduced-motion ){transition:inherit;transform-origin:inherit;&[data-side='bottom'],&[data-side='top']{transform:scaleY(\n\t\t\t\tcalc(\n\t\t\t\t\t1 / ", styles_ANIMATION_PARAMS.SCALE_AMOUNT_OUTER, " *\n\t\t\t\t\t\t", styles_ANIMATION_PARAMS.SCALE_AMOUNT_CONTENT, "\n\t\t\t\t)\n\t\t\t);}&[data-enter][data-side='bottom'],&[data-enter][data-side='top'],&[data-leave][data-side='bottom'],&[data-leave][data-side='top']{transform:scaleY( 1 );}}" + ( true ? "" : 0));
+const baseItem = /*#__PURE__*/emotion_react_browser_esm_css("all:unset;position:relative;min-height:", space(10), ";box-sizing:border-box;grid-column:1/-1;display:grid;grid-template-columns:", GRID_TEMPLATE_COLS, ";align-items:center;@supports ( grid-template-columns: subgrid ){grid-template-columns:subgrid;}font-size:", font('default.fontSize'), ";font-family:inherit;font-weight:normal;line-height:20px;color:", COLORS.theme.foreground, ";border-radius:", config_values.radiusSmall, ";padding-block:", ITEM_PADDING_BLOCK, ";padding-inline:", ITEM_PADDING_INLINE, ";scroll-margin:", CONTENT_WRAPPER_PADDING, ";user-select:none;outline:none;&[aria-disabled='true']{color:", COLORS.ui.textDisabled, ";cursor:not-allowed;}&[data-active-item]:not( [data-focus-visible] ):not(\n\t\t\t[aria-disabled='true']\n\t\t){background-color:", COLORS.theme.accent, ";color:", COLORS.white, ";}&[data-focus-visible]{box-shadow:0 0 0 1.5px ", COLORS.theme.accent, ";outline:2px solid transparent;}&:active,&[data-active]{}", MenuPopoverInnerWrapper, ":not(:focus) &:not(:focus)[aria-expanded=\"true\"]{background-color:", LIGHT_BACKGROUND_COLOR, ";color:", COLORS.theme.foreground, ";}svg{fill:currentColor;}" + ( true ? "" : 0),  true ? "" : 0);
+const styles_DropdownMenuItem = /*#__PURE__*/emotion_styled_base_browser_esm(UQC4RYOT_MenuItem,  true ? {
+  target: "e1kdzosf12"
+} : 0)(baseItem, ";" + ( true ? "" : 0));
+const styles_DropdownMenuCheckboxItem = /*#__PURE__*/emotion_styled_base_browser_esm(MenuItemCheckbox,  true ? {
+  target: "e1kdzosf11"
+} : 0)(baseItem, ";" + ( true ? "" : 0));
+const styles_DropdownMenuRadioItem = /*#__PURE__*/emotion_styled_base_browser_esm(MenuItemRadio,  true ? {
+  target: "e1kdzosf10"
+} : 0)(baseItem, ";" + ( true ? "" : 0));
+const ItemPrefixWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
+  target: "e1kdzosf9"
+} : 0)("grid-column:1;", styles_DropdownMenuCheckboxItem, ">&,", styles_DropdownMenuRadioItem, ">&{min-width:", space(6), ";}", styles_DropdownMenuCheckboxItem, ">&,", styles_DropdownMenuRadioItem, ">&,&:not( :empty ){margin-inline-end:", space(2), ";}display:flex;align-items:center;justify-content:center;color:", LIGHTER_TEXT_COLOR, ";[data-active-item]:not( [data-focus-visible] )>&,[aria-disabled='true']>&{color:inherit;}" + ( true ? "" : 0));
+const DropdownMenuItemContentWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+  target: "e1kdzosf8"
+} : 0)("grid-column:2;display:flex;align-items:center;justify-content:space-between;gap:", space(3), ";pointer-events:none;" + ( true ? "" : 0));
+const DropdownMenuItemChildrenWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+  target: "e1kdzosf7"
+} : 0)("flex:1;display:inline-flex;flex-direction:column;gap:", space(1), ";" + ( true ? "" : 0));
+const ItemSuffixWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("span",  true ? {
+  target: "e1kdzosf6"
+} : 0)("flex:0 1 fit-content;min-width:0;width:fit-content;display:flex;align-items:center;justify-content:center;gap:", space(3), ";color:", LIGHTER_TEXT_COLOR, ";[data-active-item]:not( [data-focus-visible] ) *:not(", MenuPopoverInnerWrapper, ") &,[aria-disabled='true'] *:not(", MenuPopoverInnerWrapper, ") &{color:inherit;}" + ( true ? "" : 0));
+const styles_DropdownMenuGroup = /*#__PURE__*/emotion_styled_base_browser_esm(menu_group_MenuGroup,  true ? {
+  target: "e1kdzosf5"
+} : 0)( true ? {
+  name: "49aokf",
+  styles: "display:contents"
+} : 0);
+const DropdownMenuGroupLabel = /*#__PURE__*/emotion_styled_base_browser_esm(MenuGroupLabel,  true ? {
+  target: "e1kdzosf4"
+} : 0)("grid-column:1/-1;padding-block-start:", space(3), ";padding-block-end:", space(2), ";padding-inline:", ITEM_PADDING_INLINE, ";" + ( true ? "" : 0));
+const styles_DropdownMenuSeparator = /*#__PURE__*/emotion_styled_base_browser_esm(MenuSeparator,  true ? {
+  target: "e1kdzosf3"
+} : 0)("grid-column:1/-1;border:none;height:", config_values.borderWidth, ";background-color:", props => props.variant === 'toolbar' ? TOOLBAR_VARIANT_BORDER_COLOR : DIVIDER_COLOR, ";margin-block:", space(2), ";margin-inline:", ITEM_PADDING_INLINE, ";outline:2px solid transparent;" + ( true ? "" : 0));
+const SubmenuChevronIcon = /*#__PURE__*/emotion_styled_base_browser_esm(build_module_icon,  true ? {
+  target: "e1kdzosf2"
+} : 0)("width:", space(1.5), ";", rtl({
+  transform: `scaleX(1)`
+}, {
+  transform: `scaleX(-1)`
+}), ";" + ( true ? "" : 0));
+const styles_DropdownMenuItemLabel = /*#__PURE__*/emotion_styled_base_browser_esm(truncate_component,  true ? {
+  target: "e1kdzosf1"
+} : 0)("font-size:", font('default.fontSize'), ";line-height:20px;color:inherit;" + ( true ? "" : 0));
+const styles_DropdownMenuItemHelpText = /*#__PURE__*/emotion_styled_base_browser_esm(truncate_component,  true ? {
+  target: "e1kdzosf0"
+} : 0)("font-size:", font('helpText.fontSize'), ";line-height:16px;color:", LIGHTER_TEXT_COLOR, ";word-break:break-all;[data-active-item]:not( [data-focus-visible] ) *:not( ", MenuPopoverInnerWrapper, " ) &,[aria-disabled='true'] *:not( ", MenuPopoverInnerWrapper, " ) &{color:inherit;}" + ( true ? "" : 0));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/context.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+const DropdownMenuContext = (0,external_wp_element_namespaceObject.createContext)(undefined);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/use-temporary-focus-visible-fix.js
+/**
+ * WordPress dependencies
+ */
+
+function useTemporaryFocusVisibleFix({
+  onBlur: onBlurProp
+}) {
+  const [focusVisible, setFocusVisible] = (0,external_wp_element_namespaceObject.useState)(false);
+  return {
+    'data-focus-visible': focusVisible || undefined,
+    onFocusVisible: () => {
+      (0,external_wp_element_namespaceObject.flushSync)(() => setFocusVisible(true));
+    },
+    onBlur: event => {
+      onBlurProp?.(event);
+      setFocusVisible(false);
+    }
+  };
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/item.js
+/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * WordPress dependencies
  */
 
@@ -71261,6 +80291,7 @@ var Menu = createDialogComponent(
 
 
 
+<<<<<<< HEAD
 const menu_popover_Popover = (0,external_wp_element_namespaceObject.forwardRef)(function Popover({
   gutter,
   children,
@@ -71326,6 +80357,141 @@ const menu_popover_Popover = (0,external_wp_element_namespaceObject.forwardRef)(
 });
 
 ;// ./node_modules/@wordpress/components/build-module/menu/index.js
+=======
+
+
+const DropdownMenuItem = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuItem({
+  prefix,
+  suffix,
+  children,
+  onBlur,
+  hideOnClick = true,
+  ...props
+}, ref) {
+  // TODO: Remove when https://github.com/ariakit/ariakit/issues/4083 is fixed
+  const focusVisibleFixProps = useTemporaryFocusVisibleFix({
+    onBlur
+  });
+  const dropdownMenuContext = (0,external_wp_element_namespaceObject.useContext)(DropdownMenuContext);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(styles_DropdownMenuItem, {
+    ref: ref,
+    ...props,
+    ...focusVisibleFixProps,
+    accessibleWhenDisabled: true,
+    hideOnClick: hideOnClick,
+    store: dropdownMenuContext?.store,
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ItemPrefixWrapper, {
+      children: prefix
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(DropdownMenuItemContentWrapper, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DropdownMenuItemChildrenWrapper, {
+        children: children
+      }), suffix && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ItemSuffixWrapper, {
+        children: suffix
+      })]
+    })]
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@ariakit/react-core/esm/menu/menu-item-check.js
+"use client";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// src/menu/menu-item-check.tsx
+
+var menu_item_check_TagName = "span";
+var useMenuItemCheck = createHook(
+  function useMenuItemCheck2(_a) {
+    var _b = _a, { store, checked } = _b, props = __objRest(_b, ["store", "checked"]);
+    const context = (0,external_React_.useContext)(MenuItemCheckedContext);
+    checked = checked != null ? checked : context;
+    props = useCheckboxCheck(_3YLGPPWQ_spreadProps(_3YLGPPWQ_spreadValues({}, props), { checked }));
+    return props;
+  }
+);
+var MenuItemCheck = forwardRef2(function MenuItemCheck2(props) {
+  const htmlProps = useMenuItemCheck(props);
+  return HKOOKEDE_createElement(menu_item_check_TagName, htmlProps);
+});
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/checkbox-item.js
+/**
+ * External dependencies
+ */
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+
+const DropdownMenuCheckboxItem = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuCheckboxItem({
+  suffix,
+  children,
+  onBlur,
+  hideOnClick = false,
+  ...props
+}, ref) {
+  // TODO: Remove when https://github.com/ariakit/ariakit/issues/4083 is fixed
+  const focusVisibleFixProps = useTemporaryFocusVisibleFix({
+    onBlur
+  });
+  const dropdownMenuContext = (0,external_wp_element_namespaceObject.useContext)(DropdownMenuContext);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(styles_DropdownMenuCheckboxItem, {
+    ref: ref,
+    ...props,
+    ...focusVisibleFixProps,
+    accessibleWhenDisabled: true,
+    hideOnClick: hideOnClick,
+    store: dropdownMenuContext?.store,
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MenuItemCheck, {
+      store: dropdownMenuContext?.store,
+      render: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ItemPrefixWrapper, {})
+      // Override some ariakit inline styles
+      ,
+      style: {
+        width: 'auto',
+        height: 'auto'
+      },
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(icons_build_module_icon, {
+        icon: library_check,
+        size: 24
+      })
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(DropdownMenuItemContentWrapper, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DropdownMenuItemChildrenWrapper, {
+        children: children
+      }), suffix && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ItemSuffixWrapper, {
+        children: suffix
+      })]
+    })]
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/radio-item.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -71347,6 +80513,195 @@ const menu_popover_Popover = (0,external_wp_element_namespaceObject.forwardRef)(
 
 
 
+<<<<<<< HEAD
+=======
+const radioCheck = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Circle, {
+    cx: 12,
+    cy: 12,
+    r: 3
+  })
+});
+const DropdownMenuRadioItem = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuRadioItem({
+  suffix,
+  children,
+  onBlur,
+  hideOnClick = false,
+  ...props
+}, ref) {
+  // TODO: Remove when https://github.com/ariakit/ariakit/issues/4083 is fixed
+  const focusVisibleFixProps = useTemporaryFocusVisibleFix({
+    onBlur
+  });
+  const dropdownMenuContext = (0,external_wp_element_namespaceObject.useContext)(DropdownMenuContext);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(styles_DropdownMenuRadioItem, {
+    ref: ref,
+    ...props,
+    ...focusVisibleFixProps,
+    accessibleWhenDisabled: true,
+    hideOnClick: hideOnClick,
+    store: dropdownMenuContext?.store,
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MenuItemCheck, {
+      store: dropdownMenuContext?.store,
+      render: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ItemPrefixWrapper, {})
+      // Override some ariakit inline styles
+      ,
+      style: {
+        width: 'auto',
+        height: 'auto'
+      },
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(icons_build_module_icon, {
+        icon: radioCheck,
+        size: 24
+      })
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(DropdownMenuItemContentWrapper, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DropdownMenuItemChildrenWrapper, {
+        children: children
+      }), suffix && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ItemSuffixWrapper, {
+        children: suffix
+      })]
+    })]
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/group.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+const DropdownMenuGroup = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuGroup(props, ref) {
+  const dropdownMenuContext = (0,external_wp_element_namespaceObject.useContext)(DropdownMenuContext);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(styles_DropdownMenuGroup, {
+    ref: ref,
+    ...props,
+    store: dropdownMenuContext?.store
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/group-label.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+const group_label_DropdownMenuGroupLabel = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuGroup(props, ref) {
+  const dropdownMenuContext = (0,external_wp_element_namespaceObject.useContext)(DropdownMenuContext);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DropdownMenuGroupLabel, {
+    ref: ref,
+    render:
+    /*#__PURE__*/
+    // @ts-expect-error The `children` prop is passed
+    (0,external_ReactJSXRuntime_namespaceObject.jsx)(text_component, {
+      upperCase: true,
+      variant: "muted",
+      size: "11px",
+      weight: 500,
+      lineHeight: "16px"
+    }),
+    ...props,
+    store: dropdownMenuContext?.store
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/separator.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+const DropdownMenuSeparator = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuSeparator(props, ref) {
+  const dropdownMenuContext = (0,external_wp_element_namespaceObject.useContext)(DropdownMenuContext);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(styles_DropdownMenuSeparator, {
+    ref: ref,
+    ...props,
+    store: dropdownMenuContext?.store,
+    variant: dropdownMenuContext?.variant
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/item-label.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+const DropdownMenuItemLabel = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuItemLabel(props, ref) {
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(styles_DropdownMenuItemLabel, {
+    numberOfLines: 1,
+    ref: ref,
+    ...props
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/item-help-text.js
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+const DropdownMenuItemHelpText = (0,external_wp_element_namespaceObject.forwardRef)(function DropdownMenuItemHelpText(props, ref) {
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(styles_DropdownMenuItemHelpText, {
+    numberOfLines: 2,
+    ref: ref,
+    ...props
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/dropdown-menu-v2/index.js
+/**
+ * External dependencies
+ */
+
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+/**
+ * Internal dependencies
+ */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -71354,6 +80709,7 @@ const menu_popover_Popover = (0,external_wp_element_namespaceObject.forwardRef)(
 
 
 
+<<<<<<< HEAD
 const UnconnectedMenu = props => {
   const {
     children,
@@ -71373,13 +80729,55 @@ const UnconnectedMenu = props => {
   let computedPlacement = placement !== null && placement !== void 0 ? placement : parentContext?.store ? 'right-start' : 'bottom-start';
   // Swap left/right in case of RTL direction
   if (rtl) {
+=======
+
+
+
+
+
+
+
+const dropdown_menu_v2_UnconnectedDropdownMenu = (props, ref) => {
+  var _props$placement;
+  const {
+    // Store props
+    open,
+    defaultOpen = false,
+    onOpenChange,
+    placement,
+    // Menu trigger props
+    trigger,
+    // Menu props
+    gutter,
+    children,
+    shift,
+    modal = true,
+    // From internal components context
+    variant,
+    // Rest
+    ...otherProps
+  } = useContextSystem(props, 'DropdownMenu');
+  const parentContext = (0,external_wp_element_namespaceObject.useContext)(DropdownMenuContext);
+  const computedDirection = (0,external_wp_i18n_namespaceObject.isRTL)() ? 'rtl' : 'ltr';
+
+  // If an explicit value for the `placement` prop is not passed,
+  // apply a default placement of `bottom-start` for the root dropdown,
+  // and of `right-start` for nested dropdowns.
+  let computedPlacement = (_props$placement = props.placement) !== null && _props$placement !== void 0 ? _props$placement : parentContext?.store ? 'right-start' : 'bottom-start';
+  // Swap left/right in case of RTL direction
+  if (computedDirection === 'rtl') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (/right/.test(computedPlacement)) {
       computedPlacement = computedPlacement.replace('right', 'left');
     } else if (/left/.test(computedPlacement)) {
       computedPlacement = computedPlacement.replace('left', 'right');
     }
   }
+<<<<<<< HEAD
   const menuStore = useMenuStore({
+=======
+  const dropdownMenuStore = useMenuStore({
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     parent: parentContext?.store,
     open,
     defaultOpen,
@@ -71388,6 +80786,7 @@ const UnconnectedMenu = props => {
     setOpen(willBeOpen) {
       onOpenChange?.(willBeOpen);
     },
+<<<<<<< HEAD
     rtl
   });
   const contextValue = (0,external_wp_element_namespaceObject.useMemo)(() => ({
@@ -71513,6 +80912,119 @@ const menu_Menu = Object.assign(contextConnectWithoutRef(UnconnectedMenu, 'Menu'
 /* harmony default export */ const build_module_menu = ((/* unused pure expression or super */ null && (menu_Menu)));
 
 ;// ./node_modules/@wordpress/components/build-module/theme/styles.js
+=======
+    rtl: computedDirection === 'rtl'
+  });
+  const contextValue = (0,external_wp_element_namespaceObject.useMemo)(() => ({
+    store: dropdownMenuStore,
+    variant
+  }), [dropdownMenuStore, variant]);
+
+  // Extract the side from the applied placement — useful for animations.
+  // Using `currentPlacement` instead of `placement` to make sure that we
+  // use the final computed placement (including "flips" etc).
+  const appliedPlacementSide = useStoreState(dropdownMenuStore, 'currentPlacement').split('-')[0];
+  if (dropdownMenuStore.parent && !((0,external_wp_element_namespaceObject.isValidElement)(trigger) && DropdownMenuItem === trigger.type)) {
+    // eslint-disable-next-line no-console
+    console.warn('For nested DropdownMenus, the `trigger` should always be a `DropdownMenuItem`.');
+  }
+  const hideOnEscape = (0,external_wp_element_namespaceObject.useCallback)(event => {
+    // Pressing Escape can cause unexpected consequences (ie. exiting
+    // full screen mode on MacOs, close parent modals...).
+    event.preventDefault();
+    // Returning `true` causes the menu to hide.
+    return true;
+  }, []);
+  const wrapperProps = (0,external_wp_element_namespaceObject.useMemo)(() => ({
+    dir: computedDirection,
+    style: {
+      direction: computedDirection
+    }
+  }), [computedDirection]);
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MenuButton, {
+      ref: ref,
+      store: dropdownMenuStore,
+      render: dropdownMenuStore.parent ? (0,external_wp_element_namespaceObject.cloneElement)(trigger, {
+        // Add submenu arrow, unless a `suffix` is explicitly specified
+        suffix: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+          children: [trigger.props.suffix, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SubmenuChevronIcon, {
+            "aria-hidden": "true",
+            icon: chevron_right_small,
+            size: 24,
+            preserveAspectRatio: "xMidYMid slice"
+          })]
+        })
+      }) : trigger
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Menu, {
+      ...otherProps,
+      modal: modal,
+      store: dropdownMenuStore
+      // Root menu has an 8px distance from its trigger,
+      // otherwise 0 (which causes the submenu to slightly overlap)
+      ,
+      gutter: gutter !== null && gutter !== void 0 ? gutter : dropdownMenuStore.parent ? 0 : 8
+      // Align nested menu by the same (but opposite) amount
+      // as the menu container's padding.
+      ,
+      shift: shift !== null && shift !== void 0 ? shift : dropdownMenuStore.parent ? -4 : 0,
+      hideOnHoverOutside: false,
+      "data-side": appliedPlacementSide,
+      wrapperProps: wrapperProps,
+      hideOnEscape: hideOnEscape,
+      unmountOnHide: true,
+      render: renderProps =>
+      /*#__PURE__*/
+      // Two wrappers are needed for the entry animation, where the menu
+      // container scales with a different factor than its contents.
+      // The {...renderProps} are passed to the inner wrapper, so that the
+      // menu element is the direct parent of the menu item elements.
+      (0,external_ReactJSXRuntime_namespaceObject.jsx)(MenuPopoverOuterWrapper, {
+        variant: variant,
+        children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MenuPopoverInnerWrapper, {
+          ...renderProps
+        })
+      }),
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DropdownMenuContext.Provider, {
+        value: contextValue,
+        children: children
+      })
+    })]
+  });
+};
+const DropdownMenuV2 = Object.assign(contextConnect(dropdown_menu_v2_UnconnectedDropdownMenu, 'DropdownMenu'), {
+  Context: Object.assign(DropdownMenuContext, {
+    displayName: 'DropdownMenuV2.Context'
+  }),
+  Item: Object.assign(DropdownMenuItem, {
+    displayName: 'DropdownMenuV2.Item'
+  }),
+  RadioItem: Object.assign(DropdownMenuRadioItem, {
+    displayName: 'DropdownMenuV2.RadioItem'
+  }),
+  CheckboxItem: Object.assign(DropdownMenuCheckboxItem, {
+    displayName: 'DropdownMenuV2.CheckboxItem'
+  }),
+  Group: Object.assign(DropdownMenuGroup, {
+    displayName: 'DropdownMenuV2.Group'
+  }),
+  GroupLabel: Object.assign(group_label_DropdownMenuGroupLabel, {
+    displayName: 'DropdownMenuV2.GroupLabel'
+  }),
+  Separator: Object.assign(DropdownMenuSeparator, {
+    displayName: 'DropdownMenuV2.Separator'
+  }),
+  ItemLabel: Object.assign(DropdownMenuItemLabel, {
+    displayName: 'DropdownMenuV2.ItemLabel'
+  }),
+  ItemHelpText: Object.assign(DropdownMenuItemHelpText, {
+    displayName: 'DropdownMenuV2.ItemHelpText'
+  })
+});
+/* harmony default export */ const dropdown_menu_v2 = ((/* unused pure expression or super */ null && (DropdownMenuV2)));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/theme/styles.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 function theme_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -71538,7 +81050,11 @@ const theme_styles_Wrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",
   styles: "color:var( --wp-components-color-foreground, currentColor )"
 } : 0);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/theme/color-algorithms.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/theme/color-algorithms.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -71644,7 +81160,11 @@ function generateShades(background, foreground) {
   return result;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/theme/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/theme/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -71696,7 +81216,11 @@ function Theme({
 }
 /* harmony default export */ const theme = (Theme);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tabs/context.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tabs/context.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -71709,9 +81233,14 @@ function Theme({
 const TabsContext = (0,external_wp_element_namespaceObject.createContext)(undefined);
 const useTabsContext = () => (0,external_wp_element_namespaceObject.useContext)(TabsContext);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tabs/styles.js
 
 function tabs_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tabs/styles.js
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -71723,6 +81252,7 @@ function tabs_styles_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried t
  */
 
 
+<<<<<<< HEAD
 
 const StyledTabList = /*#__PURE__*/emotion_styled_base_browser_esm(TabList,  true ? {
   target: "enfox0g4"
@@ -71744,6 +81274,19 @@ const styles_TabPanel = /*#__PURE__*/emotion_styled_base_browser_esm(TabPanel,  
 } : 0)("&:focus{box-shadow:none;outline:none;}&[data-focus-visible]{box-shadow:0 0 0 var( --wp-admin-border-width-focus ) ", COLORS.theme.accent, ";outline:2px solid transparent;outline-offset:0;}" + ( true ? "" : 0));
 
 ;// ./node_modules/@wordpress/components/build-module/tabs/tab.js
+=======
+const TabListWrapper = /*#__PURE__*/emotion_styled_base_browser_esm("div",  true ? {
+  target: "enfox0g2"
+} : 0)("position:relative;display:flex;align-items:stretch;flex-direction:row;text-align:center;&[aria-orientation='vertical']{flex-direction:column;text-align:start;}@media not ( prefers-reduced-motion ){&.is-animation-enabled::after{transition-property:transform;transition-duration:0.2s;transition-timing-function:ease-out;}}--direction-factor:1;--direction-origin-x:left;--indicator-start:var( --indicator-left );&:dir( rtl ){--direction-factor:-1;--direction-origin-x:right;--indicator-start:var( --indicator-right );}&::after{content:'';position:absolute;pointer-events:none;transform-origin:var( --direction-origin-x ) top;outline:2px solid transparent;outline-offset:-1px;}--antialiasing-factor:100;&:not( [aria-orientation='vertical'] ){&::after{bottom:0;height:0;width:calc( var( --antialiasing-factor ) * 1px );transform:translateX(\n\t\t\t\t\tcalc(\n\t\t\t\t\t\tvar( --indicator-start ) * var( --direction-factor ) *\n\t\t\t\t\t\t\t1px\n\t\t\t\t\t)\n\t\t\t\t) scaleX(\n\t\t\t\t\tcalc(\n\t\t\t\t\t\tvar( --indicator-width ) / var( --antialiasing-factor )\n\t\t\t\t\t)\n\t\t\t\t);border-bottom:var( --wp-admin-border-width-focus ) solid ", COLORS.theme.accent, ";}}&[aria-orientation='vertical']::after{z-index:-1;top:0;left:0;width:100%;height:calc( var( --antialiasing-factor ) * 1px );transform:translateY( calc( var( --indicator-top ) * 1px ) ) scaleY(\n\t\t\t\tcalc( var( --indicator-height ) / var( --antialiasing-factor ) )\n\t\t\t);background-color:", COLORS.theme.gray[100], ";}" + ( true ? "" : 0));
+const styles_Tab = /*#__PURE__*/emotion_styled_base_browser_esm(Tab,  true ? {
+  target: "enfox0g1"
+} : 0)("&{display:inline-flex;align-items:center;position:relative;border-radius:0;min-height:", space(12), ";height:auto;background:transparent;border:none;box-shadow:none;cursor:pointer;line-height:1.2;padding:", space(3), " ", space(4), ";margin-left:0;font-weight:500;text-align:inherit;hyphens:auto;color:", COLORS.theme.foreground, ";&[aria-disabled='true']{cursor:default;color:", COLORS.ui.textDisabled, ";}&:not( [aria-disabled='true'] ):hover{color:", COLORS.theme.accent, ";}&:focus:not( :disabled ){position:relative;box-shadow:none;outline:none;}&::before{content:'';position:absolute;top:", space(3), ";right:", space(3), ";bottom:", space(3), ";left:", space(3), ";pointer-events:none;outline:var( --wp-admin-border-width-focus ) solid ", COLORS.theme.accent, ";border-radius:", config_values.radiusSmall, ";opacity:0;@media not ( prefers-reduced-motion ){transition:opacity 0.1s linear;}}&:focus-visible::before{opacity:1;}}[aria-orientation='vertical'] &{min-height:", space(10), ";}" + ( true ? "" : 0));
+const styles_TabPanel = /*#__PURE__*/emotion_styled_base_browser_esm(TabPanel,  true ? {
+  target: "enfox0g0"
+} : 0)("&:focus{box-shadow:none;outline:none;}&:focus-visible{box-shadow:0 0 0 var( --wp-admin-border-width-focus ) ", COLORS.theme.accent, ";outline:2px solid transparent;outline-offset:0;}" + ( true ? "" : 0));
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tabs/tab.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -71758,7 +81301,10 @@ const styles_TabPanel = /*#__PURE__*/emotion_styled_base_browser_esm(TabPanel,  
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const tab_Tab = (0,external_wp_element_namespaceObject.forwardRef)(function Tab({
   children,
   tabId,
@@ -71766,6 +81312,7 @@ const tab_Tab = (0,external_wp_element_namespaceObject.forwardRef)(function Tab(
   render,
   ...otherProps
 }, ref) {
+<<<<<<< HEAD
   var _useTabsContext;
   const {
     store,
@@ -71777,12 +81324,26 @@ const tab_Tab = (0,external_wp_element_namespaceObject.forwardRef)(function Tab(
   }
   const instancedTabId = `${instanceId}-${tabId}`;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(styles_Tab, {
+=======
+  const context = useTabsContext();
+  if (!context) {
+     true ? external_wp_warning_default()('`Tabs.Tab` must be wrapped in a `Tabs` component.') : 0;
+    return null;
+  }
+  const {
+    store,
+    instanceId
+  } = context;
+  const instancedTabId = `${instanceId}-${tabId}`;
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(styles_Tab, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ref: ref,
     store: store,
     id: instancedTabId,
     disabled: disabled,
     render: render,
     ...otherProps,
+<<<<<<< HEAD
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TabChildren, {
       children: children
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TabChevron, {
@@ -71792,12 +81353,20 @@ const tab_Tab = (0,external_wp_element_namespaceObject.forwardRef)(function Tab(
 });
 
 ;// ./node_modules/@wordpress/components/build-module/tabs/use-track-overflow.js
+=======
+    children: children
+  });
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/hooks/use-event.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint-disable jsdoc/require-param */
 /**
  * WordPress dependencies
  */
 
 
+<<<<<<< HEAD
 
 /**
  * Tracks if an element contains overflow and on which end by tracking the
@@ -71860,6 +81429,195 @@ function useTrackOverflow(parent, children) {
 /* eslint-enable jsdoc/require-param */
 
 ;// ./node_modules/@wordpress/components/build-module/tabs/tablist.js
+=======
+/**
+ * Any function.
+ */
+
+/**
+ * Creates a stable callback function that has access to the latest state and
+ * can be used within event handlers and effect callbacks. Throws when used in
+ * the render phase.
+ *
+ * @example
+ *
+ * ```tsx
+ * function Component(props) {
+ *   const onClick = useEvent(props.onClick);
+ *   React.useEffect(() => {}, [onClick]);
+ * }
+ * ```
+ */
+function use_event_useEvent(callback) {
+  const ref = (0,external_wp_element_namespaceObject.useRef)(() => {
+    throw new Error('Cannot call an event handler while rendering.');
+  });
+  (0,external_wp_element_namespaceObject.useInsertionEffect)(() => {
+    ref.current = callback;
+  });
+  return (0,external_wp_element_namespaceObject.useCallback)((...args) => ref.current?.(...args), []);
+}
+/* eslint-enable jsdoc/require-param */
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/element-rect.js
+/* eslint-disable jsdoc/require-param */
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+/**
+ * The position and dimensions of an element, relative to its offset parent.
+ */
+
+/**
+ * An `ElementOffsetRect` object with all values set to zero.
+ */
+const NULL_ELEMENT_OFFSET_RECT = {
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+  width: 0,
+  height: 0
+};
+
+/**
+ * Returns the position and dimensions of an element, relative to its offset
+ * parent, with subpixel precision. Values reflect the real measures before any
+ * potential scaling distortions along the X and Y axes.
+ *
+ * Useful in contexts where plain `getBoundingClientRect` calls or `ResizeObserver`
+ * entries are not suitable, such as when the element is transformed, and when
+ * `element.offset<Top|Left|Width|Height>` methods are not precise enough.
+ *
+ * **Note:** in some contexts, like when the scale is 0, this method will fail
+ * because it's impossible to calculate a scaling ratio. When that happens, it
+ * will return `undefined`.
+ */
+function getElementOffsetRect(element) {
+  var _element$offsetParent;
+  // Position and dimension values computed with `getBoundingClientRect` have
+  // subpixel precision, but are affected by distortions since they represent
+  // the "real" measures, or in other words, the actual final values as rendered
+  // by the browser.
+  const rect = element.getBoundingClientRect();
+  if (rect.width === 0 || rect.height === 0) {
+    return;
+  }
+  const offsetParentRect = (_element$offsetParent = element.offsetParent?.getBoundingClientRect()) !== null && _element$offsetParent !== void 0 ? _element$offsetParent : NULL_ELEMENT_OFFSET_RECT;
+
+  // Computed widths and heights have subpixel precision, and are not affected
+  // by distortions.
+  const computedWidth = parseFloat(getComputedStyle(element).width);
+  const computedHeight = parseFloat(getComputedStyle(element).height);
+
+  // We can obtain the current scale factor for the element by comparing "computed"
+  // dimensions with the "real" ones.
+  const scaleX = computedWidth / rect.width;
+  const scaleY = computedHeight / rect.height;
+  return {
+    // To obtain the adjusted values for the position:
+    // 1. Compute the element's position relative to the offset parent.
+    // 2. Correct for the scale factor.
+    top: (rect.top - offsetParentRect?.top) * scaleY,
+    right: (offsetParentRect?.right - rect.right) * scaleX,
+    bottom: (offsetParentRect?.bottom - rect.bottom) * scaleY,
+    left: (rect.left - offsetParentRect?.left) * scaleX,
+    // Computed dimensions don't need any adjustments.
+    width: computedWidth,
+    height: computedHeight
+  };
+}
+const POLL_RATE = 100;
+
+/**
+ * Tracks the position and dimensions of an element, relative to its offset
+ * parent. The element can be changed dynamically.
+ *
+ * **Note:** sometimes, the measurement will fail (see `getElementOffsetRect`'s
+ * documentation for more details). When that happens, this hook will attempt
+ * to measure again after a frame, and if that fails, it will poll every 100
+ * milliseconds until it succeeds.
+ */
+function useTrackElementOffsetRect(targetElement) {
+  const [indicatorPosition, setIndicatorPosition] = (0,external_wp_element_namespaceObject.useState)(NULL_ELEMENT_OFFSET_RECT);
+  const intervalRef = (0,external_wp_element_namespaceObject.useRef)();
+  const measure = use_event_useEvent(() => {
+    if (targetElement) {
+      const elementOffsetRect = getElementOffsetRect(targetElement);
+      if (elementOffsetRect) {
+        setIndicatorPosition(elementOffsetRect);
+        clearInterval(intervalRef.current);
+        return true;
+      }
+    } else {
+      clearInterval(intervalRef.current);
+    }
+    return false;
+  });
+  const setElement = (0,external_wp_compose_namespaceObject.useResizeObserver)(() => {
+    if (!measure()) {
+      requestAnimationFrame(() => {
+        if (!measure()) {
+          intervalRef.current = setInterval(measure, POLL_RATE);
+        }
+      });
+    }
+  });
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => setElement(targetElement), [setElement, targetElement]);
+  return indicatorPosition;
+}
+
+/* eslint-enable jsdoc/require-param */
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/hooks/use-on-value-update.js
+/* eslint-disable jsdoc/require-param */
+/**
+ * WordPress dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+/**
+ * Context object for the `onUpdate` callback of `useOnValueUpdate`.
+ */
+
+/**
+ * Calls the `onUpdate` callback when the `value` changes.
+ */
+function useOnValueUpdate(
+/**
+ * The value to watch for changes.
+ */
+value,
+/**
+ * Callback to fire when the value changes.
+ */
+onUpdate) {
+  const previousValueRef = (0,external_wp_element_namespaceObject.useRef)(value);
+  const updateCallbackEvent = use_event_useEvent(onUpdate);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    if (previousValueRef.current !== value) {
+      updateCallbackEvent({
+        previousValue: previousValueRef.current
+      });
+      previousValueRef.current = value;
+    }
+  }, [updateCallbackEvent, value]);
+}
+/* eslint-enable jsdoc/require-param */
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tabs/tablist.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -71872,7 +81630,10 @@ function useTrackOverflow(parent, children) {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -71883,6 +81644,7 @@ function useTrackOverflow(parent, children) {
 
 
 
+<<<<<<< HEAD
 const DEFAULT_SCROLL_MARGIN = 24;
 
 /**
@@ -71964,6 +81726,34 @@ const tablist_TabList = (0,external_wp_element_namespaceObject.forwardRef)(funct
 
   // Make sure selected tab is scrolled into view.
   useScrollRectIntoView(parent, selectedRect);
+=======
+const TabList = (0,external_wp_element_namespaceObject.forwardRef)(function TabList({
+  children,
+  ...otherProps
+}, ref) {
+  const context = useTabsContext();
+  const tabStoreState = useStoreState(context?.store);
+  const selectedId = tabStoreState?.selectedId;
+  const indicatorPosition = useTrackElementOffsetRect(context?.store.item(selectedId)?.element);
+  const [animationEnabled, setAnimationEnabled] = (0,external_wp_element_namespaceObject.useState)(false);
+  useOnValueUpdate(selectedId, ({
+    previousValue
+  }) => previousValue && setAnimationEnabled(true));
+  if (!context || !tabStoreState) {
+     true ? external_wp_warning_default()('`Tabs.TabList` must be wrapped in a `Tabs` component.') : 0;
+    return null;
+  }
+  const {
+    store
+  } = context;
+  const {
+    activeId,
+    selectOnMove
+  } = tabStoreState;
+  const {
+    setActiveId
+  } = store;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const onBlur = () => {
     if (!selectOnMove) {
       return;
@@ -71974,6 +81764,7 @@ const tablist_TabList = (0,external_wp_element_namespaceObject.forwardRef)(funct
     // that the selected tab will receive keyboard focus when tabbing back into
     // the tablist.
     if (selectedId !== activeId) {
+<<<<<<< HEAD
       store?.setActiveId(selectedId);
     }
   };
@@ -71997,11 +81788,41 @@ const tablist_TabList = (0,external_wp_element_namespaceObject.forwardRef)(funct
     "data-select-on-move": selectOnMove ? 'true' : 'false',
     ...otherProps,
     className: dist_clsx(overflow.first && 'is-overflowing-first', overflow.last && 'is-overflowing-last', otherProps.className),
+=======
+      setActiveId(selectedId);
+    }
+  };
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tab_list_TabList, {
+    ref: ref,
+    store: store,
+    render: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TabListWrapper, {
+      onTransitionEnd: event => {
+        if (event.pseudoElement === '::after') {
+          setAnimationEnabled(false);
+        }
+      }
+    }),
+    onBlur: onBlur,
+    ...otherProps,
+    style: {
+      '--indicator-top': indicatorPosition.top,
+      '--indicator-right': indicatorPosition.right,
+      '--indicator-left': indicatorPosition.left,
+      '--indicator-width': indicatorPosition.width,
+      '--indicator-height': indicatorPosition.height,
+      ...otherProps.style
+    },
+    className: dist_clsx(animationEnabled ? 'is-animation-enabled' : '', otherProps.className),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     children: children
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tabs/tabpanel.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tabs/tabpanel.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -72052,19 +81873,30 @@ const tabpanel_TabPanel = (0,external_wp_element_namespaceObject.forwardRef)(fun
   });
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/components/build-module/tabs/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tabs/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -72074,6 +81906,7 @@ const tabpanel_TabPanel = (0,external_wp_element_namespaceObject.forwardRef)(fun
 
 
 
+<<<<<<< HEAD
 function externalToInternalTabId(externalId, instanceId) {
   return externalId && `${instanceId}-${externalId}`;
 }
@@ -72092,20 +81925,28 @@ function internalToExternalTabId(internalId, instanceId) {
  * It is responsible for managing the state of the tabs, and rendering one instance of the `Tabs.TabList` component and one or more instances of the `Tab.TabPanel` component.
  */
 const Tabs = Object.assign(function Tabs({
+=======
+function Tabs({
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   selectOnMove = true,
   defaultTabId,
   orientation = 'horizontal',
   onSelect,
   children,
+<<<<<<< HEAD
   selectedTabId,
   activeTabId,
   defaultActiveTabId,
   onActiveTabIdChange
+=======
+  selectedTabId
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }) {
   const instanceId = (0,external_wp_compose_namespaceObject.useInstanceId)(Tabs, 'tabs');
   const store = useTabStore({
     selectOnMove,
     orientation,
+<<<<<<< HEAD
     defaultSelectedId: externalToInternalTabId(defaultTabId, instanceId),
     setSelectedId: newSelectedId => {
       onSelect?.(internalToExternalTabId(newSelectedId, instanceId));
@@ -72126,6 +81967,118 @@ const Tabs = Object.assign(function Tabs({
     setActiveId
   } = store;
   (0,external_wp_element_namespaceObject.useEffect)(() => {
+=======
+    defaultSelectedId: defaultTabId && `${instanceId}-${defaultTabId}`,
+    setSelectedId: selectedId => {
+      const strippedDownId = typeof selectedId === 'string' ? selectedId.replace(`${instanceId}-`, '') : selectedId;
+      onSelect?.(strippedDownId);
+    },
+    selectedId: selectedTabId && `${instanceId}-${selectedTabId}`
+  });
+  const isControlled = selectedTabId !== undefined;
+  const {
+    items,
+    selectedId,
+    activeId
+  } = useStoreState(store);
+  const {
+    setSelectedId,
+    setActiveId
+  } = store;
+
+  // Keep track of whether tabs have been populated. This is used to prevent
+  // certain effects from firing too early while tab data and relevant
+  // variables are undefined during the initial render.
+  const tabsHavePopulatedRef = (0,external_wp_element_namespaceObject.useRef)(false);
+  if (items.length > 0) {
+    tabsHavePopulatedRef.current = true;
+  }
+  const selectedTab = items.find(item => item.id === selectedId);
+  const firstEnabledTab = items.find(item => {
+    // Ariakit internally refers to disabled tabs as `dimmed`.
+    return !item.dimmed;
+  });
+  const initialTab = items.find(item => item.id === `${instanceId}-${defaultTabId}`);
+
+  // Handle selecting the initial tab.
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    if (isControlled) {
+      return;
+    }
+
+    // Wait for the denoted initial tab to be declared before making a
+    // selection. This ensures that if a tab is declared lazily it can
+    // still receive initial selection, as well as ensuring no tab is
+    // selected if an invalid `defaultTabId` is provided.
+    if (defaultTabId && !initialTab) {
+      return;
+    }
+
+    // If the currently selected tab is missing (i.e. removed from the DOM),
+    // fall back to the initial tab or the first enabled tab if there is
+    // one. Otherwise, no tab should be selected.
+    if (!items.find(item => item.id === selectedId)) {
+      if (initialTab && !initialTab.dimmed) {
+        setSelectedId(initialTab?.id);
+        return;
+      }
+      if (firstEnabledTab) {
+        setSelectedId(firstEnabledTab.id);
+      } else if (tabsHavePopulatedRef.current) {
+        setSelectedId(null);
+      }
+    }
+  }, [firstEnabledTab, initialTab, defaultTabId, isControlled, items, selectedId, setSelectedId]);
+
+  // Handle the currently selected tab becoming disabled.
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    if (!selectedTab?.dimmed) {
+      return;
+    }
+
+    // In controlled mode, we trust that disabling tabs is done
+    // intentionally, and don't select a new tab automatically.
+    if (isControlled) {
+      setSelectedId(null);
+      return;
+    }
+
+    // If the currently selected tab becomes disabled, fall back to the
+    // `defaultTabId` if possible. Otherwise select the first
+    // enabled tab (if there is one).
+    if (initialTab && !initialTab.dimmed) {
+      setSelectedId(initialTab.id);
+      return;
+    }
+    if (firstEnabledTab) {
+      setSelectedId(firstEnabledTab.id);
+    }
+  }, [firstEnabledTab, initialTab, isControlled, selectedTab?.dimmed, setSelectedId]);
+
+  // Clear `selectedId` if the active tab is removed from the DOM in controlled mode.
+  (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
+    if (!isControlled) {
+      return;
+    }
+
+    // Once the tabs have populated, if the `selectedTabId` still can't be
+    // found, clear the selection.
+    if (tabsHavePopulatedRef.current && !!selectedTabId && !selectedTab) {
+      setSelectedId(null);
+    }
+  }, [isControlled, selectedTab, selectedTabId, setSelectedId]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    // If there is no active tab, fallback to place focus on the first enabled tab
+    // so there is always an active element
+    if (selectedTabId === null && !activeId && firstEnabledTab?.id) {
+      setActiveId(firstEnabledTab.id);
+    }
+  }, [selectedTabId, activeId, firstEnabledTab?.id, setActiveId]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    if (!isControlled) {
+      return;
+    }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     requestAnimationFrame(() => {
       const focusedElement = items?.[0]?.element?.ownerDocument.activeElement;
       if (!focusedElement || !items.some(item => focusedElement === item.element)) {
@@ -72140,7 +82093,11 @@ const Tabs = Object.assign(function Tabs({
         setActiveId(focusedElement.id);
       }
     });
+<<<<<<< HEAD
   }, [activeId, items, setActiveId]);
+=======
+  }, [activeId, isControlled, items, setActiveId]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const contextValue = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     store,
     instanceId
@@ -72149,6 +82106,7 @@ const Tabs = Object.assign(function Tabs({
     value: contextValue,
     children: children
   });
+<<<<<<< HEAD
 }, {
   /**
    * Renders a single tab.
@@ -72181,6 +82139,18 @@ const Tabs = Object.assign(function Tabs({
 ;// external ["wp","privateApis"]
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// ./node_modules/@wordpress/components/build-module/lock-unlock.js
+=======
+}
+Tabs.TabList = TabList;
+Tabs.Tab = tab_Tab;
+Tabs.TabPanel = tabpanel_TabPanel;
+Tabs.Context = TabsContext;
+/* harmony default export */ const tabs = (Tabs);
+
+;// CONCATENATED MODULE: external ["wp","privateApis"]
+const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/lock-unlock.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -72190,6 +82160,7 @@ const {
   unlock
 } = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/components');
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/icons/build-module/library/info.js
 /**
  * WordPress dependencies
@@ -72323,6 +82294,9 @@ function Badge({
 /* harmony default export */ const badge = (Badge);
 
 ;// ./node_modules/@wordpress/components/build-module/private-apis.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/private-apis.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -72337,6 +82311,7 @@ function Badge({
 const privateApis = {};
 lock(privateApis, {
   __experimentalPopoverLegacyPositionToPlacement: positionToPlacement,
+<<<<<<< HEAD
   ComponentsContext: ComponentsContext,
   Tabs: Tabs,
   Theme: theme,
@@ -72346,6 +82321,17 @@ lock(privateApis, {
 });
 
 ;// ./node_modules/@wordpress/components/build-module/index.js
+=======
+  createPrivateSlotFill: createPrivateSlotFill,
+  ComponentsContext: ComponentsContext,
+  Tabs: tabs,
+  Theme: theme,
+  DropdownMenuV2: DropdownMenuV2,
+  kebabCase: kebabCase
+});
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Primitives.
 
 
@@ -72470,7 +82456,10 @@ lock(privateApis, {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Higher-Order Components.
 
 

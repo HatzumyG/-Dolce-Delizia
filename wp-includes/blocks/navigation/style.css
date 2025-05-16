@@ -99,15 +99,22 @@
   overflow:hidden;
   position:absolute;
   top:100%;
+<<<<<<< HEAD
+=======
+  transition:opacity .1s linear;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   visibility:hidden;
   width:0;
   z-index:2;
 }
+<<<<<<< HEAD
 @media not (prefers-reduced-motion){
   .wp-block-navigation .has-child .wp-block-navigation__submenu-container{
     transition:opacity .1s linear;
   }
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .wp-block-navigation .has-child .wp-block-navigation__submenu-container>.wp-block-navigation-item>.wp-block-navigation-item__content{
   display:flex;
   flex-grow:1;
@@ -286,10 +293,16 @@ button.wp-block-navigation-item__content{
   color:inherit !important;
 }
 .wp-block-navigation__responsive-container.is-menu-open{
+<<<<<<< HEAD
+=======
+  animation:overlay-menu__fade-in-animation .1s ease-out;
+  animation-fill-mode:forwards;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   background-color:inherit;
   display:flex;
   flex-direction:column;
   overflow:auto;
+<<<<<<< HEAD
   padding:clamp(1rem, var(--wp--style--root--padding-top), 20rem) clamp(1rem, var(--wp--style--root--padding-right), 20rem) clamp(1rem, var(--wp--style--root--padding-bottom), 20rem) clamp(1rem, var(--wp--style--root--padding-left), 20rem);
   z-index:100000;
 }
@@ -297,6 +310,15 @@ button.wp-block-navigation-item__content{
   .wp-block-navigation__responsive-container.is-menu-open{
     animation:overlay-menu__fade-in-animation .1s ease-out;
     animation-fill-mode:forwards;
+=======
+  padding:clamp(1rem, var(--wp--style--root--padding-top), 20rem) clamp(1rem, var(--wp--style--root--padding-right), 20rem) clamp(1rem, var(--wp--style--root--padding-bottom), 20rem) clamp(1rem, var(--wp--style--root--padding-left), 20em);
+  z-index:100000;
+}
+@media (prefers-reduced-motion:reduce){
+  .wp-block-navigation__responsive-container.is-menu-open{
+    animation-delay:0s;
+    animation-duration:1ms;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 }
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content{

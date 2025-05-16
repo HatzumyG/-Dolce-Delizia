@@ -23,6 +23,10 @@
   position:absolute;
 }
 .nux-dot-tip:before{
+<<<<<<< HEAD
+=======
+  animation:nux-pulse 1.6s cubic-bezier(.17, .67, .92, .62) infinite;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   background:#00739ce6;
   height:24px;
   left:-12px;
@@ -31,11 +35,14 @@
   transform:scale(.3333333333);
   width:24px;
 }
+<<<<<<< HEAD
 @media not (prefers-reduced-motion){
   .nux-dot-tip:before{
     animation:nux-pulse 1.6s cubic-bezier(.17, .67, .92, .62) infinite;
   }
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .nux-dot-tip:after{
   background:#00739c;
   height:8px;

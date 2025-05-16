@@ -35,7 +35,11 @@ class Option extends Base
 	public function set($args, $assoc_args)
 	{
 		/**
+<<<<<<< HEAD
 		 * Note: If the value is multiple dimensions like cdn-mapping, need to specially handle it both here and in `const.default.json`
+=======
+		 * Note: If the value is multiple dimensions like cdn-mapping, need to specially handle it both here and in `const.default.ini`
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *
 		 * For CDN/Crawler mutlti dimension settings, if all children are empty in one line, will delete that line. To delete one line, just set all to empty.
 		 * E.g. to delete cdn-mapping[0], need to run below:

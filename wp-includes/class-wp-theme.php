@@ -242,7 +242,11 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @global string[] $wp_theme_directories
+=======
+	 * @global array $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param string        $theme_dir  Directory of the theme within the theme_root.
 	 * @param string        $theme_root Theme root.
@@ -1848,7 +1852,11 @@ final class WP_Theme implements ArrayAccess {
 			$this->delete_pattern_cache();
 		}
 
+<<<<<<< HEAD
 		$dirpath      = $this->get_stylesheet_directory() . '/patterns';
+=======
+		$dirpath      = $this->get_stylesheet_directory() . '/patterns/';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$pattern_data = array();
 
 		if ( ! file_exists( $dirpath ) ) {
@@ -1857,6 +1865,7 @@ final class WP_Theme implements ArrayAccess {
 			}
 			return $pattern_data;
 		}
+<<<<<<< HEAD
 
 		$files = (array) self::scandir( $dirpath, 'php', -1 );
 
@@ -1872,6 +1881,9 @@ final class WP_Theme implements ArrayAccess {
 
 		$dirpath = trailingslashit( $dirpath );
 
+=======
+		$files = glob( $dirpath . '*.php' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! $files ) {
 			if ( $can_use_cached ) {
 				$this->set_pattern_cache( $pattern_data );

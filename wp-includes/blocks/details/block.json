@@ -16,6 +16,7 @@
 			"type": "rich-text",
 			"source": "rich-text",
 			"selector": "summary"
+<<<<<<< HEAD
 		},
 		"name": {
 			"type": "string",
@@ -28,12 +29,17 @@
 		},
 		"placeholder": {
 			"type": "string"
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"supports": {
 		"__experimentalOnEnter": true,
 		"align": [ "wide", "full" ],
+<<<<<<< HEAD
 		"anchor": true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		"color": {
 			"gradients": true,
 			"link": true,

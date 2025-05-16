@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The tools
  *
@@ -8,15 +11,21 @@
  * @subpackage 	LiteSpeed/inc
  * @author     	LiteSpeed Technologies <info@litespeedtech.com>
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace LiteSpeed;
 
 defined('WPINC') || exit();
 
 class Tool extends Root
 {
+<<<<<<< HEAD
 	const LOG_TAG = '[Tool]';
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Get public IP
 	 *
@@ -25,6 +34,7 @@ class Tool extends Root
 	 */
 	public function check_ip()
 	{
+<<<<<<< HEAD
 		self::debug('✅ check_ip');
 
 		$response = wp_safe_remote_get('https://cyberpanel.sh/?ip', array(
@@ -46,6 +56,21 @@ class Tool extends Root
 		}
 
 		return __('Failed to detect IP', 'litespeed-cache');
+=======
+		Debug2::debug('[Tool] ✅ check_ip');
+
+		$response = wp_remote_get('https://www.doapi.us/ip');
+
+		if (is_wp_error($response)) {
+			return new \WP_Error('remote_get_fail', 'Failed to fetch from https://www.doapi.us/ip', array('status' => 404));
+		}
+
+		$data = $response['body'];
+
+		Debug2::debug('[Tool] result [ip] ' . $data);
+
+		return $data;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

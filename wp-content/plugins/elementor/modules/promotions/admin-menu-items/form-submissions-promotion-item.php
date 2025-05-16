@@ -3,7 +3,11 @@
 namespace Elementor\Modules\Promotions\AdminMenuItems;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Form_Submissions_Promotion_Item extends Base_Promotion_Template {
@@ -19,7 +23,11 @@ class Form_Submissions_Promotion_Item extends Base_Promotion_Template {
 		return esc_html__( 'Submissions', 'elementor' );
 	}
 
+<<<<<<< HEAD
 	public function get_promotion_title(): string {
+=======
+	public function get_promotion_title():string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return sprintf(
 			/* translators: %s: br  */
 			esc_html__( 'Create Forms and Collect Leads %s with Elementor Pro', 'elementor' ),
@@ -36,6 +44,7 @@ class Form_Submissions_Promotion_Item extends Base_Promotion_Template {
 		];
 	}
 
+<<<<<<< HEAD
 	protected function get_cta_url(): string {
 		return 'https://go.elementor.com/go-pro-submissions/';
 	}
@@ -45,6 +54,17 @@ class Form_Submissions_Promotion_Item extends Base_Promotion_Template {
 	}
 
 	protected function get_side_note(): string {
+=======
+	protected function get_cta_url():string {
+		return 'https://go.elementor.com/go-pro-submissions/';
+	}
+
+	protected function get_video_url():string {
+		return 'https://www.youtube-nocookie.com/embed/LNfnwba9C-8?si=JLHk3UAexnvTfU1a';
+	}
+
+	protected function get_side_note():string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return esc_html__( '* Requires an Advanced subscription or higher', 'elementor' );
 	}
 }

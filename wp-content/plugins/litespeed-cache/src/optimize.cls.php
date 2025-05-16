@@ -68,12 +68,21 @@ class Optimize extends Base
 	{
 		$this->cfg_css_async = defined('LITESPEED_GUEST_OPTM') || $this->conf(self::O_OPTM_CSS_ASYNC);
 		if ($this->cfg_css_async) {
+<<<<<<< HEAD
 			if (!$this->cls('Cloud')->activated()) {
 				Debug2::debug('[Optm] ❌ CCSS set to OFF due to QC not activated');
 				$this->cfg_css_async = false;
 			}
 			if ((defined('LITESPEED_GUEST_OPTM') || ($this->conf(self::O_OPTM_UCSS) && $this->conf(self::O_OPTM_CSS_COMB))) && $this->conf(self::O_OPTM_UCSS_INLINE)) {
 				Debug2::debug('[Optm] ⚠️ CCSS set to OFF due to UCSS Inline');
+=======
+			if (!$this->conf(self::O_API_KEY)) {
+				Debug2::debug('[Optm] ❌ CCSS set to OFF due to missing domain key');
+				$this->cfg_css_async = false;
+			}
+			if ((defined('LITESPEED_GUEST_OPTM') || ($this->conf(self::O_OPTM_UCSS) && $this->conf(self::O_OPTM_CSS_COMB))) && $this->conf(self::O_OPTM_UCSS_INLINE)) {
+				Debug2::debug('[Optm] ❌ CCSS set to OFF due to UCSS Inline');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$this->cfg_css_async = false;
 			}
 		}
@@ -274,11 +283,15 @@ class Optimize extends Base
 	private function _optimize()
 	{
 		global $wp;
+<<<<<<< HEAD
 		$this->_request_url = get_permalink();
 		// Backup, in case get_permalink() fails.
 		if (!$this->_request_url) {
 			$this->_request_url = home_url($wp->request);
 		}
+=======
+		$this->_request_url = home_url($wp->request);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->cfg_css_min = defined('LITESPEED_GUEST_OPTM') || $this->conf(self::O_OPTM_CSS_MIN);
 		$this->cfg_css_comb = defined('LITESPEED_GUEST_OPTM') || $this->conf(self::O_OPTM_CSS_COMB);
@@ -337,9 +350,13 @@ class Optimize extends Base
 							// Handle css async load
 							if ($this->cfg_css_async) {
 								$this->html_head .=
+<<<<<<< HEAD
 									'<link rel="preload" data-asynced="1" data-optimized="2" as="style" onload="this.onload=null;this.rel=\'stylesheet\'" href="' .
 									Str::trim_quotes($url) .
 									'" />'; // todo: How to use " in attr wrapper "
+=======
+									'<link rel="preload" data-asynced="1" data-optimized="2" as="style" onload="this.onload=null;this.rel=\'stylesheet\'" href="' . Str::trim_quotes($url) . '" />'; // todo: How to use " in attr wrapper "
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							} else {
 								$this->html_head .= '<link data-optimized="2" rel="stylesheet" href="' . Str::trim_quotes($url) . '" />'; // use 2 as combined
 							}
@@ -749,7 +766,11 @@ class Optimize extends Base
 	{
 		$html_list_ori = $html_list;
 
+<<<<<<< HEAD
 		$can_webp = $this->cls('Media')->webp_support();
+=======
+		$can_webp = (defined('LITESPEED_GUEST_OPTM') || $this->conf(Base::O_IMG_OPTM_WEBP)) && $this->cls('Media')->webp_support();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$tag = $file_type == 'css' ? 'link' : 'script';
 		foreach ($src_list as $key => $src_info) {
@@ -876,9 +897,14 @@ class Optimize extends Base
 		$src_list = array();
 		$html_list = array();
 
+<<<<<<< HEAD
 		// V7 added: (?:\r\n?|\n?) to fix replacement leaving empty new line
 		$content = preg_replace('#<!--.*-->(?:\r\n?|\n?)#sU', '', $this->content);
 		preg_match_all('#<script([^>]*)>(.*)</script>(?:\r\n?|\n?)#isU', $content, $matches, PREG_SET_ORDER);
+=======
+		$content = preg_replace('#<!--.*-->#sU', '', $this->content);
+		preg_match_all('#<script([^>]*)>(.*)</script>#isU', $content, $matches, PREG_SET_ORDER);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ($matches as $match) {
 			$attrs = empty($match[1]) ? array() : Utility::parse_attr($match[1]);
 
@@ -1062,6 +1088,7 @@ class Optimize extends Base
 		// $dom->load( $content );return $val;
 		// $items = $dom->find( 'link' );
 
+<<<<<<< HEAD
 		// V7 added: (?:\r\n?|\n?) to fix replacement leaving empty new line
 		$content = preg_replace(
 			array('#<!--.*-->(?:\r\n?|\n?)#sU', '#<script([^>]*)>.*</script>(?:\r\n?|\n?)#isU', '#<noscript([^>]*)>.*</noscript>(?:\r\n?|\n?)#isU'),
@@ -1069,6 +1096,10 @@ class Optimize extends Base
 			$this->content
 		);
 		preg_match_all('#<link ([^>]+)/?>|<style([^>]*)>([^<]+)</style>(?:\r\n?|\n?)#isU', $content, $matches, PREG_SET_ORDER);
+=======
+		$content = preg_replace(array('#<!--.*-->#sU', '#<script([^>]*)>.*</script>#isU', '#<noscript([^>]*)>.*</noscript>#isU'), '', $this->content);
+		preg_match_all('#<link ([^>]+)/?>|<style([^>]*)>([^<]+)</style>#isU', $content, $matches, PREG_SET_ORDER);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		foreach ($matches as $match) {
 			// to avoid multiple replacement

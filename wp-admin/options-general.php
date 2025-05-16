@@ -184,6 +184,10 @@ $tagline_description = sprintf(
 	<div class="site-icon-action-buttons">
 		<button type="button"
 			id="choose-from-library-button"
+<<<<<<< HEAD
+=======
+			type="button"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			class="<?php echo esc_attr( $classes_for_button ); ?>"
 			data-alt-classes="<?php echo esc_attr( $classes_for_button_on_change ); ?>"
 			data-size="512"
@@ -475,12 +479,20 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 	 * Filters the default date formats.
 	 *
 	 * @since 2.7.0
+<<<<<<< HEAD
 	 * @since 4.0.0 Replaced the `Y/m/d` format with `Y-m-d` (ISO date standard YYYY-MM-DD).
 	 * @since 6.8.0 Added the `d.m.Y` format.
 	 *
 	 * @param string[] $default_date_formats Array of default date formats.
 	 */
 	$date_formats = array_unique( apply_filters( 'date_formats', array( __( 'F j, Y' ), 'Y-m-d', 'm/d/Y', 'd/m/Y', 'd.m.Y' ) ) );
+=======
+	 * @since 4.0.0 Added ISO date standard YYYY-MM-DD format.
+	 *
+	 * @param string[] $default_date_formats Array of default date formats.
+	 */
+	$date_formats = array_unique( apply_filters( 'date_formats', array( __( 'F j, Y' ), 'Y-m-d', 'm/d/Y', 'd/m/Y' ) ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	$custom = true;
 

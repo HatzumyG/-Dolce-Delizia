@@ -12,9 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Union_Prop_Type implements Prop_Type {
 	const KIND = 'union';
 
+<<<<<<< HEAD
 	use Concerns\Has_Meta;
 	use Concerns\Has_Settings;
 	use Concerns\Has_Required_Setting;
+=======
+	use Concerns\Has_Meta,
+		Concerns\Has_Settings,
+		Concerns\Has_Required_Setting;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	protected $default = null;
 

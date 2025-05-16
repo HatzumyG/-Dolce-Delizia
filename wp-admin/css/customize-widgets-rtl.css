@@ -262,10 +262,15 @@
 	color: #646970;
 }
 
+<<<<<<< HEAD
 @media (prefers-reduced-motion: no-preference) {
 	#customize-preview {
 		transition: all 0.2s;
 	}
+=======
+#customize-preview {
+	transition: all 0.2s;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 body.adding-widget #available-widgets {

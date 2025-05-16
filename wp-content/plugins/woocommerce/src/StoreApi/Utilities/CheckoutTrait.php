@@ -1,14 +1,20 @@
 <?php
+<<<<<<< HEAD
 declare( strict_types = 1);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\StoreApi\Utilities;
 
 use Automattic\Jetpack\Constants;
 use Automattic\WooCommerce\StoreApi\Exceptions\RouteException;
 use Automattic\WooCommerce\StoreApi\Payments\PaymentContext;
 use Automattic\WooCommerce\StoreApi\Payments\PaymentResult;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Blocks\Domain\Services\CheckoutFieldsSchema\DocumentObject;
 use Automattic\WooCommerce\Admin\Features\Features;
 use WC_Customer;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * CheckoutTrait
@@ -147,12 +153,17 @@ trait CheckoutTrait {
 	 */
 	private function update_order_from_request( \WP_REST_Request $request ) {
 		$this->order->set_customer_note( wc_sanitize_textarea( $request['customer_note'] ) ?? '' );
+<<<<<<< HEAD
 		$payment_method = $this->get_request_payment_method( $request );
 		if ( null !== $payment_method ) {
 			WC()->session->set( 'chosen_payment_method', $payment_method->id );
 			$this->order->set_payment_method( $payment_method->id );
 			$this->order->set_payment_method_title( $payment_method->title );
 		}
+=======
+		$this->order->set_payment_method( $this->get_request_payment_method_id( $request ) );
+		$this->order->set_payment_method_title( $this->get_request_payment_method_title( $request ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->persist_additional_fields_for_order( $request );
 
 		wc_do_deprecated_action(
@@ -209,6 +220,7 @@ trait CheckoutTrait {
 	 * Persist additional fields for the order after validating them.
 	 *
 	 * @param \WP_REST_Request $request Full details about the request.
+<<<<<<< HEAD
 	 */
 	private function persist_additional_fields_for_order( \WP_REST_Request $request ) {
 		if ( Features::is_enabled( 'experimental-blocks' ) ) {
@@ -271,4 +283,26 @@ trait CheckoutTrait {
 			]
 		);
 	}
+=======
+	 *
+	 * @throws RouteException On error.
+	 */
+	private function persist_additional_fields_for_order( \WP_REST_Request $request ) {
+		$errors         = new \WP_Error();
+		$request_fields = $request['additional_fields'] ?? [];
+		foreach ( $request_fields as $key => $value ) {
+			try {
+				$this->additional_fields_controller->validate_field_for_location( $key, $value, 'order' );
+			} catch ( \Exception $e ) {
+				$errors[] = $e->getMessage();
+				continue;
+			}
+			$this->additional_fields_controller->persist_field_for_order( $key, $value, $this->order, 'other', false );
+		}
+
+		if ( $errors->has_errors() ) {
+			throw new RouteException( 'woocommerce_rest_checkout_invalid_additional_fields', $errors->get_error_messages(), 400 );
+		}
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

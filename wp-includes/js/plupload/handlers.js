@@ -204,7 +204,11 @@ function prepareMediaItemInit( fileObj ) {
 
 // Generic error message.
 function wpQueueError( message ) {
+<<<<<<< HEAD
 	jQuery( '#media-upload-error' ).show().html( '<div class="notice notice-error"><p>' + message + '</p></div>' );
+=======
+	jQuery( '#media-upload-error' ).show().html( '<div class="error"><p>' + message + '</p></div>' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 // File-specific error messages.

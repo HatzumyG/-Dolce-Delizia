@@ -315,6 +315,7 @@ class WP_Locale {
 	 * @since 2.1.0
 	 *
 	 * @param string|int $month_number '01' through '12'.
+<<<<<<< HEAD
 	 * @return string Translated full month name. If the month number is not found, an empty string is returned.
 	 */
 	public function get_month( $month_number ) {
@@ -323,6 +324,12 @@ class WP_Locale {
 			return '';
 		}
 		return $this->month[ $month_number ];
+=======
+	 * @return string Translated full month name.
+	 */
+	public function get_month( $month_number ) {
+		return $this->month[ zeroise( $month_number, 2 ) ];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -341,6 +348,7 @@ class WP_Locale {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Retrieves translated version of month genitive string.
 	 *
 	 * The $month_number parameter has to be a string
@@ -361,6 +369,8 @@ class WP_Locale {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Retrieves translated version of meridiem string.
 	 *
 	 * The $meridiem parameter is expected to not be translated.

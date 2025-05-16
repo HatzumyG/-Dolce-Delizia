@@ -116,10 +116,13 @@ figure.wp-block-image:not(.wp-block){
   overflow:visible !important;
 }
 
+<<<<<<< HEAD
 .wp-block-image__toolbar_content_textarea__container{
   padding:8px;
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .wp-block-image__toolbar_content_textarea{
   width:250px;
 }

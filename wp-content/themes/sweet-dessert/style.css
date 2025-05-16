@@ -10799,8 +10799,12 @@ figure > a[rel="prettyPhoto[slideshow]"]:has(> img):hover:after {
 figure > a[rel="prettyPhoto[slideshow]"]:has(> img):hover:before,
 figure > a[rel="prettyPhoto[slideshow]"]:has(> img):hover:after {
 	opacity: 1;
+<<<<<<< HEAD
 }
 .blog .post_title,
 .archive .post_title {
   font-size: 30px !important;
 }
+=======
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

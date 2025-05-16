@@ -85,7 +85,11 @@ class Repository {
 			$manifest = $this->api->get_manifest( $id );
 
 			if ( is_wp_error( $manifest ) ) {
+<<<<<<< HEAD
 				throw new WP_Error_Exception( esc_html( $manifest ) );
+=======
+				throw new WP_Error_Exception( $manifest );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
@@ -128,7 +132,11 @@ class Repository {
 		$response = $this->api->download_link( $id );
 
 		if ( is_wp_error( $response ) ) {
+<<<<<<< HEAD
 			throw new WP_Error_Exception( esc_html( $response ) );
+=======
+			throw new WP_Error_Exception( $response );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return [ 'download_link' => $response->download_link ];
@@ -204,7 +212,11 @@ class Repository {
 			$data = $this->api->get_all( $args );
 
 			if ( is_wp_error( $data ) ) {
+<<<<<<< HEAD
 				throw new WP_Error_Exception( esc_html( $data ) );
+=======
+				throw new WP_Error_Exception( $data );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			set_transient( static::KITS_CACHE_KEY, $data, static::KITS_CACHE_TTL_HOURS * HOUR_IN_SECONDS );
@@ -225,7 +237,11 @@ class Repository {
 			$data = $this->api->get_taxonomies();
 
 			if ( is_wp_error( $data ) ) {
+<<<<<<< HEAD
 				throw new WP_Error_Exception( esc_html( $data ) );
+=======
+				throw new WP_Error_Exception( $data );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			set_transient( static::KITS_TAXONOMIES_CACHE_KEY, $data, static::KITS_TAXONOMIES_CACHE_TTL_HOURS * HOUR_IN_SECONDS );
@@ -276,6 +292,10 @@ class Repository {
 				'popularity_index' => isset( $kit->popularity_index ) ? $kit->popularity_index : 0,
 				'created_at' => isset( $kit->created_at ) ? $kit->created_at : null,
 				'updated_at' => isset( $kit->updated_at ) ? $kit->updated_at : null,
+<<<<<<< HEAD
+=======
+				//
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			],
 			$manifest ? $this->transform_manifest_api_response( $manifest ) : []
 		);

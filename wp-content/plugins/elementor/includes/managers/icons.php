@@ -24,7 +24,11 @@ class Icons_Manager {
 
 	const LOAD_FA4_SHIM_OPTION_KEY = 'elementor_load_fa4_shim';
 
+<<<<<<< HEAD
 	const ELEMENTOR_ICONS_VERSION = '5.36.0';
+=======
+	const ELEMENTOR_ICONS_VERSION = '5.35.0';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Tabs.
@@ -45,9 +49,15 @@ class Icons_Manager {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param array  $icon
 	 * @param array  $attributes
 	 * @param string $tag
+=======
+	 * @param $icon
+	 * @param $attributes
+	 * @param $tag
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return bool|mixed|string
 	 */
 	public static function try_get_icon_html( $icon, $attributes = [], $tag = 'i' ) {
@@ -59,9 +69,15 @@ class Icons_Manager {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param array  $icon
 	 * @param array  $attributes
 	 * @param string $tag
+=======
+	 * @param array $icon
+	 * @param array $attributes
+	 * @param $tag
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return bool|mixed|string
 	 */
 	private static function get_icon_html( array $icon, array $attributes, $tag ) {
@@ -78,7 +94,11 @@ class Icons_Manager {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Register styles
+=======
+	 * register styles
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * Used to register all icon types stylesheets so they could be enqueued later by widgets
 	 */
@@ -179,7 +199,10 @@ class Icons_Manager {
 
 	/**
 	 * Get Icon Manager Tabs
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return array
 	 */
 	public static function get_icon_manager_tabs() {
@@ -231,7 +254,11 @@ class Icons_Manager {
 	private static function get_fa_asset_url( $filename, $ext_type = 'css', $add_suffix = true ) {
 		static $is_test_mode = null;
 		if ( null === $is_test_mode ) {
+<<<<<<< HEAD
 			$is_test_mode = Utils::is_script_debug() || Utils::is_elementor_tests();
+=======
+			$is_test_mode = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || defined( 'ELEMENTOR_TESTS' ) && ELEMENTOR_TESTS;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 		$url = ELEMENTOR_ASSETS_URL . 'lib/font-awesome/' . $ext_type . '/' . $filename;
 		if ( ! $is_test_mode && $add_suffix ) {
@@ -254,6 +281,14 @@ class Icons_Manager {
 		return array_values( array_merge( $tabs, self::get_icon_manager_tabs() ) );
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * is_font_awesome_inline
+	 *
+	 * @return bool
+	 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private static function is_font_icon_inline_svg() {
 		return Plugin::$instance->experiments->is_feature_active( 'e_font_icon_svg' );
 	}
@@ -269,7 +304,10 @@ class Icons_Manager {
 
 	/**
 	 * Get font awesome svg.
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param $icon array [ 'value' => string, 'library' => string ]
 	 *
 	 * @return bool|mixed|string
@@ -330,10 +368,19 @@ class Icons_Manager {
 		if ( ! $content ) {
 			if ( empty( $attributes['class'] ) ) {
 				$attributes['class'] = $icon['value'];
+<<<<<<< HEAD
 			} elseif ( is_array( $attributes['class'] ) ) {
 					$attributes['class'][] = $icon['value'];
 			} else {
 				$attributes['class'] .= ' ' . $icon['value'];
+=======
+			} else {
+				if ( is_array( $attributes['class'] ) ) {
+					$attributes['class'][] = $icon['value'];
+				} else {
+					$attributes['class'] .= ' ' . $icon['value'];
+				}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
@@ -344,10 +391,16 @@ class Icons_Manager {
 	 * Render Icon
 	 *
 	 * Used to render Icon for \Elementor\Controls_Manager::ICONS
+<<<<<<< HEAD
 	 *
 	 * @param array  $icon             Icon Type, Icon value.
 	 * @param array  $attributes       Icon HTML Attributes.
 	 * @param string $tag             Icon HTML tag, defaults to <i>.
+=======
+	 * @param array $icon             Icon Type, Icon value
+	 * @param array $attributes       Icon HTML Attributes
+	 * @param string $tag             Icon HTML tag, defaults to <i>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return mixed|string
 	 */
@@ -366,7 +419,11 @@ class Icons_Manager {
 	/**
 	 * Font Awesome 4 to font Awesome 5 Value Migration
 	 *
+<<<<<<< HEAD
 	 * Used to convert string value of Icon control to array value of Icons control
+=======
+	 * used to convert string value of Icon control to array value of Icons control
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * ex: 'fa fa-star' => [ 'value' => 'fas fa-star', 'library' => 'fa-solid' ]
 	 *
 	 * @param $value
@@ -395,12 +452,20 @@ class Icons_Manager {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * On_import_migration
 	 *
 	 * @param array  $element        settings array.
 	 * @param string $old_control   old control id.
 	 * @param string $new_control   new control id.
 	 * @param bool   $remove_old      boolean whether to remove old control or not.
+=======
+	 * on_import_migration
+	 * @param array $element        settings array
+	 * @param string $old_control   old control id
+	 * @param string $new_control   new control id
+	 * @param bool $remove_old      boolean whether to remove old control or not
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array
 	 */
@@ -423,7 +488,11 @@ class Icons_Manager {
 
 		$element['settings'][ $new_control ] = $new_value;
 
+<<<<<<< HEAD
 		// remove old value
+=======
+		//remove old value
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $remove_old ) {
 			unset( $element['settings'][ $old_control ] );
 		}
@@ -431,6 +500,13 @@ class Icons_Manager {
 		return $element;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * is_migration_allowed
+	 * @return bool
+	 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public static function is_migration_allowed() {
 		static $migration_allowed = false;
 		if ( false === $migration_allowed ) {
@@ -451,8 +527,12 @@ class Icons_Manager {
 	/**
 	 * Register_Admin Settings
 	 *
+<<<<<<< HEAD
 	 * Adds Font Awesome migration / update admin settings
 	 *
+=======
+	 * adds Font Awesome migration / update admin settings
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param Settings $settings
 	 */
 	public function register_admin_settings( Settings $settings ) {
@@ -553,7 +633,10 @@ class Icons_Manager {
 
 	/**
 	 * Add Update Needed Flag
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param array $settings
 	 *
 	 * @return array;

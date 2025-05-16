@@ -7,13 +7,22 @@ namespace Automattic\WooCommerce\Internal\Admin;
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 use Automattic\WooCommerce\Internal\Features\FeaturesController;
+<<<<<<< HEAD
 use WC_Helper_Options;
 use WC_Helper_Updater;
+=======
+use WC_Helper_Updater;
+use WC_Woo_Update_Manager_Plugin;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Contains backend logic for the Marketplace feature.
  */
 class Marketplace {
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const MARKETPLACE_TAB_SLUG = 'woo';
 
 	/**
@@ -51,8 +60,12 @@ class Marketplace {
 			return;
 		}
 
+<<<<<<< HEAD
 		$marketplace_pages = $this->get_marketplace_pages();
 
+=======
+		$marketplace_pages = self::get_marketplace_pages();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ( $marketplace_pages as $marketplace_page ) {
 			if ( ! is_null( $marketplace_page ) ) {
 				wc_admin_register_page( $marketplace_page );
@@ -63,12 +76,20 @@ class Marketplace {
 	/**
 	 * Get report pages.
 	 */
+<<<<<<< HEAD
 	public function get_marketplace_pages() {
+=======
+	public static function get_marketplace_pages() {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$marketplace_pages = array(
 			array(
 				'id'         => 'woocommerce-marketplace',
 				'parent'     => 'woocommerce',
+<<<<<<< HEAD
 				'title'      => __( 'Extensions', 'woocommerce' ) . $this->badge(),
+=======
+				'title'      => __( 'Extensions', 'woocommerce' ) . WC_Helper_Updater::get_updates_count_html(),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'page_title' => __( 'Extensions', 'woocommerce' ),
 				'path'       => '/extensions',
 			),
@@ -82,6 +103,7 @@ class Marketplace {
 		return apply_filters( 'woocommerce_marketplace_menu_items', $marketplace_pages );
 	}
 
+<<<<<<< HEAD
 	private function badge(): string {
 		$option = WC_Helper_Options::get( 'my_subscriptions_tab_loaded' );
 
@@ -92,6 +114,8 @@ class Marketplace {
 		return '';
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Enqueue update script.
 	 *
@@ -143,7 +167,10 @@ class Marketplace {
 			admin_url( 'admin.php' )
 		);
 
+<<<<<<< HEAD
 		wc_admin_record_tracks_event( 'marketplace_plugin_install_woo_clicked' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wp_safe_redirect( $woo_url );
 		exit;
 	}
@@ -170,5 +197,8 @@ class Marketplace {
 		</style>
 		<?php
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <?php return array('dependencies' => array('react', 'react-jsx-runtime', 'wc-blocks-checkout', 'wc-blocks-components', 'wc-blocks-data-store', 'wc-blocks-registry', 'wc-price-format', 'wc-settings', 'wc-types', 'wp-a11y', 'wp-autop', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-deprecated', 'wp-dom', 'wp-element', 'wp-hooks', 'wp-html-entities', 'wp-i18n', 'wp-is-shallow-equal', 'wp-keycodes', 'wp-polyfill', 'wp-primitives', 'wp-style-engine', 'wp-url', 'wp-wordcount'), 'version' => '5c8cac9c6e339f19be09');
+=======
+<?php return array('dependencies' => array('react', 'wc-blocks-checkout', 'wc-blocks-components', 'wc-blocks-data-store', 'wc-blocks-registry', 'wc-price-format', 'wc-settings', 'wc-types', 'wp-a11y', 'wp-autop', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-deprecated', 'wp-dom', 'wp-element', 'wp-hooks', 'wp-html-entities', 'wp-i18n', 'wp-is-shallow-equal', 'wp-keycodes', 'wp-polyfill', 'wp-primitives', 'wp-style-engine', 'wp-url', 'wp-wordcount'), 'version' => '13b2a977a1c6faedff8f');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

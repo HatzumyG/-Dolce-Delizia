@@ -239,7 +239,11 @@ class Preview extends App {
 
 		Plugin::$instance->widgets_manager->enqueue_widgets_styles();
 
+<<<<<<< HEAD
 		$suffix = Utils::is_script_debug() ? '' : '.min';
+=======
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$direction_suffix = is_rtl() ? '-rtl' : '';
 
@@ -296,7 +300,11 @@ class Preview extends App {
 
 		Plugin::$instance->widgets_manager->enqueue_widgets_scripts();
 
+<<<<<<< HEAD
 		$suffix = Utils::is_script_debug() ? '' : '.min';
+=======
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		wp_enqueue_script(
 			'elementor-inline-editor',

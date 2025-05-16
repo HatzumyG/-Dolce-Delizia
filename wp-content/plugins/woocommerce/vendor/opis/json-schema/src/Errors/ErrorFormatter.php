@@ -218,7 +218,11 @@ class ErrorFormatter
         return preg_replace_callback(
             '~{([^}]+)}~imu',
             static function (array $m) use ($args) {
+<<<<<<< HEAD
                 if (!array_key_exists($m[1], $args)) {
+=======
+                if (!isset($args[$m[1]])) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                     return $m[0];
                 }
 

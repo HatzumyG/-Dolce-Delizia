@@ -6,6 +6,7 @@ use Elementor\Core\Utils\Collection;
 use Elementor\Modules\AtomicWidgets\PropsResolver\Props_Resolver;
 
 class Styles_Renderer {
+<<<<<<< HEAD
 	const DEFAULT_SELECTOR_PREFIX = '.elementor';
 
 	/**
@@ -28,22 +29,50 @@ class Styles_Renderer {
 
 	public static function make( array $breakpoints, string $selector_prefix = self::DEFAULT_SELECTOR_PREFIX ): self {
 		return new self( $breakpoints, $selector_prefix );
+=======
+	/**
+	 * @var array<string, array{direction: 'min' | 'max', value: int, is_enabled: boolean}> $breakpoints
+	 */
+	private array $breakpoints;
+
+	/**
+	 * Styles_Renderer constructor.
+	 *
+	 * @param array{
+	 *     breakpoints: array<string, array{direction: 'min' | 'max', value: int, is_enabled: boolean}>
+	 * } $config
+	 */
+	public function __construct( array $config ) {
+		$this->breakpoints = $config['breakpoints'];
+	}
+
+	public static function make( array $config ): self {
+		return new self( $config );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
 	 * Render the styles to a CSS string.
 	 *
+<<<<<<< HEAD
 	 * Styles format:
 	 *   array<int, array{
+=======
+	 * @param array<int, array{
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *     id: string,
 	 *     type: string,
 	 *     variants: array<int, array{
 	 *         props: array<string, mixed>,
 	 *         meta: array<string, mixed>
 	 *     }>
+<<<<<<< HEAD
 	 *   }>
 	 *
 	 * @param array $styles Array of style definitions.
+=======
+	 * }> $styles Array of style definitions.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string Rendered CSS string.
 	 */
@@ -58,12 +87,15 @@ class Styles_Renderer {
 		return implode( '', $css_style );
 	}
 
+<<<<<<< HEAD
 	public function on_prop_transform( callable $callback ): self {
 		$this->on_prop_transform = $callback;
 
 		return $this;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private function style_definition_to_css_string( array $style ): string {
 		$base_selector = $this->get_base_selector( $style );
 
@@ -95,6 +127,7 @@ class Styles_Renderer {
 			isset( $map[ $style_def['type'] ] ) &&
 			$style_def['id']
 		) {
+<<<<<<< HEAD
 			$type = $map[ $style_def['type'] ];
 			$id = $style_def['id'];
 
@@ -104,6 +137,9 @@ class Styles_Renderer {
 			] );
 
 			return implode( ' ', $selector_parts );
+=======
+			return $map[ $style_def['type'] ] . $style_def['id'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return null;
@@ -134,10 +170,13 @@ class Styles_Renderer {
 		return Collection::make( Props_Resolver::for_styles()->resolve( $schema, $props ) )
 			->filter()
 			->map( function ( $value, $prop ) {
+<<<<<<< HEAD
 				if ( $this->on_prop_transform ) {
 					call_user_func( $this->on_prop_transform, $prop, $value );
 				}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				return $prop . ':' . $value . ';';
 			} )
 			->implode( '' );

@@ -48,8 +48,13 @@ abstract class Base_Data_Control extends Base_Control {
 	 * @since 1.5.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param array $control  Control.
 	 * @param array $settings Element settings.
+=======
+	 * @param array $control  Control
+	 * @param array $settings Element settings
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return mixed Control values.
 	 */

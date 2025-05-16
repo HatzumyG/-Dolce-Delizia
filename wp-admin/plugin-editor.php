@@ -85,9 +85,12 @@ if ( empty( $file ) ) {
 $file      = validate_file_to_edit( $file, $plugin_files );
 $real_file = WP_PLUGIN_DIR . '/' . $file;
 
+<<<<<<< HEAD
 $plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin_files[0] );
 $plugin_name = $plugin_data['Name'];
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Handle fallback editing of file when JavaScript is not available.
 $edit_error     = null;
 $posted_content = null;
@@ -223,6 +226,7 @@ endif;
 	<?php
 	if ( is_plugin_active( $plugin ) ) {
 		if ( is_writable( $real_file ) ) {
+<<<<<<< HEAD
 			/* translators: %s: Plugin name. */
 			printf( __( 'Editing %s (active)' ), '<strong>' . esc_html( $plugin_name ) . '</strong>' );
 		} else {
@@ -236,10 +240,26 @@ endif;
 		} else {
 			/* translators: %s: Plugin name. */
 			printf( __( 'Browsing %s (inactive)' ), '<strong>' . esc_html( $plugin_name ) . '</strong>' );
+=======
+			/* translators: %s: Plugin file name. */
+			printf( __( 'Editing %s (active)' ), '<strong>' . esc_html( $file ) . '</strong>' );
+		} else {
+			/* translators: %s: Plugin file name. */
+			printf( __( 'Browsing %s (active)' ), '<strong>' . esc_html( $file ) . '</strong>' );
+		}
+	} else {
+		if ( is_writable( $real_file ) ) {
+			/* translators: %s: Plugin file name. */
+			printf( __( 'Editing %s (inactive)' ), '<strong>' . esc_html( $file ) . '</strong>' );
+		} else {
+			/* translators: %s: Plugin file name. */
+			printf( __( 'Browsing %s (inactive)' ), '<strong>' . esc_html( $file ) . '</strong>' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 	?>
 </h2>
+<<<<<<< HEAD
 <?php
 printf(
 	/* translators: %s: File path. */
@@ -247,6 +267,8 @@ printf(
 	esc_html( $file )
 );
 ?>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 </div>
 <div class="alignright">
 	<form action="plugin-editor.php" method="get">

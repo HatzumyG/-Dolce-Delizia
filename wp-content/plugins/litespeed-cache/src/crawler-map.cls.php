@@ -36,7 +36,11 @@ class Crawler_Map extends Root
 		$this->__data = Data::cls();
 		$this->_tb = $this->__data->tb('crawler');
 		$this->_tb_blacklist = $this->__data->tb('crawler_blacklist');
+<<<<<<< HEAD
 		$this->_conf_map_timeout = defined('LITESPEED_CRAWLER_MAP_TIMEOUT') ? LITESPEED_CRAWLER_MAP_TIMEOUT : 180; // Specify the timeout while parsing the sitemap
+=======
+		$this->_conf_map_timeout = $this->conf(Base::O_CRAWLER_MAP_TIMEOUT);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -71,7 +75,11 @@ class Crawler_Map extends Root
 			$wpdb->query("UPDATE `$this->_tb` SET res = $sql_res WHERE id IN ( $id_all )");
 
 			// Add blacklist
+<<<<<<< HEAD
 			if ($bit == Crawler::STATUS_BLACKLIST || $bit == Crawler::STATUS_NOCACHE) {
+=======
+			if ($bit == 'B' || $bit == 'N') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$q = "SELECT a.id, a.url FROM `$this->_tb_blacklist` a LEFT JOIN `$this->_tb` b ON b.url=a.url WHERE b.id IN ( $id_all )";
 				$existing = $wpdb->get_results($q, ARRAY_A);
 				// Update current crawler status tag in existing blacklist
@@ -129,7 +137,11 @@ class Crawler_Map extends Root
 				self::debug("Update map reason [code] $code [pos] left $curr_crawler right -$right_pos [count] $count");
 
 				// Update blacklist reason
+<<<<<<< HEAD
 				if ($bit == Crawler::STATUS_BLACKLIST || $bit == Crawler::STATUS_NOCACHE) {
+=======
+				if ($bit == 'B' || $bit == 'N') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$count = $wpdb->query(
 						"UPDATE `$this->_tb_blacklist` a LEFT JOIN `$this->_tb` b ON b.url = a.url SET a.reason=CONCAT(SUBSTRING_INDEX(a.reason, ',', $curr_crawler), '$code', SUBSTRING_INDEX(a.reason, ',', -$right_pos)) WHERE b.id IN (" .
 							implode(',', $v2) .
@@ -161,7 +173,11 @@ class Crawler_Map extends Root
 
 		// Build res&reason
 		$total_crawler = count(Crawler::cls()->list_crawlers());
+<<<<<<< HEAD
 		$res = str_repeat(Crawler::STATUS_BLACKLIST, $total_crawler);
+=======
+		$res = str_repeat('B', $total_crawler);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$reason = implode(',', array_fill(0, $total_crawler, 'Man'));
 
 		$row = $wpdb->get_row("SELECT a.url, b.id FROM `$this->_tb` a LEFT JOIN `$this->_tb_blacklist` b ON b.url = a.url WHERE a.id = '$id'", ARRAY_A);
@@ -200,6 +216,7 @@ class Crawler_Map extends Root
 		$id = (int) $id;
 		self::debug('blacklist delete [id] ' . $id);
 
+<<<<<<< HEAD
 		$sql = sprintf(
 			"UPDATE `%s` SET res=REPLACE(REPLACE(res, '%s', '-'), '%s', '-') WHERE url=(SELECT url FROM `%s` WHERE id=%d)",
 			$this->_tb,
@@ -209,6 +226,9 @@ class Crawler_Map extends Root
 			$id
 		);
 		$wpdb->query($sql);
+=======
+		$wpdb->query("UPDATE `$this->_tb` SET res=REPLACE(REPLACE(res, 'N', '-'), 'B', '-') WHERE url=(SELECT url FROM `$this->_tb_blacklist` WHERE id='$id')");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$wpdb->query("DELETE FROM `$this->_tb_blacklist` WHERE id='$id'");
 	}
 
@@ -227,8 +247,12 @@ class Crawler_Map extends Root
 		}
 
 		self::debug('Truncate blacklist');
+<<<<<<< HEAD
 		$sql = sprintf("UPDATE `%s` SET res=REPLACE(REPLACE(res, '%s', '-'), '%s', '-')", $this->_tb, Crawler::STATUS_NOCACHE, Crawler::STATUS_BLACKLIST);
 		$wpdb->query($sql);
+=======
+		$wpdb->query("UPDATE `$this->_tb` SET res=REPLACE(REPLACE(res, 'N', '-'), 'B', '-')");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$wpdb->query("TRUNCATE `$this->_tb_blacklist`");
 	}
 
@@ -285,7 +309,11 @@ class Crawler_Map extends Root
 		Data::cls()->tb_del('crawler');
 
 		$msg = __('Sitemap cleaned successfully', 'litespeed-cache');
+<<<<<<< HEAD
 		Admin_Display::success($msg);
+=======
+		Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -313,6 +341,7 @@ class Crawler_Map extends Root
 		if (!empty($_POST['kw'])) {
 			$q = "SELECT * FROM `$this->_tb` WHERE url LIKE %s";
 			if ($type == 'hit') {
+<<<<<<< HEAD
 				$q .= " AND res LIKE '%" . Crawler::STATUS_HIT . "%'";
 			}
 			if ($type == 'miss') {
@@ -320,6 +349,15 @@ class Crawler_Map extends Root
 			}
 			if ($type == 'blacklisted') {
 				$q .= " AND res LIKE '%" . Crawler::STATUS_BLACKLIST . "%'";
+=======
+				$q .= " AND res LIKE '%H%'";
+			}
+			if ($type == 'miss') {
+				$q .= " AND res LIKE '%M%'";
+			}
+			if ($type == 'blacklisted') {
+				$q .= " AND res LIKE '%B%'";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 			$q .= ' ORDER BY id LIMIT %d, %d';
 			$where = '%' . $wpdb->esc_like($_POST['kw']) . '%';
@@ -328,6 +366,7 @@ class Crawler_Map extends Root
 
 		$q = "SELECT * FROM `$this->_tb`";
 		if ($type == 'hit') {
+<<<<<<< HEAD
 			$q .= " WHERE res LIKE '%" . Crawler::STATUS_HIT . "%'";
 		}
 		if ($type == 'miss') {
@@ -335,6 +374,15 @@ class Crawler_Map extends Root
 		}
 		if ($type == 'blacklisted') {
 			$q .= " WHERE res LIKE '%" . Crawler::STATUS_BLACKLIST . "%'";
+=======
+			$q .= " WHERE res LIKE '%H%'";
+		}
+		if ($type == 'miss') {
+			$q .= " WHERE res LIKE '%M%'";
+		}
+		if ($type == 'blacklisted') {
+			$q .= " WHERE res LIKE '%B%'";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 		$q .= ' ORDER BY id LIMIT %d, %d';
 		// self::debug("q=$q offset=$offset, limit=$limit");
@@ -356,6 +404,7 @@ class Crawler_Map extends Root
 
 		$type = Router::verify_type();
 		if ($type == 'hit') {
+<<<<<<< HEAD
 			$q .= " WHERE res LIKE '%" . Crawler::STATUS_HIT . "%'";
 		}
 		if ($type == 'miss') {
@@ -363,6 +412,15 @@ class Crawler_Map extends Root
 		}
 		if ($type == 'blacklisted') {
 			$q .= " WHERE res LIKE '%" . Crawler::STATUS_BLACKLIST . "%'";
+=======
+			$q .= " WHERE res LIKE '%H%'";
+		}
+		if ($type == 'miss') {
+			$q .= " WHERE res LIKE '%M%'";
+		}
+		if ($type == 'blacklisted') {
+			$q .= " WHERE res LIKE '%B%'";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $wpdb->get_var($q);
@@ -385,7 +443,11 @@ class Crawler_Map extends Root
 
 		if (!defined('DOING_CRON') && $manual) {
 			$msg = sprintf(__('Sitemap created successfully: %d items', 'litespeed-cache'), $count);
+<<<<<<< HEAD
 			Admin_Display::success($msg);
+=======
+			Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -424,7 +486,11 @@ class Crawler_Map extends Root
 		}
 
 		if (is_array($this->_urls) && !empty($this->_urls)) {
+<<<<<<< HEAD
 			if (defined('LITESPEED_CRAWLER_DROP_DOMAIN') && LITESPEED_CRAWLER_DROP_DOMAIN) {
+=======
+			if ($this->conf(Base::O_CRAWLER_DROP_DOMAIN)) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				foreach ($this->_urls as $k => $v) {
 					if (stripos($v, $this->_home_url) !== 0) {
 						unset($this->_urls[$k]);
@@ -525,7 +591,11 @@ class Crawler_Map extends Root
 		 * Read via wp func to avoid allow_url_fopen = off
 		 * @since  2.2.7
 		 */
+<<<<<<< HEAD
 		$response = wp_safe_remote_get($sitemap, array('timeout' => $this->_conf_map_timeout, 'sslverify' => false));
+=======
+		$response = wp_remote_get($sitemap, array('timeout' => $this->_conf_map_timeout, 'sslverify' => false));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if (is_wp_error($response)) {
 			$error_message = $response->get_error_message();
 			self::debug('failed to read sitemap: ' . $error_message);

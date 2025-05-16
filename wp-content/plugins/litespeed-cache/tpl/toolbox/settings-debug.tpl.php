@@ -48,9 +48,16 @@ $this->form_action($this->_is_network_admin ? Router::ACTION_SAVE_SETTINGS_NETWO
 			<td>
 				<?php $this->build_switch($id, array(__('OFF', 'litespeed-cache'), __('ON', 'litespeed-cache'), __('Admin IP Only', 'litespeed-cache'))); ?>
 				<div class="litespeed-desc">
+<<<<<<< HEAD
 					<?php printf(__('Outputs to a series of files in the %s directory.', 'litespeed-cache'), '<code>wp-content/litespeed/debug</code>'); ?>
 					<?php echo __('To prevent filling up the disk, this setting should be OFF when everything is working.', 'litespeed-cache'); ?>
 					<?php echo __('The Admin IP option will only output log messages on requests from admin IPs listed below.', 'litespeed-cache'); ?>
+=======
+					<?php echo __('Outputs to WordPress debug log.', 'litespeed-cache'); ?>
+					<?php echo __('To prevent filling up the disk, this setting should be OFF when everything is working.', 'litespeed-cache'); ?>
+					<?php echo __('The Admin IP option will only output log messages on requests from admin IPs.', 'litespeed-cache'); ?>
+					<?php echo sprintf(__('The logs will be output to %s.', 'litespeed-cache'), '<code>wp-content/debug.log</code>'); ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				</div>
 			</td>
 		</tr>

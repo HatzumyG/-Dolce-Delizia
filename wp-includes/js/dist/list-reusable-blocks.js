@@ -33,6 +33,7 @@
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
+<<<<<<< HEAD
 /************************************************************************/
 var __webpack_exports__ = {};
 
@@ -41,6 +42,29 @@ const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// ./node_modules/tslib/tslib.es6.mjs
+=======
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: ./node_modules/tslib/tslib.es6.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -443,7 +467,11 @@ function __rewriteRelativeImportExtension(path, preserveJsx) {
   __rewriteRelativeImportExtension,
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/lower-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/lower-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Source: ftp://ftp.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt
  */
@@ -492,7 +520,11 @@ function lowerCase(str) {
     return str.toLowerCase();
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/no-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/no-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Support camel case ("camelCase" -> "camel Case" and "CAMELCase" -> "CAMEL Case").
 var DEFAULT_SPLIT_REGEXP = [/([a-z0-9])([A-Z])/g, /([A-Z])([A-Z][a-z])/g];
@@ -524,7 +556,11 @@ function replace(input, re, value) {
     return re.reduce(function (input, re) { return input.replace(re, value); }, input);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/dot-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/dot-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function dotCase(input, options) {
@@ -532,7 +568,11 @@ function dotCase(input, options) {
     return noCase(input, __assign({ delimiter: "." }, options));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/param-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/param-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function paramCase(input, options) {
@@ -540,12 +580,21 @@ function paramCase(input, options) {
     return dotCase(input, __assign({ delimiter: "-" }, options));
 }
 
+<<<<<<< HEAD
 ;// external ["wp","apiFetch"]
 const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
 var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
 ;// external ["wp","blob"]
 const external_wp_blob_namespaceObject = window["wp"]["blob"];
 ;// ./node_modules/@wordpress/list-reusable-blocks/build-module/utils/export.js
+=======
+;// CONCATENATED MODULE: external ["wp","apiFetch"]
+const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
+var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
+;// CONCATENATED MODULE: external ["wp","blob"]
+const external_wp_blob_namespaceObject = window["wp"]["blob"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/utils/export.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -587,11 +636,19 @@ async function exportReusableBlock(id) {
 }
 /* harmony default export */ const utils_export = (exportReusableBlock);
 
+<<<<<<< HEAD
 ;// external ["wp","compose"]
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// external ["wp","components"]
 const external_wp_components_namespaceObject = window["wp"]["components"];
 ;// ./node_modules/@wordpress/list-reusable-blocks/build-module/utils/file.js
+=======
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external ["wp","components"]
+const external_wp_components_namespaceObject = window["wp"]["components"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/utils/file.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Reads the textual content of the given file.
  *
@@ -608,7 +665,11 @@ function readTextFile(file) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/list-reusable-blocks/build-module/utils/import.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/utils/import.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -655,9 +716,15 @@ async function importReusableBlock(file) {
 }
 /* harmony default export */ const utils_import = (importReusableBlock);
 
+<<<<<<< HEAD
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@wordpress/list-reusable-blocks/build-module/components/import-form/index.js
+=======
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/components/import-form/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -671,6 +738,10 @@ const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function ImportForm({
   instanceId,
   onUpload
@@ -750,7 +821,11 @@ function ImportForm({
 }
 /* harmony default export */ const import_form = ((0,external_wp_compose_namespaceObject.withInstanceId)(ImportForm));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/list-reusable-blocks/build-module/components/import-dropdown/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/components/import-dropdown/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -791,7 +866,11 @@ function ImportDropdown({
 }
 /* harmony default export */ const import_dropdown = (ImportDropdown);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/list-reusable-blocks/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -833,7 +912,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.createElement('div');
   container.className = 'list-reusable-blocks__container';
   button.parentNode.insertBefore(container, button);
+<<<<<<< HEAD
   (0,external_wp_element_namespaceObject.createRoot)(container).render(/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_element_namespaceObject.StrictMode, {
+=======
+  (0,external_wp_element_namespaceObject.createRoot)(container).render( /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_element_namespaceObject.StrictMode, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(import_dropdown, {
       onUpload: showNotice
     })

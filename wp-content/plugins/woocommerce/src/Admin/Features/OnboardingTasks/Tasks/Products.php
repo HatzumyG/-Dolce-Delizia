@@ -28,7 +28,10 @@ class Products extends Task {
 		add_action( 'woocommerce_new_product', array( $this, 'delete_product_count_cache' ) );
 		add_action( 'wp_trash_post', array( $this, 'delete_product_count_cache' ) );
 		add_action( 'untrashed_post', array( $this, 'delete_product_count_cache' ) );
+<<<<<<< HEAD
 		add_action( 'current_screen', array( $this, 'maybe_redirect_to_add_product_tasklist' ), 30, 0 );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -96,6 +99,7 @@ class Products extends Task {
 		);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * If a task is always accessible, relevant for when a task list is hidden but a task can still be viewed.
 	 *
@@ -104,6 +108,8 @@ class Products extends Task {
 	public function is_always_accessible() {
 		return true;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Adds a return to task list notice when completing the manual product task.
@@ -225,6 +231,7 @@ class Products extends Task {
 
 		return $products_query->found_posts;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Redirect to the add product tasklist if there are no products.
@@ -245,4 +252,6 @@ class Products extends Task {
 			exit;
 		}
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

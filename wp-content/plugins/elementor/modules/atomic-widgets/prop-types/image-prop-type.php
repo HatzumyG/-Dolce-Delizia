@@ -2,7 +2,11 @@
 
 namespace Elementor\Modules\AtomicWidgets\PropTypes;
 
+<<<<<<< HEAD
 use Elementor\Modules\AtomicWidgets\Image\Image_Sizes;
+=======
+use Elementor\Modules\AtomicWidgets\Image_Sizes;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\Modules\AtomicWidgets\PropTypes\Base\Object_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Primitives\String_Prop_Type;
 

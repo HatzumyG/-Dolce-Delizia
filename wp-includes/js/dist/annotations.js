@@ -62,11 +62,19 @@ __webpack_require__.d(actions_namespaceObject, {
   __experimentalUpdateAnnotationRange: () => (__experimentalUpdateAnnotationRange)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","richText"]
 const external_wp_richText_namespaceObject = window["wp"]["richText"];
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// ./node_modules/@wordpress/annotations/build-module/store/constants.js
+=======
+;// CONCATENATED MODULE: external ["wp","richText"]
+const external_wp_richText_namespaceObject = window["wp"]["richText"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/store/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The identifier for the data store.
  *
@@ -74,7 +82,11 @@ const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
  */
 const STORE_NAME = 'core/annotations';
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/build-module/format/annotation.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/format/annotation.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -248,7 +260,11 @@ const annotation = {
   }
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/build-module/format/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/format/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -264,11 +280,19 @@ const {
 } = annotation;
 (0,external_wp_richText_namespaceObject.registerFormatType)(format_name, settings);
 
+<<<<<<< HEAD
 ;// external ["wp","hooks"]
 const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
 ;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// ./node_modules/@wordpress/annotations/build-module/block/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","hooks"]
+const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/block/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -300,7 +324,11 @@ const addAnnotationClassName = OriginalComponent => {
 };
 (0,external_wp_hooks_namespaceObject.addFilter)('editor.BlockListBlock', 'core/annotations', addAnnotationClassName);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/build-module/store/reducer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/store/reducer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Filters an array based on the predicate, but keeps the reference the same if
  * the array hasn't changed.
@@ -402,7 +430,11 @@ function annotations(state = {}, action) {
 }
 /* harmony default export */ const reducer = (annotations);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/build-module/store/selectors.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/store/selectors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -482,12 +514,20 @@ function __experimentalGetAnnotations(state) {
   return Object.values(state).flat();
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/node_modules/uuid/dist/esm-browser/native.js
+=======
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/native.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
 /* harmony default export */ const esm_browser_native = ({
   randomUUID
 });
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/node_modules/uuid/dist/esm-browser/rng.js
+=======
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/rng.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Unique ID creation requires a high quality random # generator. In the browser we therefore
 // require the crypto API and do not support built-in fallback to lower quality random number
 // generators (like Math.random()).
@@ -506,7 +546,11 @@ function rng() {
 
   return getRandomValues(rnds8);
 }
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/node_modules/uuid/dist/esm-browser/stringify.js
+=======
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/stringify.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Convert array of 16 byte values to UUID string format of the form:
@@ -540,7 +584,11 @@ function stringify(arr, offset = 0) {
 }
 
 /* harmony default export */ const esm_browser_stringify = ((/* unused pure expression or super */ null && (stringify)));
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/node_modules/uuid/dist/esm-browser/v4.js
+=======
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v4.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -570,7 +618,11 @@ function v4(options, buf, offset) {
 }
 
 /* harmony default export */ const esm_browser_v4 = (v4);
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/build-module/store/actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/store/actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -671,7 +723,11 @@ function __experimentalRemoveAnnotationsBySource(source) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/build-module/store/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/store/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -703,7 +759,11 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 });
 (0,external_wp_data_namespaceObject.register)(store);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/annotations/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

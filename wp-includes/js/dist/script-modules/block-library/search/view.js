@@ -23,13 +23,22 @@ import * as __WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__ from "
 /************************************************************************/
 var __webpack_exports__ = {};
 
+<<<<<<< HEAD
 ;// external "@wordpress/interactivity"
+=======
+;// CONCATENATED MODULE: external "@wordpress/interactivity"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
+<<<<<<< HEAD
 const interactivity_namespaceObject = x({ ["getContext"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.getContext), ["getElement"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.getElement), ["store"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.store), ["withSyncEvent"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.withSyncEvent) });
 ;// ./node_modules/@wordpress/block-library/build-module/search/view.js
+=======
+const interactivity_namespaceObject = x({ ["getContext"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.getContext), ["getElement"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.getElement), ["store"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.store) });
+;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/search/view.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -67,7 +76,11 @@ const {
     }
   },
   actions: {
+<<<<<<< HEAD
     openSearchInput: (0,interactivity_namespaceObject.withSyncEvent)(event => {
+=======
+    openSearchInput(event) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       const ctx = (0,interactivity_namespaceObject.getContext)();
       const {
         ref
@@ -77,7 +90,11 @@ const {
         ctx.isSearchInputVisible = true;
         ref.parentElement.querySelector('input').focus();
       }
+<<<<<<< HEAD
     }),
+=======
+    },
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     closeSearchInput() {
       const ctx = (0,interactivity_namespaceObject.getContext)();
       ctx.isSearchInputVisible = false;

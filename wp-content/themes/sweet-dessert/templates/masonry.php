@@ -3,6 +3,10 @@
 // Disable direct call
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* Theme setup section
 -------------------------------------------------------------------- */
 
@@ -157,6 +161,7 @@ if ( !function_exists( 'sweet_dessert_template_masonry_output' ) ) {
 							sweet_dessert_show_layout($post_data['post_excerpt']); 
 						} else {
 							if ($post_data['post_excerpt']) {
+<<<<<<< HEAD
 								echo in_array($post_data['post_format'], array('quote', 'link', 'chat', 'aside', 'status')) 
 									? $post_data['post_excerpt'] 
 									: '<p>'.trim(sweet_dessert_strshort($post_data['post_excerpt'], isset($post_options['descr']) 
@@ -168,10 +173,19 @@ if ( !function_exists( 'sweet_dessert_template_masonry_output' ) ) {
 							if (!in_array($post_data['post_format'], array('quote', 'link', 'chat', 'aside', 'status'))) {
 								echo '<a href="' . esc_url($post_data['post_link']) . '" class="sc_button sc_button_square sc_button_style_filled sc_button_size_large sc_button_hover_fade">Ver más</a>';
 							}
+=======
+								echo in_array($post_data['post_format'], array('quote', 'link', 'chat', 'aside', 'status')) ? $post_data['post_excerpt'] : '<p>'.trim(sweet_dessert_strshort($post_data['post_excerpt'], isset($post_options['descr']) ? $post_options['descr'] : sweet_dessert_get_custom_option('post_excerpt_maxlength_masonry'))).'</p>';
+							}
+                            if (empty($post_options['readmore'])) $post_options['readmore'] = esc_html__('Learn more', 'sweet-dessert');
+                            if (!sweet_dessert_param_is_off($post_options['readmore']) && !in_array($post_data['post_format'], array('quote', 'link', 'chat', 'aside', 'status'))) {
+                                if(function_exists('sweet_dessert_sc_button')) sweet_dessert_show_layout(sweet_dessert_sc_button(array('link'=>$post_data['post_link']), $post_options['readmore']));
+                            }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						}
 						?>
 					</div>
 
+<<<<<<< HEAD
 				</div> <!-- /.post_content -->
 			</<?php sweet_dessert_show_layout($tag); ?>> <!-- /.post_item -->
 		</div> <!-- /.isotope_item -->
@@ -179,3 +193,12 @@ if ( !function_exists( 'sweet_dessert_template_masonry_output' ) ) {
 	}
 }
 ?>
+=======
+				</div>				<!-- /.post_content -->
+			</<?php sweet_dessert_show_layout($tag); ?>>	<!-- /.post_item -->
+		</div>						<!-- /.isotope_item -->
+		<?php
+	}
+}
+?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

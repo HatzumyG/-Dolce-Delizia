@@ -44,9 +44,16 @@ class Repeater extends Element_Base {
 	 *
 	 * @param array      $data Optional. Element data. Default is an empty array.
 	 * @param array|null $args Optional. Element default arguments. Default is null.
+<<<<<<< HEAD
 	 */
 	public function __construct( array $data = [], array $args = null ) {
 		++self::$counter;
+=======
+	 *
+	 */
+	public function __construct( array $data = [], array $args = null ) {
+		self::$counter++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->id = self::$counter;
 

@@ -51,12 +51,17 @@ wp_enqueue_script( 'wp-edit-post' );
 
 $rest_path = rest_get_route_for_post( $post );
 
+<<<<<<< HEAD
 $active_theme                   = get_stylesheet();
 $global_styles_endpoint_context = current_user_can( 'edit_theme_options' ) ? 'edit' : 'view';
 $template_lookup_slug           = 'page' === $post->post_type ? 'page' : 'single-' . $post->post_type;
 if ( ! empty( $post->post_name ) ) {
 	$template_lookup_slug .= '-' . $post->post_name;
 }
+=======
+$active_theme = get_stylesheet();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Preload common data.
 $preload_paths = array(
 	'/wp/v2/types?context=view',
@@ -75,6 +80,7 @@ $preload_paths = array(
 	'/wp/v2/global-styles/themes/' . $active_theme . '/variations?context=view',
 	'/wp/v2/themes?context=edit&status=active',
 	array( '/wp/v2/global-styles/' . WP_Theme_JSON_Resolver::get_user_global_styles_post_id(), 'OPTIONS' ),
+<<<<<<< HEAD
 	/*
 	 * Preload the global styles path with the correct context based on user caps.
 	 * NOTE: There is an equivalent conditional check in the client-side code to fetch
@@ -109,6 +115,9 @@ $preload_paths = array(
 		$template_lookup_slug,
 		'/wp/v2/templates/lookup'
 	),
+=======
+	'/wp/v2/global-styles/' . WP_Theme_JSON_Resolver::get_user_global_styles_post_id() . '?context=edit',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 );
 
 block_editor_rest_api_preload( $preload_paths, $block_editor_context );

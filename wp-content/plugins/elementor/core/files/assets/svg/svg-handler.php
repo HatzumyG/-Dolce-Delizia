@@ -48,7 +48,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get meta
+=======
+	 * get_meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0
 	 *
@@ -61,7 +65,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Update meta
+=======
+	 * update_meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0
 	 *
@@ -74,7 +82,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Delete meta
+=======
+	 * delete_meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0
 	 */
@@ -85,8 +97,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get mime type
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @deprecated 3.5.0
 	 */
 	public function get_mime_type() {
@@ -94,8 +109,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get file type
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @deprecated 3.5.0
 	 */
 	public function get_file_type() {
@@ -103,7 +121,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Delete meta cache
+=======
+	 * delete_meta_cache
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0 Use `Plugin::$instance->uploads_manager->get_file_type_handlers( 'svg' )->delete_meta_cache()` instead.
 	 */
@@ -117,7 +139,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get inline svg
+=======
+	 * get_inline_svg
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0 Use `Elementor\Core\Files\File_Types\Svg::get_inline_svg()` instead.
 	 *
@@ -132,7 +158,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Sanitize svg
+=======
+	 * sanitize_svg
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0 Use `Plugin::$instance->uploads_manager->get_file_type_handlers( 'svg' )->delete_meta_cache()->sanitize_svg()` instead.
 	 *
@@ -150,7 +180,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Sanitizer
+=======
+	 * sanitizer
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0 Use `Plugin::$instance->uploads_manager->get_file_type_handlers( 'svg' )->sanitizer()` instead.
 	 *
@@ -168,7 +202,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Prepare attachment for js
+=======
+	 * wp_prepare_attachment_for_js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0 Use `Plugin::$instance->uploads_manager->get_file_type_handlers( 'svg' )->wp_prepare_attachment_for_js()` instead.
 	 *
@@ -188,7 +226,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Set attachment id
+=======
+	 * set_attachment_id
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0
 	 *
@@ -204,7 +246,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get attachment id
+=======
+	 * get_attachment_id
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0
 	 *
@@ -217,7 +263,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Set svg meta data
+=======
+	 * set_svg_meta_data
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0 Use `Plugin::$instance->uploads_manager->get_file_type_handlers( 'svg' )->set_svg_meta_data()` instead.
 	 *
@@ -233,7 +283,11 @@ class Svg_Handler extends Files_Upload_Handler {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Handle upload prefilter
+=======
+	 * handle_upload_prefilter
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @deprecated 3.5.0 Use `Elementor\Plugin::$instance->uploads_manager->handle_elementor_wp_media_upload()` instead.
 	 *

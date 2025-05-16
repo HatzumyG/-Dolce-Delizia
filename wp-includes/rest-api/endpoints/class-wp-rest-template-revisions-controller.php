@@ -170,6 +170,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 			return new WP_Error(
 				'rest_post_invalid_parent',
 				__( 'Invalid template parent ID.' ),
+<<<<<<< HEAD
 				array( 'status' => WP_Http::NOT_FOUND )
 			);
 		}
@@ -181,6 +182,9 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 				'rest_invalid_template',
 				__( 'Templates based on theme files can\'t have revisions.' ),
 				array( 'status' => WP_Http::BAD_REQUEST )
+=======
+				array( 'status' => 404 )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			);
 		}
 
@@ -200,11 +204,14 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 		$template = _build_block_template_result_from_post( $item );
 		$response = $this->parent_controller->prepare_item_for_response( $template, $request );
 
+<<<<<<< HEAD
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
 			return $response;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$fields = $this->get_fields_for_response( $request );
 		$data   = $response->get_data();
 

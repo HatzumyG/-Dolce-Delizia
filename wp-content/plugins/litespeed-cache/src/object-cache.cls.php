@@ -86,6 +86,11 @@ class Object_Cache extends Root
 				$this->_oc_driver = 'Redis';
 			}
 			$this->_cfg_enabled = $cfg[Base::O_OBJECT] && class_exists($this->_oc_driver) && $this->_cfg_host;
+<<<<<<< HEAD
+=======
+
+			$this->debug_oc('init with cfg result : ', $this->_cfg_enabled);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 		// If OC is OFF, will hit here to init OC after conf initialized
 		elseif (defined('LITESPEED_CONF_LOADED')) {
@@ -152,7 +157,11 @@ class Object_Cache extends Root
 			return;
 		}
 
+<<<<<<< HEAD
 		if (!$show_error && $this->_cfg_debug != BASE::VAL_ON2) {
+=======
+		if (!$show_error && !$this->_cfg_debug) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 
@@ -293,7 +302,12 @@ class Object_Cache extends Root
 			return false;
 		}
 
+<<<<<<< HEAD
 		$this->debug_oc('Init ' . $this->_oc_driver . ' connection to ' . $this->_cfg_host . ':' . $this->_cfg_port);
+=======
+		$this->debug_oc('Init ' . $this->_oc_driver . ' connection');
+		$this->debug_oc('connecting to ' . $this->_cfg_host . ':' . $this->_cfg_port);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$failed = false;
 		/**
@@ -347,8 +361,12 @@ class Object_Cache extends Root
 				$failed = true;
 			}
 			restore_error_handler();
+<<<<<<< HEAD
 		} else {
 			// Connect to Memcached
+=======
+		} else { // Connect to Memcached
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ($this->_cfg_persistent) {
 				$this->_conn = new \Memcached($this->_get_mem_id());
 

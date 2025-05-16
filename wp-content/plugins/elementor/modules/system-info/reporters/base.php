@@ -134,7 +134,11 @@ abstract class Base {
 
 			if ( ! method_exists( $this, $method ) ) {
 				$method = 'get_' . $field_name;
+<<<<<<< HEAD
 				// fallback:
+=======
+				//fallback:
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				if ( ! method_exists( $this, $method ) ) {
 					return new \WP_Error( sprintf( "Getter method for the field '%s' wasn't found in %s.", $field_name, get_called_class() ) );
 				}

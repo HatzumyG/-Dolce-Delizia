@@ -109,11 +109,14 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
+<<<<<<< HEAD
 		if ( $request->is_method( 'HEAD' ) ) {
 			// Return early as this handler doesn't add any response headers.
 			return new WP_REST_Response( array() );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$data  = array();
 		$types = get_post_types( array( 'show_in_rest' => true ), 'objects' );
 
@@ -183,12 +186,15 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 		// Restores the more descriptive, specific name for use within this method.
 		$post_type = $item;
 
+<<<<<<< HEAD
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
 			/** This filter is documented in wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php */
 			return apply_filters( 'rest_prepare_post_type', new WP_REST_Response( array() ), $post_type, $request );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$taxonomies = wp_list_filter( get_object_taxonomies( $post_type->name, 'objects' ), array( 'show_in_rest' => true ) );
 		$taxonomies = wp_list_pluck( $taxonomies, 'name' );
 		$base       = ! empty( $post_type->rest_base ) ? $post_type->rest_base : $post_type->name;

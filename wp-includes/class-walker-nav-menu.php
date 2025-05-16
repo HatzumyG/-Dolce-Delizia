@@ -40,6 +40,7 @@ class Walker_Nav_Menu extends Walker {
 	);
 
 	/**
+<<<<<<< HEAD
 	 * The URL to the privacy policy page.
 	 *
 	 * @since 6.8.0
@@ -57,6 +58,8 @@ class Walker_Nav_Menu extends Walker {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Starts the list before the elements are added.
 	 *
 	 * @since 3.0.0
@@ -253,7 +256,11 @@ class Walker_Nav_Menu extends Walker {
 		$atts['rel']    = ! empty( $menu_item->xfn ) ? $menu_item->xfn : '';
 
 		if ( ! empty( $menu_item->url ) ) {
+<<<<<<< HEAD
 			if ( $this->privacy_policy_url === $menu_item->url ) {
+=======
+			if ( get_privacy_policy_url() === $menu_item->url ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$atts['rel'] = empty( $atts['rel'] ) ? 'privacy-policy' : $atts['rel'] . ' privacy-policy';
 			}
 

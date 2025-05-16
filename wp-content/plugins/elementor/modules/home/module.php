@@ -24,6 +24,11 @@ class Module extends BaseApp {
 	public function __construct() {
 		parent::__construct();
 
+<<<<<<< HEAD
+=======
+		$this->register_layout_experiment();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! $this->is_experiment_active() ) {
 			return;
 		}
@@ -84,15 +89,24 @@ class Module extends BaseApp {
 		return $edit_link;
 	}
 
+<<<<<<< HEAD
 	public static function get_experimental_data(): array {
 		return [
+=======
+	private function register_layout_experiment(): void {
+		Plugin::$instance->experiments->add_feature( [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'name' => static::PAGE_ID,
 			'title' => esc_html__( 'Elementor Home Screen', 'elementor' ),
 			'description' => esc_html__( 'Default Elementor menu page.', 'elementor' ),
 			'hidden' => true,
 			'release_status' => Experiments_Manager::RELEASE_STATUS_STABLE,
 			'default' => Experiments_Manager::STATE_ACTIVE,
+<<<<<<< HEAD
 		];
+=======
+		] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function get_app_js_config(): array {

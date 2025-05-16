@@ -6,7 +6,10 @@ use Automattic\WooCommerce\StoreApi\SchemaController;
 use Automattic\WooCommerce\StoreApi\Schemas\ExtendSchema;
 use Automattic\WooCommerce\StoreApi\Utilities\QuantityLimits;
 use Automattic\WooCommerce\Blocks\Utils\ProductAvailabilityUtils;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * ProductSchema class.
@@ -248,6 +251,7 @@ class ProductSchema extends AbstractSchema {
 							'readonly'    => true,
 						],
 						'link' => [
+<<<<<<< HEAD
 							'description' => __( 'Tag link.', 'woocommerce' ),
 							'type'        => 'string',
 							'context'     => [ 'view', 'edit' ],
@@ -283,6 +287,9 @@ class ProductSchema extends AbstractSchema {
 						],
 						'link' => [
 							'description' => __( 'Brand link', 'woocommerce' ),
+=======
+							'description' => __( 'Tag link', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							'type'        => 'string',
 							'context'     => [ 'view', 'edit' ],
 							'readonly'    => true,
@@ -396,6 +403,7 @@ class ProductSchema extends AbstractSchema {
 					],
 				],
 			],
+<<<<<<< HEAD
 			'grouped_products'    => [
 				'description' => __( 'List of grouped product IDs, if applicable.', 'woocommerce' ),
 				'type'        => 'array',
@@ -407,6 +415,8 @@ class ProductSchema extends AbstractSchema {
 					'readonly'    => true,
 				],
 			],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'has_options'         => [
 				'description' => __( 'Does the product have additional options before it can be added to the cart?', 'woocommerce' ),
 				'type'        => 'boolean',
@@ -539,6 +549,7 @@ class ProductSchema extends AbstractSchema {
 			'images'              => $this->get_images( $product ),
 			'categories'          => $this->get_term_list( $product, 'product_cat' ),
 			'tags'                => $this->get_term_list( $product, 'product_tag' ),
+<<<<<<< HEAD
 			'brands'              => $this->get_term_list( $product, 'product_brand' ),
 			'attributes'          => $this->get_attributes( $product ),
 			'variations'          => $this->get_variations( $product ),
@@ -547,6 +558,14 @@ class ProductSchema extends AbstractSchema {
 			'is_purchasable'      => $product->is_purchasable(),
 			'is_in_stock'         => $product->is_in_stock(),
 			'is_on_backorder'     => ProductStockStatus::ON_BACKORDER === $product->get_stock_status(),
+=======
+			'attributes'          => $this->get_attributes( $product ),
+			'variations'          => $this->get_variations( $product ),
+			'has_options'         => $product->has_options(),
+			'is_purchasable'      => $product->is_purchasable(),
+			'is_in_stock'         => $product->is_in_stock(),
+			'is_on_backorder'     => 'onbackorder' === $product->get_stock_status(),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'low_stock_remaining' => $this->get_low_stock_remaining( $product ),
 			'stock_availability'  => (object) array(
 				'text'  => $availability['availability'] ?? '',
@@ -653,7 +672,11 @@ class ProductSchema extends AbstractSchema {
 		$attributes                  = array_filter( $product->get_attributes(), [ $this, 'filter_variation_attribute' ] );
 		$default_variation_meta_data = array_reduce(
 			$attributes,
+<<<<<<< HEAD
 			function ( $defaults, $attribute ) use ( $product ) {
+=======
+			function( $defaults, $attribute ) use ( $product ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$meta_key              = wc_variation_attribute_name( $attribute->get_name() );
 				$defaults[ $meta_key ] = [
 					'name'  => wc_attribute_label( $attribute->get_name(), $product ),
@@ -702,7 +725,11 @@ class ProductSchema extends AbstractSchema {
 		 */
 		$attributes_by_variation = array_reduce(
 			$variation_meta_data,
+<<<<<<< HEAD
 			function ( $values, $data ) use ( $default_variation_meta_keys ) {
+=======
+			function( $values, $data ) use ( $default_variation_meta_keys ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				// The query above only includes the keys of $default_variation_meta_data so we know all of the attributes
 				// being processed here apply to this product. However, we need an additional check here because the
 				// cache may have been primed elsewhere and include keys from other products.
@@ -736,6 +763,7 @@ class ProductSchema extends AbstractSchema {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get grouped product IDs.
 	 *
 	 * @param \WC_Product $product Product instance.
@@ -754,6 +782,8 @@ class ProductSchema extends AbstractSchema {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get list of product attributes and attribute terms.
 	 *
 	 * @param \WC_Product $product Product instance.
@@ -891,7 +921,11 @@ class ProductSchema extends AbstractSchema {
 		}
 
 		if ( $product->is_type( ProductType::GROUPED ) ) {
+<<<<<<< HEAD
 			$children       = $product->get_visible_children();
+=======
+			$children       = array_filter( array_map( 'wc_get_product', $product->get_children() ), 'wc_products_array_filter_visible_grouped' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$price_function = 'incl' === $tax_display_mode ? 'wc_get_price_including_tax' : 'wc_get_price_excluding_tax';
 
 			foreach ( $children as $child ) {

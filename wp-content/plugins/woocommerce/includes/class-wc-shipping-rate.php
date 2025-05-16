@@ -10,8 +10,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Shipping rate class.
  */
@@ -31,7 +34,11 @@ class WC_Shipping_Rate {
 		'label'         => '',
 		'cost'          => 0,
 		'taxes'         => array(),
+<<<<<<< HEAD
 		'tax_status'    => ProductTaxStatus::TAXABLE,
+=======
+		'tax_status'    => 'taxable',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'description'   => '',
 		'delivery_time' => '',
 	);
@@ -57,7 +64,11 @@ class WC_Shipping_Rate {
 	 * @param string  $description   Shipping rate description.
 	 * @param string  $delivery_time Shipping rate delivery time.
 	 */
+<<<<<<< HEAD
 	public function __construct( $id = '', $label = '', $cost = 0, $taxes = array(), $method_id = '', $instance_id = 0, $tax_status = ProductTaxStatus::TAXABLE, $description = '', $delivery_time = '' ) {
+=======
+	public function __construct( $id = '', $label = '', $cost = 0, $taxes = array(), $method_id = '', $instance_id = 0, $tax_status = 'taxable', $description = '', $delivery_time = '' ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->set_id( $id );
 		$this->set_label( $label );
 		$this->set_cost( $cost );
@@ -183,7 +194,11 @@ class WC_Shipping_Rate {
 	 * @param string $value Tax status.
 	 */
 	public function set_tax_status( $value ) {
+<<<<<<< HEAD
 		if ( in_array( $value, array( ProductTaxStatus::TAXABLE, ProductTaxStatus::NONE ), true ) ) {
+=======
+		if ( in_array( $value, array( 'taxable', 'none' ), true ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$this->data['tax_status'] = $value;
 		}
 	}

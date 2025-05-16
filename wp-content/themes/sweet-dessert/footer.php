@@ -123,7 +123,24 @@
 			if (!sweet_dessert_param_is_off($copyright_style)) {
 				?> 
 				<div class="copyright_wrap copyright_style_<?php echo esc_attr($copyright_style); ?>  scheme_<?php echo esc_attr(sweet_dessert_get_custom_option('copyright_scheme')); ?>">
+<<<<<<< HEAD
 
+=======
+					<div class="copyright_wrap_inner">
+						<div class="content_wrap">
+							<?php
+							if ($copyright_style == 'menu') {
+								if (($menu = sweet_dessert_get_nav_menu('menu_footer'))!='') {
+									sweet_dessert_show_layout($menu);
+								}
+							} else if ($copyright_style == 'socials' && function_exists('sweet_dessert_sc_socials')) {
+								sweet_dessert_show_layout(sweet_dessert_sc_socials(array('size'=>"tiny")));
+							}
+							?>
+							<div class="copyright_text"><?php sweet_dessert_show_layout(do_shortcode(str_replace(array('{{Y}}', '{Y}'), date('Y'), sweet_dessert_get_custom_option('footer_copyright')))); ?></div>
+						</div>
+					</div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				</div>
 				<?php
 			}

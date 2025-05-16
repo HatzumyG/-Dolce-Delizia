@@ -12,7 +12,11 @@ use Elementor\Modules\System_Info\Module as System_Info;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Manager extends BaseModule {
@@ -118,6 +122,10 @@ class Manager extends BaseModule {
 	 * Log Elementor errors and save them in the database.
 	 *
 	 * Fired by `wp_ajax_elementor_js_log` action.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function js_log() {
 		/** @var Module $ajax */
@@ -200,7 +208,11 @@ class Manager extends BaseModule {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $args
+=======
+	 * @param array $args
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
@@ -210,7 +222,11 @@ class Manager extends BaseModule {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $args
+=======
+	 * @param array $args
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
@@ -220,7 +236,11 @@ class Manager extends BaseModule {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $args
+=======
+	 * @param array $args
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
@@ -230,7 +250,11 @@ class Manager extends BaseModule {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $args
+=======
+	 * @param array $args
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */

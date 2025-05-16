@@ -33,6 +33,7 @@ abstract class Root
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Log an error message
 	 *
 	 * @since 7.0
@@ -44,6 +45,8 @@ abstract class Root
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Log a debug message.
 	 *
 	 * @since  4.4
@@ -206,7 +209,11 @@ abstract class Root
 
 		if (!$silent) {
 			$msg = __('All QUIC.cloud service queues have been cleared.', 'litespeed-cache');
+<<<<<<< HEAD
 			Admin_Display::success($msg);
+=======
+			Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -634,7 +641,11 @@ abstract class Root
 			$existing_summary = array();
 		}
 		$new_summary = array_merge($existing_summary, $data ?: array());
+<<<<<<< HEAD
 		// self::debug2('Save after Reloaded summary', $new_summary);
+=======
+		// self::debug2( 'Save after Reloaded summary', $new_summary );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		static::cls()->_summary = $new_summary;
 
 		self::update_option('_summary', $new_summary);

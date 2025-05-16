@@ -80,6 +80,7 @@
         </td>
     </tr>
 
+<<<<<<< HEAD
     <tr valign="top">
         <th scope="row"><label for="mc4wp_form_message_spam"><?php echo esc_html__('Spam', 'mailchimp-for-wp'); ?></label></th>
         <td>
@@ -88,6 +89,8 @@
         </td>
     </tr>
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     <?php do_action('mc4wp_admin_form_after_messages_settings_rows', [], $form); ?>
 
     <tr valign="top">

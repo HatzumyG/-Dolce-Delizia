@@ -1,8 +1,11 @@
 <?php
 namespace Elementor\Modules\DevTools;
 
+<<<<<<< HEAD
 use Elementor\Utils;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -187,8 +190,13 @@ class Deprecation {
 	 * @param string $replacement Optional
 	 * @param string $base_version Optional. Default is `null`
 	 *
+<<<<<<< HEAD
 	 * @return bool
 	 * @throws \Exception Invalid deprecation.
+=======
+	 * @return bool|void
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function check_deprecation( $entity, $version, $replacement, $base_version = null ) {
 		if ( null === $base_version ) {
@@ -212,7 +220,11 @@ class Deprecation {
 				];
 			}
 
+<<<<<<< HEAD
 			if ( Utils::is_elementor_debug() ) {
+=======
+			if ( defined( 'ELEMENTOR_DEBUG' ) && ELEMENTOR_DEBUG ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$print_deprecated = true;
 			}
 		}
@@ -231,7 +243,11 @@ class Deprecation {
 	 * @param string $version
 	 * @param string $replacement Optional. Default is ''
 	 * @param string $base_version Optional. Default is `null`
+<<<<<<< HEAD
 	 * @throws \Exception Deprecation error.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function deprecated_function( $function, $version, $replacement = '', $base_version = null ) {
 		$print_deprecated = $this->check_deprecation( $function, $version, $replacement, $base_version );
@@ -247,12 +263,21 @@ class Deprecation {
 	 *
 	 * Handles the deprecation process for hooks.
 	 *
+<<<<<<< HEAD
+=======
+	 * @since 3.1.0
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param string $hook
 	 * @param string $version
 	 * @param string $replacement Optional. Default is ''
 	 * @param string $base_version Optional. Default is `null`
+<<<<<<< HEAD
 	 * @throws \Exception Deprecation error.
 	 * @since 3.1.0
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function deprecated_hook( $hook, $version, $replacement = '', $base_version = null ) {
 		$print_deprecated = $this->check_deprecation( $hook, $version, $replacement, $base_version );
@@ -273,7 +298,11 @@ class Deprecation {
 	 * @param string $version
 	 * @param string $replacement
 	 * @param string $message
+<<<<<<< HEAD
 	 * @throws \Exception Deprecation error.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function deprecated_argument( $argument, $version, $replacement = '', $message = '' ) {
 		$print_deprecated = $this->check_deprecation( $argument, $version, $replacement );
@@ -309,14 +338,23 @@ class Deprecation {
 	 *
 	 * A method used to run deprecated actions through Elementor's deprecation process.
 	 *
+<<<<<<< HEAD
+=======
+	 * @since 3.1.0
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param string $hook
 	 * @param array $args
 	 * @param string $version
 	 * @param string $replacement
 	 * @param null|string $base_version
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception Deprecation error.
 	 * @since 3.1.0
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function do_deprecated_action( $hook, $args, $version, $replacement = '', $base_version = null ) {
 		if ( ! has_action( $hook ) ) {
@@ -333,6 +371,11 @@ class Deprecation {
 	 *
 	 * A method used to run deprecated filters through Elementor's deprecation process.
 	 *
+<<<<<<< HEAD
+=======
+	 * @since 3.2.0
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param string $hook
 	 * @param array $args
 	 * @param string $version
@@ -340,8 +383,12 @@ class Deprecation {
 	 * @param null|string $base_version
 	 *
 	 * @return mixed
+<<<<<<< HEAD
 	 * @throws \Exception Deprecation error.
 	 * @since 3.2.0
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function apply_deprecated_filter( $hook, $args, $version, $replacement = '', $base_version = null ) {
 		if ( ! has_action( $hook ) ) {

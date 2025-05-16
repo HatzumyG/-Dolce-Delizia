@@ -3,7 +3,10 @@
 namespace ImageOptimization\Classes\Async_Operation\Queries;
 
 use ImageOptimization\Classes\Async_Operation\Async_Operation_Hook;
+<<<<<<< HEAD
 use ImageOptimization\Classes\Async_Operation\Async_Operation_Queue;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use ImageOptimization\Classes\Async_Operation\Interfaces\Operation_Query_Interface;
 use TypeError;
 
@@ -24,6 +27,7 @@ class Operation_Query implements Operation_Query_Interface {
 		return $this;
 	}
 
+<<<<<<< HEAD
 	public function set_queue( string $queue ): self {
 		if ( ! in_array( $queue, Async_Operation_Queue::get_values(), true ) ) {
 			throw new TypeError( "Queue $queue is not a part of Async_Operation_Queue values" );
@@ -34,6 +38,8 @@ class Operation_Query implements Operation_Query_Interface {
 		return $this;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * @param string|array $status
 	 * @return $this

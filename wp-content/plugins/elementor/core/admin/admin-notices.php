@@ -235,7 +235,10 @@ class Admin_Notices extends Module {
 		$options = [
 			'title' => esc_html__( 'Love using Elementor?', 'elementor' ),
 			'description' => $message,
+<<<<<<< HEAD
 			'dismissible' => false,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'button' => [
 				'text' => esc_html__( 'Sure! I\'d love to help', 'elementor' ),
 				'url' => $optin_url,
@@ -272,7 +275,10 @@ class Admin_Notices extends Module {
 		$dismiss_url = add_query_arg( [
 			'action' => 'elementor_set_admin_notice_viewed',
 			'notice_id' => esc_attr( $notice_id ),
+<<<<<<< HEAD
 			'_wpnonce' => wp_create_nonce( 'elementor_set_admin_notice_viewed' ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		], admin_url( 'admin-post.php' ) );
 
 		$options = [
@@ -459,7 +465,11 @@ class Admin_Notices extends Module {
 			return true;
 		}
 
+<<<<<<< HEAD
 		return (bool) wp_rand( 0, 1 );
+=======
+		return (bool) mt_rand( 0, 1 );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function is_elementor_page(): bool {
@@ -485,9 +495,13 @@ class Admin_Notices extends Module {
 		];
 	}
 
+<<<<<<< HEAD
 	/**
 	 * For testing purposes
 	 */
+=======
+	// For testing purposes
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function get_elementor_version() {
 		return ELEMENTOR_VERSION;
 	}
@@ -574,14 +588,20 @@ class Admin_Notices extends Module {
 			$notice_classes[] = 'e-notice--' . $options['type'];
 		}
 
+<<<<<<< HEAD
 		$wrapper_attributes = [];
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $options['dismissible'] ) {
 			$label = esc_html__( 'Dismiss this notice.', 'elementor' );
 			$notice_classes[] = 'e-notice--dismissible';
 			$dismiss_button = '<i class="e-notice__dismiss" role="button" aria-label="' . $label . '" tabindex="0"></i>';
+<<<<<<< HEAD
 
 			$wrapper_attributes['data-nonce'] = wp_create_nonce( 'elementor_set_admin_notice_viewed' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( $options['icon'] ) {
@@ -589,7 +609,13 @@ class Admin_Notices extends Module {
 			$icon = '<div class="e-notice__icon-wrapper"><i class="' . esc_attr( $options['icon'] ) . '" aria-hidden="true"></i></div>';
 		}
 
+<<<<<<< HEAD
 		$wrapper_attributes['class'] = $notice_classes;
+=======
+		$wrapper_attributes = [
+			'class' => $notice_classes,
+		];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( $options['id'] ) {
 			$wrapper_attributes['data-notice_id'] = $options['id'];

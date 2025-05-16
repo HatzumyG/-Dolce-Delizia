@@ -467,6 +467,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 		$user = $item;
 
 		/** This filter is documented in wp-admin/includes/class-wp-users-list-table.php */
+<<<<<<< HEAD
 		$column_output = apply_filters( 'manage_users_custom_column', '', $column_name, $user->ID );
 
 		/**
@@ -479,6 +480,9 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 		 * @param int    $user_id     ID of the currently-listed user.
 		 */
 		echo apply_filters( 'manage_users-network_custom_column', $column_output, $column_name, $user->ID );
+=======
+		echo apply_filters( 'manage_users_custom_column', '', $column_name, $user->ID );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

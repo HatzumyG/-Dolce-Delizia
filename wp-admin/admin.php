@@ -31,7 +31,10 @@ if ( isset( $_GET['import'] ) && ! defined( 'WP_LOAD_IMPORTERS' ) ) {
 	define( 'WP_LOAD_IMPORTERS', true );
 }
 
+<<<<<<< HEAD
 /** Load WordPress Bootstrap */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
 nocache_headers();

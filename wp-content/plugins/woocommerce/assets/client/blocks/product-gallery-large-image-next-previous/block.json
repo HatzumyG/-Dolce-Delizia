@@ -6,8 +6,19 @@
 	"title": "Next/Previous Buttons",
 	"description": "Display next and previous buttons.",
 	"category": "woocommerce",
+<<<<<<< HEAD
 	"keywords": [ "WooCommerce" ],
 	"usesContext": [ "postId" ],
+=======
+	"keywords": [
+		"WooCommerce"
+	],
+	"usesContext": [
+		"nextPreviousButtonsPosition",
+		"productGalleryClientId",
+		"postId"
+	],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"textdomain": "woocommerce",
 	"supports": {
 		"layout": {
@@ -21,5 +32,12 @@
 			"allowInheriting": false
 		}
 	},
+<<<<<<< HEAD
 	"ancestor": [ "woocommerce/product-gallery-large-image" ]
 }
+=======
+	"ancestor": [
+		"woocommerce/product-gallery-large-image"
+	]
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

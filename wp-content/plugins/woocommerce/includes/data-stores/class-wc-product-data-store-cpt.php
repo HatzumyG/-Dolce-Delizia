@@ -8,11 +8,17 @@
 use Automattic\Jetpack\Constants;
 use Automattic\WooCommerce\Enums\ProductStatus;
 use Automattic\WooCommerce\Enums\ProductType;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\CatalogVisibility;
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
 use Automattic\WooCommerce\Internal\DownloadPermissionsAdjuster;
 use Automattic\WooCommerce\Utilities\NumberUtil;
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
+use Automattic\WooCommerce\Internal\DownloadPermissionsAdjuster;
+use Automattic\WooCommerce\Utilities\NumberUtil;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -237,7 +243,11 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 			if ( ! empty( $sku ) && WC()->is_rest_api_request() && ! $this->obtain_lock_on_sku_for_concurrent_requests( $product ) ) {
 				$product->delete( true );
 				// translators: 1: SKU.
+<<<<<<< HEAD
 				throw new Exception( esc_html( sprintf( __( 'The product with SKU (%1$s) you are trying to insert is already present in the lookup table', 'woocommerce' ), $sku ) ) );
+=======
+				throw new Exception( esc_html( sprintf( __( 'The SKU (%1$s) you are trying to insert is already under processing', 'woocommerce' ), $sku ) ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			// get the post object so that we can set the status
@@ -561,6 +571,7 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 		$exclude_catalog = in_array( 'exclude-from-catalog', $term_names, true );
 
 		if ( $exclude_search && $exclude_catalog ) {
+<<<<<<< HEAD
 			$catalog_visibility = CatalogVisibility::HIDDEN;
 		} elseif ( $exclude_search ) {
 			$catalog_visibility = CatalogVisibility::CATALOG;
@@ -568,6 +579,15 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 			$catalog_visibility = CatalogVisibility::SEARCH;
 		} else {
 			$catalog_visibility = CatalogVisibility::VISIBLE;
+=======
+			$catalog_visibility = 'hidden';
+		} elseif ( $exclude_search ) {
+			$catalog_visibility = 'catalog';
+		} elseif ( $exclude_catalog ) {
+			$catalog_visibility = 'search';
+		} else {
+			$catalog_visibility = 'visible';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$product->set_props(
@@ -882,11 +902,15 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 			}
 		}
 
+<<<<<<< HEAD
 		$props_in_lookup_table = array( 'sku', 'global_unique_id', 'regular_price', 'sale_price', 'date_on_sale_from', 'date_on_sale_to', 'total_sales', 'average_rating', 'stock_quantity', 'stock_status', 'manage_stock', 'downloadable', 'virtual', 'tax_status', 'tax_class' );
 		if ( $this->cogs_feature_is_enabled() ) {
 			$props_in_lookup_table[] = 'cogs_value';
 		}
 		if ( array_intersect( $this->updated_props, $props_in_lookup_table ) ) {
+=======
+		if ( array_intersect( $this->updated_props, array( 'sku', 'global_unique_id', 'regular_price', 'sale_price', 'date_on_sale_from', 'date_on_sale_to', 'total_sales', 'average_rating', 'stock_quantity', 'stock_status', 'manage_stock', 'downloadable', 'virtual', 'tax_status', 'tax_class' ) ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$this->update_lookup_table( $product->get_id(), 'wc_product_meta_lookup' );
 		}
 
@@ -944,8 +968,13 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 				$terms[] = 'featured';
 			}
 
+<<<<<<< HEAD
 			if ( ProductStockStatus::OUT_OF_STOCK === $product->get_stock_status() ) {
 				$terms[] = ProductStockStatus::OUT_OF_STOCK;
+=======
+			if ( 'outofstock' === $product->get_stock_status() ) {
+				$terms[] = 'outofstock';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			$rating = min( 5, NumberUtil::round( $product->get_average_rating(), 0 ) );
@@ -955,6 +984,7 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 			}
 
 			switch ( $product->get_catalog_visibility() ) {
+<<<<<<< HEAD
 				case CatalogVisibility::HIDDEN:
 					$terms[] = 'exclude-from-search';
 					$terms[] = 'exclude-from-catalog';
@@ -963,6 +993,16 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 					$terms[] = 'exclude-from-search';
 					break;
 				case CatalogVisibility::SEARCH:
+=======
+				case 'hidden':
+					$terms[] = 'exclude-from-search';
+					$terms[] = 'exclude-from-catalog';
+					break;
+				case 'catalog':
+					$terms[] = 'exclude-from-search';
+					break;
+				case 'search':
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$terms[] = 'exclude-from-catalog';
 					break;
 			}
@@ -1114,8 +1154,13 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 		$non_published_where         = '';
 		$product_visibility_term_ids = wc_get_product_visibility_term_ids();
 
+<<<<<<< HEAD
 		if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) && $product_visibility_term_ids[ ProductStockStatus::OUT_OF_STOCK ] ) {
 			$exclude_term_ids[] = $product_visibility_term_ids[ ProductStockStatus::OUT_OF_STOCK ];
+=======
+		if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) && $product_visibility_term_ids['outofstock'] ) {
+			$exclude_term_ids[] = $product_visibility_term_ids['outofstock'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( count( $exclude_term_ids ) ) {
@@ -1590,8 +1635,13 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 			$exclude_term_ids[] = $product_visibility_term_ids['exclude-from-catalog'];
 		}
 
+<<<<<<< HEAD
 		if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) && $product_visibility_term_ids[ ProductStockStatus::OUT_OF_STOCK ] ) {
 			$exclude_term_ids[] = $product_visibility_term_ids[ ProductStockStatus::OUT_OF_STOCK ];
+=======
+		if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) && $product_visibility_term_ids['outofstock'] ) {
+			$exclude_term_ids[] = $product_visibility_term_ids['outofstock'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$query = array(
@@ -2249,7 +2299,11 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 		// Handle visibility.
 		if ( $manual_queries['visibility'] ) {
 			switch ( $manual_queries['visibility'] ) {
+<<<<<<< HEAD
 				case CatalogVisibility::SEARCH:
+=======
+				case 'search':
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$wp_query_args['tax_query'][] = array(
 						'taxonomy' => 'product_visibility',
 						'field'    => 'slug',
@@ -2257,7 +2311,11 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 						'operator' => 'NOT IN',
 					);
 					break;
+<<<<<<< HEAD
 				case CatalogVisibility::CATALOG:
+=======
+				case 'catalog':
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$wp_query_args['tax_query'][] = array(
 						'taxonomy' => 'product_visibility',
 						'field'    => 'slug',
@@ -2265,7 +2323,11 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 						'operator' => 'NOT IN',
 					);
 					break;
+<<<<<<< HEAD
 				case CatalogVisibility::VISIBLE:
+=======
+				case 'visible':
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$wp_query_args['tax_query'][] = array(
 						'taxonomy' => 'product_visibility',
 						'field'    => 'slug',
@@ -2273,7 +2335,11 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 						'operator' => 'NOT IN',
 					);
 					break;
+<<<<<<< HEAD
 				case CatalogVisibility::HIDDEN:
+=======
+				case 'hidden':
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$wp_query_args['tax_query'][] = array(
 						'taxonomy' => 'product_visibility',
 						'field'    => 'slug',
@@ -2393,10 +2459,13 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 				'tax_status'     => get_post_meta( $id, '_tax_status', true ),
 				'tax_class'      => get_post_meta( $id, '_tax_class', true ),
 			);
+<<<<<<< HEAD
 			if ( $this->use_cogs_lookup_column() ) {
 				$cogs_value                       = get_post_meta( $id, '_cogs_total_value', true );
 				$product_data['cogs_total_value'] = '' === $cogs_value ? null : (float) $cogs_value;
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( get_option( 'woocommerce_schema_version', 0 ) >= 920 ) {
 				$product_data['global_unique_id'] = get_post_meta( $id, '_global_unique_id', true );
 			}
@@ -2446,6 +2515,7 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 	protected function cogs_feature_is_enabled(): bool {
 		return wc_get_container()->get( CostOfGoodsSoldController::class )->feature_is_enabled();
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Check if the COGS value column from the product meta lookup table can be used.
@@ -2456,4 +2526,6 @@ class WC_Product_Data_Store_CPT extends WC_Data_Store_WP implements WC_Object_Da
 		$cogs_controller = wc_get_container()->get( CostOfGoodsSoldController::class );
 		return $cogs_controller->feature_is_enabled() && $cogs_controller->product_meta_lookup_table_cogs_value_columns_exist();
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

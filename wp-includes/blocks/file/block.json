@@ -16,8 +16,12 @@
 			"role": "local"
 		},
 		"href": {
+<<<<<<< HEAD
 			"type": "string",
 			"role": "content"
+=======
+			"type": "string"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"fileId": {
 			"type": "string",
@@ -28,15 +32,23 @@
 		"fileName": {
 			"type": "rich-text",
 			"source": "rich-text",
+<<<<<<< HEAD
 			"selector": "a:not([download])",
 			"role": "content"
+=======
+			"selector": "a:not([download])"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"textLinkHref": {
 			"type": "string",
 			"source": "attribute",
 			"selector": "a:not([download])",
+<<<<<<< HEAD
 			"attribute": "href",
 			"role": "content"
+=======
+			"attribute": "href"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"textLinkTarget": {
 			"type": "string",
@@ -51,8 +63,12 @@
 		"downloadButtonText": {
 			"type": "rich-text",
 			"source": "rich-text",
+<<<<<<< HEAD
 			"selector": "a[download]",
 			"role": "content"
+=======
+			"selector": "a[download]"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"displayPreview": {
 			"type": "boolean"

@@ -54,7 +54,11 @@ wp_localize_script(
 			'adminUrl'   => parse_url( self_admin_url(), PHP_URL_PATH ),
 		),
 		'l10n'            => array(
+<<<<<<< HEAD
 			'addNew'              => __( 'Add Theme' ),
+=======
+			'addNew'              => __( 'Add New Theme' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'search'              => __( 'Search Themes' ),
 			'upload'              => __( 'Upload Theme' ),
 			'back'                => __( 'Back' ),

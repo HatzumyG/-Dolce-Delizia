@@ -2,11 +2,17 @@
 
 namespace Elementor\Core\Isolation;
 
+<<<<<<< HEAD
 use Elementor\Core\Common\Modules\Connect\Module as ConnectModule;
 use Elementor\Plugin;
 use Elementor\Modules\ElementorCounter\Module as Elementor_Counter_Module;
 use Elementor\TemplateLibrary\Source_Local;
 use Elementor\Utils;
+=======
+use Elementor\Plugin;
+use Elementor\Modules\ElementorCounter\Module as Elementor_Counter_Module;
+use Elementor\TemplateLibrary\Source_Local;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 class Elementor_Adapter implements Elementor_Adapter_Interface {
 
@@ -18,7 +24,11 @@ class Elementor_Adapter implements Elementor_Adapter_Interface {
 		return Plugin::$instance->kits_manager->get_kit_for_frontend()->get_main_post();
 	}
 
+<<<<<<< HEAD
 	public function is_active_kit_default(): bool {
+=======
+	public function is_active_kit_default() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$kit_id = Plugin::$instance->kits_manager->get_active_id();
 
 		if ( false === $kit_id || null === $kit_id ) {
@@ -47,8 +57,11 @@ class Elementor_Adapter implements Elementor_Adapter_Interface {
 	public function get_template_type( $template_id ): string {
 		return Source_Local::get_template_type( $template_id );
 	}
+<<<<<<< HEAD
 
 	public function get_tier(): string {
 		return Utils::has_pro() ? ConnectModule::ACCESS_TIER_PRO_LEGACY : ConnectModule::ACCESS_TIER_FREE;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

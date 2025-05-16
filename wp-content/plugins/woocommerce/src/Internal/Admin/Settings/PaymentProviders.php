@@ -398,6 +398,7 @@ class PaymentProviders {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Attach a payment extension suggestion.
 	 *
 	 * Attachment is a broad concept that can mean different things depending on the suggestion.
@@ -469,6 +470,8 @@ class PaymentProviders {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Hide a payment extension suggestion.
 	 *
 	 * @param string $id The ID of the payment extension suggestion to hide.
@@ -488,7 +491,11 @@ class PaymentProviders {
 			throw new Exception( esc_html__( 'Invalid suggestion ID.', 'woocommerce' ) );
 		}
 
+<<<<<<< HEAD
 		$user_payments_nox_profile = get_user_meta( get_current_user_id(), Payments::PAYMENTS_NOX_PROFILE_KEY, true );
+=======
+		$user_payments_nox_profile = get_user_meta( get_current_user_id(), Payments::USER_PAYMENTS_NOX_PROFILE_KEY, true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( empty( $user_payments_nox_profile ) ) {
 			$user_payments_nox_profile = array();
 		} else {
@@ -508,7 +515,11 @@ class PaymentProviders {
 			'timestamp' => time(),
 		);
 
+<<<<<<< HEAD
 		$result = update_user_meta( get_current_user_id(), Payments::PAYMENTS_NOX_PROFILE_KEY, $user_payments_nox_profile );
+=======
+		$result = update_user_meta( get_current_user_id(), Payments::USER_PAYMENTS_NOX_PROFILE_KEY, $user_payments_nox_profile );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Since we already check if the suggestion is already hidden, we should not get a false result
 		// for trying to update with the same value. False means the update failed and the suggestion is not hidden.
 		if ( false === $result ) {
@@ -528,7 +539,11 @@ class PaymentProviders {
 		$categories[] = array(
 			'id'          => self::CATEGORY_EXPRESS_CHECKOUT,
 			'_priority'   => 10,
+<<<<<<< HEAD
 			'title'       => esc_html__( 'Wallets & Express checkouts', 'woocommerce' ),
+=======
+			'title'       => esc_html__( 'Express Checkouts', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'description' => esc_html__( 'Allow shoppers to fast-track the checkout process with express options like Apple Pay and Google Pay.', 'woocommerce' ),
 		);
 		$categories[] = array(
@@ -880,6 +895,7 @@ class PaymentProviders {
 					ExtensionSuggestions::PAYPAL_FULL_STACK,
 					ExtensionSuggestions::PAYPAL_WALLET,
 					ExtensionSuggestions::MOLLIE,
+<<<<<<< HEAD
 					ExtensionSuggestions::MONEI,
 					ExtensionSuggestions::ANTOM,
 					ExtensionSuggestions::MERCADO_PAGO,
@@ -917,6 +933,22 @@ class PaymentProviders {
 			if ( ! empty( $suggestion['image'] ) ) {
 				$gateway_details['image'] = $suggestion['image'];
 			}
+=======
+					ExtensionSuggestions::ANTOM,
+					ExtensionSuggestions::MERCADO_PAGO,
+					ExtensionSuggestions::AMAZON_PAY,
+					ExtensionSuggestions::SQUARE_IN_PERSON,
+					ExtensionSuggestions::PAYONEER,
+				),
+				true
+			) ) {
+				$gateway_details['title']       = $suggestion['title'];
+				$gateway_details['description'] = $suggestion['description'];
+			}
+
+			$gateway_details['icon']  = $suggestion['icon'];
+			$gateway_details['image'] = $suggestion['image'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( empty( $gateway_details['links'] ) ) {
 				$gateway_details['links'] = $suggestion['links'];
@@ -1050,7 +1082,11 @@ class PaymentProviders {
 	 * @return bool True if the extension suggestion is hidden, false otherwise.
 	 */
 	private function is_payment_extension_suggestion_hidden( array $extension ): bool {
+<<<<<<< HEAD
 		$user_payments_nox_profile = get_user_meta( get_current_user_id(), Payments::PAYMENTS_NOX_PROFILE_KEY, true );
+=======
+		$user_payments_nox_profile = get_user_meta( get_current_user_id(), Payments::USER_PAYMENTS_NOX_PROFILE_KEY, true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( empty( $user_payments_nox_profile ) ) {
 			return false;
 		}

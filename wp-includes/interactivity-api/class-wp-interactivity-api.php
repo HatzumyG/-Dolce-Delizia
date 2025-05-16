@@ -451,6 +451,7 @@ final class WP_Interactivity_API {
 
 					// Checks if there is a server directive processor registered for each directive.
 					foreach ( $p->get_attribute_names_with_prefix( 'data-wp-' ) as $attribute_name ) {
+<<<<<<< HEAD
 						if ( ! preg_match(
 							/*
 							 * This must align with the client-side regex used by the interactivity API.
@@ -471,6 +472,8 @@ final class WP_Interactivity_API {
 						) ) {
 							continue;
 						}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						list( $directive_prefix ) = $this->extract_prefix_and_suffix( $attribute_name );
 						if ( array_key_exists( $directive_prefix, self::$directive_processors ) ) {
 							$directives_prefixes[] = $directive_prefix;
@@ -599,6 +602,7 @@ final class WP_Interactivity_API {
 		$path_segments = explode( '.', $path );
 		$current       = $store;
 		foreach ( $path_segments as $path_segment ) {
+<<<<<<< HEAD
 			/*
 			 * Special case for numeric arrays and strings. Add length
 			 * property mimicking JavaScript behavior.
@@ -629,6 +633,8 @@ final class WP_Interactivity_API {
 				}
 			}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( ( is_array( $current ) || $current instanceof ArrayAccess ) && isset( $current[ $path_segment ] ) ) {
 				$current = $current[ $path_segment ];
 			} elseif ( is_object( $current ) && isset( $current->$path_segment ) ) {

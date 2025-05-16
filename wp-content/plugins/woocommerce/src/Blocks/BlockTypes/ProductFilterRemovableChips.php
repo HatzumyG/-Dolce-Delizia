@@ -31,8 +31,11 @@ final class ProductFilterRemovableChips extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$context      = $block->context['filterData'];
 		$filter_items = $context['items'] ?? array();
 		$parent_block = $context['parent'];
@@ -46,8 +49,13 @@ final class ProductFilterRemovableChips extends AbstractBlock {
 		}
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive' => $this->get_full_block_name(),
 			'data-wp-key'         => wp_unique_prefixed_id( $this->get_full_block_name() ),
+=======
+			'data-wc-interactive' => wp_json_encode( array( 'namespace' => $this->get_full_block_name() ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-key'         => wp_unique_prefixed_id( $this->get_full_block_name() ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'class'               => esc_attr( $classes ),
 			'style'               => esc_attr( $style ),
 		);
@@ -58,6 +66,7 @@ final class ProductFilterRemovableChips extends AbstractBlock {
 		<div <?php echo get_block_wrapper_attributes( $wrapper_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<ul class="wc-block-product-filter-removable-chips__items">
 				<template
+<<<<<<< HEAD
 					data-wp-each="state.items"
 					data-wp-each-key="context.item.uid"
 				>
@@ -72,13 +81,33 @@ final class ProductFilterRemovableChips extends AbstractBlock {
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" class="wc-block-product-filter-removable-chips__remove-icon" aria-hidden="true" focusable="false"><path d="M12 13.06l3.712 3.713 1.061-1.06L13.061 12l3.712-3.712-1.06-1.06L12 10.938 8.288 7.227l-1.061 1.06L10.939 12l-3.712 3.712 1.06 1.061L12 13.061z"></path></svg>
 							<span class="screen-reader-text" data-wp-text="context.item.removeLabel"></span>
+=======
+					data-wc-each="state.items"
+					data-wc-each-key="context.item.uid"
+				>
+					<li class="wc-block-product-filter-removable-chips__item">
+						<span class="wc-block-product-filter-removable-chips__label" data-wc-text="context.item.label"></span>
+						<button
+							type="button"
+							class="wc-block-product-filter-removable-chips__remove"
+							data-wc-bind--aria-label="context.item.removeLabel"
+							data-wc-on--click="<?php echo esc_attr( $parent_block . '::actions.removeFilter' ); ?>"
+							data-wc-bind--data-filter-item="context.item"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" class="wc-block-product-filter-removable-chips__remove-icon" aria-hidden="true" focusable="false"><path d="M12 13.06l3.712 3.713 1.061-1.06L13.061 12l3.712-3.712-1.06-1.06L12 10.938 8.288 7.227l-1.061 1.06L10.939 12l-3.712 3.712 1.06 1.061L12 13.061z"></path></svg>
+							<span class="screen-reader-text" data-wc-text="context.item.removeLabel"></span>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						</button>
 					</li>
 				</template>
 				<?php foreach ( $filter_items as $item ) : ?>
 					<?php // translators: %s: item label. ?>
 					<?php $remove_label = sprintf( __( 'Remove filter: %s', 'woocommerce' ), $item['label'] ); ?>
+<<<<<<< HEAD
 					<li class="wc-block-product-filter-removable-chips__item" data-wp-each-child>
+=======
+					<li class="wc-block-product-filter-removable-chips__item" data-wc-each-child>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						<span class="wc-block-product-filter-removable-chips__label">
 							<?php echo esc_html( $item['label'] ); ?>
 						</span>
@@ -86,7 +115,11 @@ final class ProductFilterRemovableChips extends AbstractBlock {
 							type="button"
 							class="wc-block-product-filter-removable-chips__remove"
 							aria-label="<?php echo esc_attr( $remove_label ); ?>"
+<<<<<<< HEAD
 							data-wp-on--click="<?php echo esc_attr( $parent_block . '::actions.removeFilter' ); ?>"
+=======
+							data-wc-on--click="<?php echo esc_attr( $parent_block . '::actions.removeFilter' ); ?>"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							data-filter-item="<?php echo esc_attr( wp_json_encode( $item, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) ); ?>"
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" class="wc-block-product-filter-removable-chips__remove-icon" aria-hidden="true" focusable="false"><path d="M12 13.06l3.712 3.713 1.061-1.06L13.061 12l3.712-3.712-1.06-1.06L12 10.938 8.288 7.227l-1.061 1.06L10.939 12l-3.712 3.712 1.06 1.061L12 13.061z"></path></svg>
@@ -100,6 +133,7 @@ final class ProductFilterRemovableChips extends AbstractBlock {
 		<?php
 		return ob_get_clean();
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -111,4 +145,6 @@ final class ProductFilterRemovableChips extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

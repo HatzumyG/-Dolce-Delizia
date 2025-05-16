@@ -235,6 +235,7 @@ final class Helper
         return false;
     }
 
+<<<<<<< HEAD
 
     /**
      * @var bool|null True if bcmath extension is available
@@ -263,10 +264,25 @@ final class Helper
             return true;
         }
 
+=======
+    /**
+     * @param $number
+     * @param $divisor
+     * @param int $scale
+     * @return bool
+     */
+    public static function isMultipleOf($number, $divisor, int $scale = 14): bool
+    {
+        static $bcMath = null;
+        if ($bcMath === null) {
+            $bcMath = extension_loaded('bcmath');
+        }
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         if ($divisor == 0) {
             return $number == 0;
         }
 
+<<<<<<< HEAD
         // maybe we get lucky
         if (!fmod($number, $divisor)) {
             return true;
@@ -310,6 +326,26 @@ final class Helper
         $x = bcsub($number, $x, $scale);
 
         return 0 === bccomp($x, 0, $scale);
+=======
+        if ($bcMath) {
+            $number = number_format($number, $scale, '.', '');
+            $divisor = number_format($divisor, $scale, '.', '');
+
+            /** @noinspection PhpComposerExtensionStubsInspection */
+            $x = bcdiv($number, $divisor, 0);
+            /** @noinspection PhpComposerExtensionStubsInspection */
+            $x = bcmul($divisor, $x, $scale);
+            /** @noinspection PhpComposerExtensionStubsInspection */
+            $x = bcsub($number, $x, $scale);
+
+            /** @noinspection PhpComposerExtensionStubsInspection */
+            return 0 === bccomp($x, 0, $scale);
+        }
+
+        $div = $number / $divisor;
+
+        return $div == (int)$div;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
 
     /**

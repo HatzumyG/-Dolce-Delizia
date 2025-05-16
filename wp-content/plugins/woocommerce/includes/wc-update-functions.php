@@ -21,7 +21,10 @@ defined( 'ABSPATH' ) || exit;
 use Automattic\WooCommerce\Admin\Notes\Note;
 use Automattic\WooCommerce\Admin\Notes\Notes;
 use Automattic\WooCommerce\Database\Migrations\MigrationHelper;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Internal\Admin\Marketing\MarketingSpecs;
 use Automattic\WooCommerce\Internal\Admin\Notes\WooSubscriptionsNotes;
@@ -997,7 +1000,11 @@ function wc_update_241_variations() {
 		$parent_stock_status = get_post_meta( $variation->variation_parent, '_stock_status', true );
 
 		// Set the _stock_status.
+<<<<<<< HEAD
 		add_post_meta( $variation->variation_id, '_stock_status', $parent_stock_status ? $parent_stock_status : ProductStockStatus::IN_STOCK, true );
+=======
+		add_post_meta( $variation->variation_id, '_stock_status', $parent_stock_status ? $parent_stock_status : 'instock', true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Delete old product children array.
 		delete_transient( 'wc_product_children_' . $variation->variation_parent );
@@ -1337,7 +1344,11 @@ function wc_update_300_product_visibility() {
 		$wpdb->query( $wpdb->prepare( "INSERT IGNORE INTO {$wpdb->term_relationships} SELECT post_id, %d, 0 FROM {$wpdb->postmeta} WHERE meta_key = '_visibility' AND meta_value IN ('hidden', 'search');", $exclude_catalog_term->term_taxonomy_id ) );
 	}
 
+<<<<<<< HEAD
 	$outofstock_term = get_term_by( 'name', ProductStockStatus::OUT_OF_STOCK, 'product_visibility' );
+=======
+	$outofstock_term = get_term_by( 'name', 'outofstock', 'product_visibility' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	if ( $outofstock_term ) {
 		$wpdb->query( $wpdb->prepare( "INSERT IGNORE INTO {$wpdb->term_relationships} SELECT post_id, %d, 0 FROM {$wpdb->postmeta} WHERE meta_key = '_stock_status' AND meta_value = 'outofstock';", $outofstock_term->term_taxonomy_id ) );
@@ -2945,6 +2956,7 @@ function wc_update_961_migrate_default_email_base_color() {
 		update_option( 'woocommerce_email_base_color', '#720eec' );
 	}
 }
+<<<<<<< HEAD
 
 /**
  * Remove the option woocommerce_order_attribution_install_banner_dismissed.
@@ -2960,3 +2972,5 @@ function wc_update_980_remove_order_attribution_install_banner_dismissed_option(
 function wc_update_985_enable_new_payments_settings_page_feature() {
 	update_option( 'woocommerce_feature_reactify-classic-payments-settings_enabled', 'yes' );
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

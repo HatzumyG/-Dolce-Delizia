@@ -2,7 +2,11 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "core/list-item",
+<<<<<<< HEAD
 	"title": "List Item",
+=======
+	"title": "List item",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"category": "text",
 	"parent": [ "core/list" ],
 	"allowedBlocks": [ "core/list" ],

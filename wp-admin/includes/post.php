@@ -493,6 +493,7 @@ function edit_post( $post_data = null ) {
  *
  * @param array|null $post_data Optional. The array of post data to process.
  *                              Defaults to the `$_POST` superglobal.
+<<<<<<< HEAD
  * @return array {
  *     An array of updated, skipped, and locked post IDs.
  *
@@ -500,6 +501,9 @@ function edit_post( $post_data = null ) {
  *     @type int[] $skipped An array of skipped post IDs.
  *     @type int[] $locked  An array of locked post IDs.
  * }
+=======
+ * @return array
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function bulk_edit_posts( $post_data = null ) {
 	global $wpdb;
@@ -1177,7 +1181,11 @@ function _fix_attachment_links( $post ) {
 		$url_id = (int) $url_match[2];
 		$rel_id = (int) $rel_match[1];
 
+<<<<<<< HEAD
 		if ( ! $url_id || ! $rel_id || $url_id !== $rel_id || ! str_contains( $url_match[0], $site_url ) ) {
+=======
+		if ( ! $url_id || ! $rel_id || $url_id != $rel_id || ! str_contains( $url_match[0], $site_url ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			continue;
 		}
 
@@ -1217,7 +1225,11 @@ function get_available_post_statuses( $type = 'post' ) {
  *
  * @param array|false $q Optional. Array of query variables to use to build the query.
  *                       Defaults to the `$_GET` superglobal.
+<<<<<<< HEAD
  * @return string[] An array of all the statuses for the queried post type.
+=======
+ * @return array
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function wp_edit_posts_query( $q = false ) {
 	if ( false === $q ) {
@@ -1389,12 +1401,16 @@ function wp_edit_attachments_query_vars( $q = false ) {
  *
  * @param array|false $q Optional. Array of query variables to use to build the query.
  *                       Defaults to the `$_GET` superglobal.
+<<<<<<< HEAD
  * @return array {
  *     Array containing the post mime types and available post mime types.
  *
  *     @type array[]  $post_mime_types       Post mime types.
  *     @type string[] $avail_post_mime_types Available post mime types.
  * }
+=======
+ * @return array
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function wp_edit_attachments_query( $q = false ) {
 	wp( wp_edit_attachments_query_vars( $q ) );

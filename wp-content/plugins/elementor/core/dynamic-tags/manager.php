@@ -293,6 +293,10 @@ class Manager {
 	 * @return void
 	 * @since  3.5.0
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function register( Base_Tag $dynamic_tag_instance ) {
 		$this->tags_info[ $dynamic_tag_instance->get_name() ] = [

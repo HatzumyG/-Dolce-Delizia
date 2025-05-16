@@ -8,7 +8,11 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Theme_Style_Form_Fields extends Tab_Base {

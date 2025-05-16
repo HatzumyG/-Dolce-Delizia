@@ -9,8 +9,11 @@
  */
 
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Utilities\I18nUtil;
 
 defined( 'ABSPATH' ) || exit;
@@ -391,7 +394,11 @@ class WC_REST_Product_Variations_V2_Controller extends WC_REST_Products_V2_Contr
 		}
 
 		if ( isset( $request['in_stock'] ) ) {
+<<<<<<< HEAD
 			$variation->set_stock_status( true === $request['in_stock'] ? ProductStockStatus::IN_STOCK : ProductStockStatus::OUT_OF_STOCK );
+=======
+			$variation->set_stock_status( true === $request['in_stock'] ? 'instock' : 'outofstock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( isset( $request['backorders'] ) ) {
@@ -851,8 +858,13 @@ class WC_REST_Product_Variations_V2_Controller extends WC_REST_Products_V2_Contr
 				'tax_status'            => array(
 					'description' => __( 'Tax status.', 'woocommerce' ),
 					'type'        => 'string',
+<<<<<<< HEAD
 					'default'     => ProductTaxStatus::TAXABLE,
 					'enum'        => array( ProductTaxStatus::TAXABLE, ProductTaxStatus::SHIPPING, ProductTaxStatus::NONE ),
+=======
+					'default'     => 'taxable',
+					'enum'        => array( 'taxable', 'shipping', 'none' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'context'     => array( 'view', 'edit' ),
 				),
 				'tax_class'             => array(

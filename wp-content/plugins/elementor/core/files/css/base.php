@@ -235,7 +235,11 @@ abstract class Base extends Base_File {
 			$dep = $this->get_inline_dependency();
 			// If the dependency has already been printed ( like a template in footer )
 			if ( wp_styles()->query( $dep, 'done' ) ) {
+<<<<<<< HEAD
 				printf( '<style id="%1$s">%2$s</style>', $this->get_file_handle_id(), $meta['css'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+=======
+				printf( '<style id="%1$s">%2$s</style>', $this->get_file_handle_id(), $meta['css'] ); // XSS ok.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			} else {
 				wp_add_inline_style( $dep, $meta['css'] );
 			}
@@ -295,7 +299,11 @@ abstract class Base extends Base_File {
 	 * @access public
 	 */
 	public function print_css() {
+<<<<<<< HEAD
 		echo '<style>' . $this->get_content() . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+=======
+		echo '<style>' . $this->get_content() . '</style>'; // XSS ok.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		Plugin::$instance->frontend->print_fonts_links();
 	}
 
@@ -491,7 +499,11 @@ abstract class Base extends Base_File {
 		}
 
 		if ( Controls_Manager::FONT === $control['type'] ) {
+<<<<<<< HEAD
 			$this->add_font( $value );
+=======
+			$this->fonts[] = $value;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/** @var Base_Data_Control $control_obj */
@@ -1026,10 +1038,13 @@ abstract class Base extends Base_File {
 
 		return ! empty( $globals[ $control_global_key ] );
 	}
+<<<<<<< HEAD
 
 	public function add_font( $font ) {
 		if ( ! in_array( $font, $this->fonts, true ) ) {
 			$this->fonts[] = $font;
 		}
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

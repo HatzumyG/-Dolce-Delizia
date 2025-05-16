@@ -1,22 +1,30 @@
 <?php
 /**
  * Inspired by Laravel Collection.
+<<<<<<< HEAD
  *
  * @link https://github.com/illuminate/collections
  * @package Elementor\Core\Utils
  */
 
+=======
+ * @link https://github.com/illuminate/collections
+ */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\Core\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+<<<<<<< HEAD
 /**
  * Inspired by Laravel Collection.
  *
  * @link https://github.com/illuminate/collections
  */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 class Collection implements \ArrayAccess, \Countable, \IteratorAggregate {
 	/**
 	 * The items contained in the collection.
@@ -453,7 +461,11 @@ class Collection implements \ArrayAccess, \Countable, \IteratorAggregate {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param array ...$values
+=======
+	 * @param ...$values
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return $this
 	 */

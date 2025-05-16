@@ -56,7 +56,11 @@ class MU_Plugins extends Base_Plugin {
 	 * @return bool True if the site has must-use plugins, False otherwise.
 	 */
 	public function is_enabled() {
+<<<<<<< HEAD
 		return (bool) $this->get_mu_plugins();
+=======
+		return ! ! $this->get_mu_plugins();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

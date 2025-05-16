@@ -59,6 +59,7 @@ __webpack_require__.d(__webpack_exports__, {
   syncSelect: () => (/* binding */ syncSelect)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","apiFetch"]
 const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
 var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
@@ -68,6 +69,17 @@ const external_wp_data_namespaceObject = window["wp"]["data"];
 const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
 ;// ./node_modules/@wordpress/data-controls/build-module/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","apiFetch"]
+const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
+var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: external ["wp","deprecated"]
+const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
+var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/data-controls/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -202,11 +214,17 @@ const __unstableAwaitPromise = function (promise) {
  * store.
  */
 const controls = {
+<<<<<<< HEAD
   AWAIT_PROMISE({
     promise
   }) {
     return promise;
   },
+=======
+  AWAIT_PROMISE: ({
+    promise
+  }) => promise,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   API_FETCH({
     request
   }) {

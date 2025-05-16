@@ -7,9 +7,13 @@
  */
 
 use Automattic\Jetpack\Constants;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
+=======
+use Automattic\WooCommerce\Enums\ProductType;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Utilities\NumberUtil;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -460,7 +464,10 @@ class WC_Admin_Post_Types {
 			} else {
 				$new_regular_price = null;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( isset( $request_data['_sale_price'] ) ) {
 				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
 				$new_sale_price = ( '' === $request_data['_sale_price'] ) ? '' : wc_format_decimal( $request_data['_sale_price'] );
@@ -484,12 +491,15 @@ class WC_Admin_Post_Types {
 			}
 		}
 
+<<<<<<< HEAD
 		if ( wc_get_container()->get( CostOfGoodsSoldController::class )->feature_is_enabled() && isset( $request_data['_cogs_value'] ) ) {
 			$cogs_value = $request_data['_cogs_value'];
 			$cogs_value = '' === $cogs_value ? null : (float) wc_format_decimal( $cogs_value );
 			$product->set_cogs_value( $cogs_value );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Handle Stock Data.
 		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		$manage_stock = ! empty( $request_data['_manage_stock'] ) && ProductType::GROUPED !== $product->get_type() ? 'yes' : 'no';
@@ -497,7 +507,11 @@ class WC_Admin_Post_Types {
 		if ( ! empty( $request_data['_stock_status'] ) ) {
 			$stock_status = wc_clean( $request_data['_stock_status'] );
 		} else {
+<<<<<<< HEAD
 			$stock_status = $product->is_type( ProductType::VARIABLE ) ? null : ProductStockStatus::IN_STOCK;
+=======
+			$stock_status = $product->is_type( ProductType::VARIABLE ) ? null : 'instock';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 		// phpcs:enable WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
@@ -658,10 +672,13 @@ class WC_Admin_Post_Types {
 		$stock_status = empty( $request_data['_stock_status'] ) ? null : wc_clean( $request_data['_stock_status'] );
 		$product      = $this->maybe_update_stock_status( $product, $stock_status );
 
+<<<<<<< HEAD
 		if ( wc_get_container()->get( CostOfGoodsSoldController::class )->feature_is_enabled() ) {
 			$this->maybe_update_cogs_value( $product, $request_data );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$product->save();
 
 		do_action( 'woocommerce_product_bulk_edit_save', $product );
@@ -880,7 +897,11 @@ class WC_Admin_Post_Types {
 	private function maybe_update_stock_status( $product, $stock_status ) {
 		if ( $product->is_type( ProductType::EXTERNAL ) ) {
 			// External products are always in stock.
+<<<<<<< HEAD
 			$product->set_stock_status( ProductStockStatus::IN_STOCK );
+=======
+			$product->set_stock_status( 'instock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} elseif ( isset( $stock_status ) ) {
 			if ( $product->is_type( ProductType::VARIABLE ) && ! $product->get_manage_stock() ) {
 				// Stock status is determined by children.
@@ -986,6 +1007,7 @@ class WC_Admin_Post_Types {
 	protected function request_data() {
 		return $_REQUEST;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Update the Cost of Goods Sold value coming from a bulk edit for a product.
@@ -1002,6 +1024,8 @@ class WC_Admin_Post_Types {
 		$cogs_value = wc_clean( wp_unslash( $request_data['_cogs_value'] ?? '' ) );
 		$product->set_cogs_value( '' === $cogs_value ? null : (float) wc_format_decimal( $cogs_value ) );
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 new WC_Admin_Post_Types();

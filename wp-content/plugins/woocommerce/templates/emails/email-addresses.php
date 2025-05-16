@@ -12,7 +12,11 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 9.7.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
@@ -26,11 +30,19 @@ $shipping = $order->get_formatted_shipping_address();
 
 $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
 
+<<<<<<< HEAD
 ?><table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: <?php echo $email_improvements_enabled ? '0' : '40px'; ?>; padding:0;" border="0">
 	<tr>
 		<td class="font-family text-align-left" style="border:0; padding:0;" valign="top" width="50%">
 			<?php if ( $email_improvements_enabled ) { ?>
 				<b class="address-title"><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></b>
+=======
+?><table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding:0;" border="0">
+	<tr>
+		<td class="font-family text-align-left" style="border:0; padding:0;" valign="top" width="50%">
+			<?php if ( $email_improvements_enabled ) { ?>
+				<b><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></b>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<?php } else { ?>
 				<h2><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h2>
 			<?php } ?>
@@ -61,7 +73,11 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improveme
 		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && $shipping ) : ?>
 			<td class="font-family text-align-left" style="padding:0;" valign="top" width="50%">
 				<?php if ( $email_improvements_enabled ) { ?>
+<<<<<<< HEAD
 					<b class="address-title"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></b>
+=======
+					<b><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></b>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<?php } else { ?>
 					<h2><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
 				<?php } ?>
@@ -89,4 +105,7 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improveme
 		<?php endif; ?>
 	</tr>
 </table>
+<<<<<<< HEAD
 <?php echo $email_improvements_enabled ? '<br>' : ''; ?>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

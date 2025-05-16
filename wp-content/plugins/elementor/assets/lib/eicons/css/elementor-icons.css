@@ -1,7 +1,12 @@
 @font-face {
   font-family: "eicons";
+<<<<<<< HEAD
   src: url("../fonts/eicons.eot?5.36.0");
   src: url("../fonts/eicons.eot?5.36.0#iefix") format("embedded-opentype"), url("../fonts/eicons.woff2?5.36.0") format("woff2"), url("../fonts/eicons.woff?5.36.0") format("woff"), url("../fonts/eicons.ttf?5.36.0") format("truetype"), url("../fonts/eicons.svg?5.36.0#eicon") format("svg");
+=======
+  src: url("../fonts/eicons.eot?5.35.0");
+  src: url("../fonts/eicons.eot?5.35.0#iefix") format("embedded-opentype"), url("../fonts/eicons.woff2?5.35.0") format("woff2"), url("../fonts/eicons.woff?5.35.0") format("woff"), url("../fonts/eicons.ttf?5.35.0") format("truetype"), url("../fonts/eicons.svg?5.35.0#eicon") format("svg");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   font-weight: normal;
   font-style: normal;
 }
@@ -1879,6 +1884,7 @@
   content: "\e9cc";
 }
 
+<<<<<<< HEAD
 .eicon-e-button:before {
   content: "\e9ce";
 }
@@ -1915,6 +1921,8 @@
   content: "\e9d7";
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .eicon-eye:before {
   content: "\e8ac";
 }

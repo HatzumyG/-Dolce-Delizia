@@ -335,7 +335,11 @@ class WXR_Parser_XML {
 				if ( $this->in_sub_tag ) {
 					$this->sub_data[ $this->in_sub_tag ] = $this->cdata;
 					$this->in_sub_tag = false;
+<<<<<<< HEAD
 				} elseif ( $this->in_tag ) {
+=======
+				} else if ( $this->in_tag ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$this->data[ $this->in_tag ] = $this->cdata;
 					$this->in_tag = false;
 				}

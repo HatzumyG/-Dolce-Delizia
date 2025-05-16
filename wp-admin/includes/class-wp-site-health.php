@@ -923,7 +923,11 @@ class WP_Site_Health {
 			),
 			'hash'      => array(
 				'function' => 'hash',
+<<<<<<< HEAD
 				'required' => true,
+=======
+				'required' => false,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			),
 			'imagick'   => array(
 				'extension' => 'imagick',
@@ -1886,7 +1890,11 @@ class WP_Site_Health {
 		);
 
 		if ( ! function_exists( 'WP_Filesystem' ) ) {
+<<<<<<< HEAD
 			require_once ABSPATH . 'wp-admin/includes/file.php';
+=======
+			require_once ABSPATH . '/wp-admin/includes/file.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		ob_start();

@@ -81,7 +81,11 @@ class Module extends BaseModule {
 		wp_set_script_translations( 'e-editor-notifications', 'elementor' );
 	}
 
+<<<<<<< HEAD
 	private function get_app_js_config(): array {
+=======
+	private function get_app_js_config() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [
 			'is_unread' => Options::has_unread_notifications(),
 		];

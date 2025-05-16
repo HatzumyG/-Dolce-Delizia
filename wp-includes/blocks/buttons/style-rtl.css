@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 .wp-block-buttons{
   box-sizing:border-box;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .wp-block-buttons.is-vertical{
   flex-direction:column;
 }

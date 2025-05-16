@@ -54,14 +54,27 @@ class Activation extends Base
 		$count = 0;
 		!defined('LSCWP_LOG_TAG') && define('LSCWP_LOG_TAG', 'Activate_' . get_current_blog_id());
 
+<<<<<<< HEAD
 		/* Network file handler */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if (is_multisite()) {
 			$count = self::get_network_count();
 			if ($count !== false) {
 				$count = intval($count) + 1;
 				set_site_transient(self::NETWORK_TRANSIENT_COUNT, $count, DAY_IN_SECONDS);
 			}
+<<<<<<< HEAD
 
+=======
+		}
+
+		// Files will be delayed updated in next visit to wp-admin
+		Conf::update_option('__activation', Core::VER);
+
+		/* Network file handler */
+		if (is_multisite()) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if (!is_network_admin()) {
 				if ($count === 1) {
 					// Only itself is activated, set .htaccess with only CacheLookUp
@@ -73,7 +86,10 @@ class Activation extends Base
 				}
 			}
 		}
+<<<<<<< HEAD
 		self::cls()->update_files();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if (defined('LSCWP_REF') && LSCWP_REF == 'whm') {
 			GUI::update_option(GUI::WHM_MSG, GUI::WHM_MSG_VAL);
@@ -162,7 +178,11 @@ class Activation extends Base
 		foreach ($sites as $site) {
 			$bid = is_object($site) && property_exists($site, 'blog_id') ? $site->blog_id : $site;
 			$plugins = get_blog_option($bid, 'active_plugins', $default);
+<<<<<<< HEAD
 			if (!empty($plugins) && in_array(LSCWP_BASENAME, $plugins, true)) {
+=======
+			if (in_array(LSCWP_BASENAME, $plugins, true)) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$count++;
 			}
 		}
@@ -511,7 +531,11 @@ class Activation extends Base
 			return;
 		}
 
+<<<<<<< HEAD
 		Admin_Display::success(__('Upgraded successfully.', 'litespeed-cache'));
+=======
+		Admin_Display::succeed(__('Upgraded successfully.', 'litespeed-cache'));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

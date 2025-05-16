@@ -25,7 +25,11 @@ abstract class Import_Runner_Base implements Runner_Interface {
 	 */
 	abstract public function import( array $data, array $imported_data );
 
+<<<<<<< HEAD
 	public function get_import_session_metadata(): array {
+=======
+	public function get_import_session_metadata() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [];
 	}
 

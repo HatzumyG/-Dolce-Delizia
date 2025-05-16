@@ -350,6 +350,7 @@
 
 					$( document.body ).trigger( 'init_tooltips' );
 				},
+<<<<<<< HEAD
 				// Cost values need to be stripped of their thousandth separators and made sure
 				// the decimal separator is a ".".
 				unformatShippingMethodNumericValues: function( data ) {
@@ -384,6 +385,8 @@
 
 					return data;
 				},
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				onConfigureShippingMethodSubmitted: function( event, target, posted_data ) {
 					if ( 'wc-modal-shipping-method-settings' === target ) {
 						shippingMethodView.block();
@@ -394,7 +397,11 @@
 							{
 								wc_shipping_zones_nonce : data.wc_shipping_zones_nonce,
 								instance_id             : posted_data.instance_id,
+<<<<<<< HEAD
 								data                    : shippingMethodView.unformatShippingMethodNumericValues( posted_data )
+=======
+								data                    : posted_data
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							},
 							function( response, textStatus ) {
 								if ( 'success' === textStatus && response.success ) {
@@ -490,12 +497,20 @@
 					return htmlContent.prop( 'outerHTML' );
 				},
 				addCurrencySymbol: function( html ) {
+<<<<<<< HEAD
 					if ( ! window.wc.wcSettings.CURRENCY || ! window.wc.currency.localiseMonetaryValue ) {
+=======
+					if ( ! window.wc.ShippingCurrencyContext || ! window.wc.ShippingCurrencyNumberFormat ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						return html;
 					}
 					const htmlContent = $( html );
 					const priceInputs = htmlContent.find( '.wc-shipping-modal-price' );
+<<<<<<< HEAD
 					const config = window.wc.wcSettings.CURRENCY;
+=======
+					const config = window.wc.ShippingCurrencyContext.getCurrencyConfig();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					const { symbol, symbolPosition } = config;
 
 					priceInputs.addClass( `wc-shipping-currency-size-${ symbol.length }` );
@@ -507,7 +522,11 @@
 					priceInputs.each( ( i ) => {
 						const priceInput = $( priceInputs[ i ] );
 						const value = priceInput.attr( 'value' );
+<<<<<<< HEAD
 						const formattedValue = window.wc.currency.localiseMonetaryValue( config, value );
+=======
+						const formattedValue = window.wc.ShippingCurrencyNumberFormat( config, value );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						priceInput.attr( 'value', formattedValue );
 					} );
 
@@ -676,6 +695,7 @@
 						}
 
 						event.data.view.possiblyAddShippingClassLink( event );
+<<<<<<< HEAD
 						if ( window.wc.wcSettings.CURRENCY && window.wc.currency.localiseMonetaryValue ) {
 							const config = window.wc.wcSettings.CURRENCY;
 							$('.wc-shipping-modal-price').on('blur', function() {
@@ -684,6 +704,8 @@
 								$(this).val( formattedValue );
 							});
 						}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					}
 				},
 				possiblyAddShippingClassLink: function( event ) {

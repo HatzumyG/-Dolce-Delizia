@@ -55,6 +55,7 @@ class ImportInstallTheme implements StepProcessor {
 		// phpcs:ignore
 		$theme = $schema->themeZipFile;
 
+<<<<<<< HEAD
 		if ( ! isset( $schema->options ) ) {
 			$schema->options = new \stdClass();
 		}
@@ -65,6 +66,12 @@ class ImportInstallTheme implements StepProcessor {
 			return $this->result;
 		}
 
+=======
+		if ( isset( $installed_themes[ $theme->slug ] ) ) {
+			$this->result->add_info( "Skipped installing {$theme->slug}. It is already installed." );
+			return $this->result;
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $this->storage->is_supported_resource( $theme->resource ) === false ) {
 			$this->result->add_error( "Invalid resource type for {$theme->slug}" );
 			return $this->result;
@@ -87,12 +94,23 @@ class ImportInstallTheme implements StepProcessor {
 			$this->result->add_error( "Failed to install theme '$theme->slug'." );
 		}
 
+<<<<<<< HEAD
 		$this->activate_theme( $schema );
+=======
+		$theme_switch = true === $theme->activate && $this->wp_switch_theme( $theme->slug );
+
+		if ( $theme_switch ) {
+			$this->result->add_info( "Switched theme to '$theme->slug'." );
+		} else {
+			$this->result->add_error( "Failed to switch theme to '$theme->slug'." );
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return $this->result;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Attempt to activate the theme if the schema specifies to do so.
 	 *
 	 * @param object $schema installTheme schema.
@@ -115,6 +133,8 @@ class ImportInstallTheme implements StepProcessor {
 
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Install the theme from the local plugin path.
 	 *
 	 * @param string $local_plugin_path The local path of the plugin to be installed.

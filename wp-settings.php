@@ -22,6 +22,7 @@ define( 'WPINC', 'wp-includes' );
  * include version.php from another installation and don't override
  * these values if already set.
  *
+<<<<<<< HEAD
  * @global string   $wp_version              The WordPress version string.
  * @global int      $wp_db_version           WordPress database version.
  * @global string   $tinymce_version         TinyMCE version.
@@ -31,6 +32,16 @@ define( 'WPINC', 'wp-includes' );
  * @global string   $wp_local_package        Locale code of the package.
  */
 global $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $required_php_extensions, $required_mysql_version, $wp_local_package;
+=======
+ * @global string $wp_version             The WordPress version string.
+ * @global int    $wp_db_version          WordPress database version.
+ * @global string $tinymce_version        TinyMCE version.
+ * @global string $required_php_version   The required PHP version string.
+ * @global string $required_mysql_version The required MySQL version string.
+ * @global string $wp_local_package       Locale code of the package.
+ */
+global $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version, $wp_local_package;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 require ABSPATH . WPINC . '/version.php';
 require ABSPATH . WPINC . '/compat.php';
 require ABSPATH . WPINC . '/load.php';
@@ -387,7 +398,10 @@ require ABSPATH . WPINC . '/block-supports/duotone.php';
 require ABSPATH . WPINC . '/block-supports/shadow.php';
 require ABSPATH . WPINC . '/block-supports/background.php';
 require ABSPATH . WPINC . '/block-supports/block-style-variations.php';
+<<<<<<< HEAD
 require ABSPATH . WPINC . '/block-supports/aria-label.php';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 require ABSPATH . WPINC . '/style-engine.php';
 require ABSPATH . WPINC . '/style-engine/class-wp-style-engine.php';
 require ABSPATH . WPINC . '/style-engine/class-wp-style-engine-css-declarations.php';
@@ -406,9 +420,12 @@ require ABSPATH . WPINC . '/interactivity-api/class-wp-interactivity-api.php';
 require ABSPATH . WPINC . '/interactivity-api/class-wp-interactivity-api-directives-processor.php';
 require ABSPATH . WPINC . '/interactivity-api/interactivity-api.php';
 require ABSPATH . WPINC . '/class-wp-plugin-dependencies.php';
+<<<<<<< HEAD
 require ABSPATH . WPINC . '/class-wp-url-pattern-prefixer.php';
 require ABSPATH . WPINC . '/class-wp-speculation-rules.php';
 require ABSPATH . WPINC . '/speculative-loading.php';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 add_action( 'after_setup_theme', array( wp_script_modules(), 'add_hooks' ) );
 add_action( 'after_setup_theme', array( wp_interactivity(), 'add_hooks' ) );
@@ -523,13 +540,17 @@ if ( ! is_multisite() && wp_is_fatal_error_handler_enabled() ) {
 	wp_recovery_mode()->initialize();
 }
 
+<<<<<<< HEAD
 // To make get_plugin_data() available in a way that's compatible with plugins also loading this file, see #62244.
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // Load active plugins.
 foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
 	wp_register_plugin_realpath( $plugin );
 
+<<<<<<< HEAD
 	$plugin_data = get_plugin_data( $plugin, false, false );
 
 	$textdomain = $plugin_data['TextDomain'];
@@ -541,6 +562,8 @@ foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
 		}
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$_wp_plugin_file = $plugin;
 	include_once $plugin;
 	$plugin = $_wp_plugin_file; // Avoid stomping of the $plugin variable in a plugin.
@@ -554,7 +577,11 @@ foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
 	 */
 	do_action( 'plugin_loaded', $plugin );
 }
+<<<<<<< HEAD
 unset( $plugin, $_wp_plugin_file, $plugin_data, $textdomain );
+=======
+unset( $plugin, $_wp_plugin_file );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Load pluggable functions.
 require ABSPATH . WPINC . '/pluggable.php';
@@ -687,15 +714,22 @@ $GLOBALS['wp_locale_switcher']->init();
 
 // Load the functions for the active theme, for both parent and child theme if applicable.
 foreach ( wp_get_active_and_valid_themes() as $theme ) {
+<<<<<<< HEAD
 	$wp_theme = wp_get_theme( basename( $theme ) );
 
 	$wp_theme->load_textdomain();
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ( file_exists( $theme . '/functions.php' ) ) {
 		include $theme . '/functions.php';
 	}
 }
+<<<<<<< HEAD
 unset( $theme, $wp_theme );
+=======
+unset( $theme );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Fires after the theme is loaded.

@@ -590,7 +590,11 @@ class Source_Local extends Source_Base {
 		);
 	}
 
+<<<<<<< HEAD
 	/** For testing purposes only, in order to be able to mock the `WP_CLI` constant. */
+=======
+	// For testing purposes only, in order to be able to mock the `WP_CLI` constant.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	protected function is_wp_cli() {
 		return Utils::is_wp_cli();
 	}
@@ -618,6 +622,7 @@ class Source_Local extends Source_Base {
 			return new \WP_Error( 'save_error', esc_html__( 'Template not exist.', 'elementor' ) );
 		}
 
+<<<<<<< HEAD
 		$save_data = [];
 
 		if ( isset( $new_data['title'] ) ) {
@@ -629,6 +634,11 @@ class Source_Local extends Source_Base {
 		}
 
 		$document->save( $save_data );
+=======
+		$document->save( [
+			'elements' => $new_data['content'],
+		] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		/**
 		 * After template library update.
@@ -778,12 +788,15 @@ class Source_Local extends Source_Base {
 	 * @return \WP_Error WordPress error if template export failed.
 	 */
 	public function export_template( $template_id ) {
+<<<<<<< HEAD
 		$permissions_error = $this->validate_template_export_permissions( $template_id );
 
 		if ( is_wp_error( $permissions_error ) ) {
 			return $permissions_error;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$file_data = $this->prepare_template_export( $template_id );
 
 		if ( is_wp_error( $file_data ) ) {
@@ -792,11 +805,23 @@ class Source_Local extends Source_Base {
 
 		$this->send_file_headers( $file_data['name'], strlen( $file_data['content'] ) );
 
+<<<<<<< HEAD
 		$this->serve_file( $file_data['content'] );
+=======
+		// Clear buffering just in case.
+		@ob_end_clean();
+
+		flush();
+
+		// Output file contents.
+		// PHPCS - Export widget json
+		echo $file_data['content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		die;
 	}
 
+<<<<<<< HEAD
 	private function validate_template_export_permissions( $template_id ) {
 		$post_id = intval( $template_id );
 		if ( get_post_type( $post_id ) !== self::CPT ) {
@@ -815,6 +840,8 @@ class Source_Local extends Source_Base {
 		return null;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Export multiple local templates.
 	 *
@@ -882,9 +909,17 @@ class Source_Local extends Source_Base {
 			unlink( $file['path'] );
 		}
 
+<<<<<<< HEAD
 		$this->send_file_headers( $zip_archive_filename, $this->filesize( $zip_complete_path ) );
 
 		$this->serve_zip( $zip_complete_path );
+=======
+		$this->send_file_headers( $zip_archive_filename, filesize( $zip_complete_path ) );
+
+		@ob_end_flush();
+
+		@readfile( $zip_complete_path );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		unlink( $zip_complete_path );
 
@@ -899,8 +934,13 @@ class Source_Local extends Source_Base {
 	 * @since 1.0.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param string $name - The file name.
 	 * @param string $path - The file path.
+=======
+	 * @param string $name - The file name
+	 * @param string $path - The file path
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return \WP_Error|array An array of items on success, 'WP_Error' on failure.
 	 */
 	public function import_template( $name, $path ) {
@@ -1037,7 +1077,11 @@ class Source_Local extends Source_Base {
 	/**
 	 * Is template library supports export.
 	 *
+<<<<<<< HEAD
 	 * Whether the template library supports export.
+=======
+	 * whether the template library supports export.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * Template saved by the user locally on his site, support export by default
 	 * but this can be changed using a filter.
@@ -1298,7 +1342,11 @@ class Source_Local extends Source_Base {
 	 * @access public
 	 *
 	 * @param string $which The location of the extra table nav markup: 'top' or 'bottom'.
+<<<<<<< HEAD
 	 * @param array  $args
+=======
+	 * @param array $args
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function maybe_render_blank_state( $which, array $args = [] ) {
 		global $post_type;
@@ -1381,9 +1429,15 @@ class Source_Local extends Source_Base {
 	 * @since 3.1.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param string $current_type_label The Entity title.
 	 * @param string $href The URL for the 'Add New' button.
 	 * @param string $description The sub title describing the Entity (Post Type, Taxonomy, etc.).
+=======
+	 * @param string $current_type_label The Entity title
+	 * @param string $href The URL for the 'Add New' button
+	 * @param string $description The sub title describing the Entity (Post Type, Taxonomy, etc.)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function print_blank_state_template( $current_type_label, $href, $description ) {
 		?>
@@ -1536,6 +1590,29 @@ class Source_Local extends Source_Base {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Send file headers.
+	 *
+	 * Set the file header when export template data to a file.
+	 *
+	 * @since 1.6.0
+	 * @access private
+	 *
+	 * @param string $file_name File name.
+	 * @param int    $file_size File size.
+	 */
+	private function send_file_headers( $file_name, $file_size ) {
+		header( 'Content-Type: application/octet-stream' );
+		header( 'Content-Disposition: attachment; filename=' . $file_name );
+		header( 'Expires: 0' );
+		header( 'Cache-Control: must-revalidate' );
+		header( 'Pragma: public' );
+		header( 'Content-Length: ' . $file_size );
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get template label by type.
 	 *
 	 * Retrieve the template label for any given template type.
@@ -1655,8 +1732,11 @@ class Source_Local extends Source_Base {
 			add_action( 'manage_posts_extra_tablenav', [ $this, 'maybe_render_blank_state' ] );
 		}
 
+<<<<<<< HEAD
 		add_action( 'elementor/document/after_save', [ $this, 'on_template_update' ], 10, 2 );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( 'template_redirect', [ $this, 'block_template_frontend' ] );
 
 		// Remove elementor library templates from WP Sitemap
@@ -1668,6 +1748,7 @@ class Source_Local extends Source_Base {
 		);
 	}
 
+<<<<<<< HEAD
 	public function on_template_update( \Elementor\Core\Base\Document $document, array $data ) {
 		if ( ! empty( $data['post_title'] ) ) {
 			wp_update_post( [
@@ -1677,6 +1758,8 @@ class Source_Local extends Source_Base {
 		}
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * @since 2.0.6
 	 * @access public

@@ -24,7 +24,11 @@ class Base extends Root
 	const _VER = '_version'; // Not set-able
 	const HASH = 'hash'; // Not set-able
 	const O_AUTO_UPGRADE = 'auto_upgrade';
+<<<<<<< HEAD
 	const O_API_KEY = 'api_key'; // Deprecated since v6.4. TODO: Will drop after v6.5
+=======
+	const O_API_KEY = 'api_key';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const O_SERVER_IP = 'server_ip';
 	const O_GUEST = 'guest';
 	const O_GUEST_OPTM = 'guest_optm';
@@ -149,7 +153,10 @@ class Base extends Root
 	const O_OPTM_CCSS_PER_URL = 'optm-ccss_per_url';
 	const O_OPTM_CCSS_SEP_POSTTYPE = 'optm-ccss_sep_posttype';
 	const O_OPTM_CCSS_SEP_URI = 'optm-ccss_sep_uri';
+<<<<<<< HEAD
 	const O_OPTM_CCSS_SELECTOR_WHITELIST = 'optm-ccss_whitelist';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const O_OPTM_CSS_ASYNC_INLINE = 'optm-css_async_inline';
 	const O_OPTM_CSS_FONT_DISPLAY = 'optm-css_font_display';
 	const O_OPTM_JS_DEFER = 'optm-js_defer';
@@ -223,7 +230,11 @@ class Base extends Root
 	## --------------	  Image Optm 	----------------- ##
 	## -------------------------------------------------- ##
 	const O_IMG_OPTM_AUTO = 'img_optm-auto';
+<<<<<<< HEAD
 	const O_IMG_OPTM_CRON = 'img_optm-cron'; // @Deprecated since v7.0 TODO: remove after v7.5
+=======
+	const O_IMG_OPTM_CRON = 'img_optm-cron';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const O_IMG_OPTM_ORI = 'img_optm-ori';
 	const O_IMG_OPTM_RM_BKUP = 'img_optm-rm_bkup';
 	const O_IMG_OPTM_WEBP = 'img_optm-webp';
@@ -236,6 +247,7 @@ class Base extends Root
 	## --------------		Crawler		----------------- ##
 	## -------------------------------------------------- ##
 	const O_CRAWLER = 'crawler';
+<<<<<<< HEAD
 	const O_CRAWLER_USLEEP = 'crawler-usleep'; // @Deprecated since v7.0 TODO: remove after v7.5
 	const O_CRAWLER_RUN_DURATION = 'crawler-run_duration'; // @Deprecated since v7.0 TODO: remove after v7.5
 	const O_CRAWLER_RUN_INTERVAL = 'crawler-run_interval'; // @Deprecated since v7.0 TODO: remove after v7.5
@@ -246,6 +258,18 @@ class Base extends Root
 	const O_CRAWLER_SITEMAP = 'crawler-sitemap';
 	const O_CRAWLER_DROP_DOMAIN = 'crawler-drop_domain'; // @Deprecated since v7.0 TODO: remove after v7.5
 	const O_CRAWLER_MAP_TIMEOUT = 'crawler-map_timeout'; // @Deprecated since v7.0 TODO: remove after v7.5
+=======
+	const O_CRAWLER_USLEEP = 'crawler-usleep';
+	const O_CRAWLER_RUN_DURATION = 'crawler-run_duration';
+	const O_CRAWLER_RUN_INTERVAL = 'crawler-run_interval';
+	const O_CRAWLER_CRAWL_INTERVAL = 'crawler-crawl_interval';
+	const O_CRAWLER_THREADS = 'crawler-threads';
+	const O_CRAWLER_TIMEOUT = 'crawler-timeout';
+	const O_CRAWLER_LOAD_LIMIT = 'crawler-load_limit';
+	const O_CRAWLER_SITEMAP = 'crawler-sitemap';
+	const O_CRAWLER_DROP_DOMAIN = 'crawler-drop_domain';
+	const O_CRAWLER_MAP_TIMEOUT = 'crawler-map_timeout';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const O_CRAWLER_ROLES = 'crawler-roles';
 	const O_CRAWLER_COOKIES = 'crawler-cookies';
 
@@ -266,7 +290,11 @@ class Base extends Root
 	const O_CDN_ORI = 'cdn-ori';
 	const O_CDN_ORI_DIR = 'cdn-ori_dir';
 	const O_CDN_EXC = 'cdn-exc';
+<<<<<<< HEAD
 	const O_CDN_QUIC = 'cdn-quic'; // No more a visible setting since v7
+=======
+	const O_CDN_QUIC = 'cdn-quic';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const O_CDN_CLOUDFLARE = 'cdn-cloudflare';
 	const O_CDN_CLOUDFLARE_EMAIL = 'cdn-cloudflare_email';
 	const O_CDN_CLOUDFLARE_KEY = 'cdn-cloudflare_key';
@@ -274,8 +302,13 @@ class Base extends Root
 	const O_CDN_CLOUDFLARE_ZONE = 'cdn-cloudflare_zone';
 	const O_CDN_MAPPING = 'cdn-mapping';
 	const O_CDN_ATTR = 'cdn-attr';
+<<<<<<< HEAD
 	const O_QC_NAMESERVERS = 'qc-nameservers';
 	const O_QC_CNAME = 'qc-cname';
+=======
+	const O_QC_TOKEN = 'qc-token';
+	const O_QC_NAMESERVERS = 'qc-nameservers';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	const NETWORK_O_USE_PRIMARY = 'use_primary_settings';
 
@@ -301,6 +334,7 @@ class Base extends Root
 	const VAL_ON2 = 2;
 
 	/* This is for API hook usage */
+<<<<<<< HEAD
 	const IMG_OPTM_BM_ORI = 1; // @Deprecated since v7.0
 	const IMG_OPTM_BM_WEBP = 2; // @Deprecated since v7.0
 	const IMG_OPTM_BM_LOSSLESS = 4; // @Deprecated since v7.0
@@ -311,10 +345,27 @@ class Base extends Root
 	protected static $SINGLE_SITE_OPTIONS = array(
 		self::O_CRAWLER,
 		self::O_CRAWLER_SITEMAP,
+=======
+	const IMG_OPTM_BM_ORI = 1;
+	const IMG_OPTM_BM_WEBP = 2;
+	const IMG_OPTM_BM_LOSSLESS = 4;
+	const IMG_OPTM_BM_EXIF = 8;
+
+	/* Site related options (Will not overwrite other sites' config) */
+	protected static $SINGLE_SITE_OPTIONS = array(
+		self::O_API_KEY,
+		self::O_CRAWLER,
+		self::O_CRAWLER_SITEMAP,
+		self::O_CRAWLER_DROP_DOMAIN,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::O_CDN,
 		self::O_CDN_ORI,
 		self::O_CDN_ORI_DIR,
 		self::O_CDN_EXC,
+<<<<<<< HEAD
+=======
+		self::O_CDN_QUIC,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::O_CDN_CLOUDFLARE,
 		self::O_CDN_CLOUDFLARE_EMAIL,
 		self::O_CDN_CLOUDFLARE_KEY,
@@ -322,15 +373,25 @@ class Base extends Root
 		self::O_CDN_CLOUDFLARE_ZONE,
 		self::O_CDN_MAPPING,
 		self::O_CDN_ATTR,
+<<<<<<< HEAD
 		self::O_QC_NAMESERVERS,
 		self::O_QC_CNAME,
+=======
+		self::O_QC_TOKEN,
+		self::O_QC_NAMESERVERS,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	);
 
 	protected static $_default_options = array(
 		self::_VER => '',
 		self::HASH => '',
+<<<<<<< HEAD
 		self::O_API_KEY => '',
 		self::O_AUTO_UPGRADE => false,
+=======
+		self::O_AUTO_UPGRADE => false,
+		self::O_API_KEY => '',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::O_SERVER_IP => '',
 		self::O_GUEST => false,
 		self::O_GUEST_OPTM => false,
@@ -438,7 +499,10 @@ class Base extends Root
 		self::O_OPTM_CCSS_PER_URL => false,
 		self::O_OPTM_CCSS_SEP_POSTTYPE => array(),
 		self::O_OPTM_CCSS_SEP_URI => array(),
+<<<<<<< HEAD
 		self::O_OPTM_CCSS_SELECTOR_WHITELIST => array(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::O_OPTM_CSS_ASYNC_INLINE => false,
 		self::O_OPTM_CSS_FONT_DISPLAY => false,
 		self::O_OPTM_JS_DEFER => false,
@@ -502,6 +566,10 @@ class Base extends Root
 
 		// Image Optm
 		self::O_IMG_OPTM_AUTO => false,
+<<<<<<< HEAD
+=======
+		self::O_IMG_OPTM_CRON => false,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::O_IMG_OPTM_ORI => false,
 		self::O_IMG_OPTM_RM_BKUP => false,
 		self::O_IMG_OPTM_WEBP => false,
@@ -513,9 +581,22 @@ class Base extends Root
 
 		// Crawler
 		self::O_CRAWLER => false,
+<<<<<<< HEAD
 		self::O_CRAWLER_CRAWL_INTERVAL => 0,
 		self::O_CRAWLER_LOAD_LIMIT => 0,
 		self::O_CRAWLER_SITEMAP => '',
+=======
+		self::O_CRAWLER_USLEEP => 0,
+		self::O_CRAWLER_RUN_DURATION => 0,
+		self::O_CRAWLER_RUN_INTERVAL => 0,
+		self::O_CRAWLER_CRAWL_INTERVAL => 0,
+		self::O_CRAWLER_THREADS => 0,
+		self::O_CRAWLER_TIMEOUT => 0,
+		self::O_CRAWLER_LOAD_LIMIT => 0,
+		self::O_CRAWLER_SITEMAP => '',
+		self::O_CRAWLER_DROP_DOMAIN => false,
+		self::O_CRAWLER_MAP_TIMEOUT => 0,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::O_CRAWLER_ROLES => array(),
 		self::O_CRAWLER_COOKIES => array(),
 
@@ -541,8 +622,13 @@ class Base extends Root
 		self::O_CDN_MAPPING => array(),
 		self::O_CDN_ATTR => array(),
 
+<<<<<<< HEAD
 		self::O_QC_NAMESERVERS => '',
 		self::O_QC_CNAME => '',
+=======
+		self::O_QC_TOKEN => '',
+		self::O_QC_NAMESERVERS => '',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	);
 
 	protected static $_default_site_options = array(
@@ -596,7 +682,10 @@ class Base extends Root
 	protected static $_multi_switch_list = array(
 		self::O_DEBUG => 2,
 		self::O_OPTM_JS_DEFER => 2,
+<<<<<<< HEAD
 		self::O_IMG_OPTM_WEBP => 2,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	);
 
 	/**
@@ -646,9 +735,15 @@ class Base extends Root
 	 */
 	public function load_default_site_vals()
 	{
+<<<<<<< HEAD
 		// Load network_default.json
 		if (file_exists(LSCWP_DIR . 'data/const.network_default.json')) {
 			$default_ini_cfg = json_decode(File::read(LSCWP_DIR . 'data/const.network_default.json'), true);
+=======
+		// Load network_default.ini
+		if (file_exists(LSCWP_DIR . 'data/const.network_default.ini')) {
+			$default_ini_cfg = parse_ini_file(LSCWP_DIR . 'data/const.network_default.ini', true);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			foreach (self::$_default_site_options as $k => $v) {
 				if (!array_key_exists($k, $default_ini_cfg)) {
 					continue;
@@ -671,16 +766,26 @@ class Base extends Root
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Load default values from default.json
+=======
+	 * Load default values from default.ini
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.0
 	 * @access public
 	 */
 	public function load_default_vals()
 	{
+<<<<<<< HEAD
 		// Load default.json
 		if (file_exists(LSCWP_DIR . 'data/const.default.json')) {
 			$default_ini_cfg = json_decode(File::read(LSCWP_DIR . 'data/const.default.json'), true);
+=======
+		// Load default.ini
+		if (file_exists(LSCWP_DIR . 'data/const.default.ini')) {
+			$default_ini_cfg = parse_ini_file(LSCWP_DIR . 'data/const.default.ini', true);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			foreach (self::$_default_options as $k => $v) {
 				if (!array_key_exists($k, $default_ini_cfg)) {
 					continue;
@@ -883,7 +988,11 @@ class Base extends Root
 	 */
 	protected function _conf_pswd($id)
 	{
+<<<<<<< HEAD
 		$check_ids = array(self::O_CDN_CLOUDFLARE_KEY, self::O_OBJECT_PSWD);
+=======
+		$check_ids = array(self::O_CDN_CLOUDFLARE_KEY, self::O_OBJECT_PSWD, self::O_API_KEY, self::O_QC_TOKEN);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return in_array($id, $check_ids);
 	}
@@ -895,7 +1004,18 @@ class Base extends Root
 	 */
 	protected function _conf_cron($id)
 	{
+<<<<<<< HEAD
 		$check_ids = array(self::O_OPTM_CSS_ASYNC, self::O_MEDIA_PLACEHOLDER_RESP_ASYNC, self::O_DISCUSS_AVATAR_CRON, self::O_IMG_OPTM_AUTO, self::O_CRAWLER);
+=======
+		$check_ids = array(
+			self::O_IMG_OPTM_CRON,
+			self::O_OPTM_CSS_ASYNC,
+			self::O_MEDIA_PLACEHOLDER_RESP_ASYNC,
+			self::O_DISCUSS_AVATAR_CRON,
+			self::O_IMG_OPTM_AUTO,
+			self::O_CRAWLER,
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return in_array($id, $check_ids);
 	}

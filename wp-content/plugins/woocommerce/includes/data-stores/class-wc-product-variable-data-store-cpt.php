@@ -6,7 +6,10 @@
  */
 
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -156,7 +159,11 @@ class WC_Product_Variable_Data_Store_CPT extends WC_Product_Data_Store_CPT imple
 				$visible_only_args['tax_query'][] = array(
 					'taxonomy' => 'product_visibility',
 					'field'    => 'name',
+<<<<<<< HEAD
 					'terms'    => ProductStockStatus::OUT_OF_STOCK,
+=======
+					'terms'    => 'outofstock',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'operator' => 'NOT IN',
 				);
 			}
@@ -496,7 +503,11 @@ class WC_Product_Variable_Data_Store_CPT extends WC_Product_Data_Store_CPT imple
 	 * @return boolean
 	 */
 	public function child_is_in_stock( $product ) {
+<<<<<<< HEAD
 		return $this->child_has_stock_status( $product, ProductStockStatus::IN_STOCK );
+=======
+		return $this->child_has_stock_status( $product, 'instock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -655,11 +666,19 @@ class WC_Product_Variable_Data_Store_CPT extends WC_Product_Data_Store_CPT imple
 	 */
 	public function sync_stock_status( &$product ) {
 		if ( $product->child_is_in_stock() ) {
+<<<<<<< HEAD
 			$product->set_stock_status( ProductStockStatus::IN_STOCK );
 		} elseif ( $product->child_is_on_backorder() ) {
 			$product->set_stock_status( ProductStockStatus::ON_BACKORDER );
 		} else {
 			$product->set_stock_status( ProductStockStatus::OUT_OF_STOCK );
+=======
+			$product->set_stock_status( 'instock' );
+		} elseif ( $product->child_is_on_backorder() ) {
+			$product->set_stock_status( 'onbackorder' );
+		} else {
+			$product->set_stock_status( 'outofstock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

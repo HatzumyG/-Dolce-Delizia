@@ -46,9 +46,18 @@ class SetSiteOptions extends Step {
 					'type' => 'string',
 					'enum' => array( static::get_step_name() ),
 				),
+<<<<<<< HEAD
 
 			),
 			'required'   => array( 'step'  ),
+=======
+				'options' => array(
+					'type'                 => 'object',
+					'additionalProperties' => new \stdClass(),
+				),
+			),
+			'required'   => array( 'step', 'options' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 	}
 
@@ -60,7 +69,11 @@ class SetSiteOptions extends Step {
 	public function prepare_json_array(): array {
 		return array(
 			'step'    => static::get_step_name(),
+<<<<<<< HEAD
 			'options' => (object) $this->options,
+=======
+			'options' => $this->options,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 	}
 }

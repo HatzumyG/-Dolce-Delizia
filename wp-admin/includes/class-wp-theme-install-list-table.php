@@ -60,7 +60,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		if ( 'search' === $tab ) {
 			$tabs['search'] = __( 'Search Results' );
 		}
+<<<<<<< HEAD
 		$tabs['upload']   = _x( 'Upload', 'noun' );
+=======
+		$tabs['upload']   = __( 'Upload' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$tabs['featured'] = _x( 'Featured', 'themes' );
 		//$tabs['popular']  = _x( 'Popular', 'themes' );
 		$tabs['new']     = _x( 'Latest', 'themes' );
@@ -315,7 +319,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		switch ( $status ) {
 			case 'update_available':
 				$actions[] = sprintf(
+<<<<<<< HEAD
 					'<a class="install-now" href="%s" aria-label="%s">%s</a>',
+=======
+					'<a class="install-now" href="%s" title="%s">%s</a>',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					esc_url( wp_nonce_url( $update_url, 'upgrade-theme_' . $theme->slug ) ),
 					/* translators: %s: Theme version. */
 					esc_attr( sprintf( __( 'Update to version %s' ), $theme->version ) ),
@@ -325,14 +333,23 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 			case 'newer_installed':
 			case 'latest_installed':
 				$actions[] = sprintf(
+<<<<<<< HEAD
 					'<span class="install-now">%s</span>',
+=======
+					'<span class="install-now" title="%s">%s</span>',
+					esc_attr__( 'This theme is already installed and is up to date' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					_x( 'Installed', 'theme' )
 				);
 				break;
 			case 'install':
 			default:
 				$actions[] = sprintf(
+<<<<<<< HEAD
 					'<a class="install-now" href="%s" aria-label="%s">%s</a>',
+=======
+					'<a class="install-now" href="%s" title="%s">%s</a>',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ),
 					/* translators: %s: Theme name. */
 					esc_attr( sprintf( _x( 'Install %s', 'theme' ), $name ) ),
@@ -342,9 +359,16 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		}
 
 		$actions[] = sprintf(
+<<<<<<< HEAD
 			'<a class="install-theme-preview" href="%s" aria-label="%s">%s</a>',
 			esc_url( $preview_url ),
 			esc_attr( $preview_title ),
+=======
+			'<a class="install-theme-preview" href="%s" title="%s">%s</a>',
+			esc_url( $preview_url ),
+			/* translators: %s: Theme name. */
+			esc_attr( sprintf( __( 'Preview %s' ), $name ) ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			__( 'Preview' )
 		);
 
@@ -361,7 +385,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		$actions = apply_filters( 'theme_install_actions', $actions, $theme );
 
 		?>
+<<<<<<< HEAD
 		<a class="screenshot install-theme-preview" href="<?php echo esc_url( $preview_url ); ?>" aria-label="<?php echo esc_attr( $preview_title ); ?>">
+=======
+		<a class="screenshot install-theme-preview" href="<?php echo esc_url( $preview_url ); ?>" title="<?php echo esc_attr( $preview_title ); ?>">
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<img src="<?php echo esc_url( $theme->screenshot_url . '?ver=' . $theme->version ); ?>" width="150" alt="" />
 		</a>
 
@@ -472,7 +500,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		switch ( $status ) {
 			case 'update_available':
 				printf(
+<<<<<<< HEAD
 					'<a class="theme-install button button-primary" href="%s" aria-label="%s">%s</a>',
+=======
+					'<a class="theme-install button button-primary" href="%s" title="%s">%s</a>',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					esc_url( wp_nonce_url( $update_url, 'upgrade-theme_' . $theme->slug ) ),
 					/* translators: %s: Theme version. */
 					esc_attr( sprintf( __( 'Update to version %s' ), $theme->version ) ),
@@ -482,7 +514,12 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 			case 'newer_installed':
 			case 'latest_installed':
 				printf(
+<<<<<<< HEAD
 					'<span class="theme-install">%s</span>',
+=======
+					'<span class="theme-install" title="%s">%s</span>',
+					esc_attr__( 'This theme is already installed and is up to date' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					_x( 'Installed', 'theme' )
 				);
 				break;

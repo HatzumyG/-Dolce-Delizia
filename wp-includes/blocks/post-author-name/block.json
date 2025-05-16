@@ -12,6 +12,7 @@
 		},
 		"isLink": {
 			"type": "boolean",
+<<<<<<< HEAD
 			"default": false,
 			"role": "content"
 		},
@@ -19,6 +20,13 @@
 			"type": "string",
 			"default": "_self",
 			"role": "content"
+=======
+			"default": false
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": "_self"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"usesContext": [ "postType", "postId" ],

@@ -674,8 +674,11 @@ if ( is_nav_menu( $nav_menu_selected_id ) ) {
 /**
  * @global int $_wp_nav_menu_max_depth
  *
+<<<<<<< HEAD
  * @since 3.0.0
  *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param string $classes
  * @return string
  */
@@ -879,6 +882,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 							<div class="locations-row-links">
 								<?php if ( isset( $menu_locations[ $_location ] ) && 0 !== $menu_locations[ $_location ] ) : ?>
 								<span class="locations-edit-menu-link">
+<<<<<<< HEAD
 									<?php
 									printf(
 										'<a href="%1$s">
@@ -918,6 +922,47 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 										_x( 'Use new menu', 'menu' )
 									);
 									?>
+=======
+									<a href="
+									<?php
+									echo esc_url(
+										add_query_arg(
+											array(
+												'action' => 'edit',
+												'menu'   => $menu_locations[ $_location ],
+											),
+											admin_url( 'nav-menus.php' )
+										)
+									);
+									?>
+									">
+										<span aria-hidden="true"><?php _ex( 'Edit', 'menu' ); ?></span><span class="screen-reader-text">
+											<?php
+											/* translators: Hidden accessibility text. */
+											_e( 'Edit selected menu' );
+											?>
+										</span>
+									</a>
+								</span>
+								<?php endif; ?>
+								<span class="locations-add-menu-link">
+									<a href="
+									<?php
+									echo esc_url(
+										add_query_arg(
+											array(
+												'action' => 'edit',
+												'menu'   => 0,
+												'use-location' => $_location,
+											),
+											admin_url( 'nav-menus.php' )
+										)
+									);
+									?>
+									">
+										<?php _ex( 'Use new menu', 'menu' ); ?>
+									</a>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								</span>
 							</div><!-- .locations-row-links -->
 						</td><!-- .menu-location-menus -->
@@ -1203,8 +1248,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 											$checked = false;
 
 											if ( isset( $menu_locations[ $location ] )
+<<<<<<< HEAD
 												&& 0 !== $nav_menu_selected_id
 												&& $menu_locations[ $location ] === $nav_menu_selected_id
+=======
+													&& 0 !== $nav_menu_selected_id
+													&& $menu_locations[ $location ] === $nav_menu_selected_id
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 											) {
 													$checked = true;
 											}
@@ -1241,6 +1291,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 								<?php if ( $add_new_screen ) : ?>
 								<span class="cancel-action">
+<<<<<<< HEAD
 									<?php
 									printf(
 										'<a class="submitcancel cancellation menu-cancel" href="%1$s">%2$s</a>',
@@ -1269,6 +1320,28 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 										__( 'Delete Menu' )
 									);
 									?>
+=======
+									<a class="submitcancel cancellation menu-cancel" href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php _e( 'Cancel' ); ?></a>
+								</span><!-- END .cancel-action -->
+								<?php else : ?>
+								<span class="delete-action">
+									<a class="submitdelete deletion menu-delete" href="
+									<?php
+									echo esc_url(
+										wp_nonce_url(
+											add_query_arg(
+												array(
+													'action' => 'delete',
+													'menu' => $nav_menu_selected_id,
+												),
+												admin_url( 'nav-menus.php' )
+											),
+											'delete-nav_menu-' . $nav_menu_selected_id
+										)
+									);
+									?>
+									"><?php _e( 'Delete Menu' ); ?></a>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								</span><!-- END .delete-action -->
 								<?php endif; ?>
 

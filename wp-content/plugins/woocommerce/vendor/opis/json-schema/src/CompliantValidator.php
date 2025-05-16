@@ -38,6 +38,7 @@ class CompliantValidator extends Validator
         'keepAdditionalItemsKeyword' => false,
     ];
 
+<<<<<<< HEAD
     public function __construct(
         ?SchemaLoader $loader = null,
         int $max_errors = 1,
@@ -45,6 +46,11 @@ class CompliantValidator extends Validator
     )
     {
         parent::__construct($loader, $max_errors, $stop_at_first_error);
+=======
+    public function __construct(?SchemaLoader $loader = null, int $max_errors = 1)
+    {
+        parent::__construct($loader, $max_errors);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
         // Set parser options
         $parser = $this->parser();

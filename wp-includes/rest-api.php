@@ -430,6 +430,7 @@ function rest_api_loaded() {
 		return;
 	}
 
+<<<<<<< HEAD
 	// Return an error message if query_var is not a string.
 	if ( ! is_string( $GLOBALS['wp']->query_vars['rest_route'] ) ) {
 		$rest_type_error = new WP_Error(
@@ -440,6 +441,8 @@ function rest_api_loaded() {
 		wp_die( $rest_type_error );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Whether this is a REST Request.
 	 *
@@ -828,6 +831,12 @@ function rest_handle_options_request( $response, $handler, $request ) {
 		}
 
 		foreach ( $endpoints as $endpoint ) {
+<<<<<<< HEAD
+=======
+			// Remove the redundant preg_match() argument.
+			unset( $args[0] );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$request->set_url_params( $args );
 			$request->set_attributes( $endpoint );
 		}
@@ -2945,7 +2954,10 @@ function rest_preload_api_request( $memo, $path ) {
 		}
 	}
 
+<<<<<<< HEAD
 	// Remove trailing slashes at the end of the REST API path (query part).
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$path = untrailingslashit( $path );
 	if ( empty( $path ) ) {
 		$path = '/';
@@ -2956,6 +2968,7 @@ function rest_preload_api_request( $memo, $path ) {
 		return $memo;
 	}
 
+<<<<<<< HEAD
 	if ( isset( $path_parts['path'] ) && '/' !== $path_parts['path'] ) {
 		// Remove trailing slashes from the "path" part of the REST API path.
 		$path_parts['path'] = untrailingslashit( $path_parts['path'] );
@@ -2964,6 +2977,8 @@ function rest_preload_api_request( $memo, $path ) {
 			$path_parts['path'];
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$request = new WP_REST_Request( $method, $path_parts['path'] );
 	if ( ! empty( $path_parts['query'] ) ) {
 		parse_str( $path_parts['query'], $query_params );

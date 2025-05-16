@@ -52,7 +52,10 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   MediaUpload: () => (/* reexport */ media_upload),
+<<<<<<< HEAD
   privateApis: () => (/* reexport */ privateApis),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   transformAttachment: () => (/* reexport */ transformAttachment),
   uploadMedia: () => (/* reexport */ uploadMedia),
   validateFileSize: () => (/* reexport */ validateFileSize),
@@ -60,11 +63,19 @@ __webpack_require__.d(__webpack_exports__, {
   validateMimeTypeForUser: () => (/* reexport */ validateMimeTypeForUser)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","element"]
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// ./node_modules/@wordpress/media-utils/build-module/components/media-upload/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/components/media-upload/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -128,6 +139,7 @@ const getFeaturedImageMediaFrame = () => {
 };
 
 /**
+<<<<<<< HEAD
  * Prepares the default frame for selecting a single media item.
  *
  * @return {window.wp.media.view.MediaFrame.Select} The default media workflow.
@@ -167,6 +179,8 @@ const getSingleMediaFrame = () => {
 };
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Prepares the Gallery toolbars and frames.
  *
  * @return {window.wp.media.view.MediaFrame.Post} The default media workflow.
@@ -355,7 +369,11 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
       state: currentState,
       multiple,
       selection,
+<<<<<<< HEAD
       editing: !!value?.length
+=======
+      editing: value && value.length ? true : false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     });
     wp.media.frame = this.frame;
     this.initializeListeners();
@@ -397,6 +415,7 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
       featuredImageId: featuredImageId || -1
     };
   }
+<<<<<<< HEAD
 
   /**
    * Initializes the Media Library requirements for the single image flow.
@@ -440,6 +459,8 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
     });
     wp.media.frame = this.frame;
   }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   componentWillUnmount() {
     this.frame?.remove();
   }
@@ -533,6 +554,7 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
   }
   openModal() {
     const {
+<<<<<<< HEAD
       gallery = false,
       unstableFeaturedImageFlow = false,
       modalClass
@@ -541,6 +563,31 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
       this.buildAndSetGalleryFrame();
     } else {
       this.buildAndSetSingleMediaFrame();
+=======
+      allowedTypes,
+      gallery = false,
+      unstableFeaturedImageFlow = false,
+      modalClass,
+      multiple = false,
+      title = (0,external_wp_i18n_namespaceObject.__)('Select or Upload Media')
+    } = this.props;
+    const {
+      wp
+    } = window;
+    if (gallery) {
+      this.buildAndSetGalleryFrame();
+    } else {
+      const frameConfig = {
+        title,
+        multiple
+      };
+      if (!!allowedTypes) {
+        frameConfig.library = {
+          type: allowedTypes
+        };
+      }
+      this.frame = wp.media(frameConfig);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
     if (modalClass) {
       this.frame.$el.addClass(modalClass);
@@ -559,6 +606,7 @@ class MediaUpload extends external_wp_element_namespaceObject.Component {
 }
 /* harmony default export */ const media_upload = (MediaUpload);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/components/index.js
 
 
@@ -568,6 +616,17 @@ const external_wp_blob_namespaceObject = window["wp"]["blob"];
 const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
 var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/flatten-form-data.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/components/index.js
+
+
+;// CONCATENATED MODULE: external ["wp","blob"]
+const external_wp_blob_namespaceObject = window["wp"]["blob"];
+;// CONCATENATED MODULE: external ["wp","apiFetch"]
+const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
+var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/flatten-form-data.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Determines whether the passed argument appears to be a plain object.
  *
@@ -594,7 +653,11 @@ function flattenFormData(formData, key, data) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/transform-attachment.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/transform-attachment.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -622,7 +685,11 @@ function transformAttachment(attachment) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/upload-to-server.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/upload-to-server.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -649,7 +716,11 @@ async function uploadToServer(file, additionalData = {}, signal) {
   }));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/upload-error.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/upload-error.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * MediaError class.
  *
@@ -672,7 +743,11 @@ class UploadError extends Error {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/validate-mime-type.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/validate-mime-type.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -714,7 +789,11 @@ function validateMimeType(file, allowedTypes) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/get-mime-types-array.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/get-mime-types-array.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Browsers may use unexpected mime types, and they differ from browser to browser.
  * This function computes a flexible array of mime types from the mime type structured provided by the server.
@@ -736,7 +815,11 @@ function getMimeTypesArray(wpMimeTypesObject) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/validate-mime-type-for-user.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/validate-mime-type-for-user.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -772,7 +855,11 @@ function validateMimeTypeForUser(file, wpAllowedMimeTypes) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/validate-file-size.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/validate-file-size.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -811,7 +898,11 @@ function validateFileSize(file, maxUploadFileSize) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/upload-media.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/upload-media.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -840,7 +931,10 @@ function validateFileSize(file, maxUploadFileSize) {
  * @param $0.onFileChange       Function called each time a file or a temporary representation of the file is available.
  * @param $0.wpAllowedMimeTypes List of allowed mime types and file extensions.
  * @param $0.signal             Abort signal.
+<<<<<<< HEAD
  * @param $0.multiple           Whether to allow multiple files to be uploaded.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function uploadMedia({
   wpAllowedMimeTypes,
@@ -850,6 +944,7 @@ function uploadMedia({
   maxUploadFileSize,
   onError,
   onFileChange,
+<<<<<<< HEAD
   signal,
   multiple = true
 }) {
@@ -865,6 +960,15 @@ function uploadMedia({
       if (filesSet[index]?.url) {
         (0,external_wp_blob_namespaceObject.revokeBlobURL)(filesSet[index].url);
       }
+=======
+  signal
+}) {
+  const validFiles = [];
+  const filesSet = [];
+  const setAndUpdateFiles = (index, value) => {
+    if (filesSet[index]?.url) {
+      (0,external_wp_blob_namespaceObject.revokeBlobURL)(filesSet[index].url);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
     filesSet[index] = value;
     onFileChange?.(filesSet.filter(attachment => attachment !== null));
@@ -897,6 +1001,7 @@ function uploadMedia({
     }
     validFiles.push(mediaFile);
 
+<<<<<<< HEAD
     // For client-side media processing, this is handled by the upload-media package.
     if (!window.__experimentalMediaProcessing) {
       // Set temporary URL to create placeholder media file, this is replaced
@@ -906,6 +1011,14 @@ function uploadMedia({
       });
       onFileChange?.(filesSet);
     }
+=======
+    // Set temporary URL to create placeholder media file, this is replaced
+    // with final file from media gallery when upload is `done` below.
+    filesSet.push({
+      url: (0,external_wp_blob_namespaceObject.createBlobURL)(mediaFile)
+    });
+    onFileChange?.(filesSet);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
   validFiles.map(async (file, index) => {
     try {
@@ -914,11 +1027,17 @@ function uploadMedia({
     } catch (error) {
       // Reset to empty on failure.
       setAndUpdateFiles(index, null);
+<<<<<<< HEAD
 
       // @wordpress/api-fetch throws any response that isn't in the 200 range as-is.
       let message;
       if (typeof error === 'object' && error !== null && 'message' in error) {
         message = typeof error.message === 'string' ? error.message : String(error.message);
+=======
+      let message;
+      if (error instanceof Error) {
+        message = error.message;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       } else {
         message = (0,external_wp_i18n_namespaceObject.sprintf)(
         // translators: %s: file name
@@ -934,6 +1053,7 @@ function uploadMedia({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/media-utils/build-module/utils/sideload-to-server.js
 /**
  * WordPress dependencies
@@ -1054,6 +1174,9 @@ lock(privateApis, {
 
 ;// ./node_modules/@wordpress/media-utils/build-module/index.js
 
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 

@@ -207,6 +207,7 @@ final class WC_Cart_Session {
 					)
 				);
 
+<<<<<<< HEAD
 				/**
 				 * Filter to modify or add session data to the cart contents.
 				 *
@@ -228,6 +229,9 @@ final class WC_Cart_Session {
 					// Add the product back in.
 					$cart_contents[ $key ]['data'] = $product;
 				}
+=======
+				$cart_contents[ $key ] = apply_filters( 'woocommerce_get_cart_item_from_session', $session_data, $values, $key );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				// Add to cart right away so the product is visible in woocommerce_get_cart_item_from_session hook.
 				$this->cart->set_cart_contents( $cart_contents );

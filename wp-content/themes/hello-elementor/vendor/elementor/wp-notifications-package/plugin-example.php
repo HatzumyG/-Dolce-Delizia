@@ -11,7 +11,11 @@
  * Text Domain: wp-notifications-package
  */
 
+<<<<<<< HEAD
 use Elementor\WPNotificationsPackage\V120\Notifications;
+=======
+use Elementor\WPNotificationsPackage\V100\Notifications;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -28,6 +32,7 @@ class Plugin_Example {
 	private function init() {
 		require __DIR__ . '/vendor/autoload.php';
 
+<<<<<<< HEAD
 		$this->notifications = new Notifications( [
 			'app_name' => 'wp-notifications-package',
 			'app_version' => '1.2.0',
@@ -36,13 +41,24 @@ class Plugin_Example {
 				'plugin_basename' => plugin_basename( __FILE__ ),
 			],
 		] );
+=======
+		$this->notifications = new Notifications(
+			'wp-notifications-package',
+			'1.0.0',
+			'wppe'
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		add_action( 'admin_notices', [ $this, 'display_notifications' ] );
 		add_action( 'admin_footer', [ $this, 'display_dialog' ] );
 	}
 
 	public function display_notifications() {
+<<<<<<< HEAD
 		$notifications = $this->notifications->get_notifications_by_conditions();
+=======
+		$notifications = $this->notifications->get_notifications_by_conditions( true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( empty( $notifications ) ) {
 			return;
@@ -68,7 +84,11 @@ class Plugin_Example {
 	}
 
 	public function display_dialog() {
+<<<<<<< HEAD
 		$notifications = $this->notifications->get_notifications_by_conditions();
+=======
+		$notifications = $this->notifications->get_notifications_by_conditions( true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( empty( $notifications ) ) {
 			return;

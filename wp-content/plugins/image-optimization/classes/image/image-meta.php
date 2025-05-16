@@ -12,7 +12,10 @@ class Image_Meta {
 		'status' => Image_Status::NOT_OPTIMIZED,
 		'error_type' => null,
 		'compression_level' => null,
+<<<<<<< HEAD
 		'retry_count' => null,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'sizes_optimized' => [],
 		'backups' => [],
 		'original_data' => [
@@ -53,6 +56,7 @@ class Image_Meta {
 		return $this;
 	}
 
+<<<<<<< HEAD
 	public function get_retry_count(): ?int {
 		return $this->image_meta['retry_count'];
 	}
@@ -63,6 +67,8 @@ class Image_Meta {
 		return $this;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function get_optimized_sizes(): array {
 		return $this->image_meta['sizes_optimized'];
 	}

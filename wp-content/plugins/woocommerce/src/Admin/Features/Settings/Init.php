@@ -163,6 +163,7 @@ class Init {
 
 		// Add the settings data to the settings array.
 		$setting_pages = \WC_Admin_Settings::get_settings_pages();
+<<<<<<< HEAD
 		$settings      = self::get_page_data( $settings, $setting_pages );
 
 		return $settings;
@@ -203,6 +204,19 @@ class Init {
 		$settings['settingsData']['pages']    = $transformer->transform( $pages );
 		$settings['settingsData']['start']    = $setting_pages[0]->get_custom_view( 'woocommerce_settings_start' );
 		$settings['settingsData']['_wpnonce'] = wp_create_nonce( 'wp_rest' );
+=======
+		$pages         = array();
+		foreach ( $setting_pages as $setting_page ) {
+			$scripts_before_adding_settings = $wp_scripts->queue;
+			$pages                          = $setting_page->add_settings_page_data( $pages );
+
+			$settings_scripts_handles                               = array_diff( $wp_scripts->queue, $scripts_before_adding_settings );
+			$settings['settingsScripts'][ $setting_page->get_id() ] = self::get_script_urls( $settings_scripts_handles );
+		}
+
+		$transformer              = new Transformer();
+		$settings['settingsData'] = $transformer->transform( $pages );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return $settings;
 	}
@@ -228,6 +242,7 @@ class Init {
 				continue;
 			}
 
+<<<<<<< HEAD
 			$src = $registered_script->src;
 			$ver = $registered_script->ver ? $registered_script->ver : false;
 
@@ -241,6 +256,12 @@ class Init {
 				$script_urls[] = home_url( $src );
 			} else {
 				$script_urls[] = $src;
+=======
+			if ( strpos( $registered_script->src, '/' ) === 0 ) {
+				$script_urls[] = home_url( $registered_script->src );
+			} else {
+				$script_urls[] = $registered_script->src;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 		return $script_urls;

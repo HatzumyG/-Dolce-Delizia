@@ -74,16 +74,23 @@
   padding:12px;
   position:relative;
   text-align:left;
+<<<<<<< HEAD
+=======
+  transition:box-shadow .1s linear;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   width:100%;
 }
 .block-directory-downloadable-block-list-item+.block-directory-downloadable-block-list-item{
   margin-top:4px;
 }
+<<<<<<< HEAD
 @media not (prefers-reduced-motion){
   .block-directory-downloadable-block-list-item{
     transition:box-shadow .1s linear;
   }
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .block-directory-downloadable-block-list-item:not([aria-disabled=true]){
   cursor:pointer;
 }
@@ -92,7 +99,20 @@
   outline:2px solid #0000;
 }
 .block-directory-downloadable-block-list-item.is-installing .block-directory-downloadable-block-list-item__author{
+<<<<<<< HEAD
   display:none;
+=======
+  border:0;
+  clip:rect(1px, 1px, 1px, 1px);
+  clip-path:inset(50%);
+  height:1px;
+  margin:-1px;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+  width:1px;
+  word-wrap:normal !important;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 .block-directory-downloadable-block-list-item__icon{

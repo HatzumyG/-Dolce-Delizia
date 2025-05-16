@@ -1047,11 +1047,14 @@ function populate_network( $network_id = 1, $domain = '', $email = '', $site_nam
 		)
 	);
 
+<<<<<<< HEAD
 	// Remove the cron event since Recovery Mode is not used in Multisite.
 	if ( wp_next_scheduled( 'recovery_mode_clean_expired_keys' ) ) {
 		wp_clear_scheduled_hook( 'recovery_mode_clean_expired_keys' );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/*
 	 * When upgrading from single to multisite, assume the current site will
 	 * become the main site of the network. When using populate_network()

@@ -63,9 +63,15 @@ __webpack_require__.d(selectors_namespaceObject, {
   getNotices: () => (getNotices)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// ./node_modules/@wordpress/notices/build-module/store/utils/on-sub-key.js
+=======
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/utils/on-sub-key.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Higher-order reducer creator which creates a combined reducer object, keyed
  * by a property on the action object.
@@ -95,7 +101,11 @@ const onSubKey = actionProperty => reducer => (state = {}, action) => {
 };
 /* harmony default export */ const on_sub_key = (onSubKey);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/notices/build-module/store/reducer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/reducer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -134,7 +144,11 @@ const notices = on_sub_key('context')((state = [], action) => {
 });
 /* harmony default export */ const reducer = (notices);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/notices/build-module/store/constants.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Default context to use for notice grouping when not otherwise specified. Its
  * specific value doesn't hold much meaning, but it must be reasonably unique
@@ -151,7 +165,11 @@ const DEFAULT_CONTEXT = 'global';
  */
 const DEFAULT_STATUS = 'info';
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/notices/build-module/store/actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -566,7 +584,11 @@ function removeNotices(ids, context = DEFAULT_CONTEXT) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/notices/build-module/store/selectors.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/selectors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -641,7 +663,11 @@ function getNotices(state, context = DEFAULT_CONTEXT) {
   return state[context] || DEFAULT_NOTICES;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/notices/build-module/store/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -666,7 +692,11 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)('core/notice
 });
 (0,external_wp_data_namespaceObject.register)(store);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/notices/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 (window.wp = window.wp || {}).notices = __webpack_exports__;

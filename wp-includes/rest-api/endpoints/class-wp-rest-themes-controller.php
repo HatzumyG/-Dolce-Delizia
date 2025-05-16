@@ -348,6 +348,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 			}
 		}
 
+<<<<<<< HEAD
 		if ( rest_is_field_included( 'default_template_types', $fields ) && $this->is_same_theme( $theme, $current_theme ) ) {
 			$default_template_types = array();
 			foreach ( get_default_block_template_types() as $slug => $template_type ) {
@@ -361,6 +362,8 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 			$data['default_template_part_areas'] = get_allowed_block_template_part_areas();
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$data = $this->add_additional_fields_to_object( $data, $request );
 
 		// Wrap the data in a response object.
@@ -472,29 +475,49 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 			'title'      => 'theme',
 			'type'       => 'object',
 			'properties' => array(
+<<<<<<< HEAD
 				'stylesheet'                  => array(
+=======
+				'stylesheet'     => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The theme\'s stylesheet. This uniquely identifies the theme.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'stylesheet_uri'              => array(
+=======
+				'stylesheet_uri' => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The uri for the theme\'s stylesheet directory.' ),
 					'type'        => 'string',
 					'format'      => 'uri',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'template'                    => array(
+=======
+				'template'       => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The theme\'s template. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme\'s stylesheet.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'template_uri'                => array(
+=======
+				'template_uri'   => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The uri for the theme\'s template directory. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme\'s stylesheet directory.' ),
 					'type'        => 'string',
 					'format'      => 'uri',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'author'                      => array(
+=======
+				'author'         => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The theme author.' ),
 					'type'        => 'object',
 					'readonly'    => true,
@@ -509,7 +532,11 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 						),
 					),
 				),
+<<<<<<< HEAD
 				'author_uri'                  => array(
+=======
+				'author_uri'     => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The website of the theme author.' ),
 					'type'        => 'object',
 					'readonly'    => true,
@@ -526,7 +553,11 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 						),
 					),
 				),
+<<<<<<< HEAD
 				'description'                 => array(
+=======
+				'description'    => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'A description of the theme.' ),
 					'type'        => 'object',
 					'readonly'    => true,
@@ -541,12 +572,20 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 						),
 					),
 				),
+<<<<<<< HEAD
 				'is_block_theme'              => array(
+=======
+				'is_block_theme' => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'Whether the theme is a block-based theme.' ),
 					'type'        => 'boolean',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'name'                        => array(
+=======
+				'name'           => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The name of the theme.' ),
 					'type'        => 'object',
 					'readonly'    => true,
@@ -561,23 +600,39 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 						),
 					),
 				),
+<<<<<<< HEAD
 				'requires_php'                => array(
+=======
+				'requires_php'   => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The minimum PHP version required for the theme to work.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'requires_wp'                 => array(
+=======
+				'requires_wp'    => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The minimum WordPress version required for the theme to work.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'screenshot'                  => array(
+=======
+				'screenshot'     => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The theme\'s screenshot URL.' ),
 					'type'        => 'string',
 					'format'      => 'uri',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'tags'                        => array(
+=======
+				'tags'           => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'Tags indicating styles and features of the theme.' ),
 					'type'        => 'object',
 					'readonly'    => true,
@@ -595,18 +650,30 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 						),
 					),
 				),
+<<<<<<< HEAD
 				'textdomain'                  => array(
+=======
+				'textdomain'     => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The theme\'s text domain.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'theme_supports'              => array(
+=======
+				'theme_supports' => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'Features supported by this theme.' ),
 					'type'        => 'object',
 					'readonly'    => true,
 					'properties'  => array(),
 				),
+<<<<<<< HEAD
 				'theme_uri'                   => array(
+=======
+				'theme_uri'      => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The URI of the theme\'s webpage.' ),
 					'type'        => 'object',
 					'readonly'    => true,
@@ -623,16 +690,25 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 						),
 					),
 				),
+<<<<<<< HEAD
 				'version'                     => array(
+=======
+				'version'        => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'The theme\'s current version.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'status'                      => array(
+=======
+				'status'         => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'description' => __( 'A named status for the theme.' ),
 					'type'        => 'string',
 					'enum'        => array( 'inactive', 'active' ),
 				),
+<<<<<<< HEAD
 				'default_template_types'      => array(
 					'description' => __( 'A list of default template types.' ),
 					'type'        => 'array',
@@ -677,6 +753,8 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 						),
 					),
 				),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			),
 		);
 

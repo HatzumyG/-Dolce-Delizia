@@ -13,8 +13,16 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 	define( 'WP_ADMIN', true );
 }
 
+<<<<<<< HEAD
 /** Load WordPress Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
+=======
+if ( defined( 'ABSPATH' ) ) {
+	require_once ABSPATH . 'wp-load.php';
+} else {
+	require_once dirname( __DIR__ ) . '/wp-load.php';
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /** Allow for cross-domain requests (from the front end). */
 send_origin_headers();

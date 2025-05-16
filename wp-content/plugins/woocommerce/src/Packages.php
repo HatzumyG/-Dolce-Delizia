@@ -3,8 +3,11 @@
  * Loads WooCommerce packages from the /packages directory. These are packages developed outside of core.
  */
 
+<<<<<<< HEAD
 declare( strict_types=1 );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce;
 
 use Automattic\Jetpack\Constants;
@@ -29,9 +32,13 @@ class Packages {
 	 *
 	 * @var array Key is the package name/directory, value is the main package class which handles init.
 	 */
+<<<<<<< HEAD
 	protected static $packages = array(
 		'email-editor' => '\\Automattic\\WooCommerce\\Internal\\EmailEditor\\Package',
 	);
+=======
+	protected static $packages = array();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Array of package names and their main package classes.
@@ -208,7 +215,11 @@ class Packages {
 			deactivate_plugins( $active_plugin_path );
 			add_action(
 				'admin_notices',
+<<<<<<< HEAD
 				function () use ( $plugin_data ) {
+=======
+				function() use ( $plugin_data ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					echo '<div class="error"><p>';
 					printf(
 					/* translators: %s: is referring to the plugin's name. */

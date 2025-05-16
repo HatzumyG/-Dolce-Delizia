@@ -128,7 +128,11 @@ class ProductImage extends AbstractBlock {
 
 		$is_link        = true === $attributes['showProductLink'];
 		$pointer_events = $is_link ? '' : 'pointer-events: none;';
+<<<<<<< HEAD
 		$directive      = $is_link ? 'data-wp-on--click="woocommerce/product-collection::actions.viewProduct"' : '';
+=======
+		$directive      = $is_link ? 'data-wc-on--click="woocommerce/product-collection::actions.viewProduct"' : '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return sprintf(
 			'<a href="%1$s" style="%2$s" %3$s>%4$s %5$s</a>',

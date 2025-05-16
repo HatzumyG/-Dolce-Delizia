@@ -18,6 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Elementor WordArt widget.
  *
  * Elementor widget that displays text along SVG path.
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 class TextPath extends Widget_Base {
 
@@ -30,6 +34,10 @@ class TextPath extends Widget_Base {
 	 *
 	 * @return string Widget name.
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_name() {
 		return 'text-path';
@@ -46,6 +54,10 @@ class TextPath extends Widget_Base {
 	 *
 	 * @return string Widget title.
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_title() {
 		return esc_html__( 'Text Path', 'elementor' );
@@ -58,6 +70,10 @@ class TextPath extends Widget_Base {
 	 *
 	 * @return string Widget icon.
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_icon() {
 		return 'eicon-wordart';
@@ -70,6 +86,10 @@ class TextPath extends Widget_Base {
 	 *
 	 * @return array Widget keywords.
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_keywords() {
 		return [ 'text path', 'word path', 'text on path', 'wordart', 'word art' ];

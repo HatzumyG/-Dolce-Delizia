@@ -486,7 +486,11 @@ class WP_Upgrader {
 	 * @since 6.2.0 Use move_dir() instead of copy_dir() when possible.
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem        WordPress filesystem subclass.
+<<<<<<< HEAD
 	 * @global string[]           $wp_theme_directories
+=======
+	 * @global array              $wp_theme_directories
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param array|string $args {
 	 *     Optional. Array or string of arguments for installing a package. Default empty array.
@@ -525,11 +529,15 @@ class WP_Upgrader {
 		$destination       = $args['destination'];
 		$clear_destination = $args['clear_destination'];
 
+<<<<<<< HEAD
 		/*
 		 * Give the upgrade an additional 300 seconds (5 minutes) to ensure the install
 		 * doesn't prematurely timeout having used up the maximum script execution time
 		 * upacking and downloading in WP_Upgrader->run().
 		 */
+=======
+		// Give the upgrade an additional 300 seconds(5 minutes) to ensure the install doesn't prematurely timeout having used up the maximum script execution time upacking and downloading in WP_Upgrader->run.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( function_exists( 'set_time_limit' ) ) {
 			set_time_limit( 300 );
 		}
@@ -1008,6 +1016,7 @@ class WP_Upgrader {
 		global $wp_filesystem;
 
 		if ( ! $wp_filesystem ) {
+<<<<<<< HEAD
 			if ( ! function_exists( 'WP_Filesystem' ) ) {
 				require_once ABSPATH . 'wp-admin/includes/file.php';
 			}
@@ -1020,6 +1029,10 @@ class WP_Upgrader {
 				wp_trigger_error( __FUNCTION__, __( 'Could not access filesystem.' ) );
 				return;
 			}
+=======
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			WP_Filesystem();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$file = $wp_filesystem->abspath() . '.maintenance';

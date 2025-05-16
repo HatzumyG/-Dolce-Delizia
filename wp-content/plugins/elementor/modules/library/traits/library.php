@@ -21,7 +21,11 @@ trait Library {
 	 */
 	public function print_admin_column_type() {
 		$admin_filter_url = admin_url( Source_Local::ADMIN_MENU_SLUG . '&elementor_library_type=' . $this->get_name() );
+<<<<<<< HEAD
 		// PHPCS - Not a user input
+=======
+		//PHPCS - Not a user input
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		printf( '<a href="%s">%s</a>', $admin_filter_url, $this->get_title() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 

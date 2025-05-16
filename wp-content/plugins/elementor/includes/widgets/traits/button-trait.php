@@ -14,7 +14,11 @@ use Elementor\Widget_Base;
 use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 trait Button_Trait {
@@ -375,6 +379,7 @@ trait Button_Trait {
 			]
 		);
 
+<<<<<<< HEAD
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -384,6 +389,8 @@ trait Button_Trait {
 			]
 		);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -428,6 +435,12 @@ trait Button_Trait {
 			[
 				'label' => esc_html__( 'Border Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
+<<<<<<< HEAD
+=======
+				'condition' => [
+					'border_border!' => '',
+				],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button:hover, {{WRAPPER}} .elementor-button:focus' => 'border-color: {{VALUE}};',
 				],
@@ -435,6 +448,7 @@ trait Button_Trait {
 			]
 		);
 
+<<<<<<< HEAD
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -444,6 +458,8 @@ trait Button_Trait {
 			]
 		);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->add_control(
 			'button_hover_transition_duration',
 			[
@@ -495,6 +511,18 @@ trait Button_Trait {
 			]
 		);
 
+<<<<<<< HEAD
+=======
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'button_box_shadow',
+				'selector' => '{{WRAPPER}} .elementor-button',
+				'condition' => $args['section_condition'],
+			]
+		);
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->add_responsive_control(
 			'text_padding',
 			[
@@ -675,7 +703,11 @@ trait Button_Trait {
 		] );
 
 		// TODO: replace the protected with public
+<<<<<<< HEAD
 		// $instance->add_inline_editing_attributes( 'text', 'none' );
+=======
+		//$instance->add_inline_editing_attributes( 'text', 'none' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		?>
 		<span <?php $instance->print_render_attribute_string( 'content-wrapper' ); ?>>
 			<?php if ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon']['value'] ) ) : ?>

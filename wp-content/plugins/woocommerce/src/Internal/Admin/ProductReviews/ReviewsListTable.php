@@ -569,6 +569,7 @@ class ReviewsListTable extends WP_List_Table {
 			);
 		}
 
+<<<<<<< HEAD
 		/**
 		 * Filters the action links displayed for each review in the Reviews list table.
 		 *
@@ -580,6 +581,8 @@ class ReviewsListTable extends WP_List_Table {
 		 * */
 		$actions = apply_filters( 'comment_row_actions', array_filter( $actions ), $item );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$always_visible = 'excerpt' === get_user_setting( 'posts_list_mode', 'list' );
 
 		$output = '<div class="' . ( $always_visible ? 'row-actions visible' : 'row-actions' ) . '">';

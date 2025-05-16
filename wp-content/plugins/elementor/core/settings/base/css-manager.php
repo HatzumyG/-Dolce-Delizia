@@ -1,10 +1,18 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\Core\Settings\Base;
 
 use Elementor\Core\Files\CSS\Base as CSS_File;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class CSS_Manager extends Manager {
@@ -34,6 +42,10 @@ abstract class CSS_Manager extends Manager {
 	 * @param CSS_File $css_file The requested CSS file.
 	 *
 	 * @return CSS_Model
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	abstract protected function get_model_for_css_file( CSS_File $css_file );
 
@@ -49,6 +61,10 @@ abstract class CSS_Manager extends Manager {
 	 * @param int $id Post ID.
 	 *
 	 * @return CSS_File
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	abstract protected function get_css_file_for_update( $id );
 
@@ -100,6 +116,10 @@ abstract class CSS_Manager extends Manager {
 	 * @access public
 	 *
 	 * @param CSS_File $css_file The requested CSS file.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function add_settings_css_rules( CSS_File $css_file ) {
 		$model = $this->get_model_for_css_file( $css_file );

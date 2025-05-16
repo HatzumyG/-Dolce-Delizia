@@ -419,6 +419,7 @@ window.columns = {
 	 */
 	saveManageColumnsState : function() {
 		var hidden = this.hidden();
+<<<<<<< HEAD
 		$.post(
 			ajaxurl,
 			{
@@ -431,6 +432,14 @@ window.columns = {
 				wp.a11y.speak( __( 'Screen Options updated.' ) );
 			}
 		);
+=======
+		$.post(ajaxurl, {
+			action: 'hidden-columns',
+			hidden: hidden,
+			screenoptionnonce: $('#screenoptionnonce').val(),
+			page: pagenow
+		});
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	},
 
 	/**
@@ -1327,8 +1336,13 @@ $( function() {
 
 		// Observe submissions from posts lists for 'bulk_action' or users lists for 'new_role'.
 		var bulkFieldRelations = {
+<<<<<<< HEAD
 			'bulk_action' : window.bulkActionObserverIds.bulk_action,
 			'changeit' : window.bulkActionObserverIds.changeit
+=======
+			'bulk_action' : 'action',
+			'changeit' : 'new_role'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		};
 		if ( ! Object.keys( bulkFieldRelations ).includes( submitterName ) ) {
 			return;

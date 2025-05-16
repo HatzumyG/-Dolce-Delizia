@@ -105,6 +105,17 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
 
 		$target = $bookmark->link_target;
 		if ( '' !== $target ) {
+<<<<<<< HEAD
+=======
+			if ( is_string( $rel ) && '' !== $rel ) {
+				if ( ! str_contains( $rel, 'noopener' ) ) {
+					$rel = trim( $rel ) . ' noopener';
+				}
+			} else {
+				$rel = 'noopener';
+			}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$target = ' target="' . $target . '"';
 		}
 

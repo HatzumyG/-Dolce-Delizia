@@ -2,7 +2,11 @@
 namespace Elementor\Core\Logger\Items;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -17,6 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @property array $meta
  * @property array $times_dates
  * @property array $args
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 interface Log_Item_Interface extends \JsonSerializable {
@@ -42,6 +50,13 @@ interface Log_Item_Interface extends \JsonSerializable {
 	 */
 	public function __toString();
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @param $str
+	 * @return Log_Item_Interface | null
+	 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public static function from_json( $str );
 
 	/**

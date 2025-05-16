@@ -60,7 +60,11 @@ __webpack_require__.d(__webpack_exports__, {
   withPluginContext: () => (/* reexport */ withPluginContext)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/memize/dist/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/memize/dist/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Memize options object.
  *
@@ -222,6 +226,7 @@ function memize(fn, options) {
 
 
 
+<<<<<<< HEAD
 ;// external ["wp","element"]
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// external ["wp","hooks"]
@@ -237,13 +242,30 @@ var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@wordpress/plugins/build-module/components/plugin-context/index.js
+=======
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","hooks"]
+const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
+;// CONCATENATED MODULE: external ["wp","isShallowEqual"]
+const external_wp_isShallowEqual_namespaceObject = window["wp"]["isShallowEqual"];
+var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(external_wp_isShallowEqual_namespaceObject);
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/components/plugin-context/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -267,8 +289,11 @@ function usePluginContext() {
  * A Higher Order Component used to inject Plugin context to the
  * wrapped component.
  *
+<<<<<<< HEAD
  * @deprecated 6.8.0 Use `usePluginContext` hook instead.
  *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param  mapContextToProps Function called on every context change,
  *                           expected to return object of props to
  *                           merge with the component's own props.
@@ -276,10 +301,13 @@ function usePluginContext() {
  * @return {Component} Enhanced component with injected context as props.
  */
 const withPluginContext = mapContextToProps => (0,external_wp_compose_namespaceObject.createHigherOrderComponent)(OriginalComponent => {
+<<<<<<< HEAD
   external_wp_deprecated_default()('wp.plugins.withPluginContext', {
     since: '6.8.0',
     alternative: 'wp.plugins.usePluginContext'
   });
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return props => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Context.Consumer, {
     children: context => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(OriginalComponent, {
       ...props,
@@ -288,7 +316,11 @@ const withPluginContext = mapContextToProps => (0,external_wp_compose_namespaceO
   });
 }, 'withPluginContext');
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/plugins/build-module/components/plugin-error-boundary/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/components/plugin-error-boundary/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -329,9 +361,15 @@ class PluginErrorBoundary extends external_wp_element_namespaceObject.Component 
   }
 }
 
+<<<<<<< HEAD
 ;// external ["wp","primitives"]
 const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// ./node_modules/@wordpress/icons/build-module/library/plugins.js
+=======
+;// CONCATENATED MODULE: external ["wp","primitives"]
+const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/plugins.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -346,7 +384,11 @@ const plugins = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
 });
 /* harmony default export */ const library_plugins = (plugins);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/plugins/build-module/api/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/api/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint no-console: [ 'error', { allow: [ 'error' ] } ] */
 /**
  * External dependencies
@@ -546,7 +588,11 @@ function getPlugins(scope) {
   return Object.values(api_plugins).filter(plugin => plugin.scope === scope);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/plugins/build-module/components/plugin-area/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/components/plugin-area/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -653,11 +699,19 @@ function PluginArea({
 }
 /* harmony default export */ const plugin_area = (PluginArea);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/plugins/build-module/components/index.js
 
 
 
 ;// ./node_modules/@wordpress/plugins/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/components/index.js
+
+
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 

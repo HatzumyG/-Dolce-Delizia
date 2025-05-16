@@ -1,8 +1,11 @@
 <?php
 namespace Elementor;
 
+<<<<<<< HEAD
 use Elementor\Plugin;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -64,7 +67,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		* @param bool   isRemote     - If `true` the source is a remote source.
 		* @param string activeSource - The current template source.
 		*/
+<<<<<<< HEAD
 		const isRemote = elementor.hooks.applyFilters( 'templates/source/is-remote', activeSource === 'remote', activeSource );
+=======
+		const isRemote = elementor.hooks.applyFilters( 'templates/source/is-remote', activeSource !== 'local', activeSource );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	#>
 	<div id="elementor-template-library-toolbar">
 		<# if ( isRemote ) {
@@ -105,6 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			</div>
 		<# } else { #>
+<<<<<<< HEAD
 			<div id="elementor-template-library-filter-toolbar-local" class="elementor-template-library-filter-toolbar">
 			<?php if ( Plugin::$instance->experiments->is_feature_active( 'cloud-library' ) ) : ?>
 				<div id="elementor-template-library-filter">
@@ -134,6 +142,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 	<# if ( 'local' === activeSource || 'cloud' === activeSource ) { #>
+=======
+			<div id="elementor-template-library-filter-toolbar-local" class="elementor-template-library-filter-toolbar"></div>
+		<# } #>
+		<div id="elementor-template-library-filter-text-wrapper">
+			<label for="elementor-template-library-filter-text" class="elementor-screen-only"><?php echo esc_html__( 'Search Templates:', 'elementor' ); ?></label>
+			<input id="elementor-template-library-filter-text" placeholder="<?php echo esc_attr__( 'Search', 'elementor' ); ?>">
+			<i class="eicon-search"></i>
+		</div>
+	</div>
+	<# if ( 'local' === activeSource ) { #>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<div id="elementor-template-library-order-toolbar-local">
 			<div class="elementor-template-library-local-column-1">
 				<input type="radio" id="elementor-template-library-order-local-title" class="elementor-template-library-order-input" name="elementor-template-library-order-local" value="title" data-default-ordering-direction="asc">
@@ -165,9 +184,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="elementor-excerpt"><?php echo esc_html__( 'Stay tuned! More awesome templates coming real soon.', 'elementor' ); ?></div>
 		</div>
 	<# } #>
+<<<<<<< HEAD
 	<# if ( 'cloud' === activeSource ) { #>
 		<div id="elementor-template-library-load-more-anchor" class="elementor-visibility-hidden"><i class="eicon-loading eicon-animation-spin"></i></div>
 	<# } #>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 </script>
 
 <script type="text/template" id="tmpl-elementor-template-library-template-remote">
@@ -196,6 +218,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </script>
 
 <script type="text/template" id="tmpl-elementor-template-library-template-local">
+<<<<<<< HEAD
 	<#
 		const activeSource = elementor.templates.getFilter('source');
 	#>
@@ -209,11 +232,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		} #>
 		{{ title }}
 	</div>
+=======
+	<div class="elementor-template-library-template-name elementor-template-library-local-column-1">{{ title }}</div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	<div class="elementor-template-library-template-meta elementor-template-library-template-type elementor-template-library-local-column-2">{{{ elementor.translate( type ) }}}</div>
 	<div class="elementor-template-library-template-meta elementor-template-library-template-author elementor-template-library-local-column-3">{{{ author }}}</div>
 	<div class="elementor-template-library-template-meta elementor-template-library-template-date elementor-template-library-local-column-4">{{{ human_date }}}</div>
 	<div class="elementor-template-library-template-controls elementor-template-library-local-column-5">
 		<div class="elementor-template-library-template-preview elementor-button e-btn-txt">
+<<<<<<< HEAD
 		<#
 			const actionText = typeof subType === 'undefined' || 'FOLDER' !== subType
 				? '<?php echo esc_html__( 'Preview', 'elementor' ); ?>'
@@ -223,22 +250,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<span class="elementor-template-library-template-control-title">{{{ actionText }}}</span>
 		</div>
 		<# if ( typeof subType === 'undefined' || 'FOLDER' !== subType ) { #>
+=======
+			<i class="eicon-preview-medium" aria-hidden="true"></i>
+			<span class="elementor-template-library-template-control-title"><?php echo esc_html__( 'Preview', 'elementor' ); ?></span>
+		</div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<button class="elementor-template-library-template-action elementor-template-library-template-insert elementor-button e-primary e-btn-txt">
 			<i class="eicon-file-download" aria-hidden="true"></i>
 			<span class="elementor-button-title"><?php echo esc_html__( 'Insert', 'elementor' ); ?></span>
 		</button>
+<<<<<<< HEAD
 		<# } #>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<div class="elementor-template-library-template-more-toggle">
 			<i class="eicon-ellipsis-h" aria-hidden="true"></i>
 			<span class="elementor-screen-only"><?php echo esc_html__( 'More actions', 'elementor' ); ?></span>
 		</div>
 		<div class="elementor-template-library-template-more">
+<<<<<<< HEAD
+=======
+			<div class="elementor-template-library-template-delete">
+				<i class="eicon-trash-o" aria-hidden="true"></i>
+				<span class="elementor-template-library-template-control-title"><?php echo esc_html__( 'Delete', 'elementor' ); ?></span>
+			</div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<div class="elementor-template-library-template-export">
 				<a href="{{ export_link }}">
 					<i class="eicon-sign-out" aria-hidden="true"></i>
 					<span class="elementor-template-library-template-control-title"><?php echo esc_html__( 'Export', 'elementor' ); ?></span>
 				</a>
 			</div>
+<<<<<<< HEAD
 			<?php if ( Plugin::$instance->experiments->is_feature_active( 'cloud-library' ) ) : ?>
 				<div class="elementor-template-library-template-rename">
 					<i class="eicon-pencil" aria-hidden="true"></i>
@@ -249,6 +292,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<i class="eicon-trash-o" aria-hidden="true"></i>
 				<span class="elementor-template-library-template-control-title"><?php echo esc_html__( 'Delete', 'elementor' ); ?></span>
 			</div>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		</div>
 	</div>
 </script>
@@ -296,8 +341,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="elementor-template-library-blank-title">{{{ title }}}</div>
 	<div class="elementor-template-library-blank-message">{{{ description }}}</div>
 	<form id="elementor-template-library-save-template-form">
+<<<<<<< HEAD
 		<input type="hidden" name="post_id" value="<?php echo esc_attr( get_the_ID() ); ?>">
 		<?php if ( ! Plugin::$instance->experiments->is_feature_active( 'cloud-library' ) ) : ?>
+=======
+		<input type="hidden" name="post_id" value="<?php echo get_the_ID(); ?>">
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<input id="elementor-template-library-save-template-name" name="title" placeholder="<?php echo esc_attr__( 'Enter Template Name', 'elementor' ); ?>" required>
 		<button id="elementor-template-library-save-template-submit" class="elementor-button e-primary">
 			<span class="elementor-state-icon">
@@ -305,6 +354,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</span>
 			<?php echo esc_html__( 'Save', 'elementor' ); ?>
 		</button>
+<<<<<<< HEAD
 		<?php else : ?>
 		<div class="cloud-library-form-inputs">
 			<input id="elementor-template-library-save-template-name" name="title" placeholder="<?php echo esc_attr__( 'Enter Template Name', 'elementor' ); ?>" required>
@@ -320,6 +370,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</button>
 		</div>
 		<?php endif; ?>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	</form>
 	<div class="elementor-template-library-blank-footer">
 		<?php echo esc_html__( 'Want to learn more about the Elementor library?', 'elementor' ); ?>
@@ -346,6 +398,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="tmpl-elementor-template-library-templates-empty">
 	<div class="elementor-template-library-blank-icon">
+<<<<<<< HEAD
 		<img src="" class="elementor-template-library-no-results" loading="lazy" />
 	</div>
 	<div class="elementor-template-library-blank-title"></div>
@@ -353,6 +406,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="elementor-template-library-cloud-empty__button"></div>
 
+=======
+		<img src="<?php Utils::print_unescaped_internal_string( ELEMENTOR_ASSETS_URL . 'images/no-search-results.svg' ); ?>" class="elementor-template-library-no-results" loading="lazy" />
+	</div>
+	<div class="elementor-template-library-blank-title"></div>
+	<div class="elementor-template-library-blank-message"></div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	<div class="elementor-template-library-blank-footer">
 		<?php echo esc_html__( 'Want to learn more about the Elementor library?', 'elementor' ); ?>
 		<a class="elementor-template-library-blank-footer-link" href="https://go.elementor.com/docs-library/" target="_blank"><?php echo esc_html__( 'Click here', 'elementor' ); ?></a>
@@ -393,6 +452,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<img id="elementor-template-library-connect__background-image-<?php Utils::print_unescaped_internal_string( $image ); ?>" class="elementor-template-library-connect__background-image" src="<?php Utils::print_unescaped_internal_string( $base_images_url . $image ); ?>.png" draggable="false" loading="lazy" />
 	<?php endforeach; ?>
 </script>
+<<<<<<< HEAD
 
 <script type="text/template" id="tmpl-elementor-template-library-connect-cloud">
 	<#
@@ -419,3 +479,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<a class="elementor-button e-primary" href="{{{ elementorAppConfig?.['cloud-library']?.library_connect_url }}}" target="_blank">{{{ elementorAppConfig?.['cloud-library']?.library_connect_button_text }}}</a>
 	</div>
 </script>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

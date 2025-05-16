@@ -171,7 +171,11 @@ class WP_Sitemaps_Taxonomies extends WP_Sitemaps_Provider {
 
 		$term_count = wp_count_terms( $this->get_taxonomies_query_args( $taxonomy ) );
 
+<<<<<<< HEAD
 		return (int) ceil( (int) $term_count / wp_sitemaps_get_max_urls( $this->object_type ) );
+=======
+		return (int) ceil( $term_count / wp_sitemaps_get_max_urls( $this->object_type ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

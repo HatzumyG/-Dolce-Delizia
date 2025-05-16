@@ -442,7 +442,11 @@ abstract class Settings_Page {
 	/**
 	 * Should it render the settings tab
 	 *
+<<<<<<< HEAD
 	 * @param array $tab
+=======
+	 * @param $tab
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return bool
 	 */
@@ -454,7 +458,11 @@ abstract class Settings_Page {
 	/**
 	 * Should it render the settings section
 	 *
+<<<<<<< HEAD
 	 * @param array $section
+=======
+	 * @param $section
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * Since 3.19.0
 	 *

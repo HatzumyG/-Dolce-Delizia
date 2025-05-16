@@ -297,6 +297,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 			return null;
 		}
 
+<<<<<<< HEAD
 		$context_processor = static::create_full_parser( "<!DOCTYPE html>{$context}", $encoding );
 		if ( null === $context_processor ) {
 			return null;
@@ -317,6 +318,36 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 		}
 
 		return $context_processor->create_fragment_at_current_node( $html );
+=======
+		$processor                             = new static( $html, self::CONSTRUCTOR_UNLOCK_CODE );
+		$processor->state->context_node        = array( 'BODY', array() );
+		$processor->state->insertion_mode      = WP_HTML_Processor_State::INSERTION_MODE_IN_BODY;
+		$processor->state->encoding            = $encoding;
+		$processor->state->encoding_confidence = 'certain';
+
+		// @todo Create "fake" bookmarks for non-existent but implied nodes.
+		$processor->bookmarks['root-node']    = new WP_HTML_Span( 0, 0 );
+		$processor->bookmarks['context-node'] = new WP_HTML_Span( 0, 0 );
+
+		$root_node = new WP_HTML_Token(
+			'root-node',
+			'HTML',
+			false
+		);
+
+		$processor->state->stack_of_open_elements->push( $root_node );
+
+		$context_node = new WP_HTML_Token(
+			'context-node',
+			$processor->state->context_node[0],
+			false
+		);
+
+		$processor->context_node = $context_node;
+		$processor->breadcrumbs  = array( 'HTML', $context_node->node_name );
+
+		return $processor;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -326,9 +357,15 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	 * entire HTML document from start to finish. Consider a fragment parser with
 	 * a context node of `<body>`.
 	 *
+<<<<<<< HEAD
 	 * UTF-8 is the only allowed encoding. If working with a document that
 	 * isn't UTF-8, first convert the document to UTF-8, then pass in the
 	 * converted HTML.
+=======
+	 * Since UTF-8 is the only currently-accepted charset, if working with a
+	 * document that isn't UTF-8, it's important to convert the document before
+	 * creating the processor: pass in the converted HTML.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param string      $html                    Input HTML document to process.
 	 * @param string|null $known_definite_encoding Optional. If provided, specifies the charset used
@@ -417,6 +454,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Creates a fragment processor at the current node.
 	 *
 	 * HTML Fragment parsing always happens with a context node. HTML Fragment Processors can be
@@ -559,6 +597,8 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Stops the parser and terminates its execution when encountering unsupported markup.
 	 *
 	 * @throws WP_HTML_Unsupported_Exception Halts execution of the parser.
@@ -1143,7 +1183,15 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	 * Breadcrumbs start at the outermost parent and descend toward the matched element.
 	 * They always include the entire path from the root HTML node to the matched element.
 	 *
+<<<<<<< HEAD
 	 * Example:
+=======
+	 * @todo It could be more efficient to expose a generator-based version of this function
+	 *       to avoid creating the array copy on tag iteration. If this is done, it would likely
+	 *       be more useful to walk up the stack when yielding instead of starting at the top.
+	 *
+	 * Example
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 *     $processor = WP_HTML_Processor::create_fragment( '<p><strong><em><img></em></strong></p>' );
 	 *     $processor->next_tag( 'IMG' );
@@ -1151,9 +1199,15 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	 *
 	 * @since 6.4.0
 	 *
+<<<<<<< HEAD
 	 * @return string[] Array of tag names representing path to matched node.
 	 */
 	public function get_breadcrumbs(): array {
+=======
+	 * @return string[]|null Array of tag names representing path to matched node, if matched, otherwise NULL.
+	 */
+	public function get_breadcrumbs(): ?array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->breadcrumbs;
 	}
 
@@ -2316,6 +2370,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 				 */
 
 				$this->state->insertion_mode = WP_HTML_Processor_State::INSERTION_MODE_AFTER_BODY;
+<<<<<<< HEAD
 				/*
 				 * The BODY element is not removed from the stack of open elements.
 				 * Only internal state has changed, this does not qualify as a "step"
@@ -2324,6 +2379,9 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 				 * Proceed to parse the next item.
 				 */
 				return $this->step();
+=======
+				return true;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			/*
 			 * > An end tag whose tag name is "html"
@@ -4396,6 +4454,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 				}
 
 				$this->state->insertion_mode = WP_HTML_Processor_State::INSERTION_MODE_AFTER_AFTER_BODY;
+<<<<<<< HEAD
 				/*
 				 * The HTML element is not removed from the stack of open elements.
 				 * Only internal state has changed, this does not qualify as a "step"
@@ -4404,6 +4463,9 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 				 * Proceed to parse the next item.
 				 */
 				return $this->step();
+=======
+				return true;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/*
@@ -4598,6 +4660,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 			 */
 			case '-HTML':
 				$this->state->insertion_mode = WP_HTML_Processor_State::INSERTION_MODE_AFTER_AFTER_FRAMESET;
+<<<<<<< HEAD
 				/*
 				 * The HTML element is not removed from the stack of open elements.
 				 * Only internal state has changed, this does not qualify as a "step"
@@ -4606,6 +4669,9 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 				 * Proceed to parse the next item.
 				 */
 				return $this->step();
+=======
+				return true;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			/*
 			 * > A start tag whose tag name is "noframes"
@@ -5671,17 +5737,21 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	 * reaching for it, as inappropriate use could lead to broken
 	 * HTML structure or unwanted processing overhead.
 	 *
+<<<<<<< HEAD
 	 * Bookmarks cannot be set on tokens that do no appear in the original
 	 * HTML text. For example, the HTML `<table><td>` stops at tags `TABLE`,
 	 * `TBODY`, `TR`, and `TD`. The `TBODY` and `TR` tags do not appear in
 	 * the original HTML and cannot be used as bookmarks.
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since 6.4.0
 	 *
 	 * @param string $bookmark_name Identifies this particular bookmark.
 	 * @return bool Whether the bookmark was successfully created.
 	 */
 	public function set_bookmark( $bookmark_name ): bool {
+<<<<<<< HEAD
 		if ( $this->is_virtual() ) {
 			_doing_it_wrong(
 				__METHOD__,
@@ -5690,6 +5760,8 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 			);
 			return false;
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return parent::set_bookmark( "_{$bookmark_name}" );
 	}
 

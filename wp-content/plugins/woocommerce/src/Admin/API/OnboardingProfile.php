@@ -14,9 +14,12 @@ defined( 'ABSPATH' ) || exit;
 use Automattic\WooCommerce\Internal\Admin\Onboarding\OnboardingProfile as Profile;
 use Automattic\WooCommerce\Internal\Admin\Onboarding\OnboardingProducts;
 use Automattic\Jetpack\Connection\Manager as Jetpack_Connection_Manager;
+<<<<<<< HEAD
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Onboarding Profile controller.
@@ -122,6 +125,7 @@ class OnboardingProfile extends \WC_REST_Data_Controller {
 				),
 			)
 		);
+<<<<<<< HEAD
 
 		register_rest_route(
 			$this->namespace,
@@ -142,6 +146,8 @@ class OnboardingProfile extends \WC_REST_Data_Controller {
 				'schema' => array( $this, 'get_public_item_schema' ),
 			)
 		);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -332,6 +338,7 @@ class OnboardingProfile extends \WC_REST_Data_Controller {
 		return rest_ensure_response( $onboarding_progress );
 	}
 
+<<<<<<< HEAD
 
 	/**
 	 * Update store's currency and measurement units.
@@ -371,6 +378,8 @@ class OnboardingProfile extends \WC_REST_Data_Controller {
 		return new WP_REST_Response( array(), 204 );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Prepare objects query.
 	 *

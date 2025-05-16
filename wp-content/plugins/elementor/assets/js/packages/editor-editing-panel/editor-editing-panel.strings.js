@@ -13,6 +13,7 @@ __( 'General', 'elementor' );
 __( 'Style', 'elementor' );
 __( 'local', 'elementor' );
 __( 'CSS Classes', 'elementor' );
+<<<<<<< HEAD
 __( 'Open CSS Class Menu', 'elementor' );
 __( 'Existing name', 'elementor' );
 __( 'Format is not valid', 'elementor' );
@@ -21,6 +22,9 @@ __( 'Create new "%s"', 'elementor' );
 // translators: %s is the singular label of css class provider (e.g "Global CSS Class").
 __( 'Create New %s', 'elementor' );
 __( 'Add a pseudo selector', 'elementor' );
+=======
+__( 'Global CSS Classes', 'elementor' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 __( 'Close', 'elementor' );
 __( 'Expand', 'elementor' );
 __( 'Show less', 'elementor' );
@@ -76,7 +80,10 @@ __( 'Static', 'elementor' );
 __( 'Relative', 'elementor' );
 __( 'Absolute', 'elementor' );
 __( 'Fixed', 'elementor' );
+<<<<<<< HEAD
 __( 'Sticky', 'elementor' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 __( 'Position', 'elementor' );
 __( 'Top', 'elementor' );
 __( 'Right', 'elementor' );
@@ -148,4 +155,9 @@ __( 'Bottom Right', 'elementor' );
 __( 'Bottom Left', 'elementor' );
 __( 'Border Radius', 'elementor' );
 __( 'Border', 'elementor' );
+<<<<<<< HEAD
 __( 'Border Color', 'elementor' );
+=======
+__( 'Border Color', 'elementor' );
+__( 'Color', 'elementor' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

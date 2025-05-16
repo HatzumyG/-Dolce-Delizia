@@ -85,6 +85,7 @@ class Admin_Settings extends Base
 				$data2 = array_key_exists($id, $the_matrix) ? $the_matrix[$id] : (defined('WP_CLI') && WP_CLI ? $this->conf($id) : array());
 			}
 			switch ($id) {
+<<<<<<< HEAD
 				case self::O_CRAWLER_ROLES: // Don't allow Editor/admin to be used in crawler role simulator
 					$data = Utility::sanitize_lines($data);
 					if ($data) {
@@ -100,6 +101,8 @@ class Admin_Settings extends Base
 						}
 					}
 					break;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				case self::O_CDN_MAPPING:
 					/**
 					 * CDN setting
@@ -176,7 +179,12 @@ class Admin_Settings extends Base
 					$data = $data2;
 					break;
 
+<<<<<<< HEAD
 				case self::O_CACHE_EXC_CAT: // Cache exclude cat
+=======
+				// Cache exclude cat
+				case self::O_CACHE_EXC_CAT:
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$data2 = array();
 					$data = Utility::sanitize_lines($data);
 					foreach ($data as $v) {
@@ -190,7 +198,12 @@ class Admin_Settings extends Base
 					$data = $data2;
 					break;
 
+<<<<<<< HEAD
 				case self::O_CACHE_EXC_TAG: // Cache exclude tag
+=======
+				// Cache exclude tag
+				case self::O_CACHE_EXC_TAG:
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$data2 = array();
 					$data = Utility::sanitize_lines($data);
 					foreach ($data as $v) {
@@ -274,7 +287,11 @@ class Admin_Settings extends Base
 		$this->cls('Conf')->update_confs($the_matrix);
 
 		$msg = __('Options saved.', 'litespeed-cache');
+<<<<<<< HEAD
 		Admin_Display::success($msg);
+=======
+		Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -309,7 +326,11 @@ class Admin_Settings extends Base
 		Activation::cls()->update_files();
 
 		$msg = __('Options saved.', 'litespeed-cache');
+<<<<<<< HEAD
 		Admin_Display::success($msg);
+=======
+		Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

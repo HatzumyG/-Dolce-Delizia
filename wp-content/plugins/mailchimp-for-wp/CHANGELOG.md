@@ -1,6 +1,7 @@
 Changelog
 =========
 
+<<<<<<< HEAD
 #### 4.10.3 - Apr 16, 2025
 
 - Update third-party JS dependencies.
@@ -9,6 +10,8 @@ Changelog
 - Handle potential Prosopo connection errors gracefully.
 
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 #### 4.10.2 - Feb 28, 2025
 
 - Fix WPForms parameter type change causing a fatal error if using WPForms with a Mailchimp sign-up field.

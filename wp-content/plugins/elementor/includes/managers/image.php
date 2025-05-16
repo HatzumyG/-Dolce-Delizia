@@ -122,12 +122,20 @@ class Images_Manager {
 	 *
 	 * Used to retrieve an array of image attributes to be used for displaying an image in Elementor's Light Box module.
 	 *
+<<<<<<< HEAD
 	 * @param int $id       The ID of the image.
+=======
+	 * @param int $id       The ID of the image
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array An array of image attributes including `title` and `description`.
 	 * @since 2.9.0
 	 * @access public
 	 */
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function get_lightbox_image_attributes( $id ) {
 		$attributes = [];
 		$kit = Plugin::$instance->kits_manager->get_active_kit();

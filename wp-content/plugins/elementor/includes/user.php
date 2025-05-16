@@ -73,7 +73,10 @@ class User {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param Ajax $ajax
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since 2.1.0
 	 * @access public
 	 * @static
@@ -263,8 +266,11 @@ class User {
 			wp_die();
 		}
 
+<<<<<<< HEAD
 		check_admin_referer( 'elementor_set_admin_notice_viewed' );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::set_user_notice( $notice_id );
 
 		if ( ! wp_doing_ajax() ) {
@@ -276,9 +282,15 @@ class User {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param string $notice_id
 	 * @param bool   $is_viewed
 	 * @param array  $meta
+=======
+	 * @param $notice_id
+	 * @param $is_viewed
+	 * @param $meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
@@ -311,11 +323,19 @@ class User {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @throws \Exception If the user cannot install plugins.
 	 */
 	public static function register_as_beta_tester( array $data ) {
 		if ( ! current_user_can( 'install_plugins' ) ) {
 			throw new \Exception( 'You do not have permission to install plugins.' );
+=======
+	 * @throws \Exception
+	 */
+	public static function register_as_beta_tester( array $data ) {
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			throw new \Exception( __( 'You do not have permission to install plugins.', 'elementor' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		update_user_meta( get_current_user_id(), self::BETA_TESTER_META_KEY, true );
@@ -366,7 +386,11 @@ class User {
 	 * Get a user option with default value as fallback.
 	 *
 	 * @param string $option  - Option key.
+<<<<<<< HEAD
 	 * @param int    $user_id - User ID.
+=======
+	 * @param int    $user_id - User ID
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param mixed  $default - Default fallback value.
 	 *
 	 * @return mixed

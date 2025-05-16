@@ -54,7 +54,11 @@ class WC_Post_Data {
 
 		// Status transitions.
 		add_action( 'transition_post_status', array( __CLASS__, 'transition_post_status' ), 10, 3 );
+<<<<<<< HEAD
 		add_action( 'delete_post', array( __CLASS__, 'delete_post_data' ) );
+=======
+		add_action( 'delete_post', array( __CLASS__, 'delete_post' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( 'wp_trash_post', array( __CLASS__, 'trash_post' ) );
 		add_action( 'untrashed_post', array( __CLASS__, 'untrash_post' ) );
 		add_action( 'before_delete_post', array( __CLASS__, 'before_delete_order' ) );
@@ -303,6 +307,7 @@ class WC_Post_Data {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Removes variations etc. belonging to a deleted post, and clears transients.
 	 *
 	 * @internal Use the delete_post function instead.
@@ -312,6 +317,17 @@ class WC_Post_Data {
 	 */
 	public static function delete_post_data( $id ) {
 		$container = wc_get_container();
+=======
+	 * Removes variations etc belonging to a deleted post, and clears transients.
+	 *
+	 * @param mixed $id ID of post being deleted.
+	 */
+	public static function delete_post( $id ) {
+		$container = wc_get_container();
+		if ( ! $container->get( LegacyProxy::class )->call_function( 'current_user_can', 'delete_posts' ) || ! $id ) {
+			return;
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$post_type = self::get_post_type( $id );
 		switch ( $post_type ) {
@@ -350,6 +366,7 @@ class WC_Post_Data {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Removes variations etc. belonging to a deleted post, and clears transients, if the user has permission.
 	 *
 	 * @param mixed $id ID of post being deleted.
@@ -364,6 +381,8 @@ class WC_Post_Data {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Trash post.
 	 *
 	 * @param mixed $id Post ID.

@@ -41,7 +41,11 @@ class Control_Gallery extends Base_Data_Control {
 	 * @since 1.0.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param array $settings Control settings.
+=======
+	 * @param array $settings Control settings
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array Control settings.
 	 */
@@ -97,9 +101,13 @@ class Control_Gallery extends Base_Data_Control {
 					</div>
 				</div>
 
+<<<<<<< HEAD
 				<?php
 				/*
 				?>
+=======
+				<?php /* ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<div class="elementor-control-media__warnings" role="alert" style="display: none;">
 					<?php
 					Hints::get_notice_template( [
@@ -109,14 +117,38 @@ class Control_Gallery extends Base_Data_Control {
 					] );
 					?>
 				</div>
+<<<<<<< HEAD
 				<?php
 				*/ ?>
 				<?php $this->maybe_display_io_hints(); ?>
+=======
+				<?php */ ?>
+
+				<?php if ( Hints::should_display_hint( 'image-optimization' ) ) : ?>
+				<div class="elementor-control-media__promotions" role="alert" style="display: none;">
+					<?php
+					Hints::get_notice_template( [
+						'display' => ! Hints::is_dismissed( 'image-optimization' ),
+						'type' => 'info',
+						'content' => __( 'Optimize your images to enhance site performance by using Image Optimizer.', 'elementor' ),
+						'icon' => true,
+						'dismissible' => 'image_optimizer_hint',
+						'button_text' => Hints::is_plugin_installed( 'image-optimization' ) ? __( 'Activate Plugin', 'elementor' ) : __( 'Install Plugin', 'elementor' ),
+						'button_event' => 'image_optimizer_hint',
+						'button_data' => [
+							'action_url' => Hints::get_plugin_action_url( 'image-optimization' ),
+						],
+					] ); ?>
+				</div>
+				<?php endif; ?>
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			</div>
 		</div>
 		<?php
 	}
 
+<<<<<<< HEAD
 	private function maybe_display_io_hints() {
 		if ( Hints::should_display_hint( 'image-optimization' ) ) {
 			$content_text = esc_html__( 'Optimize your images to enhance site performance by using Image Optimizer.', 'elementor' );
@@ -149,6 +181,8 @@ class Control_Gallery extends Base_Data_Control {
 		<?php
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Get gallery control default settings.
 	 *

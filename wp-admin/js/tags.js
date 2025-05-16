@@ -55,11 +55,19 @@ jQuery( function($) {
 					$('a.tag-link-' + data.match(/tag_ID=(\d+)/)[1]).remove();
 
 				} else if ( '-1' == r ) {
+<<<<<<< HEAD
 					$('#ajax-response').empty().append('<div class="notice notice-error"><p>' + wp.i18n.__( 'Sorry, you are not allowed to do that.' ) + '</p></div>');
 					tr.children().css('backgroundColor', '');
 
 				} else {
 					$('#ajax-response').empty().append('<div class="notice notice-error"><p>' + wp.i18n.__( 'An error occurred while processing your request. Please try again later.' ) + '</p></div>');
+=======
+					$('#ajax-response').empty().append('<div class="error"><p>' + wp.i18n.__( 'Sorry, you are not allowed to do that.' ) + '</p></div>');
+					tr.children().css('backgroundColor', '');
+
+				} else {
+					$('#ajax-response').empty().append('<div class="error"><p>' + wp.i18n.__( 'Something went wrong.' ) + '</p></div>');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					tr.children().css('backgroundColor', '');
 				}
 			});

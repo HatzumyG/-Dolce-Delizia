@@ -38,18 +38,25 @@ class WC_Log_Handler_DB extends WC_Log_Handler {
 	 * @return bool False if value was not handled and true if value was handled.
 	 */
 	public function handle( $timestamp, $level, $message, $context ) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( isset( $context['source'] ) && $context['source'] ) {
 			$source = $context['source'];
 		} else {
 			$source = $this->get_log_source();
 		}
 
+<<<<<<< HEAD
 		// Clear the source cache if this is a new source.
 		$cached_sources = get_option( WC_Admin_Log_Table_List::SOURCE_CACHE_OPTION_KEY, array() );
 		if ( ! in_array( $source, $cached_sources, true ) ) {
 			delete_option( WC_Admin_Log_Table_List::SOURCE_CACHE_OPTION_KEY );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->add( $timestamp, $level, $message, $source, $context );
 	}
 
@@ -138,6 +145,7 @@ class WC_Log_Handler_DB extends WC_Log_Handler {
 
 		$format   = array_fill( 0, count( $log_ids ), '%d' );
 		$query_in = '(' . implode( ',', $format ) . ')';
+<<<<<<< HEAD
 
 		$result = $wpdb->query(
 			// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
@@ -156,6 +164,9 @@ class WC_Log_Handler_DB extends WC_Log_Handler {
 		}
 
 		return $result;
+=======
+		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}woocommerce_log WHERE log_id IN {$query_in}", $log_ids ) ); // @codingStandardsIgnoreLine.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -177,8 +188,11 @@ class WC_Log_Handler_DB extends WC_Log_Handler {
 				date( 'Y-m-d H:i:s', $timestamp )
 			)
 		);
+<<<<<<< HEAD
 
 		\WC_Cache_Helper::get_transient_version( 'logs-db', true );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

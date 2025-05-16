@@ -461,6 +461,7 @@
 			closed = $( '.postbox' ).filter( '.closed' ).map( function() { return this.id; } ).get().join( ',' );
 			hidden = $( '.postbox' ).filter( ':hidden' ).map( function() { return this.id; } ).get().join( ',' );
 
+<<<<<<< HEAD
 			$.post(
 				ajaxurl,
 				{
@@ -474,6 +475,15 @@
 					wp.a11y.speak( __( 'Screen Options updated.' ) );
 				}
 			);
+=======
+			$.post(ajaxurl, {
+				action: 'closed-postboxes',
+				closed: closed,
+				hidden: hidden,
+				closedpostboxesnonce: jQuery('#closedpostboxesnonce').val(),
+				page: page
+			});
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 
 		/**

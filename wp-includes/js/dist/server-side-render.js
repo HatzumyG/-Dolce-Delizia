@@ -139,19 +139,31 @@ module.exports = function equal(a, b) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+<<<<<<< HEAD
+=======
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ build_module)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","element"]
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// external ["wp","data"]
+=======
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","data"]
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const external_wp_data_namespaceObject = window["wp"]["data"];
 // EXTERNAL MODULE: ./node_modules/fast-deep-equal/es6/index.js
 var es6 = __webpack_require__(7734);
 var es6_default = /*#__PURE__*/__webpack_require__.n(es6);
+<<<<<<< HEAD
 ;// external ["wp","compose"]
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// external ["wp","i18n"]
@@ -168,6 +180,24 @@ const external_wp_blocks_namespaceObject = window["wp"]["blocks"];
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@wordpress/server-side-render/build-module/server-side-render.js
+=======
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: external ["wp","apiFetch"]
+const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
+var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
+;// CONCATENATED MODULE: external ["wp","url"]
+const external_wp_url_namespaceObject = window["wp"]["url"];
+;// CONCATENATED MODULE: external ["wp","components"]
+const external_wp_components_namespaceObject = window["wp"]["components"];
+;// CONCATENATED MODULE: external ["wp","blocks"]
+const external_wp_blocks_namespaceObject = window["wp"]["blocks"];
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/server-side-render/build-module/server-side-render.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -184,6 +214,10 @@ const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const EMPTY_OBJECT = {};
 function rendererPath(block, attributes = null, urlQueryArgs = {}) {
   return (0,external_wp_url_namespaceObject.addQueryArgs)(`/wp/v2/block-renderer/${block}`, {
@@ -382,7 +416,11 @@ function ServerSideRender(props) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/server-side-render/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/server-side-render/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -438,6 +476,11 @@ const ExportedServerSideRender = (0,external_wp_data_namespaceObject.withSelect)
 });
 /* harmony default export */ const build_module = (ExportedServerSideRender);
 
+<<<<<<< HEAD
+=======
+})();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 (window.wp = window.wp || {}).serverSideRender = __webpack_exports__["default"];
 /******/ })()
 ;

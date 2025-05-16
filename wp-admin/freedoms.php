@@ -85,7 +85,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<?php
 			printf(
 				/* translators: %s: https://wordpressfoundation.org/trademark-policy/ */
+<<<<<<< HEAD
 				__( 'WordPress grows when people like you tell their friends about it, and the thousands of businesses and services that are built on and around WordPress share that fact with their users. The WordPress community is flattered every time someone spreads the good word, just make sure to <a href="%s">check out the WordPress Foundation trademark guidelines</a> first.' ),
+=======
+				__( 'WordPress grows when people like you tell their friends about it, and the thousands of businesses and services that are built on and around WordPress share that fact with their users. We are flattered every time someone spreads the good word, just make sure to <a href="%s">check out our trademark guidelines</a> first.' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'https://wordpressfoundation.org/trademark-policy/'
 			);
 			?>

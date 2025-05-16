@@ -5,8 +5,11 @@
  * @package WooCommerce\Emails
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -46,6 +49,10 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 			$this->customer_email = true;
 			$this->id             = 'customer_refunded_order';
 			$this->title          = __( 'Refunded order', 'woocommerce' );
+<<<<<<< HEAD
+=======
+			$this->description    = __( 'Order refunded emails are sent to customers when their orders are refunded.', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$this->template_html  = 'emails/customer-refunded-order.php';
 			$this->template_plain = 'emails/plain/customer-refunded-order.php';
 			$this->placeholders   = array(
@@ -59,11 +66,14 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 
 			// Call parent constructor.
 			parent::__construct();
+<<<<<<< HEAD
 
 			// Must be after parent's constructor which sets `email_improvements_enabled` property.
 			$this->description = $this->email_improvements_enabled
 				? __( 'Let shoppers know when a full or partial refund is on its way to them.', 'woocommerce' )
 				: __( 'Order refunded emails are sent to customers when their orders are refunded.', 'woocommerce' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -90,6 +100,7 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 		 */
 		public function get_default_heading( $partial = false ) {
 			if ( $partial ) {
+<<<<<<< HEAD
 				return $this->email_improvements_enabled
 					? __( 'Partial refund: Order {order_number}', 'woocommerce' )
 					: __( 'Partial Refund: Order {order_number}', 'woocommerce' );
@@ -97,6 +108,11 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 				return $this->email_improvements_enabled
 					? __( 'Order refunded: {order_number}', 'woocommerce' )
 					: __( 'Order Refunded: {order_number}', 'woocommerce' );
+=======
+				return __( 'Partial Refund: Order {order_number}', 'woocommerce' );
+			} else {
+				return __( 'Order Refunded: {order_number}', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
@@ -202,7 +218,10 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 					'partial_refund'     => $this->partial_refund,
 					'email_heading'      => $this->get_heading(),
 					'additional_content' => $this->get_additional_content(),
+<<<<<<< HEAD
 					'blogname'           => $this->get_blogname(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'sent_to_admin'      => false,
 					'plain_text'         => false,
 					'email'              => $this,
@@ -224,7 +243,10 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 					'partial_refund'     => $this->partial_refund,
 					'email_heading'      => $this->get_heading(),
 					'additional_content' => $this->get_additional_content(),
+<<<<<<< HEAD
 					'blogname'           => $this->get_blogname(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'sent_to_admin'      => false,
 					'plain_text'         => true,
 					'email'              => $this,
@@ -239,9 +261,13 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 		 * @return string
 		 */
 		public function get_default_additional_content() {
+<<<<<<< HEAD
 			return $this->email_improvements_enabled
 				? __( 'If you need any help with your order, please contact us at {store_email}.', 'woocommerce' )
 				: __( 'We hope to see you again soon.', 'woocommerce' );
+=======
+			return __( 'We hope to see you again soon.', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -308,10 +334,13 @@ if ( ! class_exists( 'WC_Email_Customer_Refunded_Order', false ) ) :
 					'desc_tip'    => true,
 				),
 			);
+<<<<<<< HEAD
 			if ( FeaturesUtil::feature_is_enabled( 'email_improvements' ) ) {
 				$this->form_fields['cc']  = $this->get_cc_field();
 				$this->form_fields['bcc'] = $this->get_bcc_field();
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

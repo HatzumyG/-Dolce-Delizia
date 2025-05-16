@@ -37,6 +37,12 @@ use Automattic\WooCommerce\StoreApi\RoutesController;
 use Automattic\WooCommerce\StoreApi\SchemaController;
 use Automattic\WooCommerce\StoreApi\StoreApi;
 use Automattic\WooCommerce\Blocks\Shipping\ShippingController;
+<<<<<<< HEAD
+=======
+use Automattic\WooCommerce\Blocks\Templates\SingleProductTemplateCompatibility;
+use Automattic\WooCommerce\Blocks\Templates\ArchiveProductTemplatesCompatibility;
+use Automattic\WooCommerce\Blocks\Domain\Services\OnboardingTasks\TasksController;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Blocks\TemplateOptions;
 
 
@@ -138,16 +144,25 @@ class Bootstrap {
 		$is_rest              = wc()->is_rest_api_request();
 		$is_store_api_request = wc()->is_store_api_request();
 
+<<<<<<< HEAD
 		// Initialize Store API in non-admin context.
 		if ( ! is_admin() ) {
 			$this->container->get( StoreApi::class )->init();
 		}
 
 		// Load and init assets.
+=======
+		// Load and init assets.
+		$this->container->get( StoreApi::class )->init();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->container->get( PaymentsApi::class )->init();
 		$this->container->get( DraftOrders::class )->init();
 		$this->container->get( CreateAccount::class )->init();
 		$this->container->get( ShippingController::class )->init();
+<<<<<<< HEAD
+=======
+		$this->container->get( TasksController::class )->init();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->container->get( CheckoutFields::class )->init();
 
 		// Load assets in admin and on the frontend.
@@ -404,6 +419,15 @@ class Bootstrap {
 			}
 		);
 		$this->container->register(
+<<<<<<< HEAD
+=======
+			TasksController::class,
+			function () {
+				return new TasksController();
+			}
+		);
+		$this->container->register(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			QueryFilters::class,
 			function () {
 				return new QueryFilters();

@@ -2,7 +2,10 @@
 namespace Elementor\Core\Base;
 
 use Elementor\Plugin;
+<<<<<<< HEAD
 use Elementor\Utils;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -224,7 +227,11 @@ abstract class Module extends Base_Object {
 		static $is_test_mode = null;
 
 		if ( null === $is_test_mode ) {
+<<<<<<< HEAD
 			$is_test_mode = Utils::is_script_debug() || Utils::is_elementor_tests();
+=======
+			$is_test_mode = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || defined( 'ELEMENTOR_TESTS' ) && ELEMENTOR_TESTS;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( ! $relative_url ) {
@@ -269,7 +276,11 @@ abstract class Module extends Base_Object {
 	 * @param string $file_name
 	 * @param string $relative_url         Optional. Default is null.
 	 * @param string $add_min_suffix       Optional. Default is 'default'.
+<<<<<<< HEAD
 	 * @param bool   $add_direction_suffix Optional. Default is `false`.
+=======
+	 * @param bool   $add_direction_suffix Optional. Default is `false`
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string
 	 */

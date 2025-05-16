@@ -4,7 +4,11 @@ import Modals from "@/components/Modals/Base/Modals.vue";
 import Wrapper from "@/layouts/Wrapper.vue";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
+<<<<<<< HEAD
 import {EditSiteButton, HeaderButton, PreviewSiteButton} from "@/types";
+=======
+import { HeaderButton } from "@/types";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 const route = useRoute();
 
@@ -15,6 +19,7 @@ const headerTitle = computed(() => {
 const headerButton = computed(() => {
   return route.meta.headerButton as HeaderButton;
 });
+<<<<<<< HEAD
 
 const previewSiteButton = computed(() => {
     return route.meta.previewSiteButton as PreviewSiteButton;
@@ -24,12 +29,18 @@ const editSiteButton = computed(() => {
     return route.meta.editSiteButton as EditSiteButton;
 });
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 </script>
 
 <template>
   <div>
     <div id="overhead-button" />
+<<<<<<< HEAD
     <Wrapper :title="headerTitle" :header-button="headerButton" :preview-site-button="previewSiteButton" :edit-site-button="editSiteButton">
+=======
+    <Wrapper :title="headerTitle" :header-button="headerButton">
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       <RouterView v-slot="{ Component }">
         <Component :is="Component" />
       </RouterView>

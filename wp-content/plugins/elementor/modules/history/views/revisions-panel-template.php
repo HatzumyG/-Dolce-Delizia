@@ -66,7 +66,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!--			<# if ( 'revision' === type ) { #>-->
 <!--				<i class="eicon-undo" aria-hidden="true"></i>-->
+<<<<<<< HEAD
 <!--				<span class="elementor-screen-only">--><?php // echo esc_html__( 'Restore', 'elementor' ); ?><!--</span>-->
+=======
+<!--				<span class="elementor-screen-only">--><?php //echo esc_html__( 'Restore', 'elementor' ); ?><!--</span>-->
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <!--			<# } #>-->
 
 		</div>

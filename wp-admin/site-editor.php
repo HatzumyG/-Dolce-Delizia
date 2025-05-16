@@ -19,6 +19,7 @@ if ( ! current_user_can( 'edit_theme_options' ) ) {
 	);
 }
 
+<<<<<<< HEAD
 /**
  * Maps old site editor urls to the new updated ones.
  *
@@ -115,6 +116,21 @@ $redirection = _wp_get_site_editor_redirection_url();
 if ( false !== $redirection ) {
 	wp_safe_redirect( $redirection );
 	exit;
+=======
+$is_template_part        = isset( $_GET['postType'] ) && 'wp_template_part' === sanitize_key( $_GET['postType'] );
+$is_template_part_path   = isset( $_GET['path'] ) && 'wp_template_partall' === sanitize_key( $_GET['path'] );
+$is_template_part_editor = $is_template_part || $is_template_part_path;
+$is_patterns             = isset( $_GET['postType'] ) && 'wp_block' === sanitize_key( $_GET['postType'] );
+$is_patterns_path        = isset( $_GET['path'] ) && 'patterns' === sanitize_key( $_GET['path'] );
+$is_patterns_editor      = $is_patterns || $is_patterns_path;
+
+if ( ! wp_is_block_theme() ) {
+	if ( ! current_theme_supports( 'block-template-parts' ) && $is_template_part_editor ) {
+		wp_die( __( 'The theme you are currently using is not compatible with the Site Editor.' ) );
+	} elseif ( ! $is_patterns_editor && ! $is_template_part_editor ) {
+		wp_die( __( 'The theme you are currently using is not compatible with the Site Editor.' ) );
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 // Used in the HTML title tag.
@@ -139,6 +155,7 @@ foreach ( get_default_block_template_types() as $slug => $template_type ) {
 	$indexed_template_types[] = $template_type;
 }
 
+<<<<<<< HEAD
 $context_settings = array( 'name' => 'core/edit-site' );
 
 if ( ! empty( $_GET['postId'] ) && is_numeric( $_GET['postId'] ) ) {
@@ -148,6 +165,9 @@ if ( ! empty( $_GET['postId'] ) && is_numeric( $_GET['postId'] ) ) {
 }
 
 $block_editor_context = new WP_Block_Editor_Context( $context_settings );
+=======
+$block_editor_context = new WP_Block_Editor_Context( array( 'name' => 'core/edit-site' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $custom_settings      = array(
 	'siteUrl'                   => site_url(),
 	'postsPerPage'              => get_option( 'posts_per_page' ),
@@ -207,6 +227,7 @@ $preload_paths = array(
 		),
 		'GET',
 	),
+<<<<<<< HEAD
 	'/wp/v2/settings',
 	array( '/wp/v2/settings', 'OPTIONS' ),
 	// Used by getBlockPatternCategories in useBlockEditorSettings.
@@ -249,6 +270,10 @@ if ( $block_editor_context->post ) {
 	$preload_paths[] = '/wp/v2/templates/lookup?slug=home';
 }
 
+=======
+);
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 block_editor_rest_api_preload( $preload_paths, $block_editor_context );
 
 wp_add_inline_script(
@@ -313,7 +338,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <div class="edit-site" id="site-editor">
 	<?php // JavaScript is disabled. ?>
 	<div class="wrap hide-if-js site-editor-no-js">
+<<<<<<< HEAD
 		<h1 class="wp-heading-inline"><?php _e( 'Edit Site' ); ?></h1>
+=======
+		<h1 class="wp-heading-inline"><?php _e( 'Edit site' ); ?></h1>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<?php
 		/**
 		 * Filters the message displayed in the site editor interface when JavaScript is

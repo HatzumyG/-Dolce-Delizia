@@ -68,7 +68,11 @@
   width:100%;
 }
 .wp-block-post-featured-image>a{
+<<<<<<< HEAD
   pointer-events:none;
+=======
+  cursor:default;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 .wp-block-post-featured-image.is-selected .components-placeholder.has-illustration .components-button,.wp-block-post-featured-image.is-selected .components-placeholder.has-illustration .components-placeholder__instructions,.wp-block-post-featured-image.is-selected .components-placeholder.has-illustration .components-placeholder__label{
   opacity:1;

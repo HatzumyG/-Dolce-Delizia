@@ -44,16 +44,29 @@
   border-radius:9999px;
   display:block;
   height:auto;
+<<<<<<< HEAD
 }
 @media not (prefers-reduced-motion){
   .wp-block-social-link{
     transition:transform .1s ease;
+=======
+  transition:transform .1s ease;
+}
+@media (prefers-reduced-motion:reduce){
+  .wp-block-social-link{
+    transition-delay:0s;
+    transition-duration:0s;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 }
 .wp-block-social-link a{
   align-items:center;
   display:flex;
   line-height:0;
+<<<<<<< HEAD
+=======
+  transition:transform .1s ease;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 .wp-block-social-link:hover{
   transform:scale(1.1);
@@ -97,10 +110,13 @@
   background-color:#02e49b;
   color:#fff;
 }
+<<<<<<< HEAD
 :where(.wp-block-social-links:not(.is-style-logos-only)) .wp-social-link-discord{
   background-color:#5865f2;
   color:#fff;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 :where(.wp-block-social-links:not(.is-style-logos-only)) .wp-social-link-dribbble{
   background-color:#e94c89;
   color:#fff;
@@ -280,9 +296,12 @@
 :where(.wp-block-social-links.is-style-logos-only) .wp-social-link-deviantart{
   color:#02e49b;
 }
+<<<<<<< HEAD
 :where(.wp-block-social-links.is-style-logos-only) .wp-social-link-discord{
   color:#5865f2;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 :where(.wp-block-social-links.is-style-logos-only) .wp-social-link-dribbble{
   color:#e94c89;
 }
@@ -412,8 +431,13 @@
 }
 
 :root :where(.wp-block-social-links.is-style-pill-shape .wp-social-link a){
+<<<<<<< HEAD
   padding-left:.6666666667em;
   padding-right:.6666666667em;
+=======
+  padding-left:.66667em;
+  padding-right:.66667em;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 .wp-block-social-links:not(.has-icon-color):not(.has-icon-background-color) .wp-social-link-snapchat .wp-block-social-link-label{

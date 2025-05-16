@@ -10,9 +10,13 @@
 
 use Automattic\Jetpack\Constants;
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Enums\CatalogVisibility;
+=======
+use Automattic\WooCommerce\Enums\ProductType;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Proxies\LegacyProxy;
 use Automattic\WooCommerce\Utilities\ArrayUtil;
 use Automattic\WooCommerce\Utilities\NumberUtil;
@@ -142,6 +146,10 @@ function wc_delete_product_transients( $post_id = 0 ) {
 		$post_transient_names = array(
 			'wc_product_children_',
 			'wc_var_prices_',
+<<<<<<< HEAD
+=======
+			'wc_related_',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'wc_child_has_weight_',
 			'wc_child_has_dimensions_',
 		);
@@ -149,6 +157,7 @@ function wc_delete_product_transients( $post_id = 0 ) {
 		foreach ( $post_transient_names as $transient ) {
 			delete_transient( $transient . $post_id );
 		}
+<<<<<<< HEAD
 
 		$is_cli = Constants::is_true( 'WP_CLI' );
 		if ( $is_cli ) {
@@ -187,6 +196,8 @@ function wc_delete_product_transients( $post_id = 0 ) {
 				$scheduled[ $cache_key ] = true;
 			}
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	// Increments the transient version to invalidate cache.
@@ -196,6 +207,7 @@ function wc_delete_product_transients( $post_id = 0 ) {
 }
 
 /**
+<<<<<<< HEAD
  * Delete all related products transients when a product is updated/created.
  * This is necessary because changing one product affects all related products too.
  *
@@ -245,6 +257,8 @@ function wc_delete_related_product_transients( $post_id ) {
 add_action( 'wc_delete_related_product_transients_async', 'wc_delete_related_product_transients' );
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Function that returns an array containing the IDs of the products that are on sale.
  *
  * @since 2.0
@@ -531,9 +545,12 @@ function wc_get_formatted_variation( $variation, $flat = false, $include_names =
 				}
 			}
 
+<<<<<<< HEAD
 			// Cast to string once before using.
 			$value = (string) $value;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// Do not list attributes already part of the variation name.
 			if ( '' === $value || ( $skip_attributes_in_name && wc_is_attribute_in_product_name( $value, $variation_name ) ) ) {
 				continue;
@@ -545,10 +562,19 @@ function wc_get_formatted_variation( $variation, $flat = false, $include_names =
 				} else {
 					$variation_list[] = '<dt>' . wc_attribute_label( $name, $product ) . ':</dt><dd>' . rawurldecode( $value ) . '</dd>';
 				}
+<<<<<<< HEAD
 			} elseif ( $flat ) {
 				$variation_list[] = rawurldecode( $value );
 			} else {
 				$variation_list[] = '<li>' . rawurldecode( $value ) . '</li>';
+=======
+			} else {
+				if ( $flat ) {
+					$variation_list[] = rawurldecode( $value );
+				} else {
+					$variation_list[] = '<li>' . rawurldecode( $value ) . '</li>';
+				}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
@@ -1047,10 +1073,17 @@ function wc_get_product_visibility_options() {
 	return apply_filters(
 		'woocommerce_product_visibility_options',
 		array(
+<<<<<<< HEAD
 			CatalogVisibility::VISIBLE => __( 'Shop and search results', 'woocommerce' ),
 			CatalogVisibility::CATALOG => __( 'Shop only', 'woocommerce' ),
 			CatalogVisibility::SEARCH  => __( 'Search results only', 'woocommerce' ),
 			CatalogVisibility::HIDDEN  => __( 'Hidden', 'woocommerce' ),
+=======
+			'visible' => __( 'Shop and search results', 'woocommerce' ),
+			'catalog' => __( 'Shop only', 'woocommerce' ),
+			'search'  => __( 'Search results only', 'woocommerce' ),
+			'hidden'  => __( 'Hidden', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	);
 }
@@ -1084,9 +1117,15 @@ function wc_get_product_stock_status_options() {
 	return apply_filters(
 		'woocommerce_product_stock_status_options',
 		array(
+<<<<<<< HEAD
 			ProductStockStatus::IN_STOCK     => __( 'In stock', 'woocommerce' ),
 			ProductStockStatus::OUT_OF_STOCK => __( 'Out of stock', 'woocommerce' ),
 			ProductStockStatus::ON_BACKORDER => __( 'On backorder', 'woocommerce' ),
+=======
+			'instock'     => __( 'In stock', 'woocommerce' ),
+			'outofstock'  => __( 'Out of stock', 'woocommerce' ),
+			'onbackorder' => __( 'On backorder', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	);
 }
@@ -1112,10 +1151,16 @@ function wc_get_product_backorder_options() {
  * @param  int   $product_id  Product ID.
  * @param  int   $limit       Limit of results.
  * @param  array $exclude_ids Exclude IDs from the results.
+<<<<<<< HEAD
  * @param  array $related_by  Related by category and tags boolean flags.
  * @return array
  */
 function wc_get_related_products( $product_id, $limit = 5, $exclude_ids = array(), $related_by = array() ) {
+=======
+ * @return array
+ */
+function wc_get_related_products( $product_id, $limit = 5, $exclude_ids = array() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	$product_id     = absint( $product_id );
 	$limit          = $limit >= -1 ? $limit : 5;
@@ -1125,16 +1170,24 @@ function wc_get_related_products( $product_id, $limit = 5, $exclude_ids = array(
 		array(
 			'limit'       => $limit,
 			'exclude_ids' => $exclude_ids,
+<<<<<<< HEAD
 			'related_by'  => $related_by,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	);
 
 	$transient     = get_transient( $transient_name );
 	$related_posts = $transient && is_array( $transient ) && isset( $transient[ $query_args ] ) ? $transient[ $query_args ] : false;
 
+<<<<<<< HEAD
 	// Query related posts if they are not cached
 	// Should happen only once per day due to transient expiration set to 1 DAY_IN_SECONDS, to avoid performance issues.
 	if ( false === $related_posts ) {
+=======
+	// We want to query related posts if they are not cached, or we don't have enough.
+	if ( false === $related_posts || count( $related_posts ) < $limit ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$cats_array = apply_filters( 'woocommerce_product_related_posts_relate_by_category', true, $product_id ) ? apply_filters( 'woocommerce_get_related_product_cat_terms', wc_get_product_term_ids( $product_id, 'product_cat' ), $product_id ) : array();
 		$tags_array = apply_filters( 'woocommerce_product_related_posts_relate_by_tag', true, $product_id ) ? apply_filters( 'woocommerce_get_related_product_tag_terms', wc_get_product_term_ids( $product_id, 'product_tag' ), $product_id ) : array();

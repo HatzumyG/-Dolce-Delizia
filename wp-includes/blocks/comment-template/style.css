@@ -20,6 +20,10 @@
 .wp-block-comment-template.aligncenter{
   margin-left:auto;
   margin-right:auto;
+<<<<<<< HEAD
+=======
+  width:-moz-fit-content;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   width:fit-content;
 }
 .wp-block-comment-template.alignright{

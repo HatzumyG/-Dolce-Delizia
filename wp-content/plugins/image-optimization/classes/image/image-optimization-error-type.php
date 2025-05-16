@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Image_Optimization_Error_Type extends Basic_Enum {
 	public const QUOTA_EXCEEDED = 'quota-exceeded';
 	public const FILE_ALREADY_EXISTS = 'file-already-exists';
+<<<<<<< HEAD
 	public const PLUGIN_DEACTIVATION = 'plugin-deactivation';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public const GENERIC = 'generic';
 }

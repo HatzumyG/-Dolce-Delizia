@@ -12,7 +12,11 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 9.7.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
@@ -54,6 +58,7 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		$after  = '';
 	}
 	if ( $email_improvements_enabled ) {
+<<<<<<< HEAD
 		echo '<br><span>';
 	}
 	/* translators: %s: Order ID. */
@@ -62,6 +67,12 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		/* translators: %s: Order ID. */
 		$order_number_string = __( 'Order #%s', 'woocommerce' );
 	}
+=======
+		echo '<span>';
+	}
+	/* translators: %s: Order ID. */
+	$order_number_string = $email_improvements_enabled ? __( 'Order #%s', 'woocommerce' ) : __( '[Order #%s]', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	echo wp_kses_post( $before . sprintf( $order_number_string . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(), $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ) );
 	if ( $email_improvements_enabled ) {
 		echo '</span>';

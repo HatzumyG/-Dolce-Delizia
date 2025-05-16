@@ -25,6 +25,7 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 	public const PER_PAGE_USER_OPTION_KEY = 'woocommerce_status_log_items_per_page';
 
 	/**
+<<<<<<< HEAD
 	 * The key for the option that stores the list of unique sources that exist in the log table.
 	 *
 	 * @const string
@@ -37,6 +38,8 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 	private const ITEM_COUNT_CACHE_THRESHOLD = 100000;
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Initialize the log table list.
 	 */
 	public function __construct() {
@@ -281,7 +284,18 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 	 * @global wpdb $wpdb
 	 */
 	protected function source_dropdown() {
+<<<<<<< HEAD
 		$sources = $this->get_sources();
+=======
+		global $wpdb;
+
+		$sources = $wpdb->get_col(
+			"SELECT DISTINCT source
+			FROM {$wpdb->prefix}woocommerce_log
+			WHERE source != ''
+			ORDER BY source ASC"
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( ! empty( $sources ) ) {
 			$selected_source = isset( $_REQUEST['source'] ) ? $_REQUEST['source'] : '';
@@ -305,6 +319,7 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get the list of unique sources in the log table.
 	 *
 	 * The query in this method can be slow when there are a high number of log entries. The list of sources also
@@ -338,6 +353,8 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Prepare table list items.
 	 *
 	 * @global wpdb $wpdb
@@ -363,9 +380,16 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 			{$where} {$order} {$limit} {$offset}
 		";
 
+<<<<<<< HEAD
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The query parts are prepared in their respective methods.
 		$this->items = $wpdb->get_results( $query_items, ARRAY_A );
 		$total_items = $this->get_total_items_count();
+=======
+		$this->items = $wpdb->get_results( $query_items, ARRAY_A );
+
+		$query_count = "SELECT COUNT(log_id) FROM {$wpdb->prefix}woocommerce_log {$where}";
+		$total_items = $wpdb->get_var( $query_count );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->set_pagination_args(
 			array(
@@ -377,6 +401,7 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get the total count of log entries in the database.
 	 *
 	 * The query in this method can be slow if there are a large (100k+) rows in the database table, so this
@@ -423,6 +448,8 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get prepared LIMIT clause for items query
 	 *
 	 * @global wpdb $wpdb
@@ -474,7 +501,11 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 		if ( ! empty( $_REQUEST['orderby'] ) && in_array( $_REQUEST['orderby'], $valid_orders ) ) {
 			$by = wc_clean( $_REQUEST['orderby'] );
 		} else {
+<<<<<<< HEAD
 			$by = 'log_id';
+=======
+			$by = 'timestamp';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 		$by = esc_sql( $by );
 
@@ -484,12 +515,16 @@ class WC_Admin_Log_Table_List extends WP_List_Table {
 			$order = 'DESC';
 		}
 
+<<<<<<< HEAD
 		$orderby = "ORDER BY {$by} {$order}";
 		if ( 'log_id' !== $by ) {
 			$orderby .= ", log_id {$order}";
 		}
 
 		return $orderby;
+=======
+		return "ORDER BY {$by} {$order}, log_id {$order}";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

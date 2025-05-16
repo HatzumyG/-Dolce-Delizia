@@ -19,7 +19,11 @@ class Settings_Reporter extends Base_Reporter {
 		];
 	}
 
+<<<<<<< HEAD
 	public function get_settings(): array {
+=======
+	public function get_settings() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$usage_settings_text = '';
 
 		$settings = Module::get_settings_usage();
@@ -35,7 +39,11 @@ class Settings_Reporter extends Base_Reporter {
 		];
 	}
 
+<<<<<<< HEAD
 	public function get_raw_settings(): array {
+=======
+	public function get_raw_settings() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$usage_settings = PHP_EOL;
 
 		$settings = Module::get_settings_usage();

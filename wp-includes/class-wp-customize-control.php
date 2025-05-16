@@ -7,11 +7,14 @@
  * @since 3.4.0
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Customize Control class.
  *
@@ -247,14 +250,22 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Enqueues control related scripts/styles.
+=======
+	 * Enqueue control related scripts/styles.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.4.0
 	 */
 	public function enqueue() {}
 
 	/**
+<<<<<<< HEAD
 	 * Checks whether control is active to current Customizer preview.
+=======
+	 * Check whether control is active to current Customizer preview.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 4.0.0
 	 *
@@ -292,7 +303,11 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Fetches a setting's value.
+=======
+	 * Fetch a setting's value.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Grabs the main setting by default.
 	 *
 	 * @since 3.4.0
@@ -307,7 +322,11 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Refreshes the parameters passed to the JavaScript via JSON.
+=======
+	 * Refresh the parameters passed to the JavaScript via JSON.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.4.0
 	 */
@@ -332,7 +351,11 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Gets the data to export to the client via JSON.
+=======
+	 * Get the data to export to the client via JSON.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 4.1.0
 	 *
@@ -375,7 +398,11 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Gets the control's content for insertion into the Customizer pane.
+=======
+	 * Get the control's content for insertion into the Customizer pane.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 4.1.0
 	 *
@@ -388,7 +415,11 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Checks capabilities and render the control.
+=======
+	 * Check capabilities and render the control.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.4.0
 	 * @uses WP_Customize_Control::render()
@@ -437,15 +468,24 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Gets the data link attribute for a setting.
+=======
+	 * Get the data link attribute for a setting.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.4.0
 	 * @since 4.9.0 Return a `data-customize-setting-key-link` attribute if a setting is not registered for the supplied setting key.
 	 *
 	 * @param string $setting_key
+<<<<<<< HEAD
 	 * @return string Data link parameter, a `data-customize-setting-link` attribute if the `$setting_key` refers
 	 *                to a pre-registered setting, and a `data-customize-setting-key-link` attribute if the setting
 	 *                is not yet registered.
+=======
+	 * @return string Data link parameter, a `data-customize-setting-link` attribute if the `$setting_key` refers to a pre-registered setting,
+	 *                and a `data-customize-setting-key-link` attribute if the setting is not yet registered.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_link( $setting_key = 'default' ) {
 		if ( isset( $this->settings[ $setting_key ] ) && $this->settings[ $setting_key ] instanceof WP_Customize_Setting ) {
@@ -456,19 +496,31 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Renders the data link attribute for the control's input element.
+=======
+	 * Render the data link attribute for the control's input element.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.4.0
 	 * @uses WP_Customize_Control::get_link()
 	 *
+<<<<<<< HEAD
 	 * @param string $setting_key Default 'default'.
+=======
+	 * @param string $setting_key
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function link( $setting_key = 'default' ) {
 		echo $this->get_link( $setting_key );
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Renders the custom attributes for the control's input element.
+=======
+	 * Render the custom attributes for the control's input element.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 4.0.0
 	 */
@@ -479,7 +531,11 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Renders the control's content.
+=======
+	 * Render the control's content.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * Allows the content to be overridden without having to rewrite the wrapper in `$this::render()`.
 	 *
@@ -637,7 +693,11 @@ class WP_Customize_Control {
 				<?php if ( $this->allow_addition && current_user_can( 'publish_pages' ) && current_user_can( 'edit_theme_options' ) ) : // Currently tied to menus functionality. ?>
 					<button type="button" class="button-link add-new-toggle">
 						<?php
+<<<<<<< HEAD
 						/* translators: %s: Add Page label. */
+=======
+						/* translators: %s: Add New Page label. */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						printf( __( '+ %s' ), get_post_type_object( 'page' )->labels->add_new_item );
 						?>
 					</button>
@@ -675,7 +735,11 @@ class WP_Customize_Control {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Renders the control's JS template.
+=======
+	 * Render the control's JS template.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * This function is only run for control types that have been registered with
 	 * WP_Customize_Manager::register_control_type().

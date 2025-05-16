@@ -160,6 +160,7 @@ img[data-mce-selected]::selection {
 	background: transparent url( images/pagebreak.png ) repeat-y scroll center center;
 }
 
+<<<<<<< HEAD
 .mce-object-style {
 	background-image: url( images/style.svg );
 }
@@ -168,6 +169,8 @@ img[data-mce-selected]::selection {
 	background-image: url( images/script.svg );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* Styles for formatting the boundaries of anchors and code elements */
 .mce-content-body a[data-mce-selected] {
 	padding: 0 2px;

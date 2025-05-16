@@ -223,7 +223,11 @@ function wp_print_media_templates() {
 		</div>
 	</script>
 
+<<<<<<< HEAD
 	<?php // Template for the inline uploader, used for example in the Media Library admin page - Add. ?>
+=======
+	<?php // Template for the inline uploader, used for example in the Media Library admin page - Add New. ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	<script type="text/html" id="tmpl-uploader-inline">
 		<# var messageClass = data.message ? 'has-upload-message' : 'no-upload-message'; #>
 		<# if ( data.canClose ) { #>
@@ -356,7 +360,11 @@ function wp_print_media_templates() {
 
 	<?php // Template for the uploading status errors. ?>
 	<script type="text/html" id="tmpl-uploader-status-error">
+<<<<<<< HEAD
 		<span class="upload-error-filename word-wrap-break-word">{{{ data.filename }}}</span>
+=======
+		<span class="upload-error-filename">{{{ data.filename }}}</span>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<span class="upload-error-message">{{ data.message }}</span>
 	</script>
 

@@ -145,11 +145,24 @@
 						paged_rates = _.toArray( rates ).slice( first_index, last_index ),
 						view        = this;
 
+<<<<<<< HEAD
 					if ( paged_rates.length ) {
 						// Populate $tbody with the current page of results.
 						this.el.innerHTML = paged_rates.map( rowData => view.rowTemplate( rowData ) ).join( '' );
 					} else {
 						this.el.innerHTML = rowTemplateEmpty();
+=======
+					// Blank out the contents.
+					this.$el.empty();
+
+					if ( paged_rates.length ) {
+						// Populate $tbody with the current page of results.
+						$.each( paged_rates, function( id, rowData ) {
+							view.$el.append( view.rowTemplate( rowData ) );
+						} );
+					} else {
+						view.$el.append( rowTemplateEmpty() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					}
 
 					// Initialize autocomplete for countries.
@@ -291,7 +304,10 @@
 					var $target  = $( event.currentTarget );
 
 					event.preventDefault();
+<<<<<<< HEAD
 					event.stopPropagation();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					event.data.view.page = $target.data( 'goto' ) ? $target.data( 'goto' ) : $target.val();
 					event.data.view.render();
 					event.data.view.updateUrl();

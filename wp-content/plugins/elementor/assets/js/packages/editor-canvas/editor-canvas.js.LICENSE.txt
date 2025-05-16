@@ -11,8 +11,11 @@
 
 /*! @elementor/editor-responsive */
 
+<<<<<<< HEAD
 /*! @elementor/editor-styles */
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*! @elementor/editor-styles-repository */
 
 /*! @elementor/editor-v1-adapters */
@@ -21,8 +24,11 @@
 
 /*! @elementor/utils */
 
+<<<<<<< HEAD
 /*! @elementor/wp-media */
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*! @floating-ui/core */
 
 /*! @floating-ui/dom */
@@ -63,18 +69,24 @@
   !*** external ["elementorV2","editor"] ***!
   \*****************************************/
 
+<<<<<<< HEAD
 /*!******************************************!*\
   !*** external ["elementorV2","wpMedia"] ***!
   \******************************************/
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*!**********************************************!*\
   !*** external ["elementorV2","editorProps"] ***!
   \**********************************************/
 
+<<<<<<< HEAD
 /*!***********************************************!*\
   !*** external ["elementorV2","editorStyles"] ***!
   \***********************************************/
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*!*************************************************!*\
   !*** ./node_modules/tabbable/dist/index.esm.js ***!
   \*************************************************/

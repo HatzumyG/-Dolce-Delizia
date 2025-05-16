@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 @use "sass:color";
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 // assign default value to all undefined variables
 
 $scheme-name: "default" !default;
@@ -39,7 +42,11 @@ $menu-current-text: $menu-highlight-text !default;
 $menu-current-icon: $menu-highlight-icon !default;
 $menu-current-background: $menu-highlight-background !default;
 
+<<<<<<< HEAD
 $menu-submenu-text: color.mix( $base-color, $text-color, 30% ) !default;
+=======
+$menu-submenu-text: mix( $base-color, $text-color, 30% ) !default;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $menu-submenu-background: color.adjust($base-color, $lightness: -7%) !default;
 $menu-submenu-background-alt: color.adjust(color.adjust($menu-background, $lightness: 7%), $saturation: -7%) !default;
 
@@ -61,9 +68,15 @@ $adminbar-input-background: color.adjust($menu-background, $lightness: 7%) !defa
 
 $adminbar-recovery-exit-text: $menu-bubble-text !default;
 $adminbar-recovery-exit-background: $menu-bubble-background !default;
+<<<<<<< HEAD
 $adminbar-recovery-exit-background-alt: color.mix(black, $adminbar-recovery-exit-background, 10%) !default;
 
 $menu-customizer-text: color.mix( $base-color, $text-color, 40% ) !default;
+=======
+$adminbar-recovery-exit-background-alt: mix(black, $adminbar-recovery-exit-background, 10%) !default;
+
+$menu-customizer-text: mix( $base-color, $text-color, 40% ) !default;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Dashboard Colors
 

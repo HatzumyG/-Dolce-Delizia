@@ -62,7 +62,11 @@ class Widget_Common_Base extends Widget_Base {
 	 * @deprecated 3.7.0 Not needed anymore because responsive conditioning in the Editor was fixed in v3.7.0.
 	 * @access protected
 	 *
+<<<<<<< HEAD
 	 * @param array $args arguments to duplicate per breakpoint.
+=======
+	 * @param array $args arguments to duplicate per breakpoint
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param array $devices_to_exclude
 	 *
 	 * @return array responsive device args
@@ -94,7 +98,11 @@ class Widget_Common_Base extends Widget_Base {
 	 * @since 3.4.7
 	 * @access private
 	 *
+<<<<<<< HEAD
 	 * @param array  $args
+=======
+	 * @param array $args
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param string $breakpoint_key
 	 * @return array parsed device args
 	 */
@@ -115,7 +123,11 @@ class Widget_Common_Base extends Widget_Base {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param String $shape Shape name.
+=======
+	 * @param $shape String Shape name.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string The shape path in the assets folder.
 	 */
@@ -154,7 +166,11 @@ class Widget_Common_Base extends Widget_Base {
 	 * the `img` tag should be masked directly. So instead of writing a lot of selectors every time,
 	 * this function builds both of those selectors easily.
 	 *
+<<<<<<< HEAD
 	 * @param string $rules The CSS rules to apply.
+=======
+	 * @param $rules string The CSS rules to apply.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array Selectors with the rules applied.
 	 */

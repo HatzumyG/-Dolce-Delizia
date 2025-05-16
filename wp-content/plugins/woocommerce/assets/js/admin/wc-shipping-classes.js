@@ -1,6 +1,7 @@
 /* global shippingClassesLocalizeScript, ajaxurl */
 ( function( $, data, wp, ajaxurl ) {
 	$( function() {
+<<<<<<< HEAD
 		if ( 
 			! document.getElementById( 'tmpl-wc-shipping-class-row' ) || 
 			! document.getElementById( 'tmpl-wc-shipping-class-row-blank' ) 
@@ -8,6 +9,8 @@
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		var $tbody          = $( '.wc-shipping-class-rows' ),
 			$save_button    = $( '.wc-shipping-class-save' ),
 			$row_template   = wp.template( 'wc-shipping-class-row' ),
@@ -121,7 +124,13 @@
 						const view = event.data.view;
 						const model = view.model;
 						const isNewRow = posted_data.term_id.includes( 'new-1-' );
+<<<<<<< HEAD
 						const rowData = Object.assign( {}, posted_data );
+=======
+						const rowData = {
+							...posted_data,
+						};
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 						if ( isNewRow ) {
 							rowData.newRow = true;
@@ -158,8 +167,19 @@
 					event.preventDefault();
 					$( this ).WCBackboneModal({
 						template : 'wc-shipping-class-configure',
+<<<<<<< HEAD
 						variable: Object.assign( { action: 'edit' }, rowData ),
 						data : Object.assign( { action: 'edit' }, rowData )
+=======
+						variable : {
+							action: 'edit',
+							...rowData
+						},
+						data : {
+							action: 'edit',
+							...rowData
+						}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					});
 				},
 				onLoadBackboneModal: function( event, target ) {

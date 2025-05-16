@@ -8,7 +8,10 @@
  */
 
 use Automattic\WooCommerce\Admin\Features\Features;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -34,7 +37,11 @@ if ( ! $tab_exists ) {
 	exit;
 }
 
+<<<<<<< HEAD
 $hide_nav = FeaturesUtil::feature_is_enabled( 'reactify-classic-payments-settings' ) &&
+=======
+$hide_nav = Features::is_enabled( 'reactify-classic-payments-settings' ) &&
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	( 'checkout' === $current_tab && 'offline' === $current_section );
 ?>
 

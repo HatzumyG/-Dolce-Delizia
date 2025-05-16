@@ -188,7 +188,11 @@ msgstr "Akismet no pudo comprobar este comentario pero volverá a intentarlo aut
 msgid "Comment was caught by %s."
 msgstr "El comentario ha sido detectado por %s."
 
+<<<<<<< HEAD
 #: class.akismet.php:804
+=======
+#: class.akismet.php:807
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Akismet is not configured. Please enter an API key."
 msgstr "Akismet no está configurado. Por favor, introduce una clave de la API."
 
@@ -244,7 +248,11 @@ msgstr "Privacidad"
 msgid "We collect information about visitors who comment on Sites that use our Akismet Anti-spam service. The information we collect depends on how the User sets up Akismet for the Site, but typically includes the commenter's IP address, user agent, referrer, and Site URL (along with other information directly provided by the commenter such as their name, username, email address, and the comment itself)."
 msgstr "Recopilamos información sobre los visitantes que comentan en los sitios que usan nuestro servicio anti-spam, Akismet. La información que recopilamos depende de cómo configure Akismet en el sitio el usuario, pero incluye, normalmente, la dirección IP del comentarista, el navegador del usuario, el sitio de referencia y la URL del sitio (además de otra información directamente facilitada por el comentarista, como su nombre, nombre de usuario, dirección de correo electrónico y el mismo comentario)."
 
+<<<<<<< HEAD
 #: class.akismet.php:430
+=======
+#: class.akismet.php:409
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Comment discarded."
 msgstr "Comentario desechado."
 
@@ -372,7 +380,11 @@ msgstr[1] "Akismet comprobó los comentarios %s."
 msgid "There were no comments to check. Akismet will only check comments awaiting moderation."
 msgstr "No hay comentarios para comprobar. Akismet solo comprobará los comentarios en espera de moderación."
 
+<<<<<<< HEAD
 #: class.akismet.php:810
+=======
+#: class.akismet.php:813
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Comment not found."
 msgstr "Comentario no encontrado."
 
@@ -692,7 +704,11 @@ msgid "Past six months"
 msgstr "Los últimos seis meses"
 
 #. translators: 1: WordPress documentation URL, 2: Akismet download URL.
+<<<<<<< HEAD
 #: class.akismet.php:1740
+=======
+#: class.akismet.php:1741
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Please <a href=\"%1$s\">upgrade WordPress</a> to a current version, or <a href=\"%2$s\">downgrade to version 2.4 of the Akismet plugin</a>."
 msgstr "Por favor, <a href=\"%1$s\">actualiza WordPress</a> a una versión actualizada o <a href=\"%2$s\">instala la versión 2.4 del plugin Akismet</a>."
 

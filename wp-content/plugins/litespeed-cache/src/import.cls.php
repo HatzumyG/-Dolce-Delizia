@@ -132,7 +132,11 @@ class Import extends Base
 			Debug2::debug('Import: Imported ' . $_FILES['ls_file']['name']);
 
 			$msg = sprintf(__('Imported setting file %s successfully.', 'litespeed-cache'), $_FILES['ls_file']['name']);
+<<<<<<< HEAD
 			Admin_Display::success($msg);
+=======
+			Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} else {
 			Debug2::debug('Import: Imported ' . $file);
 		}
@@ -155,7 +159,11 @@ class Import extends Base
 		Debug2::debug('[Import] Reset successfully.');
 
 		$msg = __('Reset successfully.', 'litespeed-cache');
+<<<<<<< HEAD
 		Admin_Display::success($msg);
+=======
+		Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

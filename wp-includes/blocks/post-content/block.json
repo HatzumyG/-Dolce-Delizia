@@ -27,7 +27,10 @@
 		"spacing": {
 			"blockGap": true,
 			"padding": true,
+<<<<<<< HEAD
 			"margin": true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			"__experimentalDefaultControls": {
 				"margin": false,
 				"padding": false
@@ -35,7 +38,10 @@
 		},
 		"color": {
 			"gradients": true,
+<<<<<<< HEAD
 			"heading": true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			"link": true,
 			"__experimentalDefaultControls": {
 				"background": false,
@@ -54,6 +60,7 @@
 			"__experimentalDefaultControls": {
 				"fontSize": true
 			}
+<<<<<<< HEAD
 		},
 		"__experimentalBorder": {
 			"radius": true,
@@ -66,6 +73,8 @@
 				"width": true,
 				"style": true
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"style": "wp-block-post-content",

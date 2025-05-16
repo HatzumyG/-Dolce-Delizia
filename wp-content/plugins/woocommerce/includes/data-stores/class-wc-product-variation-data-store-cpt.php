@@ -7,8 +7,11 @@
 
 use Automattic\Jetpack\Constants;
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\CatalogVisibility;
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -407,6 +410,7 @@ class WC_Product_Variation_Data_Store_CPT extends WC_Product_Data_Store_CPT impl
 		$exclude_catalog = in_array( 'exclude-from-catalog', $term_names, true );
 
 		if ( $exclude_search && $exclude_catalog ) {
+<<<<<<< HEAD
 			$catalog_visibility = CatalogVisibility::HIDDEN;
 		} elseif ( $exclude_search ) {
 			$catalog_visibility = CatalogVisibility::CATALOG;
@@ -414,6 +418,15 @@ class WC_Product_Variation_Data_Store_CPT extends WC_Product_Data_Store_CPT impl
 			$catalog_visibility = CatalogVisibility::SEARCH;
 		} else {
 			$catalog_visibility = CatalogVisibility::VISIBLE;
+=======
+			$catalog_visibility = 'hidden';
+		} elseif ( $exclude_search ) {
+			$catalog_visibility = 'catalog';
+		} elseif ( $exclude_catalog ) {
+			$catalog_visibility = 'search';
+		} else {
+			$catalog_visibility = 'visible';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$product->set_parent_data(
@@ -503,8 +516,13 @@ class WC_Product_Variation_Data_Store_CPT extends WC_Product_Data_Store_CPT impl
 		if ( $force || array_intersect( array( 'stock_status' ), array_keys( $changes ) ) ) {
 			$terms = array();
 
+<<<<<<< HEAD
 			if ( ProductStockStatus::OUT_OF_STOCK === $product->get_stock_status() ) {
 				$terms[] = ProductStockStatus::OUT_OF_STOCK;
+=======
+			if ( 'outofstock' === $product->get_stock_status() ) {
+				$terms[] = 'outofstock';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			wp_set_post_terms( $product->get_id(), $terms, 'product_visibility', false );

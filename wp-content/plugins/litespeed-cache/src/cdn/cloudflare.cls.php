@@ -112,7 +112,11 @@ class Cloudflare extends Base
 
 		if ($res) {
 			$msg = sprintf(__('Notified Cloudflare to set development mode to %s successfully.', 'litespeed-cache'), strtoupper($new_val));
+<<<<<<< HEAD
 			Admin_Display::success($msg);
+=======
+			Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -145,7 +149,11 @@ class Cloudflare extends Base
 
 		if ($res) {
 			$msg = __('Notified Cloudflare to purge all successfully.', 'litespeed-cache');
+<<<<<<< HEAD
 			Admin_Display::success($msg);
+=======
+			Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -265,7 +273,11 @@ class Cloudflare extends Base
 			Debug2::debug('[Cloudflare] _cloudflare_call called successfully');
 			if ($show_msg) {
 				$msg = __('Communicated with Cloudflare successfully.', 'litespeed-cache');
+<<<<<<< HEAD
 				Admin_Display::success($msg);
+=======
+				Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			return $json['result'];

@@ -1,6 +1,9 @@
 <?php
+<<<<<<< HEAD
 declare(strict_types=1);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\Blocks;
 
 use Automattic\WooCommerce\Admin\Features\Features;
@@ -514,6 +517,7 @@ final class BlockTypesController {
 			$block_types[] = 'ProductFilterClearButton';
 			$block_types[] = 'ProductFilterCheckboxList';
 			$block_types[] = 'ProductFilterChips';
+<<<<<<< HEAD
 			if ( Features::is_enabled( 'blockified-add-to-cart' ) && wc_current_theme_is_fse_theme() ) {
 				$block_types[] = 'AddToCartWithOptions';
 				$block_types[] = 'AddToCartWithOptionsQuantitySelector';
@@ -527,6 +531,13 @@ final class BlockTypesController {
 			$block_types[] = 'Accordion\AccordionPanel';
 			$block_types[] = 'Accordion\AccordionHeader';
 			$block_types[] = 'BlockifiedProductDetails';
+=======
+			if ( Features::is_enabled( 'blockified-add-to-cart' ) ) {
+				$block_types[] = 'AddToCartWithOptions';
+				$block_types[] = 'AddToCartWithOptionsQuantitySelector';
+				$block_types[] = 'AddToCartWithOptionsVariationSelector';
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**

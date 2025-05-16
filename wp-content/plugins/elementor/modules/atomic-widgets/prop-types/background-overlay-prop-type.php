@@ -16,7 +16,11 @@ class Background_Overlay_Prop_Type extends Array_Prop_Type {
 
 	protected function define_item_type(): Prop_Type {
 		return Union_Prop_Type::make()
+<<<<<<< HEAD
 			->add_prop_type( Background_Color_Overlay_Prop_Type::make() )
 			->add_prop_type( Background_Image_Overlay_Prop_Type::make() );
+=======
+			->add_prop_type( Background_Color_Overlay_Prop_Type::make() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

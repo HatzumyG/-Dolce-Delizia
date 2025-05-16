@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! elementor - v3.28.0 - 22-04-2025 */
+=======
+/*! elementor - v3.27.0 - 18-02-2025 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -516,9 +520,15 @@ var HomeScreen = function HomeScreen(props) {
       },
       pb: 2
     }
+<<<<<<< HEAD
   }, props.homeScreenData.top_with_licences && /*#__PURE__*/_react.default.createElement(_topSection.default, {
     topData: props.homeScreenData.top_with_licences,
     buttonCtaUrl: props.homeScreenData.button_cta_url
+=======
+  }, /*#__PURE__*/_react.default.createElement(_topSection.default, {
+    topData: props.homeScreenData.top_with_licences,
+    createNewPageUrl: props.homeScreenData.create_new_page_url
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }), /*#__PURE__*/_react.default.createElement(_ui.Box, {
     sx: {
       display: 'flex',
@@ -595,7 +605,10 @@ var SidebarBanner = function SidebarBanner(_ref) {
     target: "_blank",
     href: link,
     sx: {
+<<<<<<< HEAD
       lineHeight: 0,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       display: 'block',
       width: '100%',
       height: '100%',
@@ -770,6 +783,7 @@ var _Button = _interopRequireDefault(__webpack_require__(/*! @elementor/ui/Butto
 var _youtubeIcon = _interopRequireDefault(__webpack_require__(/*! ../icons/youtube-icon */ "../modules/home/assets/js/icons/youtube-icon.js"));
 var TopSection = function TopSection(_ref) {
   var props = (0, _extends2.default)({}, ((0, _objectDestructuringEmpty2.default)(_ref), _ref));
+<<<<<<< HEAD
   var topData = props.topData,
     buttonCtaUrl = props.buttonCtaUrl;
   if (!topData) {
@@ -783,6 +797,8 @@ var TopSection = function TopSection(_ref) {
     buttonWatchURL = topData.button_watch_url,
     buttonWatchTitle = topData.button_watch_title;
   var ctaButtonTitle = buttonCtaTitle !== null && buttonCtaTitle !== void 0 ? buttonCtaTitle : buttonCreatePageTitle;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   return /*#__PURE__*/_react.default.createElement(_ui.Paper, {
     elevation: 0,
     sx: {
@@ -811,30 +827,53 @@ var TopSection = function TopSection(_ref) {
     justifyContent: "center"
   }, /*#__PURE__*/_react.default.createElement(_ui.Box, null, /*#__PURE__*/_react.default.createElement(_Typography.default, {
     variant: "h6"
+<<<<<<< HEAD
   }, title), /*#__PURE__*/_react.default.createElement(_Typography.default, {
     variant: "body2",
     color: "secondary"
   }, description)), /*#__PURE__*/_react.default.createElement(_ui.Box, {
+=======
+  }, props.topData.title), /*#__PURE__*/_react.default.createElement(_Typography.default, {
+    variant: "body2",
+    color: "secondary"
+  }, props.topData.description)), /*#__PURE__*/_react.default.createElement(_ui.Box, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     sx: {
       display: 'flex',
       gap: 1
     }
   }, /*#__PURE__*/_react.default.createElement(_Button.default, {
+<<<<<<< HEAD
     "data-testid": "e-create-button",
     variant: "contained",
     size: "small",
     href: buttonCtaUrl,
     target: "_blank"
   }, ctaButtonTitle), /*#__PURE__*/_react.default.createElement(_Button.default, {
+=======
+    variant: "contained",
+    size: "small",
+    href: props.createNewPageUrl,
+    target: "_blank"
+  }, props.topData.button_create_page_title), /*#__PURE__*/_react.default.createElement(_Button.default, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     variant: "outlined",
     color: "secondary",
     size: "small",
     startIcon: /*#__PURE__*/_react.default.createElement(_youtubeIcon.default, null),
+<<<<<<< HEAD
     href: buttonWatchURL,
     target: "_blank"
   }, buttonWatchTitle))), /*#__PURE__*/_react.default.createElement(_ui.Box, {
     component: "iframe",
     src: "https://www.youtube.com/embed/".concat(youtubeEmbeddedId),
+=======
+    href: props.topData.button_watch_url,
+    target: "_blank"
+  }, props.topData.button_watch_title))), /*#__PURE__*/_react.default.createElement(_ui.Box, {
+    component: "iframe",
+    src: "https://www.youtube.com/embed/".concat(props.topData.youtube_embed_id),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     title: "YouTube video player",
     frameBorder: "0",
     allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
@@ -850,7 +889,11 @@ var TopSection = function TopSection(_ref) {
 };
 TopSection.propTypes = {
   topData: PropTypes.object.isRequired,
+<<<<<<< HEAD
   buttonCtaUrl: PropTypes.string.isRequired
+=======
+  createNewPageUrl: PropTypes.string.isRequired
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 };
 var _default = exports["default"] = TopSection;
 

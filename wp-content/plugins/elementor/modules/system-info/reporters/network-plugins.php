@@ -75,7 +75,11 @@ class Network_Plugins extends Base_Plugin {
 			return false;
 		};
 
+<<<<<<< HEAD
 		return (bool) $this->get_network_plugins();
+=======
+		return ! ! $this->get_network_plugins();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

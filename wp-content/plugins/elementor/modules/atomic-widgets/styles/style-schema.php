@@ -6,8 +6,12 @@ use Elementor\Modules\AtomicWidgets\PropTypes\Box_Shadow_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Border_Radius_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Border_Width_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Color_Prop_Type;
+<<<<<<< HEAD
 use Elementor\Modules\AtomicWidgets\PropTypes\Dimensions_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Layout_Direction_Prop_Type;
+=======
+use Elementor\Modules\AtomicWidgets\PropTypes\Linked_Dimensions_Prop_Type;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\Modules\AtomicWidgets\PropTypes\Primitives\Number_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Size_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Primitives\String_Prop_Type;
@@ -57,7 +61,10 @@ class Style_Schema {
 				'relative',
 				'absolute',
 				'fixed',
+<<<<<<< HEAD
 				'sticky',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			]),
 			'top' => Size_Prop_Type::make(),
 			'right' => Size_Prop_Type::make(),
@@ -89,11 +96,18 @@ class Style_Schema {
 			'color' => Color_Prop_Type::make(),
 			'letter-spacing' => Size_Prop_Type::make(),
 			'word-spacing' => Size_Prop_Type::make(),
+<<<<<<< HEAD
 			'line-height' => Size_Prop_Type::make(),
 			'text-align' => String_Prop_Type::make()->enum([
 				'start',
 				'center',
 				'end',
+=======
+			'text-align' => String_Prop_Type::make()->enum([
+				'left',
+				'center',
+				'right',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'justify',
 			]),
 			'font-style' => String_Prop_Type::make()->enum([
@@ -119,8 +133,13 @@ class Style_Schema {
 
 	private static function get_spacing_props() {
 		return [
+<<<<<<< HEAD
 			'padding' => Union_Prop_Type::make()->add_prop_type( Dimensions_Prop_Type::make() )->add_prop_type( Size_Prop_Type::make() ),
 			'margin' => Union_Prop_Type::make()->add_prop_type( Dimensions_Prop_Type::make() )->add_prop_type( Size_Prop_Type::make() ),
+=======
+			'padding' => Linked_Dimensions_Prop_Type::make(),
+			'margin' => Linked_Dimensions_Prop_Type::make(),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 	}
 
@@ -180,9 +199,13 @@ class Style_Schema {
 				'column',
 				'column-reverse',
 			]),
+<<<<<<< HEAD
 			'gap' => Union_Prop_Type::make()
 				->add_prop_type( Layout_Direction_Prop_Type::make() )
 				->add_prop_type( Size_Prop_Type::make() ),
+=======
+			'gap' => Gap_Prop_Type::make(),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'flex-wrap' => String_Prop_Type::make()->enum([
 				'wrap',
 				'nowrap',

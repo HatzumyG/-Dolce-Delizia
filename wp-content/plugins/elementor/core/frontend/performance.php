@@ -9,8 +9,13 @@ class Performance {
 
 	private static $is_frontend = null;
 
+<<<<<<< HEAD
 	public static function set_use_style_controls( bool $is_use ): void {
 		static::$use_style_controls = $is_use;
+=======
+	public static function set_use_style_controls( bool $bool ): void {
+		static::$use_style_controls = $bool;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	public static function is_use_style_controls(): bool {

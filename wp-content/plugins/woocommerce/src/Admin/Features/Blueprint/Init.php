@@ -6,6 +6,7 @@ namespace Automattic\WooCommerce\Admin\Features\Blueprint;
 
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCCoreProfilerOptions;
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCPaymentGateways;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettingsAccount;
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettingsAdvanced;
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettingsEmails;
@@ -13,6 +14,9 @@ use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettingsGe
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettingsIntegrations;
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettingsProducts;
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettingsSiteVisibility;
+=======
+use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCSettings;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCShipping;
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCTaskOptions;
 use Automattic\WooCommerce\Admin\Features\Blueprint\Exporters\ExportWCTaxRates;
@@ -50,11 +54,19 @@ class Init {
 		add_filter(
 			'wooblueprint_export_landingpage',
 			function () {
+<<<<<<< HEAD
 				return '/wp-admin/admin.php?page=wc-admin';
+=======
+				return 'admin.php?page=wc-admin';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		);
 
 		add_filter( 'wooblueprint_exporters', array( $this, 'add_woo_exporters' ) );
+<<<<<<< HEAD
+=======
+		add_filter( 'wooblueprint_importers', array( $this, 'add_woo_importers' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -73,6 +85,7 @@ class Init {
 	 */
 	public function get_woo_exporters() {
 		$classnames = array(
+<<<<<<< HEAD
 			ExportWCSettingsGeneral::class,
 			ExportWCSettingsProducts::class,
 			ExportWCTaxRates::class,
@@ -83,6 +96,14 @@ class Init {
 			ExportWCSettingsIntegrations::class,
 			ExportWCSettingsSiteVisibility::class,
 			ExportWCSettingsAdvanced::class,
+=======
+			ExportWCCoreProfilerOptions::class,
+			ExportWCSettings::class,
+			ExportWCPaymentGateways::class,
+			ExportWCShipping::class,
+			ExportWCTaskOptions::class,
+			ExportWCTaxRates::class,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		$exporters = array();
@@ -109,6 +130,27 @@ class Init {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Add Woo Specific Importers.
+	 *
+	 * @param StepProcessor[] $importers Array of step processors.
+	 *
+	 * @return array
+	 */
+	public function add_woo_importers( array $importers ) {
+		return array_merge(
+			$importers,
+			array(
+				new ImportSetWCPaymentGateways(),
+				new ImportSetWCShipping(),
+				new ImportSetWCTaxRates(),
+			)
+		);
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Return step groups for JS.
 	 *
 	 * This is used to populate exportable items on the blueprint settings page.
@@ -116,6 +158,7 @@ class Init {
 	 * @return array
 	 */
 	public function get_step_groups_for_js() {
+<<<<<<< HEAD
 		$all_plugins    = $this->wp_get_plugins();
 		$active_plugins = array_intersect_key( $all_plugins, array_flip( get_option( 'active_plugins', array() ) ) );
 		$active_theme   = $this->wp_get_theme();
@@ -166,6 +209,55 @@ class Init {
 				),
 			),
 		);
+=======
+			return array(
+				array(
+					'id'          => 'settings',
+					'description' => __( 'It includes all the items featured in WooCommerce | Settings.', 'woocommerce' ),
+					'label'       => __( 'Settings', 'woocommerce' ),
+					'items'       => array_map(
+						function ( $exporter ) {
+							return array(
+								'id'          => $exporter instanceof HasAlias ? $exporter->get_alias() : $exporter->get_step_name(),
+								'label'       => $exporter->get_label(),
+								'description' => $exporter->get_description(),
+							);
+						},
+						$this->get_woo_exporters()
+					),
+				),
+				array(
+					'id'          => 'plugins',
+					'description' => __( 'It includes all the installed plugins and extensions.', 'woocommerce' ),
+					'label'       => __( 'Plugins and extensions', 'woocommerce' ),
+					'items'       => array_map(
+						function ( $key, $plugin ) {
+							return array(
+								'id'    => $key,
+								'label' => $plugin['Name'],
+							);
+						},
+						array_keys( $this->wp_get_plugins() ),
+						$this->wp_get_plugins()
+					),
+				),
+				array(
+					'id'          => 'themes',
+					'description' => __( 'It includes all the installed themes.', 'woocommerce' ),
+					'label'       => __( 'Themes', 'woocommerce' ),
+					'items'       => array_map(
+						function ( $key, $theme ) {
+							return array(
+								'id'    => $key,
+								'label' => $theme['Name'],
+							);
+						},
+						array_keys( $this->wp_get_themes() ),
+						$this->wp_get_themes()
+					),
+				),
+			);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -191,7 +283,10 @@ class Init {
 			// Used on the settings page.
 			// wcSettings.admin.blueprint_step_groups.
 			$settings['blueprint_step_groups'] = $this->get_step_groups_for_js();
+<<<<<<< HEAD
 			$settings['blueprint_max_step_size_bytes'] = RestApi::MAX_FILE_SIZE;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $settings;

@@ -22,6 +22,12 @@ class Revert {
 
 	private $revert_sessions;
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @throws \Exception
+	 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function __construct() {
 		$this->import_sessions = self::get_import_sessions();
 		$this->revert_sessions = self::get_revert_sessions();

@@ -120,7 +120,10 @@ class Svg_Sanitizer {
 	 * Is Encoded
 	 *
 	 * Check if the contents of the SVG file are gzipped
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @see http://www.gzip.org/zlib/rfc-gzip.html#member-format
 	 *
 	 * @since 3.16.0
@@ -264,6 +267,7 @@ class Svg_Sanitizer {
 	 */
 	private function get_allowed_attributes() {
 		$allowed_attributes = [
+<<<<<<< HEAD
 			'accent-height',
 			'accumulate',
 			'additivive',
@@ -310,10 +314,16 @@ class Svg_Sanitizer {
 			'edgemode',
 			'elevation',
 			'end',
+=======
+			'class',
+			'clip-path',
+			'clip-rule',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'fill',
 			'fill-opacity',
 			'fill-rule',
 			'filter',
+<<<<<<< HEAD
 			'filterres',
 			'filterunits',
 			'flood-color',
@@ -414,6 +424,11 @@ class Svg_Sanitizer {
 			'stitchtiles',
 			'stop-color',
 			'stop-opacity',
+=======
+			'id',
+			'mask',
+			'opacity',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'stroke',
 			'stroke-dasharray',
 			'stroke-dashoffset',
@@ -423,6 +438,7 @@ class Svg_Sanitizer {
 			'stroke-opacity',
 			'stroke-width',
 			'style',
+<<<<<<< HEAD
 			'surfacescale',
 			'systemlanguage',
 			'tabindex',
@@ -469,6 +485,77 @@ class Svg_Sanitizer {
 			'ychannelselector',
 			'z',
 			'zoomandpan',
+=======
+			'systemlanguage',
+			'transform',
+			'href',
+			'xlink:href',
+			'xlink:title',
+			'cx',
+			'cy',
+			'r',
+			'requiredfeatures',
+			'clippathunits',
+			'type',
+			'rx',
+			'ry',
+			'color-interpolation-filters',
+			'stddeviation',
+			'filterres',
+			'filterunits',
+			'height',
+			'primitiveunits',
+			'width',
+			'x',
+			'y',
+			'font-size',
+			'display',
+			'font-family',
+			'font-style',
+			'font-weight',
+			'text-anchor',
+			'marker-end',
+			'marker-mid',
+			'marker-start',
+			'x1',
+			'x2',
+			'y1',
+			'y2',
+			'gradienttransform',
+			'gradientunits',
+			'spreadmethod',
+			'markerheight',
+			'markerunits',
+			'markerwidth',
+			'orient',
+			'preserveaspectratio',
+			'refx',
+			'refy',
+			'viewbox',
+			'maskcontentunits',
+			'maskunits',
+			'd',
+			'patterncontentunits',
+			'patterntransform',
+			'patternunits',
+			'points',
+			'fx',
+			'fy',
+			'offset',
+			'stop-color',
+			'stop-opacity',
+			'xmlns',
+			'xmlns:se',
+			'xmlns:xlink',
+			'xml:space',
+			'method',
+			'spacing',
+			'startoffset',
+			'dx',
+			'dy',
+			'rotate',
+			'textlength',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 
 		/**
@@ -502,6 +589,7 @@ class Svg_Sanitizer {
 	private function get_allowed_elements() {
 		$allowed_elements = [
 			'a',
+<<<<<<< HEAD
 			'animate',
 			'animateMotion',
 			'animateTransform',
@@ -535,6 +623,15 @@ class Svg_Sanitizer {
 			'feSpotLight',
 			'feTile',
 			'feTurbulence',
+=======
+			'circle',
+			'clippath',
+			'defs',
+			'style',
+			'desc',
+			'ellipse',
+			'fegaussianblur',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'filter',
 			'foreignobject',
 			'g',
@@ -544,16 +641,23 @@ class Svg_Sanitizer {
 			'marker',
 			'mask',
 			'metadata',
+<<<<<<< HEAD
 			'mpath',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'path',
 			'pattern',
 			'polygon',
 			'polyline',
 			'radialgradient',
 			'rect',
+<<<<<<< HEAD
 			'set',
 			'stop',
 			'style',
+=======
+			'stop',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'svg',
 			'switch',
 			'symbol',
@@ -562,7 +666,10 @@ class Svg_Sanitizer {
 			'title',
 			'tspan',
 			'use',
+<<<<<<< HEAD
 			'view',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 
 		/**
@@ -711,6 +818,10 @@ class Svg_Sanitizer {
 	 *
 	 * @since 3.16.0
 	 * @access private
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function strip_doctype() {
 		foreach ( $this->svg_dom->childNodes as $child ) {
@@ -741,7 +852,11 @@ class Svg_Sanitizer {
 				continue;
 			}
 
+<<<<<<< HEAD
 			// validate element attributes
+=======
+			//validate element attributes
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$this->validate_allowed_attributes( $current_element );
 
 			$this->strip_xlinks( $current_element );

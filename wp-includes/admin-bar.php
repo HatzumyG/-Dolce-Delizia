@@ -205,7 +205,11 @@ function wp_admin_bar_wp_menu( $wp_admin_bar ) {
 			'parent' => 'wp-logo-external',
 			'id'     => 'learn',
 			'title'  => __( 'Learn WordPress' ),
+<<<<<<< HEAD
 			'href'   => __( 'https://learn.wordpress.org/' ),
+=======
+			'href'   => 'https://learn.wordpress.org/',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	);
 
@@ -453,7 +457,11 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 }
 
 /**
+<<<<<<< HEAD
  * Adds the "Edit Site" link to the Toolbar.
+=======
+ * Adds the "Edit site" link to the Toolbar.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @since 5.9.0
  * @since 6.3.0 Added `$_wp_current_template_id` global for editing of current template directly from the admin bar.
@@ -479,7 +487,11 @@ function wp_admin_bar_edit_site_menu( $wp_admin_bar ) {
 	$wp_admin_bar->add_node(
 		array(
 			'id'    => 'site-editor',
+<<<<<<< HEAD
 			'title' => __( 'Edit Site' ),
+=======
+			'title' => __( 'Edit site' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'href'  => add_query_arg(
 				array(
 					'postType' => 'wp_template',

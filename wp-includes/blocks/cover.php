@@ -35,12 +35,20 @@ function render_block_core_cover( $attributes, $content ) {
 			$attr['style']                = 'object-position:' . $object_position . ';';
 		}
 
+<<<<<<< HEAD
 		$image = get_the_post_thumbnail( null, $attributes['sizeSlug'] ?? 'post-thumbnail', $attr );
+=======
+		$image = get_the_post_thumbnail( null, 'post-thumbnail', $attr );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	} else {
 		if ( in_the_loop() ) {
 			update_post_thumbnail_cache();
 		}
+<<<<<<< HEAD
 		$current_featured_image = get_the_post_thumbnail_url( null, $attributes['sizeSlug'] ?? null );
+=======
+		$current_featured_image = get_the_post_thumbnail_url();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! $current_featured_image ) {
 			return $content;
 		}

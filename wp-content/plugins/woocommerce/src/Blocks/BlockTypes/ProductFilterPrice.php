@@ -124,8 +124,11 @@ final class ProductFilterPrice extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$price_range   = $this->get_filtered_price( $block );
 		$min_range     = $price_range['min_price'] ?? 0;
 		$max_range     = $price_range['max_price'] ?? 0;
@@ -144,8 +147,18 @@ final class ProductFilterPrice extends AbstractBlock {
 		);
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive'  => $this->get_full_block_name(),
 			'data-wp-context'      => wp_json_encode(
+=======
+			'data-wc-interactive'  => wp_json_encode(
+				array(
+					'namespace' => $this->get_full_block_name(),
+				),
+				JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP,
+			),
+			'data-wc-context'      => wp_json_encode(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				array(
 					'minRange'             => $min_range,
 					'maxRange'             => $max_range,
@@ -161,8 +174,13 @@ final class ProductFilterPrice extends AbstractBlock {
 				),
 				JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP,
 			),
+<<<<<<< HEAD
 			'data-wp-key'          => 'product-filter-price-' . md5( wp_json_encode( $attributes ) ),
 			'data-wp-bind--hidden' => '!context.hasFilterOptions',
+=======
+			'data-wc-key'          => 'product-filter-price-' . md5( wp_json_encode( $attributes ) ),
+			'data-wc-bind--hidden' => '!context.hasFilterOptions',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		if ( $min_range === $max_range || ! $max_range ) {
@@ -224,6 +242,7 @@ final class ProductFilterPrice extends AbstractBlock {
 			'max_price' => intval( ceil( $price_results->max_price ?? 0 ) ),
 		);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -235,4 +254,6 @@ final class ProductFilterPrice extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

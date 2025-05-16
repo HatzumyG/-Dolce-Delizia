@@ -2,10 +2,16 @@
   box-sizing:border-box;
 }
 .wp-block-code code{
+<<<<<<< HEAD
   direction:ltr;
   display:block;
   font-family:inherit;
   overflow-wrap:break-word;
   text-align:initial;
+=======
+  display:block;
+  font-family:inherit;
+  overflow-wrap:break-word;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   white-space:pre-wrap;
 }

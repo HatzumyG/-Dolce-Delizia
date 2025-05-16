@@ -16,7 +16,11 @@
  *
  * @global string $wp_version
  */
+<<<<<<< HEAD
 $wp_version = '6.8.1';
+=======
+$wp_version = '6.7.2';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Holds the WordPress DB revision, increments when changes are made to the WordPress DB schema.
@@ -40,6 +44,7 @@ $tinymce_version = '49110-20201110';
 $required_php_version = '7.2.24';
 
 /**
+<<<<<<< HEAD
  * Holds the names of required PHP extensions.
  *
  * @global string[] $required_php_extensions
@@ -50,6 +55,8 @@ $required_php_extensions = array(
 );
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Holds the required MySQL version.
  *
  * @global string $required_mysql_version

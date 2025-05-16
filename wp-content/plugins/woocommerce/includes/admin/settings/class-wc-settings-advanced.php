@@ -5,7 +5,11 @@
  * @package  WooCommerce\Admin
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
+=======
+use Automattic\WooCommerce\Admin\Features\Features;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 defined( 'ABSPATH' ) || exit;
 
@@ -53,8 +57,13 @@ class WC_Settings_Advanced extends WC_Settings_Page {
 			'woocommerce_com' => __( 'WooCommerce.com', 'woocommerce' ),
 		);
 
+<<<<<<< HEAD
 		if ( FeaturesUtil::feature_is_enabled( 'blueprint' ) ) {
 			$sections['blueprint'] = __( 'Blueprint (beta)', 'woocommerce' );
+=======
+		if ( Features::is_enabled( 'blueprint' ) ) {
+			$sections['blueprint'] = __( 'Blueprint', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $sections;

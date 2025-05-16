@@ -441,7 +441,10 @@ class Htaccess extends Root
 			'ExpiresByType image/png A' . $ttl,
 			'ExpiresByType image/gif A' . $ttl,
 			'ExpiresByType image/webp A' . $ttl,
+<<<<<<< HEAD
 			'ExpiresByType image/avif A' . $ttl,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'',
 			'ExpiresByType video/ogg A' . $ttl,
 			'ExpiresByType audio/ogg A' . $ttl,
@@ -543,7 +546,11 @@ class Htaccess extends Root
 			$new_rules[] = '';
 		}
 
+<<<<<<< HEAD
 		// caching php resource TODO: consider drop
+=======
+		// caching php resource
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$id = Base::O_CACHE_RES;
 		if (!empty($cfg[$id])) {
 			$new_rules[] = $new_rules_backend[] = self::MARKER_CACHE_RESOURCE . self::MARKER_START;
@@ -588,6 +595,7 @@ class Htaccess extends Root
 
 		// webp support
 		$id = Base::O_IMG_OPTM_WEBP;
+<<<<<<< HEAD
 		if (!empty($cfg[$id])) {
 			$webP_rule = 'RewriteRule .* - [E=Cache-Control:vary=%{ENV:LSCACHE_VARY_VALUE}+webp]';
 			$next_gen_format = 'webp';
@@ -605,6 +613,15 @@ class Htaccess extends Root
 			$new_rules[] = 'RewriteCond %{HTTP_USER_AGENT} Firefox/([0-9]+)';
 			$new_rules[] = 'RewriteCond %1 >=65';
 			$new_rules[] = $webP_rule;
+=======
+		if (!empty($cfg[$id]) || (!empty($cfg[Base::O_GUEST]) && !empty($cfg[Base::O_GUEST_OPTM]))) {
+			$new_rules[] = self::MARKER_WEBP . self::MARKER_START;
+			$new_rules[] = 'RewriteCond %{HTTP_ACCEPT} "image/webp"';
+			$new_rules[] = 'RewriteRule .* - [E=Cache-Control:vary=%{ENV:LSCACHE_VARY_VALUE}+webp]';
+			$new_rules[] = 'RewriteCond %{HTTP_USER_AGENT} iPhone.*Version/(\d{2}).*Safari';
+			$new_rules[] = 'RewriteCond %1 >13';
+			$new_rules[] = 'RewriteRule .* - [E=Cache-Control:vary=%{ENV:LSCACHE_VARY_VALUE}+webp]';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$new_rules[] = self::MARKER_WEBP . self::MARKER_END;
 			$new_rules[] = '';
 		}

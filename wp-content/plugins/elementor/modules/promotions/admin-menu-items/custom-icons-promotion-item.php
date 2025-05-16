@@ -3,7 +3,11 @@
 namespace Elementor\Modules\Promotions\AdminMenuItems;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Custom_Icons_Promotion_Item extends Base_Promotion_Template {
@@ -19,7 +23,11 @@ class Custom_Icons_Promotion_Item extends Base_Promotion_Template {
 		return esc_html__( 'Custom Icons', 'elementor' );
 	}
 
+<<<<<<< HEAD
 	protected function get_promotion_title(): string {
+=======
+	protected function get_promotion_title():string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return sprintf(
 			/* translators: %s: br  */
 			esc_html__( 'Enjoy creative freedom %s with Custom Icons', 'elementor' ),

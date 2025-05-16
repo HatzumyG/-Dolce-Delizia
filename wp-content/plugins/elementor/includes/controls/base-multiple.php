@@ -40,8 +40,13 @@ abstract class Control_Base_Multiple extends Base_Data_Control {
 	 * @since 1.0.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param array $control  Control.
 	 * @param array $settings Settings.
+=======
+	 * @param array $control  Control
+	 * @param array $settings Settings
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return mixed Control values.
 	 */
@@ -78,7 +83,11 @@ abstract class Control_Base_Multiple extends Base_Data_Control {
 	 * @access public
 	 *
 	 * @param string $css_property  CSS property.
+<<<<<<< HEAD
 	 * @param array  $control_value Control value.
+=======
+	 * @param array $control_value Control value.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param array  $control_data Control Data.
 	 *
 	 * @return array Control style value.

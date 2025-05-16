@@ -2,6 +2,7 @@
 namespace Elementor\Modules\Home\Transformations\Base;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
 }
 
@@ -35,6 +36,19 @@ abstract class Transformations_Abstract {
 		$tier = $this->elementor_adapter->get_tier();
 
 		return apply_filters( 'elementor/admin/homescreen_promotion_tier', $tier ) ?? $tier;
+=======
+	exit; // Exit if accessed directly
+}
+
+abstract class Transformations_Abstract {
+
+	protected $wordpress_adapter;
+	protected $plugin_status_adapter;
+
+	public function __construct( $args ) {
+		$this->wordpress_adapter = $args['wordpress_adapter'] ?? null;
+		$this->plugin_status_adapter = $args['plugin_status_adapter'] ?? null;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	abstract public function transform( array $home_screen_data ): array;

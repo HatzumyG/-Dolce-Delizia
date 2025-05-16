@@ -82,7 +82,10 @@ class Module extends BaseModule {
 				'ai_toggle_favorite_history_item' => [ $this, 'ajax_ai_toggle_favorite_history_item' ],
 				'ai_get_product_image_unification' => [ $this, 'ajax_ai_get_product_image_unification' ],
 				'ai_get_animation' => [ $this, 'ajax_ai_get_animation' ],
+<<<<<<< HEAD
 				'ai_get_image_to_image_isolate_objects' => [ $this, 'ajax_ai_get_product_image_unification' ],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			];
 
 			foreach ( $handlers as $tag => $callback ) {
@@ -304,6 +307,10 @@ class Module extends BaseModule {
 		}
 
 		$this->add_wc_scripts();
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	public function enqueue_ai_single_product_page_scripts() {
@@ -312,6 +319,10 @@ class Module extends BaseModule {
 		}
 
 		$this->add_wc_scripts();
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function add_products_bulk_action( $bulk_actions ) {
@@ -594,8 +605,15 @@ class Module extends BaseModule {
 			if ( ! $document->is_editable_by_current_user() ) {
 				throw new \Exception( 'Access denied' );
 			}
+<<<<<<< HEAD
 		} elseif ( ! current_user_can( 'edit_post', $editor_post_id ) ) {
 				throw new \Exception( 'Access denied' );
+=======
+		} else {
+			if ( ! current_user_can( 'edit_post', $editor_post_id ) ) {
+				throw new \Exception( 'Access denied' );
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -703,7 +721,11 @@ class Module extends BaseModule {
 		];
 	}
 
+<<<<<<< HEAD
 	private function get_ai_app(): Ai {
+=======
+	private function get_ai_app() : Ai {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return Plugin::$instance->common->get_component( 'connect' )->get_app( 'ai' );
 	}
 
@@ -1018,6 +1040,13 @@ class Module extends BaseModule {
 			throw new \Exception( 'Missing prompt settings' );
 		}
 
+<<<<<<< HEAD
+=======
+		if ( ! $app->is_connected() ) {
+			throw new \Exception( 'not_connected' );
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( empty( $data['payload']['mask'] ) ) {
 			throw new \Exception( 'Missing Mask' );
 		}
@@ -1308,6 +1337,7 @@ class Module extends BaseModule {
 			throw new \Exception( 'Not Allowed to Upload images' );
 		}
 
+<<<<<<< HEAD
 		$uploads_manager = new \Elementor\Core\Files\Uploads_Manager();
 		if ( $uploads_manager::are_unfiltered_uploads_enabled() ) {
 			Plugin::$instance->uploads_manager->set_elementor_upload_state( true );
@@ -1324,6 +1354,10 @@ class Module extends BaseModule {
 			return new \WP_Error( 'upload_error', $attachment_id->get_error_message() );
 		}
 
+=======
+		$attachment_id = media_sideload_image( $image_url, $parent_post_id, $image_title, 'id' );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! empty( $attachment_id['error'] ) ) {
 			return new \WP_Error( 'upload_error', $attachment_id['error'] );
 		}
@@ -1408,14 +1442,19 @@ class Module extends BaseModule {
 	}
 
 	public function ajax_ai_get_product_image_unification( $data ): array {
+<<<<<<< HEAD
 		if ( ! empty( $data['payload']['postId'] ) ) {
 			$data['editor_post_id'] = $data['payload']['postId'];
 		}
+=======
+		$data['editor_post_id'] = $data['payload']['postId'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->verify_upload_permissions( $data );
 
 		$app = $this->get_ai_app();
 
 		if ( empty( $data['payload']['image'] ) || empty( $data['payload']['image']['id'] ) ) {
+<<<<<<< HEAD
 			throw new \Exception( 'Missing Image' );
 		}
 
@@ -1425,6 +1464,17 @@ class Module extends BaseModule {
 
 		if ( ! $app->is_connected() ) {
 			throw new \Exception( 'not_connected' );
+=======
+			throw new \Exception( esc_html__( 'Missing Image', 'elementor' ) );
+		}
+
+		if ( empty( $data['payload']['settings'] ) ) {
+			throw new \Exception( esc_html__( 'Missing prompt settings', 'elementor' ) );
+		}
+
+		if ( ! $app->is_connected() ) {
+			throw new \Exception( esc_html__( 'not_connected', 'elementor' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$context = $this->get_request_context( $data );
@@ -1433,7 +1483,10 @@ class Module extends BaseModule {
 		$result = $app->get_unify_product_images( [
 			'promptSettings' => $data['payload']['settings'],
 			'attachment_id' => $data['payload']['image']['id'],
+<<<<<<< HEAD
 			'featureIdentifier' => $data['payload']['featureIdentifier'] ?? '',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		], $context, $request_ids );
 
 		$this->throw_on_error( $result );

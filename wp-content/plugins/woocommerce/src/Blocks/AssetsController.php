@@ -35,7 +35,10 @@ final class AssetsController {
 	 */
 	protected function init() { // phpcs:ignore WooCommerce.Functions.InternalInjectionMethod.MissingPublic
 		add_action( 'init', array( $this, 'register_assets' ) );
+<<<<<<< HEAD
 		add_action( 'init', array( $this, 'register_script_modules' ) );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( 'enqueue_block_editor_assets', array( $this, 'register_and_enqueue_site_editor_assets' ) );
 		add_filter( 'wp_resource_hints', array( $this, 'add_resource_hints' ), 10, 2 );
 		add_action( 'body_class', array( $this, 'add_theme_body_class' ), 1 );
@@ -47,6 +50,7 @@ final class AssetsController {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Register script modules.
 	 */
 	public function register_script_modules() {
@@ -64,6 +68,8 @@ final class AssetsController {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Register block scripts & styles.
 	 */
 	public function register_assets() {
@@ -90,9 +96,19 @@ final class AssetsController {
 		$this->api->register_script( 'wc-cart-checkout-vendors', $this->api->get_block_asset_build_path( 'wc-cart-checkout-vendors-frontend' ), array(), true );
 		$this->api->register_script( 'wc-cart-checkout-base', $this->api->get_block_asset_build_path( 'wc-cart-checkout-base-frontend' ), array(), true );
 		$this->api->register_script( 'wc-blocks-checkout', 'assets/client/blocks/blocks-checkout.js' );
+<<<<<<< HEAD
 		$this->api->register_script( 'wc-blocks-checkout-events', 'assets/client/blocks/blocks-checkout-events.js' );
 		$this->api->register_script( 'wc-blocks-components', 'assets/client/blocks/blocks-components.js' );
 		$this->api->register_script( 'wc-schema-parser', 'assets/client/blocks/wc-schema-parser.js', array(), false );
+=======
+		$this->api->register_script( 'wc-blocks-components', 'assets/client/blocks/blocks-components.js' );
+
+		// Register the interactivity components here for now.
+		$this->api->register_script( 'wc-interactivity-dropdown', 'assets/client/blocks/wc-interactivity-dropdown.js', array() );
+		$this->api->register_script( 'wc-interactivity-checkbox-list', 'assets/client/blocks/wc-interactivity-checkbox-list.js', array() );
+		$this->register_style( 'wc-interactivity-checkbox-list', plugins_url( $this->api->get_block_asset_build_path( 'wc-interactivity-checkbox-list', 'css' ), dirname( __DIR__ ) ), array(), 'all', true );
+		$this->register_style( 'wc-interactivity-dropdown', plugins_url( $this->api->get_block_asset_build_path( 'wc-interactivity-dropdown', 'css' ), dirname( __DIR__ ) ), array(), 'all', true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Customer Effort Score.
 		$this->api->register_script(
@@ -355,10 +371,17 @@ final class AssetsController {
 	 */
 	public function skip_boost_minification_for_cart_checkout( $do_concat, $handle ) {
 		$boost_is_outdated = defined( 'JETPACK_BOOST_VERSION' ) && version_compare( JETPACK_BOOST_VERSION, '3.4.2', '<' );
+<<<<<<< HEAD
 		$scripts_to_ignore = array(
 			'wc-cart-checkout-vendors',
 			'wc-cart-checkout-base',
 		);
+=======
+		$scripts_to_ignore = [
+			'wc-cart-checkout-vendors',
+			'wc-cart-checkout-base',
+		];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return $boost_is_outdated && in_array( $handle, $scripts_to_ignore, true ) ? false : $do_concat;
 	}

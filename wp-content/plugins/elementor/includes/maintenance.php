@@ -25,7 +25,10 @@ class Maintenance {
 	 *
 	 * Fired by `register_activation_hook` when the plugin is activated.
 	 *
+<<<<<<< HEAD
 	 * @param bool $network_wide
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since 1.0.0
 	 * @access public
 	 * @static
@@ -121,7 +124,11 @@ class Maintenance {
 				Manager::create_default_kit();
 
 				restore_current_blog();
+<<<<<<< HEAD
 			}
+=======
+			};
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			return;
 		}

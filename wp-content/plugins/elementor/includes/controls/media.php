@@ -60,7 +60,11 @@ class Control_Media extends Control_Base_Multiple {
 	 * @since 1.0.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param array $settings Control settings.
+=======
+	 * @param array $settings Control settings
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array Control settings.
 	 */
@@ -89,7 +93,11 @@ class Control_Media extends Control_Base_Multiple {
 	 * @since 3.4.6
 	 * @deprecated 3.5.0
 	 *
+<<<<<<< HEAD
 	 * @param mixed $mimes
+=======
+	 * @param $mimes
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return mixed
 	 */
 	public function support_svg_and_json_import( $mimes ) {
@@ -110,7 +118,11 @@ class Control_Media extends Control_Base_Multiple {
 	public function enqueue() {
 		global $wp_version;
 
+<<<<<<< HEAD
 		$suffix = Utils::is_script_debug() ? '' : '.min';
+=======
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wp_enqueue_media();
 
 		wp_enqueue_style(
@@ -248,9 +260,13 @@ class Control_Media extends Control_Base_Multiple {
 						</div>
 					</div>
 
+<<<<<<< HEAD
 					<?php
 					/*
 					?>
+=======
+					<?php /* ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					<div class="elementor-control-media__warnings" role="alert" style="display: none;">
 						<?php
 						Hints::get_notice_template( [
@@ -260,9 +276,32 @@ class Control_Media extends Control_Base_Multiple {
 						] );
 						?>
 					</div>
+<<<<<<< HEAD
 					<?php
 					*/ ?>
 					<?php $this->maybe_display_io_hints(); ?>
+=======
+					<?php */ ?>
+
+					<?php if ( Hints::should_display_hint( 'image-optimization' ) ) : ?>
+					<div class="elementor-control-media__promotions" role="alert" style="display: none;">
+						<?php
+						Hints::get_notice_template( [
+							'display' => ! Hints::is_dismissed( 'image-optimization' ),
+							'type' => 'info',
+							'content' => __( 'Optimize your images to enhance site performance by using Image Optimizer.', 'elementor' ),
+							'icon' => true,
+							'dismissible' => 'image_optimizer_hint',
+							'button_text' => Hints::is_plugin_installed( 'image-optimization' ) ? __( 'Activate Plugin', 'elementor' ) : __( 'Install Plugin', 'elementor' ),
+							'button_event' => 'image_optimizer_hint',
+							'button_data' => [
+								'action_url' => Hints::get_plugin_action_url( 'image-optimization' ),
+							],
+						] ); ?>
+					</div>
+					<?php endif; ?>
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				</div>
 			<# } /* endif isViewable() */ else { #>
 				<div class="elementor-control-media__file elementor-control-preview-area">
@@ -303,8 +342,11 @@ class Control_Media extends Control_Base_Multiple {
 						</select>
 					</div>
 				</div>
+<<<<<<< HEAD
 
 				<div class="elementor-control-field-description"><?php echo esc_html__( 'Image size settings don’t apply to Dynamic Images.', 'elementor' ); ?></div>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			</div>
 			<# } #>
 
@@ -313,6 +355,7 @@ class Control_Media extends Control_Base_Multiple {
 		<?php
 	}
 
+<<<<<<< HEAD
 	private function maybe_display_io_hints() {
 		if ( Hints::should_display_hint( 'image-optimization' ) ) {
 			$content_text = esc_html__( 'Optimize your images to enhance site performance by using Image Optimizer.', 'elementor' );
@@ -346,6 +389,9 @@ class Control_Media extends Control_Base_Multiple {
 	}
 
 	private function get_image_sizes(): array {
+=======
+	private function get_image_sizes() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$wp_image_sizes = Group_Control_Image_Size::get_all_image_sizes();
 
 		$image_sizes = [];

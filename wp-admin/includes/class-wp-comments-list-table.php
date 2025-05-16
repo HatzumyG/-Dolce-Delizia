@@ -357,10 +357,13 @@ class WP_Comments_List_Table extends WP_List_Table {
 	protected function get_bulk_actions() {
 		global $comment_status;
 
+<<<<<<< HEAD
 		if ( ! current_user_can( 'moderate_comments' ) ) {
 			return array(); // Return an empty array if the user doesn't have permission
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$actions = array();
 
 		if ( in_array( $comment_status, array( 'all', 'approved' ), true ) ) {

@@ -7,9 +7,12 @@ namespace Automattic\WooCommerce\Internal\Features\ProductBlockEditor\ProductTem
 
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\Features\ProductBlockEditor\ProductTemplates\ProductFormTemplateInterface;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\CatalogVisibility;
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use WC_Tax;
 
 /**
@@ -296,7 +299,11 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 						'options'  => array(
 							array(
 								'label' => __( 'Product and shipping', 'woocommerce' ),
+<<<<<<< HEAD
 								'value' => ProductTaxStatus::TAXABLE,
+=======
+								'value' => 'taxable',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							),
 							array(
 								'label' => __( 'Only shipping', 'woocommerce' ),
@@ -354,9 +361,12 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 						'woocommerce'
 					),
 					'property' => 'short_description',
+<<<<<<< HEAD
 					'lock'     => array(
 						'move' => true,
 					),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 			)
 		);
@@ -390,9 +400,12 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 					'helpText' => null,
 					'label'    => null,
 					'property' => 'description',
+<<<<<<< HEAD
 					'lock'     => array(
 						'move' => true,
 					),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 			)
 		);
@@ -574,7 +587,11 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 				'order'      => 20,
 				'attributes' => array(
 					'label'      => __( 'Hide in product catalog', 'woocommerce' ),
+<<<<<<< HEAD
 					'visibility' => CatalogVisibility::SEARCH,
+=======
+					'visibility' => 'search',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 			)
 		);
@@ -585,7 +602,11 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 				'order'      => 30,
 				'attributes' => array(
 					'label'      => __( 'Hide from search results', 'woocommerce' ),
+<<<<<<< HEAD
 					'visibility' => CatalogVisibility::CATALOG,
+=======
+					'visibility' => 'catalog',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 			)
 		);
@@ -860,6 +881,7 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 					'options'  => array(
 						array(
 							'label' => __( 'In stock', 'woocommerce' ),
+<<<<<<< HEAD
 							'value' => ProductStockStatus::IN_STOCK,
 						),
 						array(
@@ -869,6 +891,17 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 						array(
 							'label' => __( 'On backorder', 'woocommerce' ),
 							'value' => ProductStockStatus::ON_BACKORDER,
+=======
+							'value' => 'instock',
+						),
+						array(
+							'label' => __( 'Out of stock', 'woocommerce' ),
+							'value' => 'outofstock',
+						),
+						array(
+							'label' => __( 'On backorder', 'woocommerce' ),
+							'value' => 'onbackorder',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						),
 					),
 				),
@@ -890,9 +923,12 @@ class SimpleProductTemplate extends AbstractProductFormTemplate implements Produ
 					'property'    => 'purchase_note',
 					'label'       => __( 'Post-purchase note', 'woocommerce' ),
 					'placeholder' => __( 'Enter an optional note attached to the order confirmation message sent to the shopper.', 'woocommerce' ),
+<<<<<<< HEAD
 					'lock'        => array(
 						'move' => true,
 					),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 			)
 		);

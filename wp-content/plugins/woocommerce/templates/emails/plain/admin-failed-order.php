@@ -12,6 +12,7 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails\Plain
+<<<<<<< HEAD
  * @version 9.8.0
  */
 
@@ -21,17 +22,28 @@ defined( 'ABSPATH' ) || exit;
 
 $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
 
+=======
+ * @version 3.7.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
 echo esc_html( wp_strip_all_tags( $email_heading ) );
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
 /* translators: %1$s: Order number. %2$s: Customer full name. */
+<<<<<<< HEAD
 $text = __( 'Payment for order #%1$s from %2$s has failed. The order was as follows:', 'woocommerce' );
 if ( $email_improvements_enabled ) {
 	/* translators: %1$s: Order number. %2$s: Customer full name. */
 	$text = __( 'Unfortunately, the payment for order #%1$s from %2$s has failed. The order was as follows:', 'woocommerce' );
 }
 echo sprintf( esc_html( $text ), esc_html( $order->get_order_number() ), esc_html( $order->get_formatted_billing_full_name() ) ) . "\n\n";
+=======
+echo sprintf( esc_html__( 'Payment for order #%1$s from %2$s has failed. The order was as follows:', 'woocommerce' ), esc_html( $order->get_order_number() ), esc_html( $order->get_formatted_billing_full_name() ) ) . "\n\n";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /*
  * @hooked WC_Emails::order_details() Shows the order details table.

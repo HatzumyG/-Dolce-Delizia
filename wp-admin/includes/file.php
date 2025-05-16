@@ -635,7 +635,11 @@ function wp_edit_theme_plugin_file( $args ) {
 			wp_opcache_invalidate( $real_file, true );
 
 			if ( ! isset( $result['message'] ) ) {
+<<<<<<< HEAD
 				$message = __( 'An error occurred. Please try again later.' );
+=======
+				$message = __( 'Something went wrong.' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			} else {
 				$message = $result['message'];
 				unset( $result['message'] );
@@ -1241,6 +1245,7 @@ function download_url( $url, $timeout = 300, $signature_verification = false ) {
 		}
 	}
 
+<<<<<<< HEAD
 	$mime_type = wp_remote_retrieve_header( $response, 'content-type' );
 	if ( $mime_type && 'tmp' === pathinfo( $tmpfname, PATHINFO_EXTENSION ) ) {
 		$valid_mime_types = array_flip( get_allowed_mime_types() );
@@ -1259,6 +1264,8 @@ function download_url( $url, $timeout = 300, $signature_verification = false ) {
 		}
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$content_md5 = wp_remote_retrieve_header( $response, 'Content-MD5' );
 
 	if ( $content_md5 ) {

@@ -5,6 +5,7 @@
  * Categories: WooCommerce
  * Template Types: coming-soon
  * Inserter: false
+<<<<<<< HEAD
  */
 
 use Automattic\WooCommerce\Blocks\Templates\ComingSoonTemplate;
@@ -13,6 +14,19 @@ $fonts               = ComingSoonTemplate::get_font_families();
 $heading_font_family = $fonts['heading'];
 $body_font_family    = $fonts['body'];
 
+=======
+ * Feature Flag: coming-soon-newsletter-template
+ */
+
+$current_theme     = wp_get_theme()->get_stylesheet();
+$inter_font_family = 'inter';
+$cardo_font_family = 'cardo';
+
+if ( 'twentytwentyfour' === $current_theme ) {
+	$inter_font_family = 'body';
+	$cardo_font_family = 'heading';
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 ?>
 
@@ -30,16 +44,26 @@ if ( wc_current_theme_is_fse_theme() ) {
 <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
+<<<<<<< HEAD
 <!-- wp:heading {"textAlign":"center","level":1,"fontFamily":"<?php echo esc_html( $heading_font_family ); ?>"} -->
 <h1 class="wp-block-heading has-text-align-center has-<?php echo esc_html( $heading_font_family ); ?>-font-family"><?php echo esc_html__( 'Great things are on the horizon', 'woocommerce' ); ?></h1>
+=======
+<!-- wp:heading {"textAlign":"center","level":1,"fontFamily":"<?php echo esc_html( $cardo_font_family ); ?>"} -->
+<h1 class="wp-block-heading has-text-align-center has-<?php echo esc_html( $cardo_font_family ); ?>-font-family"><?php echo esc_html__( 'Great things are on the horizon', 'woocommerce' ); ?></h1>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <!-- /wp:heading -->
 
 <!-- wp:spacer {"height":"10px"} -->
 <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
+<<<<<<< HEAD
 <!-- wp:paragraph {"align":"center","fontFamily":"<?php echo esc_html( $body_font_family ); ?>"} -->
 <p class="has-text-align-center has-<?php echo esc_html( $body_font_family ); ?>-font-family"><?php echo esc_html__( 'Something big is brewing! Our store is in the works and will be launching soon!', 'woocommerce' ); ?></p>
+=======
+<!-- wp:paragraph {"align":"center","fontFamily":"<?php echo esc_html( $inter_font_family ); ?>"} -->
+<p class="has-text-align-center has-<?php echo esc_html( $inter_font_family ); ?>-font-family"><?php echo esc_html__( 'Something big is brewing! Our store is in the works and will be launching soon!', 'woocommerce' ); ?></p>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer -->

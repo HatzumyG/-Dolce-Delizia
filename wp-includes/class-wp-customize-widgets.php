@@ -733,10 +733,14 @@ final class WP_Customize_Widgets {
 				<p class="description">{description}</p>
 				<ul class="widget-area-select">
 					<% _.each( sidebars, function ( sidebar ){ %>
+<<<<<<< HEAD
 						<li class="" data-id="<%- sidebar.id %>" tabindex="0">
 							<div><strong><%- sidebar.name %></strong></div>
 							<div><%- sidebar.description %></div>
 						</li>
+=======
+						<li class="" data-id="<%- sidebar.id %>" title="<%- sidebar.description %>" tabindex="0"><%- sidebar.name %></li>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					<% }); %>
 				</ul>
 				<div class="move-widget-actions">

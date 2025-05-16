@@ -2488,13 +2488,20 @@
 
 	/* Visually hide the menu heading keeping it available to assistive technologies. */
 	.media-frame-menu-heading {
+<<<<<<< HEAD
+=======
+		clip: rect(1px, 1px, 1px, 1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		clip-path: inset(50%);
 		height: 1px;
 		overflow: hidden;
 		padding: 0;
 		width: 1px;
+<<<<<<< HEAD
 		border: 0;
 		margin: -1px;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		word-wrap: normal !important;
 	}
 

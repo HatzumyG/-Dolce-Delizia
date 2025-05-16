@@ -42,23 +42,40 @@ __webpack_require__.d(__webpack_exports__, {
   __dangerousOptInToUnstableAPIsOnlyForCoreModules: () => (/* reexport */ __dangerousOptInToUnstableAPIsOnlyForCoreModules)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/private-apis/build-module/implementation.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/private-apis/build-module/implementation.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * wordpress/private-apis – the utilities to enable private cross-package
  * exports of private APIs.
  *
+<<<<<<< HEAD
  * This "implementation.ts" file is needed for the sake of the unit tests. It
+=======
+ * This "implementation.js" file is needed for the sake of the unit tests. It
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * exports more than the public API of the package to aid in testing.
  */
 
 /**
  * The list of core modules allowed to opt-in to the private APIs.
  */
+<<<<<<< HEAD
 const CORE_MODULES_USING_PRIVATE_APIS = ['@wordpress/block-directory', '@wordpress/block-editor', '@wordpress/block-library', '@wordpress/blocks', '@wordpress/commands', '@wordpress/components', '@wordpress/core-commands', '@wordpress/core-data', '@wordpress/customize-widgets', '@wordpress/data', '@wordpress/edit-post', '@wordpress/edit-site', '@wordpress/edit-widgets', '@wordpress/editor', '@wordpress/format-library', '@wordpress/patterns', '@wordpress/preferences', '@wordpress/reusable-blocks', '@wordpress/router', '@wordpress/dataviews', '@wordpress/fields', '@wordpress/media-utils', '@wordpress/upload-media'];
+=======
+const CORE_MODULES_USING_PRIVATE_APIS = ['@wordpress/block-directory', '@wordpress/block-editor', '@wordpress/block-library', '@wordpress/blocks', '@wordpress/commands', '@wordpress/components', '@wordpress/core-commands', '@wordpress/core-data', '@wordpress/customize-widgets', '@wordpress/data', '@wordpress/edit-post', '@wordpress/edit-site', '@wordpress/edit-widgets', '@wordpress/editor', '@wordpress/format-library', '@wordpress/interface', '@wordpress/patterns', '@wordpress/preferences', '@wordpress/reusable-blocks', '@wordpress/router', '@wordpress/dataviews', '@wordpress/fields'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * A list of core modules that already opted-in to
  * the privateApis package.
+<<<<<<< HEAD
+=======
+ *
+ * @type {string[]}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 const registeredPrivateApis = [];
 
@@ -78,16 +95,37 @@ const registeredPrivateApis = [];
  */
 const requiredConsent = 'I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.';
 
+<<<<<<< HEAD
 // The safety measure is meant for WordPress core where IS_WORDPRESS_CORE is set to true.
 const allowReRegistration =  true ? false : 0;
+=======
+/** @type {boolean} */
+let allowReRegistration;
+// The safety measure is meant for WordPress core where IS_WORDPRESS_CORE
+// is set to true.
+// For the general use-case, the re-registration should be allowed by default
+// Let's default to true, then. Try/catch will fall back to "true" even if the
+// environment variable is not explicitly defined.
+try {
+  allowReRegistration =  true ? false : 0;
+} catch (error) {
+  allowReRegistration = true;
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Called by a @wordpress package wishing to opt-in to accessing or exposing
  * private private APIs.
  *
+<<<<<<< HEAD
  * @param consent    The consent string.
  * @param moduleName The name of the module that is opting in.
  * @return An object containing the lock and unlock functions.
+=======
+ * @param {string} consent    The consent string.
+ * @param {string} moduleName The name of the module that is opting in.
+ * @return {{lock: typeof lock, unlock: typeof unlock}} An object containing the lock and unlock functions.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 const __dangerousOptInToUnstableAPIsOnlyForCoreModules = (consent, moduleName) => {
   if (!CORE_MODULES_USING_PRIVATE_APIS.includes(moduleName)) {
@@ -130,18 +168,30 @@ const __dangerousOptInToUnstableAPIsOnlyForCoreModules = (consent, moduleName) =
  * // { a: 1 }
  * ```
  *
+<<<<<<< HEAD
  * @param object      The object to bind the private data to.
  * @param privateData The private data to bind to the object.
+=======
+ * @param {any} object      The object to bind the private data to.
+ * @param {any} privateData The private data to bind to the object.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function lock(object, privateData) {
   if (!object) {
     throw new Error('Cannot lock an undefined object.');
   }
+<<<<<<< HEAD
   const _object = object;
   if (!(__private in _object)) {
     _object[__private] = {};
   }
   lockedData.set(_object[__private], privateData);
+=======
+  if (!(__private in object)) {
+    object[__private] = {};
+  }
+  lockedData.set(object[__private], privateData);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -164,18 +214,30 @@ function lock(object, privateData) {
  * // { a: 1 }
  * ```
  *
+<<<<<<< HEAD
  * @param object The object to unlock the private data from.
  * @return The private data bound to the object.
+=======
+ * @param {any} object The object to unlock the private data from.
+ * @return {any} The private data bound to the object.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function unlock(object) {
   if (!object) {
     throw new Error('Cannot unlock an undefined object.');
   }
+<<<<<<< HEAD
   const _object = object;
   if (!(__private in _object)) {
     throw new Error('Cannot unlock an object that was not locked before. ');
   }
   return lockedData.get(_object[__private]);
+=======
+  if (!(__private in object)) {
+    throw new Error('Cannot unlock an object that was not locked before. ');
+  }
+  return lockedData.get(object[__private]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 const lockedData = new WeakMap();
 
@@ -191,7 +253,11 @@ const __private = Symbol('Private API ID');
  * Private function to allow the unit tests to allow
  * a mock module to access the private APIs.
  *
+<<<<<<< HEAD
  * @param name The name of the module.
+=======
+ * @param {string} name The name of the module.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function allowCoreModule(name) {
   CORE_MODULES_USING_PRIVATE_APIS.push(name);
@@ -216,7 +282,11 @@ function resetRegisteredPrivateApis() {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/private-apis/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/private-apis/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 (window.wp = window.wp || {}).privateApis = __webpack_exports__;

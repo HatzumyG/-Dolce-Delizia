@@ -45,7 +45,10 @@
 
 .format-library__inline-color-popover [role=tabpanel]{
   padding:16px;
+<<<<<<< HEAD
   width:260px;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 .block-editor-format-toolbar__language-popover .components-popover__content{

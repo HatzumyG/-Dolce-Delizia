@@ -14,8 +14,16 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 	define( 'WP_ADMIN', true );
 }
 
+<<<<<<< HEAD
 /** Load WordPress Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
+=======
+if ( defined( 'ABSPATH' ) ) {
+	require_once ABSPATH . 'wp-load.php';
+} else {
+	require_once dirname( __DIR__ ) . '/wp-load.php';
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 require_once ABSPATH . 'wp-admin/admin.php';
 
@@ -112,12 +120,19 @@ if ( isset( $_REQUEST['post_id'] ) ) {
 
 $id = media_handle_upload( 'async-upload', $post_id );
 if ( is_wp_error( $id ) ) {
+<<<<<<< HEAD
 	$button_unique_id = uniqid( 'dismiss-' );
 	$message          = sprintf(
 		'%s <strong>%s</strong><br />%s',
 		sprintf(
 			'<button type="button" id="%s" class="dismiss button-link">%s</button>',
 			esc_attr( $button_unique_id ),
+=======
+	$message = sprintf(
+		'%s <strong>%s</strong><br />%s',
+		sprintf(
+			'<button type="button" class="dismiss button-link" onclick="jQuery(this).parents(\'div.media-item\').slideUp(200, function(){jQuery(this).remove();});">%s</button>',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			__( 'Dismiss' )
 		),
 		sprintf(
@@ -134,7 +149,10 @@ if ( is_wp_error( $id ) ) {
 			'paragraph_wrap'     => false,
 		)
 	);
+<<<<<<< HEAD
 	echo "<script>jQuery( 'button#{$button_unique_id}' ).on( 'click', function() {jQuery(this).parents('div.media-item').slideUp(200, function(){jQuery(this).remove();})});</script>\n";
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	exit;
 }
 

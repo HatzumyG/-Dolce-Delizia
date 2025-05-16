@@ -3,9 +3,12 @@
  * Admin View: Bulk Edit Products
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
 use Automattic\WooCommerce\Enums\CatalogVisibility;
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Utilities\I18nUtil;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -70,6 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</label>
 		</div>
 
+<<<<<<< HEAD
 		<?php if ( wc_get_container()->get( CostOfGoodsSoldController::class )->feature_is_enabled() ) : ?>
 			<div class="inline-edit-group">
 				<label class="alignleft">
@@ -97,6 +101,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="inline-edit-group">
 		<?php endif; ?>
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<?php if ( wc_tax_enabled() ) : ?>
 			<label>
 				<span class="title"><?php _e( 'Tax status', 'woocommerce' ); ?></span>
@@ -104,10 +110,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<select class="tax_status" name="_tax_status">
 						<?php
 						$options = array(
+<<<<<<< HEAD
 							''                         => __( '— No change —', 'woocommerce' ),
 							ProductTaxStatus::TAXABLE  => __( 'Taxable', 'woocommerce' ),
 							ProductTaxStatus::SHIPPING => __( 'Shipping only', 'woocommerce' ),
 							ProductTaxStatus::NONE     => _x( 'None', 'Tax status', 'woocommerce' ),
+=======
+							''         => __( '— No change —', 'woocommerce' ),
+							'taxable'  => __( 'Taxable', 'woocommerce' ),
+							'shipping' => __( 'Shipping only', 'woocommerce' ),
+							'none'     => _x( 'None', 'Tax status', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						);
 						foreach ( $options as $key => $value ) {
 							echo '<option value="' . esc_attr( $key ) . '">' . esc_html( $value ) . '</option>';
@@ -155,10 +168,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 									''  => __( '— No change —', 'woocommerce' ),
 									'1' => __( 'Change to:', 'woocommerce' ),
 								);
+<<<<<<< HEAD
 								foreach ( $options as $key => $value ) {
 									echo '<option value="' . esc_attr( $key ) . '">' . esc_html( $value ) . '</option>';
 								}
 								?>
+=======
+							foreach ( $options as $key => $value ) {
+								echo '<option value="' . esc_attr( $key ) . '">' . esc_html( $value ) . '</option>';
+							}
+							?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						</select>
 					</span>
 				</label>
@@ -253,11 +273,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<select class="visibility" name="_visibility">
 					<?php
 					$options = array(
+<<<<<<< HEAD
 						''                         => __( '— No change —', 'woocommerce' ),
 						CatalogVisibility::VISIBLE => __( 'Catalog &amp; search', 'woocommerce' ),
 						CatalogVisibility::CATALOG => __( 'Catalog', 'woocommerce' ),
 						CatalogVisibility::SEARCH  => __( 'Search', 'woocommerce' ),
 						CatalogVisibility::HIDDEN  => __( 'Hidden', 'woocommerce' ),
+=======
+						''        => __( '— No change —', 'woocommerce' ),
+						'visible' => __( 'Catalog &amp; search', 'woocommerce' ),
+						'catalog' => __( 'Catalog', 'woocommerce' ),
+						'search'  => __( 'Search', 'woocommerce' ),
+						'hidden'  => __( 'Hidden', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					);
 					foreach ( $options as $key => $value ) {
 						echo '<option value="' . esc_attr( $key ) . '">' . esc_html( $value ) . '</option>';

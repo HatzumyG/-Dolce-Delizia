@@ -90,7 +90,11 @@ if ( ! get_option( 'users_can_register' ) && is_multisite() ) {
 <ul>
 	<li>
 		<label for="close_comments_days_old"><?php _e( 'Close comments when post is how many days old' ); ?></label>
+<<<<<<< HEAD
 		<input name="close_comments_days_old" type="number" step="1" min="0" id="close_comments_days_old" value="<?php echo esc_attr( get_option( 'close_comments_days_old' ) ); ?>" class="small-text" />
+=======
+		<input name="close_comments_days_old" type="number" step="1" min="0" id="close_comments_days_old" value="<?php echo esc_attr( get_option( 'close_comments_days_old' ) ); ?>" class="small-text"/>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	</li>
 </ul>
 

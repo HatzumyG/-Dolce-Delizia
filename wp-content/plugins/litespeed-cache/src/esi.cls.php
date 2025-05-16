@@ -167,7 +167,11 @@ class ESI extends Root
 
 		$this->_nonce_actions[$action] = $control;
 
+<<<<<<< HEAD
 		// Debug2::debug('[ESI] Appended nonce action to nonce list [action] ' . $action);
+=======
+		Debug2::debug('[ESI] Appended nonce action to nonce list [action] ' . $action);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -283,10 +287,17 @@ class ESI extends Root
 		if (!empty($_SERVER['ESI_REFERER']) && !$this->cls('REST')->is_rest($_SERVER['ESI_REFERER'])) {
 			self::debug('overwrite REQUEST_URI to ESI_REFERER [from] ' . $_SERVER['REQUEST_URI'] . ' [to] ' . $_SERVER['ESI_REFERER']);
 			if (!empty($_SERVER['ESI_REFERER'])) {
+<<<<<<< HEAD
 				$_SERVER['REQUEST_URI'] = $_SERVER['ESI_REFERER'];
 				if (substr(get_option('permalink_structure'), -1) === '/' && strpos($_SERVER['ESI_REFERER'], '?') === false) {
 					$_SERVER['REQUEST_URI'] = trailingslashit($_SERVER['ESI_REFERER']);
 				}
+=======
+				$_SERVER['REQUEST_URI'] =
+					substr(get_option('permalink_structure'), -1) === '/' && strpos($_SERVER['ESI_REFERER'], '?') === false
+						? trailingslashit($_SERVER['ESI_REFERER'])
+						: $_SERVER['ESI_REFERER'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 			# Prevent from 301 redirecting
 			if (!empty($_SERVER['SCRIPT_URI'])) {
@@ -612,7 +623,11 @@ class ESI extends Root
 			return false;
 		}
 
+<<<<<<< HEAD
 		Debug2::debug2('[ESI] params', $unencrypted);
+=======
+		Debug2::debug2('[ESI] parms', $unencrypted);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// $unencoded = urldecode($unencrypted); no need to do this as $_GET is already parsed
 		$params = \json_decode($unencrypted, true);
 

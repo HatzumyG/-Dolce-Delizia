@@ -85,6 +85,7 @@
 			}
 		},
 		"typography": {
+<<<<<<< HEAD
 			"__experimentalSkipSerialization": [
 				"fontSize",
 				"lineHeight",
@@ -95,6 +96,8 @@
 				"textDecoration",
 				"letterSpacing"
 			],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			"fontSize": true,
 			"lineHeight": true,
 			"__experimentalFontFamily": true,
@@ -132,6 +135,10 @@
 				"width": true
 			}
 		},
+<<<<<<< HEAD
+=======
+		"__experimentalSelector": ".wp-block-button .wp-block-button__link",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		"interactivity": {
 			"clientNavigation": true
 		}
@@ -141,6 +148,7 @@
 		{ "name": "outline", "label": "Outline" }
 	],
 	"editorStyle": "wp-block-button-editor",
+<<<<<<< HEAD
 	"style": "wp-block-button",
 	"selectors": {
 		"root": ".wp-block-button .wp-block-button__link",
@@ -148,4 +156,7 @@
 			"writingMode": ".wp-block-button"
 		}
 	}
+=======
+	"style": "wp-block-button"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -6,7 +6,10 @@ use ImageOptimization\Classes\Image\{
 	Image,
 	Image_Meta,
 	Image_Query_Builder,
+<<<<<<< HEAD
 	Image_Status,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	WP_Image_Meta,
 	Exceptions\Invalid_Image_Exception
 };
@@ -119,8 +122,11 @@ class Optimization_Stats {
 		foreach ( $query->posts as $attachment_id ) {
 			try {
 				Validate_Image::is_valid( $attachment_id );
+<<<<<<< HEAD
 
 				$image = new Image( $attachment_id );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$wp_meta = new WP_Image_Meta( $attachment_id );
 			} catch ( Invalid_Image_Exception | Image_Validation_Error $ie ) {
 				continue;
@@ -129,6 +135,7 @@ class Optimization_Stats {
 			$meta = new Image_Meta( $attachment_id );
 			$image_sizes = $wp_meta->get_size_keys();
 
+<<<<<<< HEAD
 			foreach ( $image_sizes as $image_size ) {
 				if ( ! $image->file_exists( $image_size ) ) {
 					continue;
@@ -142,11 +149,24 @@ class Optimization_Stats {
 
 			$optimized_sizes = self::filter_only_enabled_sizes( $meta->get_optimized_sizes() );
 			$output['optimized_image_count'] += count( $optimized_sizes );
+=======
+			$current_sizes = self::filter_only_enabled_sizes( $image_sizes );
+			$optimized_sizes = self::filter_only_enabled_sizes( $meta->get_optimized_sizes() );
+
+			$output['total_image_count'] += count( $current_sizes );
+			$output['optimized_image_count'] += count( $optimized_sizes );
+
+			foreach ( $image_sizes as $image_size ) {
+				$output['current_image_size'] += self::calculate_current_image_file_size( $attachment_id, $wp_meta, $image_size );
+				$output['initial_image_size'] += self::calculate_initial_image_file_size( $attachment_id, $meta, $wp_meta, $image_size );
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $output;
 	}
 
+<<<<<<< HEAD
 	public static function get_optimization_details( int $attachment_id ): array {
 		try {
 			$wp_meta = new WP_Image_Meta( $attachment_id );
@@ -229,6 +249,8 @@ class Optimization_Stats {
 		return Image_Status::NOT_OPTIMIZED;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private static function calculate_current_image_file_size( int $image_id, WP_Image_Meta $wp_meta, string $image_size ): int {
 		$size_from_meta = $wp_meta->get_file_size( $image_size );
 

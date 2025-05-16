@@ -14,6 +14,7 @@ return [
 		'elementor-v2-editor-panels',
 		'elementor-v2-editor-props',
 		'elementor-v2-editor-responsive',
+<<<<<<< HEAD
 		'elementor-v2-editor-styles',
 		'elementor-v2-editor-styles-repository',
 		'elementor-v2-editor-ui',
@@ -23,6 +24,13 @@ return [
 		'elementor-v2-menus',
 		'elementor-v2-schema',
 		'elementor-v2-session',
+=======
+		'elementor-v2-editor-styles-repository',
+		'elementor-v2-editor-v1-adapters',
+		'elementor-v2-icons',
+		'elementor-v2-menus',
+		'elementor-v2-schema',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'elementor-v2-ui',
 		'elementor-v2-utils',
 		'react',

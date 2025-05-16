@@ -78,6 +78,7 @@ class WC_Customer_Data_Store_Session extends WC_Data_Store_WP implements WC_Cust
 	 * @param WC_Customer $customer Customer object.
 	 */
 	public function save_to_session( $customer ) {
+<<<<<<< HEAD
 		if ( ! WC()->session ) {
 			wc_doing_it_wrong(
 				__METHOD__,
@@ -87,6 +88,8 @@ class WC_Customer_Data_Store_Session extends WC_Data_Store_WP implements WC_Cust
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$data = array();
 		foreach ( $this->session_keys as $session_key ) {
 			$function_key = $session_key;
@@ -120,7 +123,10 @@ class WC_Customer_Data_Store_Session extends WC_Data_Store_WP implements WC_Cust
 				$data[ $session_key ] = (string) $session_value;
 			}
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		WC()->session->set( 'customer', $data );
 	}
 

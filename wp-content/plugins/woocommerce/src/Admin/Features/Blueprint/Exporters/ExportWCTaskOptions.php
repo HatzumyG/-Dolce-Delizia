@@ -26,12 +26,28 @@ class ExportWCTaskOptions implements StepExporter, HasAlias {
 	 * @return SetSiteOptions
 	 */
 	public function export() {
+<<<<<<< HEAD
 		return new SetSiteOptions(
+=======
+		$step = new SetSiteOptions(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			array(
 				'woocommerce_admin_customize_store_completed' => $this->wp_get_option( 'woocommerce_admin_customize_store_completed', 'no' ),
 				'woocommerce_task_list_tracked_completed_actions' => $this->wp_get_option( 'woocommerce_task_list_tracked_completed_actions', array() ),
 			)
 		);
+<<<<<<< HEAD
+=======
+
+		$step->set_meta_values(
+			array(
+				'plugin' => 'woocommerce',
+				'alias'  => $this->get_alias(),
+			)
+		);
+
+		return $step;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

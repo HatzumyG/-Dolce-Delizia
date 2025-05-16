@@ -23,7 +23,11 @@ class Core extends Root
 	const ACTION_PURGE_BY = 'PURGE_BY';
 	const ACTION_PURGE_EMPTYCACHE = 'PURGE_EMPTYCACHE';
 	const ACTION_QS_PURGE = 'PURGE';
+<<<<<<< HEAD
 	const ACTION_QS_PURGE_SINGLE = 'PURGESINGLE'; // This will be same as `ACTION_QS_PURGE` (purge single url only)
+=======
+	const ACTION_QS_PURGE_SINGLE = 'PURGESINGLE';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const ACTION_QS_SHOW_HEADERS = 'SHOWHEADERS';
 	const ACTION_QS_PURGE_ALL = 'purge_all';
 	const ACTION_QS_PURGE_EMPTYCACHE = 'empty_all';
@@ -49,6 +53,14 @@ class Core extends Root
 		!defined('LSCWP_TS_0') && define('LSCWP_TS_0', microtime(true));
 		$this->cls('Conf')->init();
 
+<<<<<<< HEAD
+=======
+		// Check if debug is on
+		if ($this->conf(Base::O_DEBUG)) {
+			$this->cls('Debug2')->init();
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Load API hooks
 		 * @since  3.0
@@ -76,6 +88,11 @@ class Core extends Root
 		register_uninstall_hook($plugin_file, __NAMESPACE__ . '\Activation::uninstall_litespeed_cache');
 		// }
 
+<<<<<<< HEAD
+=======
+		add_action('plugins_loaded', array($this, 'plugins_loaded'));
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if (defined('LITESPEED_ON')) {
 			// register purge_all actions
 			$purge_all_events = $this->conf(Base::O_PURGE_HOOK_ALL);
@@ -150,6 +167,18 @@ class Core extends Root
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Plugin loaded hooks
+	 * @since 3.0
+	 */
+	public function plugins_loaded()
+	{
+		load_plugin_textdomain(Core::PLUGIN_NAME, false, 'litespeed-cache/lang/');
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * The plugin initializer.
 	 *
 	 * This function checks if the cache is enabled and ready to use, then determines what actions need to be set up based on the type of user and page accessed. Output is buffered if the cache is enabled.
@@ -172,13 +201,23 @@ class Core extends Root
 		add_action('wp_ajax_nopriv_async_litespeed', 'LiteSpeed\Task::async_litespeed_handler');
 
 		// in `after_setup_theme`, before `init` hook
+<<<<<<< HEAD
 		$this->cls('Activation')->auto_update();
+=======
+		if (!defined('LITESPEED_BYPASS_AUTO_V')) {
+			$this->cls('Activation')->auto_update();
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if (is_admin() && !(defined('DOING_AJAX') && DOING_AJAX)) {
 			$this->cls('Admin');
 		}
 
+<<<<<<< HEAD
 		if (defined('LITESPEED_DISABLE_ALL') && LITESPEED_DISABLE_ALL) {
+=======
+		if (defined('LITESPEED_DISABLE_ALL')) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			Debug2::debug('[Core] Bypassed due to debug disable all setting');
 			return;
 		}
@@ -206,7 +245,11 @@ class Core extends Root
 
 		// 1. Init vary
 		// 2. Init cacheable status
+<<<<<<< HEAD
 		// $this->cls('Vary')->init();
+=======
+		$this->cls('Vary')->init();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Init Purge hooks
 		$this->cls('Purge')->init();
@@ -256,7 +299,11 @@ class Core extends Root
 		 * TODO: Will change to hook in future versions to make it revertable
 		 */
 		if (defined('LITESPEED_BYPASS_OPTM') && !defined('LITESPEED_NO_OPTM')) {
+<<<<<<< HEAD
 			define('LITESPEED_NO_OPTM', LITESPEED_BYPASS_OPTM);
+=======
+			defined('LITESPEED_NO_OPTM', LITESPEED_BYPASS_OPTM);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if (!defined('LITESPEED_NO_OPTM') || !LITESPEED_NO_OPTM) {
@@ -300,11 +347,21 @@ class Core extends Root
 		$msg = false;
 		// handle actions
 		switch ($action) {
+<<<<<<< HEAD
+=======
+			case self::ACTION_QS_PURGE:
+				Purge::set_purge_related();
+				break;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			case self::ACTION_QS_SHOW_HEADERS:
 				self::$_debug_show_header = true;
 				break;
 
+<<<<<<< HEAD
 			case self::ACTION_QS_PURGE:
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			case self::ACTION_QS_PURGE_SINGLE:
 				Purge::set_purge_single();
 				break;
@@ -465,7 +522,11 @@ class Core extends Root
 		$this->send_headers(true);
 
 		// Log ESI nonce buffer empty issue
+<<<<<<< HEAD
 		if (defined('LSCACHE_IS_ESI') && strlen($buffer) == 0) {
+=======
+		if (defined('LSCACHE_IS_ESI') && strlen($buffer) != 0) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// log ref for debug purpose
 			error_log('ESI buffer empty ' . $_SERVER['REQUEST_URI']);
 		}
@@ -656,10 +717,13 @@ class Core extends Root
 			$this->_comment('Guest Mode');
 		}
 
+<<<<<<< HEAD
 		if (!empty($this->_footer_comment)) {
 			self::debug('[footer comment] ' . $this->_footer_comment);
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ($is_forced) {
 			Debug2::debug('--forced--');
 		}
@@ -677,7 +741,11 @@ class Core extends Root
 				self::debug('[Core] Purge Queue found, issue a HTTP req to purge: ' . $purge_queue);
 				// Kick off HTTP req
 				$url = admin_url('admin-ajax.php');
+<<<<<<< HEAD
 				$resp = wp_safe_remote_get($url);
+=======
+				$resp = wp_remote_get($url);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				if (is_wp_error($resp)) {
 					$error_message = $resp->get_error_message();
 					self::debug('[URL]' . $url);

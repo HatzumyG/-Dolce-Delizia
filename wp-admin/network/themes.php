@@ -363,7 +363,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 
 <?php if ( current_user_can( 'install_themes' ) ) : ?>
+<<<<<<< HEAD
 	<a href="theme-install.php" class="page-title-action"><?php echo esc_html__( 'Add Theme' ); ?></a>
+=======
+	<a href="theme-install.php" class="page-title-action"><?php echo esc_html__( 'Add New Theme' ); ?></a>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <?php endif; ?>
 
 <?php

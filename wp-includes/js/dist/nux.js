@@ -74,12 +74,21 @@ __webpack_require__.d(selectors_namespaceObject, {
   isTipVisible: () => (isTipVisible)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","deprecated"]
 const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
 ;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// ./node_modules/@wordpress/nux/build-module/store/reducer.js
+=======
+;// CONCATENATED MODULE: external ["wp","deprecated"]
+const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
+var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/store/reducer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -150,7 +159,11 @@ const preferences = (0,external_wp_data_namespaceObject.combineReducers)({
   preferences
 }));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/nux/build-module/store/actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/store/actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns an action object that, when dispatched, presents a guide that takes
  * the user through a series of tips step by step.
@@ -204,7 +217,11 @@ function enableTips() {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/nux/build-module/store/selectors.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/store/selectors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -278,7 +295,11 @@ function selectors_areTipsEnabled(state) {
   return state.preferences.areTipsEnabled;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/nux/build-module/store/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/store/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -315,6 +336,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
   persist: ['preferences']
 });
 
+<<<<<<< HEAD
 ;// external ["wp","compose"]
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// external ["wp","components"]
@@ -328,6 +350,21 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@wordpress/icons/build-module/library/close.js
+=======
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external ["wp","components"]
+const external_wp_components_namespaceObject = window["wp"]["components"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","primitives"]
+const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/close.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -342,7 +379,11 @@ const close_close = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const library_close = (close_close);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/nux/build-module/components/dot-tip/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/components/dot-tip/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -358,6 +399,10 @@ const close_close = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
  */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function onClick(event) {
   // Tips are often nested within buttons. We stop propagation so that clicking
   // on a tip doesn't result in the button being clicked.
@@ -439,7 +484,11 @@ function DotTip({
   };
 }))(DotTip));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/nux/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */

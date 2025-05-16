@@ -5,7 +5,10 @@ use Elementor\Core\Base\Base_Object;
 use Elementor\Core\DynamicTags\Manager;
 use Elementor\Core\Breakpoints\Manager as Breakpoints_Manager;
 use Elementor\Core\Frontend\Performance;
+<<<<<<< HEAD
 use Elementor\Utils;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -613,8 +616,13 @@ abstract class Controls_Stack extends Base_Object {
 		$position = array_merge( $default_position, $position );
 
 		if (
+<<<<<<< HEAD
 			( 'control' === $position['type'] && in_array( $position['at'], [ 'start', 'end' ], true ) ) ||
 			( 'section' === $position['type'] && in_array( $position['at'], [ 'before', 'after' ], true ) )
+=======
+			'control' === $position['type'] && in_array( $position['at'], [ 'start', 'end' ], true ) ||
+			'section' === $position['type'] && in_array( $position['at'], [ 'before', 'after' ], true )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		) {
 			_doing_it_wrong( sprintf( '%s::%s', get_called_class(), __FUNCTION__ ), 'Invalid position arguments. Use `before` / `after` for control or `start` / `end` for section.', '1.7.0' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
@@ -638,11 +646,19 @@ abstract class Controls_Stack extends Base_Object {
 		$controls_keys = array_keys( $registered_controls );
 
 		while ( Controls_Manager::SECTION !== $registered_controls[ $controls_keys[ $target_section_index ] ]['type'] ) {
+<<<<<<< HEAD
 			--$target_section_index;
 		}
 
 		if ( 'section' === $position['type'] ) {
 			++$target_control_index;
+=======
+			$target_section_index--;
+		}
+
+		if ( 'section' === $position['type'] ) {
+			$target_control_index++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( 'end' === $position['at'] ) {
 				while ( Controls_Manager::SECTION !== $registered_controls[ $controls_keys[ $target_control_index ] ]['type'] ) {
@@ -656,7 +672,11 @@ abstract class Controls_Stack extends Base_Object {
 		$target_control = $registered_controls[ $controls_keys[ $target_control_index ] ];
 
 		if ( 'after' === $position['at'] ) {
+<<<<<<< HEAD
 			++$target_control_index;
+=======
+			$target_control_index++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$section_id = $registered_controls[ $controls_keys[ $target_section_index ] ]['name'];
@@ -738,7 +758,11 @@ abstract class Controls_Stack extends Base_Object {
 		$controls_keys = array_keys( $registered_controls );
 
 		while ( true ) {
+<<<<<<< HEAD
 			++$section_index;
+=======
+			$section_index++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( ! isset( $controls_keys[ $section_index ] ) ) {
 				break;
@@ -751,7 +775,11 @@ abstract class Controls_Stack extends Base_Object {
 			}
 
 			$section_controls[ $control_key ] = $registered_controls[ $control_key ];
+<<<<<<< HEAD
 		}
+=======
+		};
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return $section_controls;
 	}
@@ -932,7 +960,11 @@ abstract class Controls_Stack extends Base_Object {
 
 			// Set parent using the name from previous iteration.
 			if ( isset( $control_name ) ) {
+<<<<<<< HEAD
 				// If $control_name end with _widescreen use desktop name instead.
+=======
+				// If $control_name end with _widescreen use desktop name instead
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$control_args['parent'] = '_widescreen' === substr( $control_name, -strlen( '_widescreen' ) ) ? $id : $control_name;
 			} else {
 				$control_args['parent'] = null;
@@ -1061,8 +1093,13 @@ abstract class Controls_Stack extends Base_Object {
 	 */
 	final public function get_config() {
 		if ( null === $this->config ) {
+<<<<<<< HEAD
 			// TODO: This is for backwards compatibility starting from 2.9.0.
 			// This if statement should be removed when the method is hard-deprecated.
+=======
+			// TODO: This is for backwards compatibility starting from 2.9.0
+			// This if statement should be removed when the method is hard-deprecated
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( $this->has_own_method( '_get_initial_config', self::class ) ) {
 				Plugin::$instance->modules_manager->get_modules( 'dev-tools' )->deprecation->deprecated_function( '_get_initial_config', '2.9.0', __CLASS__ . '::get_initial_config()' );
 
@@ -1088,8 +1125,11 @@ abstract class Controls_Stack extends Base_Object {
 	 *
 	 * Set a specific property of the config list for this controls-stack.
 	 *
+<<<<<<< HEAD
 	 * @param string $key
 	 * @param string $value
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since 3.5.0
 	 * @access public
 	 */
@@ -1167,9 +1207,12 @@ abstract class Controls_Stack extends Base_Object {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param null $setting
 	 * @param null $settings
 	 * @return array|mixed|null
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since 2.0.14
 	 * @access public
 	 */
@@ -1190,6 +1233,7 @@ abstract class Controls_Stack extends Base_Object {
 	 *
 	 * Retrieve the settings from all the active controls.
 	 *
+<<<<<<< HEAD
 	 * @param array|null $settings Optional. Controls settings. Default is null.
 	 * @param array|null $controls Optional. An array of controls. Default is null.
 	 *
@@ -1198,6 +1242,16 @@ abstract class Controls_Stack extends Base_Object {
 	 * @access public
 	 *
 	 * @since 1.4.0
+=======
+	 * @since 1.4.0
+	 * @since 2.1.0 Added the `controls` and the `settings` parameters.
+	 * @access public
+	 *
+	 * @param array $controls Optional. An array of controls. Default is null.
+	 * @param array $settings Optional. Controls settings. Default is null.
+	 *
+	 * @return array Active settings.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_active_settings( $settings = null, $controls = null ) {
 		$is_first_request = ! $settings && ! $this->active_settings;
@@ -1428,12 +1482,22 @@ abstract class Controls_Stack extends Base_Object {
 	 *
 	 * Used to determine whether the control is visible or not.
 	 *
+<<<<<<< HEAD
 	 * @param array $control The control.
 	 * @param null  $values Optional. Condition values. Default is null.
 	 * @param null  $controls
 	 * @return bool Whether the control is visible.
 	 * @since 1.4.0
 	 * @access public
+=======
+	 * @since 1.4.0
+	 * @access public
+	 *
+	 * @param array $control The control.
+	 * @param array $values  Optional. Condition values. Default is null.
+	 *
+	 * @return bool Whether the control is visible.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function is_control_visible( $control, $values = null, $controls = null ) {
 		if ( null === $values ) {
@@ -1457,7 +1521,11 @@ abstract class Controls_Stack extends Base_Object {
 
 			$pure_condition_key = $condition_key_parts[1];
 			$condition_sub_key = $condition_key_parts[2];
+<<<<<<< HEAD
 			$is_negative_condition = (bool) $condition_key_parts[3];
+=======
+			$is_negative_condition = ! ! $condition_key_parts[3];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( ! isset( $values[ $pure_condition_key ] ) || null === $values[ $pure_condition_key ] ) {
 				return false;
@@ -1522,10 +1590,14 @@ abstract class Controls_Stack extends Base_Object {
 				$is_contains = $instance_value === $condition_value;
 			}
 
+<<<<<<< HEAD
 			if (
 				( $is_negative_condition && $is_contains ) ||
 				( ! $is_negative_condition && ! $is_contains )
 			) {
+=======
+			if ( $is_negative_condition && $is_contains || ! $is_negative_condition && ! $is_contains ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				return false;
 			}
 		}
@@ -2014,8 +2086,13 @@ abstract class Controls_Stack extends Base_Object {
 	 * @since 2.7.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param string       $element       The HTML element.
 	 * @param string       $key           Optional. Attribute key. Default is null.
+=======
+	 * @param string $element       The HTML element.
+	 * @param string $key           Optional. Attribute key. Default is null.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param array|string $values   Optional. Attribute value/s. Default is null.
 	 */
 	public function remove_render_attribute( $element, $key = null, $values = null ) {
@@ -2074,7 +2151,11 @@ abstract class Controls_Stack extends Base_Object {
 	 * @param array|string $element The element.
 	 */
 	public function print_render_attribute_string( $element ) {
+<<<<<<< HEAD
 		Utils::print_unescaped_internal_string( $this->get_render_attribute_string( $element ) );
+=======
+		echo $this->get_render_attribute_string( $element ); // XSS ok.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -2089,7 +2170,11 @@ abstract class Controls_Stack extends Base_Object {
 		ob_start();
 
 		// TODO: This is for backwards compatibility starting from 2.9.0
+<<<<<<< HEAD
 		// This `if` statement should be removed when the method is removed.
+=======
+		// This `if` statement should be removed when the method is removed
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $this->has_own_method( '_content_template', self::class ) ) {
 			Plugin::$instance->modules_manager->get_modules( 'dev-tools' )->deprecation->deprecated_function( '_content_template', '2.9.0', __CLASS__ . '::content_template()' );
 
@@ -2137,7 +2222,11 @@ abstract class Controls_Stack extends Base_Object {
 	 *
 	 * @return array Element data.
 	 */
+<<<<<<< HEAD
 	public static function on_import_update_dynamic_content( array $config, array $data, $controls = null ): array {
+=======
+	public static function on_import_update_dynamic_content( array $config, array $data, $controls = null ) : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $config;
 	}
 
@@ -2386,7 +2475,11 @@ abstract class Controls_Stack extends Base_Object {
 	 * @param string $template_content Template content.
 	 */
 	protected function print_template_content( $template_content ) {
+<<<<<<< HEAD
 		Utils::print_unescaped_internal_string( $template_content );
+=======
+		echo $template_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -2426,7 +2519,11 @@ abstract class Controls_Stack extends Base_Object {
 		Plugin::$instance->controls_manager->open_stack( $this );
 
 		// TODO: This is for backwards compatibility starting from 2.9.0
+<<<<<<< HEAD
 		// This `if` statement should be removed when the method is removed.
+=======
+		// This `if` statement should be removed when the method is removed
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $this->has_own_method( '_register_controls', self::class ) ) {
 			Plugin::$instance->modules_manager->get_modules( 'dev-tools' )->deprecation->deprecated_function( '_register_controls', '3.1.0', __CLASS__ . '::register_controls()' );
 
@@ -2573,7 +2670,11 @@ abstract class Controls_Stack extends Base_Object {
 	public function __construct( array $data = [] ) {
 		if ( $data ) {
 			// TODO: This is for backwards compatibility starting from 2.9.0
+<<<<<<< HEAD
 			// This if statement should be removed when the method is hard-deprecated.
+=======
+			// This if statement should be removed when the method is hard-deprecated
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( $this->has_own_method( '_init', self::class ) ) {
 				Plugin::$instance->modules_manager->get_modules( 'dev-tools' )->deprecation->deprecated_function( '_init', '2.9.0', __CLASS__ . '::init()' );
 

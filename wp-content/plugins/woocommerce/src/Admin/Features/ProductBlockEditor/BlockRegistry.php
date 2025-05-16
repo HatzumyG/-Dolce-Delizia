@@ -6,7 +6,10 @@
 namespace Automattic\WooCommerce\Admin\Features\ProductBlockEditor;
 
 use Automattic\WooCommerce\Internal\Admin\WCAdminAssets;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Blocks\Utils\Utils;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Product block registration and style registration functionality.
@@ -161,6 +164,7 @@ class BlockRegistry {
 	 * @param array $attributes Block attributes.
 	 */
 	private function augment_attributes( $attributes ) {
+<<<<<<< HEAD
 		global $wp_version;
 		// Note: If you modify this function, also update the client-side
 		// registerWooBlockType function in @woocommerce/block-templates.
@@ -225,6 +229,35 @@ class BlockRegistry {
 		}
 
 		return false;
+=======
+		// Note: If you modify this function, also update the client-side
+		// registerWooBlockType function in @woocommerce/block-templates.
+		return array_merge(
+			$attributes,
+			array(
+				'_templateBlockId'                => array(
+					'type'               => 'string',
+					'__experimentalRole' => 'content',
+				),
+				'_templateBlockOrder'             => array(
+					'type'               => 'integer',
+					'__experimentalRole' => 'content',
+				),
+				'_templateBlockHideConditions'    => array(
+					'type'               => 'array',
+					'__experimentalRole' => 'content',
+				),
+				'_templateBlockDisableConditions' => array(
+					'type'               => 'array',
+					'__experimentalRole' => 'content',
+				),
+				'disabled'                        => isset( $attributes['disabled'] ) ? $attributes['disabled'] : array(
+					'type'               => 'boolean',
+					'__experimentalRole' => 'content',
+				),
+			)
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

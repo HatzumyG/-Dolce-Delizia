@@ -12,6 +12,7 @@ if ($summary['curr_crawler'] >= count($crawler_list)) {
 	$summary['curr_crawler'] = 0;
 }
 
+<<<<<<< HEAD
 $is_running = time() - $summary['is_running'] <= 900;
 
 $disabled = Router::can_crawl() ? '' : 'disabled';
@@ -25,6 +26,16 @@ $CRAWLER_RUN_INTERVAL = defined('LITESPEED_CRAWLER_RUN_INTERVAL') ? LITESPEED_CR
 if ($CRAWLER_RUN_INTERVAL > 0) :
 	$recurrence = '';
 	$hours = (int)floor($CRAWLER_RUN_INTERVAL / 3600);
+=======
+$is_running = time() - $summary['is_running'] <= $this->conf(Base::O_CRAWLER_RUN_DURATION);
+
+$disabled = Router::can_crawl() ? '' : 'disabled';
+
+$seconds = $this->conf(Base::O_CRAWLER_RUN_INTERVAL);
+if ($seconds > 0) :
+	$recurrence = '';
+	$hours = (int)floor($seconds / 3600);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ($hours) {
 		if ($hours > 1) {
 			$recurrence .= sprintf(__('%d hours', 'litespeed-cache'), $hours);
@@ -32,7 +43,11 @@ if ($CRAWLER_RUN_INTERVAL > 0) :
 			$recurrence .= sprintf(__('%d hour', 'litespeed-cache'), $hours);
 		}
 	}
+<<<<<<< HEAD
 	$minutes = (int)floor(($CRAWLER_RUN_INTERVAL % 3600) / 60);
+=======
+	$minutes = (int)floor(($seconds % 3600) / 60);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	if ($minutes) {
 		$recurrence .= ' ';
 		if ($minutes > 1) {
@@ -122,8 +137,11 @@ if ($CRAWLER_RUN_INTERVAL > 0) :
 
 			$href = Router::can_crawl() ? Utility::build_url(Router::ACTION_CRAWLER, Crawler::TYPE_START) : 'javascript:;';
 			echo " <a href='$href' id='litespeed_manual_trigger' class='button litespeed-btn-success' litespeed-accesskey='R' $disabled>" . __('Manually run', 'litespeed-cache') . "</a>";
+<<<<<<< HEAD
 
 			echo $disabled_tip;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			?>
 		</p>
 
@@ -141,6 +159,7 @@ if ($CRAWLER_RUN_INTERVAL > 0) :
 				</thead>
 				<tbody>
 					<?php foreach ($crawler_list as $i => $v) :
+<<<<<<< HEAD
 						$hit = !empty($summary['crawler_stats'][$i][Crawler::STATUS_HIT]) ? $summary['crawler_stats'][$i][Crawler::STATUS_HIT] : 0;
 						$miss = !empty($summary['crawler_stats'][$i][Crawler::STATUS_MISS]) ? $summary['crawler_stats'][$i][Crawler::STATUS_MISS] : 0;
 
@@ -149,6 +168,16 @@ if ($CRAWLER_RUN_INTERVAL > 0) :
 
 						if (isset($summary['crawler_stats'][$i][Crawler::STATUS_WAIT])) {
 							$waiting = $summary['crawler_stats'][$i][Crawler::STATUS_WAIT] ?: 0;
+=======
+						$hit = !empty($summary['crawler_stats'][$i]['H']) ? $summary['crawler_stats'][$i]['H'] : 0;
+						$miss = !empty($summary['crawler_stats'][$i]['M']) ? $summary['crawler_stats'][$i]['M'] : 0;
+
+						$blacklisted = !empty($summary['crawler_stats'][$i]['B']) ? $summary['crawler_stats'][$i]['B'] : 0;
+						$blacklisted += !empty($summary['crawler_stats'][$i]['N']) ? $summary['crawler_stats'][$i]['N'] : 0;
+
+						if (isset($summary['crawler_stats'][$i]['W'])) {
+							$waiting = $summary['crawler_stats'][$i]['W'] ?: 0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						} else {
 							$waiting = $summary['list_size'] - $hit - $miss - $blacklisted;
 						}
@@ -174,6 +203,7 @@ if ($CRAWLER_RUN_INTERVAL > 0) :
 							</td>
 							<td>
 								<?php $this->build_toggle('litespeed-crawler-' . $i,  $__crawler->is_active($i)); ?>
+<<<<<<< HEAD
 
 								<?php if (!empty($v['uid']) && empty($this->conf(Base::O_SERVER_IP))) : ?>
 									<div class="litespeed-danger litespeed-text-bold">
@@ -184,6 +214,8 @@ if ($CRAWLER_RUN_INTERVAL > 0) :
 									</div>
 								<?php endif; ?>
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							</td>
 							<td>
 								<?php
@@ -200,7 +232,11 @@ if ($CRAWLER_RUN_INTERVAL > 0) :
 				</tbody>
 			</table>
 		</div>
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<p>
 			<i class="litespeed-badge litespeed-bg-default"></i> = <?php echo __('Waiting to be Crawled', 'litespeed-cache'); ?><br>
 			<i class="litespeed-badge litespeed-bg-success"></i> = <?php echo __('Already Cached', 'litespeed-cache'); ?><br>

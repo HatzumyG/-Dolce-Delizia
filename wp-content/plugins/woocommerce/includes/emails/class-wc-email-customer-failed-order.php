@@ -30,6 +30,10 @@ if ( ! class_exists( 'WC_Email_Customer_Failed_Order', false ) ) :
 			$this->id             = 'customer_failed_order';
 			$this->customer_email = true;
 			$this->title          = __( 'Failed order', 'woocommerce' );
+<<<<<<< HEAD
+=======
+			$this->description    = __( 'Order failed emails are sent to customers when their orders are marked as failed.', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$this->template_html  = 'emails/customer-failed-order.php';
 			$this->template_plain = 'emails/plain/customer-failed-order.php';
 			$this->placeholders   = array(
@@ -42,11 +46,14 @@ if ( ! class_exists( 'WC_Email_Customer_Failed_Order', false ) ) :
 
 			// Call parent constructor.
 			parent::__construct();
+<<<<<<< HEAD
 
 			// Must be after parent's constructor which sets `email_improvements_enabled` property.
 			$this->description = $this->email_improvements_enabled
 				? __( 'Let shoppers know when their order has failed and what to do next.', 'woocommerce' )
 				: __( 'Order failed emails are sent to customers when their orders are marked as failed.', 'woocommerce' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -107,7 +114,10 @@ if ( ! class_exists( 'WC_Email_Customer_Failed_Order', false ) ) :
 					'order'              => $this->object,
 					'email_heading'      => $this->get_heading(),
 					'additional_content' => $this->get_additional_content(),
+<<<<<<< HEAD
 					'blogname'           => $this->get_blogname(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'sent_to_admin'      => false,
 					'plain_text'         => false,
 					'email'              => $this,
@@ -127,7 +137,10 @@ if ( ! class_exists( 'WC_Email_Customer_Failed_Order', false ) ) :
 					'order'              => $this->object,
 					'email_heading'      => $this->get_heading(),
 					'additional_content' => $this->get_additional_content(),
+<<<<<<< HEAD
 					'blogname'           => $this->get_blogname(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'sent_to_admin'      => false,
 					'plain_text'         => true,
 					'email'              => $this,
@@ -142,9 +155,13 @@ if ( ! class_exists( 'WC_Email_Customer_Failed_Order', false ) ) :
 		 * @return string
 		 */
 		public function get_default_additional_content() {
+<<<<<<< HEAD
 			return $this->email_improvements_enabled
 				? __( 'If you need any help with your order, please contact us at {store_email}.', 'woocommerce' )
 				: '';
+=======
+			return '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

@@ -34,21 +34,34 @@ abstract class Step_Base {
 	 *
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	abstract protected function is_absolute_completed(): bool;
+=======
+	abstract protected function is_absolute_completed() : bool;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * @return string
 	 */
+<<<<<<< HEAD
 	abstract public function get_id(): string;
+=======
+	abstract public function get_id() : string;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * @return string
 	 */
+<<<<<<< HEAD
 	abstract public function get_title(): string;
+=======
+	abstract public function get_title() : string;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * @return string
 	 */
+<<<<<<< HEAD
 	abstract public function get_description(): string;
 
 	/**
@@ -57,21 +70,42 @@ abstract class Step_Base {
 	 * @return string
 	 */
 	abstract public function get_cta_text(): string;
+=======
+	abstract public function get_description() : string;
+
+	/**
+	 * For instance; 'Create 3 pages'
+	 * @return string
+	 */
+	abstract public function get_cta_text() : string;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * @return string
 	 */
+<<<<<<< HEAD
 	abstract public function get_cta_url(): string;
+=======
+	abstract public function get_cta_url() : string;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	abstract public function get_is_completion_immutable(): bool;
+=======
+	abstract public function get_is_completion_immutable() : bool;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * @return string
 	 */
+<<<<<<< HEAD
 	abstract public function get_image_src(): string;
+=======
+	abstract public function get_image_src() : string;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Step_Base constructor.
@@ -79,7 +113,11 @@ abstract class Step_Base {
 	 * @param Checklist_Module $module
 	 * @param ?Wordpress_Adapter_Interface $wordpress_adapter
 	 * @param ?Elementor_Adapter_Interface $elementor_adapter
+<<<<<<< HEAD
 	 * @return void
+=======
+ * @return void
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __construct( Checklist_Module $module, ?Wordpress_Adapter_Interface $wordpress_adapter = null, ?Elementor_Adapter_Interface $elementor_adapter = null, $promotion_data = null ) {
 		$this->module = $module;
@@ -94,6 +132,7 @@ abstract class Step_Base {
 	 *
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public function is_visible(): bool {
 		return true;
 	}
@@ -107,6 +146,21 @@ abstract class Step_Base {
 	}
 
 	public function update_step( array $step_data ): void {
+=======
+	public function is_visible() : bool {
+		return true;
+	}
+
+	public function get_learn_more_text() : string {
+		return esc_html__( 'Learn more', 'elementor' );
+	}
+
+	public function get_learn_more_url() : string {
+		return 'https://go.elementor.com/getting-started-with-elementor/';
+	}
+
+	public function update_step( array $step_data ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$allowed_properties = [
 			self::MARKED_AS_COMPLETED_KEY => $step_data[ self::MARKED_AS_COMPLETED_KEY ] ?? null,
 			self::IMMUTABLE_COMPLETION_KEY => $step_data[ self::IMMUTABLE_COMPLETION_KEY ] ?? null,
@@ -127,7 +181,11 @@ abstract class Step_Base {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function mark_as_completed(): void {
+=======
+	public function mark_as_completed() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->update_step( [ self::MARKED_AS_COMPLETED_KEY => true ] );
 	}
 
@@ -136,7 +194,11 @@ abstract class Step_Base {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function unmark_as_completed(): void {
+=======
+	public function unmark_as_completed() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->update_step( [ self::MARKED_AS_COMPLETED_KEY => false ] );
 	}
 
@@ -145,7 +207,11 @@ abstract class Step_Base {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function maybe_immutably_mark_as_completed(): void {
+=======
+	public function maybe_immutably_mark_as_completed() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$is_immutable_completed = $this->user_progress[ self::IMMUTABLE_COMPLETION_KEY ] ?? false;
 
 		if ( ! $is_immutable_completed && $this->get_is_completion_immutable() && $this->is_absolute_completed() ) {
@@ -161,7 +227,11 @@ abstract class Step_Base {
 	 *
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public function is_marked_as_completed(): bool {
+=======
+	public function is_marked_as_completed() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->user_progress[ self::MARKED_AS_COMPLETED_KEY ];
 	}
 
@@ -170,7 +240,11 @@ abstract class Step_Base {
 	 *
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public function is_immutable_completed(): bool {
+=======
+	public function is_immutable_completed() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->get_is_completion_immutable() && $this->user_progress[ self::IMMUTABLE_COMPLETION_KEY ] ?? false;
 	}
 
@@ -179,7 +253,11 @@ abstract class Step_Base {
 	 *
 	 * @return array
 	 */
+<<<<<<< HEAD
 	public function get_step_initial_progress(): array {
+=======
+	public function get_step_initial_progress() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$initial_progress = [
 			self::MARKED_AS_COMPLETED_KEY => false,
 			self::IMMUTABLE_COMPLETION_KEY => false,
@@ -193,7 +271,11 @@ abstract class Step_Base {
 	/**
 	 * @return ?array
 	 */
+<<<<<<< HEAD
 	public function get_promotion_data(): ?array {
+=======
+	public function get_promotion_data() : ?array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->promotion_data;
 	}
 
@@ -202,7 +284,11 @@ abstract class Step_Base {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	private function set_step_progress(): void {
+=======
+	private function set_step_progress() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->module->set_step_progress( $this->get_id(), $this->user_progress );
 	}
 }

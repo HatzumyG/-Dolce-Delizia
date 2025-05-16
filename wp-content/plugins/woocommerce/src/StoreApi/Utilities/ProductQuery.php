@@ -1,11 +1,17 @@
 <?php
+<<<<<<< HEAD
 declare(strict_types=1);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\StoreApi\Utilities;
 
 use Automattic\WooCommerce\Enums\ProductStatus;
 use Automattic\WooCommerce\Enums\ProductType;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\CatalogVisibility;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use WC_Tax;
 
 /**
@@ -113,9 +119,14 @@ class ProductQuery {
 
 		// Map between taxonomy name and arg key.
 		$default_taxonomies = array(
+<<<<<<< HEAD
 			'product_cat'   => 'category',
 			'product_tag'   => 'tag',
 			'product_brand' => 'brand',
+=======
+			'product_cat' => 'category',
+			'product_tag' => 'tag',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		$taxonomies = array_merge( $all_product_taxonomies, $default_taxonomies );
@@ -123,11 +134,18 @@ class ProductQuery {
 		// Set tax_query for each passed arg.
 		foreach ( $taxonomies as $taxonomy => $key ) {
 			if ( ! empty( $request[ $key ] ) ) {
+<<<<<<< HEAD
 				$type        = is_numeric( $request[ $key ][0] ) ? 'term_id' : 'slug';
 				$operator    = $request->get_param( $key . '_operator' ) && isset( $operator_mapping[ $request->get_param( $key . '_operator' ) ] ) ? $operator_mapping[ $request->get_param( $key . '_operator' ) ] : 'IN';
 				$tax_query[] = array(
 					'taxonomy' => $taxonomy,
 					'field'    => $type,
+=======
+				$operator    = $request->get_param( $key . '_operator' ) && isset( $operator_mapping[ $request->get_param( $key . '_operator' ) ] ) ? $operator_mapping[ $request->get_param( $key . '_operator' ) ] : 'IN';
+				$tax_query[] = array(
+					'taxonomy' => $taxonomy,
+					'field'    => 'term_id',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'terms'    => $request[ $key ],
 					'operator' => $operator,
 				);
@@ -207,14 +225,23 @@ class ProductQuery {
 		$visibility_options = wc_get_product_visibility_options();
 
 		if ( in_array( $catalog_visibility, array_keys( $visibility_options ), true ) ) {
+<<<<<<< HEAD
 			$exclude_from_catalog = CatalogVisibility::SEARCH === $catalog_visibility ? '' : 'exclude-from-catalog';
 			$exclude_from_search  = CatalogVisibility::CATALOG === $catalog_visibility ? '' : 'exclude-from-search';
+=======
+			$exclude_from_catalog = 'search' === $catalog_visibility ? '' : 'exclude-from-catalog';
+			$exclude_from_search  = 'catalog' === $catalog_visibility ? '' : 'exclude-from-search';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			$args['tax_query'][] = array(
 				'taxonomy'      => 'product_visibility',
 				'field'         => 'name',
 				'terms'         => array( $exclude_from_catalog, $exclude_from_search ),
+<<<<<<< HEAD
 				'operator'      => CatalogVisibility::HIDDEN === $catalog_visibility ? 'AND' : 'NOT IN',
+=======
+				'operator'      => 'hidden' === $catalog_visibility ? 'AND' : 'NOT IN',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'rating_filter' => true,
 			);
 		}

@@ -131,7 +131,11 @@ abstract class Element_Base extends Controls_Stack {
 	 */
 	final public function enqueue_scripts() {
 		$deprecated_scripts = [
+<<<<<<< HEAD
 			// Insert here when you have a deprecated script.
+=======
+			//Insert here when you have a deprecated script
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 
 		foreach ( $this->get_script_depends() as $script ) {
@@ -288,7 +292,11 @@ abstract class Element_Base extends Controls_Stack {
 	/**
 	 * Whether the element returns dynamic content.
 	 *
+<<<<<<< HEAD
 	 * Set to determine whether to cache the element output or not.
+=======
+	 * set to determine whether to cache the element output or not.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.22.0
 	 * @access protected
@@ -397,12 +405,22 @@ abstract class Element_Base extends Controls_Stack {
 	 * @access public
 	 *
 	 * @param array|string $element   The HTML element.
+<<<<<<< HEAD
 	 * @param array        $url_control      Array of link settings.
 	 * @param bool         $overwrite         Optional. Whether to overwrite existing
 	 *                                        attribute. Default is false, not to overwrite.
 	 *
 	 * @return Element_Base Current instance of the element.
 	 */
+=======
+	 * @param array $url_control      Array of link settings.
+	 * @param bool $overwrite         Optional. Whether to overwrite existing
+	 *                                attribute. Default is false, not to overwrite.
+	 *
+	 * @return Element_Base Current instance of the element.
+	 */
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function add_link_attributes( $element, array $url_control, $overwrite = false ) {
 		$attributes = [];
 
@@ -421,7 +439,11 @@ abstract class Element_Base extends Controls_Stack {
 		}
 
 		if ( ! empty( $url_control['custom_attributes'] ) ) {
+<<<<<<< HEAD
 			// Custom URL attributes should come as a string of comma-delimited key|value pairs.
+=======
+			// Custom URL attributes should come as a string of comma-delimited key|value pairs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$attributes = array_merge( $attributes, Utils::parse_custom_attributes( $url_control['custom_attributes'] ) );
 		}
 
@@ -693,7 +715,11 @@ abstract class Element_Base extends Controls_Stack {
 	 *
 	 * @return array Element data.
 	 */
+<<<<<<< HEAD
 	public static function on_import_update_dynamic_content( array $config, array $data, $controls = null ): array {
+=======
+	public static function on_import_update_dynamic_content( array $config, array $data, $controls = null ) : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$tags_manager = Plugin::$instance->dynamic_tags;
 
 		if ( empty( $config['settings'][ $tags_manager::DYNAMIC_SETTING_KEY ] ) ) {
@@ -784,13 +810,21 @@ abstract class Element_Base extends Controls_Stack {
 
 		$_animation = ! empty( $settings['_animation'] );
 		$animation = ! empty( $settings['animation'] );
+<<<<<<< HEAD
 		$has_animation = ( $_animation && 'none' !== $settings['_animation'] ) || ( $animation && 'none' !== $settings['animation'] );
+=======
+		$has_animation = $_animation && 'none' !== $settings['_animation'] || $animation && 'none' !== $settings['animation'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( $has_animation ) {
 			$is_static_render_mode = Plugin::$instance->frontend->is_static_render_mode();
 
 			if ( ! $is_static_render_mode ) {
+<<<<<<< HEAD
 				// Hide the element until the animation begins.
+=======
+				// Hide the element until the animation begins
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$this->add_render_attribute( '_wrapper', 'class', 'elementor-invisible' );
 			}
 		}
@@ -820,11 +854,17 @@ abstract class Element_Base extends Controls_Stack {
 	 *
 	 * Previously registered under the Widget_Common class, but registered a more fundamental level now to enable access from other widgets.
 	 *
+<<<<<<< HEAD
 	 * @param string $element_selector
 	 * @param string $transform_selector_class
 	 * @return void
 	 * @since 3.9.0
 	 * @access protected
+=======
+	 * @since 3.9.0
+	 * @access protected
+	 * @return void
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function register_transform_section( $element_selector = '', $transform_selector_class = ' > .elementor-widget-container' ) {
 		$default_unit_values_deg = [];
@@ -1301,7 +1341,11 @@ abstract class Element_Base extends Controls_Stack {
 			'terms' => array_merge( $transform_origin_conditions, $transform_origin_conditions_hover ),
 		];
 
+<<<<<<< HEAD
 		// Will override motion effect transform-origin.
+=======
+		// Will override motion effect transform-origin
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->add_responsive_control(
 			'motion_fx_transform_x_anchor_point',
 			[
@@ -1329,7 +1373,11 @@ abstract class Element_Base extends Controls_Stack {
 			]
 		);
 
+<<<<<<< HEAD
 		// Will override motion effect transform-origin.
+=======
+		// Will override motion effect transform-origin
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->add_responsive_control(
 			'motion_fx_transform_y_anchor_point',
 			[
@@ -1482,9 +1530,12 @@ abstract class Element_Base extends Controls_Stack {
 	/**
 	 * A Base method for sanitizing the settings before save.
 	 * This method is meant to be overridden by the element.
+<<<<<<< HEAD
 	 *
 	 * @param array $settings
 	 * @return array
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function on_save( array $settings ) {
 		return $settings;
@@ -1505,7 +1556,11 @@ abstract class Element_Base extends Controls_Stack {
 	private function get_child_type( $element_data ) {
 		$child_type = $this->_get_default_child_type( $element_data );
 
+<<<<<<< HEAD
 		// If it's not a valid widget ( like a deactivated plugin ).
+=======
+		// If it's not a valid widget ( like a deactivated plugin )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! $child_type ) {
 			return false;
 		}

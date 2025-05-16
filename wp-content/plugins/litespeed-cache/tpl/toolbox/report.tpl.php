@@ -26,11 +26,14 @@ if (function_exists('dologin_gen_link')) {
 }
 
 $install_link = Utility::build_url(Router::ACTION_ACTIVATION, Activation::TYPE_INSTALL_3RD, false, null, array('plugin' => 'dologin'));
+<<<<<<< HEAD
 
 $btn_title = __('Send to LiteSpeed', 'litespeed-cache');
 if (!empty($env_ref['num'])) {
 	$btn_title = __('Regenerate and Send a New Report', 'litespeed-cache');
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 ?>
 
 <?php if (!$has_pswdless_plugin) : ?>
@@ -51,8 +54,13 @@ if (!empty($env_ref['num'])) {
 	<?php Doc::learn_more('https://docs.litespeedtech.com/lscache/lscwp/toolbox/#report-tab'); ?>
 </h3>
 
+<<<<<<< HEAD
 <p><?php echo __('Last Report Number', 'litespeed-cache'); ?>: <b><?php echo !empty($env_ref['num']) ? $env_ref['num'] : '-'; ?></b></p>
 <p><?php echo __('Last Report Date', 'litespeed-cache'); ?>: <b><?php echo !empty($env_ref['dateline']) ? date('m/d/Y H:i:s', $env_ref['dateline']) : '-'; ?></b></p>
+=======
+<p><?php echo __('Report number', 'litespeed-cache'); ?>: <b><?php echo !empty($env_ref['num']) ? $env_ref['num'] : '-'; ?></b></p>
+<p><?php echo __('Report date', 'litespeed-cache'); ?>: <b><?php echo !empty($env_ref['dateline']) ? date('m/d/Y H:i:s', $env_ref['dateline']) : '-'; ?></b></p>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 <p class="litespeed-desc">
 	<?php echo __('The environment report contains detailed information about the WordPress configuration.', 'litespeed-cache'); ?>
@@ -70,6 +78,7 @@ if (!empty($env_ref['num'])) {
 				</td>
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<th>&nbsp;</th>
 				<td>
 					<?php
@@ -88,6 +97,8 @@ if (!empty($env_ref['num'])) {
 				</td>
 			</tr>
 			<tr>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<th><?php echo __('Passwordless Link', 'litespeed-cache'); ?></th>
 				<td>
 					<input type="text" class="litespeed-regular-text" id="litespeed-report-link" name="link" value="<?php echo $link; ?>" style="width:500px;" />
@@ -119,10 +130,21 @@ if (!empty($env_ref['num'])) {
 	</table>
 
 	<div class='litespeed-top20'></div>
+<<<<<<< HEAD
 	<button class="button button-primary" type="submit"><?php echo $btn_title; ?></button>
 	<button class="button button-primary litespeed-float-submit" type="submit"><?php echo $btn_title; ?></button>
+=======
+	<button class="button button-primary" type="submit"><?php echo __('Send to LiteSpeed', 'litespeed-cache'); ?></button>
+	<button class="button button-primary litespeed-float-submit" type="submit"><?php echo __('Send to LiteSpeed', 'litespeed-cache'); ?></button>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	<p class="litespeed-top30 litespeed-left10 litespeed-desc">
 		<?php echo __('Send this report to LiteSpeed. Refer to this report number when posting in the WordPress support forum.', 'litespeed-cache'); ?>
 	</p>
+<<<<<<< HEAD
 </form>
+=======
+</form>
+
+<?php include_once LSCWP_DIR . "tpl/inc/api_key.php"; ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

@@ -43,6 +43,10 @@ class Google_Font {
 
 	private static function sanitize_font_name( string $font_name ): string {
 		return sanitize_key( $font_name );
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private static function enqueue_style( string $font_name ): bool {

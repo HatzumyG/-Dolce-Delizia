@@ -133,6 +133,7 @@ __( 'Lead Developer' );
 __( 'Release Lead' );
 __( 'Release Design Lead' );
 __( 'Release Deputy' );
+<<<<<<< HEAD
 __( 'Release Coordination' );
 __( 'Minor Release Lead' );
 __( 'Core Developer' );
@@ -148,4 +149,7 @@ __( 'Default Theme Design Lead' );
 __( 'Default Theme Development Lead' );
 __( 'Tech Lead' );
 __( 'Triage Lead' );
+=======
+__( 'Core Developer' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 __( 'External Libraries' );

@@ -28,7 +28,11 @@ __webpack_require__.d(__webpack_exports__, {
   L: () => (/* reexport */ speak)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/shared/clear.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/shared/clear.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Clears the a11y-speak-region elements and hides the explanatory text.
  */
@@ -45,7 +49,11 @@ function clear() {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/shared/filter-message.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/shared/filter-message.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 let previousMessage = '';
 
 /**
@@ -76,7 +84,11 @@ function filterMessage(message) {
   return message;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/shared/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/shared/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -126,7 +138,11 @@ function speak(message, ariaLive) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

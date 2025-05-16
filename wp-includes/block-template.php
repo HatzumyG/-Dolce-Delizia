@@ -18,6 +18,7 @@ function _add_template_loader_filters() {
 }
 
 /**
+<<<<<<< HEAD
  * Renders a warning screen for empty block templates.
  *
  * @since 6.8.0
@@ -44,6 +45,8 @@ function wp_render_empty_block_template_warning( $block_template ) {
 }
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Finds a block template with equal or higher specificity than a given PHP template file.
  *
  * Internally, this communicates the block content that needs to be used by the template canvas through a global variable.
@@ -94,6 +97,7 @@ function locate_block_template( $template, $type, array $templates ) {
 	if ( $block_template ) {
 		$_wp_current_template_id = $block_template->id;
 
+<<<<<<< HEAD
 		if ( empty( $block_template->content ) ) {
 			if ( is_user_logged_in() ) {
 				$_wp_current_template_content = wp_render_empty_block_template_warning( $block_template );
@@ -106,6 +110,15 @@ function locate_block_template( $template, $type, array $templates ) {
 					$_wp_current_template_content = $block_template->content;
 				}
 			}
+=======
+		if ( empty( $block_template->content ) && is_user_logged_in() ) {
+			$_wp_current_template_content =
+			sprintf(
+				/* translators: %s: Template title */
+				__( 'Empty template: %s' ),
+				$block_template->title
+			);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} elseif ( ! empty( $block_template->content ) ) {
 			$_wp_current_template_content = $block_template->content;
 		}

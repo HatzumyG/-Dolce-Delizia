@@ -250,6 +250,7 @@ class ActionScheduler_AdminView extends ActionScheduler_AdminView_Deprecated {
 			return;
 		}
 
+<<<<<<< HEAD
 		$as_version       = ActionScheduler_Versions::instance()->latest_version();
 		$as_source        = ActionScheduler_SystemInformation::active_source();
 		$as_source_path   = ActionScheduler_SystemInformation::active_source_path();
@@ -264,6 +265,9 @@ class ActionScheduler_AdminView extends ActionScheduler_AdminView_Deprecated {
 			);
 		}
 
+=======
+		$as_version = ActionScheduler_Versions::instance()->latest_version();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$screen->add_help_tab(
 			array(
 				'id'      => 'action_scheduler_about',
@@ -273,6 +277,7 @@ class ActionScheduler_AdminView extends ActionScheduler_AdminView_Deprecated {
 					'<h2>' . sprintf( __( 'About Action Scheduler %s', 'woocommerce' ), $as_version ) . '</h2>' .
 					'<p>' .
 						__( 'Action Scheduler is a scalable, traceable job queue for background processing large sets of actions. Action Scheduler works by triggering an action hook to run at some time in the future. Scheduled actions can also be scheduled to run on a recurring schedule.', 'woocommerce' ) .
+<<<<<<< HEAD
 					'</p>' .
 					'<h3>' . esc_html__( 'Source', 'woocommerce' ) . '</h3>' .
 					'<p>' .
@@ -286,6 +291,8 @@ class ActionScheduler_AdminView extends ActionScheduler_AdminView_Deprecated {
 							esc_html__( 'WP CLI commands are available: execute %1$s for a list of available commands.', 'woocommerce' ),
 							'<code>wp help action-scheduler</code>'
 						) .
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'</p>',
 			)
 		);

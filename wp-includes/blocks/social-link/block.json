@@ -9,15 +9,23 @@
 	"textdomain": "default",
 	"attributes": {
 		"url": {
+<<<<<<< HEAD
 			"type": "string",
 			"role": "content"
+=======
+			"type": "string"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"service": {
 			"type": "string"
 		},
 		"label": {
+<<<<<<< HEAD
 			"type": "string",
 			"role": "content"
+=======
+			"type": "string"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"rel": {
 			"type": "string"

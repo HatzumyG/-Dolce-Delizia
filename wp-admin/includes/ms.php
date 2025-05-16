@@ -1172,6 +1172,7 @@ function get_site_screen_help_sidebar_content() {
 		'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/admin/#network-admin-sites-screen">Documentation on Site Management</a>' ) . '</p>' .
 		'<p>' . __( '<a href="https://wordpress.org/support/forum/multisite/">Support forums</a>' ) . '</p>';
 }
+<<<<<<< HEAD
 
 /**
  * Stop execution if the role can not be assigned by the current user.
@@ -1186,3 +1187,5 @@ function wp_ensure_editable_role( $role ) {
 		wp_die( __( 'Sorry, you are not allowed to give users that role.' ), 403 );
 	}
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

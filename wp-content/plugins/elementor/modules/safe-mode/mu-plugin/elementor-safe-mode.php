@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Plugin Name: Elementor Safe Mode
  * Description: Safe Mode allows you to troubleshoot issues by only loading the editor, without loading the theme or any other plugin.
@@ -24,7 +28,11 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Safe_Mode {

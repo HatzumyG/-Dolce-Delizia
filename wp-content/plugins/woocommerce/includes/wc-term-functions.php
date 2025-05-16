@@ -10,8 +10,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Change get terms defaults for attributes to order by the sorting setting, or default to menu_order for sortable taxonomies.
  *
@@ -419,8 +422,13 @@ function _wc_term_recount( $terms, $taxonomy, $callback = true, $terms_are_term_
 		$exclude_term_ids[] = $product_visibility_term_ids['exclude-from-catalog'];
 	}
 
+<<<<<<< HEAD
 	if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) && $product_visibility_term_ids[ ProductStockStatus::OUT_OF_STOCK ] ) {
 		$exclude_term_ids[] = $product_visibility_term_ids[ ProductStockStatus::OUT_OF_STOCK ];
+=======
+	if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) && $product_visibility_term_ids['outofstock'] ) {
+		$exclude_term_ids[] = $product_visibility_term_ids['outofstock'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	$query = array(

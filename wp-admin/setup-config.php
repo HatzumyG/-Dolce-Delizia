@@ -227,7 +227,11 @@ switch ( $step ) {
 	<table class="form-table" role="presentation">
 		<tr>
 			<th scope="row"><label for="dbname"><?php _e( 'Database Name' ); ?></label></th>
+<<<<<<< HEAD
 			<td><input name="dbname" id="dbname" type="text" aria-describedby="dbname-desc" size="25" placeholder="wordpress"<?php echo $autofocus; ?> />
+=======
+			<td><input name="dbname" id="dbname" type="text" aria-describedby="dbname-desc" size="25" placeholder="wordpress"<?php echo $autofocus; ?>/>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<p id="dbname-desc"><?php _e( 'The name of the database you want to use with WordPress.' ); ?></p></td>
 		</tr>
 		<tr>

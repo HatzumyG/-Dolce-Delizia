@@ -10,8 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WooCommerce Shipping Method Class.
  *
@@ -81,7 +84,11 @@ abstract class WC_Shipping_Method extends WC_Settings_API {
 	 *
 	 * @var string
 	 */
+<<<<<<< HEAD
 	public $tax_status = ProductTaxStatus::TAXABLE;
+=======
+	public $tax_status = 'taxable';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Fee for the method (if applicable).
@@ -194,7 +201,11 @@ abstract class WC_Shipping_Method extends WC_Settings_API {
 	 * @return boolean
 	 */
 	public function is_taxable() {
+<<<<<<< HEAD
 		return wc_tax_enabled() && ProductTaxStatus::TAXABLE === $this->tax_status && ( WC()->customer && ! WC()->customer->get_is_vat_exempt() );
+=======
+		return wc_tax_enabled() && 'taxable' === $this->tax_status && ( WC()->customer && ! WC()->customer->get_is_vat_exempt() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

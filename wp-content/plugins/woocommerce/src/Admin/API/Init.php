@@ -73,7 +73,10 @@ class Init {
 				'Automattic\WooCommerce\Admin\API\MarketingCampaigns',
 				'Automattic\WooCommerce\Admin\API\MarketingCampaignTypes',
 				'Automattic\WooCommerce\Admin\API\Options',
+<<<<<<< HEAD
 				'Automattic\WooCommerce\Admin\API\Settings',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'Automattic\WooCommerce\Admin\API\PaymentGatewaySuggestions',
 				'Automattic\WooCommerce\Admin\API\Themes',
 				'Automattic\WooCommerce\Admin\API\Plugins',

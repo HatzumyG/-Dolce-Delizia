@@ -1,15 +1,22 @@
 <?php
+<<<<<<< HEAD
 
 namespace Elementor\Modules\AtomicWidgets\Controls\Types;
 
 use Elementor\Modules\AtomicWidgets\Base\Atomic_Control_Base;
 use Elementor\Modules\WpRest\Classes\WP_Post;
+=======
+namespace Elementor\Modules\AtomicWidgets\Controls\Types;
+
+use Elementor\Modules\AtomicWidgets\Base\Atomic_Control_Base;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
 class Link_Control extends Atomic_Control_Base {
+<<<<<<< HEAD
 	private bool $allow_custom_values = true;
 	private int $minimum_input_length = 2;
 	private ?string $placeholder = null;
@@ -32,6 +39,9 @@ class Link_Control extends Atomic_Control_Base {
 
 		return $instance;
 	}
+=======
+	private ?string $placeholder = null;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	public function get_type(): string {
 		return 'link';
@@ -46,6 +56,7 @@ class Link_Control extends Atomic_Control_Base {
 	public function get_props(): array {
 		return [
 			'placeholder' => $this->placeholder,
+<<<<<<< HEAD
 			'allowCustomValues' => $this->allow_custom_values,
 			'queryOptions' => $this->query_options,
 			'minInputLength' => $this->minimum_input_length,
@@ -75,4 +86,8 @@ class Link_Control extends Atomic_Control_Base {
 
 		return $this;
 	}
+=======
+		];
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

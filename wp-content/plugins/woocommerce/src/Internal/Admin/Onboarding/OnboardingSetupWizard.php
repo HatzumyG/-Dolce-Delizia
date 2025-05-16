@@ -9,8 +9,11 @@ use Automattic\WooCommerce\Admin\PageController;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
 use Automattic\WooCommerce\Internal\Admin\Onboarding\OnboardingProfile;
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Internal\Admin\RemoteFreeExtensions\Init;
 use Automattic\WooCommerce\Internal\Admin\RemoteFreeExtensions\ProcessCoreProfilerPluginInstallOptions;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Contains backend logic for the onboarding profile and checklist feature.
@@ -37,6 +40,7 @@ class OnboardingSetupWizard {
 	 * Add onboarding actions.
 	 */
 	public function init() {
+<<<<<<< HEAD
 		// should be placed before is_admin() check as this hook is triggered in AJAX calls.
 		add_action(
 			'woocommerce_plugins_install_before',
@@ -47,6 +51,8 @@ class OnboardingSetupWizard {
 			2
 		);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! is_admin() ) {
 			return;
 		}
@@ -93,14 +99,20 @@ class OnboardingSetupWizard {
 		}
 
 		// Setup wizard redirect.
+<<<<<<< HEAD
 		// phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( get_transient( '_wc_activation_redirect' ) && apply_filters( 'woocommerce_enable_setup_wizard', true ) ) {
 			$do_redirect        = true;
 			$current_page       = isset( $_GET['page'] ) ? wc_clean( wp_unslash( $_GET['page'] ) ) : false; // phpcs:ignore WordPress.Security.NonceVerification
 			$is_onboarding_path = ! isset( $_GET['path'] ) || '/setup-wizard' === wc_clean( wp_unslash( $_GET['page'] ) ); // phpcs:ignore WordPress.Security.NonceVerification
 
 			// On these pages, or during these events, postpone the redirect.
+<<<<<<< HEAD
 			// phpcs:ignore WordPress.WP.Capabilities.Unknown
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( wp_doing_ajax() || is_network_admin() || ! current_user_can( 'manage_woocommerce' ) ) {
 				$do_redirect = false;
 			}
@@ -108,7 +120,10 @@ class OnboardingSetupWizard {
 			// On these pages, or during these events, disable the redirect.
 			if (
 				( 'wc-admin' === $current_page && $is_onboarding_path ) ||
+<<<<<<< HEAD
 				// phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				apply_filters( 'woocommerce_prevent_automatic_wizard_redirect', false ) ||
 				isset( $_GET['activate-multi'] ) // phpcs:ignore WordPress.Security.NonceVerification
 			) {
@@ -231,7 +246,10 @@ class OnboardingSetupWizard {
 		// or the current page is one of the WooCommerce Admin pages.
 		if (
 			( ! $this->should_show() && ! count( TaskLists::get_visible() )
+<<<<<<< HEAD
 		    // phpcs:ignore Generic.CodeAnalysis.RequireExplicitBooleanOperatorPrecedence.MissingParentheses
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			||
 			! $this->is_woocommerce_page()
 		)
@@ -254,7 +272,10 @@ class OnboardingSetupWizard {
 			$settings['onboarding']['isBlockTheme'] = wc_current_theme_is_fse_theme();
 		}
 
+<<<<<<< HEAD
 		// phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return apply_filters( 'woocommerce_admin_onboarding_preloaded_data', $settings );
 	}
 
@@ -316,6 +337,7 @@ class OnboardingSetupWizard {
 
 		return 'width=device-width, initial-scale=1.0, maximum-scale=1.0';
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Install options for core profiler plugin install.
@@ -345,4 +367,6 @@ class OnboardingSetupWizard {
 		$install_options = new ProcessCoreProfilerPluginInstallOptions( current( $specs )->plugins, $slug, wc_get_logger() );
 		$install_options->process_install_options();
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

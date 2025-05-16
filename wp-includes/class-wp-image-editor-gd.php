@@ -175,7 +175,11 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 *     If true, image will be cropped to the specified dimensions using center positions.
 	 *     If an array, the image will be cropped using the array to specify the crop location:
 	 *
+<<<<<<< HEAD
 	 *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
+=======
+	 *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
 	 * }
 	 * @return true|WP_Error
@@ -207,7 +211,11 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 *     If true, image will be cropped to the specified dimensions using center positions.
 	 *     If an array, the image will be cropped using the array to specify the crop location:
 	 *
+<<<<<<< HEAD
 	 *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
+=======
+	 *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
 	 * }
 	 * @return resource|GdImage|WP_Error
@@ -221,6 +229,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 
 		list( $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h ) = $dims;
 
+<<<<<<< HEAD
 		$this->set_quality(
 			null,
 			array(
@@ -229,6 +238,8 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 			)
 		);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$resized = wp_imagecreatetruecolor( $dst_w, $dst_h );
 		imagecopyresampled( $resized, $this->image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h );
 
@@ -576,6 +587,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * Sets Image Compression quality on a 1-100% scale. Handles WebP lossless images.
 	 *
 	 * @since 6.7.0
+<<<<<<< HEAD
 	 * @since 6.8.0 The `$dims` parameter was added.
 	 *
 	 * @param int   $quality Compression Quality. Range: [1,100]
@@ -584,6 +596,14 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 */
 	public function set_quality( $quality = null, $dims = array() ) {
 		$quality_result = parent::set_quality( $quality, $dims );
+=======
+	 *
+	 * @param int $quality Compression Quality. Range: [1,100]
+	 * @return true|WP_Error True if set successfully; WP_Error on failure.
+	 */
+	public function set_quality( $quality = null ) {
+		$quality_result = parent::set_quality( $quality );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( is_wp_error( $quality_result ) ) {
 			return $quality_result;
 		} else {
@@ -596,7 +616,11 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 				$webp_info = wp_get_webp_info( $this->file );
 				if ( ! empty( $webp_info['type'] ) && 'lossless' === $webp_info['type'] ) {
 					$quality = IMG_WEBP_LOSSLESS;
+<<<<<<< HEAD
 					parent::set_quality( $quality, $dims );
+=======
+					parent::set_quality( $quality );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 			}
 		} catch ( Exception $e ) {

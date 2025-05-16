@@ -98,6 +98,11 @@
 
 ["img_optm-auto",false]
 
+<<<<<<< HEAD
+=======
+["img_optm-cron",true]
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 ["img_optm-ori",true]
 
 ["img_optm-rm_bkup",false]

@@ -14,8 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
+<<<<<<< HEAD
 
 <?php wc_back_header( $zone->get_zone_name() ? $zone->get_zone_name() : __( 'Add zone', 'woocommerce' ), __( 'Return to shipping', 'woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=shipping' ) ); ?>
+=======
+<h2>
+	<a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping' ) ); ?>"><?php esc_html_e( 'Shipping zones', 'woocommerce' ); ?></a> &gt;
+	<span class="wc-shipping-zone-name"><?php echo esc_html( $zone->get_zone_name() ? $zone->get_zone_name() : __( 'Zone', 'woocommerce' ) ); ?></span>
+</h2>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 <?php
 // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment

@@ -206,6 +206,7 @@ function get_default_block_template_types() {
 		),
 	);
 
+<<<<<<< HEAD
 	// Add a title and description to post format templates.
 	$post_formats = get_post_format_strings();
 	foreach ( $post_formats as $post_format_slug => $post_format_name ) {
@@ -223,6 +224,8 @@ function get_default_block_template_types() {
 		);
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Filters the list of default template types.
 	 *
@@ -1185,6 +1188,7 @@ function get_block_templates( $query = array(), $template_type = 'wp_template' )
 		 * over the theme-provided ones, so we skip querying and building them.
 		 */
 		$query['slug__not_in'] = wp_list_pluck( $query_result, 'slug' );
+<<<<<<< HEAD
 		/*
 		 * We need to unset the post_type query param because some templates
 		 * would be excluded otherwise, like `page.html` when looking for
@@ -1214,6 +1218,11 @@ function get_block_templates( $query = array(), $template_type = 'wp_template' )
 					$query_result[] = $candidate;
 				}
 			}
+=======
+		$template_files        = _get_block_templates_files( $template_type, $query );
+		foreach ( $template_files as $template_file ) {
+			$query_result[] = _build_block_template_result_from_file( $template_file, $template_type );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( 'wp_template' === $template_type ) {

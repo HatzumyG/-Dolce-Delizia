@@ -27,6 +27,7 @@ class Util {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param array $row array row with key and value
 	 * @param string $table name
 	 * @param string $type one of insert, insert ignore, replace into
@@ -52,6 +53,8 @@ class Util {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Convert a string from snake_case to camelCase.
 	 *
 	 * @param string $string The string to be converted.

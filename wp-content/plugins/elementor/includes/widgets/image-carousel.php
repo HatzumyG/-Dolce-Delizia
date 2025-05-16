@@ -1053,7 +1053,11 @@ class Widget_Image_Carousel extends Widget_Base {
 	 * @since 1.0.0
 	 * @access private
 	 *
+<<<<<<< HEAD
 	 * @param array  $attachment
+=======
+	 * @param array $attachment
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param object $instance
 	 *
 	 * @return array|string|false An array/string containing the attachment URL, or false if no link.

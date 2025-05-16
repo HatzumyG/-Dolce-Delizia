@@ -31,8 +31,11 @@ final class ProductFilterChips extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$block_context = $block->context['filterData'];
 		$parent        = $block_context['parent'];
 		$items         = $block_context['items'] ?? array();
@@ -56,8 +59,13 @@ final class ProductFilterChips extends AbstractBlock {
 		$count                       = 0;
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive' => $this->get_full_block_name(),
 			'data-wp-key'         => wp_unique_prefixed_id( $this->get_full_block_name() ),
+=======
+			'data-wc-interactive' => esc_attr( wp_json_encode( array( 'namespace' => 'woocommerce/product-filter-chips' ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) ),
+			'data-wc-key'         => wp_unique_prefixed_id( $this->get_full_block_name() ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'class'               => esc_attr( $classes ),
 			'style'               => esc_attr( $style ),
 		);
@@ -74,11 +82,16 @@ final class ProductFilterChips extends AbstractBlock {
 					$aria_label = sprintf( __( 'Filter item: %s', 'woocommerce' ), $item['ariaLabel'] ?? $item['label'] );
 					?>
 					<button
+<<<<<<< HEAD
 						data-wp-key="<?php echo esc_attr( $item['id'] ); ?>"
+=======
+						data-wc-key="<?php echo esc_attr( $item['id'] ); ?>"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						id="<?php echo esc_attr( $item['id'] ); ?>"
 						class="wc-block-product-filter-chips__item"
 						type="button"
 						aria-label="<?php echo esc_attr( $aria_label ); ?>"
+<<<<<<< HEAD
 						data-wp-on--click--parent-action="<?php echo esc_attr( $parent . '::actions.toggleFilter' ); ?>"
 						value="<?php echo esc_attr( $item['value'] ); ?>"
 						data-wp-bind--aria-checked="<?php echo esc_attr( $parent . '::state.isItemSelected' ); ?>"
@@ -86,6 +99,16 @@ final class ProductFilterChips extends AbstractBlock {
 						<?php if ( ! $item['selected'] ) : ?>
 							<?php if ( $count >= $remaining_initial_unchecked ) : ?>
 								data-wp-bind--hidden="!context.showAll"
+=======
+						data-wc-on--click--parent-action="<?php echo esc_attr( $parent . '::actions.toggleFilter' ); ?>"
+						value="<?php echo esc_attr( $item['value'] ); ?>"
+						aria-checked="<?php echo $item['selected'] ? 'true' : 'false'; ?>"
+						data-wc-bind--aria-checked="<?php echo esc_attr( $parent . '::state.isItemSelected' ); ?>"
+						data-filter-item="<?php echo esc_attr( wp_json_encode( $item, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) ); ?>"
+						<?php if ( ! $item['selected'] ) : ?>
+							<?php if ( $count >= $remaining_initial_unchecked ) : ?>
+								data-wc-bind--hidden="!context.showAll"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								hidden
 							<?php else : ?>
 								<?php ++$count; ?>
@@ -101,8 +124,13 @@ final class ProductFilterChips extends AbstractBlock {
 			<?php if ( count( $items ) > $show_initially ) : ?>
 				<button
 					class="wc-block-product-filter-chips__show-more"
+<<<<<<< HEAD
 					data-wp-bind--hidden="context.showAll"
 					data-wp-on--click="actions.showAllItems"
+=======
+					data-wc-bind--hidden="context.showAll"
+					data-wc-on--click="actions.showAllItems"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					hidden
 				>
 					<?php echo esc_html__( 'Show more...', 'woocommerce' ); ?>
@@ -112,6 +140,7 @@ final class ProductFilterChips extends AbstractBlock {
 		<?php
 		return ob_get_clean();
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -123,4 +152,6 @@ final class ProductFilterChips extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

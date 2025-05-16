@@ -1026,6 +1026,7 @@ function clean_blog_cache( $blog ) {
  *
  * @param int    $site_id    Site ID.
  * @param string $meta_key   Metadata name.
+<<<<<<< HEAD
  * @param mixed  $meta_value Metadata value. Arrays and objects are stored as serialized data and
  *                           will be returned as the same type when retrieved. Other data types will
  *                           be stored as strings in the database:
@@ -1033,6 +1034,9 @@ function clean_blog_cache( $blog ) {
  *                           - true is stored and retrieved as '1'
  *                           - numbers (both integer and float) are stored and retrieved as strings
  *                           Must be serializable if non-scalar.
+=======
+ * @param mixed  $meta_value Metadata value. Must be serializable if non-scalar.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param bool   $unique     Optional. Whether the same key should not be added.
  *                           Default false.
  * @return int|false Meta ID on success, false on failure.
@@ -1077,11 +1081,14 @@ function delete_site_meta( $site_id, $meta_key, $meta_value = '' ) {
  *               False for an invalid `$site_id` (non-numeric, zero, or negative value).
  *               An empty array if a valid but non-existing site ID is passed and `$single` is false.
  *               An empty string if a valid but non-existing site ID is passed and `$single` is true.
+<<<<<<< HEAD
  *               Note: Non-serialized values are returned as strings:
  *               - false values are returned as empty strings ('')
  *               - true values are returned as '1'
  *               - numbers (both integer and float) are returned as strings
  *               Arrays and objects retain their original type.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function get_site_meta( $site_id, $key = '', $single = false ) {
 	return get_metadata( 'blog', $site_id, $key, $single );

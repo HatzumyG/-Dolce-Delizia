@@ -33,7 +33,11 @@ class EmailPreview {
 	 *
 	 * @var array
 	 */
+<<<<<<< HEAD
 	private static array $email_style_setting_ids = array(
+=======
+	private static array $email_style_settings_ids = array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'woocommerce_email_background_color',
 		'woocommerce_email_base_color',
 		'woocommerce_email_body_background_color',
@@ -42,7 +46,10 @@ class EmailPreview {
 		'woocommerce_email_footer_text_color',
 		'woocommerce_email_header_alignment',
 		'woocommerce_email_header_image',
+<<<<<<< HEAD
 		'woocommerce_email_header_image_width',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'woocommerce_email_text_color',
 	);
 
@@ -51,6 +58,7 @@ class EmailPreview {
 	 *
 	 * @var array
 	 */
+<<<<<<< HEAD
 	private static array $email_content_setting_ids = array();
 
 	/**
@@ -59,6 +67,16 @@ class EmailPreview {
 	 * @var bool
 	 */
 	private static bool $email_setting_ids_initialized = false;
+=======
+	private static array $email_content_settings_ids = array();
+
+	/**
+	 * Whether the email settings IDs are initialized.
+	 *
+	 * @var bool
+	 */
+	private static bool $email_settings_ids_initialized = false;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * The email type to preview.
@@ -94,6 +112,7 @@ class EmailPreview {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get all email setting IDs.
 	 */
 	public static function get_all_email_setting_ids() {
@@ -112,10 +131,31 @@ class EmailPreview {
 		return array_merge(
 			self::$email_style_setting_ids,
 			self::$email_content_setting_ids,
+=======
+	 * Get all email settings IDs.
+	 */
+	public static function get_all_email_settings_ids() {
+		if ( ! self::$email_settings_ids_initialized ) {
+			self::$email_settings_ids_initialized = true;
+
+			$emails = WC()->mailer()->get_emails();
+			foreach ( $emails as $email ) {
+				self::$email_content_settings_ids = array_merge(
+					self::$email_content_settings_ids,
+					self::get_email_content_settings_ids( $email->id )
+				);
+			}
+			self::$email_content_settings_ids = array_unique( self::$email_content_settings_ids );
+		}
+		return array_merge(
+			self::$email_style_settings_ids,
+			self::$email_content_settings_ids,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get email style setting IDs.
 	 */
 	public static function get_email_style_setting_ids() {
@@ -154,6 +194,28 @@ class EmailPreview {
 		 * @since 9.8.0
 		 */
 		return apply_filters( 'woocommerce_email_preview_email_content_setting_ids', $setting_ids, $email_id );
+=======
+	 * Get email style settings IDs.
+	 */
+	public static function get_email_style_settings_ids() {
+		return self::$email_style_settings_ids;
+	}
+
+	/**
+	 * Get email content settings IDs for specific email.
+	 *
+	 * @param string|null $email_id Email ID.
+	 */
+	public static function get_email_content_settings_ids( ?string $email_id ) {
+		if ( ! $email_id ) {
+			return array();
+		}
+		return array(
+			"woocommerce_{$email_id}_subject",
+			"woocommerce_{$email_id}_heading",
+			"woocommerce_{$email_id}_additional_content",
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -164,11 +226,15 @@ class EmailPreview {
 	 * @throws \InvalidArgumentException When the email type is invalid.
 	 */
 	public function set_email_type( string $email_type ) {
+<<<<<<< HEAD
 		$wc_emails = WC()->mailer()->get_emails();
 		$emails    = array_combine(
 			array_map( 'get_class', $wc_emails ),
 			$wc_emails
 		);
+=======
+		$emails = WC()->mailer()->get_emails();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! in_array( $email_type, array_keys( $emails ), true ) ) {
 			throw new \InvalidArgumentException( 'Invalid email type' );
 		}
@@ -183,10 +249,17 @@ class EmailPreview {
 			$this->email->set_object( $object );
 		} else {
 			$object = $this->get_dummy_order();
+<<<<<<< HEAD
 			if ( 'WC_Email_Customer_Note' === $email_type ) {
 				$this->email->customer_note = $object->get_customer_note();
 			}
 			if ( 'WC_Email_Customer_Refunded_Order' === $email_type ) {
+=======
+			if ( $email_type === 'WC_Email_Customer_Note' ) {
+				$this->email->customer_note = $object->get_customer_note();
+			}
+			if ( $email_type === 'WC_Email_Customer_Refunded_Order' ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$this->email->partial_refund = false;
 			}
 			$this->email->set_object( $object );
@@ -212,7 +285,14 @@ class EmailPreview {
 	 * @return string
 	 */
 	public function render() {
+<<<<<<< HEAD
 		return $this->render_preview_email();
+=======
+		if ( FeaturesUtil::feature_is_enabled( 'email_improvements' ) ) {
+			return $this->render_preview_email();
+		}
+		return $this->render_legacy_preview_email();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -264,6 +344,37 @@ class EmailPreview {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Get HTML of the legacy preview email.
+	 *
+	 * @return string
+	 */
+	private function render_legacy_preview_email() {
+		// load the mailer class.
+		$mailer = WC()->mailer();
+
+		// get the preview email subject.
+		$email_heading = __( 'HTML email template', 'woocommerce' );
+
+		// get the preview email content.
+		ob_start();
+		include WC()->plugin_path() . '/includes/admin/views/html-email-template-preview.php';
+		$message = ob_get_clean();
+
+		// create a new email.
+		$email = new WC_Email();
+
+		/**
+		 * Wrap the content with the email template and then add styles.
+		 *
+		 * @since 2.6.0
+		 */
+		return apply_filters( 'woocommerce_mail_content', $email->style_inline( $mailer->wrap_message( $email_heading, $message ) ) );
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Render HTML content of the preview email.
 	 *
 	 * @return string
@@ -275,6 +386,7 @@ class EmailPreview {
 			$this->set_email_type( self::DEFAULT_EMAIL_TYPE );
 		}
 
+<<<<<<< HEAD
 		if ( 'plain' === $this->email->get_email_type() ) {
 			$content  = '<pre style="word-wrap: break-word; white-space: pre-wrap;">';
 			$content .= $this->email->get_content_plain();
@@ -282,6 +394,9 @@ class EmailPreview {
 		} else {
 			$content = $this->email->get_content_html();
 		}
+=======
+		$content = $this->email->get_content_html();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$inlined = $this->email->style_inline( $content );
 
 		$this->clean_up_filters();
@@ -338,7 +453,11 @@ class EmailPreview {
 	 */
 	private function get_dummy_product() {
 		$product = new WC_Product();
+<<<<<<< HEAD
 		$product->set_name( __( 'Dummy Product', 'woocommerce' ) );
+=======
+		$product->set_name( 'Dummy Product' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$product->set_price( 25 );
 
 		/**
@@ -359,12 +478,21 @@ class EmailPreview {
 	 */
 	private function get_dummy_product_variation() {
 		$variation = new WC_Product_Variation();
+<<<<<<< HEAD
 		$variation->set_name( __( 'Dummy Product Variation', 'woocommerce' ) );
 		$variation->set_price( 20 );
 		$variation->set_attributes(
 			array(
 				__( 'Color', 'woocommerce' ) => __( 'Red', 'woocommerce' ),
 				__( 'Size', 'woocommerce' )  => __( 'Small', 'woocommerce' ),
+=======
+		$variation->set_name( 'Dummy Product Variation' );
+		$variation->set_price( 20 );
+		$variation->set_attributes(
+			array(
+				'pa_color' => 'red',
+				'pa_size'  => 'small',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		);
 
@@ -448,8 +576,11 @@ class EmailPreview {
 		add_filter( 'woocommerce_is_email_preview', array( $this, 'enable_preview_mode' ) );
 		// Get shipping method without needing to save it in the order.
 		add_filter( 'woocommerce_order_shipping_method', array( $this, 'get_shipping_method' ) );
+<<<<<<< HEAD
 		// Use placeholder image included in WooCommerce files.
 		add_filter( 'woocommerce_order_item_thumbnail', array( $this, 'get_placeholder_image' ) );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -460,7 +591,10 @@ class EmailPreview {
 		remove_filter( 'woocommerce_order_item_product', array( $this, 'get_dummy_product_when_not_set' ), 10 );
 		remove_filter( 'woocommerce_is_email_preview', array( $this, 'enable_preview_mode' ) );
 		remove_filter( 'woocommerce_order_shipping_method', array( $this, 'get_shipping_method' ) );
+<<<<<<< HEAD
 		remove_filter( 'woocommerce_order_item_thumbnail', array( $this, 'get_placeholder_image' ) );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -491,6 +625,7 @@ class EmailPreview {
 	public function enable_preview_mode() {
 		return true;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Get the placeholder image for the preview email.
@@ -500,4 +635,6 @@ class EmailPreview {
 	public function get_placeholder_image() {
 		return '<img src="' . WC()->plugin_url() . '/assets/images/placeholder.png" width="48" height="48" alt="" />';
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -10,24 +10,35 @@
 
 /*! @elementor/editor-responsive */
 
+<<<<<<< HEAD
 /*! @elementor/editor-styles */
 
 /*! @elementor/editor-styles-repository */
 
 /*! @elementor/editor-ui */
 
+=======
+/*! @elementor/editor-styles-repository */
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*! @elementor/editor-v1-adapters */
 
 /*! @elementor/icons */
 
+<<<<<<< HEAD
 /*! @elementor/locations */
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*! @elementor/menus */
 
 /*! @elementor/schema */
 
+<<<<<<< HEAD
 /*! @elementor/session */
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*! @elementor/ui */
 
 /*! @elementor/utils */
@@ -68,6 +79,7 @@
   !*** external ["elementorV2","schema"] ***!
   \*****************************************/
 
+<<<<<<< HEAD
 /*!******************************************!*\
   !*** external ["elementorV2","session"] ***!
   \******************************************/
@@ -80,6 +92,8 @@
   !*** external ["elementorV2","locations"] ***!
   \********************************************/
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*!**********************************************!*\
   !*** external ["elementorV2","editorProps"] ***!
   \**********************************************/
@@ -88,10 +102,13 @@
   !*** external ["elementorV2","editorPanels"] ***!
   \***********************************************/
 
+<<<<<<< HEAD
 /*!***********************************************!*\
   !*** external ["elementorV2","editorStyles"] ***!
   \***********************************************/
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*!*************************************************!*\
   !*** external ["elementorV2","editorControls"] ***!
   \*************************************************/

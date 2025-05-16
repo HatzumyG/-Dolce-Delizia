@@ -29,9 +29,12 @@
   background-color: #fff;
   box-shadow: 2px 8px 20px 0px rgba(0, 0, 0, 0.2);
 }
+<<<<<<< HEAD
 #accordion-section-hello-upsell-elementor-pro .accordion-section-title::after {
   display: none;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 #accordion-section-hello-upsell-elementor-pro h3,
 #accordion-section-hello-upsell-elementor-pro p {
   background-color: transparent !important;

@@ -108,7 +108,11 @@ wp_admin_notice(
 				}
 
 				?>
+<<<<<<< HEAD
 				<table class="widefat striped health-check-table">
+=======
+				<table class="widefat striped health-check-table" role="presentation">
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					<tbody>
 					<?php
 
@@ -126,9 +130,15 @@ wp_admin_notice(
 						}
 
 						if ( in_array( $field_name, $sizes_fields, true ) ) {
+<<<<<<< HEAD
 							printf( '<tr><th scope="row">%s</th><td class="%s">%s</td></tr>', esc_html( $field['label'] ), esc_attr( $field_name ), $values );
 						} else {
 							printf( '<tr><th scope="row">%s</th><td>%s</td></tr>', esc_html( $field['label'] ), $values );
+=======
+							printf( '<tr><td>%s</td><td class="%s">%s</td></tr>', esc_html( $field['label'] ), esc_attr( $field_name ), $values );
+						} else {
+							printf( '<tr><td>%s</td><td>%s</td></tr>', esc_html( $field['label'] ), $values );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						}
 					}
 

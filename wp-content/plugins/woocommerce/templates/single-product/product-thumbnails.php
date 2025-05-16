@@ -12,7 +12,11 @@
  *
  * @see         https://woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
+<<<<<<< HEAD
  * @version     9.8.0
+=======
+ * @version     9.5.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,10 +28,13 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 
 global $product;
 
+<<<<<<< HEAD
 if ( ! $product || ! $product instanceof WC_Product ) {
 	return '';
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $attachment_ids = $product->get_gallery_image_ids();
 
 if ( $attachment_ids && $product->get_image_id() ) {

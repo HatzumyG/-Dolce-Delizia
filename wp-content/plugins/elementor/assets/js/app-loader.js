@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! elementor - v3.28.0 - 22-04-2025 */
+=======
+/*! elementor - v3.27.0 - 18-02-2025 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -2808,7 +2812,11 @@ var CommandBase = exports["default"] = /*#__PURE__*/function (_CommandInfra) {
     value: function onAfterApply() {
       var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var result = arguments.length > 1 ? arguments[1] : undefined;
+<<<<<<< HEAD
       return $e.hooks.runDataAfter(this.command, args, result);
+=======
+      $e.hooks.runDataAfter(this.command, args, result);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
   }, {
     key: "onCatchApply",

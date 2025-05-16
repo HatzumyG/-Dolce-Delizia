@@ -12,17 +12,26 @@
  *
  * @see         https://woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates\Emails\Plain
+<<<<<<< HEAD
  * @version     9.8.0
  */
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
+=======
+ * @version     5.2.0
+ */
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+<<<<<<< HEAD
 $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 foreach ( $items as $item_id => $item ) :
 	if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 		$product       = $item->get_product();
@@ -34,6 +43,7 @@ foreach ( $items as $item_id => $item ) :
 			$purchase_note = $product->get_purchase_note();
 		}
 
+<<<<<<< HEAD
 		if ( $email_improvements_enabled ) {
 			/**
 			 * Email Order Item Name hook.
@@ -85,6 +95,16 @@ foreach ( $items as $item_id => $item ) :
 			echo ' = ' . $order->get_formatted_line_subtotal( $item ) . "\n";
 			// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
+=======
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo wp_kses_post( apply_filters( 'woocommerce_order_item_name', $item->get_name(), $item, false ) );
+		if ( $show_sku && $sku ) {
+			echo ' (#' . $sku . ')';
+		}
+		echo ' X ' . apply_filters( 'woocommerce_email_order_item_quantity', $item->get_quantity(), $item );
+		echo ' = ' . $order->get_formatted_line_subtotal( $item ) . "\n";
+		// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// allow other plugins to add additional product information here.
 		do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );

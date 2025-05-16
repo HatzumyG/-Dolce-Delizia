@@ -71,6 +71,7 @@ class Image {
 		);
 	}
 
+<<<<<<< HEAD
 	public function file_exists( string $image_size ): bool {
 		$path = $this->get_file_path( $image_size );
 
@@ -81,6 +82,8 @@ class Image {
 		return file_exists( $path );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Returns true if an image marked as optimized.
 	 *

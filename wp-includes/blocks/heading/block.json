@@ -37,7 +37,17 @@
 			"color": true,
 			"radius": true,
 			"style": true,
+<<<<<<< HEAD
 			"width": true
+=======
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"color": {
 			"gradients": true,

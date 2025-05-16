@@ -251,7 +251,11 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 		);
 
 		$table  = '<table class="update-from-upload-comparison"><tbody>';
+<<<<<<< HEAD
 		$table .= '<tr><th></th><th>' . esc_html_x( 'Installed', 'theme' ) . '</th><th>' . esc_html_x( 'Uploaded', 'theme' ) . '</th></tr>';
+=======
+		$table .= '<tr><th></th><th>' . esc_html_x( 'Active', 'theme' ) . '</th><th>' . esc_html_x( 'Uploaded', 'theme' ) . '</th></tr>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$is_same_theme = true; // Let's consider only these rows.
 
@@ -333,7 +337,11 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			if ( $this->is_downgrading ) {
 				$warning = sprintf(
 					/* translators: %s: Documentation URL. */
+<<<<<<< HEAD
 					__( 'You are uploading an older version of the installed theme. You can continue to install the older version, but be sure to <a href="%s">back up your database and files</a> first.' ),
+=======
+					__( 'You are uploading an older version of the active theme. You can continue to install the older version, but be sure to <a href="%s">back up your database and files</a> first.' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					__( 'https://developer.wordpress.org/advanced-administration/security/backup/' )
 				);
 			} else {
@@ -351,7 +359,11 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			$install_actions['overwrite_theme'] = sprintf(
 				'<a class="button button-primary update-from-upload-overwrite" href="%s" target="_parent">%s</a>',
 				wp_nonce_url( add_query_arg( 'overwrite', $overwrite, $this->url ), 'theme-upload' ),
+<<<<<<< HEAD
 				_x( 'Replace installed with uploaded', 'theme' )
+=======
+				_x( 'Replace active with uploaded', 'theme' )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			);
 		} else {
 			echo $blocked_message;

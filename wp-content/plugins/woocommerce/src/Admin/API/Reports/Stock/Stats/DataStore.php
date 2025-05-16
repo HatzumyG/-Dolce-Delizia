@@ -9,7 +9,10 @@ defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Admin\API\Reports\DataStore as ReportsDataStore;
 use Automattic\WooCommerce\Admin\API\Reports\DataStoreInterface;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * API\Reports\Stock\Stats\DataStore.
@@ -35,7 +38,11 @@ class DataStore extends ReportsDataStore implements DataStoreInterface {
 		} else {
 			$low_stock_count = intval( $low_stock_count );
 		}
+<<<<<<< HEAD
 		$report_data[ ProductStockStatus::LOW_STOCK ] = $low_stock_count;
+=======
+		$report_data['lowstock'] = $low_stock_count;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$status_options = wc_get_product_stock_status_options();
 		foreach ( $status_options as $status => $label ) {

@@ -83,7 +83,11 @@ window.wpAjax = jQuery.extend( {
 		selector = jQuery( selector );
 		return !wpAjax.invalidateForm( selector.find('.form-required').filter( function() { return jQuery('input:visible', this).val() === ''; } ) ).length;
 	}
+<<<<<<< HEAD
 }, wpAjax || { noPerm: 'Sorry, you are not allowed to do that.', broken: 'An error occurred while processing your request. Please refresh the page and try again.' } );
+=======
+}, wpAjax || { noPerm: 'Sorry, you are not allowed to do that.', broken: 'Something went wrong.' } );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Basic form validation.
 jQuery( function($){

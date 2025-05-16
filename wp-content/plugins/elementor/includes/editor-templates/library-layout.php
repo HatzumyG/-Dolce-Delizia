@@ -1,6 +1,10 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 ?>
 <script type="text/template" id="tmpl-elementor-templates-modal__header">
@@ -13,8 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span><?php echo esc_html__( 'Skip', 'elementor' ); ?></span>
 				<# } #>
 				<i class="eicon-close"
+<<<<<<< HEAD
 					aria-hidden="true"
 					title="{{{ $e.components?.get( 'document/elements' )?.utils?.getTitleForLibraryClose() }}}"></i>
+=======
+				   aria-hidden="true"
+				   title="{{{ $e.components?.get( 'document/elements' )?.utils?.getTitleForLibraryClose() }}}"></i>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<span class="elementor-screen-only">{{{ $e.components?.get( 'document/elements' )?.utils?.getTitleForLibraryClose() }}}</span>
 			</div>
 		<# } #>

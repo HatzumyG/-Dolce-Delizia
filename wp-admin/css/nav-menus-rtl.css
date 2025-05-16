@@ -378,16 +378,23 @@ input.bulk-select-switcher:focus + .bulk-select-button-label {
 
 /* Add Menu Item Boxes */
 .postbox .howto input,
+<<<<<<< HEAD
 .customlinkdiv .menu-item-textbox,
 .customlinkdiv .error-message {
+=======
+.customlinkdiv .menu-item-textbox {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	width: 180px;
 	float: left;
 }
 
+<<<<<<< HEAD
 .customlinkdiv .error-message {
 	clear: left;
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .accordion-container .outer-border {
 	margin: 0;
 }

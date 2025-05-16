@@ -63,7 +63,10 @@ class ProductsBySlug extends AbstractRoute {
 						)
 					),
 				),
+<<<<<<< HEAD
 				'allow_batch'         => [ 'v1' => true ],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			],
 			'schema' => [ $this->schema, 'get_public_item_schema' ],
 		];

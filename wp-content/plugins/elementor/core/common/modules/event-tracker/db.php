@@ -86,7 +86,11 @@ class DB extends Base_Object {
 			$event_data['details']['client_id'] = $user_connect_data['client_id'];
 		}
 
+<<<<<<< HEAD
 		$event_data['details'] = wp_json_encode( $event_data['details'] );
+=======
+		$event_data['details'] = json_encode( $event_data['details'] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$entry = [
 			'event_data' => wp_json_encode( $event_data ),

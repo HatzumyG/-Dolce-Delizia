@@ -7,10 +7,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Style_Parser {
+<<<<<<< HEAD
 	const VALID_TYPES = [
 		'class',
 	];
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const VALID_STATES = [
 		'hover',
 		'active',
@@ -53,6 +56,7 @@ class Style_Parser {
 			$this->errors_bag[] = 'id';
 		}
 
+<<<<<<< HEAD
 		if ( ! isset( $style['type'] ) || ! in_array( $style['type'], self::VALID_TYPES, true ) ) {
 			$this->errors_bag[] = 'type';
 		}
@@ -61,6 +65,8 @@ class Style_Parser {
 			$this->errors_bag[] = 'label';
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! isset( $style['variants'] ) || ! is_array( $style['variants'] ) ) {
 			$this->errors_bag[] = 'variants';
 			unset( $validated_style['variants'] );

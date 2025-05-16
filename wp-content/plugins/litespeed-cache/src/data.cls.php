@@ -15,7 +15,11 @@ defined('WPINC') || exit();
 
 class Data extends Root
 {
+<<<<<<< HEAD
 	const LOG_TAG = '🚀';
+=======
+	const LOG_TAG = '[Data]';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	private $_db_updater = array(
 		'3.5.0.3' => array('litespeed_update_3_5'),
@@ -24,8 +28,11 @@ class Data extends Root
 		'4.3' => array('litespeed_update_4_3'),
 		'4.4.4-b1' => array('litespeed_update_4_4_4'),
 		'5.3-a5' => array('litespeed_update_5_3'),
+<<<<<<< HEAD
 		'7.0-b26' => array('litespeed_update_7'),
 		'7.0.1-b1' => array('litespeed_update_7_0_1'),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	);
 
 	private $_db_site_updater = array(
@@ -121,7 +128,11 @@ class Data extends Root
 			if (version_compare($ver, $k, '<')) {
 				// run each callback
 				foreach ($v as $v2) {
+<<<<<<< HEAD
 					self::debug("Updating [ori_v] $ver \t[to] $k \t[func] $v2");
+=======
+					Debug2::debug("[Data] Updating [ori_v] $ver \t[to] $k \t[func] $v2");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					call_user_func($v2);
 				}
 			}
@@ -139,14 +150,22 @@ class Data extends Root
 		Conf::delete_option(Base::_VER);
 		Conf::add_option(Base::_VER, Core::VER);
 
+<<<<<<< HEAD
 		self::debug('Updated version to ' . Core::VER);
+=======
+		Debug2::debug('[Data] Updated version to ' . Core::VER);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->_set_upgrade_lock(false);
 
 		!defined('LSWCP_EMPTYCACHE') && define('LSWCP_EMPTYCACHE', true); // clear all sites caches
 		Purge::purge_all();
 
+<<<<<<< HEAD
 		return 'upgrade';
+=======
+		Cloud::version_check('upgrade');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -171,7 +190,11 @@ class Data extends Root
 			if (version_compare($ver, $k, '<')) {
 				// run each callback
 				foreach ($v as $v2) {
+<<<<<<< HEAD
 					self::debug("Updating site [ori_v] $ver \t[to] $k \t[func] $v2");
+=======
+					Debug2::debug("[Data] Updating site [ori_v] $ver \t[to] $k \t[func] $v2");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					call_user_func($v2);
 				}
 			}
@@ -183,7 +206,11 @@ class Data extends Root
 		Conf::delete_site_option(Base::_VER);
 		Conf::add_site_option(Base::_VER, Core::VER);
 
+<<<<<<< HEAD
 		self::debug('Updated site_version to ' . Core::VER);
+=======
+		Debug2::debug('[Data] Updated site_version to ' . Core::VER);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$this->_set_upgrade_lock(false);
 
@@ -256,7 +283,12 @@ class Data extends Root
 	{
 		$previous_options = get_option('litespeed-cache-conf');
 		if (!$previous_options) {
+<<<<<<< HEAD
 			return 'new';
+=======
+			Cloud::version_check('new');
+			return;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$ver = $previous_options['version'];
@@ -267,7 +299,11 @@ class Data extends Root
 		if ($this->conf(Base::O_DEBUG)) {
 			$this->cls('Debug2')->init();
 		}
+<<<<<<< HEAD
 		self::debug('Upgrading previous settings [from] ' . $ver . ' [to] v3.0');
+=======
+		Debug2::debug('[Data] Upgrading previous settings [from] ' . $ver . ' [to] v3.0');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ($this->_get_upgrade_lock()) {
 			return;
@@ -282,12 +318,20 @@ class Data extends Root
 
 		$this->_set_upgrade_lock(false);
 
+<<<<<<< HEAD
 		self::debug('Upgraded to v3.0');
+=======
+		Debug2::debug('[Data] Upgraded to v3.0');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Upgrade from 3.0 to latest version
 		$ver = '3.0';
 		if (Core::VER != $ver) {
+<<<<<<< HEAD
 			return $this->conf_upgrade($ver);
+=======
+			$this->conf_upgrade($ver);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} else {
 			// Reload options
 			$this->cls('Conf')->load_options();
@@ -297,7 +341,11 @@ class Data extends Root
 			!defined('LSWCP_EMPTYCACHE') && define('LSWCP_EMPTYCACHE', true); // clear all sites caches
 			Purge::purge_all();
 
+<<<<<<< HEAD
 			return 'upgrade';
+=======
+			Cloud::version_check('upgrade');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -378,6 +426,7 @@ class Data extends Root
 	{
 		global $wpdb;
 
+<<<<<<< HEAD
 		self::debug2('[Data] Checking table ' . $tb);
 
 		// Check if table exists first
@@ -387,6 +436,17 @@ class Data extends Root
 		}
 
 		self::debug('Creating ' . $tb);
+=======
+		Debug2::debug2('[Data] Checking table ' . $tb);
+
+		// Check if table exists first
+		if ($this->tb_exist($tb)) {
+			Debug2::debug2('[Data] Existed');
+			return;
+		}
+
+		Debug2::debug('[Data] Creating ' . $tb);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$sql = sprintf(
 			'CREATE TABLE IF NOT EXISTS `%1$s` (' . $this->_tb_structure($tb) . ') %2$s;',
@@ -396,7 +456,11 @@ class Data extends Root
 
 		$res = $wpdb->query($sql);
 		if ($res !== true) {
+<<<<<<< HEAD
 			self::debug('Warning! Creating table failed!', $sql);
+=======
+			Debug2::debug('[Data] Warning! Creating table failed!', $sql);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			Admin_Display::error(Error::msg('failed_tb_creation', array('<code>' . $tb . '</code>', '<code>' . $sql . '</code>')));
 		}
 	}
@@ -415,7 +479,11 @@ class Data extends Root
 			return;
 		}
 
+<<<<<<< HEAD
 		self::debug('Deleting table ' . $tb);
+=======
+		Debug2::debug('[Data] Deleting table ' . $tb);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$q = 'DROP TABLE IF EXISTS ' . $this->tb($tb);
 		$wpdb->query($q);
@@ -545,7 +613,11 @@ class Data extends Root
 					$file_to_del = $path . '/' . $v['filename'] . '.' . ($file_type == 'js' ? 'js' : 'css');
 					if (file_exists($file_to_del)) {
 						// Safe to delete
+<<<<<<< HEAD
 						self::debug('Delete expired unused file: ' . $file_to_del);
+=======
+						Debug2::debug('[Data] Delete expired unused file: ' . $file_to_del);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 						// Clear related lscache first to avoid cache copy of same URL w/ diff QS
 						// Purge::add( Tag::TYPE_MIN . '.' . $file_row[ 'filename' ] . '.' . $file_type );
@@ -606,14 +678,22 @@ class Data extends Root
 		global $wpdb;
 		$tb_url = $this->tb('url');
 
+<<<<<<< HEAD
 		self::debug('Try to mark as expired: ' . $request_url);
+=======
+		Debug2::debug('[Data] Try to mark as expired: ' . $request_url);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$q = "SELECT * FROM `$tb_url` WHERE url=%s";
 		$url_row = $wpdb->get_row($wpdb->prepare($q, $request_url), ARRAY_A);
 		if (!$url_row) {
 			return;
 		}
 
+<<<<<<< HEAD
 		self::debug('Mark url_id=' . $url_row['id'] . ' as expired');
+=======
+		Debug2::debug('[Data] Mark url_id=' . $url_row['id'] . ' as expired');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$tb_url_file = $this->tb('url_file');
 
@@ -646,6 +726,7 @@ class Data extends Root
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get list from `data/ccss_whitelist.txt`
 	 *
 	 * @since  7.1
@@ -661,6 +742,8 @@ class Data extends Root
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get list from `data/ucss_whitelist.txt`
 	 *
 	 * @since  4.0

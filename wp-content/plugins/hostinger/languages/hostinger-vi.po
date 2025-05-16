@@ -10,14 +10,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-07-30T12:00:12+00:00\n"
+<<<<<<< HEAD
 "PO-Revision-Date: 2025-04-10 16:12+0000\n"
+=======
+"PO-Revision-Date: 2025-02-07 13:21+0000\n"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hostinger\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+<<<<<<< HEAD
 "X-Loco-Version: 2.7.1; wp-6.7.2"
 
 #: includes/Admin/Assets.php:146
+=======
+"X-Loco-Version: 2.6.11; wp-6.4.5"
+
+#: includes/Admin/Assets.php:145
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 " Turning on XML-RPC might make your site less secure. Do you want to proceed?"
 msgstr ""
@@ -37,6 +47,7 @@ msgstr ""
 msgid "Attention:"
 msgstr "Lưu ý:"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:142
 msgid "Bypass link"
 msgstr "Đường dẫn bỏ qua"
@@ -46,6 +57,17 @@ msgid "Bypass link reset"
 msgstr "Thiết lập lại đường dẫn bỏ qua"
 
 #: includes/Admin/Assets.php:148 includes/Admin/Assets.php:152
+=======
+#: includes/Admin/Assets.php:141
+msgid "Bypass link"
+msgstr "Đường dẫn bỏ qua"
+
+#: includes/Admin/Assets.php:149
+msgid "Bypass link reset"
+msgstr "Thiết lập lại đường dẫn bỏ qua"
+
+#: includes/Admin/Assets.php:147 includes/Admin/Assets.php:151
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -53,17 +75,26 @@ msgstr "Hủy"
 msgid "Coming Soon"
 msgstr "Sắp ra mắt"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:122
 msgid "Disable application passwords"
 msgstr "Tắt mật khẩu ứng dụng"
 
 #: includes/Admin/Assets.php:117
+=======
+#: includes/Admin/Assets.php:121
+msgid "Disable application passwords"
+msgstr ""
+
+#: includes/Admin/Assets.php:116
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "Disable public access to the site (WordPress admins will still be able to "
 "access)"
 msgstr ""
 "Tắt truy cập công cộng đến trang web (quản trị WordPress vẫn có thể truy cập)"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:120
 msgid "Disable XML-RPC"
 msgstr "Tắt XML-RPC"
@@ -77,10 +108,22 @@ msgid "Edit site"
 msgstr ""
 
 #: includes/Admin/Assets.php:136
+=======
+#: includes/Admin/Assets.php:119
+msgid "Disable XML-RPC"
+msgstr "Tắt XML-RPC"
+
+#: includes/Admin/Assets.php:146
+msgid "Disclaimer"
+msgstr "Từ chối trách nhiệm"
+
+#: includes/Admin/Assets.php:135
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "For improved security, ensure you use the latest version of WordPress"
 msgstr ""
 "Để tăng cường bảo mật, hãy đảm bảo bạn sử dụng phiên bản WordPress mới nhất"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:125
 msgid "Force HTTPS"
 msgstr "HTTPS bắt buộc"
@@ -90,6 +133,17 @@ msgid "Force WWW"
 msgstr "WWW bắt buộc"
 
 #: includes/Admin/Assets.php:145 includes/Admin/Hooks.php:57
+=======
+#: includes/Admin/Assets.php:124
+msgid "Force HTTPS"
+msgstr "HTTPS bắt buộc"
+
+#: includes/Admin/Assets.php:126
+msgid "Force WWW"
+msgstr "WWW bắt buộc"
+
+#: includes/Admin/Assets.php:144 includes/Admin/Hooks.php:55
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Got it"
 msgstr "Đã hiểu"
 
@@ -98,20 +152,36 @@ msgstr "Đã hiểu"
 msgid "Hostinger"
 msgstr "Hostinger"
 
+<<<<<<< HEAD
 #: includes/Admin/Hooks.php:55
 msgid "Hostinger Easy Onboarding"
 msgstr "Nhập môn Hostinger Dễ dàng"
 
 #: includes/Admin/Hooks.php:51
+=======
+#: includes/Admin/Hooks.php:53
+msgid "Hostinger Easy Onboarding"
+msgstr "Nhập môn Hostinger Dễ dàng"
+
+#: includes/Admin/Hooks.php:49
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Hostinger plugin updates"
 msgstr "Cập nhật plugin Hostinger"
 
 #. Plugin Name of the plugin
+<<<<<<< HEAD
 #: hostinger.php includes/Admin/Hooks.php:54
 msgid "Hostinger Tools"
 msgstr "Công cụ Hostinger"
 
 #: includes/Admin/Assets.php:144
+=======
+#: hostinger.php includes/Admin/Hooks.php:52
+msgid "Hostinger Tools"
+msgstr "Công cụ Hostinger"
+
+#: includes/Admin/Assets.php:143
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "Hostinger Tools will offer new tools to simplify your site management. And "
 "Hostinger Easy Onboarding will guide you through the steps of building a "
@@ -136,6 +206,7 @@ msgstr "https://hostinger.vn"
 msgid "https://www.hostinger.com"
 msgstr "https://www.hostinger.vn"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:135
 msgid "is recommended"
 msgstr "được đề xuất"
@@ -149,6 +220,21 @@ msgid "Maintenance"
 msgstr "Bảo trì"
 
 #: includes/Admin/Assets.php:141
+=======
+#: includes/Admin/Assets.php:134
+msgid "is recommended"
+msgstr "được đề xuất"
+
+#: includes/Admin/Assets.php:153
+msgid "Link has been reset"
+msgstr "Đường dẫn đã được thiết lập lại"
+
+#: includes/Admin/Assets.php:136
+msgid "Maintenance"
+msgstr "Bảo trì"
+
+#: includes/Admin/Assets.php:140
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Maintenance mode"
 msgstr "Chế độ bảo trì"
 
@@ -156,7 +242,11 @@ msgstr "Chế độ bảo trì"
 msgid "New WordPress website is being built and will be published soon"
 msgstr "Trang web WordPress mới đang được xây dựng và sẽ sớm xuất bản"
 
+<<<<<<< HEAD
 #: includes/Admin/Hooks.php:54
+=======
+#: includes/Admin/Hooks.php:52
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "offers a toolkit for easier site maintenance."
 msgstr "cung cấp một bộ cung cụ để bảo trì trang dễ dàng."
 
@@ -168,6 +258,7 @@ msgstr ""
 "trên <a href=\"https://wordpress.org/support/plugin/hostinger/reviews/#new-"
 "post\" target=\"_blank\" rel=\"noopener noreferrer\">WordPress.org</a>"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:114
 msgid "Open guide"
 msgstr "Mở hướng dẫn"
@@ -189,6 +280,25 @@ msgid "Proceed anyway"
 msgstr "Thực hiện bất chấp"
 
 #: includes/Admin/Hooks.php:55
+=======
+#: includes/Admin/Assets.php:115
+msgid "Open guide"
+msgstr ""
+
+#: includes/Admin/Assets.php:129
+msgid "PHP version"
+msgstr "phiên bản PHP"
+
+#: includes/Admin/Assets.php:137
+msgid "Preview my website"
+msgstr "Xem trước trang web"
+
+#: includes/Admin/Assets.php:148
+msgid "Proceed anyway"
+msgstr "Thực hiện bất chấp"
+
+#: includes/Admin/Hooks.php:53
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "provides guidance and learning resources for beginners to get started with "
 "building a site using WordPress."
@@ -200,6 +310,7 @@ msgstr ""
 msgid "Rate this plugin"
 msgstr "Đánh giá plugin này"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:140
 msgid "Redirects"
 msgstr "Chuyển hướng"
@@ -233,6 +344,41 @@ msgid "The Hostinger plugin has been split into two different plugins:"
 msgstr "Plugin Hostinger đã được chia thành 2 plugin khác nhau:"
 
 #: includes/Admin/Assets.php:151
+=======
+#: includes/Admin/Assets.php:139
+msgid "Redirects"
+msgstr "Chuyển hướng"
+
+#: includes/Admin/Assets.php:125
+msgid "Redirects all HTTP URLs to HTTPS sites"
+msgstr "Chuyển hướng tất cả URL HTTP đến trang HTTPS"
+
+#: includes/Admin/Assets.php:127
+msgid "Redirects all WWW URLs to non-WWW ones"
+msgstr "Chuyển hướng tất cả URL WWW đến URL không WWW"
+
+#: includes/Admin/Assets.php:118 includes/Admin/Assets.php:152
+msgid "Reset link"
+msgstr "Thiết lập lại đường dẫn"
+
+#: includes/Admin/Assets.php:132
+msgid "Running the latest version"
+msgstr "Đang chạy phiên bản mới nhất"
+
+#: includes/Admin/Assets.php:138
+msgid "Security"
+msgstr "Bảo mật"
+
+#: includes/Admin/Assets.php:117
+msgid "Skip-link that bypasses the maintenance mode"
+msgstr "Đường dẫn bỏ qua để bỏ qua chế độ bảo trì"
+
+#: includes/Admin/Hooks.php:50
+msgid "The Hostinger plugin has been split into two different plugins:"
+msgstr "Plugin Hostinger đã được chia thành 2 plugin khác nhau:"
+
+#: includes/Admin/Assets.php:150
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "This will invalidate the currently generated link in use. This action cannot "
 "be undone, are you sure you want to proceed?"
@@ -240,7 +386,11 @@ msgstr ""
 "Điều này sẽ vô hiệu quá đường dẫn hiện tại đã tạo. Hành động này không thể "
 "hoàn tác, bạn có chắc muốn thực hiện?"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:113 includes/Admin/Menu.php:22
+=======
+#: includes/Admin/Assets.php:114 includes/Admin/Menu.php:22
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 #: includes/Admin/Menu.php:31 includes/Admin/Menu.php:32
 msgid "Tools"
 msgstr "Công cụ"
@@ -249,11 +399,19 @@ msgstr "Công cụ"
 msgid "Unknown error code."
 msgstr "Mã lỗi không rõ."
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:134
 msgid "Update to"
 msgstr "Cập nhật lên"
 
 #: includes/Admin/Assets.php:132
+=======
+#: includes/Admin/Assets.php:133
+msgid "Update to"
+msgstr "Cập nhật lên"
+
+#: includes/Admin/Assets.php:131
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid "Various updates and fixes available in the newest version."
 msgstr "Có nhiều cập nhật và chỉnh sửa trong phiên bản mới nhất."
 
@@ -267,7 +425,11 @@ msgstr ""
 "đã gặp lỗi máy chủ. Xin vui lòng thử lại sau và nếu vấn đề vẫn tiếp tục xảy "
 "ra, vui lòng liên hệ đội ngũ hổ trợ để được giúp đỡ."
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:143
+=======
+#: includes/Admin/Assets.php:142
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "We’re splitting Hostinger plugin into two: Hostinger Tools and Hostinger "
 "Easy Onboarding"
@@ -275,12 +437,17 @@ msgstr ""
 "Chúng tôi đã chia plugin Hostinger thành 2: Công cụ Hostinger và Nhập môn "
 "Hostinger Dễ dàng"
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:123
+=======
+#: includes/Admin/Assets.php:122
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "WordPress application passwords allow users to authenticate API requests "
 "without using their main login credentials, allowing for third-party "
 "integrations."
 msgstr ""
+<<<<<<< HEAD
 "Mật khẩu ứng dụng WordPress cho phép người dùng có thể xác thực yêu cầu API "
 "mà không cần dùng thông tin đăng nhập chính, giúp cho việc tích hợp bên thứ "
 "ba."
@@ -290,6 +457,14 @@ msgid "WordPress version"
 msgstr "Phiên bản WordPress"
 
 #: includes/Admin/Assets.php:129
+=======
+
+#: includes/Admin/Assets.php:130
+msgid "WordPress version"
+msgstr "Phiên bản WordPress"
+
+#: includes/Admin/Assets.php:128
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "WWW and non-WWW domain records are not pointing to the same host. Redirect "
 "not possible."
@@ -297,7 +472,11 @@ msgstr ""
 "Bản ghi tên miền WWW và không WWW không được trỏ về chung một host. Không "
 "thể điều hướng."
 
+<<<<<<< HEAD
 #: includes/Admin/Assets.php:121
+=======
+#: includes/Admin/Assets.php:120
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 msgid ""
 "XML-RPC allows apps to connect to your WordPress site, but might expose your "
 "site's security. Disable this feature if you don't need it"

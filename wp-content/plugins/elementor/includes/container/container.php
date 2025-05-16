@@ -17,6 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 3.24.0
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 class Container {
 
 	protected static $instance;

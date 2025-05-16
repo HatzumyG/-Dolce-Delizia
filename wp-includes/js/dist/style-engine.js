@@ -44,7 +44,11 @@ __webpack_require__.d(__webpack_exports__, {
   getCSSValueFromRawStyle: () => (/* reexport */ getCSSValueFromRawStyle)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/tslib/tslib.es6.mjs
+=======
+;// CONCATENATED MODULE: ./node_modules/tslib/tslib.es6.mjs
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -447,7 +451,11 @@ function __rewriteRelativeImportExtension(path, preserveJsx) {
   __rewriteRelativeImportExtension,
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/lower-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/lower-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Source: ftp://ftp.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt
  */
@@ -496,7 +504,11 @@ function lowerCase(str) {
     return str.toLowerCase();
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/no-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/no-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Support camel case ("camelCase" -> "camel Case" and "CAMELCase" -> "CAMEL Case").
 var DEFAULT_SPLIT_REGEXP = [/([a-z0-9])([A-Z])/g, /([A-Z])([A-Z][a-z])/g];
@@ -528,7 +540,11 @@ function replace(input, re, value) {
     return re.reduce(function (input, re) { return input.replace(re, value); }, input);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/dot-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/dot-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function dotCase(input, options) {
@@ -536,7 +552,11 @@ function dotCase(input, options) {
     return noCase(input, __assign({ delimiter: "." }, options));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/param-case/dist.es2015/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/param-case/dist.es2015/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 function paramCase(input, options) {
@@ -544,12 +564,20 @@ function paramCase(input, options) {
     return dotCase(input, __assign({ delimiter: "-" }, options));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/constants.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/constants.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const VARIABLE_REFERENCE_PREFIX = 'var:';
 const VARIABLE_PATH_SEPARATOR_TOKEN_ATTRIBUTE = '|';
 const VARIABLE_PATH_SEPARATOR_TOKEN_STYLE = '--';
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -713,7 +741,11 @@ function safeDecodeURI(uri) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/border/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/border/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -785,7 +817,11 @@ const borderLeft = {
 };
 /* harmony default export */ const border = ([color, borderStyle, width, radius, borderTop, borderRight, borderBottom, borderLeft]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/color/background.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/color/background.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -799,7 +835,11 @@ const background = {
 };
 /* harmony default export */ const color_background = (background);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/color/gradient.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/color/gradient.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -813,7 +853,11 @@ const gradient = {
 };
 /* harmony default export */ const color_gradient = (gradient);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/color/text.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/color/text.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -827,7 +871,11 @@ const text_text = {
 };
 /* harmony default export */ const color_text = (text_text);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/color/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/color/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -836,7 +884,11 @@ const text_text = {
 
 /* harmony default export */ const styles_color = ([color_text, color_gradient, color_background]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/dimensions/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/dimensions/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -856,7 +908,11 @@ const aspectRatio = {
 };
 /* harmony default export */ const dimensions = ([minHeight, aspectRatio]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/background/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/background/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -909,7 +965,11 @@ const backgroundAttachment = {
 };
 /* harmony default export */ const styles_background = ([backgroundImage, backgroundPosition, backgroundRepeat, backgroundSize, backgroundAttachment]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/shadow/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/shadow/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -923,7 +983,11 @@ const shadow = {
 };
 /* harmony default export */ const styles_shadow = ([shadow]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/outline/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/outline/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -955,7 +1019,11 @@ const outline_width = {
 };
 /* harmony default export */ const outline = ([outline_color, outlineStyle, offset, outline_width]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/spacing/padding.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/spacing/padding.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -972,7 +1040,11 @@ const padding = {
 };
 /* harmony default export */ const spacing_padding = (padding);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/spacing/margin.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/spacing/margin.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -989,7 +1061,11 @@ const margin = {
 };
 /* harmony default export */ const spacing_margin = (margin);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/spacing/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/spacing/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -997,7 +1073,11 @@ const margin = {
 
 /* harmony default export */ const spacing = ([spacing_margin, spacing_padding]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/typography/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/typography/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1065,7 +1145,11 @@ const writingMode = {
 };
 /* harmony default export */ const typography = ([fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textColumns, textDecoration, textTransform, writingMode]);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/styles/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/styles/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1079,7 +1163,11 @@ const writingMode = {
 
 const styleDefinitions = [...border, ...styles_color, ...dimensions, ...outline, ...spacing, ...typography, ...styles_shadow, ...styles_background];
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/style-engine/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/style-engine/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */

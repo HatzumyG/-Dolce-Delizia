@@ -195,6 +195,7 @@ class Api {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Use package path to find an asset data file and return the data.
 	 *
 	 * @param string $filename The filename of the asset.
@@ -207,6 +208,8 @@ class Api {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get src, version and dependencies given a script relative src.
 	 *
 	 * @param string $relative_src Relative src to the script.
@@ -274,7 +277,11 @@ class Api {
 				$dependencies = array_diff( $script_data['dependencies'], [ $handle ] );
 					add_action(
 						'admin_notices',
+<<<<<<< HEAD
 						function () use ( $handle ) {
+=======
+						function() use ( $handle ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								echo '<div class="error"><p>';
 								/* translators: %s file handle name. */
 								printf( esc_html__( 'Script with handle %s had a dependency on itself which has been removed. This is an indicator that your JS code has a circular dependency that can cause bugs.', 'woocommerce' ), esc_html( $handle ) );

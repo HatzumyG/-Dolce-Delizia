@@ -55,10 +55,17 @@ __webpack_require__.d(__webpack_exports__, {
   speak: () => (/* reexport */ speak)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","domReady"]
 const external_wp_domReady_namespaceObject = window["wp"]["domReady"];
 var external_wp_domReady_default = /*#__PURE__*/__webpack_require__.n(external_wp_domReady_namespaceObject);
 ;// ./node_modules/@wordpress/a11y/build-module/script/add-container.js
+=======
+;// CONCATENATED MODULE: external ["wp","domReady"]
+const external_wp_domReady_namespaceObject = window["wp"]["domReady"];
+var external_wp_domReady_default = /*#__PURE__*/__webpack_require__.n(external_wp_domReady_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/script/add-container.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Build the live regions markup.
  *
@@ -83,9 +90,15 @@ function addContainer(ariaLive = 'polite') {
   return container;
 }
 
+<<<<<<< HEAD
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// ./node_modules/@wordpress/a11y/build-module/script/add-intro-text.js
+=======
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/script/add-intro-text.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -115,7 +128,11 @@ function addIntroText() {
   return introText;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/shared/clear.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/shared/clear.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Clears the a11y-speak-region elements and hides the explanatory text.
  */
@@ -132,7 +149,11 @@ function clear() {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/shared/filter-message.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/shared/filter-message.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 let previousMessage = '';
 
 /**
@@ -163,7 +184,11 @@ function filterMessage(message) {
   return message;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/shared/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/shared/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -213,7 +238,11 @@ function speak(message, ariaLive) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/a11y/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/a11y/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */

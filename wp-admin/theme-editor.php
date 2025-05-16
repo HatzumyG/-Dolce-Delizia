@@ -182,7 +182,16 @@ if ( ! empty( $posted_content ) ) {
 	$content = esc_textarea( $content );
 }
 
+<<<<<<< HEAD
 $file_show = array_search( $file, array_filter( $allowed_files ), true );
+=======
+$file_description = get_file_description( $relative_file );
+$file_show        = array_search( $file, array_filter( $allowed_files ), true );
+$description      = esc_html( $file_description );
+if ( $file_description !== $file_show ) {
+	$description .= ' <span>(' . esc_html( $file_show ) . ')</span>';
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 ?>
 <div class="wrap">
 <h1><?php echo esc_html( $title ); ?></h1>
@@ -230,6 +239,7 @@ if ( preg_match( '/\.css$/', $file ) && ! wp_is_block_theme() && current_user_ca
 <div class="alignleft">
 <h2>
 	<?php
+<<<<<<< HEAD
 	if ( wp_get_theme()->get( 'Name' ) === $theme->display( 'Name' ) ) {
 		/* translators: %s: Theme name. */
 		printf( __( 'Editing %s (active)' ), '<strong>' . $theme->display( 'Name' ) . '</strong>' );
@@ -246,6 +256,14 @@ printf(
 	esc_html( $file_show )
 );
 ?>
+=======
+	echo $theme->display( 'Name' );
+	if ( $description ) {
+		echo ': ' . $description;
+	}
+	?>
+</h2>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 </div>
 <div class="alignright">
 	<form action="theme-editor.php" method="get">

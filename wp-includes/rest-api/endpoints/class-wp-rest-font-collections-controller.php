@@ -89,8 +89,11 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 
 		$collections_page = array_slice( $collections_all, ( $page - 1 ) * $per_page, $per_page );
 
+<<<<<<< HEAD
 		$is_head_request = $request->is_method( 'HEAD' );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$items = array();
 		foreach ( $collections_page as $collection ) {
 			$item = $this->prepare_item_for_response( $collection, $request );
@@ -99,6 +102,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 			if ( is_wp_error( $item ) ) {
 				continue;
 			}
+<<<<<<< HEAD
 
 			/*
 			 * Skip preparing the response body for HEAD requests.
@@ -109,11 +113,17 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 				continue;
 			}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$item    = $this->prepare_response_for_collection( $item );
 			$items[] = $item;
 		}
 
+<<<<<<< HEAD
 		$response = $is_head_request ? new WP_REST_Response( array() ) : rest_ensure_response( $items );
+=======
+		$response = rest_ensure_response( $items );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$response->header( 'X-WP-Total', (int) $total_items );
 		$response->header( 'X-WP-TotalPages', $max_pages );
@@ -187,6 +197,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 				return $collection_data;
 			}
 
+<<<<<<< HEAD
 			/**
 			 * Don't prepare the response body for HEAD requests.
 			 * Can't exit at the beginning of the method due to the potential need to return a WP_Error object.
@@ -196,6 +207,8 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 				return apply_filters( 'rest_prepare_font_collection', new WP_REST_Response( array() ), $item, $request );
 			}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			foreach ( $data_fields as $field ) {
 				if ( rest_is_field_included( $field, $fields ) ) {
 					$data[ $field ] = $collection_data[ $field ];
@@ -203,6 +216,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 			}
 		}
 
+<<<<<<< HEAD
 		/**
 		 * Don't prepare the response body for HEAD requests.
 		 * Can't exit at the beginning of the method due to the potential need to return a WP_Error object.
@@ -212,6 +226,8 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 			return apply_filters( 'rest_prepare_font_collection', new WP_REST_Response( array() ), $item, $request );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$response = rest_ensure_response( $data );
 
 		if ( rest_is_field_included( '_links', $fields ) ) {

@@ -42,7 +42,11 @@ class AddToCartWithOptionsQuantitySelector extends AbstractBlock {
 	 * @param WP_Block $block Block instance.
 	 */
 	protected function enqueue_assets( $attributes, $content, $block ) {
+<<<<<<< HEAD
 		if ( ! isset( $attributes['quantitySelectorStyle'] ) || 'stepper' !== $attributes['quantitySelectorStyle'] ) {
+=======
+		if ( 'stepper' !== $attributes['quantitySelectorStyle'] ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 
@@ -105,6 +109,7 @@ class AddToCartWithOptionsQuantitySelector extends AbstractBlock {
 	 */
 	protected function render( $attributes, $content, $block ) {
 		global $product;
+<<<<<<< HEAD
 		$previous_product = $product;
 
 		// Try to load the product from the block context, if not available,
@@ -114,6 +119,20 @@ class AddToCartWithOptionsQuantitySelector extends AbstractBlock {
 		if ( $post instanceof \WC_Product ) {
 			$product = $post;
 		} elseif ( ! $product instanceof \WC_Product ) {
+=======
+
+		$post_id = $block->context['postId'];
+
+		if ( ! isset( $post_id ) ) {
+			return '';
+		}
+
+		$previous_product = $product;
+		$product          = wc_get_product( $post_id );
+		if ( ! $product instanceof \WC_Product ) {
+			$product = $previous_product;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return '';
 		}
 
@@ -124,10 +143,26 @@ class AddToCartWithOptionsQuantitySelector extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		$is_stepper_style = isset( $attributes['quantitySelectorStyle'] ) && 'stepper' === $attributes['quantitySelectorStyle'] && ! $product->is_sold_individually();
 
 		ob_start();
 
+=======
+		$is_stepper_style = 'stepper' === $attributes['quantitySelectorStyle'] && ! $product->is_sold_individually();
+
+		ob_start();
+
+		/**
+		 * Hook: woocommerce_before_add_to_cart_quantity.
+		 *
+		 * Action that fires before the quantity input field is rendered.
+		 *
+		 * @since 2.7.0
+		 */
+		do_action( 'woocommerce_before_add_to_cart_quantity' );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		woocommerce_quantity_input(
 			array(
 				/**
@@ -150,6 +185,18 @@ class AddToCartWithOptionsQuantitySelector extends AbstractBlock {
 			)
 		);
 
+<<<<<<< HEAD
+=======
+		/**
+		 * Hook: woocommerce_after_add_to_cart_quantity.
+		 *
+		 * Action that fires after the quantity input field is rendered.
+		 *
+		 * @since 2.7.0
+		 */
+		do_action( 'woocommerce_after_add_to_cart_quantity' );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$product_html = ob_get_clean();
 
 		$product_name = $product->get_name();

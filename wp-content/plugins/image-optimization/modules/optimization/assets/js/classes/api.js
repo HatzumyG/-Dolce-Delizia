@@ -1,6 +1,9 @@
 import apiFetch from '@wordpress/api-fetch';
+<<<<<<< HEAD
 import { addQueryArgs } from '@wordpress/url';
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 import APIError from './exceptions/APIError';
 
 const v1Prefix = '/image-optimizer/v1';
@@ -56,6 +59,7 @@ class API {
 			},
 		} );
 	}
+<<<<<<< HEAD
 
 	static async getOptimizationDetails( imageId ) {
 		const queryParams = {
@@ -67,6 +71,8 @@ class API {
 			path: addQueryArgs( `${ v1Prefix }/stats/optimization-details`, queryParams ),
 		} );
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 export default API;

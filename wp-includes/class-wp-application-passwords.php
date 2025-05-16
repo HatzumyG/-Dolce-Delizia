@@ -60,7 +60,10 @@ class WP_Application_Passwords {
 	 *
 	 * @since 5.6.0
 	 * @since 5.7.0 Returns WP_Error if application name already exists.
+<<<<<<< HEAD
 	 * @since 6.8.0 The hashed password value now uses wp_fast_hash() instead of phpass.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param int   $user_id  User ID.
 	 * @param array $args     {
@@ -96,7 +99,11 @@ class WP_Application_Passwords {
 		}
 
 		$new_password    = wp_generate_password( static::PW_LENGTH, false );
+<<<<<<< HEAD
 		$hashed_password = self::hash_password( $new_password );
+=======
+		$hashed_password = wp_hash_password( $new_password );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$new_item = array(
 			'uuid'      => wp_generate_uuid4(),
@@ -125,7 +132,10 @@ class WP_Application_Passwords {
 		 * Fires when an application password is created.
 		 *
 		 * @since 5.6.0
+<<<<<<< HEAD
 		 * @since 6.8.0 The hashed password value now uses wp_fast_hash() instead of phpass.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *
 		 * @param int    $user_id      The user ID.
 		 * @param array  $new_item     {
@@ -251,7 +261,10 @@ class WP_Application_Passwords {
 	 * Updates an application password.
 	 *
 	 * @since 5.6.0
+<<<<<<< HEAD
 	 * @since 6.8.0 The actual password should now be hashed using wp_fast_hash().
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param int    $user_id User ID.
 	 * @param string $uuid    The password's UUID.
@@ -299,8 +312,11 @@ class WP_Application_Passwords {
 			 * Fires when an application password is updated.
 			 *
 			 * @since 5.6.0
+<<<<<<< HEAD
 			 * @since 6.8.0 The password is now hashed using wp_fast_hash() instead of phpass.
 			 *              Existing passwords may still be hashed using phpass.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			 *
 			 * @param int   $user_id The user ID.
 			 * @param array $item    {
@@ -464,14 +480,19 @@ class WP_Application_Passwords {
 	 * @param string $raw_password The raw application password.
 	 * @return string The chunked password.
 	 */
+<<<<<<< HEAD
 	public static function chunk_password(
 		#[\SensitiveParameter]
 		$raw_password
 	) {
+=======
+	public static function chunk_password( $raw_password ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$raw_password = preg_replace( '/[^a-z\d]/i', '', $raw_password );
 
 		return trim( chunk_split( $raw_password, 4, ' ' ) );
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Hashes a plaintext application password.
@@ -512,4 +533,6 @@ class WP_Application_Passwords {
 
 		return wp_verify_fast_hash( $password, $hash );
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

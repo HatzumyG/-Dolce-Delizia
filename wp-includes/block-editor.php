@@ -223,7 +223,10 @@ function get_default_block_editor_settings() {
 		'imageEditing'                     => true,
 		'imageSizes'                       => $available_image_sizes,
 		'maxUploadFileSize'                => $max_upload_size,
+<<<<<<< HEAD
 		'__experimentalDashboardLink'      => admin_url( '/' ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// The following flag is required to enable the new Gallery block format on the mobile apps in 5.9.
 		'__unstableGalleryWithImageBlocks' => true,
 	);
@@ -856,6 +859,7 @@ function get_classic_theme_supports_block_editor_settings() {
 
 	return $theme_settings;
 }
+<<<<<<< HEAD
 
 /**
  * Initialize site preview.
@@ -874,3 +878,5 @@ function wp_initialize_site_preview_hooks() {
 		define( 'IFRAME_REQUEST', true );
 	}
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

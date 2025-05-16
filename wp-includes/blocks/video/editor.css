@@ -32,7 +32,11 @@
   max-width:240px;
 }
 
+<<<<<<< HEAD
 .block-library-video-tracks-editor__single-track-editor-edit-track-label,.block-library-video-tracks-editor__tracks-informative-message-title{
+=======
+.block-library-video-tracks-editor__single-track-editor-edit-track-label{
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   color:#757575;
   display:block;
   font-size:11px;
@@ -47,6 +51,7 @@
 
 .block-library-video-tracks-editor__add-tracks-container .components-menu-group__label,.block-library-video-tracks-editor__track-list .components-menu-group__label{
   padding:0;
+<<<<<<< HEAD
 }
 
 .block-library-video-tracks-editor__tracks-informative-message{
@@ -54,4 +59,6 @@
 }
 .block-library-video-tracks-editor__tracks-informative-message-description{
   margin-bottom:0;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -1102,15 +1102,20 @@
 			}, 500 ) );
 
 			$('#add-custom-links input[type="text"]').on( 'keypress', function(e){
+<<<<<<< HEAD
 				$( '#customlinkdiv' ).removeClass( 'form-invalid' );
 				$( '#custom-menu-item-url' ).removeAttr( 'aria-invalid' ).removeAttr( 'aria-describedby' );
 				$( '#custom-url-error' ).hide();
+=======
+				$('#customlinkdiv').removeClass('form-invalid');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				if ( e.keyCode === 13 ) {
 					e.preventDefault();
 					$( '#submit-customlinkdiv' ).trigger( 'click' );
 				}
 			});
+<<<<<<< HEAD
 
 			$( '#submit-customlinkdiv' ).on( 'click', function (e) {
 				var urlInput = $( '#custom-menu-item-url' ),
@@ -1149,6 +1154,8 @@
 					wp.a11y.speak( errorText, 'assertive' );
 				}
 			});
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 
 		/**
@@ -1261,8 +1268,13 @@
 					deletionSpeech = menus.itemsDeleted.replace( '%s', itemsPendingDeletion );
 					wp.a11y.speak( deletionSpeech, 'polite' );
 					that.disableBulkSelection();
+<<<<<<< HEAD
 					$( '#menu-to-edit' ).updateParentDropdown();
 					$( '#menu-to-edit' ).updateOrderDropdown();
+=======
+					menus.updateParentDropdown();
+					menus.updateOrderDropdown();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 			});
 		},
@@ -1429,8 +1441,12 @@
 
 		addCustomLink : function( processMethod ) {
 			var url = $('#custom-menu-item-url').val().toString(),
+<<<<<<< HEAD
 				label = $('#custom-menu-item-name').val(),
 				urlRegex;
+=======
+				label = $('#custom-menu-item-name').val();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( '' !== url ) {
 				url = url.trim();
@@ -1438,6 +1454,7 @@
 
 			processMethod = processMethod || api.addMenuItemToBottom;
 
+<<<<<<< HEAD
 			/*
 			 * Allow URLs including:
 			 * - http://example.com/
@@ -1452,6 +1469,9 @@
 			 */
 			urlRegex = /^((\w+:)?\/\/\w.*|\w+:(?!\/\/$)|\/|\?|#)/;
 			if ( ! urlRegex.test( url ) ) {
+=======
+			if ( '' === url || 'https://' == url || 'http://' == url ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$('#customlinkdiv').addClass('form-invalid');
 				return false;
 			}
@@ -1816,8 +1836,13 @@
 					}
 					api.refreshAdvancedAccessibility();
 					wp.a11y.speak( menus.itemRemoved );
+<<<<<<< HEAD
 					$( '#menu-to-edit' ).updateParentDropdown();
 					$( '#menu-to-edit' ).updateOrderDropdown();
+=======
+					menus.updateParentDropdown();
+					menus.updateOrderDropdown();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				});
 		},
 

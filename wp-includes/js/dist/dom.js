@@ -102,7 +102,11 @@ __webpack_require__.d(tabbable_namespaceObject, {
   isTabbableIndex: () => (isTabbableIndex)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/focusable.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/focusable.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * References:
  *
@@ -197,13 +201,21 @@ function find(context, {
       nodeName
     } = element;
     if ('AREA' === nodeName) {
+<<<<<<< HEAD
       return isValidFocusableArea(/** @type {HTMLAreaElement} */element);
+=======
+      return isValidFocusableArea( /** @type {HTMLAreaElement} */element);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
     return true;
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/tabbable.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/tabbable.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -250,7 +262,11 @@ function isTabbableIndex(element) {
 function createStatefulCollapseRadioGroup() {
   /** @type {Record<string, MaybeHTMLInputElement>} */
   const CHOSEN_RADIO_BY_NAME = {};
+<<<<<<< HEAD
   return function collapseRadioGroup(/** @type {MaybeHTMLInputElement[]} */result, /** @type {MaybeHTMLInputElement} */element) {
+=======
+  return function collapseRadioGroup( /** @type {MaybeHTMLInputElement[]} */result, /** @type {MaybeHTMLInputElement} */element) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const {
       nodeName,
       type,
@@ -378,12 +394,20 @@ function findNext(element) {
   element.compareDocumentPosition(focusable) & element.DOCUMENT_POSITION_FOLLOWING);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/utils/assert-is-defined.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/utils/assert-is-defined.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function assertIsDefined(val, name) {
   if (false) {}
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/get-rectangle-from-range.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/get-rectangle-from-range.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -494,7 +518,11 @@ function getRectangleFromRange(range) {
   return rect;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/compute-caret-rect.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/compute-caret-rect.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -518,7 +546,11 @@ function computeCaretRect(win) {
   return getRectangleFromRange(range);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/document-has-text-selection.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/document-has-text-selection.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -543,7 +575,11 @@ function documentHasTextSelection(doc) {
   return !!range && !range.collapsed;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-html-input-element.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-html-input-element.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint-disable jsdoc/valid-types */
 /**
  * @param {Node} node
@@ -554,7 +590,11 @@ function isHTMLInputElement(node) {
   return node?.nodeName === 'INPUT';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-text-field.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-text-field.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -576,7 +616,11 @@ function isTextField(node) {
   return isHTMLInputElement(node) && node.type && !nonTextInputs.includes(node.type) || node.nodeName === 'TEXTAREA' || /** @type {HTMLElement} */node.contentEditable === 'true';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/input-field-has-uncollapsed-selection.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/input-field-has-uncollapsed-selection.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -628,7 +672,11 @@ function inputFieldHasUncollapsedSelection(element) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/document-has-uncollapsed-selection.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/document-has-uncollapsed-selection.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -648,7 +696,11 @@ function documentHasUncollapsedSelection(doc) {
   return documentHasTextSelection(doc) || !!doc.activeElement && inputFieldHasUncollapsedSelection(doc.activeElement);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/document-has-selection.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/document-has-selection.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -668,7 +720,11 @@ function documentHasSelection(doc) {
   return !!doc.activeElement && (isHTMLInputElement(doc.activeElement) || isTextField(doc.activeElement) || documentHasTextSelection(doc));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/get-computed-style.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/get-computed-style.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -685,7 +741,11 @@ function getComputedStyle(element) {
   return element.ownerDocument.defaultView.getComputedStyle(element);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/get-scroll-container.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/get-scroll-container.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -733,10 +793,17 @@ function getScrollContainer(node, direction = 'vertical') {
   }
 
   // Continue traversing.
+<<<<<<< HEAD
   return getScrollContainer(/** @type {Element} */node.parentNode, direction);
 }
 
 ;// ./node_modules/@wordpress/dom/build-module/dom/get-offset-parent.js
+=======
+  return getScrollContainer( /** @type {Element} */node.parentNode, direction);
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/get-offset-parent.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -768,7 +835,11 @@ function getOffsetParent(node) {
 
   // If the closest element is already positioned, return it, as offsetParent
   // does not otherwise consider the node itself.
+<<<<<<< HEAD
   if (getComputedStyle(/** @type {Element} */closestElement).position !== 'static') {
+=======
+  if (getComputedStyle( /** @type {Element} */closestElement).position !== 'static') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     return closestElement;
   }
 
@@ -776,7 +847,11 @@ function getOffsetParent(node) {
   return /** @type {Node & { offsetParent: Node }} */closestElement.offsetParent;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-input-or-text-area.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-input-or-text-area.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint-disable jsdoc/valid-types */
 /**
  * @param {Element} element
@@ -787,7 +862,11 @@ function isInputOrTextArea(element) {
   return element.tagName === 'INPUT' || element.tagName === 'TEXTAREA';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-entirely-selected.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-entirely-selected.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -859,7 +938,11 @@ function isDeepChild(query, container, propName) {
   return false;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-form-element.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-form-element.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -884,7 +967,11 @@ function isFormElement(element) {
   return checkForInputTextarea || tagName === 'BUTTON' || tagName === 'SELECT';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-rtl.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-rtl.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -901,7 +988,11 @@ function isRTL(element) {
   return getComputedStyle(element).direction === 'rtl';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/get-range-height.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/get-range-height.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Gets the height of the range without ignoring zero width rectangles, which
  * some browsers ignore when creating a union.
@@ -923,7 +1014,11 @@ function getRangeHeight(range) {
   return lowestBottom - highestTop;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-selection-forward.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-selection-forward.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -973,7 +1068,11 @@ function isSelectionForward(selection) {
   return true;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/caret-range-from-point.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/caret-range-from-point.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Polyfill.
  * Get a collapsed range for a given point.
@@ -1011,7 +1110,11 @@ function caretRangeFromPoint(doc, x, y) {
  * @typedef {{ readonly offset: number; readonly offsetNode: Node; getClientRect(): DOMRect | null; }} CaretPosition
  */
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/hidden-caret-range-from-point.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/hidden-caret-range-from-point.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1048,7 +1151,11 @@ function hiddenCaretRangeFromPoint(doc, x, y, container) {
   return range;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/scroll-if-no-range.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/scroll-if-no-range.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * If no range range can be created or it is outside the container, the element
  * may be out of view, so scroll it into view and try again.
@@ -1074,7 +1181,11 @@ function scrollIfNoRange(container, alignToTop, callback) {
   return range;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-edge.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-edge.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1180,7 +1291,11 @@ function isEdge(container, isReverse, onlyVertical = false) {
   return onlyVertical ? hasVerticalDiff : hasVerticalDiff && hasHorizontalDiff;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-horizontal-edge.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-horizontal-edge.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1198,10 +1313,17 @@ function isHorizontalEdge(container, isReverse) {
   return isEdge(container, isReverse);
 }
 
+<<<<<<< HEAD
 ;// external ["wp","deprecated"]
 const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-number-input.js
+=======
+;// CONCATENATED MODULE: external ["wp","deprecated"]
+const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
+var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-number-input.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1229,7 +1351,11 @@ function isNumberInput(node) {
   return isHTMLInputElement(node) && node.type === 'number' && !isNaN(node.valueAsNumber);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-vertical-edge.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-vertical-edge.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1247,7 +1373,11 @@ function isVerticalEdge(container, isReverse) {
   return isEdge(container, isReverse, true);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/place-caret-at-edge.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/place-caret-at-edge.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1334,7 +1464,11 @@ function placeCaretAtEdge(container, isReverse, x) {
   selection.addRange(range);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/place-caret-at-horizontal-edge.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/place-caret-at-horizontal-edge.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1350,7 +1484,11 @@ function placeCaretAtHorizontalEdge(container, isReverse) {
   return placeCaretAtEdge(container, isReverse, undefined);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/place-caret-at-vertical-edge.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/place-caret-at-vertical-edge.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1367,7 +1505,11 @@ function placeCaretAtVerticalEdge(container, isReverse, rect) {
   return placeCaretAtEdge(container, isReverse, rect?.left);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/insert-after.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/insert-after.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1386,7 +1528,11 @@ function insertAfter(newNode, referenceNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/remove.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/remove.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1403,7 +1549,11 @@ function remove(node) {
   node.parentNode.removeChild(node);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/replace.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/replace.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1424,7 +1574,11 @@ function replace(processedNode, newNode) {
   remove(processedNode);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/unwrap.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/unwrap.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1446,7 +1600,11 @@ function unwrap(node) {
   parent.removeChild(node);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/replace-tag.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/replace-tag.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1470,7 +1628,11 @@ function replaceTag(node, tagName) {
   return newNode;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/wrap.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/wrap.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1488,7 +1650,11 @@ function wrap(newNode, referenceNode) {
   newNode.appendChild(referenceNode);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/safe-html.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/safe-html.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1527,7 +1693,11 @@ function safeHTML(html) {
   return body.innerHTML;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/strip-html.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/strip-html.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1549,7 +1719,11 @@ function stripHTML(html) {
   return doc.body.textContent || '';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-empty.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-empty.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Recursively checks if an element is empty. An element is not empty if it
  * contains text or contains elements with attributes such as images.
@@ -1576,7 +1750,11 @@ function isEmpty(element) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/phrasing-content.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/phrasing-content.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * All phrasing content elements.
  *
@@ -1772,7 +1950,11 @@ function isTextContent(node) {
   return textContentSchema.hasOwnProperty(tag) || tag === 'span';
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-element.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/is-element.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* eslint-disable jsdoc/valid-types */
 /**
  * @param {Node | null | undefined} node
@@ -1783,7 +1965,11 @@ function isElement(node) {
   return !!node && node.nodeType === node.ELEMENT_NODE;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/clean-node-list.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/clean-node-list.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1819,7 +2005,11 @@ const noop = () => {};
  * @param {boolean}  inline   Whether to clean for inline mode.
  */
 function cleanNodeList(nodeList, doc, schema, inline) {
+<<<<<<< HEAD
   Array.from(nodeList).forEach((/** @type {Node & { nextElementSibling?: unknown }} */node) => {
+=======
+  Array.from(nodeList).forEach(( /** @type {Node & { nextElementSibling?: unknown }} */node) => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     const tag = node.nodeName.toLowerCase();
 
     // It's a valid child, if the tag exists in the schema without an isMatch
@@ -1855,6 +2045,7 @@ function cleanNodeList(nodeList, doc, schema, inline) {
           // TODO: Explore patching this in jsdom-jscore.
           if (node.classList && node.classList.length) {
             const mattchers = classes.map(item => {
+<<<<<<< HEAD
               if (item === '*') {
                 // Keep all classes.
                 return () => true;
@@ -1862,6 +2053,12 @@ function cleanNodeList(nodeList, doc, schema, inline) {
                 return (/** @type {string} */className) => className === item;
               } else if (item instanceof RegExp) {
                 return (/** @type {string} */className) => item.test(className);
+=======
+              if (typeof item === 'string') {
+                return ( /** @type {string} */className) => className === item;
+              } else if (item instanceof RegExp) {
+                return ( /** @type {string} */className) => item.test(className);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
               }
               return noop;
             });
@@ -1921,7 +2118,11 @@ function cleanNodeList(nodeList, doc, schema, inline) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/remove-invalid-html.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/remove-invalid-html.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1943,7 +2144,11 @@ function removeInvalidHTML(HTML, schema, inline) {
   return doc.body.innerHTML;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/dom/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -1972,7 +2177,11 @@ function removeInvalidHTML(HTML, schema, inline) {
 
 
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/data-transfer.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/data-transfer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Gets all files from a DataTransfer object.
  *
@@ -1995,7 +2204,11 @@ function getFilesFromDataTransfer(dataTransfer) {
   return files;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/dom/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

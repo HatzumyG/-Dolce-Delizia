@@ -55,7 +55,11 @@ class ProductGalleryUtils {
 					$product_image_html_processor = new \WP_HTML_Tag_Processor( $product_image_html );
 					$product_image_html_processor->next_tag( 'img' );
 					$product_image_html_processor->set_attribute(
+<<<<<<< HEAD
 						'data-wp-context',
+=======
+						'data-wc-context',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						wp_json_encode(
 							array(
 								'imageId' => $product_gallery_image_id,

@@ -3556,9 +3556,15 @@ function wp_ajax_get_revision_diffs() {
 
 	$return = array();
 
+<<<<<<< HEAD
 	// Increase the script timeout limit to allow ample time for diff UI setup.
 	if ( function_exists( 'set_time_limit' ) ) {
 		set_time_limit( 5 * MINUTE_IN_SECONDS );
+=======
+	// Removes the script timeout limit by setting it to 0 allowing ample time for diff UI setup.
+	if ( function_exists( 'set_time_limit' ) ) {
+		set_time_limit( 0 );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	foreach ( $_REQUEST['compare'] as $compare_key ) {

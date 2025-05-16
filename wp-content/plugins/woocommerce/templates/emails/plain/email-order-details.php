@@ -12,6 +12,7 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails
+<<<<<<< HEAD
  * @version 9.8.0
  */
 
@@ -35,6 +36,17 @@ if ( $email_improvements_enabled ) {
 	/* translators: %1$s: Order ID. %2$s: Order date */
 	echo wp_kses_post( wc_strtoupper( sprintf( esc_html__( '[Order #%1$s] (%2$s)', 'woocommerce' ), $order->get_order_number(), wc_format_datetime( $order->get_date_created() ) ) ) ) . "\n";
 }
+=======
+ * @version 3.7.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text, $email );
+
+/* translators: %1$s: Order ID. %2$s: Order date */
+echo wp_kses_post( wc_strtoupper( sprintf( esc_html__( '[Order #%1$s] (%2$s)', 'woocommerce' ), $order->get_order_number(), wc_format_datetime( $order->get_date_created() ) ) ) ) . "\n";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 echo "\n" . wc_get_email_order_items( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	$order,
 	array(
@@ -52,6 +64,7 @@ $item_totals = $order->get_order_item_totals();
 
 if ( $item_totals ) {
 	foreach ( $item_totals as $total ) {
+<<<<<<< HEAD
 		if ( $email_improvements_enabled ) {
 			$label = $total['label'];
 			if ( isset( $total['meta'] ) ) {
@@ -63,15 +76,22 @@ if ( $item_totals ) {
 		} else {
 			echo wp_kses_post( $total['label'] . "\t " . $total['value'] ) . "\n";
 		}
+=======
+		echo wp_kses_post( $total['label'] . "\t " . $total['value'] ) . "\n";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }
 
 if ( $order->get_customer_note() ) {
+<<<<<<< HEAD
 	if ( $email_improvements_enabled ) {
 		echo "\n" . esc_html__( 'Note:', 'woocommerce' ) . "\n" . wp_kses( wptexturize( $order->get_customer_note() ), array() ) . "\n";
 	} else {
 		echo esc_html__( 'Note:', 'woocommerce' ) . "\t " . wp_kses( wptexturize( $order->get_customer_note() ), array() ) . "\n";
 	}
+=======
+	echo esc_html__( 'Note:', 'woocommerce' ) . "\t " . wp_kses( wptexturize( $order->get_customer_note() ), array() ) . "\n";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 if ( $sent_to_admin ) {

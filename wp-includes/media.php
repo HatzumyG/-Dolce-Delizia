@@ -6,11 +6,14 @@
  * @subpackage Media
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Retrieves additional image sizes.
  *
@@ -293,7 +296,11 @@ function image_downsize( $id, $size = 'medium' ) {
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
+<<<<<<< HEAD
  *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
+=======
+ *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  */
@@ -355,7 +362,11 @@ function remove_image_size( $name ) {
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
+<<<<<<< HEAD
  *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
+=======
+ *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  */
@@ -535,7 +546,11 @@ function wp_constrain_dimensions( $current_width, $current_height, $max_width = 
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
+<<<<<<< HEAD
  *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
+=======
+ *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  * @return array|false Returned array matches parameters for `imagecopyresampled()`. False on failure.
@@ -689,7 +704,11 @@ function image_resize_dimensions( $orig_w, $orig_h, $dest_w, $dest_h, $crop = fa
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
+<<<<<<< HEAD
  *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
+=======
+ *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  * @return array|false Metadata array on success. False if no image was created.
@@ -3345,7 +3364,10 @@ function wp_get_attachment_id3_keys( $attachment, $context = 'display' ) {
  * WordPress mp3s in a post.
  *
  * @since 3.6.0
+<<<<<<< HEAD
  * @since 6.8.0 Added the 'muted' attribute.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param array  $attr {
  *     Attributes of the audio shortcode.
@@ -3353,7 +3375,10 @@ function wp_get_attachment_id3_keys( $attachment, $context = 'display' ) {
  *     @type string $src      URL to the source of the audio file. Default empty.
  *     @type string $loop     The 'loop' attribute for the `<audio>` element. Default empty.
  *     @type string $autoplay The 'autoplay' attribute for the `<audio>` element. Default empty.
+<<<<<<< HEAD
  *     @type string $muted    The 'muted' attribute for the `<audio>` element. Default 'false'.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *     @type string $preload  The 'preload' attribute for the `<audio>` element. Default 'none'.
  *     @type string $class    The 'class' attribute for the `<audio>` element. Default 'wp-audio-shortcode'.
  *     @type string $style    The 'style' attribute for the `<audio>` element. Default 'width: 100%;'.
@@ -3392,7 +3417,10 @@ function wp_audio_shortcode( $attr, $content = '' ) {
 		'src'      => '',
 		'loop'     => '',
 		'autoplay' => '',
+<<<<<<< HEAD
 		'muted'    => 'false',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'preload'  => 'none',
 		'class'    => 'wp-audio-shortcode',
 		'style'    => 'width: 100%;',
@@ -3472,13 +3500,20 @@ function wp_audio_shortcode( $attr, $content = '' ) {
 		'id'       => sprintf( 'audio-%d-%d', $post_id, $instance ),
 		'loop'     => wp_validate_boolean( $atts['loop'] ),
 		'autoplay' => wp_validate_boolean( $atts['autoplay'] ),
+<<<<<<< HEAD
 		'muted'    => wp_validate_boolean( $atts['muted'] ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'preload'  => $atts['preload'],
 		'style'    => $atts['style'],
 	);
 
 	// These ones should just be omitted altogether if they are blank.
+<<<<<<< HEAD
 	foreach ( array( 'loop', 'autoplay', 'preload', 'muted' ) as $a ) {
+=======
+	foreach ( array( 'loop', 'autoplay', 'preload' ) as $a ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( empty( $html_atts[ $a ] ) ) {
 			unset( $html_atts[ $a ] );
 		}
@@ -3486,6 +3521,7 @@ function wp_audio_shortcode( $attr, $content = '' ) {
 
 	$attr_strings = array();
 
+<<<<<<< HEAD
 	foreach ( $html_atts as $attribute_name => $attribute_value ) {
 		if ( in_array( $attribute_name, array( 'loop', 'autoplay', 'muted' ), true ) && true === $attribute_value ) {
 			// Add boolean attributes without a value.
@@ -3500,6 +3536,10 @@ function wp_audio_shortcode( $attr, $content = '' ) {
 			// For other attributes, include the value.
 			$attr_strings[] = sprintf( '%s="%s"', esc_attr( $attribute_name ), esc_attr( $attribute_value ) );
 		}
+=======
+	foreach ( $html_atts as $k => $v ) {
+		$attr_strings[] = $k . '="' . esc_attr( $v ) . '"';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	$html = '';
@@ -3771,6 +3811,7 @@ function wp_video_shortcode( $attr, $content = '' ) {
 	}
 
 	$attr_strings = array();
+<<<<<<< HEAD
 	foreach ( $html_atts as $attribute_name => $attribute_value ) {
 		if ( in_array( $attribute_name, array( 'loop', 'autoplay', 'muted' ), true ) && true === $attribute_value ) {
 			// Add boolean attributes without their value for true.
@@ -3785,6 +3826,10 @@ function wp_video_shortcode( $attr, $content = '' ) {
 			// For non-boolean attributes, add them with their value.
 			$attr_strings[] = sprintf( '%s="%s"', esc_attr( $attribute_name ), esc_attr( $attribute_value ) );
 		}
+=======
+	foreach ( $html_atts as $k => $v ) {
+		$attr_strings[] = $k . '="' . esc_attr( $v ) . '"';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	$html = '';
@@ -4488,6 +4533,10 @@ function wp_plupload_default_settings() {
  *     @type string $url                   Direct URL to the attachment file (from wp-content).
  *     @type int    $width                 If the attachment is an image, represents the width of the image in pixels.
  * }
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function wp_prepare_attachment_for_js( $attachment ) {
 	$attachment = get_post( $attachment );
@@ -5499,8 +5548,11 @@ function attachment_url_to_postid( $url ) {
 	 * Use the === operator for testing the post ID when developing filters using
 	 * this hook.
 	 *
+<<<<<<< HEAD
 	 * @since 6.7.0
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param int|null $post_id The result of the post ID lookup. Null to indicate
 	 *                          no lookup has been attempted. Default null.
 	 * @param string   $url     The URL being looked up.

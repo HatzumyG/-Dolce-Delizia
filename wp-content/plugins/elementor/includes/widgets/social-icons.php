@@ -580,6 +580,10 @@ class Widget_Social_Icons extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

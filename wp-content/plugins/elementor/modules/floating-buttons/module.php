@@ -19,11 +19,19 @@ use Elementor\TemplateLibrary\Source_Local;
 use Elementor\Utils as ElementorUtils;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Module extends BaseModule {
 
+<<<<<<< HEAD
+=======
+	const EXPERIMENT_NAME = 'floating-buttons';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	const FLOATING_ELEMENTS_TYPE_META_KEY = '_elementor_floating_elements_type';
 	const ROUTER_OPTION_KEY = 'elementor_floating_buttons_router_version';
 	const META_CLICK_TRACKING = '_elementor_click_tracking';
@@ -47,8 +55,25 @@ class Module extends BaseModule {
 		];
 	}
 
+<<<<<<< HEAD
 	public function get_name(): string {
 		return 'floating-buttons';
+=======
+	// TODO: This is a hidden experiment which needs to remain enabled like this until 3.26 for pro compatibility.
+	public static function get_experimental_data() {
+		return [
+			'name' => self::EXPERIMENT_NAME,
+			'title' => esc_html__( 'Floating Buttons', 'elementor' ),
+			'hidden' => true,
+			'default' => Manager::STATE_ACTIVE,
+			'release_status' => Manager::RELEASE_STATUS_STABLE,
+			'mutable' => false,
+		];
+	}
+
+	public function get_name(): string {
+		return static::EXPERIMENT_NAME;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	public function get_widgets(): array {
@@ -67,6 +92,10 @@ class Module extends BaseModule {
 		} else {
 			$admin_menu->register( $menu_args['menu_slug'], new Floating_Buttons_Menu_Item() );
 		};
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	public function __construct() {
@@ -269,7 +298,11 @@ class Module extends BaseModule {
 				$starting_clicks = (int) get_post_meta( $post_id, static::META_CLICK_TRACKING, true );
 				$posts_to_update[ $post_id ] = $starting_clicks ? $starting_clicks : 0;
 			}
+<<<<<<< HEAD
 			$posts_to_update[ $post_id ]++;
+=======
+			$posts_to_update[ $post_id ] ++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		foreach ( $posts_to_update as $post_id => $clicks ) {
@@ -470,6 +503,10 @@ class Module extends BaseModule {
 		] );
 
 		return $posts_query->post_count > 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function get_contact_menu_args(): array {
@@ -571,7 +608,11 @@ class Module extends BaseModule {
 		}
 	}
 
+<<<<<<< HEAD
 	private function get_widgets_style_list(): array {
+=======
+	private function get_widgets_style_list():array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [
 			'widget-floating-buttons' => self::WIDGET_HAS_CUSTOM_BREAKPOINTS, // TODO: Remove in v3.27.0 [ED-15717]
 			'widget-floating-bars-base' => self::WIDGET_HAS_CUSTOM_BREAKPOINTS,

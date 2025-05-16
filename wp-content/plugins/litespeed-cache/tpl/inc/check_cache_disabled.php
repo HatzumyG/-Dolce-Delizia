@@ -13,7 +13,11 @@ if ( ! defined( 'LITESPEED_ALLOWED' ) ) {
 	} else {
 		$reasons[] = array(
 			'title' => __( 'Please enable the LSCache Module at the server level, or ask your hosting provider.', 'litespeed-cache' ),
+<<<<<<< HEAD
 			'link'	=> 'https://docs.litespeedtech.com/lscache/lscwp/#server-level-prerequisites',
+=======
+			'link'	=> 'https://docs.litespeedtech.com/lscache/lscwp/overview/#prerequisites',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		) ;
 	}
 }

@@ -4,7 +4,11 @@ namespace Elementor\Core\Logger\Loggers;
 use Elementor\Core\Logger\Items\Log_Item_Interface as Log_Item;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Db extends Base {

@@ -7,7 +7,10 @@ namespace Automattic\WooCommerce\Internal\Features\ProductBlockEditor\ProductTem
 
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\Features\ProductBlockEditor\ProductTemplates\ProductFormTemplateInterface;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Product Variation Template.
@@ -220,9 +223,12 @@ class ProductVariationTemplate extends AbstractProductFormTemplate implements Pr
 					'property' => 'description',
 					'label'    => __( 'Note', 'woocommerce' ),
 					'help'     => 'Enter an optional note displayed on the product page when customers select this variation.',
+<<<<<<< HEAD
 					'lock'     => array(
 						'move' => true,
 					),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 			)
 		);
@@ -394,6 +400,7 @@ class ProductVariationTemplate extends AbstractProductFormTemplate implements Pr
 					'options'  => array(
 						array(
 							'label' => __( 'In stock', 'woocommerce' ),
+<<<<<<< HEAD
 							'value' => ProductStockStatus::IN_STOCK,
 						),
 						array(
@@ -403,6 +410,17 @@ class ProductVariationTemplate extends AbstractProductFormTemplate implements Pr
 						array(
 							'label' => __( 'On backorder', 'woocommerce' ),
 							'value' => ProductStockStatus::ON_BACKORDER,
+=======
+							'value' => 'instock',
+						),
+						array(
+							'label' => __( 'Out of stock', 'woocommerce' ),
+							'value' => 'outofstock',
+						),
+						array(
+							'label' => __( 'On backorder', 'woocommerce' ),
+							'value' => 'onbackorder',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						),
 					),
 				),

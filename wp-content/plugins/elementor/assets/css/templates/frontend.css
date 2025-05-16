@@ -1995,10 +1995,13 @@ body.rtl .e-con {
   flex-direction: row;
   gap: 5px;
 }
+<<<<<<< HEAD
 .elementor-button-icon {
   display: flex;
   align-items: center;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .elementor-button-icon svg {
   width: 1em;
   height: auto;
@@ -2141,6 +2144,13 @@ body.rtl .e-con {
     animation: none;
   }
 }
+<<<<<<< HEAD
+=======
+.elementor-post__thumbnail__link {
+  transition: none;
+}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 @media (max-width: ELEMENTOR_SCREEN_MOBILE_MAX) {
   .elementor .elementor-hidden-phone,
   .elementor .elementor-hidden-mobile {

@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * Based on https://github.com/woocommerce/woocommerce/blob/master/includes/abstracts/class-wc-background-process.php
  * & https://github.com/woocommerce/woocommerce/blob/master/includes/class-wc-background-updater.php
@@ -6,11 +7,20 @@
  * @package Elementor\Core\Base
  */
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Elementor\Core\Base;
 
 use Elementor\Plugin;
 use Elementor\Core\Base\BackgroundProcess\WP_Background_Process;
 
+<<<<<<< HEAD
+=======
+/**
+ * Based on https://github.com/woocommerce/woocommerce/blob/master/includes/abstracts/class-wc-background-process.php
+ * & https://github.com/woocommerce/woocommerce/blob/master/includes/class-wc-background-updater.php
+ */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 defined( 'ABSPATH' ) || exit;
 
@@ -212,7 +222,10 @@ abstract class Background_Task extends WP_Background_Process {
 
 	/**
 	 * Use the protected `is_process_running` method as a public method.
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return bool
 	 */
 	public function is_process_locked() {
@@ -288,7 +301,11 @@ abstract class Background_Task extends WP_Background_Process {
 					$logger->info( sprintf( '%s callback needs to run more %d times', $callback, $item['total'] - $item['iterate_num'] ) );
 				}
 
+<<<<<<< HEAD
 				++$item['iterate_num'];
+=======
+				$item['iterate_num']++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			} else {
 				$logger->info( sprintf( '%s Finished', $callback ) );
 			}

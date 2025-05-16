@@ -1,6 +1,7 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
+<<<<<<< HEAD
 	'accordion-group' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -343,6 +344,8 @@ return array(
 		),
 		'textdomain' => 'woocommerce'
 	),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	'active-filters' => array(
 		'name' => 'woocommerce/active-filters',
 		'version' => '1.0.0',
@@ -383,6 +386,13 @@ return array(
 		'description' => 'Display a button so the customer can add a product to their cart. Options will also be displayed depending on product type. e.g. quantity, variation.',
 		'category' => 'woocommerce-product-elements',
 		'attributes' => array(
+<<<<<<< HEAD
+=======
+			'isDescendentOfSingleProductBlock' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'quantitySelectorStyle' => array(
 				'type' => 'string',
 				'enum' => array(
@@ -412,7 +422,14 @@ return array(
 		'description' => 'Create an "Add To Cart" composition by using blocks',
 		'category' => 'woocommerce-product-elements',
 		'attributes' => array(
+<<<<<<< HEAD
 			
+=======
+			'isDescendentOfSingleProductBlock' => array(
+				'type' => 'boolean',
+				'default' => false
+			)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 		'usesContext' => array(
 			'postId'
@@ -424,6 +441,7 @@ return array(
 		'apiVersion' => 3,
 		'$schema' => 'https://schemas.wp.org/trunk/block.json'
 	),
+<<<<<<< HEAD
 	'add-to-cart-with-options-grouped-product-selector' => array(
 		'name' => 'woocommerce/add-to-cart-with-options-grouped-product-selector',
 		'version' => '1.0.0',
@@ -465,6 +483,8 @@ return array(
 			'inserter' => false
 		)
 	),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	'add-to-cart-with-options-quantity-selector' => array(
 		'name' => 'woocommerce/add-to-cart-with-options-quantity-selector',
 		'version' => '1.0.0',
@@ -618,6 +638,7 @@ return array(
 		'apiVersion' => 3,
 		'$schema' => 'https://schemas.wp.org/trunk/block.json'
 	),
+<<<<<<< HEAD
 	'blockified-product-details' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -636,6 +657,8 @@ return array(
 			'postId'
 		)
 	),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	'breadcrumbs' => array(
 		'name' => 'woocommerce/breadcrumbs',
 		'version' => '1.0.0',
@@ -2670,6 +2693,15 @@ return array(
 		),
 		'usesContext' => array(
 			'activeFilters'
+<<<<<<< HEAD
+=======
+		),
+		'attributes' => array(
+			'clearButton' => array(
+				'type' => 'boolean',
+				'default' => false
+			)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	),
 	'product-filter-attribute' => array(
@@ -2768,6 +2800,13 @@ return array(
 			'hideEmpty' => array(
 				'type' => 'boolean',
 				'default' => true
+<<<<<<< HEAD
+=======
+			),
+			'clearButton' => array(
+				'type' => 'boolean',
+				'default' => true
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		),
 		'example' => array(
@@ -2795,8 +2834,12 @@ return array(
 		'supports' => array(
 			'color' => array(
 				'enableContrastChecker' => false
+<<<<<<< HEAD
 			),
 			'interactivity' => true
+=======
+			)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 		'usesContext' => array(
 			'filterData'
@@ -2845,7 +2888,11 @@ return array(
 			'woocommerce/product-filter-status'
 		),
 		'supports' => array(
+<<<<<<< HEAD
 			'interactivity' => true
+=======
+			
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 		'usesContext' => array(
 			'filterData'
@@ -2893,24 +2940,53 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'name' => 'woocommerce/product-filter-clear-button',
 		'version' => '0.1.0',
+<<<<<<< HEAD
 		'title' => 'Clear filters (Experimental)',
 		'description' => 'Allows shoppers to clear active filters.',
 		'category' => 'woocommerce',
 		'keywords' => array(
 			'WooCommerce',
 			'clear filters'
+=======
+		'title' => 'Clear (Experimental)',
+		'description' => 'Allows shoppers to reset this filter.',
+		'category' => 'woocommerce',
+		'keywords' => array(
+			'WooCommerce',
+			'reset filter'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 		'textdomain' => 'woocommerce',
 		'apiVersion' => 3,
 		'ancestor' => array(
+<<<<<<< HEAD
+=======
+			'woocommerce/product-filter',
+			'woocommerce/product-filter-attribute',
+			'woocommerce/product-filter-price',
+			'woocommerce/product-filter-rating',
+			'woocommerce/product-filter-status',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'woocommerce/product-filter-active'
 		),
 		'usesContext' => array(
 			'filterData'
 		),
+<<<<<<< HEAD
 		'supports' => array(
 			'interactivity' => true,
 			'inserter' => true
+=======
+		'attributes' => array(
+			'clearType' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'supports' => array(
+			'interactivity' => true,
+			'inserter' => false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	),
 	'product-filter-price' => array(
@@ -2935,6 +3011,15 @@ return array(
 		'usesContext' => array(
 			'query',
 			'filterParams'
+<<<<<<< HEAD
+=======
+		),
+		'attributes' => array(
+			'clearButton' => array(
+				'type' => 'boolean',
+				'default' => true
+			)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		)
 	),
 	'product-filter-price-slider' => array(
@@ -2952,8 +3037,12 @@ return array(
 				'enableContrastChecker' => false,
 				'background' => false,
 				'text' => false
+<<<<<<< HEAD
 			),
 			'interactivity' => true
+=======
+			)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 		'attributes' => array(
 			'showInputFields' => array(
@@ -3038,6 +3127,13 @@ return array(
 			'isPreview' => array(
 				'type' => 'boolean',
 				'default' => false
+<<<<<<< HEAD
+=======
+			),
+			'clearButton' => array(
+				'type' => 'boolean',
+				'default' => true
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		),
 		'textdomain' => 'woocommerce',
@@ -3068,8 +3164,12 @@ return array(
 				'default' => array(
 					'type' => 'flex'
 				)
+<<<<<<< HEAD
 			),
 			'interactivity' => true
+=======
+			)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 		'usesContext' => array(
 			'queryId',
@@ -3172,6 +3272,13 @@ return array(
 			'hideEmpty' => array(
 				'type' => 'boolean',
 				'default' => true
+<<<<<<< HEAD
+=======
+			),
+			'clearButton' => array(
+				'type' => 'boolean',
+				'default' => true
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		),
 		'usesContext' => array(
@@ -3230,6 +3337,7 @@ return array(
 			'queryId'
 		),
 		'viewScript' => 'wc-product-filters-frontend',
+<<<<<<< HEAD
 		'attributes' => array(
 			'isPreview' => array(
 				'type' => 'boolean',
@@ -3239,6 +3347,22 @@ return array(
 		'example' => array(
 			'attributes' => array(
 				'isPreview' => true
+=======
+		'example' => array(
+			
+		),
+		'attributes' => array(
+			'overlayIcon' => array(
+				'type' => 'string',
+				'default' => 'filter-icon-2'
+			),
+			'overlayIconSize' => array(
+				'type' => 'number'
+			),
+			'overlayButtonType' => array(
+				'type' => 'string',
+				'default' => 'label-icon'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		)
 	),
@@ -3262,14 +3386,44 @@ return array(
 			'postId'
 		),
 		'providesContext' => array(
+<<<<<<< HEAD
 			'hoverZoom' => 'hoverZoom',
 			'fullScreenOnClick' => 'fullScreenOnClick',
+=======
+			'thumbnailsPosition' => 'thumbnailsPosition',
+			'thumbnailsNumberOfThumbnails' => 'thumbnailsNumberOfThumbnails',
+			'productGalleryClientId' => 'productGalleryClientId',
+			'nextPreviousButtonsPosition' => 'nextPreviousButtonsPosition',
+			'pagerDisplayMode' => 'pagerDisplayMode',
+			'hoverZoom' => 'hoverZoom',
+			'fullScreenOnClick' => 'fullScreenOnClick',
+			'mode' => 'mode',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'cropImages' => 'cropImages'
 		),
 		'ancestor' => array(
 			'woocommerce/single-product'
 		),
 		'attributes' => array(
+<<<<<<< HEAD
+=======
+			'thumbnailsPosition' => array(
+				'type' => 'string',
+				'default' => 'left'
+			),
+			'thumbnailsNumberOfThumbnails' => array(
+				'type' => 'number',
+				'default' => 3
+			),
+			'pagerDisplayMode' => array(
+				'type' => 'string',
+				'default' => 'dots'
+			),
+			'productGalleryClientId' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'cropImages' => array(
 				'type' => 'boolean',
 				'default' => false
@@ -3281,6 +3435,17 @@ return array(
 			'fullScreenOnClick' => array(
 				'type' => 'boolean',
 				'default' => true
+<<<<<<< HEAD
+=======
+			),
+			'nextPreviousButtonsPosition' => array(
+				'type' => 'string',
+				'default' => 'insideTheImage'
+			),
+			'mode' => array(
+				'type' => 'string',
+				'default' => 'standard'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		),
 		'viewScript' => 'wc-product-gallery-frontend',
@@ -3300,6 +3465,10 @@ return array(
 			'WooCommerce'
 		),
 		'usesContext' => array(
+<<<<<<< HEAD
+=======
+			'nextPreviousButtonsPosition',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'postId',
 			'hoverZoom',
 			'fullScreenOnClick',
@@ -3325,6 +3494,11 @@ return array(
 			'WooCommerce'
 		),
 		'usesContext' => array(
+<<<<<<< HEAD
+=======
+			'nextPreviousButtonsPosition',
+			'productGalleryClientId',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'postId'
 		),
 		'textdomain' => 'woocommerce',
@@ -3350,7 +3524,11 @@ return array(
 		'name' => 'woocommerce/product-gallery-pager',
 		'version' => '1.0.0',
 		'title' => 'Pager',
+<<<<<<< HEAD
 		'description' => 'Display the gallery pager in format "current image/total images".',
+=======
+		'description' => 'Display the gallery pager.',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'category' => 'woocommerce',
 		'keywords' => array(
 			'WooCommerce'
@@ -3359,6 +3537,7 @@ return array(
 		'ancestor' => array(
 			'woocommerce/product-gallery'
 		),
+<<<<<<< HEAD
 		'supports' => array(
 			'color' => array(
 				'text' => true,
@@ -3378,6 +3557,12 @@ return array(
 			)
 		),
 		'usesContext' => array(
+=======
+		'usesContext' => array(
+			'pagerDisplayMode',
+			'productGalleryClientId',
+			'thumbnailsNumberOfThumbnails',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'postId'
 		)
 	),
@@ -3394,18 +3579,28 @@ return array(
 		),
 		'usesContext' => array(
 			'postId',
+<<<<<<< HEAD
+=======
+			'thumbnailsPosition',
+			'thumbnailsNumberOfThumbnails',
+			'productGalleryClientId',
+			'mode',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'cropImages'
 		),
 		'textdomain' => 'woocommerce',
 		'ancestor' => array(
 			'woocommerce/product-gallery'
 		),
+<<<<<<< HEAD
 		'attributes' => array(
 			'numberOfThumbnails' => array(
 				'type' => 'number',
 				'default' => 3
 			)
 		),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'supports' => array(
 			'spacing' => array(
 				'margin' => true,

@@ -3,6 +3,10 @@ namespace Elementor\Core\Admin;
 
 use Elementor\Api;
 use Elementor\Beta_Testers;
+<<<<<<< HEAD
+=======
+use Elementor\Core\Admin\Menu\Main as MainMenu;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\App\Modules\Onboarding\Module as Onboarding_Module;
 use Elementor\Core\Base\App;
 use Elementor\Core\Upgrade\Manager as Upgrade_Manager;
@@ -718,7 +722,11 @@ class Admin extends App {
 			wp_die( $document ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
+<<<<<<< HEAD
 		wp_safe_redirect( $document->get_edit_url() );
+=======
+		wp_redirect( $document->get_edit_url() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		die;
 	}
@@ -767,7 +775,11 @@ class Admin extends App {
 	}
 
 	public function enqueue_new_floating_elements_scripts() {
+<<<<<<< HEAD
 		$suffix = Utils::is_script_debug() ? '' : '.min';
+=======
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		wp_enqueue_script(
 			'elementor-floating-elements-modal',
@@ -784,7 +796,11 @@ class Admin extends App {
 	 * @access public
 	 */
 	public function enqueue_new_template_scripts() {
+<<<<<<< HEAD
 		$suffix = Utils::is_script_debug() ? '' : '.min';
+=======
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		wp_enqueue_script(
 			'elementor-new-template',
@@ -809,7 +825,11 @@ class Admin extends App {
 	 * @access public
 	 */
 	public function enqueue_beta_tester_scripts() {
+<<<<<<< HEAD
 		$suffix = Utils::is_script_debug() ? '' : '.min';
+=======
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		wp_enqueue_script(
 			'elementor-beta-tester',
@@ -1036,7 +1056,11 @@ class Admin extends App {
 				'dismiss' => __( 'Dismiss this notice.', 'elementor' ),
 				'button_event' => $dismissible,
 				'button_data' => base64_encode(
+<<<<<<< HEAD
 					wp_json_encode( [
+=======
+					json_encode( [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						'action_url' => Hints::get_plugin_action_url( 'image-optimization' ),
 					] ),
 				),

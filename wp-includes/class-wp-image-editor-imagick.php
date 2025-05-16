@@ -190,6 +190,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * Sets Image Compression quality on a 1-100% scale.
 	 *
 	 * @since 3.5.0
+<<<<<<< HEAD
 	 * @since 6.8.0 The `$dims` parameter was added.
 	 *
 	 * @param int   $quality Compression Quality. Range: [1,100]
@@ -198,6 +199,14 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 */
 	public function set_quality( $quality = null, $dims = array() ) {
 		$quality_result = parent::set_quality( $quality, $dims );
+=======
+	 *
+	 * @param int $quality Compression Quality. Range: [1,100]
+	 * @return true|WP_Error True if set successfully; WP_Error on failure.
+	 */
+	public function set_quality( $quality = null ) {
+		$quality_result = parent::set_quality( $quality );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( is_wp_error( $quality_result ) ) {
 			return $quality_result;
 		} else {
@@ -348,7 +357,11 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 *     If true, image will be cropped to the specified dimensions using center positions.
 	 *     If an array, the image will be cropped using the array to specify the crop location:
 	 *
+<<<<<<< HEAD
 	 *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
+=======
+	 *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
 	 * }
 	 * @return true|WP_Error
@@ -369,6 +382,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 			return $this->crop( $src_x, $src_y, $src_w, $src_h, $dst_w, $dst_h );
 		}
 
+<<<<<<< HEAD
 		$this->set_quality(
 			null,
 			array(
@@ -377,6 +391,8 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 			)
 		);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Execute the resize.
 		$thumb_result = $this->thumbnail_image( $dst_w, $dst_h );
 		if ( is_wp_error( $thumb_result ) ) {
@@ -484,6 +500,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 				$this->image->setOption( 'png:compression-filter', '5' );
 				$this->image->setOption( 'png:compression-level', '9' );
 				$this->image->setOption( 'png:compression-strategy', '1' );
+<<<<<<< HEAD
 				// Check to see if a PNG is indexed, and find the pixel depth.
 				if ( is_callable( array( $this->image, 'getImageDepth' ) ) ) {
 					$indexed_pixel_depth = $this->image->getImageDepth();
@@ -516,6 +533,9 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 						}
 					}
 				}
+=======
+				$this->image->setOption( 'png:exclude-chunk', 'all' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			/*
@@ -534,6 +554,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 				}
 			}
 
+<<<<<<< HEAD
 			// Limit the bit depth of resized images.
 			if ( is_callable( array( $this->image, 'getImageDepth' ) ) && is_callable( array( $this->image, 'setImageDepth' ) ) ) {
 				/**
@@ -551,6 +572,13 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 				 */
 				$max_depth = apply_filters( 'image_max_bit_depth', $this->image->getImageDepth(), $this->image->getImageDepth() );
 				$this->image->setImageDepth( $max_depth );
+=======
+			// Limit the bit depth of resized images to 8 bits per channel.
+			if ( is_callable( array( $this->image, 'getImageDepth' ) ) && is_callable( array( $this->image, 'setImageDepth' ) ) ) {
+				if ( 8 < $this->image->getImageDepth() ) {
+					$this->image->setImageDepth( 8 );
+				}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		} catch ( Exception $e ) {
 			return new WP_Error( 'image_resize_error', $e->getMessage() );

@@ -376,6 +376,7 @@ function get_block_metadata_i18n_schema() {
 }
 
 /**
+<<<<<<< HEAD
  * Registers all block types from a block metadata collection.
  *
  * This can either reference a previously registered metadata collection or, if the `$manifest` parameter is provided,
@@ -402,6 +403,8 @@ function wp_register_block_types_from_metadata_collection( $path, $manifest = ''
 }
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Registers a block metadata collection.
  *
  * This function allows core and third-party plugins to register their block metadata
@@ -445,13 +448,20 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
 	 * Using a static variable ensures that the metadata is only read once per request.
 	 */
 
+<<<<<<< HEAD
 	$file_or_folder = wp_normalize_path( $file_or_folder );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$metadata_file = ( ! str_ends_with( $file_or_folder, 'block.json' ) ) ?
 		trailingslashit( $file_or_folder ) . 'block.json' :
 		$file_or_folder;
 
+<<<<<<< HEAD
 	$is_core_block        = str_starts_with( $file_or_folder, wp_normalize_path( ABSPATH . WPINC ) );
+=======
+	$is_core_block        = str_starts_with( $file_or_folder, ABSPATH . WPINC );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$metadata_file_exists = $is_core_block || file_exists( $metadata_file );
 	$registry_metadata    = WP_Block_Metadata_Registry::get_metadata( $file_or_folder );
 
@@ -940,7 +950,11 @@ function insert_hooked_blocks( &$parsed_anchor_block, $relative_position, $hooke
 	 * @param string                          $relative_position  The relative position of the hooked blocks.
 	 *                                                            Can be one of 'before', 'after', 'first_child', or 'last_child'.
 	 * @param string                          $anchor_block_type  The anchor block type.
+<<<<<<< HEAD
 	 * @param WP_Block_Template|WP_Post|array $context            The block template, template part, post object,
+=======
+	 * @param WP_Block_Template|WP_Post|array $context            The block template, template part, `wp_navigation` post type,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *                                                            or pattern that the anchor block belongs to.
 	 */
 	$hooked_block_types = apply_filters( 'hooked_block_types', $hooked_block_types, $relative_position, $anchor_block_type, $context );
@@ -963,7 +977,11 @@ function insert_hooked_blocks( &$parsed_anchor_block, $relative_position, $hooke
 		 * @param string                          $hooked_block_type   The hooked block type name.
 		 * @param string                          $relative_position   The relative position of the hooked block.
 		 * @param array                           $parsed_anchor_block The anchor block, in parsed block array format.
+<<<<<<< HEAD
 		 * @param WP_Block_Template|WP_Post|array $context             The block template, template part, post object,
+=======
+		 * @param WP_Block_Template|WP_Post|array $context             The block template, template part, `wp_navigation` post type,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *                                                             or pattern that the anchor block belongs to.
 		 */
 		$parsed_hooked_block = apply_filters( 'hooked_block', $parsed_hooked_block, $hooked_block_type, $relative_position, $parsed_anchor_block, $context );
@@ -979,7 +997,11 @@ function insert_hooked_blocks( &$parsed_anchor_block, $relative_position, $hooke
 		 * @param string                          $hooked_block_type   The hooked block type name.
 		 * @param string                          $relative_position   The relative position of the hooked block.
 		 * @param array                           $parsed_anchor_block The anchor block, in parsed block array format.
+<<<<<<< HEAD
 		 * @param WP_Block_Template|WP_Post|array $context             The block template, template part, post object,
+=======
+		 * @param WP_Block_Template|WP_Post|array $context             The block template, template part, `wp_navigation` post type,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *                                                             or pattern that the anchor block belongs to.
 		 */
 		$parsed_hooked_block = apply_filters( "hooked_block_{$hooked_block_type}", $parsed_hooked_block, $hooked_block_type, $relative_position, $parsed_anchor_block, $context );
@@ -1067,6 +1089,7 @@ function set_ignored_hooked_blocks_metadata( &$parsed_anchor_block, $relative_po
  *
  * @since 6.6.0
  * @since 6.7.0 Injects the `theme` attribute into Template Part blocks, even if no hooked blocks are registered.
+<<<<<<< HEAD
  * @since 6.8.0 Have the `$context` parameter default to `null`, in which case `get_post()` will be called to use the current post as context.
  * @access private
  *
@@ -1086,6 +1109,19 @@ function apply_block_hooks_to_content( $content, $context = null, $callback = 'i
 		$context = get_post();
 	}
 
+=======
+ * @access private
+ *
+ * @param string                          $content  Serialized content.
+ * @param WP_Block_Template|WP_Post|array $context  A block template, template part, `wp_navigation` post object,
+ *                                                  or pattern that the blocks belong to.
+ * @param callable                        $callback A function that will be called for each block to generate
+ *                                                  the markup for a given list of blocks that are hooked to it.
+ *                                                  Default: 'insert_hooked_blocks'.
+ * @return string The serialized markup.
+ */
+function apply_block_hooks_to_content( $content, $context, $callback = 'insert_hooked_blocks' ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$hooked_blocks = get_hooked_blocks();
 
 	$before_block_visitor = '_inject_theme_attribute_in_template_part_block';
@@ -1169,6 +1205,7 @@ function apply_block_hooks_to_content( $content, $context = null, $callback = 'i
 }
 
 /**
+<<<<<<< HEAD
  * Run the Block Hooks algorithm on a post object's content.
  *
  * This function is different from `apply_block_hooks_to_content` in that
@@ -1286,6 +1323,8 @@ function apply_block_hooks_to_content_from_post_object( $content, $post = null, 
 }
 
 /**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Accepts the serialized markup of a block and its inner blocks, and returns serialized markup of the inner blocks.
  *
  * @since 6.6.0
@@ -1318,11 +1357,18 @@ function extract_serialized_parent_block( $serialized_block ) {
 }
 
 /**
+<<<<<<< HEAD
  * Updates the wp_postmeta with the list of ignored hooked blocks
  * where the inner blocks are stored as post content.
  *
  * @since 6.6.0
  * @since 6.8.0 Support non-`wp_navigation` post types.
+=======
+ * Updates the wp_postmeta with the list of ignored hooked blocks where the inner blocks are stored as post content.
+ * Currently only supports `wp_navigation` post types.
+ *
+ * @since 6.6.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @access private
  *
  * @param stdClass $post Post object.
@@ -1330,7 +1376,11 @@ function extract_serialized_parent_block( $serialized_block ) {
  */
 function update_ignored_hooked_blocks_postmeta( $post ) {
 	/*
+<<<<<<< HEAD
 	 * In this scenario the user has likely tried to create a new post object via the REST API.
+=======
+	 * In this scenario the user has likely tried to create a navigation via the REST API.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * In which case we won't have a post ID to work with and store meta against.
 	 */
 	if ( empty( $post->ID ) ) {
@@ -1338,7 +1388,11 @@ function update_ignored_hooked_blocks_postmeta( $post ) {
 	}
 
 	/*
+<<<<<<< HEAD
 	 * Skip meta generation when consumers intentionally update specific fields
+=======
+	 * Skip meta generation when consumers intentionally update specific Navigation fields
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * and omit the content update.
 	 */
 	if ( ! isset( $post->post_content ) ) {
@@ -1346,9 +1400,15 @@ function update_ignored_hooked_blocks_postmeta( $post ) {
 	}
 
 	/*
+<<<<<<< HEAD
 	 * Skip meta generation if post type is not set.
 	 */
 	if ( ! isset( $post->post_type ) ) {
+=======
+	 * Skip meta generation when the post content is not a navigation block.
+	 */
+	if ( ! isset( $post->post_type ) || 'wp_navigation' !== $post->post_type ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $post;
 	}
 
@@ -1362,6 +1422,7 @@ function update_ignored_hooked_blocks_postmeta( $post ) {
 		);
 	}
 
+<<<<<<< HEAD
 	if ( 'wp_navigation' === $post->post_type ) {
 		$wrapper_block_type = 'core/navigation';
 	} elseif ( 'wp_block' === $post->post_type ) {
@@ -1372,6 +1433,10 @@ function update_ignored_hooked_blocks_postmeta( $post ) {
 
 	$markup = get_comment_delimited_block_content(
 		$wrapper_block_type,
+=======
+	$markup = get_comment_delimited_block_content(
+		'core/navigation',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$attributes,
 		$post->post_content
 	);
@@ -1428,16 +1493,23 @@ function insert_hooked_blocks_and_set_ignored_hooked_blocks_metadata( &$parsed_a
 }
 
 /**
+<<<<<<< HEAD
  * Hooks into the REST API response for the Posts endpoint and adds the first and last inner blocks.
  *
  * @since 6.6.0
  * @since 6.8.0 Support non-`wp_navigation` post types.
+=======
+ * Hooks into the REST API response for the core/navigation block and adds the first and last inner blocks.
+ *
+ * @since 6.6.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @param WP_REST_Response $response The response object.
  * @param WP_Post          $post     Post object.
  * @return WP_REST_Response The response object.
  */
 function insert_hooked_blocks_into_rest_response( $response, $post ) {
+<<<<<<< HEAD
 	if ( empty( $response->data['content']['raw'] ) ) {
 		return $response;
 	}
@@ -1469,6 +1541,35 @@ function insert_hooked_blocks_into_rest_response( $response, $post ) {
 	if ( false !== $priority ) {
 		add_filter( 'the_content', 'apply_block_hooks_to_content_from_post_object', $priority );
 	}
+=======
+	if ( ! isset( $response->data['content']['raw'] ) || ! isset( $response->data['content']['rendered'] ) ) {
+		return $response;
+	}
+
+	$attributes            = array();
+	$ignored_hooked_blocks = get_post_meta( $post->ID, '_wp_ignored_hooked_blocks', true );
+	if ( ! empty( $ignored_hooked_blocks ) ) {
+		$ignored_hooked_blocks  = json_decode( $ignored_hooked_blocks, true );
+		$attributes['metadata'] = array(
+			'ignoredHookedBlocks' => $ignored_hooked_blocks,
+		);
+	}
+	$content = get_comment_delimited_block_content(
+		'core/navigation',
+		$attributes,
+		$response->data['content']['raw']
+	);
+
+	$content = apply_block_hooks_to_content( $content, $post );
+
+	// Remove mock Navigation block wrapper.
+	$content = remove_serialized_parent_block( $content );
+
+	$response->data['content']['raw'] = $content;
+
+	/** This filter is documented in wp-includes/post-template.php */
+	$response->data['content']['rendered'] = apply_filters( 'the_content', $content );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	return $response;
 }
@@ -1487,7 +1588,11 @@ function insert_hooked_blocks_into_rest_response( $response, $post ) {
  * @access private
  *
  * @param array                           $hooked_blocks An array of blocks hooked to another given block.
+<<<<<<< HEAD
  * @param WP_Block_Template|WP_Post|array $context       A block template, template part, post object,
+=======
+ * @param WP_Block_Template|WP_Post|array $context       A block template, template part, `wp_navigation` post object,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *                                                       or pattern that the blocks belong to.
  * @param callable                        $callback      A function that will be called for each block to generate
  *                                                       the markup for a given list of blocks that are hooked to it.
@@ -1544,7 +1649,11 @@ function make_before_block_visitor( $hooked_blocks, $context, $callback = 'inser
  * @access private
  *
  * @param array                           $hooked_blocks An array of blocks hooked to another block.
+<<<<<<< HEAD
  * @param WP_Block_Template|WP_Post|array $context       A block template, template part, post object,
+=======
+ * @param WP_Block_Template|WP_Post|array $context       A block template, template part, `wp_navigation` post object,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *                                                       or pattern that the blocks belong to.
  * @param callable                        $callback      A function that will be called for each block to generate
  *                                                       the markup for a given list of blocks that are hooked to it.
@@ -2609,10 +2718,15 @@ function build_query_vars_from_query_block( $block, $page ) {
 				 */
 				$query['post__in']            = ! empty( $sticky ) ? $sticky : array( 0 );
 				$query['ignore_sticky_posts'] = 1;
+<<<<<<< HEAD
 			} elseif ( 'exclude' === $block->context['query']['sticky'] ) {
 				$query['post__not_in'] = array_merge( $query['post__not_in'], $sticky );
 			} elseif ( 'ignore' === $block->context['query']['sticky'] ) {
 				$query['ignore_sticky_posts'] = 1;
+=======
+			} else {
+				$query['post__not_in'] = array_merge( $query['post__not_in'], $sticky );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 		if ( ! empty( $block->context['query']['exclude'] ) ) {
@@ -2760,7 +2874,11 @@ function build_query_vars_from_query_block( $block, $page ) {
 			$query['s'] = $block->context['query']['search'];
 		}
 		if ( ! empty( $block->context['query']['parents'] ) && is_post_type_hierarchical( $query['post_type'] ) ) {
+<<<<<<< HEAD
 			$query['post_parent__in'] = array_unique( array_map( 'intval', $block->context['query']['parents'] ) );
+=======
+			$query['post_parent__in'] = array_filter( array_map( 'intval', $block->context['query']['parents'] ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

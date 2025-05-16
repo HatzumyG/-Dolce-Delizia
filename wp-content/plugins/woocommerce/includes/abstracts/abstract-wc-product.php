@@ -10,10 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Enums\CatalogVisibility;
+=======
+use Automattic\WooCommerce\Enums\ProductType;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CogsAwareTrait;
 use Automattic\WooCommerce\Internal\ProductAttributesLookup\LookupDataStore as ProductAttributesLookupDataStore;
 
@@ -67,7 +71,11 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 		'date_modified'      => null,
 		'status'             => false,
 		'featured'           => false,
+<<<<<<< HEAD
 		'catalog_visibility' => CatalogVisibility::VISIBLE,
+=======
+		'catalog_visibility' => 'visible',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'description'        => '',
 		'short_description'  => '',
 		'sku'                => '',
@@ -78,11 +86,19 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 		'date_on_sale_from'  => null,
 		'date_on_sale_to'    => null,
 		'total_sales'        => '0',
+<<<<<<< HEAD
 		'tax_status'         => ProductTaxStatus::TAXABLE,
 		'tax_class'          => '',
 		'manage_stock'       => false,
 		'stock_quantity'     => null,
 		'stock_status'       => ProductStockStatus::IN_STOCK,
+=======
+		'tax_status'         => 'taxable',
+		'tax_class'          => '',
+		'manage_stock'       => false,
+		'stock_quantity'     => null,
+		'stock_status'       => 'instock',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'backorders'         => 'no',
 		'low_stock_amount'   => '',
 		'sold_individually'  => false,
@@ -945,14 +961,24 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	 */
 	public function set_tax_status( $status ) {
 		$options = array(
+<<<<<<< HEAD
 			ProductTaxStatus::TAXABLE,
 			ProductTaxStatus::SHIPPING,
 			ProductTaxStatus::NONE,
+=======
+			'taxable',
+			'shipping',
+			'none',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		// Set default if empty.
 		if ( empty( $status ) ) {
+<<<<<<< HEAD
 			$status = ProductTaxStatus::TAXABLE;
+=======
+			$status = 'taxable';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$status = strtolower( $status );
@@ -1016,13 +1042,21 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	 *
 	 * @param string $status New status.
 	 */
+<<<<<<< HEAD
 	public function set_stock_status( $status = ProductStockStatus::IN_STOCK ) {
+=======
+	public function set_stock_status( $status = 'instock' ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$valid_statuses = wc_get_product_stock_status_options();
 
 		if ( isset( $valid_statuses[ $status ] ) ) {
 			$this->set_prop( 'stock_status', $status );
 		} else {
+<<<<<<< HEAD
 			$this->set_prop( 'stock_status', ProductStockStatus::IN_STOCK );
+=======
+			$this->set_prop( 'stock_status', 'instock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -1436,11 +1470,19 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 		$backorders_are_allowed                = ( 'no' !== $this->get_backorders() );
 
 		if ( $stock_is_above_notification_threshold ) {
+<<<<<<< HEAD
 			$new_stock_status = ProductStockStatus::IN_STOCK;
 		} elseif ( $backorders_are_allowed ) {
 			$new_stock_status = ProductStockStatus::ON_BACKORDER;
 		} else {
 			$new_stock_status = ProductStockStatus::OUT_OF_STOCK;
+=======
+			$new_stock_status = 'instock';
+		} elseif ( $backorders_are_allowed ) {
+			$new_stock_status = 'onbackorder';
+		} else {
+			$new_stock_status = 'outofstock';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$this->set_stock_status( $new_stock_status );
@@ -1634,7 +1676,11 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	 * @return bool
 	 */
 	protected function is_visible_core() {
+<<<<<<< HEAD
 		$visible = CatalogVisibility::VISIBLE === $this->get_catalog_visibility() || ( is_search() && CatalogVisibility::SEARCH === $this->get_catalog_visibility() ) || ( ! is_search() && CatalogVisibility::CATALOG === $this->get_catalog_visibility() );
+=======
+		$visible = 'visible' === $this->get_catalog_visibility() || ( is_search() && 'search' === $this->get_catalog_visibility() ) || ( ! is_search() && 'catalog' === $this->get_catalog_visibility() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( ProductStatus::TRASH === $this->get_status() ) {
 			$visible = false;
@@ -1721,6 +1767,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	 * @return bool
 	 */
 	public function is_in_stock() {
+<<<<<<< HEAD
 		/**
 		 * Filters whether a product is in stock.
 		 *
@@ -1729,6 +1776,9 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 		 * @param WC_Product    $product  Product object.
 		 */
 		return apply_filters( 'woocommerce_product_is_in_stock', ProductStockStatus::OUT_OF_STOCK !== $this->get_stock_status(), $this );
+=======
+		return apply_filters( 'woocommerce_product_is_in_stock', 'outofstock' !== $this->get_stock_status(), $this );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -1746,6 +1796,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	 * @return bool
 	 */
 	public function is_taxable() {
+<<<<<<< HEAD
 		/**
 		 * Filters whether a product is taxable.
 		 *
@@ -1754,6 +1805,9 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 		 * @param WC_Product    $product Product object.
 		 */
 		return apply_filters( 'woocommerce_product_is_taxable', $this->get_tax_status() === ProductTaxStatus::TAXABLE && wc_tax_enabled(), $this );
+=======
+		return apply_filters( 'woocommerce_product_is_taxable', $this->get_tax_status() === 'taxable' && wc_tax_enabled(), $this );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -1762,7 +1816,11 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	 * @return bool
 	 */
 	public function is_shipping_taxable() {
+<<<<<<< HEAD
 		return $this->needs_shipping() && ( $this->get_tax_status() === ProductTaxStatus::TAXABLE || $this->get_tax_status() === ProductTaxStatus::SHIPPING );
+=======
+		return $this->needs_shipping() && ( $this->get_tax_status() === 'taxable' || $this->get_tax_status() === 'shipping' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -1802,7 +1860,11 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	 * @return bool
 	 */
 	public function is_on_backorder( $qty_in_cart = 0 ) {
+<<<<<<< HEAD
 		if ( ProductStockStatus::ON_BACKORDER === $this->get_stock_status() ) {
+=======
+		if ( 'onbackorder' === $this->get_stock_status() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return true;
 		}
 
@@ -1948,6 +2010,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the Cost of Goods Sold value in html format.
 	 *
 	 * @return string
@@ -1982,6 +2045,8 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get product name with SKU or ID. Used within admin.
 	 *
 	 * @return string Formatted product name
@@ -2081,6 +2146,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	public function get_image( $size = 'woocommerce_thumbnail', $attr = array(), $placeholder = true ) {
 		$image = '';
 		if ( $this->get_image_id() ) {
+<<<<<<< HEAD
 			$image_alt = get_post_meta( $this->get_image_id(), '_wp_attachment_image_alt', true );
 			$attr      = wp_parse_args(
 				$attr,
@@ -2089,6 +2155,9 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 				)
 			);
 			$image     = wp_get_attachment_image( $this->get_image_id(), $size, false, $attr );
+=======
+			$image = wp_get_attachment_image( $this->get_image_id(), $size, false, $attr );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} elseif ( $this->get_parent_id() ) {
 			$parent_product = wc_get_product( $this->get_parent_id() );
 			if ( $parent_product ) {
@@ -2203,7 +2272,11 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 		$html = '';
 
 		$suffix = get_option( 'woocommerce_price_display_suffix' );
+<<<<<<< HEAD
 		if ( $suffix && wc_tax_enabled() && ProductTaxStatus::TAXABLE === $this->get_tax_status() ) {
+=======
+		if ( $suffix && wc_tax_enabled() && 'taxable' === $this->get_tax_status() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( '' === $price ) {
 				$price = $this->get_price();
 			}

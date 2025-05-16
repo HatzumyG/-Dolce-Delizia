@@ -105,11 +105,14 @@ class OrderAttributionBlocksController implements RegisterHooksInterface {
 					return;
 				}
 
+<<<<<<< HEAD
 				// Check if this order already has any attribution data to prevent duplicates attribution data.
 				if ( $this->order_attribution_controller->has_attribution( $order ) ) {
 					return;
 				}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				/**
 				 * Run an action to save order attribution data.
 				 *

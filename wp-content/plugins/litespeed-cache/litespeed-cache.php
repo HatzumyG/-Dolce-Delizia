@@ -4,7 +4,11 @@
  * Plugin Name:       LiteSpeed Cache
  * Plugin URI:        https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration
  * Description:       High-performance page caching and site optimization from LiteSpeed
+<<<<<<< HEAD
  * Version:           7.1
+=======
+ * Version:           6.5.4
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Author:            LiteSpeed Technologies
  * Author URI:        https://www.litespeedtech.com
  * License:           GPLv3
@@ -12,7 +16,11 @@
  * Text Domain:       litespeed-cache
  * Domain Path:       /lang
  *
+<<<<<<< HEAD
  * Copyright (C) 2015-2025 LiteSpeed Technologies, Inc.
+=======
+ * Copyright (C) 2015-2024 LiteSpeed Technologies, Inc.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +42,11 @@ if (defined('LSCWP_V')) {
 	return;
 }
 
+<<<<<<< HEAD
 !defined('LSCWP_V') && define('LSCWP_V', '7.1');
+=======
+!defined('LSCWP_V') && define('LSCWP_V', '6.5.4');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 !defined('LSCWP_CONTENT_DIR') && define('LSCWP_CONTENT_DIR', WP_CONTENT_DIR);
 !defined('LSCWP_DIR') && define('LSCWP_DIR', __DIR__ . '/'); // Full absolute path '/var/www/html/***/wp-content/plugins/litespeed-cache/' or MU
@@ -134,7 +146,11 @@ if (!function_exists('litespeed_define_nonce_func')) {
 		 */
 		function wp_create_nonce($action = -1)
 		{
+<<<<<<< HEAD
 			if (!defined('LITESPEED_DISABLE_ALL') || !LITESPEED_DISABLE_ALL) {
+=======
+			if (!defined('LITESPEED_DISABLE_ALL')) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$control = \LiteSpeed\ESI::cls()->is_nonce_action($action);
 				if ($control !== null) {
 					$params = array(
@@ -174,6 +190,7 @@ if (!function_exists('litespeed_define_nonce_func')) {
 if (!function_exists('run_litespeed_cache')) {
 	function run_litespeed_cache()
 	{
+<<<<<<< HEAD
 		//Check minimum PHP requirements, which is 7.2 at the moment.
 		if (version_compare(PHP_VERSION, '7.2.0', '<')) {
 			return;
@@ -181,6 +198,15 @@ if (!function_exists('run_litespeed_cache')) {
 
 		//Check minimum WP requirements, which is 5.3 at the moment.
 		if (version_compare($GLOBALS['wp_version'], '5.3', '<')) {
+=======
+		//Check minimum PHP requirements, which is 5.3 at the moment.
+		if (version_compare(PHP_VERSION, '5.3.0', '<')) {
+			return;
+		}
+
+		//Check minimum WP requirements, which is 4.9 at the moment.
+		if (version_compare($GLOBALS['wp_version'], '4.9', '<')) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 

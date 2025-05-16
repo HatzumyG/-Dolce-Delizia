@@ -44,7 +44,11 @@ __webpack_require__.d(__webpack_exports__, {
   isShallowEqualObjects: () => (/* reexport */ isShallowEqualObjects)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/is-shallow-equal/build-module/objects.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/is-shallow-equal/build-module/objects.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns true if the two objects are shallow equal, or false otherwise.
  *
@@ -80,7 +84,11 @@ function isShallowEqualObjects(a, b) {
   return true;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/is-shallow-equal/build-module/arrays.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/is-shallow-equal/build-module/arrays.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns true if the two arrays are shallow equal, or false otherwise.
  *
@@ -104,7 +112,11 @@ function isShallowEqualArrays(a, b) {
   return true;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/is-shallow-equal/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/is-shallow-equal/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

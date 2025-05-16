@@ -162,6 +162,7 @@ class WP_REST_Request implements ArrayAccess {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Determines if the request is the given method.
 	 *
 	 * @since 6.8.0
@@ -174,6 +175,8 @@ class WP_REST_Request implements ArrayAccess {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Canonicalizes the header name.
 	 *
 	 * Ensures that header names are always treated the same regardless of
@@ -494,11 +497,14 @@ class WP_REST_Request implements ArrayAccess {
 			}
 		}
 
+<<<<<<< HEAD
 		// Exclude rest_route if pretty permalinks are not enabled.
 		if ( ! get_option( 'permalink_structure' ) ) {
 			unset( $params['rest_route'] );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $params;
 	}
 

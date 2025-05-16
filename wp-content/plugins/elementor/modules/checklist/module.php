@@ -49,6 +49,10 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 		$this->elementor_adapter = $elementor_adapter ?? Isolation_Manager::get_adapter( Elementor_Adapter::class );
 
 		parent::__construct();
+<<<<<<< HEAD
+=======
+		$this->register_experiment();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->init_user_progress();
 
 		if ( ! $this->is_experiment_active() ) {
@@ -72,7 +76,11 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 	 *
 	 * @return string
 	 */
+<<<<<<< HEAD
 	public function get_name(): string {
+=======
+	public function get_name() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 'e-checklist';
 	}
 
@@ -81,7 +89,11 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 	 *
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public function is_experiment_active(): bool {
+=======
+	public function is_experiment_active() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return Plugin::$instance->experiments->is_feature_active( self::EXPERIMENT_ID );
 	}
 
@@ -100,7 +112,11 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 	 *      }
 	 *  }
 	 */
+<<<<<<< HEAD
 	public function get_user_progress_from_db(): array {
+=======
+	public function get_user_progress_from_db() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$db_progress = json_decode( $this->wordpress_adapter->get_option( self::DB_OPTION_KEY ), true );
 		$db_progress = is_array( $db_progress ) ? $db_progress : [];
 
@@ -122,7 +138,11 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 	 *      @type bool $is_completed
 	 *  }
 	 */
+<<<<<<< HEAD
 	public function get_step_progress( $step_id ): ?array {
+=======
+	public function get_step_progress( $step_id ) : ?array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->user_progress['steps'][ $step_id ] ?? null;
 	}
 
@@ -134,12 +154,20 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function set_step_progress( $step_id, $step_progress ): void {
+=======
+	public function set_step_progress( $step_id, $step_progress ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->user_progress['steps'][ $step_id ] = $step_progress;
 		$this->update_user_progress_in_db();
 	}
 
+<<<<<<< HEAD
 	public function update_user_progress( $new_data ): void {
+=======
+	public function update_user_progress( $new_data ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$allowed_properties = [
 			self::FIRST_CLOSED_CHECKLIST_IN_EDITOR => $new_data[ self::FIRST_CLOSED_CHECKLIST_IN_EDITOR ] ?? null,
 			self::LAST_OPENED_TIMESTAMP => $new_data[ self::LAST_OPENED_TIMESTAMP ] ?? null,
@@ -162,25 +190,41 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 	/**
 	 * @return Steps_Manager
 	 */
+<<<<<<< HEAD
 	public function get_steps_manager(): Steps_Manager {
+=======
+	public function get_steps_manager() : Steps_Manager {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->steps_manager;
 	}
 
 	/**
 	 * @return Wordpress_Adapter
 	 */
+<<<<<<< HEAD
 	public function get_wordpress_adapter(): Wordpress_Adapter {
+=======
+	public function get_wordpress_adapter() : Wordpress_Adapter {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->wordpress_adapter;
 	}
 
 	/**
 	 * @return Elementor_Adapter
 	 */
+<<<<<<< HEAD
 	public function get_elementor_adapter(): Elementor_Adapter {
 		return $this->elementor_adapter;
 	}
 
 	public function enqueue_editor_scripts(): void {
+=======
+	public function get_elementor_adapter() : Elementor_Adapter {
+		return $this->elementor_adapter;
+	}
+
+	public function enqueue_editor_scripts() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( 'elementor/editor/before_enqueue_scripts', function () {
 			$min_suffix = Utils::is_script_debug() ? '' : '.min';
 
@@ -204,7 +248,11 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 		} );
 	}
 
+<<<<<<< HEAD
 	public function is_preference_switch_on(): bool {
+=======
+	public function is_preference_switch_on() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $this->should_switch_preferences_off() ) {
 			return false;
 		}
@@ -214,6 +262,7 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 		return 'yes' === $user_preferences || $this->wordpress_adapter->is_new_installation();
 	}
 
+<<<<<<< HEAD
 	public function should_switch_preferences_off(): bool {
 		return ! $this->elementor_adapter->is_active_kit_default() && ! $this->user_progress[ self::LAST_OPENED_TIMESTAMP ] && ! $this->elementor_adapter->get_count( Elementor_Counter::EDITOR_COUNTER_KEY );
 	}
@@ -224,21 +273,44 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 			'title' => esc_html__( 'Launchpad Checklist', 'elementor' ),
 			'description' => esc_html__( 'Launchpad Checklist feature to boost productivity and deliver your site faster', 'elementor' ),
 			'release_status' => Manager::RELEASE_STATUS_STABLE,
+=======
+	public function should_switch_preferences_off() : bool {
+		return ! $this->elementor_adapter->is_active_kit_default() && ! $this->user_progress[ self::LAST_OPENED_TIMESTAMP ] && ! $this->elementor_adapter->get_count( Elementor_Counter::EDITOR_COUNTER_KEY );
+	}
+
+	private function register_experiment() : void {
+		Plugin::$instance->experiments->add_feature( [
+			'name' => self::EXPERIMENT_ID,
+			'title' => esc_html__( 'Launchpad Checklist', 'elementor' ),
+			'description' => esc_html__( 'Launchpad Checklist feature to boost productivity and deliver your site faster', 'elementor' ),
+			'release_status' => Manager::RELEASE_STATUS_ALPHA,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'hidden' => true,
 			'new_site' => [
 				'default_active' => true,
 				'minimum_installation_version' => '3.25.0',
 			],
+<<<<<<< HEAD
 		];
 	}
 
 	private function init_user_progress(): void {
+=======
+		] );
+	}
+
+	private function init_user_progress() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$default_settings = $this->get_default_user_progress();
 
 		$this->wordpress_adapter->add_option( self::DB_OPTION_KEY, wp_json_encode( $default_settings ) );
 	}
 
+<<<<<<< HEAD
 	private function get_default_user_progress(): array {
+=======
+	private function get_default_user_progress() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [
 			self::LAST_OPENED_TIMESTAMP => null,
 			self::FIRST_CLOSED_CHECKLIST_IN_EDITOR => false,
@@ -247,7 +319,11 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 		];
 	}
 
+<<<<<<< HEAD
 	private function update_user_progress_in_db(): void {
+=======
+	private function update_user_progress_in_db() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->wordpress_adapter->update_option( self::DB_OPTION_KEY, wp_json_encode( $this->user_progress ) );
 	}
 
@@ -269,7 +345,11 @@ class Module extends BaseModule implements Checklist_Module_Interface {
 		}, 11 );
 	}
 
+<<<<<<< HEAD
 	public static function should_display_checklist_toggle_control(): bool {
+=======
+	public static function should_display_checklist_toggle_control() : bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return Plugin::$instance->experiments->is_feature_active( self::EXPERIMENT_ID ) &&
 			Plugin::$instance->experiments->is_feature_active( AppBarModule::EXPERIMENT_NAME ) &&
 			current_user_can( 'manage_options' );

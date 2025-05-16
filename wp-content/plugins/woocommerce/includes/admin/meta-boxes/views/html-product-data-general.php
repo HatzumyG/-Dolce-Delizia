@@ -5,12 +5,17 @@
  * @package WooCommerce\Admin
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
 
 defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 
+=======
+defined( 'ABSPATH' ) || exit;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 ?>
 <div id="general_product_data" class="panel woocommerce_options_panel">
 
@@ -78,6 +83,7 @@ use Automattic\WooCommerce\Enums\ProductTaxStatus;
 		?>
 	</div>
 
+<<<<<<< HEAD
 	<?php if ( wc_get_container()->get( CostOfGoodsSoldController::class )->feature_is_enabled() ) : ?>
 		<div class="options_group pricing show_if_simple show_if_external show_if_variable hidden">
 			<?php
@@ -100,6 +106,8 @@ use Automattic\WooCommerce\Enums\ProductTaxStatus;
 		</div>
 	<?php endif; ?>
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	<div class="options_group show_if_downloadable hidden">
 		<div class="form-field downloadable_files">
 			<label><?php esc_html_e( 'Downloadable files', 'woocommerce' ); ?></label>
@@ -204,9 +212,15 @@ use Automattic\WooCommerce\Enums\ProductTaxStatus;
 					'value'       => $product_object->get_tax_status( 'edit' ),
 					'label'       => __( 'Tax status', 'woocommerce' ),
 					'options'     => array(
+<<<<<<< HEAD
 						ProductTaxStatus::TAXABLE  => __( 'Taxable', 'woocommerce' ),
 						ProductTaxStatus::SHIPPING => __( 'Shipping only', 'woocommerce' ),
 						ProductTaxStatus::NONE     => _x( 'None', 'Tax status', 'woocommerce' ),
+=======
+						'taxable'  => __( 'Taxable', 'woocommerce' ),
+						'shipping' => __( 'Shipping only', 'woocommerce' ),
+						'none'     => _x( 'None', 'Tax status', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					),
 					'desc_tip'    => 'true',
 					'description' => __( 'Define whether or not the entire product is taxable, or just the cost of shipping it.', 'woocommerce' ),

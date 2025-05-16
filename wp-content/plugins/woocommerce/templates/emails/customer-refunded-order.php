@@ -12,7 +12,11 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 9.7.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
@@ -27,6 +31,7 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improveme
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php echo $email_improvements_enabled ? '<div class="email-introduction">' : ''; ?>
+<<<<<<< HEAD
 <p>
 <?php
 if ( ! empty( $order->get_billing_first_name() ) ) {
@@ -57,6 +62,19 @@ if ( $email_improvements_enabled ) {
 } else {
 	/* translators: %s: Site title */
 	printf( esc_html__( 'Your order on %s has been refunded. There are more details below for your reference:', 'woocommerce' ), esc_html( $blogname ) );
+=======
+<?php /* translators: %s: Customer first name */ ?>
+<p><?php printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
+
+<p>
+<?php
+if ( $partial_refund ) {
+	/* translators: %s: Site title */
+	printf( esc_html__( 'Your order on %s has been partially refunded. There are more details below for your reference:', 'woocommerce' ), wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES ) ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+} else {
+	/* translators: %s: Site title */
+	printf( esc_html__( 'Your order on %s has been refunded. There are more details below for your reference:', 'woocommerce' ), wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES ) ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 ?>
 </p>
@@ -87,9 +105,15 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
  * Show user-defined additional content - this is set in each email's settings.
  */
 if ( $additional_content ) {
+<<<<<<< HEAD
 	echo $email_improvements_enabled ? '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td class="email-additional-content">' : '';
 	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
 	echo $email_improvements_enabled ? '</td></tr></table>' : '';
+=======
+	echo $email_improvements_enabled ? '<div class="email-additional-content">' : '';
+	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
+	echo $email_improvements_enabled ? '</div>' : '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /*

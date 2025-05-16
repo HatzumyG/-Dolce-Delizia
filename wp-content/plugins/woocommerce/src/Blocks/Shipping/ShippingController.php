@@ -4,11 +4,16 @@ namespace Automattic\WooCommerce\Blocks\Shipping;
 use Automattic\WooCommerce\Blocks\Assets\Api as AssetApi;
 use Automattic\WooCommerce\Blocks\Assets\AssetDataRegistry;
 use Automattic\WooCommerce\Blocks\Utils\CartCheckoutUtils;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 use Automattic\WooCommerce\StoreApi\Utilities\LocalPickupUtils;
 use Automattic\WooCommerce\Utilities\ArrayUtil;
 use WC_Customer;
 use WC_Shipping_Rate;
+=======
+use Automattic\WooCommerce\StoreApi\Utilities\LocalPickupUtils;
+use Automattic\WooCommerce\Utilities\ArrayUtil;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use WC_Tracks;
 
 /**
@@ -71,16 +76,27 @@ class ShippingController {
 		add_filter( 'woocommerce_local_pickup_methods', array( $this, 'register_local_pickup_method' ) );
 		add_filter( 'woocommerce_order_hide_shipping_address', array( $this, 'hide_shipping_address_for_local_pickup' ), 10 );
 		add_filter( 'woocommerce_customer_taxable_address', array( $this, 'filter_taxable_address' ) );
+<<<<<<< HEAD
 		add_filter( 'woocommerce_shipping_settings', array( $this, 'remove_shipping_settings' ) );
 		add_filter( 'woocommerce_shipping_packages', array( $this, 'filter_shipping_packages' ) );
 		add_filter( 'pre_update_option_woocommerce_pickup_location_settings', array( $this, 'flush_cache' ) );
 		add_filter( 'pre_update_option_pickup_location_pickup_locations', array( $this, 'flush_cache' ) );
 		add_filter( 'woocommerce_shipping_packages', array( $this, 'remove_shipping_if_no_address' ), 11 );
+=======
+		add_filter( 'woocommerce_shipping_packages', array( $this, 'filter_shipping_packages' ) );
+		add_filter( 'pre_update_option_woocommerce_pickup_location_settings', array( $this, 'flush_cache' ) );
+		add_filter( 'pre_update_option_pickup_location_pickup_locations', array( $this, 'flush_cache' ) );
+		add_filter( 'woocommerce_shipping_settings', array( $this, 'remove_shipping_settings' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_filter( 'woocommerce_order_shipping_to_display', array( $this, 'show_local_pickup_details' ), 10, 2 );
 
 		// This is required to short circuit `show_shipping` from class-wc-cart.php - without it, that function
 		// returns based on the option's value in the DB and we can't override it any other way.
 		add_filter( 'option_woocommerce_shipping_cost_requires_address', array( $this, 'override_cost_requires_address_option' ) );
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( 'rest_pre_serve_request', array( $this, 'track_local_pickup' ), 10, 4 );
 	}
 
@@ -146,7 +162,11 @@ class ShippingController {
 			foreach ( $settings as $index => $setting ) {
 				if ( 'woocommerce_shipping_cost_requires_address' === $setting['id'] ) {
 					$settings[ $index ]['desc'] = sprintf(
+<<<<<<< HEAD
 					/* translators: %s: URL to the documentation. */
+=======
+						/* translators: %s: URL to the documentation. */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						__( 'Hide shipping costs until an address is entered (Not available when using the <a href="%s">Local pickup options powered by the Checkout block</a>)', 'woocommerce' ),
 						'https://woocommerce.com/document/woocommerce-blocks-local-pickup/'
 					);
@@ -188,7 +208,11 @@ class ShippingController {
 							'tax_status' => array(
 								'description' => __( 'If a cost is defined, this controls if taxes are applied to that cost.', 'woocommerce' ),
 								'type'        => 'string',
+<<<<<<< HEAD
 								'enum'        => array( ProductTaxStatus::TAXABLE, ProductTaxStatus::NONE ),
+=======
+								'enum'        => array( 'taxable', 'none' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							),
 							'cost'       => array(
 								'description' => __( 'Optional cost to charge for local pickup.', 'woocommerce' ),
@@ -413,7 +437,11 @@ class ShippingController {
 			}
 		);
 
+<<<<<<< HEAD
 		// Remove pickup location from rates arrays if not all packages can be picked up or support local pickup.
+=======
+		// Remove pickup location from rates arrays.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( count( $valid_packages ) !== count( $packages ) ) {
 			$packages = array_map(
 				function ( $package ) {
@@ -437,6 +465,7 @@ class ShippingController {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Remove shipping (i.e. delivery, not local pickup) if
 	 * "Hide shipping costs until an address is entered" is enabled,
 	 * and no address has been entered yet.
@@ -477,6 +506,8 @@ class ShippingController {
 		);
 	}
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Track local pickup settings changes via Store API
 	 *
 	 * @param bool              $served Whether the request has already been served.

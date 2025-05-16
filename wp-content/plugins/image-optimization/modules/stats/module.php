@@ -20,7 +20,10 @@ class Module extends Module_Base {
 	public static function routes_list() : array {
 		return [
 			'Get_Stats',
+<<<<<<< HEAD
 			'Get_Optimization_Details',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 	}
 

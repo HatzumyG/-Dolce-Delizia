@@ -53,9 +53,14 @@ defined( 'WPINC' ) || exit;
 		<td>
 			<?php $this->build_textarea( $id ); ?>
 			<div class="litespeed-desc">
+<<<<<<< HEAD
 				<?php echo __( 'List the CSS selectors whose styles should always be included in UCSS.', 'litespeed-cache' ); ?>
 				<?php Doc::one_per_line(); ?>
 				<?php Doc::learn_more( 'https://docs.litespeedtech.com/lscache/lscwp/pageopt/#ucss-selector-allowlist', __( 'Learn more', 'litespeed-cache' ) ); ?>.
+=======
+				<?php echo __( 'List the CSS selector that its style should be always contained in UCSS.', 'litespeed-cache' ); ?>
+				<?php Doc::learn_more( 'https://docs.litespeedtech.com/lscache/lscwp/pageopt/#ucss-whitelist', __( 'How to choose an UCSS allowlist selector?', 'litespeed-cache' ) ); ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<br /><?php echo sprintf( __( 'Wildcard %s supported.', 'litespeed-cache' ), '<code>*</code>' ); ?>
 				<div class="litespeed-callout notice notice-warning inline">
 					<h4><?php echo __( 'Note', 'litespeed-cache' ); ?></h4>
@@ -123,6 +128,7 @@ defined( 'WPINC' ) || exit;
 
 	<tr>
 		<th>
+<<<<<<< HEAD
 			<?php $id = Base::O_OPTM_CCSS_SELECTOR_WHITELIST; ?>
 			<?php $this->title( $id ); ?>
 		</th>
@@ -148,6 +154,8 @@ defined( 'WPINC' ) || exit;
 
 	<tr>
 		<th>
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<?php $id = Base::O_OPTM_CCSS_CON; ?>
 			<?php $this->title( $id ); ?>
 		</th>

@@ -16,7 +16,11 @@
 		/**
 		 * Strip HTML tags.
 		 *
+<<<<<<< HEAD
 		 * @param {string} text Text to strip the HTML tags from.
+=======
+		 * @param {string} text Text to have the HTML tags striped out of.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		 *
 		 * @return  Stripped text.
 		 */

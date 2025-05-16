@@ -12,7 +12,11 @@ defined( 'ABSPATH' ) || exit;
  */
 class Payments {
 
+<<<<<<< HEAD
 	const PAYMENTS_NOX_PROFILE_KEY = 'woocommerce_payments_nox_profile';
+=======
+	const USER_PAYMENTS_NOX_PROFILE_KEY = 'woocommerce_payments_nox_profile';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	const SUGGESTIONS_CONTEXT = 'wc_settings_payments';
 
@@ -188,7 +192,11 @@ class Payments {
 	 *                If the user didn't set a location, the WC base location country code is used.
 	 */
 	public function get_country(): string {
+<<<<<<< HEAD
 		$user_nox_meta = get_user_meta( get_current_user_id(), self::PAYMENTS_NOX_PROFILE_KEY, true );
+=======
+		$user_nox_meta = get_user_meta( get_current_user_id(), self::USER_PAYMENTS_NOX_PROFILE_KEY, true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ! empty( $user_nox_meta['business_country_code'] ) ) {
 			return $user_nox_meta['business_country_code'];
 		}
@@ -202,7 +210,11 @@ class Payments {
 	 * @param string $location The country code. This should be a ISO 3166-1 alpha-2 country code.
 	 */
 	public function set_country( string $location ): bool {
+<<<<<<< HEAD
 		$user_payments_nox_profile = get_user_meta( get_current_user_id(), self::PAYMENTS_NOX_PROFILE_KEY, true );
+=======
+		$user_payments_nox_profile = get_user_meta( get_current_user_id(), self::USER_PAYMENTS_NOX_PROFILE_KEY, true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( empty( $user_payments_nox_profile ) ) {
 			$user_payments_nox_profile = array();
@@ -211,7 +223,11 @@ class Payments {
 		}
 		$user_payments_nox_profile['business_country_code'] = $location;
 
+<<<<<<< HEAD
 		return false !== update_user_meta( get_current_user_id(), self::PAYMENTS_NOX_PROFILE_KEY, $user_payments_nox_profile );
+=======
+		return false !== update_user_meta( get_current_user_id(), self::USER_PAYMENTS_NOX_PROFILE_KEY, $user_payments_nox_profile );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -226,6 +242,7 @@ class Payments {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Attach a payment extension suggestion.
 	 *
 	 * This is only an internal recording of attachment. No actual extension installation or activation happens.
@@ -240,6 +257,8 @@ class Payments {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Hide a payment extension suggestion.
 	 *
 	 * @param string $id The ID of the payment extension suggestion to hide.

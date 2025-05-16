@@ -211,12 +211,16 @@ var _litespeed_dots;
 		 * @since  3.0
 		 */
 		$('#litespeed_get_ip').on('click', function (e) {
+<<<<<<< HEAD
 			console.log('[litespeed] get server IP');
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$.ajax({
 				url: litespeed_data.ajax_url_getIP,
 				dataType: 'json',
 				beforeSend: function (xhr) {
 					xhr.setRequestHeader('X-WP-Nonce', litespeed_data.nonce);
+<<<<<<< HEAD
 					$('#litespeed_server_ip').html('Detecting...');
 				},
 				success: function (data) {
@@ -231,6 +235,13 @@ var _litespeed_dots;
 				complete: function (xhr, status) {
 					console.log('[litespeed] AJAX complete', status, xhr);
 				},
+=======
+				},
+				success: function (data) {
+					console.log('[litespeed] get server IP response: ' + data);
+					$('#litespeed_server_ip').html(data);
+				},
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			});
 		});
 
@@ -591,6 +602,7 @@ function litespeed_add_zero(i) {
 	}
 	return i;
 }
+<<<<<<< HEAD
 
 function litespeed_copy_to_clipboard(elementId) {
 	var range = document.createRange();
@@ -600,3 +612,5 @@ function litespeed_copy_to_clipboard(elementId) {
 	document.execCommand('copy');
 	window.getSelection().removeAllRanges();
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

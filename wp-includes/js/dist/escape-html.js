@@ -48,7 +48,11 @@ __webpack_require__.d(__webpack_exports__, {
   isValidAttributeName: () => (/* binding */ isValidAttributeName)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/escape-html/build-module/escape-greater.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/escape-html/build-module/escape-greater.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns a string with greater-than sign replaced.
  *
@@ -65,7 +69,11 @@ function __unstableEscapeGreaterThan(value) {
   return value.replace(/>/g, '&gt;');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/escape-html/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/escape-html/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

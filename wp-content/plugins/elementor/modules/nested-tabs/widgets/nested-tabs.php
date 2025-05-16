@@ -17,7 +17,11 @@ use Elementor\Plugin;
 use Elementor\Repeater;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class NestedTabs extends Widget_Nested_Base {
@@ -1283,8 +1287,11 @@ class NestedTabs extends Widget_Nested_Base {
 			'data-binding-setting': [ 'tab_title' ],
 			'data-binding-index': tabCount,
 			'data-binding-dynamic': 'true',
+<<<<<<< HEAD
 			'data-binding-dynamic-css-id': 'element_id',
 			'data-binding-single-item-html-wrapper-tag': 'button',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}, null, true );
 
 		view.addRenderAttribute( 'tab-icon', {

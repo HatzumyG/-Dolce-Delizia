@@ -209,7 +209,11 @@ class Manager {
 	 * Retrieve all the templates from all the registered sources.
 	 *
 	 * @param array $filter_sources
+<<<<<<< HEAD
 	 * @param bool  $force_update
+=======
+	 * @param bool $force_update
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return array
 	 */
 	public function get_templates( array $filter_sources = [], bool $force_update = false ): array {
@@ -334,6 +338,7 @@ class Manager {
 		return $source->get_item( $template_data['id'] );
 	}
 
+<<<<<<< HEAD
 	public function rename_template( array $template_data ) {
 		$validate_args = $this->ensure_args( [ 'source', 'title', 'id' ], $template_data );
 
@@ -356,6 +361,8 @@ class Manager {
 		return $source->get_item( $template_data['id'] );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Update templates.
 	 *
@@ -474,6 +481,24 @@ class Manager {
 			return $validate_args;
 		}
 
+<<<<<<< HEAD
+=======
+		$post_id = intval( $args['template_id'] );
+		$post_status = get_post_status( $post_id );
+
+		if ( get_post_type( $post_id ) !== Source_Local::CPT ) {
+			return new \WP_Error( 'template_error', esc_html__( 'Invalid template type or template does not exist.', 'elementor' ) );
+		}
+
+		if ( 'private' === $post_status && ! current_user_can( 'read_private_posts', $post_id ) ) {
+			return new \WP_Error( 'template_error', esc_html__( 'You do not have permission to access this template.', 'elementor' ) );
+		}
+
+		if ( 'publish' !== $post_status && ! current_user_can( 'edit_post', $post_id ) ) {
+			return new \WP_Error( 'template_error', esc_html__( 'You do not have permission to export this template.', 'elementor' ) );
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$source = $this->get_source( $args['source'] );
 
 		if ( ! $source ) {
@@ -490,7 +515,11 @@ class Manager {
 	public function direct_import_template() {
 		/** @var Source_Local $source */
 		$source = $this->get_source( 'local' );
+<<<<<<< HEAD
 		$file = Utils::get_super_global_value( $_FILES, 'file' ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
+=======
+		$file = Utils::get_super_global_value( $_FILES, 'file' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $source->import_template( $file['name'], $file['tmp_name'] );
 	}
 
@@ -591,6 +620,7 @@ class Manager {
 		return $import_data['content'];
 	}
 
+<<<<<<< HEAD
 	public function get_item_children( array $args ) {
 		$validate_args = $this->ensure_args( [ 'source', 'template_id' ], $args );
 
@@ -655,6 +685,8 @@ class Manager {
 		return $source->save_folder( $args );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Register default template sources.
 	 *
@@ -670,10 +702,13 @@ class Manager {
 			'remote',
 		];
 
+<<<<<<< HEAD
 		if ( Plugin::$instance->experiments->is_feature_active( 'cloud-library' ) ) {
 			$sources[] = 'cloud';
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ( $sources as $source_filename ) {
 			$class_name = ucwords( $source_filename );
 			$class_name = str_replace( '-', '_', $class_name );
@@ -692,10 +727,17 @@ class Manager {
 	 *
 	 * @param string $ajax_request Ajax request.
 	 *
+<<<<<<< HEAD
 	 * @param array  $data
 	 *
 	 * @return mixed
 	 * @throws \Exception If the user has no permission or the post is not found.
+=======
+	 * @param array $data
+	 *
+	 * @return mixed
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function handle_ajax_request( $ajax_request, array $data ) {
 		if ( ! User::is_current_user_can_edit_post_type( Source_Local::CPT ) ) {
@@ -715,10 +757,17 @@ class Manager {
 		$result = call_user_func( [ $this, $ajax_request ], $data );
 
 		if ( is_wp_error( $result ) ) {
+<<<<<<< HEAD
 			throw new \Exception( esc_html( $result->get_error_message() ) );
 		}
 
 		return $result; // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+=======
+			throw new \Exception( $result->get_error_message() );
+		}
+
+		return $result;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -741,11 +790,14 @@ class Manager {
 			'import_template',
 			'mark_template_as_favorite',
 			'import_from_json',
+<<<<<<< HEAD
 			'get_item_children',
 			'search_templates',
 			'rename_template',
 			'load_more_templates',
 			'create_folder',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 
 		foreach ( $library_ajax_requests as $ajax_request ) {
@@ -849,7 +901,11 @@ class Manager {
 	}
 
 	private function is_allowed_to_read_template( array $args ): bool {
+<<<<<<< HEAD
 		if ( 'remote' === $args['source'] || 'cloud' === $args['source'] ) {
+=======
+		if ( 'remote' === $args['source'] ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return true;
 		}
 

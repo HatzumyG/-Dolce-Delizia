@@ -2551,6 +2551,7 @@ class WP_HTML_Tag_Processor {
 			return false;
 		}
 
+<<<<<<< HEAD
 		$existing_bookmark = $this->bookmarks[ $bookmark_name ];
 
 		if (
@@ -2560,6 +2561,8 @@ class WP_HTML_Tag_Processor {
 			return true;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( ++$this->seek_count > static::MAX_SEEK_OPS ) {
 			_doing_it_wrong(
 				__METHOD__,

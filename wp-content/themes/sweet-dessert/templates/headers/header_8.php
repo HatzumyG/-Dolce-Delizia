@@ -84,7 +84,11 @@ if ( !function_exists( 'sweet_dessert_template_header_8_output' ) ) {
 	
 				<?php
 
+<<<<<<< HEAD
                 echo '<h3>'.esc_html__('Menú', 'sweet-dessert').'</h3>';
+=======
+                echo '<h3>'.esc_html__('Our Menu', 'sweet-dessert').'</h3>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				$menu_main = sweet_dessert_get_nav_menu('menu_main');
 				if (empty($menu_main)) $menu_main = sweet_dessert_get_nav_menu();

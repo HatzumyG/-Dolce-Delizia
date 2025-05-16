@@ -33,6 +33,7 @@ class Module extends BaseModule {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Register Experimental Feature
 	 *
 	 * Implementation of this method makes the module an experiment.
@@ -41,6 +42,18 @@ class Module extends BaseModule {
 	 */
 	private function register_experiment() {
 		Plugin::$instance->experiments->add_feature( [
+=======
+	 * Get Experimental Data
+	 *
+	 * Implementation of this method makes the module an experiment.
+	 *
+	 * @since 3.1.0
+	 *
+	 * @return array
+	 */
+	public static function get_experimental_data() {
+		return [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'name' => 'landing-pages',
 			'title' => esc_html__( 'Landing Pages', 'elementor' ),
 			'description' => esc_html__( 'Adds a new Elementor content type that allows creating beautiful landing pages instantly in a streamlined workflow.', 'elementor' ),
@@ -51,6 +64,7 @@ class Module extends BaseModule {
 				'minimum_installation_version' => '3.22.0',
 			],
 			'deprecated' => true,
+<<<<<<< HEAD
 		] );
 	}
 
@@ -66,6 +80,9 @@ class Module extends BaseModule {
 
 		update_option( 'elementor_landing_pages_activation', '0' );
 		return false;
+=======
+		];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -124,7 +141,11 @@ class Module extends BaseModule {
 	 * @since 3.1.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param \WP_Post $post Post Object.
+=======
+	 * @param \WP_Post $post Post Object
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return bool Whether the post was built with Elementor.
 	 */
@@ -221,7 +242,11 @@ class Module extends BaseModule {
 				<?php
 					printf(
 						/* translators: %1$s Link open tag, %2$s: Link close tag. */
+<<<<<<< HEAD
 						esc_html__( 'Or view %1$sTrashed Items%2$s', 'elementor' ),
+=======
+						esc_html__( 'Or view %1$sTrashed Items%1$s', 'elementor' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						'<a href="' . esc_url( admin_url( 'edit.php?post_status=trash&post_type=' . self::CPT ) ) . '">',
 						'</a>'
 					);
@@ -440,6 +465,7 @@ class Module extends BaseModule {
 	}
 
 	public function __construct() {
+<<<<<<< HEAD
 		if ( ! $this->should_activate_landing_pages() ) {
 			return;
 		}
@@ -450,6 +476,8 @@ class Module extends BaseModule {
 			return;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->permalink_structure = get_option( 'permalink_structure' );
 
 		$this->register_landing_page_cpt();

@@ -74,6 +74,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 						<td class="product-thumbnail">
 						<?php
+<<<<<<< HEAD
 						/**
 						 * Filter the product thumbnail displayed in the WooCommerce cart.
 						 *
@@ -87,6 +88,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 						 *
 						 * @since 2.1.0
 						 */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
 						if ( ! $product_permalink ) {

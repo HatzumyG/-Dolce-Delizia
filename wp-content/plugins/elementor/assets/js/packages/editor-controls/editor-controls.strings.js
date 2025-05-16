@@ -9,7 +9,11 @@ __( 'Right', 'elementor' );
 __( 'Bottom', 'elementor' );
 __( 'Left', 'elementor' );
 __( 'Link', 'elementor' );
+<<<<<<< HEAD
 __( 'Toggle Link', 'elementor' );
+=======
+__( 'Paste URL or type', 'elementor' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 __( 'Open in new tab', 'elementor' );
 __( 'Select Image', 'elementor' );
 __( 'Upload Image', 'elementor' );
@@ -22,7 +26,11 @@ __( 'Search', 'elementor' );
 __( 'Sorry, nothing matched', 'elementor' );
 __( 'Clear the filters', 'elementor' );
 __( 'and try again.', 'elementor' );
+<<<<<<< HEAD
 __( 'Mixed', 'elementor' );
+=======
+__( 'MIXED', 'elementor' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 __( 'Box shadow', 'elementor' );
 __( 'Color', 'elementor' );
 __( 'Position', 'elementor' );
@@ -32,11 +40,17 @@ __( 'Horizontal', 'elementor' );
 __( 'Vertical', 'elementor' );
 __( 'Blur', 'elementor' );
 __( 'Spread', 'elementor' );
+<<<<<<< HEAD
+=======
+__( 'Overlay', 'elementor' );
+__( 'Color', 'elementor' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 __( 'Add item', 'elementor' );
 __( 'Open item', 'elementor' );
 __( 'Duplicate item', 'elementor' );
 __( 'Enable item', 'elementor' );
 __( 'Disable item', 'elementor' );
+<<<<<<< HEAD
 __( 'Remove item', 'elementor' );
 __( 'Color', 'elementor' );
 __( 'Overlay', 'elementor' );
@@ -71,3 +85,6 @@ __( 'Position', 'elementor' );
 __( 'Fixed', 'elementor' );
 __( 'Scroll', 'elementor' );
 __( 'Attachment', 'elementor' );
+=======
+__( 'Remove item', 'elementor' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

@@ -101,6 +101,7 @@ if ( !function_exists('wp_setcookie') ) :
  * @param string $siteurl Optional. Will be used instead of SITECOOKIEPATH if set
  * @param bool $remember Optional. Remember that the user is logged in
  */
+<<<<<<< HEAD
 function wp_setcookie(
 	$username,
 	#[\SensitiveParameter]
@@ -110,6 +111,9 @@ function wp_setcookie(
 	$siteurl = '',
 	$remember = false
 ) {
+=======
+function wp_setcookie($username, $password = '', $already_md5 = false, $home = '', $siteurl = '', $remember = false) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_set_auth_cookie()' );
 	$user = get_user_by('login', $username);
 	wp_set_auth_cookie($user->ID, $remember);
@@ -176,12 +180,16 @@ if ( !function_exists('wp_login') ) :
  * @param string $deprecated Not used
  * @return bool True on successful check, false on login failure.
  */
+<<<<<<< HEAD
 function wp_login(
 	$username,
 	#[\SensitiveParameter]
 	$password,
 	$deprecated = ''
 ) {
+=======
+function wp_login($username, $password, $deprecated = '') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_signon()' );
 	global $error;
 

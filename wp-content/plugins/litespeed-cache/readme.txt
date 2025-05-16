@@ -1,10 +1,16 @@
 === LiteSpeed Cache ===
 Contributors: LiteSpeedTech
 Tags: caching, optimize, performance, pagespeed, seo, image optimize, object cache, redis, memcached, database cleaner
+<<<<<<< HEAD
 Requires at least: 5.3
 Requires PHP: 7.2
 Tested up to: 6.8
 Stable tag: 7.1
+=======
+Requires at least: 4.9
+Tested up to: 6.7
+Stable tag: 6.5.4
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -49,7 +55,11 @@ LiteSpeed Cache for WordPress is compatible with ClassicPress.
 * Single Site and Multisite (Network) support
 * Import/Export settings
 * Attractive, easy-to-understand interface
+<<<<<<< HEAD
 * AVIF/WebP image format support
+=======
+* WebP image format support
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 * Heartbeat control
 
 <sup>+</sup> This service is not provided by the LSCache plugin, nor is it guaranteed to be installed by your service provider. However, the plugin is compatible with the service if it is in use on your site.
@@ -92,10 +102,17 @@ LiteSpeed Cache for WordPress is compatible with ClassicPress.
 == LSCWP Resources ==
 * [Join our Slack community](https://litespeedtech.com/slack) to connect with other LiteSpeed users.
 * [Ask a question on our support forum](https://wordpress.org/support/plugin/litespeed-cache/).
+<<<<<<< HEAD
 * [View detailed documentation](https://docs.litespeedtech.com/lscache/lscwp/).
 * [Read about LSCWP and WordPress on our blog](https://blog.litespeedtech.com/tag/wordpress/).
 * [Help translate LSCWP](https://translate.wordpress.org/projects/wp-plugins/litespeed-cache/).
 * [Contribute to the LSCWP GitHub repo](https://github.com/litespeedtech/lscache_wp).
+=======
+* [View detailed documentation](https://docs.litespeedtech.com/lscache/lscwp/overview/).
+* [Read WordPress Wednesday tutorials on our blog](https://blog.litespeedtech.com/tag/wordpress-wednesday/).
+* [Help translate LSCWP](https://translate.wordpress.org/projects/wp-plugins/litespeed-cache/).
+* [LSCWP GitHub repo](https://github.com/litespeedtech/lscache_wp).
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 == Installation ==
 
@@ -255,6 +272,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 7.1 - Apr 24 2025 =
 * 🌱**Page Optimize** Added allowlist support for CCSS.
 * **Cloud** CCSS results are now generated asynchronously via QUIC.cloud queue services.
@@ -352,11 +370,17 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * **Debug** Escalated debug initialization to as early as possible to allow more configuration information to be logged.
 * **3rd** Fixed warning in Buddy Press code integration. (Viktor Szépe/antipole PR#778)
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 = 6.5.4 - Dec 16 2024 =
 * **Page Optimize** Fixed Google Fonts broken with the Async option. (HivePress #787)
 
 = 6.5.3 - Dec 4 2024 =
+<<<<<<< HEAD
 * **Misc** Quote escaped in attributes when building HTML. (CVE-2024-51915)
+=======
+* **Misc** Quote escaped in attributes when building HTML.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 = 6.5.2 - Oct 17 2024 =
 * **Crawler** Removed barely used Role Simulator from Crawler, to prevent potential security issues.
@@ -519,7 +543,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 5.7 - Oct 10 2023 =
 * 🌱**Page Optimize** New option available: Preconnect. (xguiboy/Mukesh Patel)
+<<<<<<< HEAD
 * 🌱**3rd** New Vary for Mini Cart option for WooCommerce. (Ruikai)
+=======
+* 🌱**3rd** New Vary for Mini Cart option for Woocommerce. (Ruikai)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 * **Cloud** Force syncing the configuration to QUIC.cloud if CDN is reenabled.
 * **Cloud** Force syncing the configuration to QUIC.cloud if domain key is readded.
 * **Cloud** Limit multi-line fields when posting to QC.

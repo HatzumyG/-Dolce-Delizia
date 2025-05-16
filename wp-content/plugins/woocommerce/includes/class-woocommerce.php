@@ -42,7 +42,11 @@ final class WooCommerce {
 	 *
 	 * @var string
 	 */
+<<<<<<< HEAD
 	public $version = '9.8.5';
+=======
+	public $version = '9.7.1';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * WooCommerce Schema version.
@@ -341,7 +345,10 @@ final class WooCommerce {
 		$container->get( Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController::class )->register();
 		$container->get( Automattic\WooCommerce\Internal\Admin\Settings\PaymentsController::class )->register();
 		$container->get( Automattic\WooCommerce\Internal\Utilities\LegacyRestApiStub::class )->register();
+<<<<<<< HEAD
 		$container->get( Automattic\WooCommerce\Internal\Email\EmailStyleSync::class )->register();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		Automattic\WooCommerce\Internal\Admin\WcPayWelcomePage::instance()->register();
 
 		// Classes inheriting from RestApiControllerBase.
@@ -832,9 +839,12 @@ final class WooCommerce {
 	 * Init WooCommerce when WordPress Initialises.
 	 */
 	public function init() {
+<<<<<<< HEAD
 		// See the comment inside FeaturesController::__construct.
 		wc_get_container()->get( FeaturesController::class )->register_additional_features();
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Action triggered before WooCommerce initialization begins.
 		 */
@@ -875,6 +885,7 @@ final class WooCommerce {
 	 *      - WP_LANG_DIR/plugins/woocommerce-LOCALE.mo
 	 */
 	public function load_plugin_textdomain() {
+<<<<<<< HEAD
 		/**
 		 * Filter to adjust the WooCommerce locale to use for translations.
 		 */
@@ -890,6 +901,18 @@ final class WooCommerce {
 			load_textdomain( 'woocommerce', $custom_translation_path );
 			load_textdomain( 'woocommerce', $plugin_translation_path );
 		}
+=======
+		$locale = determine_locale();
+
+		/**
+		 * Filter to adjust the WooCommerce locale to use for translations.
+		 */
+		$locale = apply_filters( 'plugin_locale', $locale, 'woocommerce' ); // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingSinceComment
+
+		unload_textdomain( 'woocommerce', true );
+		load_textdomain( 'woocommerce', WP_LANG_DIR . '/woocommerce/woocommerce-' . $locale . '.mo' );
+		load_plugin_textdomain( 'woocommerce', false, plugin_basename( dirname( WC_PLUGIN_FILE ) ) . '/i18n/languages' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

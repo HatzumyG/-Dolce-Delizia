@@ -936,6 +936,7 @@ class WP_Automatic_Updater {
 			return;
 		}
 
+<<<<<<< HEAD
 		$admin_user = get_user_by( 'email', get_site_option( 'admin_email' ) );
 
 		if ( $admin_user ) {
@@ -944,6 +945,8 @@ class WP_Automatic_Updater {
 			$switched_locale = switch_to_locale( get_locale() );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		switch ( $type ) {
 			case 'success': // We updated.
 				/* translators: Site updated notification email subject. 1: Site title, 2: WordPress version. */
@@ -1147,12 +1150,18 @@ class WP_Automatic_Updater {
 		$email = apply_filters( 'auto_core_update_email', $email, $type, $core_update, $result );
 
 		wp_mail( $email['to'], wp_specialchars_decode( $email['subject'] ), $email['body'], $email['headers'] );
+<<<<<<< HEAD
 
 		if ( $switched_locale ) {
 			restore_previous_locale();
 		}
 	}
 
+=======
+	}
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Checks whether an email should be sent after attempting plugin or theme updates.
 	 *
@@ -1266,6 +1275,7 @@ class WP_Automatic_Updater {
 			}
 		}
 
+<<<<<<< HEAD
 		$admin_user = get_user_by( 'email', get_site_option( 'admin_email' ) );
 
 		if ( $admin_user ) {
@@ -1274,6 +1284,8 @@ class WP_Automatic_Updater {
 			$switched_locale = switch_to_locale( get_locale() );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$body               = array();
 		$successful_plugins = ( ! empty( $successful_updates['plugin'] ) );
 		$successful_themes  = ( ! empty( $successful_updates['theme'] ) );
@@ -1545,10 +1557,13 @@ class WP_Automatic_Updater {
 		if ( $result ) {
 			update_option( 'auto_plugin_theme_update_emails', $past_failure_emails );
 		}
+<<<<<<< HEAD
 
 		if ( $switched_locale ) {
 			restore_previous_locale();
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -1557,12 +1572,18 @@ class WP_Automatic_Updater {
 	 * @since 3.7.0
 	 */
 	protected function send_debug_email() {
+<<<<<<< HEAD
 		$admin_user = get_user_by( 'email', get_site_option( 'admin_email' ) );
 
 		if ( $admin_user ) {
 			$switched_locale = switch_to_user_locale( $admin_user->ID );
 		} else {
 			$switched_locale = switch_to_locale( get_locale() );
+=======
+		$update_count = 0;
+		foreach ( $this->update_results as $type => $updates ) {
+			$update_count += count( $updates );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$body     = array();
@@ -1741,10 +1762,13 @@ Thanks! -- The WordPress Team"
 		$email = apply_filters( 'automatic_updates_debug_email', $email, $failures, $this->update_results );
 
 		wp_mail( $email['to'], wp_specialchars_decode( $email['subject'] ), $email['body'], $email['headers'] );
+<<<<<<< HEAD
 
 		if ( $switched_locale ) {
 			restore_previous_locale();
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

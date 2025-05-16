@@ -54,11 +54,21 @@ class NoticeHandler {
 		$errors = new WP_Error();
 
 		if ( 0 === wc_notice_count( 'error' ) ) {
+<<<<<<< HEAD
+=======
+			wc_clear_notices();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $errors;
 		}
 
 		$error_notices = wc_get_notices( 'error' );
 
+<<<<<<< HEAD
+=======
+		// Prevent notices from being output later on.
+		wc_clear_notices();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ( $error_notices as $error_notice ) {
 			$errors->add( $error_code, wp_strip_all_tags( $error_notice['notice'] ) );
 		}

@@ -7,7 +7,10 @@
  */
 
 use Automattic\WooCommerce\Internal\ProductAttributesLookup\Filterer;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 defined( 'ABSPATH' ) || exit;
 
@@ -587,6 +590,7 @@ class WC_Query {
 		// Get ordering from query string unless defined.
 		if ( ! $orderby ) {
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+<<<<<<< HEAD
 			if ( isset( $_GET['orderby'] ) ) {
 				// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				$orderby_value = wc_clean( wp_unslash( $_GET['orderby'] ) );
@@ -596,6 +600,9 @@ class WC_Query {
 			} else {
 				$orderby_value = wc_clean( get_query_var( 'orderby' ) );
 			}
+=======
+			$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( (string) wp_unslash( $_GET['orderby'] ) ) : wc_clean( get_query_var( 'orderby' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( ! $orderby_value ) {
 				if ( is_search() ) {
@@ -814,7 +821,11 @@ class WC_Query {
 
 		// Hide out of stock products.
 		if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
+<<<<<<< HEAD
 			$product_visibility_not_in[] = $product_visibility_terms[ ProductStockStatus::OUT_OF_STOCK ];
+=======
+			$product_visibility_not_in[] = $product_visibility_terms['outofstock'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended
@@ -989,7 +1000,11 @@ class WC_Query {
 	 * @param string $status (default: 'instock').
 	 * @return array
 	 */
+<<<<<<< HEAD
 	public function stock_status_meta_query( $status = ProductStockStatus::IN_STOCK ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+=======
+	public function stock_status_meta_query( $status = 'instock' ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return array();
 	}
 

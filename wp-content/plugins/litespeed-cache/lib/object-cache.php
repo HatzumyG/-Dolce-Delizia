@@ -4,6 +4,10 @@
  * Plugin Name:       LiteSpeed Cache - Object Cache (Drop-in)
  * Plugin URI:        https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration
  * Description:       High-performance page caching and site optimization from LiteSpeed.
+<<<<<<< HEAD
+=======
+ * Version:           6.3
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Author:            LiteSpeed Technologies
  * Author URI:        https://www.litespeedtech.com
  */

@@ -4,7 +4,11 @@ namespace Elementor\Modules\Home\Transformations;
 use Elementor\Modules\Home\Transformations\Base\Transformations_Abstract;
 use Elementor\Utils;
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Filter_Get_Started_By_License extends Transformations_Abstract {

@@ -1,11 +1,17 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The localization class.
  *
  * @since      	3.3
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace LiteSpeed;
 
 defined('WPINC') || exit();
@@ -92,7 +98,11 @@ class Localization extends Base
 		$file = $this->_realpath($url);
 
 		self::debug('localize [url] ' . $url);
+<<<<<<< HEAD
 		$response = wp_safe_remote_get($url, array('timeout' => 180, 'stream' => true, 'filename' => $file));
+=======
+		$response = wp_remote_get($url, array('timeout' => 180, 'stream' => true, 'filename' => $file));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Parse response data
 		if (is_wp_error($response)) {

@@ -45,6 +45,7 @@
 			"__experimentalDefaultControls": {
 				"fontSize": true
 			}
+<<<<<<< HEAD
 		},
 		"__experimentalBorder": {
 			"radius": true,
@@ -57,6 +58,8 @@
 				"width": true,
 				"style": true
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"editorStyle": "wp-block-comments-editor",

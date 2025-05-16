@@ -30,6 +30,11 @@ class Module extends BaseModule {
 	public function __construct() {
 		parent::__construct();
 
+<<<<<<< HEAD
+=======
+		$this->register_experiment();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( Plugin::$instance->experiments->is_feature_active( self::EXPERIMENT_NAME ) ) {
 			add_filter( 'elementor/editor/v2/packages', fn( $packages ) => $this->add_packages( $packages ) );
 			add_filter( 'elementor/editor/v2/styles', fn( $styles ) => $this->add_styles( $styles ) );
@@ -40,8 +45,13 @@ class Module extends BaseModule {
 		}
 	}
 
+<<<<<<< HEAD
 	public static function get_experimental_data(): array {
 		return [
+=======
+	private function register_experiment() {
+		Plugin::$instance->experiments->add_feature( [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'name' => self::EXPERIMENT_NAME,
 			'title' => esc_html__( 'Editor Top Bar', 'elementor' ),
 			'description' => sprintf(
@@ -51,7 +61,11 @@ class Module extends BaseModule {
 			),
 			'default' => Experiments_Manager::STATE_ACTIVE,
 			'release_status' => Experiments_Manager::RELEASE_STATUS_STABLE,
+<<<<<<< HEAD
 		];
+=======
+		] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function add_packages( $packages ) {

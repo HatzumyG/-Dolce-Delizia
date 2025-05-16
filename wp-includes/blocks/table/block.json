@@ -195,14 +195,21 @@
 				"width": true
 			}
 		},
+<<<<<<< HEAD
+=======
+		"__experimentalSelector": ".wp-block-table > table",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		"interactivity": {
 			"clientNavigation": true
 		}
 	},
+<<<<<<< HEAD
 	"selectors": {
 		"root": ".wp-block-table > table",
 		"spacing": ".wp-block-table"
 	},
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"styles": [
 		{
 			"name": "regular",

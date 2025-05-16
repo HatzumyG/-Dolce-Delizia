@@ -317,7 +317,11 @@ class WP_Date_Query {
 				$_year = $date_query['year'];
 			}
 
+<<<<<<< HEAD
 			$max_days_of_year = (int) gmdate( 'z', mktime( 0, 0, 0, 12, 31, $_year ) ) + 1;
+=======
+			$max_days_of_year = gmdate( 'z', mktime( 0, 0, 0, 12, 31, $_year ) ) + 1;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} else {
 			// Otherwise we use the max of 366 (leap-year).
 			$max_days_of_year = 366;

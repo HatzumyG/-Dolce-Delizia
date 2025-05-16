@@ -23,18 +23,27 @@ class Online
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Init domain on QUIC.cloud server (See https://quic.cloud/terms/)
+=======
+	 * Generate domain key from QUIC.cloud server (See https://quic.cloud/terms/)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * ## OPTIONS
 	 *
 	 * ## EXAMPLES
 	 *
+<<<<<<< HEAD
 	 *     # Activate domain on QUIC.cloud (! Require SERVER IP setting to be set first)
+=======
+	 *     # Generate domain API key from QUIC.cloud
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *     $ wp litespeed-online init
 	 *
 	 */
 	public function init()
 	{
+<<<<<<< HEAD
 		$resp = $this->__cloud->init_qc_cli();
 		if (!empty($resp['qc_activated'])) {
 			$main_domain = !empty($resp['main_domain']) ? $resp['main_domain'] : false;
@@ -128,6 +137,11 @@ class Online
 			WP_CLI::log(json_encode($resp));
 		} else {
 			WP_CLI::error('Link failed!');
+=======
+		$key = $this->__cloud->gen_key();
+		if ($key) {
+			WP_CLI::success('key = ' . $key);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
@@ -168,6 +182,7 @@ class Online
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Check QC account status
 	 *
 	 * ## OPTIONS
@@ -185,6 +200,8 @@ class Online
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * List all QUIC.cloud services
 	 *
 	 * ## OPTIONS
@@ -255,6 +272,7 @@ class Online
 	 *
 	 *     # Detect closest node for one service
 	 *     $ wp litespeed-online ping img_optm
+<<<<<<< HEAD
 	 *     $ wp litespeed-online ping img_optm --force
 	 *
 	 */
@@ -269,5 +287,16 @@ class Online
 		}
 		WP_CLI::log('svc = ' . $svc);
 		WP_CLI::log('node = ' . ($json ?: '-'));
+=======
+	 *
+	 */
+	public function ping($param)
+	{
+		$svc = $param[0];
+		$json = $this->__cloud->detect_cloud($svc);
+		WP_CLI::success('Updated closest server.');
+		WP_CLI::log('svc = ' . $svc);
+		WP_CLI::log('node = ' . $json);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

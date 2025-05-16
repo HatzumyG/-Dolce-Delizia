@@ -2,7 +2,11 @@
 namespace Elementor\Core\Logger\Items;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Base implements Log_Item_Interface {
@@ -104,7 +108,11 @@ class Base implements Log_Item_Interface {
 
 	public function get_fingerprint() {
 		$unique_key = $this->type . $this->message . var_export( $this->meta, true ); // @codingStandardsIgnoreLine
+<<<<<<< HEAD
 		// Info messages are not be aggregated:
+=======
+		//info messages are not be aggregated:
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( 'info' === $this->type ) {
 			$unique_key .= $this->date;
 		}
@@ -112,7 +120,11 @@ class Base implements Log_Item_Interface {
 	}
 
 	public function increase_times( $item, $truncate = true ) {
+<<<<<<< HEAD
 		++$this->times;
+=======
+		$this->times++;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->times_dates[] = $item->date;
 
 		if ( $truncate && ( self::MAX_LOG_ENTRIES < count( $this->times_dates ) ) ) {

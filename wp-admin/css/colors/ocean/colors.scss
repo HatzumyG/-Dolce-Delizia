@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $base-color: #738e96;
 
 @use "../_admin.scss" with (
@@ -10,3 +11,17 @@ $base-color: #738e96;
 
 	$low-contrast-theme: "true"
 );
+=======
+@use "sass:color";
+
+$scheme-name: "ocean";
+$base-color: #738e96;
+$icon-color: #f2fcff;
+$highlight-color: #9ebaa0;
+$notification-color: #aa9d88;
+$low-contrast-theme: "true";
+
+$form-checked: $base-color;
+
+@import "../_admin.scss";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

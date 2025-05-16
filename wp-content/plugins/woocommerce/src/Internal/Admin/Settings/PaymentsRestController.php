@@ -8,7 +8,10 @@ use Exception;
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Internal\Admin\WCPayPromotion\Init as WCPayPromotion;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Controller for the REST endpoints to service the Payments settings page.
@@ -53,6 +56,7 @@ class PaymentsRestController extends RestApiControllerBase {
 	public function register_routes( bool $override = false ) {
 		register_rest_route(
 			$this->route_namespace,
+<<<<<<< HEAD
 			'/' . $this->rest_base . '/woopay-eligibility',
 			array(
 				array(
@@ -65,6 +69,8 @@ class PaymentsRestController extends RestApiControllerBase {
 		);
 		register_rest_route(
 			$this->route_namespace,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'/' . $this->rest_base . '/country',
 			array(
 				array(
@@ -131,6 +137,7 @@ class PaymentsRestController extends RestApiControllerBase {
 		);
 		register_rest_route(
 			$this->route_namespace,
+<<<<<<< HEAD
 			'/' . $this->rest_base . '/suggestion/(?P<id>[\w\d\-]+)/attach',
 			array(
 				array(
@@ -143,6 +150,8 @@ class PaymentsRestController extends RestApiControllerBase {
 		);
 		register_rest_route(
 			$this->route_namespace,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'/' . $this->rest_base . '/suggestion/(?P<id>[\w\d\-]+)/hide',
 			array(
 				array(
@@ -266,6 +275,7 @@ class PaymentsRestController extends RestApiControllerBase {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Attach a payment extension suggestion.
 	 *
 	 * @param WP_REST_Request $request The request object.
@@ -285,6 +295,8 @@ class PaymentsRestController extends RestApiControllerBase {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Hide a payment extension suggestion.
 	 *
 	 * @param WP_REST_Request $request The request object.
@@ -516,6 +528,7 @@ class PaymentsRestController extends RestApiControllerBase {
 				$providers[ $key ]['_links'] = array();
 			}
 
+<<<<<<< HEAD
 			// If this is a suggestion, add dedicated links.
 			if ( ! empty( $provider['_type'] ) &&
 				PaymentProviders::TYPE_SUGGESTION === $provider['_type'] &&
@@ -525,6 +538,14 @@ class PaymentsRestController extends RestApiControllerBase {
 					'href' => rest_url( sprintf( '/%s/%s/suggestion/%s/attach', $this->route_namespace, $this->rest_base, $provider['_suggestion_id'] ) ),
 				);
 				$providers[ $key ]['_links']['hide']   = array(
+=======
+			// If this is a suggestion, add a link to hide it.
+			if ( ! empty( $provider['_type'] ) &&
+				PaymentProviders::TYPE_SUGGESTION === $provider['_type'] &&
+				! empty( $provider['_suggestion_id'] )
+				) {
+				$providers[ $key ]['_links']['hide'] = array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'href' => rest_url( sprintf( '/%s/%s/suggestion/%s/hide', $this->route_namespace, $this->rest_base, $provider['_suggestion_id'] ) ),
 				);
 			}
@@ -930,12 +951,119 @@ class PaymentsRestController extends RestApiControllerBase {
 					'context'     => array( 'view', 'edit' ),
 					'readonly'    => true,
 				),
+<<<<<<< HEAD
 				'_incentive'     => $this->get_schema_for_incentive(),
+=======
+				'_incentive'     => array(
+					'type'        => 'object',
+					'description' => esc_html__( 'The active incentive for the provider.', 'woocommerce' ),
+					'context'     => array( 'view', 'edit' ),
+					'readonly'    => true,
+					'properties'  => array(
+						'id'                => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The incentive unique ID. This ID needs to be used for incentive dismissals.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'promo_id'          => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The incentive promo ID. This ID need to be fed into the onboarding flow.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'title'             => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The incentive title. It can contain stylistic HTML.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'description'       => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The incentive description. It can contain stylistic HTML.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'short_description' => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The short description of the incentive. It can contain stylistic HTML.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'cta_label'         => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The call to action label for the incentive.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'tc_url'            => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The URL to the terms and conditions for the incentive.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'badge'             => array(
+							'type'        => 'string',
+							'description' => esc_html__( 'The badge label for the incentive.', 'woocommerce' ),
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+						),
+						'_dismissals'       => array(
+							'type'        => 'array',
+							'description' => esc_html__( 'The dismissals list for the incentive. The `all` entry means the incentive was dismissed for all contexts.', 'woocommerce' ),
+							'uniqueItems' => true,
+							'context'     => array( 'view', 'edit' ),
+							'readonly'    => true,
+							'items'       => array(
+								'type'        => 'string',
+								'description' => esc_html__( 'Context ID in which the incentive was dismissed.', 'woocommerce' ),
+								'readonly'    => true,
+							),
+						),
+						'_links'            => array(
+							'type'       => 'object',
+							'context'    => array( 'view', 'edit' ),
+							'readonly'   => true,
+							'properties' => array(
+								'dismiss' => array(
+									'type'        => 'object',
+									'description' => esc_html__( 'The link to dismiss the incentive.', 'woocommerce' ),
+									'context'     => array( 'view', 'edit' ),
+									'readonly'    => true,
+									'properties'  => array(
+										'href' => array(
+											'type'        => 'string',
+											'description' => esc_html__( 'The URL to dismiss the incentive.', 'woocommerce' ),
+											'context'     => array( 'view', 'edit' ),
+											'readonly'    => true,
+										),
+									),
+								),
+								'onboard' => array(
+									'type'        => 'object',
+									'description' => esc_html__( 'The start/continue onboarding link for the payment gateway.', 'woocommerce' ),
+									'context'     => array( 'view', 'edit' ),
+									'readonly'    => true,
+									'properties'  => array(
+										'href' => array(
+											'type'        => 'string',
+											'description' => esc_html__( 'The URL to start/continue onboarding for the payment gateway.', 'woocommerce' ),
+											'context'     => array( 'view', 'edit' ),
+											'readonly'    => true,
+										),
+									),
+								),
+							),
+						),
+					),
+				),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'_links'         => array(
 					'type'       => 'object',
 					'context'    => array( 'view', 'edit' ),
 					'readonly'   => true,
 					'properties' => array(
+<<<<<<< HEAD
 						'attach' => array(
 							'type'        => 'object',
 							'description' => esc_html__( 'The link to mark the suggestion as attached. This should be called when an extension is installed.', 'woocommerce' ),
@@ -951,6 +1079,9 @@ class PaymentsRestController extends RestApiControllerBase {
 							),
 						),
 						'hide'   => array(
+=======
+						'hide' => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							'type'        => 'object',
 							'description' => esc_html__( 'The link to hide the suggestion.', 'woocommerce' ),
 							'context'     => array( 'view', 'edit' ),
@@ -1075,7 +1206,10 @@ class PaymentsRestController extends RestApiControllerBase {
 						),
 					),
 				),
+<<<<<<< HEAD
 				'_incentive'  => $this->get_schema_for_incentive(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'tags'        => array(
 					'description' => esc_html__( 'The tags associated with the suggestion.', 'woocommerce' ),
 					'type'        => 'array',
@@ -1097,6 +1231,7 @@ class PaymentsRestController extends RestApiControllerBase {
 			),
 		);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Get the schema for an incentive.
@@ -1231,4 +1366,6 @@ class PaymentsRestController extends RestApiControllerBase {
 			)
 		);
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

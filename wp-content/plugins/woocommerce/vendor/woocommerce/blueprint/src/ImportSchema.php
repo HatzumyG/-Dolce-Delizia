@@ -52,7 +52,11 @@ class ImportSchema {
 
 		$this->validator = $validator;
 
+<<<<<<< HEAD
 		$this->builtin_step_processors = new BuiltInStepProcessors();
+=======
+		$this->builtin_step_processors = new BuiltInStepProcessors( $schema );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

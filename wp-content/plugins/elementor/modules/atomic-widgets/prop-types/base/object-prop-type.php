@@ -14,12 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 abstract class Object_Prop_Type implements Transformable_Prop_Type {
 	const KIND = 'object';
 
+<<<<<<< HEAD
 	use Concerns\Has_Default;
 	use Concerns\Has_Generate;
 	use Concerns\Has_Meta;
 	use Concerns\Has_Required_Setting;
 	use Concerns\Has_Settings;
 	use Concerns\Has_Transformable_Validation;
+=======
+	use Concerns\Has_Default,
+		Concerns\Has_Generate,
+		Concerns\Has_Meta,
+		Concerns\Has_Required_Setting,
+		Concerns\Has_Settings,
+		Concerns\Has_Transformable_Validation;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * @var array<Prop_Type>
@@ -30,6 +39,7 @@ abstract class Object_Prop_Type implements Transformable_Prop_Type {
 		$this->shape = $this->define_shape();
 	}
 
+<<<<<<< HEAD
 	public function get_default() {
 		if ( null !== $this->default ) {
 			return $this->default;
@@ -46,6 +56,8 @@ abstract class Object_Prop_Type implements Transformable_Prop_Type {
 		return null;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * @return static
 	 */
@@ -93,7 +105,11 @@ abstract class Object_Prop_Type implements Transformable_Prop_Type {
 				Utils::safe_throw( "Object prop type must have a prop type for key: $key" );
 			}
 
+<<<<<<< HEAD
 			if ( ! $prop_type->validate( $value[ $key ] ?? $prop_type->get_default() ) ) {
+=======
+			if ( ! $prop_type->validate( $value[ $key ] ?? null ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				return false;
 			}
 		}
@@ -122,6 +138,7 @@ abstract class Object_Prop_Type implements Transformable_Prop_Type {
 	}
 
 	public function jsonSerialize(): array {
+<<<<<<< HEAD
 		$default = $this->get_default();
 
 		return [
@@ -131,6 +148,15 @@ abstract class Object_Prop_Type implements Transformable_Prop_Type {
 			'meta' => (object) $this->get_meta(),
 			'settings' => (object) $this->get_settings(),
 			'shape' => (object) $this->get_shape(),
+=======
+		return [
+			'kind' => static::KIND,
+			'key' => static::get_key(),
+			'default' => $this->get_default(),
+			'meta' => $this->get_meta(),
+			'settings' => $this->get_settings(),
+			'shape' => $this->get_shape(),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 	}
 

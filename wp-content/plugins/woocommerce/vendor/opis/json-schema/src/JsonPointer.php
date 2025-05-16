@@ -116,7 +116,11 @@ final class JsonPointer
     /**
      * @param $data
      * @param array|null $path
+<<<<<<< HEAD
      * @param mixed $default
+=======
+     * @param null $default
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      * @return mixed
      */
     public function data($data, ?array $path = null, $default = null)
@@ -252,7 +256,11 @@ final class JsonPointer
      * @param $data
      * @param array|null $path
      * @param bool $fragment
+<<<<<<< HEAD
      * @param mixed $default
+=======
+     * @param null $default
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      * @return mixed
      */
     public static function getData($data, ?array $path = null, bool $fragment = false, $default = null)
@@ -407,4 +415,8 @@ final class JsonPointer
     {
         return new self($path, $level, $shift, $fragment);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

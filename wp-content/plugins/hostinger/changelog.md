@@ -388,6 +388,7 @@ Changelog
 
 - Fixed bypass code regeneration
 
+<<<<<<< HEAD
 3.0.28 (2025-02-12)
 - Added correct reseller link to PHP update
 
@@ -414,3 +415,24 @@ Changelog
 
 3.0.36 (2024-04-29)
 - Style corrections
+=======
+3.0.28 (2024-02-12)
+
+- Added correct reseller link to PHP update
+
+3.0.29 (2024-02-21)
+
+- Update packages
+
+3.0.30 (2024-02-24)
+
+- Enhanced WordPress application security settings
+
+3.0.31 (2024-02-24)
+
+- Fixed assets load issue
+
+3.0.32 (2024-031-04)
+
+- Updated compatibility
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

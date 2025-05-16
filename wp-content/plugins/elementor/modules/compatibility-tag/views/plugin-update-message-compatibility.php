@@ -28,7 +28,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php echo esc_html__( 'Compatibility Alert', 'elementor' ); ?>
 			</strong> -
 			<?php
+<<<<<<< HEAD
 			printf(
+=======
+			echo sprintf(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				/* translators: 1: Plugin name, 2: Plugin version. */
 				esc_html__( 'Some of the plugins you’re using have not been tested with the latest version of %1$s (%2$s). To avoid issues, make sure they are all up to date and compatible before updating %1$s.', 'elementor' ),
 				esc_html( $this->get_plugin_label() ),
@@ -42,7 +46,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<th><?php echo esc_html__( 'Plugin', 'elementor' ); ?></th>
 				<th><?php
 					/* translators: %s: Elementor plugin name. */
+<<<<<<< HEAD
 					printf( esc_html__( 'Tested up to %s version', 'elementor' ), esc_html( $this->get_plugin_label() ) );
+=======
+					echo sprintf( esc_html__( 'Tested up to %s version', 'elementor' ), esc_html( $this->get_plugin_label() ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				?></th>
 			</tr>
 			<?php foreach ( $plugins as $plugin_name => $plugin_data ) : ?>

@@ -20,11 +20,14 @@ class ComingSoon extends AbstractBlock {
 			$this->register_chunk_translations( [ $this->block_name ] );
 	}
 
+<<<<<<< HEAD
 	public function initialize() {
 		parent::initialize();
 		add_filter( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ), 10, 2 );
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Enqueue frontend assets for this block, just in time for rendering.
 	 *
@@ -38,6 +41,7 @@ class ComingSoon extends AbstractBlock {
 	protected function enqueue_assets( array $attributes, $content, $block ) {
 		parent::enqueue_assets( $attributes, $content, $block );
 
+<<<<<<< HEAD
 		if ( isset( $attributes['style']['color']['background'] ) ) {
 			wp_add_inline_style(
 				'wc-blocks-style',
@@ -45,10 +49,14 @@ class ComingSoon extends AbstractBlock {
 			);
 		} else if ( isset( $attributes['color'] ) ) {
 			// Deprecated: To support coming soon templates created before WooCommerce 9.8.0
+=======
+		if ( isset( $attributes['color'] ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			wp_add_inline_style(
 				'wc-blocks-style',
 				':root{--woocommerce-coming-soon-color: ' . esc_html( $attributes['color'] ) . '}'
 			);
+<<<<<<< HEAD
 			wp_enqueue_style(
 				'woocommerce-coming-soon',
 				WC()->plugin_url() . '/assets/css/coming-soon-entire-site-deprecated' . ( is_rtl() ? '-rtl' : '' ) . '.css',
@@ -92,6 +100,8 @@ class ComingSoon extends AbstractBlock {
 					}
 				}
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

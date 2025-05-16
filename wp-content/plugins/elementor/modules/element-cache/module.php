@@ -21,6 +21,10 @@ class Module extends BaseModule {
 	public function __construct() {
 		parent::__construct();
 
+<<<<<<< HEAD
+=======
+		$this->register_experiments();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->register_shortcode();
 
 		if ( ! Plugin::$instance->experiments->is_feature_active( 'e_element_cache' ) ) {
@@ -36,8 +40,13 @@ class Module extends BaseModule {
 		$this->clear_cache_on_site_changed();
 	}
 
+<<<<<<< HEAD
 	public static function get_experimental_data(): array {
 		return [
+=======
+	private function register_experiments() {
+		Plugin::$instance->experiments->add_feature( [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'name' => 'e_element_cache',
 			'title' => esc_html__( 'Element Caching', 'elementor' ),
 			'tag' => esc_html__( 'Performance', 'elementor' ),
@@ -49,7 +58,11 @@ class Module extends BaseModule {
 				'minimum_installation_version' => '3.23.0',
 			],
 			'generator_tag' => true,
+<<<<<<< HEAD
 		];
+=======
+		] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function register_shortcode() {
@@ -64,8 +77,11 @@ class Module extends BaseModule {
 				return '';
 			}
 
+<<<<<<< HEAD
 			$widget_data['settings']['isShortcode'] = true;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			ob_start();
 
 			$element = Plugin::$instance->elements_manager->create_element_instance( $widget_data );

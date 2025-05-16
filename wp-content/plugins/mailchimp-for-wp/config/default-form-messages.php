@@ -37,8 +37,11 @@ return [
         'type' => 'error',
         'text' => esc_html__('Please select at least one list.', 'mailchimp-for-wp'),
     ],
+<<<<<<< HEAD
     'spam'      => [
         'type' => 'error',
         'text' => esc_html__('Your submission was marked as spam.', 'mailchimp-for-wp'),
     ],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 ];

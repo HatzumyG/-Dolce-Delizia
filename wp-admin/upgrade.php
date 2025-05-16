@@ -36,6 +36,7 @@ if ( 'upgrade_db' === $step ) {
 }
 
 /**
+<<<<<<< HEAD
  * @global string   $wp_version              The WordPress version string.
  * @global string   $required_php_version    The required PHP version string.
  * @global string[] $required_php_extensions The names of required PHP extensions.
@@ -43,6 +44,14 @@ if ( 'upgrade_db' === $step ) {
  * @global wpdb     $wpdb                    WordPress database abstraction object.
  */
 global $wp_version, $required_php_version, $required_php_extensions, $required_mysql_version, $wpdb;
+=======
+ * @global string $wp_version             The WordPress version string.
+ * @global string $required_php_version   The required PHP version string.
+ * @global string $required_mysql_version The required MySQL version string.
+ * @global wpdb   $wpdb                   WordPress database abstraction object.
+ */
+global $wp_version, $required_php_version, $required_mysql_version, $wpdb;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 $step = (int) $step;
 
@@ -55,6 +64,7 @@ if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
 	$mysql_compat = version_compare( $mysql_version, $required_mysql_version, '>=' );
 }
 
+<<<<<<< HEAD
 $missing_extensions = array();
 
 if ( isset( $required_php_extensions ) && is_array( $required_php_extensions ) ) {
@@ -73,6 +83,8 @@ if ( isset( $required_php_extensions ) && is_array( $required_php_extensions ) )
 	}
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 ?>
 <!DOCTYPE html>
@@ -145,8 +157,13 @@ elseif ( ! $php_compat || ! $mysql_compat ) :
 	}
 
 	echo '<p>' . $message . '</p>';
+<<<<<<< HEAD
 elseif ( count( $missing_extensions ) > 0 ) :
 	echo '<p>' . implode( '</p><p>', $missing_extensions ) . '</p>';
+=======
+	?>
+	<?php
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 else :
 	switch ( $step ) :
 		case 0:

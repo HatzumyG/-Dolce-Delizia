@@ -4,7 +4,11 @@ namespace Elementor\Modules\NestedElements;
 use Elementor\Core\Experiments\Manager as Experiments_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Module extends \Elementor\Core\Base\Module {

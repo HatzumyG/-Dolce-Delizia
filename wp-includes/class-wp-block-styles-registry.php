@@ -93,11 +93,14 @@ final class WP_Block_Styles_Registry {
 		$block_style_name = $style_properties['name'];
 		$block_names      = is_string( $block_name ) ? array( $block_name ) : $block_name;
 
+<<<<<<< HEAD
 		// Ensure there is a label defined.
 		if ( empty( $style_properties['label'] ) ) {
 			$style_properties['label'] = $block_style_name;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ( $block_names as $name ) {
 			if ( ! isset( $this->registered_block_styles[ $name ] ) ) {
 				$this->registered_block_styles[ $name ] = array();

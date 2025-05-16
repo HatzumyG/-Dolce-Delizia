@@ -56,7 +56,40 @@ class Validate_Image {
 			);
 		}
 
+<<<<<<< HEAD
 		self::validate_file_size( $image_id );
+=======
+		$wp_meta = new WP_Image_Meta( $image_id );
+
+		try {
+			$image_size = $wp_meta->get_file_size( Image::SIZE_FULL )
+						  ?? File_System::size( ( new Image( $image_id ) )->get_file_path( Image::SIZE_FULL ) );
+		} catch ( File_System_Operation_Error $e ) {
+			throw new Image_Validation_Error(
+				esc_html__( 'File is missing. Verify the upload', 'image-optimization' )
+			);
+		}
+
+		if ( $image_size > self::MAX_FILE_SIZE ) {
+			if ( ! self::are_big_files_supported() ) {
+				throw new Image_Validation_Error(
+					sprintf(
+						__( 'File is too large. Max size is %s', 'image-optimization' ),
+						File_Utils::format_file_size( self::MAX_FILE_SIZE, 0 ),
+					)
+				);
+			}
+
+			if ( $image_size > self::MAX_BIG_FILE_SIZE ) {
+				throw new Image_Validation_Error(
+					sprintf(
+						__( 'File is too large. Max size is %s', 'image-optimization' ),
+						File_Utils::format_file_size( self::MAX_BIG_FILE_SIZE, 0 ),
+					)
+				);
+			}
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return true;
 	}
@@ -83,6 +116,7 @@ class Validate_Image {
 		);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @throws Invalid_Image_Exception
 	 * @throws Image_Validation_Error
@@ -128,12 +162,18 @@ class Validate_Image {
 		return self::are_big_files_supported() ? self::MAX_BIG_FILE_SIZE : self::MAX_FILE_SIZE;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public static function are_big_files_supported(): bool {
 		static $is_allowed = null;
 		$connect_manager = Plugin::instance()->modules_manager->get_modules( 'connect-manager' );
 
 		if ( null === $is_allowed ) {
+<<<<<<< HEAD
 			if ( ! $connect_manager->connect_instance->is_connected() ) {
+=======
+			if (  ! $connect_manager->connect_instance->is_connected() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$is_allowed = false;
 				return $is_allowed;
 			}

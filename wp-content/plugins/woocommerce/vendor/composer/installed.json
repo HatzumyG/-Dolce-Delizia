@@ -851,6 +851,7 @@
         },
         {
             "name": "opis/json-schema",
+<<<<<<< HEAD
             "version": "2.4.1",
             "version_normalized": "2.4.1.0",
             "source": {
@@ -862,6 +863,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/opis/json-schema/zipball/712827751c62b465daae6e725bf0cf5ffbf965e1",
                 "reference": "712827751c62b465daae6e725bf0cf5ffbf965e1",
+=======
+            "version": "2.3.0",
+            "version_normalized": "2.3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opis/json-schema.git",
+                "reference": "c48df6d7089a45f01e1c82432348f2d5976f9bfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opis/json-schema/zipball/c48df6d7089a45f01e1c82432348f2d5976f9bfb",
+                "reference": "c48df6d7089a45f01e1c82432348f2d5976f9bfb",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 "shasum": ""
             },
             "require": {
@@ -875,7 +889,11 @@
                 "ext-intl": "*",
                 "phpunit/phpunit": "^9.0"
             },
+<<<<<<< HEAD
             "time": "2024-12-30T20:20:21+00:00",
+=======
+            "time": "2022-01-08T20:38:03+00:00",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -913,7 +931,11 @@
             ],
             "support": {
                 "issues": "https://github.com/opis/json-schema/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/opis/json-schema/tree/2.4.1"
+=======
+                "source": "https://github.com/opis/json-schema/tree/2.3.0"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             },
             "install-path": "../opis/json-schema"
         },
@@ -1198,6 +1220,7 @@
             "install-path": "../sabberworm/php-css-parser"
         },
         {
+<<<<<<< HEAD
             "name": "soundasleep/html2text",
             "version": "2.1.0",
             "version_normalized": "2.1.0.0",
@@ -1256,6 +1279,8 @@
             "install-path": "../soundasleep/html2text"
         },
         {
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             "name": "symfony/css-selector",
             "version": "v5.4.40",
             "version_normalized": "5.4.40.0",
@@ -1409,6 +1434,7 @@
         },
         {
             "name": "woocommerce/action-scheduler",
+<<<<<<< HEAD
             "version": "3.9.2",
             "version_normalized": "3.9.2.0",
             "source": {
@@ -1420,6 +1446,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/woocommerce/action-scheduler/zipball/efbb7953f72a433086335b249292f280dd43ddfe",
                 "reference": "efbb7953f72a433086335b249292f280dd43ddfe",
+=======
+            "version": "3.9.0",
+            "version_normalized": "3.9.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/woocommerce/action-scheduler.git",
+                "reference": "90b98e6fe97d455679b1d288f050cad8f6f79771"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/woocommerce/action-scheduler/zipball/90b98e6fe97d455679b1d288f050cad8f6f79771",
+                "reference": "90b98e6fe97d455679b1d288f050cad8f6f79771",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 "shasum": ""
             },
             "require": {
@@ -1431,7 +1470,11 @@
                 "wp-cli/wp-cli": "~2.5.0",
                 "yoast/phpunit-polyfills": "^2.0"
             },
+<<<<<<< HEAD
             "time": "2025-02-03T09:09:30+00:00",
+=======
+            "time": "2024-11-15T00:11:39+00:00",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             "type": "wordpress-plugin",
             "extra": {
                 "scripts-description": {
@@ -1449,7 +1492,11 @@
             "homepage": "https://actionscheduler.org/",
             "support": {
                 "issues": "https://github.com/woocommerce/action-scheduler/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/woocommerce/action-scheduler/tree/3.9.2"
+=======
+                "source": "https://github.com/woocommerce/action-scheduler/tree/3.9.0"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             },
             "install-path": "../../packages/action-scheduler"
         },
@@ -1482,6 +1529,7 @@
                 "relative": true
             },
             "install-path": "../woocommerce/blueprint"
+<<<<<<< HEAD
         },
         {
             "name": "woocommerce/email-editor",
@@ -1554,6 +1602,8 @@
                 "relative": true
             },
             "install-path": "../../packages/email-editor"
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         }
     ],
     "dev": false,

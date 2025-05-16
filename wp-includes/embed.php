@@ -331,12 +331,19 @@ function wp_oembed_register_route() {
  * Adds oEmbed discovery links in the head element of the website.
  *
  * @since 4.4.0
+<<<<<<< HEAD
  * @since 6.8.0 Output was adjusted to only embed if the post supports it.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function wp_oembed_add_discovery_links() {
 	$output = '';
 
+<<<<<<< HEAD
 	if ( is_singular() && is_post_embeddable() ) {
+=======
+	if ( is_singular() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$output .= '<link rel="alternate" title="' . _x( 'oEmbed (JSON)', 'oEmbed resource link name' ) . '" type="application/json+oembed" href="' . esc_url( get_oembed_endpoint_url( get_permalink() ) ) . '" />' . "\n";
 
 		if ( class_exists( 'SimpleXMLElement' ) ) {
@@ -539,12 +546,20 @@ function get_post_embed_html( $width, $height, $post = null ) {
  * Retrieves the oEmbed response data for a given post.
  *
  * @since 4.4.0
+<<<<<<< HEAD
  * @since 6.8.0 Output was adjusted to only embed if the post type supports it.
  *
  * @param WP_Post|int $post  Post ID or post object.
  * @param int         $width The requested width.
  * @return array|false Response data on success, false if post doesn't exist,
  *                     is not publicly viewable or post type is not embeddable.
+=======
+ *
+ * @param WP_Post|int $post  Post ID or post object.
+ * @param int         $width The requested width.
+ * @return array|false Response data on success, false if post doesn't exist
+ *                     or is not publicly viewable.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function get_oembed_response_data( $post, $width ) {
 	$post  = get_post( $post );
@@ -558,10 +573,13 @@ function get_oembed_response_data( $post, $width ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	if ( ! is_post_embeddable( $post ) ) {
 		return false;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Filters the allowed minimum and maximum widths for the oEmbed response.
 	 *
@@ -727,7 +745,11 @@ function get_oembed_response_data_rich( $data, $post, $width, $height ) {
 	}
 
 	if ( $thumbnail_id ) {
+<<<<<<< HEAD
 		list( $thumbnail_url, $thumbnail_width, $thumbnail_height ) = wp_get_attachment_image_src( $thumbnail_id, array( $width, 0 ) );
+=======
+		list( $thumbnail_url, $thumbnail_width, $thumbnail_height ) = wp_get_attachment_image_src( $thumbnail_id, array( $width, 99999 ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$data['thumbnail_url']                                      = $thumbnail_url;
 		$data['thumbnail_width']                                    = $thumbnail_width;
 		$data['thumbnail_height']                                   = $thumbnail_height;

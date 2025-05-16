@@ -68,7 +68,16 @@ abstract class WP_Session_Tokens {
 	 * @return string A hash of the session token (a verifier).
 	 */
 	private function hash_token( $token ) {
+<<<<<<< HEAD
 		return hash( 'sha256', $token );
+=======
+		// If ext/hash is not present, use sha1() instead.
+		if ( function_exists( 'hash' ) ) {
+			return hash( 'sha256', $token );
+		} else {
+			return sha1( $token );
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

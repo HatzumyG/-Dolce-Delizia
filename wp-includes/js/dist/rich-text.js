@@ -100,9 +100,15 @@ __webpack_require__.d(actions_namespaceObject, {
   removeFormatTypes: () => (removeFormatTypes)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// ./node_modules/@wordpress/rich-text/build-module/store/reducer.js
+=======
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/store/reducer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -136,7 +142,11 @@ function formatTypes(state = {}, action) {
   formatTypes
 }));
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/store/selectors.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/store/selectors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -211,7 +221,11 @@ const getFormatTypes = (0,external_wp_data_namespaceObject.createSelector)(state
  * };
  * ```
  *
+<<<<<<< HEAD
  * @return {?Object} Format type.
+=======
+ * @return {Object?} Format type.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 function getFormatType(state, name) {
   return state.formatTypes[name];
@@ -298,7 +312,11 @@ function getFormatTypeForClassName(state, elementClassName) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/store/actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/store/actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns an action object used in signalling that format types have been
  * added.
@@ -335,7 +353,11 @@ function removeFormatTypes(names) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/store/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/store/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -363,7 +385,11 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 });
 (0,external_wp_data_namespaceObject.register)(store);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/is-format-equal.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/is-format-equal.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /** @typedef {import('./types').RichTextFormat} RichTextFormat */
 
 /**
@@ -416,7 +442,11 @@ function isFormatEqual(format1, format2) {
   return true;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/normalise-formats.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/normalise-formats.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -454,7 +484,11 @@ function normaliseFormats(value) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/apply-format.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/apply-format.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -542,7 +576,11 @@ function applyFormat(value, format, startIndex = value.start, endIndex = value.e
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/create-element.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/create-element.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Parse the given HTML into a body element.
  *
@@ -569,7 +607,11 @@ function createElement({
   return createElement.body;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/special-characters.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/special-characters.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Object replacement character, used as a placeholder for objects.
  */
@@ -581,9 +623,15 @@ const OBJECT_REPLACEMENT_CHARACTER = '\ufffc';
  */
 const ZWNBSP = '\ufeff';
 
+<<<<<<< HEAD
 ;// external ["wp","escapeHtml"]
 const external_wp_escapeHtml_namespaceObject = window["wp"]["escapeHtml"];
 ;// ./node_modules/@wordpress/rich-text/build-module/get-active-formats.js
+=======
+;// CONCATENATED MODULE: external ["wp","escapeHtml"]
+const external_wp_escapeHtml_namespaceObject = window["wp"]["escapeHtml"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/get-active-formats.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /** @typedef {import('./types').RichTextValue} RichTextValue */
 /** @typedef {import('./types').RichTextFormatList} RichTextFormatList */
 
@@ -667,7 +715,11 @@ function getActiveFormats(value, EMPTY_ACTIVE_FORMATS = []) {
   return _activeFormats || EMPTY_ACTIVE_FORMATS;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/get-format-type.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/get-format-type.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -690,7 +742,11 @@ function get_format_type_getFormatType(name) {
   return (0,external_wp_data_namespaceObject.select)(store).getFormatType(name);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/to-tree.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/to-tree.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -896,6 +952,7 @@ function toTree({
         innerHTML
       } = replacement;
       const formatType = get_format_type_getFormatType(type);
+<<<<<<< HEAD
       if (isEditableTree && type === '#comment') {
         pointer = append(getParent(pointer), {
           type: 'span',
@@ -908,6 +965,9 @@ function toTree({
           type: 'span'
         }), attributes['data-rich-text-comment'].trim());
       } else if (!isEditableTree && type === 'script') {
+=======
+      if (!isEditableTree && type === 'script') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         pointer = append(getParent(pointer), fromFormat({
           type: 'script',
           isEditableTree
@@ -980,7 +1040,11 @@ function toTree({
   return tree;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/to-html-string.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/to-html-string.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -998,7 +1062,11 @@ function toTree({
 /**
  * Create an HTML string from a Rich Text value.
  *
+<<<<<<< HEAD
  * @param {Object}        $1                      Named arguments.
+=======
+ * @param {Object}        $1                      Named argements.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param {RichTextValue} $1.value                Rich text value.
  * @param {boolean}       [$1.preserveWhiteSpace] Preserves newlines if true.
  *
@@ -1072,6 +1140,7 @@ function createElementHTML({
   object,
   children
 }) {
+<<<<<<< HEAD
   if (type === '#comment') {
     // We can't restore the original comment delimiters, because once parsed
     // into DOM nodes, we don't have the information. But in the future we
@@ -1080,6 +1149,8 @@ function createElementHTML({
     // would be `/{bit-name}` or `__{translatable-string}` (TBD).
     return `<!--${attributes['data-rich-text-comment']}-->`;
   }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   let attributeString = '';
   for (const key in attributes) {
     if (!(0,external_wp_escapeHtml_namespaceObject.isValidAttributeName)(key)) {
@@ -1101,7 +1172,11 @@ function createChildrenHTML(children = []) {
   }).join('');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/get-text-content.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/get-text-content.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1123,7 +1198,11 @@ function getTextContent({
   return text.replace(OBJECT_REPLACEMENT_CHARACTER, '');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/create.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/create.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -1245,6 +1324,7 @@ class RichTextData {
       html
     }));
   }
+<<<<<<< HEAD
   /**
    * Create a RichTextData instance from an HTML element.
    *
@@ -1252,6 +1332,8 @@ class RichTextData {
    * @param {{preserveWhiteSpace?: boolean}} options     Options.
    * @return {RichTextData} The RichTextData instance.
    */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   static fromHTMLElement(htmlElement, options = {}) {
     const {
       preserveWhiteSpace = false
@@ -1273,12 +1355,15 @@ class RichTextData {
   }
   // We could expose `toHTMLElement` at some point as well, but we'd only use
   // it internally.
+<<<<<<< HEAD
   /**
    * Convert the rich text value to an HTML string.
    *
    * @param {{preserveWhiteSpace?: boolean}} options Options.
    * @return {string} The HTML string.
    */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   toHTMLString({
     preserveWhiteSpace
   } = {}) {
@@ -1549,7 +1634,11 @@ function removeReservedCharacters(string) {
 /**
  * Creates a Rich Text value from a DOM element and range.
  *
+<<<<<<< HEAD
  * @param {Object}  $1                  Named arguments.
+=======
+ * @param {Object}  $1                  Named argements.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param {Element} [$1.element]        Element to create value from.
  * @param {Range}   [$1.range]          Range to create value from.
  * @param {boolean} [$1.isEditableTree]
@@ -1588,6 +1677,7 @@ function createFromElement({
       accumulator.text += text;
       continue;
     }
+<<<<<<< HEAD
     if (node.nodeType === node.COMMENT_NODE || node.nodeType === node.ELEMENT_NODE && node.tagName === 'SPAN' && node.hasAttribute('data-rich-text-comment')) {
       const value = {
         formats: [,],
@@ -1603,6 +1693,8 @@ function createFromElement({
       mergePair(accumulator, value);
       continue;
     }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     if (node.nodeType !== node.ELEMENT_NODE) {
       continue;
     }
@@ -1706,7 +1798,11 @@ function createFromElement({
 /**
  * Gets the attributes of an element in object shape.
  *
+<<<<<<< HEAD
  * @param {Object}  $1         Named arguments.
+=======
+ * @param {Object}  $1         Named argements.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * @param {Element} $1.element Element to get attributes from.
  *
  * @return {Object|void} Attribute object or `undefined` if the element has no
@@ -1737,7 +1833,11 @@ function getAttributes({
   return accumulator;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/concat.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/concat.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1775,7 +1875,11 @@ function concat(...values) {
   return normaliseFormats(values.reduce(mergePair, create()));
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/get-active-format.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/get-active-format.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1802,7 +1906,11 @@ function getActiveFormat(value, formatType) {
   }) => type === formatType);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/get-active-object.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/get-active-object.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1831,7 +1939,11 @@ function getActiveObject({
   return replacements[start];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/is-collapsed.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/is-collapsed.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1857,7 +1969,11 @@ function isCollapsed({
   return start === end;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/is-empty.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/is-empty.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /** @typedef {import('./types').RichTextValue} RichTextValue */
 
 /**
@@ -1874,7 +1990,11 @@ function isEmpty({
   return text.length === 0;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/join.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/join.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1900,11 +2020,16 @@ function join(values, separator = '') {
       text: separator
     });
   }
+<<<<<<< HEAD
   return normaliseFormats(values.reduce((accumulator, {
+=======
+  return normaliseFormats(values.reduce((accumlator, {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     formats,
     replacements,
     text
   }) => ({
+<<<<<<< HEAD
     formats: accumulator.formats.concat(separator.formats, formats),
     replacements: accumulator.replacements.concat(separator.replacements, replacements),
     text: accumulator.text + separator.text + text
@@ -1912,6 +2037,15 @@ function join(values, separator = '') {
 }
 
 ;// ./node_modules/@wordpress/rich-text/build-module/register-format-type.js
+=======
+    formats: accumlator.formats.concat(separator.formats, formats),
+    replacements: accumlator.replacements.concat(separator.replacements, replacements),
+    text: accumlator.text + separator.text + text
+  })));
+}
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/register-format-type.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -2002,7 +2136,11 @@ function registerFormatType(name, settings) {
   return settings;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/remove-format.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/remove-format.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -2073,7 +2211,11 @@ function filterFormats(formats, index, formatType) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/insert.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/insert.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -2117,7 +2259,11 @@ function insert(value, valueToInsert, startIndex = value.start, endIndex = value
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/remove.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/remove.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -2141,7 +2287,11 @@ function remove_remove(value, startIndex, endIndex) {
   return insert(value, create(), startIndex, endIndex);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/replace.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/replace.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -2208,7 +2358,11 @@ function replace_replace({
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/insert-object.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/insert-object.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -2240,7 +2394,11 @@ function insertObject(value, formatToInsert, startIndex, endIndex) {
   return insert(value, valueToInsert, startIndex, endIndex);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/slice.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/slice.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /** @typedef {import('./types').RichTextValue} RichTextValue */
 
 /**
@@ -2272,7 +2430,11 @@ function slice(value, startIndex = value.start, endIndex = value.end) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/split.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/split.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -2348,7 +2510,11 @@ function splitAtSelection({
   return [before, after];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/is-range-equal.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/is-range-equal.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns true if two ranges are equal, or false otherwise. Ranges are
  * considered equal if their start and end occur in the same container and
@@ -2363,7 +2529,11 @@ function isRangeEqual(a, b) {
   return a === b || a && b && a.startContainer === b.startContainer && a.startOffset === b.startOffset && a.endContainer === b.endContainer && a.endOffset === b.endOffset;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/to-dom.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/to-dom.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -2427,6 +2597,7 @@ function to_dom_append(element, child) {
     attributes
   } = child;
   if (type) {
+<<<<<<< HEAD
     if (type === '#comment') {
       child = element.ownerDocument.createComment(attributes['data-rich-text-comment']);
     } else {
@@ -2434,6 +2605,11 @@ function to_dom_append(element, child) {
       for (const key in attributes) {
         child.setAttribute(key, attributes[key]);
       }
+=======
+    child = element.ownerDocument.createElement(type);
+    for (const key in attributes) {
+      child.setAttribute(key, attributes[key]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
   }
   return element.appendChild(child);
@@ -2650,11 +2826,19 @@ function applySelection({
   }
 }
 
+<<<<<<< HEAD
 ;// external ["wp","a11y"]
 const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// ./node_modules/@wordpress/rich-text/build-module/toggle-format.js
+=======
+;// CONCATENATED MODULE: external ["wp","a11y"]
+const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/toggle-format.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -2698,7 +2882,11 @@ function toggleFormat(value, format) {
   return applyFormat(value, format);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/unregister-format-type.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/unregister-format-type.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -2730,12 +2918,21 @@ function unregisterFormatType(name) {
   return oldFormat;
 }
 
+<<<<<<< HEAD
 ;// external ["wp","element"]
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// external ["wp","deprecated"]
 const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
 ;// ./node_modules/@wordpress/rich-text/build-module/component/use-anchor-ref.js
+=======
+;// CONCATENATED MODULE: external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// CONCATENATED MODULE: external ["wp","deprecated"]
+const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
+var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/use-anchor-ref.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -2811,9 +3008,15 @@ function useAnchorRef({
   }, [activeFormat, value.start, value.end, tagName, className]);
 }
 
+<<<<<<< HEAD
 ;// external ["wp","compose"]
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// ./node_modules/@wordpress/rich-text/build-module/component/use-anchor.js
+=======
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/use-anchor.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -2837,7 +3040,11 @@ const external_wp_compose_namespaceObject = window["wp"]["compose"];
 function getFormatElement(range, editableContentElement, tagName, className) {
   let element = range.startContainer;
 
+<<<<<<< HEAD
   // Even if the active format is defined, the actually DOM range's start
+=======
+  // Even if the active format is defined, the actualy DOM range's start
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   // container may be outside of the format's DOM element:
   // `a‸<strong>b</strong>` (DOM) while visually it's `a<strong>‸b</strong>`.
   // So at a given selection index, start with the deepest format DOM element.
@@ -2998,7 +3205,11 @@ function useAnchor({
   return anchor;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/use-default-style.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/use-default-style.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -3041,7 +3252,11 @@ function useDefaultStyle() {
   }, []);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/use-boundary-style.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/use-boundary-style.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -3097,7 +3312,11 @@ function useBoundaryStyle({
   return ref;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/copy-handler.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/copy-handler.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -3140,7 +3359,11 @@ function useBoundaryStyle({
   };
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/select-object.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/select-object.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /* harmony default export */ const select_object = (() => element => {
   function onClick(event) {
     const {
@@ -3187,9 +3410,15 @@ function useBoundaryStyle({
   };
 });
 
+<<<<<<< HEAD
 ;// external ["wp","keycodes"]
 const external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/format-boundaries.js
+=======
+;// CONCATENATED MODULE: external ["wp","keycodes"]
+const external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/format-boundaries.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -3291,7 +3520,11 @@ const EMPTY_ACTIVE_FORMATS = [];
   };
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/delete.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/delete.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -3335,7 +3568,11 @@ const EMPTY_ACTIVE_FORMATS = [];
   };
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/update-formats.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/update-formats.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -3392,7 +3629,12 @@ function updateFormats({
   return value;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/input-and-selection.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/input-and-selection.js
+/* wp:polyfill */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -3628,7 +3870,11 @@ function fixPlaceholderSelection(defaultView) {
   };
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/selection-change-compat.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/selection-change-compat.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -3679,6 +3925,7 @@ function fixPlaceholderSelection(defaultView) {
   };
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/prevent-focus-capture.js
 /**
  * Prevents focus from being captured by the element when clicking _outside_
@@ -3726,6 +3973,9 @@ function preventFocusCapture() {
 }
 
 ;// ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/event-listeners/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -3741,6 +3991,7 @@ function preventFocusCapture() {
 
 
 
+<<<<<<< HEAD
 
 const allEventListeners = [copy_handler, select_object, format_boundaries, event_listeners_delete, input_and_selection, selection_change_compat, preventFocusCapture];
 function useEventListeners(props) {
@@ -3748,6 +3999,12 @@ function useEventListeners(props) {
   (0,external_wp_element_namespaceObject.useInsertionEffect)(() => {
     propsRef.current = props;
   });
+=======
+const allEventListeners = [copy_handler, select_object, format_boundaries, event_listeners_delete, input_and_selection, selection_change_compat];
+function useEventListeners(props) {
+  const propsRef = (0,external_wp_element_namespaceObject.useRef)(props);
+  propsRef.current = props;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   const refEffects = (0,external_wp_element_namespaceObject.useMemo)(() => allEventListeners.map(refEffect => refEffect(propsRef)), [propsRef]);
   return (0,external_wp_compose_namespaceObject.useRefEffect)(element => {
     const cleanups = refEffects.map(effect => effect(element));
@@ -3757,7 +4014,11 @@ function useEventListeners(props) {
   }, [refEffects]);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/component/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/component/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -3910,7 +4171,11 @@ function useRichText({
   }
   const didMountRef = (0,external_wp_element_namespaceObject.useRef)(false);
 
+<<<<<<< HEAD
   // Value updates must happen synchronously to avoid overwriting newer values.
+=======
+  // Value updates must happen synchonously to avoid overwriting newer values.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
     if (didMountRef.current && value !== _valueRef.current) {
       applyFromProps();
@@ -3918,7 +4183,11 @@ function useRichText({
     }
   }, [value]);
 
+<<<<<<< HEAD
   // Value updates must happen synchronously to avoid overwriting newer values.
+=======
+  // Value updates must happen synchonously to avoid overwriting newer values.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
     if (!hadSelectionUpdateRef.current) {
       return;
@@ -3957,7 +4226,11 @@ function useRichText({
 }
 function __experimentalRichText() {}
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/rich-text/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 

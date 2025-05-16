@@ -2,9 +2,15 @@
 
 Contributors: elemntor, KingYes, ariel.k, bainternet
 Requires at least: 6.0
+<<<<<<< HEAD
 Tested up to: 6.8
 Stable tag: 3.4.1
 Version: 3.4.1
+=======
+Tested up to: 6.7
+Stable tag: 3.3.0
+Version: 3.3.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 Requires PHP: 7.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -36,6 +42,7 @@ Source: https://stocksnap.io/photo/4B83RD7BV9
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 3.4.1 - 2025-05-08 =
 * Fix: Critical Error after theme update [critical-error-on-website-54/#post-18454740](https://wordpress.org/support/topic/critical-error-on-website-54/#post-18454740)
 
@@ -43,6 +50,8 @@ Source: https://stocksnap.io/photo/4B83RD7BV9
 * New: Add Theme Home
 * Tweak: Theme settings page style
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 = 3.3.0 - 2025-01-21 =
 * Tweak: Added changelog link in theme settings
 * Tweak: Updated minimum required Safari version to 15.5

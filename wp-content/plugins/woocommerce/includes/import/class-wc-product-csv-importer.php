@@ -7,8 +7,11 @@
  */
 
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Utilities\ArrayUtil;
 
@@ -400,7 +403,11 @@ class WC_Product_CSV_Importer extends WC_Product_Importer {
 		$value = $this->unescape_data( $value );
 
 		if ( 'true' === strtolower( $value ) || 'false' === strtolower( $value ) ) {
+<<<<<<< HEAD
 			$value = wc_string_to_bool( $value ) ? ProductTaxStatus::TAXABLE : ProductTaxStatus::NONE;
+=======
+			$value = wc_string_to_bool( $value ) ? 'taxable' : 'none';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return wc_clean( $value );
@@ -908,9 +915,15 @@ class WC_Product_CSV_Importer extends WC_Product_Importer {
 		// Stock is bool or 'backorder'.
 		if ( isset( $data['stock_status'] ) ) {
 			if ( 'backorder' === $data['stock_status'] ) {
+<<<<<<< HEAD
 				$data['stock_status'] = ProductStockStatus::ON_BACKORDER;
 			} else {
 				$data['stock_status'] = $data['stock_status'] ? ProductStockStatus::IN_STOCK : ProductStockStatus::OUT_OF_STOCK;
+=======
+				$data['stock_status'] = 'onbackorder';
+			} else {
+				$data['stock_status'] = $data['stock_status'] ? 'instock' : 'outofstock';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 

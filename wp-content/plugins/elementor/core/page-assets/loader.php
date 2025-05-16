@@ -8,7 +8,11 @@ use Elementor\Control_Exit_Animation;
 use Elementor\Control_Hover_Animation;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -100,7 +104,11 @@ class Loader extends Module {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param array $assets_data {
+=======
+	 * @param array $assets {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *     @type array 'styles'
 	 *     @type array 'scripts'
 	 * }

@@ -349,6 +349,10 @@ body.language-chooser {
 .screen-reader-input,
 .screen-reader-text {
 	border: 0;
+<<<<<<< HEAD
+=======
+	clip: rect(1px, 1px, 1px, 1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;

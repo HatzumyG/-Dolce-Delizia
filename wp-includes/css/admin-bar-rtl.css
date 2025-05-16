@@ -705,6 +705,10 @@ html:lang(he-il) .rtl #wpadminbar * {
 #wpadminbar .screen-reader-text,
 #wpadminbar .screen-reader-text span {
 	border: 0;
+<<<<<<< HEAD
+=======
+	clip: rect(1px, 1px, 1px, 1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
@@ -797,6 +801,10 @@ html:lang(he-il) .rtl #wpadminbar * {
 
 	#wpadminbar .ab-label {
 		border: 0;
+<<<<<<< HEAD
+=======
+		clip: rect(1px, 1px, 1px, 1px);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		clip-path: inset(50%);
 		height: 1px;
 		margin: -1px;

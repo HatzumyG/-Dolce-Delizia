@@ -5,6 +5,7 @@
  * Categories: WooCommerce
  * Template Types: coming-soon
  * Inserter: false
+<<<<<<< HEAD
  */
 
 use Automattic\WooCommerce\Blocks\AIContent\PatternsHelper;
@@ -13,6 +14,21 @@ use Automattic\WooCommerce\Blocks\Templates\ComingSoonTemplate;
 $fonts               = ComingSoonTemplate::get_font_families();
 $heading_font_family = $fonts['heading'];
 $body_font_family    = $fonts['body'];
+=======
+ * Feature Flag: coming-soon-newsletter-template
+ */
+
+use Automattic\WooCommerce\Blocks\AIContent\PatternsHelper;
+
+$current_theme     = wp_get_theme()->get_stylesheet();
+$inter_font_family = 'inter';
+$cardo_font_family = 'cardo';
+
+if ( 'twentytwentyfour' === $current_theme ) {
+	$inter_font_family = 'body';
+	$cardo_font_family = 'heading';
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 $featured_image_urls = array(
 	PatternsHelper::get_image_url( $images, 0, 'assets/images/pattern-placeholders/gallery-1.jpg' ),
@@ -31,23 +47,36 @@ $featured_image_urls = array(
 ?>
 
 <!-- wp:woocommerce/coming-soon {"comingSoonPatternId":"page-coming-soon-image-gallery","className":"woocommerce-coming-soon-image-gallery"} -->
+<<<<<<< HEAD
 <div class="wp-block-woocommerce-coming-soon woocommerce-coming-soon-image-gallery">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"right":"90px","left":"90px"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
 <div class="wp-block-group alignwide" style="padding-right:90px;padding-left:90px">
 	<!-- wp:group {"align":"wide","className":"woocommerce-coming-soon-header has-background","style":{"spacing":{"padding":{"bottom":"14px","left":"0px","right":"0px","top":"26px"}}},"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group alignwide woocommerce-coming-soon-header has-background" style="padding-top:26px;padding-right:0px;padding-bottom:14px;padding-left:0px"><!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+=======
+<div class="wp-block-woocommerce-coming-soon woocommerce-coming-soon-image-gallery"><!-- wp:group {"align":"wide","className":"woocommerce-coming-soon-header has-background","style":{"spacing":{"padding":{"top":"10px","bottom":"14px"}}},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group alignwide woocommerce-coming-soon-header has-background" style="padding-top:10px;padding-bottom:14px"><!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<div class="wp-block-group alignwide"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"},"layout":{"selfStretch":"fit","flexSize":null}},"layout":{"type":"flex"}} -->
 				<div class="wp-block-group"><!-- wp:site-logo {"width":60} /-->
 
 					<!-- wp:group {"style":{"spacing":{"blockGap":"0px"}}} -->
+<<<<<<< HEAD
 					<div class="wp-block-group"><!-- wp:site-title {"level":0,"style":{"typography":{"fontSize":"20px","letterSpacing":"0px"},"color":{"text":"#000000"},"elements":{"link":{"color":{"text":"#000000"}}}},"fontFamily":"<?php echo esc_html( $body_font_family ); ?>"} /--></div>
+=======
+					<div class="wp-block-group"><!-- wp:site-title {"level":0,"fontFamily":"<?php echo esc_html( $inter_font_family ); ?>"} /--></div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					<!-- /wp:group --></div>
 				<!-- /wp:group -->
 
 				<!-- wp:group {"className":"woocommerce-coming-soon-social-login","style":{"spacing":{"blockGap":"48px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group woocommerce-coming-soon-social-login"><!-- wp:template-part {"slug":"coming-soon-social-links","theme":"woocommerce/woocommerce","tagName":"div"} /-->
 
+<<<<<<< HEAD
 					<!-- wp:loginout {"style":{"elements":{"link":{"color":{"text":"#ffffff"}}},"color":{"background":"#000000"},"spacing":{"padding":{"top":"12px","bottom":"12px","left":"16px","right":"16px"}},"typography":{"fontSize":"14px","lineHeight":"1.2"},"border":{"radius":"6px"}}, "fontFamily":"<?php echo esc_html( $body_font_family ); ?>"} /--></div>
+=======
+					<!-- wp:loginout {"style":{"elements":{"link":{"color":{"text":"#ffffff"}}},"color":{"background":"#000000"}},"fontFamily":"<?php echo esc_html( $inter_font_family ); ?>"} /--></div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<!-- /wp:group --></div>
 			<!-- /wp:group --></div>
 		<!-- /wp:group -->
@@ -56,8 +85,13 @@ $featured_image_urls = array(
 		<div class="wp-block-group alignwide">
 			<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"100px","bottom":"100px"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group alignwide">
+<<<<<<< HEAD
 				<!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"48px","lineHeight":"1.3","fontStyle":"normal","fontWeight":"400"},"spacing":{"padding":{"top":"100px","bottom":"100px"}}},"fontFamily":"<?php echo esc_html( $heading_font_family ); ?>"} -->
 					<h1 class="wp-block-heading has-<?php echo esc_html( $heading_font_family ); ?>-font-family" style="padding-top:100px;padding-bottom:100px;font-size:48px;font-style:normal;font-weight:400;line-height:1.3"><em><?php echo esc_html__( 'Great things are coming soon', 'woocommerce' ); ?></em></h1>
+=======
+				<!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"48px","lineHeight":"1.3","fontStyle":"normal","fontWeight":"400"},"spacing":{"padding":{"top":"100px","bottom":"100px"}}},"fontFamily":"heading"} -->
+					<h1 class="wp-block-heading has-heading-font-family" style="padding-top:100px;padding-bottom:100px;font-size:48px;font-style:normal;font-weight:400;line-height:1.3"><em>Great things are coming soon</em></h1>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				<!-- /wp:heading -->
 			</div>
 			<!-- /wp:group -->
@@ -67,9 +101,14 @@ $featured_image_urls = array(
 	<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"},"tagName":"main"} -->
 	<main class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 
+<<<<<<< HEAD
 
 		<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"bottom":"100px"}}},"layout":{"type":"constrained"}} -->
 		<div class="wp-block-group alignfull" style="padding-bottom:100px">
+=======
+		<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--50)">
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"0","left":"var:preset|spacing|40"},"margin":{"top":"0","bottom":"0"}}}} -->
 			<div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:0">
 				<!-- wp:column {"style":{"spacing":{"blockGap":"0"}}} -->
@@ -217,7 +256,11 @@ $featured_image_urls = array(
 
 	</main>
 	<!-- /wp:group -->
+<<<<<<< HEAD
 	</div>
 	<!-- /wp:group -->
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 </div>
 <!-- /wp:woocommerce/coming-soon -->

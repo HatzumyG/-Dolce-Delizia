@@ -55,6 +55,7 @@ class Report extends Base
 
 		$notes = !empty($_POST['notes']) ? esc_html($_POST['notes']) : '';
 
+<<<<<<< HEAD
 		$php_info = !empty($_POST['attach_php']) ? esc_html($_POST['attach_php']) : '';
 		$report_php = $php_info === '1' ? $this->generate_php_report() : '';
 
@@ -62,6 +63,8 @@ class Report extends Base
 			$report_con .= "\nPHPINFO\n" . $report_php;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$data = array(
 			'env' => $report_con,
 			'link' => $link,
@@ -85,6 +88,7 @@ class Report extends Base
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Gathers the PHP information.
 	 *
 	 * @since 7.0
@@ -106,6 +110,8 @@ class Report extends Base
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Gathers the environment details and creates the report.
 	 * Will write to the environment report file.
 	 *
@@ -149,11 +155,14 @@ class Report extends Base
 
 		$extras['active plugins'] = $active_plugins;
 		$extras['cloud'] = Cloud::get_summary();
+<<<<<<< HEAD
 		foreach (array('mini_html', 'pk_b64', 'sk_b64', 'cdn_dash', 'ips') as $v) {
 			if (!empty($extras['cloud'][$v])) {
 				unset($extras['cloud'][$v]);
 			}
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if (is_null($options)) {
 			$options = $this->get_options(true);
@@ -161,7 +170,11 @@ class Report extends Base
 			if (is_multisite()) {
 				$options2 = $this->get_options();
 				foreach ($options2 as $k => $v) {
+<<<<<<< HEAD
 					if (isset($options[$k]) && $options[$k] !== $v) {
+=======
+					if ($options[$k] !== $v) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						$options['[Overwritten] ' . $k] = $v;
 					}
 				}

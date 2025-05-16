@@ -1,14 +1,20 @@
 <?php
+<<<<<<< HEAD
 declare( strict_types = 1);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace Automattic\WooCommerce\Blocks\BlockTypes;
 
 use Automattic\WooCommerce\StoreApi\Utilities\LocalPickupUtils;
 use Automattic\WooCommerce\Blocks\Utils\CartCheckoutUtils;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Blocks\Domain\Services\CheckoutFields;
 use Automattic\WooCommerce\Blocks\Package;
 use Automattic\WooCommerce\StoreApi\Utilities\PaymentUtils;
 use Automattic\WooCommerce\Blocks\Domain\Services\CheckoutFieldsSchema\Validation;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Checkout class.
@@ -165,6 +171,7 @@ class Checkout extends AbstractBlock {
 			$dependencies[] = 'zxcvbn-async';
 		}
 
+<<<<<<< HEAD
 		if ( Features::is_enabled( 'experimental-blocks' ) ) {
 			$checkout_fields = Package::container()->get( CheckoutFields::class );
 			// Load schema parser asynchronously if we need it.
@@ -173,6 +180,8 @@ class Checkout extends AbstractBlock {
 			}
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$script = [
 			'handle'       => 'wc-' . $this->block_name . '-block-frontend',
 			'path'         => $this->asset_api->get_block_asset_build_path( $this->block_name . '-frontend' ),
@@ -417,6 +426,10 @@ class Checkout extends AbstractBlock {
 
 		$this->asset_data_registry->add( 'countryData', $country_data );
 		$this->asset_data_registry->add( 'defaultAddressFormat', $address_formats['default'] );
+<<<<<<< HEAD
+=======
+		$this->asset_data_registry->add( 'baseLocation', wc_get_base_location() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->asset_data_registry->add(
 			'checkoutAllowsGuest',
 			false === filter_var(
@@ -442,13 +455,17 @@ class Checkout extends AbstractBlock {
 		$this->asset_data_registry->add( 'hasDarkEditorStyleSupport', current_theme_supports( 'dark-editor-style' ) );
 		$this->asset_data_registry->register_page_id( isset( $attributes['cartPageId'] ) ? $attributes['cartPageId'] : 0 );
 		$this->asset_data_registry->add( 'isBlockTheme', wc_current_theme_is_fse_theme() );
+<<<<<<< HEAD
 		$this->asset_data_registry->add( 'isCheckoutBlock', true );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$pickup_location_settings = LocalPickupUtils::get_local_pickup_settings();
 		$local_pickup_method_ids  = LocalPickupUtils::get_local_pickup_method_ids();
 
 		$this->asset_data_registry->add( 'localPickupEnabled', $pickup_location_settings['enabled'] );
 		$this->asset_data_registry->add( 'localPickupText', $pickup_location_settings['title'] );
+<<<<<<< HEAD
 		$this->asset_data_registry->add( 'localPickupCost', $pickup_location_settings['cost'] );
 		$this->asset_data_registry->add( 'collectableMethodIds', $local_pickup_method_ids );
 		$this->asset_data_registry->add( 'shippingMethodsExist', CartCheckoutUtils::shipping_methods_exist() > 0 );
@@ -468,6 +485,25 @@ class Checkout extends AbstractBlock {
 			);
 		}
 
+=======
+		$this->asset_data_registry->add( 'collectableMethodIds', $local_pickup_method_ids );
+
+		// Local pickup is included with legacy shipping methods since they do not support shipping zones.
+		$local_pickup_count = count(
+			array_filter(
+				WC()->shipping()->get_shipping_methods(),
+				function ( $method ) {
+					return isset( $method->enabled ) && 'yes' === $method->enabled && ! $method->supports( 'shipping-zones' ) && $method->supports( 'local-pickup' );
+				}
+			)
+		);
+
+		$shipping_methods_count = wc_get_shipping_method_count( true, true ) - $local_pickup_count;
+		$this->asset_data_registry->add( 'shippingMethodsExist', $shipping_methods_count > 0 );
+
+		$is_block_editor = $this->is_block_editor();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $is_block_editor && ! $this->asset_data_registry->exists( 'globalShippingMethods' ) ) {
 			$shipping_methods           = WC()->shipping()->get_shipping_methods();
 			$formatted_shipping_methods = array_reduce(
@@ -497,7 +533,11 @@ class Checkout extends AbstractBlock {
 		if ( $is_block_editor && ! $this->asset_data_registry->exists( 'globalPaymentMethods' ) ) {
 			// These are used to show options in the sidebar. We want to get the full list of enabled payment methods,
 			// not just the ones that are available for the current cart (which may not exist yet).
+<<<<<<< HEAD
 			$payment_methods           = PaymentUtils::get_enabled_payment_gateways();
+=======
+			$payment_methods           = $this->get_enabled_payment_gateways();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$formatted_payment_methods = array_reduce(
 				$payment_methods,
 				function ( $acc, $method ) {
@@ -552,6 +592,7 @@ class Checkout extends AbstractBlock {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get saved customer payment methods for use in checkout.
 	 */
 	protected function hydrate_customer_payment_methods() {
@@ -568,6 +609,86 @@ class Checkout extends AbstractBlock {
 	}
 
 	/**
+=======
+	 * Get payment methods that are enabled in settings.
+	 *
+	 * @return array
+	 */
+	protected function get_enabled_payment_gateways() {
+		$payment_gateways = WC()->payment_gateways->payment_gateways();
+		return array_filter(
+			$payment_gateways,
+			function ( $payment_gateway ) {
+				return 'yes' === $payment_gateway->enabled;
+			}
+		);
+	}
+
+	/**
+	 * Are we currently on the admin block editor screen?
+	 */
+	protected function is_block_editor() {
+		if ( ! is_admin() || ! function_exists( 'get_current_screen' ) ) {
+			return false;
+		}
+		$screen = get_current_screen();
+
+		return $screen && $screen->is_block_editor();
+	}
+
+	/**
+	 * Get saved customer payment methods for use in checkout.
+	 */
+	protected function hydrate_customer_payment_methods() {
+		if ( ! is_user_logged_in() || $this->asset_data_registry->exists( 'customerPaymentMethods' ) ) {
+			return;
+		}
+		add_filter( 'woocommerce_payment_methods_list_item', [ $this, 'include_token_id_with_payment_methods' ], 10, 2 );
+
+		$payment_gateways = $this->get_enabled_payment_gateways();
+		$payment_methods  = wc_get_customer_saved_methods_list( get_current_user_id() );
+
+		// Filter out payment methods that are not enabled.
+		foreach ( $payment_methods as $payment_method_group => $saved_payment_methods ) {
+			$payment_methods[ $payment_method_group ] = array_values(
+				array_filter(
+					$saved_payment_methods,
+					function ( $saved_payment_method ) use ( $payment_gateways ) {
+						return in_array( $saved_payment_method['method']['gateway'], array_keys( $payment_gateways ), true );
+					}
+				)
+			);
+		}
+
+		$this->asset_data_registry->add(
+			'customerPaymentMethods',
+			$payment_methods
+		);
+		remove_filter( 'woocommerce_payment_methods_list_item', [ $this, 'include_token_id_with_payment_methods' ], 10, 2 );
+	}
+
+	/**
+	 * Callback for woocommerce_payment_methods_list_item filter to add token id
+	 * to the generated list.
+	 *
+	 * @param array     $list_item The current list item for the saved payment method.
+	 * @param \WC_Token $token     The token for the current list item.
+	 *
+	 * @return array The list item with the token id added.
+	 */
+	public static function include_token_id_with_payment_methods( $list_item, $token ) {
+		$list_item['tokenId'] = $token->get_id();
+		$brand                = ! empty( $list_item['method']['brand'] ) ?
+			strtolower( $list_item['method']['brand'] ) :
+			'';
+		// phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- need to match on translated value from core.
+		if ( ! empty( $brand ) && esc_html__( 'Credit card', 'woocommerce' ) !== $brand ) {
+			$list_item['method']['brand'] = wc_get_credit_card_type_label( $brand );
+		}
+		return $list_item;
+	}
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Register script and style assets for the block type before it is registered.
 	 *
 	 * This registers the scripts; it does not enqueue them.

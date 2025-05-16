@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The avatar cache class
  *
@@ -8,7 +11,10 @@
  * @subpackage 	LiteSpeed/inc
  * @author     	LiteSpeed Technologies <info@litespeedtech.com>
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace LiteSpeed;
 
 defined('WPINC') || exit();
@@ -244,7 +250,11 @@ class Avatar extends Base
 		// Generate
 		$this->_maybe_mk_cache_folder('avatar');
 
+<<<<<<< HEAD
 		$response = wp_safe_remote_get($url, array('timeout' => 180, 'stream' => true, 'filename' => $file));
+=======
+		$response = wp_remote_get($url, array('timeout' => 180, 'stream' => true, 'filename' => $file));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		Debug2::debug('[Avatar] _generate [url] ' . $url);
 

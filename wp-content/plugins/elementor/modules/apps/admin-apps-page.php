@@ -46,7 +46,11 @@ class Admin_Apps_Page {
 		}
 	}
 
+<<<<<<< HEAD
 	private static function get_plugins(): array {
+=======
+	private static function get_plugins() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$container = Plugin::$instance->elementor_container();
 
 		if ( $container->has( Wordpress_Adapter::class ) ) {
@@ -119,12 +123,23 @@ class Admin_Apps_Page {
 				$app['action_label'] = esc_html__( 'Cannot Activate', 'elementor' );
 				$app['action_url'] = '#';
 			}
+<<<<<<< HEAD
 		} elseif ( current_user_can( 'install_plugins' ) ) {
 				$app['action_label'] = esc_html__( 'Install', 'elementor' );
 				$app['action_url'] = self::$plugin_status_adapter->get_install_plugin_url( $app['file_path'] );
 		} else {
 			$app['action_label'] = esc_html__( 'Cannot Install', 'elementor' );
 			$app['action_url'] = '#';
+=======
+		} else {
+			if ( current_user_can( 'install_plugins' ) ) {
+				$app['action_label'] = esc_html__( 'Install', 'elementor' );
+				$app['action_url'] = self::$plugin_status_adapter->get_install_plugin_url( $app['file_path'] );
+			} else {
+				$app['action_label'] = esc_html__( 'Cannot Install', 'elementor' );
+				$app['action_url'] = '#';
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $app;

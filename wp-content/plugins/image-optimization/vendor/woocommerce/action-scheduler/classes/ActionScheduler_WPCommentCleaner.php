@@ -66,6 +66,11 @@ class ActionScheduler_WPCommentCleaner {
 	 * Attached to the migration complete hook 'action_scheduler/migration_complete'.
 	 */
 	public static function maybe_schedule_cleanup() {
+<<<<<<< HEAD
+=======
+		$has_logs = 'no';
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$args = array(
 			'type'   => ActionScheduler_wpCommentLogger::TYPE,
 			'number' => 1,
@@ -73,12 +78,21 @@ class ActionScheduler_WPCommentCleaner {
 		);
 
 		if ( (bool) get_comments( $args ) ) {
+<<<<<<< HEAD
 			update_option( self::$has_logs_option_key, 'yes' );
+=======
+			$has_logs = 'yes';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( ! as_next_scheduled_action( self::$cleanup_hook ) ) {
 				as_schedule_single_action( gmdate( 'U' ) + ( 6 * MONTH_IN_SECONDS ), self::$cleanup_hook );
 			}
 		}
+<<<<<<< HEAD
+=======
+
+		update_option( self::$has_logs_option_key, $has_logs, true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -95,7 +109,11 @@ class ActionScheduler_WPCommentCleaner {
 			)
 		);
 
+<<<<<<< HEAD
 		delete_option( self::$has_logs_option_key );
+=======
+		update_option( self::$has_logs_option_key, 'no', true );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

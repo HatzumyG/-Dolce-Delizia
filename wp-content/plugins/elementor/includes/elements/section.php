@@ -233,7 +233,11 @@ class Element_Section extends Element_Base {
 			]
 		);
 
+<<<<<<< HEAD
 		// Element Name for the Navigator.
+=======
+		// Element Name for the Navigator
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->add_control(
 			'_title',
 			[
@@ -437,7 +441,11 @@ class Element_Section extends Element_Base {
 				'selectors' => [
 					'{{WRAPPER}} > .elementor-container > .elementor-column > .elementor-widget-wrap' => 'align-content: {{VALUE}}; align-items: {{VALUE}};',
 				],
+<<<<<<< HEAD
 				// TODO: The following line is for BC since 2.7.0.
+=======
+				// TODO: The following line is for BC since 2.7.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'prefix_class' => 'elementor-section-content-',
 			]
 		);
@@ -504,7 +512,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Section Structure.
+=======
+		// Section Structure
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'section_structure',
 			[
@@ -526,7 +538,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Section background.
+=======
+		// Section background
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'section_background',
 			[
@@ -637,7 +653,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Background Overlay.
+=======
+		// Background Overlay
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'section_background_overlay',
 			[
@@ -824,7 +844,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Section border.
+=======
+		// Section border
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'section_border',
 			[
@@ -949,7 +973,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Section Shape Divider.
+=======
+		// Section Shape Divider
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'section_shape_divider',
 			[
@@ -1130,7 +1158,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Section Typography.
+=======
+		// Section Typography
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'section_typo',
 			[
@@ -1218,7 +1250,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Section Advanced.
+=======
+		// Section Advanced
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'section_advanced',
 			[
@@ -1365,7 +1401,11 @@ class Element_Section extends Element_Base {
 
 		$this->end_controls_section();
 
+<<<<<<< HEAD
 		// Section Responsive.
+=======
+		// Section Responsive
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->start_controls_section(
 			'_section_responsive',
 			[

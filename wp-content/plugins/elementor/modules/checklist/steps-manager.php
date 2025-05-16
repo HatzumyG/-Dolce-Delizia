@@ -41,7 +41,11 @@ class Steps_Manager {
 	 *
 	 * @return array
 	 */
+<<<<<<< HEAD
 	public function get_steps_for_frontend(): array {
+=======
+	public function get_steps_for_frontend() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$formatted_steps = [];
 
 		foreach ( self::$step_ids as $step_id ) {
@@ -61,7 +65,11 @@ class Steps_Manager {
 		return $formatted_steps;
 	}
 
+<<<<<<< HEAD
 	public function update_step( string $step_id, array $data ): void {
+=======
+	public function update_step( string $step_id, array $data ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$step = $this->get_step_by_id( $step_id );
 
 		if ( ! $step ) {
@@ -78,7 +86,11 @@ class Steps_Manager {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function mark_step_as_completed( string $step_id ): void {
+=======
+	public function mark_step_as_completed( string $step_id ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->update_step( $step_id, [ Step_Base::MARKED_AS_COMPLETED_KEY => true ] );
 	}
 
@@ -89,7 +101,11 @@ class Steps_Manager {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function unmark_step_as_completed( string $step_id ): void {
+=======
+	public function unmark_step_as_completed( string $step_id ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->update_step( $step_id, [ Step_Base::MARKED_AS_COMPLETED_KEY => false ] );
 	}
 
@@ -100,7 +116,11 @@ class Steps_Manager {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	public function maybe_set_step_as_immutable_completed( string $step_id ): void {
+=======
+	public function maybe_set_step_as_immutable_completed( string $step_id ) : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$step = $this->get_step_by_id( $step_id );
 
 		if ( ! $step ) {
@@ -110,14 +130,22 @@ class Steps_Manager {
 		$step->maybe_immutably_mark_as_completed();
 	}
 
+<<<<<<< HEAD
 	public function get_step_by_id( string $step_id ): ?Step_Base {
+=======
+	public function get_step_by_id( string $step_id ) : ?Step_Base {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $this->step_instances[ $step_id ] ?? null;
 	}
 
 	/**
 	 * @return array
 	 */
+<<<<<<< HEAD
 	public function get_step_config( $step_id ): array {
+=======
+	public function get_step_config( $step_id ) : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$step_instance = $this->step_instances[ $step_id ];
 
 		return $step_instance
@@ -141,7 +169,11 @@ class Steps_Manager {
 	 *
 	 * @return void
 	 */
+<<<<<<< HEAD
 	private function register_steps(): void {
+=======
+	private function register_steps() : void {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ( self::$step_ids as $step_id ) {
 			$step_instance = $this->get_step_instance( $step_id );
 
@@ -156,7 +188,11 @@ class Steps_Manager {
 	 *
 	 * @return array
 	 */
+<<<<<<< HEAD
 	public static function get_step_ids(): array {
+=======
+	public static function get_step_ids() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return self::$step_ids;
 	}
 
@@ -167,7 +203,11 @@ class Steps_Manager {
 	 *
 	 * @return Step_Base|null
 	 */
+<<<<<<< HEAD
 	private function get_step_instance( string $step_id ): ?Step_Base {
+=======
+	private function get_step_instance( string $step_id ) : ?Step_Base {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$class_name = '\\Elementor\\Modules\\Checklist\\Steps\\' . $step_id;
 
 		if ( ! class_exists( $class_name ) ) {

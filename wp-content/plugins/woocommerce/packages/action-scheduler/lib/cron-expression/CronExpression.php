@@ -54,7 +54,11 @@ class CronExpression
      *
      * @return CronExpression
      */
+<<<<<<< HEAD
     public static function factory($expression, ?CronExpression_FieldFactory $fieldFactory = null)
+=======
+    public static function factory($expression, CronExpression_FieldFactory $fieldFactory = null)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     {
         $mappings = array(
             '@yearly' => '0 0 1 1 *',

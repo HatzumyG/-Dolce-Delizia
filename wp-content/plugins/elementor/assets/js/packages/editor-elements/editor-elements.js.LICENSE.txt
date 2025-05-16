@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*! @elementor/editor-props */
 
 /*! @elementor/editor-styles */
@@ -18,6 +19,10 @@
   !*** external ["elementorV2","editorStyles"] ***!
   \***********************************************/
 
+=======
+/*! @elementor/editor-v1-adapters */
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /*!***************************************************!*\
   !*** external ["elementorV2","editorV1Adapters"] ***!
   \***************************************************/

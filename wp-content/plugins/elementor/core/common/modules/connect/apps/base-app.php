@@ -11,7 +11,11 @@ use Elementor\Tracker;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class Base_App {
@@ -88,7 +92,11 @@ abstract class Base_App {
 			$url = $this->get_admin_url( 'disconnect' );
 			$attr = '';
 
+<<<<<<< HEAD
 			printf(
+=======
+			echo sprintf(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'%s <a %s href="%s">%s</a>',
 				// PHPCS - the variable $title is already escaped above.
 				$title, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -493,10 +501,13 @@ abstract class Base_App {
 			return new \WP_Error( 422, 'Wrong Server Response' );
 		}
 
+<<<<<<< HEAD
 		if ( 201 === $response_code ) {
 			return $body;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( 200 !== $response_code ) {
 			// In case $as_array = true.
 			$body = (object) $body;
@@ -787,6 +798,10 @@ abstract class Base_App {
 			// PHPCS - the values of $item['label'], $color, $status are plain strings.
 			printf( '%s: <strong style="color:%s">%s</strong><br>', $item['label'], $color, $status ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	private function get_generated_urls( $endpoint ) {

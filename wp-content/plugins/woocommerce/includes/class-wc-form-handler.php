@@ -208,6 +208,11 @@ class WC_Form_Handler {
 
 		$customer->save();
 
+<<<<<<< HEAD
+=======
+		wc_add_notice( __( 'Address changed successfully.', 'woocommerce' ) );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/**
 		 * Hook: woocommerce_customer_save_address.
 		 *
@@ -216,6 +221,7 @@ class WC_Form_Handler {
 		 * @since 3.6.0
 		 * @param int    $user_id User ID being saved.
 		 * @param string $address_type Type of address; 'billing' or 'shipping'.
+<<<<<<< HEAD
 		 * @param array  $address The address fields. Since 9.8.0.
 		 * @param WC_Customer $customer The customer object being saved. Since 9.8.0.
 		 */
@@ -226,6 +232,11 @@ class WC_Form_Handler {
 		}
 
 		wc_add_notice( __( 'Address changed successfully.', 'woocommerce' ) );
+=======
+		 */
+		do_action( 'woocommerce_customer_save_address', $user_id, $address_type );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wp_safe_redirect( wc_get_endpoint_url( 'edit-address', '', wc_get_page_permalink( 'myaccount' ) ) );
 		exit;
 	}
@@ -342,9 +353,15 @@ class WC_Form_Handler {
 			wp_update_user( $user );
 
 			// Update customer object to keep data in sync.
+<<<<<<< HEAD
 			try {
 				$customer = new WC_Customer( $user->ID );
 
+=======
+			$customer = new WC_Customer( $user->ID );
+
+			if ( $customer ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				// Keep billing data in sync if data changed.
 				if ( isset( $user->user_email ) && is_email( $user->user_email ) && $current_email !== $user->user_email ) {
 					$customer->set_billing_email( $user->user_email );
@@ -359,6 +376,7 @@ class WC_Form_Handler {
 				}
 
 				$customer->save();
+<<<<<<< HEAD
 			} catch ( WC_Data_Exception $e ) {
 				// These error messages are already translated.
 				wc_add_notice( $e->getMessage(), 'error' );
@@ -371,6 +389,8 @@ class WC_Form_Handler {
 					),
 					'error'
 				);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			/**

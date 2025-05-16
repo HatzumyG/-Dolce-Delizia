@@ -7,11 +7,14 @@
  * @since 3.0.0
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /** Walker_Nav_Menu class */
 require_once ABSPATH . WPINC . '/class-walker-nav-menu.php';
 

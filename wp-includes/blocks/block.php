@@ -87,9 +87,12 @@ function render_block_core_block( $attributes ) {
 		add_filter( 'render_block_context', $filter_block_context, 1 );
 	}
 
+<<<<<<< HEAD
 	// Apply Block Hooks.
 	$content = apply_block_hooks_to_content_from_post_object( $content, $reusable_block );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	$content = do_blocks( $content );
 	unset( $seen_refs[ $attributes['ref'] ] );
 

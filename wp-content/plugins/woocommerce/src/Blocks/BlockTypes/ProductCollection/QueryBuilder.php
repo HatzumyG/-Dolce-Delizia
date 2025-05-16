@@ -9,7 +9,10 @@ use Automattic\WooCommerce\Blocks\BlockTypes\RatingFilter;
 use Automattic\WooCommerce\Blocks\BlockTypes\StockFilter;
 use WP_Query;
 use WC_Tax;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * QueryBuilder class.
@@ -143,14 +146,21 @@ class QueryBuilder {
 		$product_ids = $query['post__in'] ?? array();
 		$offset      = $query['offset'] ?? 0;
 		$per_page    = $query['perPage'] ?? 9;
+<<<<<<< HEAD
 		$order       = $query['order'] ?? 'asc';
 		$search      = $query['search'] ?? '';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$common_query_values = array(
 			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 			'meta_query'     => array(),
 			'posts_per_page' => $per_page,
+<<<<<<< HEAD
 			'order'          => $order,
+=======
+			'order'          => $query['order'] ?? 'asc',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'offset'         => ( $per_page * ( $page - 1 ) ) + $offset,
 			'post__in'       => $product_ids,
 			'post_status'    => 'publish',
@@ -158,18 +168,28 @@ class QueryBuilder {
 			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 			'tax_query'      => array(),
 			'paged'          => $page,
+<<<<<<< HEAD
 			's'              => $search,
 		);
 
 		$is_on_sale          = $query['woocommerceOnSale'] ?? false;
 		$order_by            = $query['orderBy'] ?? '';
 		$stock_status        = $query['woocommerceStockStatus'] ?? array_keys( wc_get_product_stock_status_options() );
+=======
+			's'              => $query['search'],
+		);
+
+		$is_on_sale          = $query['woocommerceOnSale'] ?? false;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$product_attributes  = $query['woocommerceAttributes'] ?? array();
 		$taxonomies_query    = $this->get_filter_by_taxonomies_query( $query['tax_query'] ?? array() );
 		$handpicked_products = $query['woocommerceHandPickedProducts'] ?? array();
 		$time_frame          = $query['timeFrame'] ?? null;
 		$price_range         = $query['priceRange'] ?? null;
+<<<<<<< HEAD
 		$featured            = $query['featured'] ?? false;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Allow collections to modify the collection arguments passed to the query builder.
 		$handlers = $this->collection_handler_store[ $collection_args['name'] ] ?? null;
@@ -182,12 +202,21 @@ class QueryBuilder {
 			$common_query_values,
 			array(
 				'on_sale'             => $is_on_sale,
+<<<<<<< HEAD
 				'stock_status'        => $stock_status,
 				'orderby'             => $order_by,
 				'product_attributes'  => $product_attributes,
 				'taxonomies_query'    => $taxonomies_query,
 				'handpicked_products' => $handpicked_products,
 				'featured'            => $featured,
+=======
+				'stock_status'        => $query['woocommerceStockStatus'],
+				'orderby'             => $query['orderBy'],
+				'product_attributes'  => $product_attributes,
+				'taxonomies_query'    => $taxonomies_query,
+				'handpicked_products' => $handpicked_products,
+				'featured'            => $query['featured'] ?? false,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'timeFrame'           => $time_frame,
 				'priceRange'          => $price_range,
 			),
@@ -312,9 +341,14 @@ class QueryBuilder {
 		if ( isset( $handlers['preview_query'] ) ) {
 			$collection_query = call_user_func( $handlers['preview_query'], $collection_args, $args, $request );
 		}
+<<<<<<< HEAD
 		$orderby_query = $args['orderby'] ? $this->get_custom_orderby_query( $args['orderby'] ) : array();
 
 		$args = $this->merge_queries( $args, $orderby_query, $collection_query );
+=======
+
+		$args = $this->merge_queries( $args, $collection_query );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $args;
 	}
 
@@ -349,7 +383,11 @@ class QueryBuilder {
 		 * @see get_product_visibility_query()
 		 */
 		$diff = array_diff( $stock_status_options, $stock_statuses );
+<<<<<<< HEAD
 		if ( count( $diff ) === 1 && in_array( ProductStockStatus::OUT_OF_STOCK, $diff, true ) ) {
+=======
+		if ( count( $diff ) === 1 && in_array( 'outofstock', $diff, true ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return array();
 		}
 
@@ -743,8 +781,13 @@ class QueryBuilder {
 		$product_visibility_not_in = array( is_search() ? $product_visibility_terms['exclude-from-search'] : $product_visibility_terms['exclude-from-catalog'] );
 
 		// Hide out of stock products.
+<<<<<<< HEAD
 		if ( empty( $stock_query ) && ! in_array( ProductStockStatus::OUT_OF_STOCK, $stock_status, true ) ) {
 			$product_visibility_not_in[] = $product_visibility_terms[ ProductStockStatus::OUT_OF_STOCK ];
+=======
+		if ( empty( $stock_query ) && ! in_array( 'outofstock', $stock_status, true ) ) {
+			$product_visibility_not_in[] = $product_visibility_terms['outofstock'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return array(

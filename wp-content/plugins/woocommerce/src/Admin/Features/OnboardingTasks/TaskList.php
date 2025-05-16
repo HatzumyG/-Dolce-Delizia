@@ -168,6 +168,7 @@ class TaskList {
 	 * @return bool
 	 */
 	public function is_visible() {
+<<<<<<< HEAD
 		// If the task list is explicitly set to not be visible, return false.
 		if ( ! $this->visible ) {
 			return false;
@@ -185,6 +186,12 @@ class TaskList {
 		}
 
 		return true;
+=======
+		if ( ! $this->visible || $this->is_hidden() || ! count( $this->get_viewable_tasks() ) > 0 ) {
+			return false;
+		}
+		return ! $this->is_hidden();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -200,7 +207,11 @@ class TaskList {
 		$viewable_tasks  = $this->get_viewable_tasks();
 		$completed_count = array_reduce(
 			$viewable_tasks,
+<<<<<<< HEAD
 			function ( $total, $task ) {
+=======
+			function( $total, $task ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				return $task->is_complete() ? $total + 1 : $total;
 			},
 			0
@@ -298,7 +309,11 @@ class TaskList {
 		return current(
 			array_filter(
 				$this->tasks,
+<<<<<<< HEAD
 				function ( $task ) use ( $task_id ) {
+=======
+				function( $task ) use ( $task_id ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					return $task->get_id() === $task_id;
 				}
 			)
@@ -314,7 +329,11 @@ class TaskList {
 		return array_values(
 			array_filter(
 				$this->tasks,
+<<<<<<< HEAD
 				function ( $task ) {
+=======
+				function( $task ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					return $task->can_view();
 				}
 			)
@@ -354,7 +373,11 @@ class TaskList {
 
 		$completed_lists   = get_option( self::COMPLETED_OPTION, array() );
 		$completed_lists[] = $this->get_list_id();
+<<<<<<< HEAD
 		update_option( self::COMPLETED_OPTION, $completed_lists, true );
+=======
+		update_option( self::COMPLETED_OPTION, $completed_lists );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->maybe_set_default_layout( $completed_lists );
 		$this->record_tracks_event(
 			'tasks_completed',
@@ -375,7 +398,11 @@ class TaskList {
 		if ( 0 !== count( $sort_by ) ) {
 			usort(
 				$this->tasks,
+<<<<<<< HEAD
 				function ( $a, $b ) use ( $sort_by ) {
+=======
+				function( $a, $b ) use ( $sort_by ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					return Task::sort( $a, $b, $sort_by );
 				}
 			);
@@ -428,11 +455,18 @@ class TaskList {
 		$this->possibly_track_completion();
 		$tasks_json = array();
 
+<<<<<<< HEAD
 		foreach ( $this->tasks as $task ) {
 			// We have no use for hidden lists, it's expensive to compute individual tasks completion.
 			// Exception: Secret tasklist is always hidden, or a task is always accessible.
 			$list_is_visible = $this->is_visible() || 'secret_tasklist' === $this->id;
 			if ( $list_is_visible || ( method_exists( $task, 'is_always_accessible' ) && $task->is_always_accessible() ) ) {
+=======
+		// We have no use for hidden lists, it's expensive to compute individual tasks completion.
+		// Exception: Secret tasklist is always hidden.
+		if ( $this->is_visible() || 'secret_tasklist' === $this->id ) {
+			foreach ( $this->tasks as $task ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$json = $task->get_json();
 				if ( $json['canView'] ) {
 					$tasks_json[] = $json;

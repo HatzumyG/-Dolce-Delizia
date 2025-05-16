@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Auto registration for LiteSpeed classes
  *
@@ -10,6 +13,7 @@ defined('WPINC') || exit();
 // Force define for object cache usage before plugin init
 !defined('LSCWP_DIR') && define('LSCWP_DIR', __DIR__ . '/'); // Full absolute path '/var/www/html/***/wp-content/plugins/litespeed-cache/' or MU
 
+<<<<<<< HEAD
 // Load all classes instead of autoload for direct conf update purpose when upgrade to new version.
 // NOTE: These files need to load exactly in order
 $litespeed_php_files = array(
@@ -99,6 +103,8 @@ foreach ($litespeed_php_files as $class) {
 	require_once $file;
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if (!function_exists('litespeed_autoload')) {
 	function litespeed_autoload($cls)
 	{
@@ -115,6 +121,7 @@ if (!function_exists('litespeed_autoload')) {
 		$file = implode('/', $file);
 		$file = str_replace('_', '-', strtolower($file));
 
+<<<<<<< HEAD
 		// if (strpos($file, 'lib/') === 0 || strpos($file, 'cli/') === 0 || strpos($file, 'thirdparty/') === 0) {
 		// 	$file = LSCWP_DIR . $file . '.cls.php';
 		// } else {
@@ -127,6 +134,14 @@ if (!function_exists('litespeed_autoload')) {
 
 		$file = LSCWP_DIR . $file . '.cls.php';
 
+=======
+		if (strpos($file, 'lib/') === 0 || strpos($file, 'cli/') === 0 || strpos($file, 'thirdparty/') === 0) {
+			$file = LSCWP_DIR . $file . '.cls.php';
+		} else {
+			$file = LSCWP_DIR . 'src/' . $file . '.cls.php';
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if (file_exists($file)) {
 			require_once $file;
 		}

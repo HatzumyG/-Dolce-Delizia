@@ -27,6 +27,7 @@ class CartCheckoutUtils {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns true if shipping methods exist in the store. Excludes local pickup and only counts enabled shipping methods.
 	 *
 	 * @return bool true if shipping methods exist.
@@ -47,6 +48,8 @@ class CartCheckoutUtils {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Returns true if:
 	 * - The checkout page is being viewed.
 	 * - The page contains a checkout block, checkout shortcode or classic shortcode block with the checkout attribute.
@@ -288,6 +291,7 @@ class CartCheckoutUtils {
 	public static function get_country_data() {
 		$billing_countries  = WC()->countries->get_allowed_countries();
 		$shipping_countries = WC()->countries->get_shipping_countries();
+<<<<<<< HEAD
 		$country_states     = wc()->countries->get_states();
 		$all_countries      = self::deep_sort_with_accents( array_unique( array_merge( $billing_countries, $shipping_countries ) ) );
 		$country_locales    = array_map(
@@ -305,6 +309,11 @@ class CartCheckoutUtils {
 			},
 			WC()->countries->get_country_locale()
 		);
+=======
+		$country_locales    = wc()->countries->get_country_locale();
+		$country_states     = wc()->countries->get_states();
+		$all_countries      = self::deep_sort_with_accents( array_unique( array_merge( $billing_countries, $shipping_countries ) ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$country_data = [];
 

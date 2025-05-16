@@ -2,7 +2,11 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "core/pattern",
+<<<<<<< HEAD
 	"title": "Pattern Placeholder",
+=======
+	"title": "Pattern placeholder",
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"category": "theme",
 	"description": "Show a block pattern.",
 	"supports": {

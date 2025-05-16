@@ -10,9 +10,14 @@
  * @since    3.0.0
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\OrderStatus;
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 use Automattic\WooCommerce\Utilities\{ ArrayUtil, NumberUtil, StringUtil };
+=======
+use Automattic\WooCommerce\Utilities\{ ArrayUtil, NumberUtil, StringUtil };
+use Automattic\WooCommerce\Enums\OrderStatus;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -290,7 +295,11 @@ class WC_REST_Orders_V1_Controller extends WC_REST_Posts_Controller {
 				'id'         => $fee_item_id,
 				'name'       => $fee_item['name'],
 				'tax_class'  => ! empty( $fee_item['tax_class'] ) ? $fee_item['tax_class'] : '',
+<<<<<<< HEAD
 				'tax_status' => ProductTaxStatus::TAXABLE,
+=======
+				'tax_status' => 'taxable',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'total'      => wc_format_decimal( $order->get_line_total( $fee_item ), $dp ),
 				'total_tax'  => wc_format_decimal( $order->get_line_tax( $fee_item ), $dp ),
 				'taxes'      => array(),
@@ -1534,7 +1543,11 @@ class WC_REST_Orders_V1_Controller extends WC_REST_Posts_Controller {
 								'description' => __( 'Tax status of fee.', 'woocommerce' ),
 								'type'        => 'string',
 								'context'     => array( 'view', 'edit' ),
+<<<<<<< HEAD
 								'enum'        => array( ProductTaxStatus::TAXABLE, ProductTaxStatus::NONE ),
+=======
+								'enum'        => array( 'taxable', 'none' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							),
 							'total' => array(
 								'description' => __( 'Line total (after discounts).', 'woocommerce' ),

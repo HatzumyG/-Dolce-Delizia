@@ -202,7 +202,11 @@ class WP_User_Query {
 	 *                                                - 'login__in'
 	 *                                                - 'user_nicename' (or 'nicename')
 	 *                                                - 'nicename__in'
+<<<<<<< HEAD
 	 *                                                - 'user_email' (or 'email')
+=======
+	 *                                                - 'user_email (or 'email')
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *                                                - 'user_url' (or 'url')
 	 *                                                - 'user_registered' (or 'registered')
 	 *                                                - 'post_count'

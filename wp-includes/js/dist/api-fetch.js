@@ -29,9 +29,15 @@ __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ build_module)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/nonce.js
+=======
+;// CONCATENATED MODULE: external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/nonce.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @param {string} nonce
  * @return {import('../types').APIFetchMiddleware & { nonce: string }} A middleware to enhance a request with a nonce.
@@ -65,7 +71,11 @@ function createNonceMiddleware(nonce) {
 }
 /* harmony default export */ const nonce = (createNonceMiddleware);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/namespace-endpoint.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/namespace-endpoint.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @type {import('../types').APIFetchMiddleware}
  */
@@ -90,7 +100,11 @@ const namespaceAndEndpointMiddleware = (options, next) => {
 };
 /* harmony default export */ const namespace_endpoint = (namespaceAndEndpointMiddleware);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/root-url.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/root-url.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -127,9 +141,15 @@ const createRootURLMiddleware = rootURL => (options, next) => {
 };
 /* harmony default export */ const root_url = (createRootURLMiddleware);
 
+<<<<<<< HEAD
 ;// external ["wp","url"]
 const external_wp_url_namespaceObject = window["wp"]["url"];
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/preloading.js
+=======
+;// CONCATENATED MODULE: external ["wp","url"]
+const external_wp_url_namespaceObject = window["wp"]["url"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/preloading.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -186,6 +206,7 @@ function createPreloadingMiddleware(preloadedData) {
  * @return {Promise<any>} Promise with the response.
  */
 function prepareResponse(responseData, parse) {
+<<<<<<< HEAD
   if (parse) {
     return Promise.resolve(responseData.body);
   }
@@ -212,6 +233,17 @@ function prepareResponse(responseData, parse) {
 /* harmony default export */ const preloading = (createPreloadingMiddleware);
 
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/fetch-all-middleware.js
+=======
+  return Promise.resolve(parse ? responseData.body : new window.Response(JSON.stringify(responseData.body), {
+    status: 200,
+    statusText: 'OK',
+    headers: responseData.headers
+  }));
+}
+/* harmony default export */ const preloading = (createPreloadingMiddleware);
+
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/fetch-all-middleware.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -337,7 +369,11 @@ const fetchAllMiddleware = async (options, next) => {
 };
 /* harmony default export */ const fetch_all_middleware = (fetchAllMiddleware);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/http-v1.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/http-v1.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Set of HTTP methods which are eligible to be overridden.
  *
@@ -382,7 +418,11 @@ const httpV1Middleware = (options, next) => {
 };
 /* harmony default export */ const http_v1 = (httpV1Middleware);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/user-locale.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/user-locale.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -406,7 +446,11 @@ const userLocaleMiddleware = (options, next) => {
 };
 /* harmony default export */ const user_locale = (userLocaleMiddleware);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/utils/response.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/utils/response.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -482,7 +526,11 @@ function parseAndThrowError(response, shouldParseResponse = true) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/media-upload.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/media-upload.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -564,7 +612,11 @@ const mediaUploadMiddleware = (options, next) => {
 };
 /* harmony default export */ const media_upload = (mediaUploadMiddleware);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/theme-preview.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/theme-preview.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -605,7 +657,11 @@ const createThemePreviewMiddleware = themePath => (options, next) => {
 };
 /* harmony default export */ const theme_preview = (createThemePreviewMiddleware);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/api-fetch/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -756,7 +812,11 @@ function apiFetch(options) {
   // ```
   // opts1 => m1( opts1, opts2 => m2( opts2, opts3 => m3( opts3, fetchHandler ) ) );
   // ```
+<<<<<<< HEAD
   const enhancedHandler = middlewares.reduceRight((/** @type {FetchHandler} */next, middleware) => {
+=======
+  const enhancedHandler = middlewares.reduceRight(( /** @type {FetchHandler} */next, middleware) => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     return workingOptions => middleware(workingOptions, next);
   }, fetchHandler);
   return enhancedHandler(options).catch(error => {

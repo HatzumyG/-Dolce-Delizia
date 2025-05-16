@@ -28,10 +28,17 @@ class Props_Resolver {
 	 */
 	private static array $instances = [];
 
+<<<<<<< HEAD
 	private Transformers_Registry $transformers_registry;
 
 	private function __construct( Transformers_Registry $transformers_registry ) {
 		$this->transformers_registry = $transformers_registry;
+=======
+	private Transformers_Registry $transformers;
+
+	private function __construct( Transformers_Registry $transformers ) {
+		$this->transformers = $transformers;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	public static function for_styles(): self {
@@ -44,6 +51,7 @@ class Props_Resolver {
 
 	private static function instance( string $context ): self {
 		if ( ! isset( self::$instances[ $context ] ) ) {
+<<<<<<< HEAD
 			$instance = new self( new Transformers_Registry() );
 
 			self::$instances[ $context ] = $instance;
@@ -53,6 +61,13 @@ class Props_Resolver {
 				$instance->get_transformers_registry(),
 				$instance
 			);
+=======
+			$registry = new Transformers_Registry();
+
+			do_action( "elementor/atomic-widgets/$context/transformers/register", $registry );
+
+			self::$instances[ $context ] = new self( $registry );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return self::$instances[ $context ];
@@ -62,10 +77,13 @@ class Props_Resolver {
 		self::$instances = [];
 	}
 
+<<<<<<< HEAD
 	public function get_transformers_registry(): Transformers_Registry {
 		return $this->transformers_registry;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function resolve( array $schema, array $props ): array {
 		$resolved = [];
 
@@ -81,11 +99,15 @@ class Props_Resolver {
 	}
 
 	private function transform( $value, $key, Prop_Type $prop_type, int $depth = 0 ) {
+<<<<<<< HEAD
 		if ( null === $value ) {
 			return null;
 		}
 
 		if ( ! $this->is_transformable( $value ) ) {
+=======
+		if ( ! $value || ! $this->is_transformable( $value ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $value;
 		}
 
@@ -127,7 +149,11 @@ class Props_Resolver {
 			);
 		}
 
+<<<<<<< HEAD
 		$transformer = $this->transformers_registry->get( $value['$$type'] );
+=======
+		$transformer = $this->transformers->get( $value['$$type'] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( ! ( $transformer instanceof Transformer_Base ) ) {
 			return null;

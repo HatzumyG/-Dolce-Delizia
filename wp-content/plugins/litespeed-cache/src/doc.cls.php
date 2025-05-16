@@ -174,7 +174,11 @@ class Doc
 	{
 		$str =
 			'<div class="litespeed-desc">' .
+<<<<<<< HEAD
 			__('The queue is processed asynchronously. It may take time.', 'litespeed-cache') .
+=======
+			esc_html__('The queue is processed asynchronously. It may take time.', 'litespeed-cache') .
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			self::learn_more('https://docs.litespeedtech.com/lscache/lscwp/troubleshoot/#quiccloud-queue-issues', false, false, false, true) .
 			'</div>';
 		if ($return) {

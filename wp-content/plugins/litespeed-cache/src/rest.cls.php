@@ -55,16 +55,32 @@ class REST extends Root
 		));
 
 		// IP callback validate
+<<<<<<< HEAD
 		register_rest_route('litespeed/v3', '/ip_validate', array(
+=======
+		register_rest_route('litespeed/v1', '/ip_validate', array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'methods' => 'POST',
 			'callback' => array($this, 'ip_validate'),
 			'permission_callback' => array($this, 'is_from_cloud'),
 		));
 
+<<<<<<< HEAD
 		## 1.2. WP REST Dryrun Callback
 		register_rest_route('litespeed/v3', '/wp_rest_echo', array(
 			'methods' => 'POST',
 			'callback' => array($this, 'wp_rest_echo'),
+=======
+		// Token callback validate
+		register_rest_route('litespeed/v1', '/token', array(
+			'methods' => 'POST',
+			'callback' => array($this, 'token'),
+			'permission_callback' => array($this, 'is_from_cloud'),
+		));
+		register_rest_route('litespeed/v1', '/token', array(
+			'methods' => 'GET',
+			'callback' => array($this, 'token_get'),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'permission_callback' => array($this, 'is_from_cloud'),
 		));
 		register_rest_route('litespeed/v3', '/ping', array(
@@ -73,8 +89,20 @@ class REST extends Root
 			'permission_callback' => array($this, 'is_from_cloud'),
 		));
 
+<<<<<<< HEAD
 		// CDN setup callback notification
 		register_rest_route('litespeed/v3', '/cdn_status', array(
+=======
+		// API key callback notification
+		register_rest_route('litespeed/v1', '/apikey', array(
+			'methods' => 'POST',
+			'callback' => array($this, 'apikey'),
+			'permission_callback' => array($this, 'is_from_cloud'),
+		));
+
+		// CDN setup callback notification
+		register_rest_route('litespeed/v1', '/cdn_status', array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'methods' => 'POST',
 			'callback' => array($this, 'cdn_status'),
 			'permission_callback' => array($this, 'is_from_cloud'),
@@ -88,12 +116,15 @@ class REST extends Root
 			'permission_callback' => array($this, 'is_from_cloud'),
 		));
 
+<<<<<<< HEAD
 		register_rest_route('litespeed/v1', '/notify_ccss', array(
 			'methods' => 'POST',
 			'callback' => array($this, 'notify_ccss'),
 			'permission_callback' => array($this, 'is_from_cloud'),
 		));
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		register_rest_route('litespeed/v1', '/notify_ucss', array(
 			'methods' => 'POST',
 			'callback' => array($this, 'notify_ucss'),
@@ -106,7 +137,11 @@ class REST extends Root
 			'permission_callback' => array($this, 'is_from_cloud'),
 		));
 
+<<<<<<< HEAD
 		register_rest_route('litespeed/v3', '/err_domains', array(
+=======
+		register_rest_route('litespeed/v1', '/err_domains', array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'methods' => 'POST',
 			'callback' => array($this, 'err_domains'),
 			'permission_callback' => array($this, 'is_from_cloud'),
@@ -146,6 +181,19 @@ class REST extends Root
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Token get for
+	 *
+	 * @since  3.0.4
+	 */
+	public function token_get()
+	{
+		return Cloud::ok();
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Ping pong
 	 *
 	 * @since  3.0.4
@@ -180,6 +228,7 @@ class REST extends Root
 	 *
 	 * @since  3.0
 	 */
+<<<<<<< HEAD
 	public function wp_rest_echo()
 	{
 		return $this->cls('Cloud')->wp_rest_echo();
@@ -193,6 +242,31 @@ class REST extends Root
 	public function cdn_status()
 	{
 		return $this->cls('Cloud')->update_cdn_status();
+=======
+	public function token()
+	{
+		return $this->cls('Cloud')->token_validate();
+	}
+
+	/**
+	 * Launch api call
+	 *
+	 * @since  3.0
+	 */
+	public function apikey()
+	{
+		return $this->cls('Cloud')->save_apikey();
+	}
+
+	/**
+	 * Endpoint for QC to notify plugin of CDN setup status update.
+	 *
+	 * @since  3.0
+	 */
+	public function cdn_status()
+	{
+		return $this->cls('Cdn_Setup')->update_cdn_status();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -206,6 +280,7 @@ class REST extends Root
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @since  7.1
 	 */
 	public function notify_ccss()
@@ -215,6 +290,8 @@ class REST extends Root
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since  5.2
 	 */
 	public function notify_ucss()
@@ -248,6 +325,15 @@ class REST extends Root
 	 */
 	public function check_img()
 	{
+<<<<<<< HEAD
+=======
+		try {
+			$this->cls('Cloud')->validate_hash(4);
+		} catch (\Exception $e) {
+			return self::err($e->getMessage());
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return Img_Optm::cls()->check_img();
 	}
 

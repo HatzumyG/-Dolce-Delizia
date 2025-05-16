@@ -56,10 +56,14 @@
 		"wp-block-post-comments-form",
 		"wp-block-buttons",
 		"wp-block-button"
+<<<<<<< HEAD
 	],
 	"example": {
 		"attributes": {
 			"textAlign": "center"
 		}
 	}
+=======
+	]
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

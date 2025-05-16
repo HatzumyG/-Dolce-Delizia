@@ -2,10 +2,17 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "core/query-no-results",
+<<<<<<< HEAD
 	"title": "No Results",
 	"category": "theme",
 	"description": "Contains the block elements used to render content when no query results are found.",
 	"ancestor": [ "core/query" ],
+=======
+	"title": "No results",
+	"category": "theme",
+	"description": "Contains the block elements used to render content when no query results are found.",
+	"parent": [ "core/query" ],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	"textdomain": "default",
 	"usesContext": [ "queryId", "query" ],
 	"supports": {

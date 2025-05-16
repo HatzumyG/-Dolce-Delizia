@@ -13,7 +13,11 @@ abstract class Revert_Runner_Base implements Runner_Interface {
 	 *
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	abstract public function should_revert( array $data ): bool;
+=======
+	abstract public function should_revert( array $data ) : bool;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Main function of the runner revert process.

@@ -12,11 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Steps extends Endpoint_Base {
 
+<<<<<<< HEAD
 	public function get_name(): string {
 		return 'steps';
 	}
 
 	public function get_format(): string {
+=======
+	public function get_name() : string {
+		return 'steps';
+	}
+
+	public function get_format() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 'checklist';
 	}
 

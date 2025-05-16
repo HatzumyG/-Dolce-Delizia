@@ -15,6 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @deprecated 3.0.0 Use `Plugin::$instance->kits_manager->get_active_kit_for_frontend()` instead.
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 class Manager extends CSS_Manager {
 
 	/**
@@ -88,6 +92,10 @@ class Manager extends CSS_Manager {
 	 * @since 1.6.0
 	 * @deprecated 3.0.0
 	 * @access protected
+<<<<<<< HEAD
+=======
+	 * @return string
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string CSS file name.
 	 */

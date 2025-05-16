@@ -4,7 +4,11 @@ namespace Elementor\App\Modules\ImportExport;
 
 use Elementor\Core\Utils\Str;
 use Elementor\Modules\LandingPages\Module as Landing_Pages_Module;
+<<<<<<< HEAD
 use Elementor\Modules\FloatingButtons\Module as Floating_Buttons_Module;
+=======
+use \Elementor\Modules\FloatingButtons\Module as Floating_Buttons_Module;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\TemplateLibrary\Source_Local;
 use Elementor\Utils as ElementorUtils;
 

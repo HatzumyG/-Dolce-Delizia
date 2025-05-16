@@ -1,8 +1,13 @@
 <?php return array(
     'root' => array(
         'name' => 'woocommerce/woocommerce',
+<<<<<<< HEAD
         'pretty_version' => '9.8.5',
         'version' => '9.8.5.0',
+=======
+        'pretty_version' => '9.7.1',
+        'version' => '9.7.1.0',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         'reference' => null,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -119,9 +124,15 @@
             'dev_requirement' => false,
         ),
         'opis/json-schema' => array(
+<<<<<<< HEAD
             'pretty_version' => '2.4.1',
             'version' => '2.4.1.0',
             'reference' => '712827751c62b465daae6e725bf0cf5ffbf965e1',
+=======
+            'pretty_version' => '2.3.0',
+            'version' => '2.3.0.0',
+            'reference' => 'c48df6d7089a45f01e1c82432348f2d5976f9bfb',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             'type' => 'library',
             'install_path' => __DIR__ . '/../opis/json-schema',
             'aliases' => array(),
@@ -175,6 +186,7 @@
                 0 => '*',
             ),
         ),
+<<<<<<< HEAD
         'soundasleep/html2text' => array(
             'pretty_version' => '2.1.0',
             'version' => '2.1.0.0',
@@ -184,6 +196,8 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         'symfony/css-selector' => array(
             'pretty_version' => 'v5.4.40',
             'version' => '5.4.40.0',
@@ -203,9 +217,15 @@
             'dev_requirement' => false,
         ),
         'woocommerce/action-scheduler' => array(
+<<<<<<< HEAD
             'pretty_version' => '3.9.2',
             'version' => '3.9.2.0',
             'reference' => 'efbb7953f72a433086335b249292f280dd43ddfe',
+=======
+            'pretty_version' => '3.9.0',
+            'version' => '3.9.0.0',
+            'reference' => '90b98e6fe97d455679b1d288f050cad8f6f79771',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../packages/action-scheduler',
             'aliases' => array(),
@@ -220,6 +240,7 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+<<<<<<< HEAD
         'woocommerce/email-editor' => array(
             'pretty_version' => 'dev-add-a-basic-integration-of-the-block-email-editor-to-the-woo-core',
             'version' => 'dev-add-a-basic-integration-of-the-block-email-editor-to-the-woo-core',
@@ -232,6 +253,11 @@
         'woocommerce/woocommerce' => array(
             'pretty_version' => '9.8.5',
             'version' => '9.8.5.0',
+=======
+        'woocommerce/woocommerce' => array(
+            'pretty_version' => '9.7.1',
+            'version' => '9.7.1.0',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             'reference' => null,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',

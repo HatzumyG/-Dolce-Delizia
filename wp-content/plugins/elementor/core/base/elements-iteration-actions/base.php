@@ -4,14 +4,21 @@ namespace Elementor\Core\Base\Elements_Iteration_Actions;
 use Elementor\Element_Base;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class Base {
 	/**
 	 * The current document that the Base class instance was created from.
+<<<<<<< HEAD
 	 *
 	 * @var \Elementor\Core\Document
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected $document;
 

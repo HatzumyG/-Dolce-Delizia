@@ -550,8 +550,13 @@ class WC_REST_System_Status_Tools_V2_Controller extends WC_REST_Controller {
 				break;
 
 			case 'delete_taxes':
+<<<<<<< HEAD
 				$wpdb->query( "DELETE FROM {$wpdb->prefix}woocommerce_tax_rates;" );
 				$wpdb->query( "DELETE FROM {$wpdb->prefix}woocommerce_tax_rate_locations;" );
+=======
+				$wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}woocommerce_tax_rates;" );
+				$wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}woocommerce_tax_rate_locations;" );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				if ( method_exists( 'WC_Cache_Helper', 'invalidate_cache_group' ) ) {
 					WC_Cache_Helper::invalidate_cache_group( 'taxes' );

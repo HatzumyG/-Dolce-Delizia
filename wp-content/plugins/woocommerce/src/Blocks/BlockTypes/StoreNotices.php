@@ -59,12 +59,30 @@ class StoreNotices extends AbstractBlock {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Disable frontend script for this block type, it's a script module.
 	 *
 	 * @param string $key Data to get, or default to everything.
 	 * @return array|string|null
+=======
+	 * Get the frontend script handle for this block type.
+	 *
+	 * @param string $key Data to get, or default to everything.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+<<<<<<< HEAD
+=======
+
+	/**
+	 * Get the frontend style handle for this block type.
+	 *
+	 * @return null
+	 */
+	protected function get_block_type_style() {
+		return null;
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -274,12 +274,15 @@ class WC_Install {
 		'9.6.1' => array(
 			'wc_update_961_migrate_default_email_base_color',
 		),
+<<<<<<< HEAD
 		'9.8.0' => array(
 			'wc_update_980_remove_order_attribution_install_banner_dismissed_option',
 		),
 		'9.8.5' => array(
 			'wc_update_985_enable_new_payments_settings_page_feature',
 		),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	);
 
 	/**
@@ -311,7 +314,10 @@ class WC_Install {
 		add_action( 'init', array( __CLASS__, 'manual_database_update' ), 20 );
 		add_action( 'woocommerce_newly_installed', array( __CLASS__, 'maybe_enable_hpos' ), 20 );
 		add_action( 'woocommerce_newly_installed', array( __CLASS__, 'add_coming_soon_option' ), 20 );
+<<<<<<< HEAD
 		add_action( 'woocommerce_newly_installed', array( __CLASS__, 'enable_email_improvements' ), 20 );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_action( 'admin_init', array( __CLASS__, 'wc_admin_db_update_notice' ) );
 		add_action( 'admin_init', array( __CLASS__, 'add_admin_note_after_page_created' ) );
 		add_action( 'woocommerce_run_update_callback', array( __CLASS__, 'run_update_callback' ) );
@@ -1021,6 +1027,7 @@ class WC_Install {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Enable email improvements by default for new shops.
 	 *
 	 * @since 9.8.0
@@ -1035,6 +1042,8 @@ class WC_Install {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Checks whether HPOS should be enabled for new shops.
 	 *
 	 * @return bool
@@ -1103,7 +1112,10 @@ class WC_Install {
 			'wc-admin-set-up-additional-payment-types',
 			'wc-admin-deactivate-plugin',
 			'wc-admin-complete-store-details',
+<<<<<<< HEAD
 			'wc-admin-choosing-a-theme',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		/**
@@ -2613,7 +2625,11 @@ $hpos_table_schema;
 <p>If you are approved, then your refund will be processed, and a credit will automatically be applied to your credit card or original method of payment, within a certain amount of days.</p>
 <!-- /wp:paragraph -->
 
+<<<<<<< HEAD
 <!-- wp:heading {"level":3} -->
+=======
+<!-- wp:heading -->
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <h3 class="wp-block-heading">Late or missing refunds</h3>
 <!-- /wp:heading -->
 
@@ -2633,7 +2649,11 @@ $hpos_table_schema;
 <p>If you’ve done all of this and you still have not received your refund yet, please contact us at {email address}.</p>
 <!-- /wp:paragraph -->
 
+<<<<<<< HEAD
 <!-- wp:heading {"level":3} -->
+=======
+<!-- wp:heading -->
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <h3 class="wp-block-heading">Sale items</h3>
 <!-- /wp:heading -->
 

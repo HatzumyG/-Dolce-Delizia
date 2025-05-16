@@ -98,6 +98,7 @@
   padding:calc(.667em + 2px);
 }
 
+<<<<<<< HEAD
 :where(.wp-block-post-comments input[type=submit],.wp-block-comments__legacy-placeholder input[type=submit]){
   border:none;
 }
@@ -106,6 +107,12 @@
   box-sizing:border-box;
 }
 
+=======
+:where(.wp-block-post-comments input[type=submit]){
+  border:none;
+}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .block-library-comments-toolbar__popover .components-popover__content{
   min-width:230px;
 }

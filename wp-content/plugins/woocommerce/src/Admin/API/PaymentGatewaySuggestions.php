@@ -45,7 +45,11 @@ class PaymentGatewaySuggestions extends \WC_REST_Data_Controller {
 				array(
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => array( $this, 'get_suggestions' ),
+<<<<<<< HEAD
 					'permission_callback' => array( $this, 'user_can_manage_woocommerce' ),
+=======
+					'permission_callback' => array( $this, 'get_permission_check' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'args'                => array(
 						'force_default_suggestions' => array(
 							'type'        => 'boolean',
@@ -86,6 +90,7 @@ class PaymentGatewaySuggestions extends \WC_REST_Data_Controller {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Check if a given request has access to manage woocommerce.
 	 *
 	 * @return \WP_Error|boolean
@@ -99,6 +104,8 @@ class PaymentGatewaySuggestions extends \WC_REST_Data_Controller {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Return suggested payment gateways.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.

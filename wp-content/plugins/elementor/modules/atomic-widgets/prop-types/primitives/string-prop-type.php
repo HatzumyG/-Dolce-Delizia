@@ -10,6 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class String_Prop_Type extends Plain_Prop_Type {
+<<<<<<< HEAD
+=======
+	use Supports_Shorthanded_Value;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public static function get_key(): string {
 		return 'string';
 	}

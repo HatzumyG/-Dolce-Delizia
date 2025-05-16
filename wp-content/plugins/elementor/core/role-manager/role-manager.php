@@ -242,6 +242,10 @@ class Role_Manager extends Settings_Page {
 		];
 
 		return Filtered_Promotions_Manager::get_filtered_promotion_data( $promotion, 'elementor/role/custom_promotion', 'upgrade_url' );
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

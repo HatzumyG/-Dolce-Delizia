@@ -12,7 +12,11 @@
  *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 8.1.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -22,7 +26,11 @@ if ( ! wp_doing_ajax() ) {
 }
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
+<<<<<<< HEAD
 	<?php if ( WC()->cart && WC()->cart->needs_payment() ) : ?>
+=======
+	<?php if ( WC()->cart->needs_payment() ) : ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<ul class="wc_payment_methods payment_methods methods">
 			<?php
 			if ( ! empty( $available_gateways ) ) {

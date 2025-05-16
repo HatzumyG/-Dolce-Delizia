@@ -289,7 +289,11 @@ if ( isset( $_REQUEST['updated'] ) && 'true' === $_REQUEST['updated'] && ! empty
 	<?php
 	if ( current_user_can( 'create_users' ) ) :
 		?>
+<<<<<<< HEAD
 		<a href="<?php echo esc_url( network_admin_url( 'user-new.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add User' ); ?></a>
+=======
+		<a href="<?php echo esc_url( network_admin_url( 'user-new.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add New User' ); ?></a>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<?php
 	endif;
 

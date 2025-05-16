@@ -12,7 +12,10 @@
 
 use Automattic\WooCommerce\Caches\OrderCache;
 use Automattic\WooCommerce\Enums\OrderStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CogsAwareTrait;
 use Automattic\WooCommerce\Internal\Orders\PaymentInfo;
@@ -651,21 +654,30 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 	 */
 	public function set_status( $new_status ) {
 		$old_status = $this->get_status();
+<<<<<<< HEAD
 		$new_status = OrderUtil::remove_status_prefix( (string) $new_status );
+=======
+		$new_status = OrderUtil::remove_status_prefix( $new_status );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$status_exceptions = array( OrderStatus::AUTO_DRAFT, OrderStatus::TRASH );
 
 		// If setting the status, ensure it's set to a valid status.
 		if ( true === $this->object_read ) {
 			// Only allow valid new status.
+<<<<<<< HEAD
 			if (
 				! in_array( 'wc-' . $new_status, $this->get_valid_statuses(), true )
 				&& ! in_array( $new_status, $status_exceptions, true )
 			) {
+=======
+			if ( ! in_array( 'wc-' . $new_status, $this->get_valid_statuses(), true ) && ! in_array( $new_status, $status_exceptions, true ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$new_status = OrderStatus::PENDING;
 			}
 
 			// If the old status is set but unknown (e.g. draft) assume its pending for action usage.
+<<<<<<< HEAD
 			if (
 				$old_status
 				&& (
@@ -676,6 +688,9 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 					)
 				)
 			) {
+=======
+			if ( $old_status && ( OrderStatus::AUTO_DRAFT === $old_status || ( ! in_array( 'wc-' . $old_status, $this->get_valid_statuses(), true ) && ! in_array( $old_status, $status_exceptions, true ) ) ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$old_status = OrderStatus::PENDING;
 			}
 		}
@@ -1490,7 +1505,11 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 				$item = $this->get_item( $item_id, false );
 
 				// If the prices include tax, discounts should be taken off the tax inclusive prices like in the cart.
+<<<<<<< HEAD
 				if ( $this->get_prices_include_tax() && wc_tax_enabled() && ProductTaxStatus::TAXABLE === $item->get_tax_status() ) {
+=======
+				if ( $this->get_prices_include_tax() && wc_tax_enabled() && 'taxable' === $item->get_tax_status() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$taxes = WC_Tax::calc_tax( $amount, $this->get_tax_rates( $item->get_tax_class(), $tax_location ), true );
 
 					// Use unrounded taxes so totals will be re-calculated accurately, like in cart.
@@ -1545,7 +1564,11 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 				foreach ( $all_discounts[ $coupon_code ] as $item_id => $item_discount_amount ) {
 					$item = $this->get_item( $item_id, false );
 
+<<<<<<< HEAD
 					if ( ProductTaxStatus::TAXABLE !== $item->get_tax_status() || ! wc_tax_enabled() ) {
+=======
+					if ( 'taxable' !== $item->get_tax_status() || ! wc_tax_enabled() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						continue;
 					}
 
@@ -1708,7 +1731,11 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 		$found_tax_classes = array();
 
 		foreach ( $this->get_items() as $item ) {
+<<<<<<< HEAD
 			if ( is_callable( array( $item, 'get_tax_status' ) ) && in_array( $item->get_tax_status(), array( ProductTaxStatus::TAXABLE, ProductTaxStatus::SHIPPING ), true ) ) {
+=======
+			if ( is_callable( array( $item, 'get_tax_status' ) ) && in_array( $item->get_tax_status(), array( 'taxable', 'shipping' ), true ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$found_tax_classes[] = $item->get_tax_class();
 			}
 		}

@@ -466,7 +466,11 @@ function wp_print_revision_templates() {
 
 	<script id="tmpl-revisions-diff" type="text/html">
 		<div class="loading-indicator"><span class="spinner"></span></div>
+<<<<<<< HEAD
 		<div class="diff-error"><?php _e( 'An error occurred while loading the comparison. Please refresh the page and try again.' ); ?></div>
+=======
+		<div class="diff-error"><?php _e( 'Sorry, something went wrong. The requested comparison could not be loaded.' ); ?></div>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<div class="diff">
 		<# _.each( data.fields, function( field ) { #>
 			<h2>{{ field.name }}</h2>

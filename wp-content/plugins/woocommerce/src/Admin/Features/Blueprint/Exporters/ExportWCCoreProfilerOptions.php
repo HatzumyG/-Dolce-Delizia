@@ -21,7 +21,11 @@ class ExportWCCoreProfilerOptions implements StepExporter, HasAlias {
 	 * @return SetSiteOptions
 	 */
 	public function export() {
+<<<<<<< HEAD
 		return new SetSiteOptions(
+=======
+		$step = new SetSiteOptions(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			array(
 				'blogname'                       => $this->wp_get_option( 'blogname' ),
 				'woocommerce_allow_tracking'     => $this->wp_get_option( 'woocommerce_allow_tracking' ),
@@ -29,6 +33,17 @@ class ExportWCCoreProfilerOptions implements StepExporter, HasAlias {
 				'woocommerce_default_country'    => $this->wp_get_option( 'woocommerce_default_country' ),
 			)
 		);
+<<<<<<< HEAD
+=======
+		$step->set_meta_values(
+			array(
+				'plugin' => 'woocommerce',
+				'alias'  => $this->get_alias(),
+			)
+		);
+
+		return $step;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

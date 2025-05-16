@@ -58,11 +58,19 @@ __webpack_require__.d(selectors_namespaceObject, {
   isViewportMatch: () => (isViewportMatch)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","compose"]
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// ./node_modules/@wordpress/viewport/build-module/store/reducer.js
+=======
+;// CONCATENATED MODULE: external ["wp","compose"]
+const external_wp_compose_namespaceObject = window["wp"]["compose"];
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/store/reducer.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Reducer returning the viewport state, as keys of breakpoint queries with
  * boolean value representing whether query is matched.
@@ -81,7 +89,11 @@ function reducer(state = {}, action) {
 }
 /* harmony default export */ const store_reducer = (reducer);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/viewport/build-module/store/actions.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/store/actions.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns an action object used in signalling that viewport queries have been
  * updated. Values are specified as an object of breakpoint query keys where
@@ -101,7 +113,11 @@ function setIsMatching(values) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/viewport/build-module/store/selectors.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/store/selectors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Returns true if the viewport matches the given query, or false otherwise.
  *
@@ -139,7 +155,11 @@ function isViewportMatch(state, query) {
   return !!state[query];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/viewport/build-module/store/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/store/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -167,7 +187,11 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 });
 (0,external_wp_data_namespaceObject.register)(store);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/viewport/build-module/listener.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/listener.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -215,9 +239,15 @@ const addDimensionsEventListener = (breakpoints, operators) => {
 };
 /* harmony default export */ const listener = (addDimensionsEventListener);
 
+<<<<<<< HEAD
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// ./node_modules/@wordpress/viewport/build-module/with-viewport-match.js
+=======
+;// CONCATENATED MODULE: external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/with-viewport-match.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -273,7 +303,11 @@ const withViewportMatch = queries => {
 };
 /* harmony default export */ const with_viewport_match = (withViewportMatch);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/viewport/build-module/if-viewport-matches.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/if-viewport-matches.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -309,7 +343,11 @@ const ifViewportMatches = query => (0,external_wp_compose_namespaceObject.create
 }), (0,external_wp_compose_namespaceObject.ifCondition)(props => props.isViewportMatch)]), 'ifViewportMatches');
 /* harmony default export */ const if_viewport_matches = (ifViewportMatches);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/viewport/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

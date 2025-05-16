@@ -138,7 +138,11 @@ final class QuantityLimits {
 			return true;
 		}
 
+<<<<<<< HEAD
 		if ( ! $limits['editable'] && $quantity > 1 ) {
+=======
+		if ( ! $limits['editable'] ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			/* translators: 1: product name */
 			return new \WP_Error( 'readonly_quantity', sprintf( __( 'The quantity of &quot;%1$s&quot; cannot be changed', 'woocommerce' ), $product->get_name() ) );
 		}

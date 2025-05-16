@@ -5,8 +5,11 @@
 
 namespace Automattic\WooCommerce\Internal\Admin;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Admin\PageController;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -65,6 +68,7 @@ class WCAdminSharedSettings {
 			\Automattic\WooCommerce\Blocks\Package::container()->get( \Automattic\WooCommerce\Blocks\Assets\AssetDataRegistry::class )->add(
 				$this->settings_prefix,
 				function () {
+<<<<<<< HEAD
 					/**
 					 * Filters the shared settings that are passed to the client.
 					 *
@@ -84,6 +88,11 @@ class WCAdminSharedSettings {
 					WCAdminAssets::register_script( 'wp-admin-scripts', 'wcsettings-deprecation', true );
 				}
 			);
+=======
+					return apply_filters( 'woocommerce_admin_shared_settings', array() );
+				}
+			);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 }

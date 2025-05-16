@@ -18,8 +18,13 @@ class CSS extends Base
 	const TYPE_CLEAR_Q_CCSS = 'clear_q_ccss';
 
 	protected $_summary;
+<<<<<<< HEAD
 	private $_ccss_whitelist;
 	private $_queue;
+=======
+	private $_queue;
+	private $_endts;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Init
@@ -29,8 +34,11 @@ class CSS extends Base
 	public function __construct()
 	{
 		$this->_summary = self::get_summary();
+<<<<<<< HEAD
 
 		add_filter('litespeed_ccss_whitelist', array($this->cls('Data'), 'load_ccss_whitelist'));
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -110,11 +118,15 @@ class CSS extends Base
 	private function _ccss()
 	{
 		global $wp;
+<<<<<<< HEAD
 		$request_url = get_permalink();
 		// Backup, in case get_permalink() fails.
 		if (!$request_url) {
 			$request_url = home_url($wp->request);
 		}
+=======
+		$request_url = home_url($wp->request);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$filepath_prefix = $this->_build_filepath_prefix('ccss');
 		$url_tag = $this->_gen_ccss_file_tag($request_url);
@@ -212,11 +224,28 @@ class CSS extends Base
 		}
 
 		$i = 0;
+<<<<<<< HEAD
+=======
+		$timeoutLimit = ini_get('max_execution_time');
+		$this->_endts = time() + $timeoutLimit;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ($this->_queue as $k => $v) {
 			if (!empty($v['_status'])) {
 				continue;
 			}
 
+<<<<<<< HEAD
+=======
+			if (function_exists('set_time_limit')) {
+				$this->_endts += 120;
+				set_time_limit(120);
+			}
+			if ($this->_endts - time() < 10) {
+				// self::debug("🚨 End loop due to timeout limit reached " . $timeoutLimit . "s");
+				// return;
+			}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			Debug2::debug('[' . $type_tag . '] cron job [tag] ' . $k . ' [url] ' . $v['url'] . ($v['is_mobile'] ? ' 📱 ' : '') . ' [UA] ' . $v['user_agent']);
 
 			if ($type == 'ccss' && empty($v['url_tag'])) {
@@ -249,8 +278,13 @@ class CSS extends Base
 				continue;
 			}
 
+<<<<<<< HEAD
 			// Exit queue if out of quota or service is hot
 			if ($res === 'out_of_quota' || $res === 'svc_hot') {
+=======
+			// Exit queue if out of quota
+			if ($res === 'out_of_quota') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				return;
 			}
 
@@ -286,8 +320,11 @@ class CSS extends Base
 			return 'out_of_quota';
 		}
 
+<<<<<<< HEAD
 		set_time_limit(120);
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Update css request status
 		$this->_summary['curr_request_' . $type] = time();
 		self::save_summary();
@@ -303,8 +340,12 @@ class CSS extends Base
 		list($css, $html) = $this->prepare_css($html, $is_webp);
 
 		if (!$css) {
+<<<<<<< HEAD
 			$type_tag = strtoupper($type);
 			Debug2::debug('[' . $type_tag . '] ❌ No combined css');
+=======
+			Debug2::debug('[UCSS] ❌ No combined css');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return false;
 		}
 
@@ -318,16 +359,23 @@ class CSS extends Base
 			'html' => $html,
 			'css' => $css,
 		);
+<<<<<<< HEAD
 		if (!isset($this->_ccss_whitelist)) {
 			$this->_ccss_whitelist = $this->_filter_whitelist();
 		}
 		$data['whitelist'] = $this->_ccss_whitelist;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		self::debug('Generating: ', $data);
 
 		$json = Cloud::post(Cloud::SVC_CCSS, $data, 30);
 		if (!is_array($json)) {
+<<<<<<< HEAD
 			return $json;
+=======
+			return false;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		// Old version compatibility
@@ -529,6 +577,7 @@ class CSS extends Base
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Filter the comment content, add quotes to selector from whitelist. Return the json
 	 *
 	 * @since 7.1
@@ -606,6 +655,8 @@ class CSS extends Base
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Handle all request actions from main cls
 	 *
 	 * @since  2.3

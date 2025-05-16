@@ -1,8 +1,11 @@
 <?php
 namespace Automattic\WooCommerce\Blocks\BlockTypes;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * HandpickedProducts class.
  */
@@ -37,7 +40,11 @@ class HandpickedProducts extends AbstractProductGrid {
 			$query_args['tax_query'][] = array(
 				'taxonomy' => 'product_visibility',
 				'field'    => 'term_taxonomy_id',
+<<<<<<< HEAD
 				'terms'    => array( $product_visibility_terms[ ProductStockStatus::OUT_OF_STOCK ] ),
+=======
+				'terms'    => array( $product_visibility_terms['outofstock'] ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'operator' => 'NOT IN',
 			);
 		}

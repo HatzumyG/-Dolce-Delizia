@@ -15,8 +15,12 @@
 		},
 		"isLink": {
 			"type": "boolean",
+<<<<<<< HEAD
 			"default": false,
 			"role": "content"
+=======
+			"default": false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"displayType": {
 			"type": "string",

@@ -76,16 +76,26 @@ if ( $wp_customize->changeset_post_id() ) {
 
 	if ( in_array( get_post_status( $changeset_post->ID ), array( 'publish', 'trash' ), true ) ) {
 		wp_die(
+<<<<<<< HEAD
 			'<h1>' . __( 'An error occurred while saving your changeset.' ) . '</h1>' .
 			'<p>' . __( 'Please try again or start a new changeset. This changeset cannot be further modified.' ) . '</p>' .
+=======
+			'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
+			'<p>' . __( 'This changeset cannot be further modified.' ) . '</p>' .
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'<p><a href="' . esc_url( remove_query_arg( 'changeset_uuid' ) ) . '">' . __( 'Customize New Changes' ) . '</a></p>',
 			403
 		);
 	}
 }
 
+<<<<<<< HEAD
 $url       = ! empty( $_REQUEST['url'] ) ? esc_url_raw( wp_unslash( $_REQUEST['url'] ) ) : '';
 $return    = ! empty( $_REQUEST['return'] ) ? esc_url_raw( wp_unslash( $_REQUEST['return'] ) ) : '';
+=======
+$url       = ! empty( $_REQUEST['url'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['url'] ) ) : '';
+$return    = ! empty( $_REQUEST['return'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['return'] ) ) : '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $autofocus = ! empty( $_REQUEST['autofocus'] ) && is_array( $_REQUEST['autofocus'] )
 	? array_map( 'sanitize_text_field', wp_unslash( $_REQUEST['autofocus'] ) )
 	: array();
@@ -100,12 +110,15 @@ if ( ! empty( $autofocus ) ) {
 	$wp_customize->set_autofocus( $autofocus );
 }
 
+<<<<<<< HEAD
 // Let's roll.
 header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 
 wp_user_settings();
 _wp_admin_html_begin();
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $registered             = $wp_scripts->registered;
 $wp_scripts             = new WP_Scripts();
 $wp_scripts->registered = $registered;
@@ -132,6 +145,15 @@ wp_enqueue_style( 'customize-controls' );
  */
 do_action( 'customize_controls_enqueue_scripts' );
 
+<<<<<<< HEAD
+=======
+// Let's roll.
+header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
+
+wp_user_settings();
+_wp_admin_html_begin();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $body_class = 'wp-core-ui wp-customizer js';
 
 if ( wp_is_mobile() ) :
@@ -233,12 +255,20 @@ do_action( 'customize_controls_head' );
 			<div class="wp-full-overlay-sidebar-content" tabindex="-1">
 				<div id="customize-info" class="accordion-section customize-info" data-block-theme="<?php echo (int) wp_is_block_theme(); ?>">
 					<div class="accordion-section-title">
+<<<<<<< HEAD
 						<h2 class="preview-notice">
+=======
+						<span class="preview-notice">
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						<?php
 							/* translators: %s: The site/panel title in the Customizer. */
 							printf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
 						?>
+<<<<<<< HEAD
 						</h2>
+=======
+						</span>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text">
 							<?php
 							/* translators: Hidden accessibility text. */

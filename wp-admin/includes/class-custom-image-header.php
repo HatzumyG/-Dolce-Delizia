@@ -664,7 +664,11 @@ class Custom_Image_Header {
 		<input type="file" id="upload" name="import" />
 		<input type="hidden" name="action" value="save" />
 			<?php wp_nonce_field( 'custom-header-upload', '_wpnonce-custom-header-upload' ); ?>
+<<<<<<< HEAD
 			<?php submit_button( _x( 'Upload', 'verb' ), '', 'submit', false ); ?>
+=======
+			<?php submit_button( __( 'Upload' ), '', 'submit', false ); ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	</p>
 			<?php
 			$modal_update_href = add_query_arg(
@@ -830,8 +834,13 @@ endif;
 
 		if ( ! current_theme_supports( 'custom-header', 'uploads' ) ) {
 			wp_die(
+<<<<<<< HEAD
 				'<h1>' . __( 'An error occurred while processing your header image.' ) . '</h1>' .
 				'<p>' . __( 'The active theme does not support uploading a custom header image. Please ensure your theme supports custom headers and try again.' ) . '</p>',
+=======
+				'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
+				'<p>' . __( 'The active theme does not support uploading a custom header image.' ) . '</p>',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				403
 			);
 		}
@@ -1018,8 +1027,13 @@ endif;
 
 		if ( ! current_theme_supports( 'custom-header', 'uploads' ) ) {
 			wp_die(
+<<<<<<< HEAD
 				'<h1>' . __( 'An error occurred while processing your header image.' ) . '</h1>' .
 				'<p>' . __( 'The active theme does not support uploading a custom header image. Please ensure your theme supports custom headers and try again.' ) . '</p>',
+=======
+				'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
+				'<p>' . __( 'The active theme does not support uploading a custom header image.' ) . '</p>',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				403
 			);
 		}
@@ -1029,7 +1043,11 @@ endif;
 			&& ! current_theme_supports( 'custom-header', 'flex-width' )
 		) {
 			wp_die(
+<<<<<<< HEAD
 				'<h1>' . __( 'An error occurred while processing your header image.' ) . '</h1>' .
+=======
+				'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'<p>' . __( 'The active theme does not support a flexible sized header image.' ) . '</p>',
 				403
 			);

@@ -54,6 +54,11 @@ module.exports = import("@wordpress/a11y");;
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
+<<<<<<< HEAD
+=======
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -61,12 +66,17 @@ __webpack_require__.d(__webpack_exports__, {
   w: () => (/* binding */ state)
 });
 
+<<<<<<< HEAD
 ;// external "@wordpress/interactivity"
+=======
+;// CONCATENATED MODULE: external "@wordpress/interactivity"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
 const interactivity_namespaceObject = x({ ["getConfig"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.getConfig), ["privateApis"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.privateApis), ["store"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.store) });
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/interactivity-router/build-module/head.js
 /**
  * The cache of prefetched stylesheets and scripts.
@@ -172,6 +182,9 @@ const fetchHeadAssets = async doc => {
 };
 
 ;// ./node_modules/@wordpress/interactivity-router/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/interactivity-router/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var _getConfig$navigation;
 /**
  * WordPress dependencies
@@ -197,6 +210,10 @@ const navigationMode = (_getConfig$navigation = (0,interactivity_namespaceObject
 
 // The cache of visited and prefetched pages, stylesheets and scripts.
 const pages = new Map();
+<<<<<<< HEAD
+=======
+const headElements = new Map();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 // Helper to remove domain and hash from the URL. We are only interesting in
 // caching the path and the query.
@@ -252,22 +269,39 @@ const regionsToVdom = async (dom, {
 };
 
 // Render all interactive regions contained in the given page.
+<<<<<<< HEAD
 const renderRegions = async page => {
   if (false) {}
   if (navigationMode === 'regionBased') {
     const attrName = `data-${directivePrefix}-router-region`;
     batch(() => {
       populateServerData(page.initialData);
+=======
+const renderRegions = page => {
+  batch(() => {
+    if (false) {}
+    if (navigationMode === 'regionBased') {
+      populateServerData(page.initialData);
+      const attrName = `data-${directivePrefix}-router-region`;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       document.querySelectorAll(`[${attrName}]`).forEach(region => {
         const id = region.getAttribute(attrName);
         const fragment = getRegionRootFragment(region);
         render(page.regions[id], fragment);
       });
+<<<<<<< HEAD
     });
   }
   if (page.title) {
     document.title = page.title;
   }
+=======
+    }
+    if (page.title) {
+      document.title = page.title;
+    }
+  });
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 };
 
 /**
@@ -291,7 +325,11 @@ window.addEventListener('popstate', async () => {
   const pagePath = getPagePath(window.location.href); // Remove hash.
   const page = pages.has(pagePath) && (await pages.get(pagePath));
   if (page) {
+<<<<<<< HEAD
     await renderRegions(page);
+=======
+    renderRegions(page);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     // Update the URL in the state.
     state.url = window.location.href;
   } else {
@@ -343,7 +381,11 @@ const {
     /**
      * Navigates to the specified page.
      *
+<<<<<<< HEAD
      * This function normalizes the passed href, fetches the page HTML if
+=======
+     * This function normalizes the passed href, fetchs the page HTML if
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      * needed, and updates any interactive regions whose contents have
      * changed. It also creates a new entry in the browser session history.
      *
@@ -434,7 +476,11 @@ const {
       }
     },
     /**
+<<<<<<< HEAD
      * Prefetches the page with the passed URL.
+=======
+     * Prefetchs the page with the passed URL.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      *
      * The function normalizes the URL and stores internally the fetch
      * promise, to avoid triggering a second fetch for an ongoing request.
@@ -510,6 +556,11 @@ function a11ySpeak(messageKey) {
 // Add click and prefetch to all links.
 if (false) {}
 
+<<<<<<< HEAD
+=======
+})();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var __webpack_exports__actions = __webpack_exports__.o;
 var __webpack_exports__state = __webpack_exports__.w;
 export { __webpack_exports__actions as actions, __webpack_exports__state as state };

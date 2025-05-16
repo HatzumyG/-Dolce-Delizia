@@ -3,4 +3,11 @@
   border-radius:inherit;
   margin:0;
   padding:0;
+<<<<<<< HEAD
+=======
+}
+
+.wp-block-tag-cloud__inspector-settings .components-base-control,.wp-block-tag-cloud__inspector-settings .components-base-control:last-child{
+  margin-bottom:0;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

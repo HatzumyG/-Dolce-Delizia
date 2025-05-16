@@ -7,8 +7,11 @@
  */
 
 use Automattic\Jetpack\Constants;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -55,7 +58,11 @@ if ( ! class_exists( 'WC_Admin_Settings', false ) ) :
 				$settings[] = include __DIR__ . '/settings/class-wc-settings-products.php';
 				$settings[] = include __DIR__ . '/settings/class-wc-settings-tax.php';
 				$settings[] = include __DIR__ . '/settings/class-wc-settings-shipping.php';
+<<<<<<< HEAD
 				if ( FeaturesUtil::feature_is_enabled( 'reactify-classic-payments-settings' ) ) {
+=======
+				if ( \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'reactify-classic-payments-settings' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$settings[] = include __DIR__ . '/settings/class-wc-settings-payment-gateways-react.php';
 				} else {
 					$settings[] = include __DIR__ . '/settings/class-wc-settings-payment-gateways.php';
@@ -80,11 +87,15 @@ if ( ! class_exists( 'WC_Admin_Settings', false ) ) :
 		public static function save() {
 			global $current_tab;
 
+<<<<<<< HEAD
 			if ( Features::is_enabled( 'settings' ) ) {
 				check_admin_referer( 'wp_rest' );
 			} else {
 				check_admin_referer( 'woocommerce-settings' );
 			}
+=======
+			check_admin_referer( 'woocommerce-settings' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			// Trigger actions.
 			do_action( 'woocommerce_settings_save_' . $current_tab );

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <?php return array('dependencies' => array('react', 'wc-blocks-registry', 'wc-customer-effort-score', 'wc-price-format', 'wc-settings', 'wc-types', 'wp-api-fetch', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-core-data', 'wp-data', 'wp-editor', 'wp-element', 'wp-escape-html', 'wp-hooks', 'wp-html-entities', 'wp-i18n', 'wp-interactivity', 'wp-interactivity-router', 'wp-is-shallow-equal', 'wp-polyfill', 'wp-primitives', 'wp-url'), 'version' => 'bbb01068dadece0d17da');
+=======
+<?php return array('dependencies' => array('react', 'wc-blocks-registry', 'wc-customer-effort-score', 'wc-interactivity', 'wc-price-format', 'wc-settings', 'wc-types', 'wp-api-fetch', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-core-data', 'wp-data', 'wp-editor', 'wp-element', 'wp-escape-html', 'wp-hooks', 'wp-html-entities', 'wp-i18n', 'wp-is-shallow-equal', 'wp-polyfill', 'wp-primitives', 'wp-url'), 'version' => 'd764167159341f5b82f5');
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

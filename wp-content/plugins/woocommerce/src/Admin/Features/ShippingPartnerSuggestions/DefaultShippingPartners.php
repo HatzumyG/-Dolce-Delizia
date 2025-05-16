@@ -257,10 +257,18 @@ class DefaultShippingPartners {
 				'available_layouts' => array( 'row', 'column' ),
 			),
 			array(
+<<<<<<< HEAD
 				'id'                => 'woocommerce-shipping',
 				'name'              => 'WooCommerce Shipping',
 				'slug'              => 'woocommerce-shipping',
 				'description'       => __( 'Save time and money by printing your shipping labels right from your computer with WooCommerce Shipping. Try WooCommerce Shipping for free.', 'woocommerce' ),
+=======
+				'id'                => 'woocommerce-services',
+				'name'              => 'WooCommerce Shipping',
+				'slug'              => 'woocommerce-services',
+				'description'       => __( 'Save time and money by printing your shipping labels right from your computer with WooCommerce Shipping. Try WooCommerce Shipping for free.', 'woocommerce' ),
+				'dependencies'      => array( 'jetpack' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'layout_column'     => array(
 					'image'    => $asset_base_url . 'wcs-column.svg',
 					'features' => array(
@@ -277,7 +285,11 @@ class DefaultShippingPartners {
 						array(
 							'icon'        => $asset_base_url . 'discount.svg',
 							'title'       => __( 'Discounted rates', 'woocommerce' ),
+<<<<<<< HEAD
 							'description' => __( 'Access discounted shipping rates with USPS, UPS, and DHL.', 'woocommerce' ),
+=======
+							'description' => __( 'Access discounted shipping rates with DHL and USPS.', 'woocommerce' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						),
 					),
 				),
@@ -293,6 +305,18 @@ class DefaultShippingPartners {
 							),
 						),
 					),
+<<<<<<< HEAD
+=======
+					(object) array(
+						'type'    => 'not',
+						'operand' => array(
+							(object) array(
+								'type'    => 'plugins_activated',
+								'plugins' => array( 'woocommerce-tax' ),
+							),
+						),
+					),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 				'available_layouts' => array( 'column' ),
 			),

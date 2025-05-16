@@ -210,7 +210,11 @@ class BlockPatterns {
 		$has_scheduled_action = function_exists( 'as_has_scheduled_action' ) ? 'as_has_scheduled_action' : 'as_next_scheduled_action';
 
 		$patterns = $this->ptk_patterns_store->get_patterns();
+<<<<<<< HEAD
 		if ( empty( $patterns ) || ! is_array( $patterns ) ) {
+=======
+		if ( empty( $patterns ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// Only log once per day by using a transient.
 			$transient_key = 'wc_ptk_pattern_store_warning';
 			// By only logging when patterns are empty and no fetch is scheduled,
@@ -242,6 +246,7 @@ class BlockPatterns {
 	 * @param array $patterns The patterns to parse.
 	 * @return array The parsed patterns.
 	 */
+<<<<<<< HEAD
 	private function parse_categories( $patterns ) {
 		if ( ! is_array( $patterns ) ) {
 			return array();
@@ -260,6 +265,11 @@ class BlockPatterns {
 					}
 				}
 
+=======
+	private function parse_categories( array $patterns ) {
+		return array_map(
+			function ( $pattern ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$pattern['categories'] = array_map(
 					function ( $category ) {
 						foreach ( self::CATEGORIES_PREFIXES as $prefix ) {

@@ -5,7 +5,11 @@ use Elementor\Controls_Manager;
 use Elementor\Controls_Stack;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class New_Template_Form extends Controls_Stack {
@@ -15,7 +19,11 @@ class New_Template_Form extends Controls_Stack {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @throws \Exception Exception Throws an exception if the control type is not supported.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function render() {
 		foreach ( $this->get_controls() as $control ) {
@@ -24,7 +32,11 @@ class New_Template_Form extends Controls_Stack {
 					$this->render_select( $control );
 					break;
 				default:
+<<<<<<< HEAD
 					throw new \Exception( sprintf( "'%s' control type is not supported.", esc_html( $control['type'] ) ) );
+=======
+					throw new \Exception( "'{$control['type']}' control type is not supported." );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 	}
@@ -41,7 +53,11 @@ class New_Template_Form extends Controls_Stack {
 				<select id="<?php echo esc_attr( $control_id ); ?>" class="elementor-form-field__select" name="meta[<?php echo esc_html( $control_settings['name'] ); ?>]">
 					<?php
 					foreach ( $control_settings['options'] as $key => $value ) {
+<<<<<<< HEAD
 						printf( '<option value="%1$s">%2$s</option>', esc_html( $key ), esc_html( $value ) );
+=======
+						echo sprintf( '<option value="%1$s">%2$s</option>', esc_html( $key ), esc_html( $value ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					}
 					?>
 				</select>

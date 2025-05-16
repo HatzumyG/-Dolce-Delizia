@@ -933,14 +933,26 @@ class WP_Theme_JSON_Resolver {
 			return $theme_json;
 		}
 
+<<<<<<< HEAD
 		$resolved_theme_json_data = $theme_json->get_raw_data();
+=======
+		$resolved_theme_json_data = array(
+			'version' => WP_Theme_JSON::LATEST_SCHEMA,
+		);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		foreach ( $resolved_urls as $resolved_url ) {
 			$path = explode( '.', $resolved_url['target'] );
 			_wp_array_set( $resolved_theme_json_data, $path, $resolved_url['href'] );
 		}
 
+<<<<<<< HEAD
 		return new WP_Theme_JSON( $resolved_theme_json_data );
+=======
+		$theme_json->merge( new WP_Theme_JSON( $resolved_theme_json_data ) );
+
+		return $theme_json;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

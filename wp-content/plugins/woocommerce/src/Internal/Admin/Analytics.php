@@ -134,7 +134,10 @@ class Analytics {
 				'dashboard_chart_type',
 				'dashboard_chart_interval',
 				'dashboard_leaderboard_rows',
+<<<<<<< HEAD
 				'order_attribution_install_banner_dismissed',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			)
 		);
 	}

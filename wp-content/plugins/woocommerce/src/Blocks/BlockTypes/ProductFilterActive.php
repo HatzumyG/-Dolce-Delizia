@@ -25,8 +25,11 @@ final class ProductFilterActive extends AbstractBlock {
 			return $content;
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$active_filters = $block->context['activeFilters'];
 
 		$filter_context = array(
@@ -35,11 +38,19 @@ final class ProductFilterActive extends AbstractBlock {
 		);
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive'  => $this->get_full_block_name(),
 			'data-wp-key'          => wp_unique_prefixed_id( $this->get_full_block_name() ),
 			'data-wp-bind--hidden' => '!state.hasSelectedFilters',
 			/* translators:  {{label}} is the label of the active filter item. */
 			'data-wp-context'      => wp_json_encode( array( 'removeLabelTemplate' => __( 'Remove filter: {{label}}', 'woocommerce' ) ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+=======
+			'data-wc-interactive'  => wp_json_encode( array( 'namespace' => $this->get_full_block_name() ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-key'          => wp_unique_prefixed_id( $this->get_full_block_name() ),
+			'data-wc-bind--hidden' => '!state.hasSelectedFilters',
+			/* translators:  {{label}} is the label of the active filter item. */
+			'data-wc-context'      => wp_json_encode( array( 'removeLabelTemplate' => __( 'Remove filter: {{label}}', 'woocommerce' ) ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		if ( empty( $active_filters ) ) {
@@ -68,6 +79,7 @@ final class ProductFilterActive extends AbstractBlock {
 	protected function get_block_type_style() {
 		return null;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -79,4 +91,6 @@ final class ProductFilterActive extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

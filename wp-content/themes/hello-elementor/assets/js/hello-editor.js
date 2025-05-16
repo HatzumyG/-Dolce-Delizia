@@ -1,6 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+<<<<<<< HEAD
 /***/ 3693:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -34,6 +35,40 @@ module.exports = _typeof, module.exports.__esModule = true, module.exports["defa
 /***/ }),
 
 /***/ 4239:
+=======
+/***/ 706:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(994);
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(693));
+var _controlsHook = _interopRequireDefault(__webpack_require__(239));
+class _default extends $e.modules.ComponentBase {
+  constructor() {
+    super(...arguments);
+    (0, _defineProperty2.default)(this, "pages", {});
+  }
+  getNamespace() {
+    return 'hello-elementor';
+  }
+  defaultHooks() {
+    return this.importHooks({
+      ControlsHook: _controlsHook.default
+    });
+  }
+}
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 239:
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -274,6 +309,7 @@ exports["default"] = ControlsHook;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 4706:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -311,12 +347,43 @@ exports["default"] = _default;
 function _interopRequireDefault(e) {
   return e && e.__esModule ? e : {
     "default": e
+=======
+/***/ 693:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toPropertyKey = __webpack_require__(736);
+function _defineProperty(obj, key, value) {
+  key = toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 994:
+/***/ ((module) => {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
 }
 module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 7736:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -334,6 +401,12 @@ module.exports = toPropertyKey, module.exports.__esModule = true, module.exports
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var _typeof = (__webpack_require__(3738)["default"]);
+=======
+/***/ 45:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(738)["default"]);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function toPrimitive(t, r) {
   if ("object" != _typeof(t) || !t) return t;
   var e = t[Symbol.toPrimitive];
@@ -346,6 +419,38 @@ function toPrimitive(t, r) {
 }
 module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
+<<<<<<< HEAD
+=======
+/***/ }),
+
+/***/ 736:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(738)["default"]);
+var toPrimitive = __webpack_require__(45);
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : i + "";
+}
+module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 738:
+/***/ ((module) => {
+
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
+}
+module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ })
 
 /******/ 	});
@@ -376,13 +481,22 @@ module.exports = toPrimitive, module.exports.__esModule = true, module.exports["
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+<<<<<<< HEAD
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+=======
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 (() => {
 "use strict";
 
 
+<<<<<<< HEAD
 var _interopRequireDefault = __webpack_require__(4994);
 var _component = _interopRequireDefault(__webpack_require__(4706));
+=======
+var _interopRequireDefault = __webpack_require__(994);
+var _component = _interopRequireDefault(__webpack_require__(706));
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $e.components.register(new _component.default());
 })();
 

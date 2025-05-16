@@ -417,6 +417,12 @@ abstract class Widget_Contact_Button_Base extends Widget_Base {
 			[
 				'label' => esc_html__( 'Link', 'elementor' ),
 				'type' => Controls_Manager::URL,
+<<<<<<< HEAD
+=======
+				'default' => [
+					'is_external' => true,
+				],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'dynamic' => [
 					'active' => true,
 				],
@@ -3120,6 +3126,10 @@ JS;
 		Plugin::$instance->controls_manager->add_custom_css_controls( $this, static::TAB_ADVANCED );
 
 		Plugin::$instance->controls_manager->add_custom_attributes_controls( $this, static::TAB_ADVANCED );
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	protected function render(): void {

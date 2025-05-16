@@ -42,7 +42,11 @@ __webpack_require__.d(__webpack_exports__, {
   count: () => (/* binding */ count)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/defaultSettings.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/defaultSettings.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /** @typedef {import('./index').WPWordCountStrategy} WPWordCountStrategy */
 
 /** @typedef {Partial<{type: WPWordCountStrategy, shortcodes: string[]}>} WPWordCountL10n */
@@ -144,7 +148,11 @@ const defaultSettings = {
   }
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/stripTags.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripTags.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Replaces items matched in the regex with new line
  *
@@ -157,7 +165,11 @@ function stripTags(settings, text) {
   return text.replace(settings.HTMLRegExp, '\n');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/transposeAstralsToCountableChar.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/transposeAstralsToCountableChar.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Replaces items matched in the regex with character.
  *
@@ -170,7 +182,11 @@ function transposeAstralsToCountableChar(settings, text) {
   return text.replace(settings.astralRegExp, 'a');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/stripHTMLEntities.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripHTMLEntities.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Removes items matched in the regex.
  *
@@ -183,7 +199,11 @@ function stripHTMLEntities(settings, text) {
   return text.replace(settings.HTMLEntityRegExp, '');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/stripConnectors.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripConnectors.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Replaces items matched in the regex with spaces.
  *
@@ -196,7 +216,11 @@ function stripConnectors(settings, text) {
   return text.replace(settings.connectorRegExp, ' ');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/stripRemovables.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripRemovables.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Removes items matched in the regex.
  *
@@ -209,7 +233,11 @@ function stripRemovables(settings, text) {
   return text.replace(settings.removeRegExp, '');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/stripHTMLComments.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripHTMLComments.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Removes items matched in the regex.
  *
@@ -222,7 +250,11 @@ function stripHTMLComments(settings, text) {
   return text.replace(settings.HTMLcommentRegExp, '');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/stripShortcodes.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripShortcodes.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Replaces items matched in the regex with a new line.
  *
@@ -238,7 +270,11 @@ function stripShortcodes(settings, text) {
   return text;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/stripSpaces.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripSpaces.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Replaces items matched in the regex with spaces.
  *
@@ -251,7 +287,11 @@ function stripSpaces(settings, text) {
   return text.replace(settings.spaceRegExp, ' ');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/transposeHTMLEntitiesToCountableChars.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/transposeHTMLEntitiesToCountableChars.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Replaces items matched in the regex with a single character.
  *
@@ -264,7 +304,11 @@ function transposeHTMLEntitiesToCountableChars(settings, text) {
   return text.replace(settings.HTMLEntityRegExp, 'a');
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/wordcount/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

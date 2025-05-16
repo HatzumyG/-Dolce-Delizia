@@ -1,7 +1,11 @@
 === Action Scheduler ===
 Contributors: Automattic, wpmuguru, claudiosanches, peterfabian1000, vedjain, jamosova, obliviousharmony, konamiman, sadowski, royho, barryhughes-1
 Tags: scheduler, cron
+<<<<<<< HEAD
 Stable tag: 3.9.2
+=======
+Stable tag: 3.9.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 License: GPLv3
 Requires at least: 6.5
 Tested up to: 6.7
@@ -47,6 +51,7 @@ Collaboration is cool. We'd love to work with you to improve Action Scheduler. [
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 3.9.2 - 2025-02-03 =
 * Fixed fatal errors by moving version info methods to a new class and deprecating conflicting ones in ActionScheduler_Versions
 
@@ -57,6 +62,8 @@ Collaboration is cool. We'd love to work with you to improve Action Scheduler. [
 * Make some other nullable parameters explicitly nullable.
 * Set option value to `no` rather than deleting.
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 = 3.9.0 - 2024-11-14 =  
 * Minimum required version of PHP is now 7.1.  
 * Performance improvements for the `as_pending_actions_due()` function.  

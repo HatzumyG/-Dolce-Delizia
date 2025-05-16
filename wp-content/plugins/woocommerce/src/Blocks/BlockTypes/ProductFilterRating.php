@@ -102,6 +102,7 @@ final class ProductFilterRating extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
 		$min_rating    = $attributes['minRating'] ?? 0;
@@ -116,6 +117,12 @@ final class ProductFilterRating extends AbstractBlock {
 		$filter_params          = $block->context['filterParams'] ?? array();
 		$rating_query           = $filter_params[ self::RATING_FILTER_QUERY_VAR ] ?? '';
 		$selected_rating        = array_filter( explode( ',', $rating_query ) );
+=======
+		$rating_counts   = $this->get_rating_counts( $block );
+		$filter_params   = $block->context['filterParams'] ?? array();
+		$rating_query    = $filter_params[ self::RATING_FILTER_QUERY_VAR ] ?? '';
+		$selected_rating = array_filter( explode( ',', $rating_query ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$filter_options = array_map(
 			function ( $rating ) use ( $selected_rating, $attributes ) {
@@ -138,7 +145,11 @@ final class ProductFilterRating extends AbstractBlock {
 					'data'      => $rating,
 				);
 			},
+<<<<<<< HEAD
 			$rating_counts_with_min
+=======
+			$rating_counts
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		$filter_context = array(
@@ -147,8 +158,13 @@ final class ProductFilterRating extends AbstractBlock {
 		);
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive'  => $this->get_full_block_name(),
 			'data-wp-context'      => wp_json_encode(
+=======
+			'data-wc-interactive'  => wp_json_encode( array( 'namespace' => $this->get_full_block_name() ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ),
+			'data-wc-context'      => wp_json_encode(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				array(
 					'hasFilterOptions'    => ! empty( $filter_options ),
 					/* translators: {{labe}} is the rating filter item label. */
@@ -156,7 +172,11 @@ final class ProductFilterRating extends AbstractBlock {
 				),
 				JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP
 			),
+<<<<<<< HEAD
 			'data-wp-bind--hidden' => '!context.hasFilterOptions',
+=======
+			'data-wc-bind--hidden' => '!context.hasFilterOptions',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		if ( empty( $filter_options ) ) {
@@ -241,6 +261,7 @@ final class ProductFilterRating extends AbstractBlock {
 
 		return $data;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -252,4 +273,6 @@ final class ProductFilterRating extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

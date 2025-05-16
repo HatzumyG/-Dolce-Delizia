@@ -17,11 +17,14 @@ use Automattic\WooCommerce\Blocks\Templates\ProductCategoryTemplate;
 use Automattic\WooCommerce\Blocks\Templates\ProductTagTemplate;
 use Automattic\WooCommerce\Blocks\Templates\ProductSearchResultsTemplate;
 use Automattic\WooCommerce\Blocks\Templates\SingleProductTemplate;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Blocks\Templates\SimpleProductAddToCartWithOptionsTemplate;
 use Automattic\WooCommerce\Blocks\Templates\ExternalProductAddToCartWithOptionsTemplate;
 use Automattic\WooCommerce\Blocks\Templates\VariableProductAddToCartWithOptionsTemplate;
 use Automattic\WooCommerce\Blocks\Templates\GroupedProductAddToCartWithOptionsTemplate;
 use Automattic\WooCommerce\Enums\ProductType;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * BlockTemplatesRegistry class.
@@ -64,6 +67,7 @@ class BlockTemplatesRegistry {
 				MiniCartTemplate::SLUG       => new MiniCartTemplate(),
 				CheckoutHeaderTemplate::SLUG => new CheckoutHeaderTemplate(),
 			);
+<<<<<<< HEAD
 			if ( Features::is_enabled( 'blockified-add-to-cart' ) && wc_current_theme_is_fse_theme() ) {
 				$product_types = wc_get_product_types();
 				if ( count( $product_types ) > 0 ) {
@@ -82,6 +86,8 @@ class BlockTemplatesRegistry {
 					}
 				}
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} else {
 			$template_parts = array();
 		}
@@ -94,6 +100,7 @@ class BlockTemplatesRegistry {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Add Add to Cart with Options to the default template part areas.
 	 *
 	 * @param array $default_area_definitions An array of supported area objects.
@@ -111,6 +118,8 @@ class BlockTemplatesRegistry {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Returns the template matching the slug
 	 *
 	 * @param string $template_slug Slug of the template to retrieve.

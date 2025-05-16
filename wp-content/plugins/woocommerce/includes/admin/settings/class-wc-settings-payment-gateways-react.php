@@ -21,20 +21,30 @@ if ( class_exists( 'WC_Settings_Payment_Gateways_React', false ) ) {
  */
 class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 
+<<<<<<< HEAD
 	const TAB_NAME = 'checkout';
 
 	const MAIN_SECTION_NAME    = 'main';
 	const OFFLINE_SECTION_NAME = 'offline';
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Get the whitelist of sections to render using React.
 	 *
 	 * @return array List of section identifiers.
 	 */
 	private function get_reactify_render_sections() {
+<<<<<<< HEAD
 		$sections = array(
 			self::MAIN_SECTION_NAME,
 			self::OFFLINE_SECTION_NAME,
+=======
+		// Add 'woocommerce_payments' when WooPayments reactified settings page is done.
+		$sections = array(
+			'offline',
+			'main',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		/**
@@ -48,6 +58,7 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Standardize the current section name.
 	 *
 	 * @param string $section The section name to standardize.
@@ -68,6 +79,12 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	 */
 	public function __construct() {
 		$this->id    = self::TAB_NAME;
+=======
+	 * Constructor.
+	 */
+	public function __construct() {
+		$this->id    = 'checkout';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->label = esc_html_x( 'Payments', 'Settings tab label', 'woocommerce' );
 
 		// Add filters and actions.
@@ -76,14 +93,18 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 		// It is too risky to hook into `admin_notices` with a low priority because the callbacks might be cached.
 		add_action( 'in_admin_header', array( $this, 'suppress_admin_notices' ), PHP_INT_MAX );
 
+<<<<<<< HEAD
 		// Do not show any store alerts (WC admin notes with type: 'error,update' and status: 'unactioned')
 		// on the WooCommerce Payments settings page and Reactified sections.
 		add_filter( 'woocommerce_admin_features', array( $this, 'suppress_store_alerts' ), PHP_INT_MAX );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		parent::__construct();
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Setting page icon.
 	 *
 	 * @var string
@@ -95,6 +116,12 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	 */
 	public function output() {
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended
+=======
+	 * Output the settings.
+	 */
+	public function output() {
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		global $current_section;
 
 		// We don't want to output anything from the action for now. So we buffer it and discard it.
@@ -114,7 +141,11 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 			$payment_gateways = WC()->payment_gateways()->payment_gateways;
 			$this->render_classic_gateway_settings_page( $payment_gateways, $current_section );
 		} else {
+<<<<<<< HEAD
 			$this->render_react_section( self::MAIN_SECTION_NAME );
+=======
+			$this->render_react_section( 'main' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		parent::output();
@@ -122,6 +153,7 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get settings array.
 	 *
 	 * This is just for backward compatibility with the rest of the codebase (primarily API responses).
@@ -142,6 +174,8 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Check if the given section should be rendered using React.
 	 *
 	 * @param string $section The section to check.
@@ -166,9 +200,15 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	 * Render the classic gateway settings page.
 	 *
 	 * @param array  $payment_gateways The payment gateways.
+<<<<<<< HEAD
 	 * @param string $current_section  The current section.
 	 */
 	private function render_classic_gateway_settings_page( array $payment_gateways, string $current_section ) {
+=======
+	 * @param string $current_section The current section.
+	 */
+	private function render_classic_gateway_settings_page( $payment_gateways, $current_section ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		foreach ( $payment_gateways as $gateway ) {
 			if ( in_array( $current_section, array( $gateway->id, sanitize_title( get_class( $gateway ) ) ), true ) ) {
 				if ( isset( $_GET['toggle_enabled'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -186,7 +226,10 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 
 	/**
 	 * Run the 'admin_options' method on a given gateway.
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * This method exists to help with unit testing.
 	 *
 	 * @param object $gateway The gateway object to run the method on.
@@ -196,6 +239,7 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get all sections for the current page.
 	 *
 	 * Reactified section pages won't have any sections.
@@ -213,6 +257,14 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 		}
 
 		return parent::get_sections();
+=======
+	 * Don't show any section links.
+	 *
+	 * @return array
+	 */
+	public function get_sections() {
+		return array();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -221,12 +273,16 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 	public function save() {
 		global $current_section;
 
+<<<<<<< HEAD
 		$standardized_section = $this->standardize_section_name( $current_section );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$wc_payment_gateways = WC_Payment_Gateways::instance();
 
 		$this->save_settings_for_current_section();
 
+<<<<<<< HEAD
 		if ( self::MAIN_SECTION_NAME === $standardized_section ) {
 			// This makes sure 'gateway ordering' is saved.
 			$wc_payment_gateways->process_admin_options();
@@ -236,6 +292,16 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 			foreach ( $wc_payment_gateways->payment_gateways() as $gateway ) {
 				// If the section is that of a gateway, we need to run the gateway actions and init.
 				if ( in_array( $standardized_section, array( $gateway->id, sanitize_title( get_class( $gateway ) ) ), true ) ) {
+=======
+		if ( ! $current_section ) {
+			// If section is empty, we're on the main settings page. This makes sure 'gateway ordering' is saved.
+			$wc_payment_gateways->process_admin_options();
+			$wc_payment_gateways->init();
+		} else {
+			// There is a section - this may be a gateway or custom section.
+			foreach ( $wc_payment_gateways->payment_gateways() as $gateway ) {
+				if ( in_array( $current_section, array( $gateway->id, sanitize_title( get_class( $gateway ) ) ), true ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					/**
 					 * Fires update actions for payment gateways.
 					 *
@@ -245,10 +311,13 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 					 */
 					do_action( 'woocommerce_update_options_payment_gateways_' . $gateway->id );
 					$wc_payment_gateways->init();
+<<<<<<< HEAD
 
 					// There is no need to run the action and gateways init again
 					// since we can't be on the section page of multiple gateways at once.
 					break;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 			}
 
@@ -266,9 +335,14 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 			return;
 		}
 
+<<<<<<< HEAD
 		global $current_tab, $current_section;
 		// We only want to hide the help tabs on the main WooCommerce Payments settings page and Reactified sections.
 		if ( ! ( self::TAB_NAME === $current_tab && $this->should_render_react_section( $this->standardize_section_name( $current_section ) ) ) ) {
+=======
+		global $current_tab;
+		if ( 'checkout' !== $current_tab ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 
@@ -287,9 +361,14 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 			return;
 		}
 
+<<<<<<< HEAD
 		global $current_tab, $current_section;
 		// We only want to suppress notices on the main WooCommerce Payments settings page and Reactified sections.
 		if ( ! ( self::TAB_NAME === $current_tab && $this->should_render_react_section( $this->standardize_section_name( $current_section ) ) ) ) {
+=======
+		global $current_tab;
+		if ( 'checkout' !== $current_tab ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return;
 		}
 
@@ -353,6 +432,7 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Suppress the store-alerts WCAdmin feature on the WooCommerce Payments settings page and Reactified sections.
@@ -376,6 +456,8 @@ class WC_Settings_Payment_Gateways_React extends WC_Settings_Page {
 
 		return $features;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 return new WC_Settings_Payment_Gateways_React();

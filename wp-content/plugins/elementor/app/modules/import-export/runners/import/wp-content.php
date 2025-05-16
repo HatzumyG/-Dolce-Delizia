@@ -14,7 +14,11 @@ class Wp_Content extends Import_Runner_Base {
 	 */
 	private $selected_custom_post_types = [];
 
+<<<<<<< HEAD
 	public static function get_name(): string {
+=======
+	public static function get_name() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 'wp-content';
 	}
 
@@ -100,7 +104,11 @@ class Wp_Content extends Import_Runner_Base {
 		return $post_types;
 	}
 
+<<<<<<< HEAD
 	public function get_import_session_metadata(): array {
+=======
+	public function get_import_session_metadata() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [
 			'custom_post_types' => $this->selected_custom_post_types,
 		];

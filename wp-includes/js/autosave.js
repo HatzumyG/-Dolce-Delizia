@@ -559,7 +559,11 @@ window.autosave = function() {
 						});
 					} else {
 
+<<<<<<< HEAD
 						// Make sure the Code editor is selected.
+=======
+						// Make sure the Text editor is selected.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						$( '#content-html' ).trigger( 'click' );
 						$( '#content' ).trigger( 'focus' );
 

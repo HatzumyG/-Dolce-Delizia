@@ -119,9 +119,12 @@ trait UseWPFunctions {
 	 * @return WP_Theme The theme object.
 	 */
 	public function wp_get_theme( $stylesheet = null ) {
+<<<<<<< HEAD
 		if ( ! function_exists( 'wp_get_theme' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/theme.php';
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return wp_get_theme( $stylesheet );
 	}
 
@@ -199,9 +202,12 @@ trait UseWPFunctions {
 	 * @param string $name The name of the theme to switch to.
 	 */
 	public function wp_switch_theme( $name ) {
+<<<<<<< HEAD
 		if ( ! function_exists( 'switch_theme' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/theme.php';
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return switch_theme( $name );
 	}
 

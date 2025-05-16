@@ -144,8 +144,11 @@ class PickupLocation extends WC_Shipping_Method {
 				return __( 'Pickup location', 'woocommerce' );
 			case 'pickup_address':
 				return __( 'Pickup address', 'woocommerce' );
+<<<<<<< HEAD
 			case 'pickup_details':
 				return __( 'Pickup details', 'woocommerce' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 		return $label;
 	}

@@ -60,14 +60,21 @@
 .customize-widgets-header-toolbar .customize-widgets-header-toolbar__inserter-toggle.components-button.has-icon{
   border-radius:2px;
   color:#fff;
+<<<<<<< HEAD
   height:32px;
   margin:12px 0 12px auto;
   min-width:32px;
+=======
+  height:24px;
+  margin:12px 0 12px auto;
+  min-width:24px;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   padding:0;
 }
 .customize-widgets-header-toolbar .customize-widgets-header-toolbar__inserter-toggle.components-button.has-icon:before{
   content:none;
 }
+<<<<<<< HEAD
 @media not (prefers-reduced-motion){
   .customize-widgets-header-toolbar .customize-widgets-header-toolbar__inserter-toggle.components-button.has-icon svg{
     transition:transform .2s cubic-bezier(.165, .84, .44, 1);
@@ -79,6 +86,11 @@
 .customize-widgets-header-toolbar .customize-widgets-header-toolbar__inserter-toggle.components-button.has-icon.is-pressed svg{
   transform:rotate(45deg);
 }
+=======
+.customize-widgets-header-toolbar .customize-widgets-header-toolbar__inserter-toggle.components-button.has-icon.is-pressed{
+  background:#1e1e1e;
+}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .customize-widgets-header-toolbar .components-button.has-icon.customize-widgets-editor-history-button.redo-button{
   margin-left:-12px;
 }

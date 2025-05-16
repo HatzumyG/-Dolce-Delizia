@@ -12,7 +12,11 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails\Plain
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 9.5.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -25,7 +29,11 @@ echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 echo sprintf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ) . "\n\n";
 echo esc_html__( "Unfortunately, we couldn't complete your order due to an issue with your payment method.", 'woocommerce' ) . "\n\n";
 /* translators: %s: Site title */
+<<<<<<< HEAD
 echo sprintf( esc_html__( "If you'd like to continue with your purchase, please return to %s and try a different method of payment.", 'woocommerce' ), esc_html( $blogname ) ) . "\n\n";
+=======
+echo sprintf( esc_html__( "If you'd like to continue with your purchase, please return to %s and try a different method of payment.", 'woocommerce' ), esc_html( wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES ) ) ) . "\n\n";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 echo esc_html__( 'Your order details are as follows:', 'woocommerce' ) . "\n\n";
 
 /**

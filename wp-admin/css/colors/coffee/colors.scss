@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $base-color: #59524c;
 
 @use "../_admin.scss" with (
@@ -9,3 +10,16 @@ $base-color: #59524c;
 
 	$low-contrast-theme: "true"
 );
+=======
+@use "sass:color";
+
+$scheme-name: "coffee";
+$base-color: #59524c;
+$highlight-color: #c7a589;
+$notification-color: #9ea476;
+$low-contrast-theme: "true";
+
+$form-checked: $base-color;
+
+@import "../_admin.scss";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

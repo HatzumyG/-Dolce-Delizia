@@ -89,6 +89,7 @@
 				}
 			} );
 
+<<<<<<< HEAD
 		$( '.iris-square-value' ).on( 'click', function ( event ) {
 			event.preventDefault();
 		} );
@@ -98,6 +99,8 @@
 			$( this ).next( '.colorpick' ).click();
 		} );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$( 'body' ).on( 'click', function () {
 			$( '.iris-picker' ).hide();
 		} );

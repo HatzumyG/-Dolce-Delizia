@@ -6,7 +6,10 @@ namespace Automattic\WooCommerce\Admin\Features\Blueprint\Exporters;
 
 use Automattic\WooCommerce\Admin\Features\Blueprint\Steps\SetWCPaymentGateways;
 use Automattic\WooCommerce\Blueprint\Exporters\StepExporter;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Blueprint\Steps\SetSiteOptions;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Blueprint\Steps\Step;
 
 /**
@@ -26,17 +29,33 @@ class ExportWCPaymentGateways implements StepExporter {
 	 * @return Step
 	 */
 	public function export(): Step {
+<<<<<<< HEAD
 		$options = array();
+=======
+		$step = new SetWCPaymentGateways();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->maybe_hide_wcpay_gateways();
 		foreach ( $this->get_wc_payment_gateways() as $id => $payment_gateway ) {
 			if ( in_array( $id, $this->exclude_ids, true ) ) {
 				continue;
 			}
 
+<<<<<<< HEAD
 			$options[ 'woocommerce_' . $id . '_settings' ] = $payment_gateway->settings;
 		}
 
 		return new SetSiteOptions( $options );
+=======
+			$step->add_payment_gateway(
+				$id,
+				$payment_gateway->get_title(),
+				$payment_gateway->get_description(),
+				$payment_gateway->is_available() ? 'yes' : 'no'
+			);
+		}
+
+		return $step;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -54,7 +73,11 @@ class ExportWCPaymentGateways implements StepExporter {
 	 * @return string
 	 */
 	public function get_step_name() {
+<<<<<<< HEAD
 		return 'wcPaymentGateways';
+=======
+		return SetWCPaymentGateways::get_step_name();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -83,6 +106,10 @@ class ExportWCPaymentGateways implements StepExporter {
 	 * @return string
 	 */
 	public function get_description() {
+<<<<<<< HEAD
 		return __( 'It includes all settings in WooCommerce | Settings | Payments.', 'woocommerce' );
+=======
+		return __( 'It includes payment gateways and their settings.', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

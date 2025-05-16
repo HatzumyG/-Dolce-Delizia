@@ -763,11 +763,19 @@ class WP_List_Table {
 			return;
 		}
 
+<<<<<<< HEAD
 		$selected_month = isset( $_GET['m'] ) ? (int) $_GET['m'] : 0;
 		?>
 		<label for="filter-by-date" class="screen-reader-text"><?php echo get_post_type_object( $post_type )->labels->filter_by_date; ?></label>
 		<select name="m" id="filter-by-date">
 			<option<?php selected( $selected_month, 0 ); ?> value="0"><?php _e( 'All dates' ); ?></option>
+=======
+		$m = isset( $_GET['m'] ) ? (int) $_GET['m'] : 0;
+		?>
+		<label for="filter-by-date" class="screen-reader-text"><?php echo get_post_type_object( $post_type )->labels->filter_by_date; ?></label>
+		<select name="m" id="filter-by-date">
+			<option<?php selected( $m, 0 ); ?> value="0"><?php _e( 'All dates' ); ?></option>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		<?php
 		foreach ( $months as $arc_row ) {
 			if ( 0 === (int) $arc_row->year ) {
@@ -779,10 +787,17 @@ class WP_List_Table {
 
 			printf(
 				"<option %s value='%s'>%s</option>\n",
+<<<<<<< HEAD
 				selected( $selected_month, $year . $month, false ),
 				esc_attr( $year . $month ),
 				/* translators: 1: Month name, 2: 4-digit year. */
 				esc_html( sprintf( __( '%1$s %2$d' ), $wp_locale->get_month( $month ), $year ) )
+=======
+				selected( $m, $year . $month, false ),
+				esc_attr( $arc_row->year . $month ),
+				/* translators: 1: Month name, 2: 4-digit year. */
+				sprintf( __( '%1$s %2$d' ), $wp_locale->get_month( $month ), $year )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			);
 		}
 		?>

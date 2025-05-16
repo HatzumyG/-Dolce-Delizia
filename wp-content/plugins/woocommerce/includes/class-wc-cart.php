@@ -26,6 +26,7 @@ require_once WC_ABSPATH . 'includes/class-wc-cart-session.php';
 class WC_Cart extends WC_Legacy_Cart {
 
 	/**
+<<<<<<< HEAD
 	 * Cart context, used to determine if the cart is being used in a StoreAPI or shortcode context. This should only
 	 * be used internally.
 	 *
@@ -34,6 +35,8 @@ class WC_Cart extends WC_Legacy_Cart {
 	public $cart_context = 'shortcode';
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Contains an array of cart items.
 	 *
 	 * @var array
@@ -62,6 +65,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	protected $shipping_methods;
 
 	/**
+<<<<<<< HEAD
 	 * Whether the shipping totals have been calculated. This will only return true if shipping was calculated, not if
 	 * shipping is disabled or if there are no cart contents.
 	 *
@@ -70,6 +74,8 @@ class WC_Cart extends WC_Legacy_Cart {
 	protected $has_calculated_shipping = false;
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Total defaults used to reset.
 	 *
 	 * @var array
@@ -1061,12 +1067,15 @@ class WC_Cart extends WC_Legacy_Cart {
 				return false;
 			}
 
+<<<<<<< HEAD
 			// Variable product cannot be added to cart without a specified variation.
 			if ( ! $variation_id && $product_data->is_type( ProductType::VARIABLE ) ) {
 				/* translators: 1: product link, 2: product name */
 				throw new Exception( sprintf( __( 'Please choose product options by visiting <a href="%1$s" title="%2$s">%2$s</a>.', 'woocommerce' ), esc_url( $product_data->get_permalink() ), esc_html( $product_data->get_name() ) ) );
 			}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			if ( $product_data->is_type( ProductType::VARIATION ) ) {
 				$missing_attributes = array();
 				$parent_data        = wc_get_product( $product_data->get_parent_id() );
@@ -1164,9 +1173,12 @@ class WC_Cart extends WC_Legacy_Cart {
 				)
 			) {
 				$product = wc_get_product( $product_id );
+<<<<<<< HEAD
 				if ( ! ( $product instanceof WC_Product ) ) {
 					throw new Exception( __( 'The selected product is invalid.', 'woocommerce' ) );
 				}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				/* translators: 1: product link, 2: product name */
 				throw new Exception( sprintf( __( 'The selected product isn\'t a variation of %2$s, please choose product options by visiting <a href="%1$s" title="%2$s">%2$s</a>.', 'woocommerce' ), esc_url( $product->get_permalink() ), esc_html( $product->get_name() ) ) );
@@ -1415,7 +1427,11 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * Get cart's owner.
 	 *
 	 * @since  3.2.0
+<<<<<<< HEAD
 	 * @return \WC_Customer
+=======
+	 * @return WC_Customer
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function get_customer() {
 		return WC()->customer;
@@ -1464,6 +1480,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Whether the shipping totals have been calculated.
 	 *
 	 * @return bool
@@ -1491,15 +1508,33 @@ class WC_Cart extends WC_Legacy_Cart {
 		$this->shipping_methods        = $this->get_chosen_shipping_methods( WC()->shipping()->calculate_shipping( $this->get_shipping_packages() ) );
 
 		$shipping_costs = wp_list_pluck( $this->shipping_methods, 'cost' );
+=======
+	 * Uses the shipping class to calculate shipping then gets the totals when its finished.
+	 */
+	public function calculate_shipping() {
+		$this->shipping_methods = $this->needs_shipping() ? $this->get_chosen_shipping_methods( WC()->shipping()->calculate_shipping( $this->get_shipping_packages() ) ) : array();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$shipping_taxes = wp_list_pluck( $this->shipping_methods, 'taxes' );
 		$merged_taxes   = array();
 		foreach ( $shipping_taxes as $taxes ) {
 			foreach ( $taxes as $tax_id => $tax_amount ) {
+<<<<<<< HEAD
 				$merged_taxes[ $tax_id ] = ( $merged_taxes[ $tax_id ] ?? 0 ) + $tax_amount;
 			}
 		}
 
 		$this->set_shipping_total( array_sum( $shipping_costs ) );
+=======
+				if ( ! isset( $merged_taxes[ $tax_id ] ) ) {
+					$merged_taxes[ $tax_id ] = 0;
+				}
+				$merged_taxes[ $tax_id ] += $tax_amount;
+			}
+		}
+
+		$this->set_shipping_total( array_sum( wp_list_pluck( $this->shipping_methods, 'cost' ) ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$this->set_shipping_tax( array_sum( $merged_taxes ) );
 		$this->set_shipping_taxes( $merged_taxes );
 
@@ -1595,7 +1630,10 @@ class WC_Cart extends WC_Legacy_Cart {
 		if ( ! wc_shipping_enabled() || 0 === wc_get_shipping_method_count( true ) ) {
 			return false;
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$needs_shipping = false;
 
 		foreach ( $this->get_cart_contents() as $values ) {
@@ -1618,17 +1656,26 @@ class WC_Cart extends WC_Legacy_Cart {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Sees if the customer has entered enough data to calculate shipping.
+=======
+	 * Sees if the customer has entered enough data to calc the shipping yet.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return bool
 	 */
 	public function show_shipping() {
+<<<<<<< HEAD
 		// If there are no shipping methods or no cart contents, no need to calculate shipping.
 		if ( ! wc_shipping_enabled() || 0 === wc_get_shipping_method_count( true ) || ! $this->get_cart_contents() ) {
+=======
+		if ( ! wc_shipping_enabled() || ! $this->get_cart_contents() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return false;
 		}
 
 		if ( 'yes' === get_option( 'woocommerce_shipping_cost_requires_address' ) ) {
+<<<<<<< HEAD
 			if ( 'store-api' === $this->cart_context ) {
 				$customer = $this->get_customer();
 
@@ -1683,6 +1730,41 @@ class WC_Cart extends WC_Legacy_Cart {
 		 *
 		 * @param bool $ready Whether the cart is ready to calculate shipping.
 		 */
+=======
+			$country = $this->get_customer()->get_shipping_country();
+			if ( ! $country ) {
+				return false;
+			}
+			$country_fields = WC()->countries->get_address_fields( $country, 'shipping_' );
+			/**
+			 * Filter to not require shipping state for shipping calculation, even if it is required at checkout.
+			 * This can be used to allow shipping calculations to be done without a state.
+			 *
+			 * @since 8.4.0
+			 *
+			 * @param bool $show_state Whether to use the state field. Default true.
+			 */
+			$state_enabled  = apply_filters( 'woocommerce_shipping_calculator_enable_state', true );
+			$state_required = isset( $country_fields['shipping_state'] ) && $country_fields['shipping_state']['required'];
+			if ( $state_enabled && $state_required && ! $this->get_customer()->get_shipping_state() ) {
+				return false;
+			}
+			/**
+			 * Filter to not require shipping postcode for shipping calculation, even if it is required at checkout.
+			 * This can be used to allow shipping calculations to be done without a postcode.
+			 *
+			 * @since 8.4.0
+			 *
+			 * @param bool $show_postcode Whether to use the postcode field. Default true.
+			 */
+			$postcode_enabled  = apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true );
+			$postcode_required = isset( $country_fields['shipping_postcode'] ) && $country_fields['shipping_postcode']['required'];
+			if ( $postcode_enabled && $postcode_required && '' === $this->get_customer()->get_shipping_postcode() ) {
+				return false;
+			}
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return apply_filters( 'woocommerce_cart_ready_to_calc_shipping', true );
 	}
 

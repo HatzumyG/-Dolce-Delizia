@@ -207,16 +207,24 @@ class WC_Admin {
 				}
 			}
 
+<<<<<<< HEAD
 			// Start output buffering to prevent partial renders with PHP notices or warnings.
 			ob_start();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			try {
 				$message = $email_preview->render();
 				$message = $email_preview->ensure_links_open_in_new_tab( $message );
 			} catch ( Throwable $e ) {
+<<<<<<< HEAD
 				ob_end_clean();
 				wp_die( esc_html__( 'There was an error rendering an email preview.', 'woocommerce' ), 404 );
 			}
 			ob_end_clean();
+=======
+				wp_die( esc_html__( 'There was an error rendering an email preview.', 'woocommerce' ), 404 );
+			}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			// print the preview email.
 			// phpcs:ignore WordPress.Security.EscapeOutput

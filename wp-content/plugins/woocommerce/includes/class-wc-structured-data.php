@@ -14,7 +14,10 @@
 
 use Automattic\WooCommerce\Enums\OrderStatus;
 use Automattic\WooCommerce\Enums\ProductType;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 defined( 'ABSPATH' ) || exit;
 
@@ -336,6 +339,7 @@ class WC_Structured_Data {
 						$sale_price_valid_until = gmdate( 'Y-m-d', $product->get_date_on_sale_to()->getTimestamp() );
 					}
 
+<<<<<<< HEAD
 					// We add the sale price to the top of the array so it's the first offer.
 					// See https://github.com/woocommerce/woocommerce/issues/55043.
 					array_unshift(
@@ -347,6 +351,14 @@ class WC_Structured_Data {
 							'valueAddedTaxIncluded' => wc_prices_include_tax(),
 							'validThrough'          => $sale_price_valid_until ?? $price_valid_until,
 						)
+=======
+					$markup_offer['priceSpecification'][] = array(
+						'@type'                 => 'UnitPriceSpecification',
+						'price'                 => wc_format_decimal( $min_sale_price, wc_get_price_decimals() ),
+						'priceCurrency'         => $currency,
+						'valueAddedTaxIncluded' => wc_prices_include_tax(),
+						'validThrough'          => $sale_price_valid_until ?? $price_valid_until,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					);
 				}
 			} else {
@@ -374,6 +386,7 @@ class WC_Structured_Data {
 						$sale_price_valid_until = gmdate( 'Y-m-d', $product->get_date_on_sale_to()->getTimestamp() );
 					}
 
+<<<<<<< HEAD
 					// We add the sale price to the top of the array so it's the first offer.
 					// See https://github.com/woocommerce/woocommerce/issues/55043.
 					array_unshift(
@@ -385,12 +398,24 @@ class WC_Structured_Data {
 							'valueAddedTaxIncluded' => wc_prices_include_tax(),
 							'validThrough'          => $sale_price_valid_until ?? $price_valid_until,
 						)
+=======
+					$markup_offer['priceSpecification'][] = array(
+						'@type'                 => 'UnitPriceSpecification',
+						'price'                 => wc_format_decimal( $product->get_sale_price(), wc_get_price_decimals() ),
+						'priceCurrency'         => $currency,
+						'valueAddedTaxIncluded' => wc_prices_include_tax(),
+						'validThrough'          => $sale_price_valid_until ?? $price_valid_until,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					);
 				}
 			}
 
 			if ( $product->is_in_stock() ) {
+<<<<<<< HEAD
 				$stock_status_schema = ( ProductStockStatus::ON_BACKORDER === $product->get_stock_status() ) ? 'BackOrder' : 'InStock';
+=======
+				$stock_status_schema = ( 'onbackorder' === $product->get_stock_status() ) ? 'BackOrder' : 'InStock';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			} else {
 				$stock_status_schema = 'OutOfStock';
 			}

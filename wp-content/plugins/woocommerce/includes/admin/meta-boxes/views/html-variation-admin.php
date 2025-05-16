@@ -203,6 +203,7 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
 
+<<<<<<< HEAD
 			<?php if ( ! is_null( $base_cost ) ) : ?>
 				<div class="variable_pricing">
 					<?php
@@ -232,6 +233,8 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			<?php endif; ?>
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			<?php if ( 'yes' === get_option( 'woocommerce_manage_stock' ) ) : ?>
 				<div class="show_if_variation_manage_stock" style="display: none;">
 					<?php

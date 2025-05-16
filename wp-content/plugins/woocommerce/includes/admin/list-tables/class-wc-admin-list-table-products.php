@@ -7,7 +7,10 @@
  */
 
 use Automattic\WooCommerce\Enums\ProductType;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Internal\CostOfGoodsSold\CostOfGoodsSoldController;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -34,6 +37,7 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 	protected $list_table_type = 'product';
 
 	/**
+<<<<<<< HEAD
 	 * Caches the value of the "COGS is enabled" flag.
 	 *
 	 * @var bool
@@ -48,6 +52,8 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 	private bool $use_cogs_lookup_column;
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -58,10 +64,13 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 		add_filter( 'get_search_query', array( $this, 'search_label' ) );
 		add_filter( 'posts_clauses', array( $this, 'posts_clauses' ), 10, 2 );
 		add_action( 'manage_product_posts_custom_column', array( $this, 'add_sample_product_badge' ), 9, 2 );
+<<<<<<< HEAD
 
 		$cogs_controller              = wc_get_container()->get( CostOfGoodsSoldController::class );
 		$this->cogs_is_enabled        = $cogs_controller->feature_is_enabled();
 		$this->use_cogs_lookup_column = $this->cogs_is_enabled && $cogs_controller->product_meta_lookup_table_cogs_value_columns_exist();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -117,11 +126,14 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 			'sku'   => 'sku',
 			'name'  => 'title',
 		);
+<<<<<<< HEAD
 
 		if ( $this->use_cogs_lookup_column ) {
 			$custom['cogs_value'] = 'cogs_value';
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return wp_parse_args( $custom, $columns );
 	}
 
@@ -151,10 +163,14 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 			$show_columns['is_in_stock'] = __( 'Stock', 'woocommerce' );
 		}
 
+<<<<<<< HEAD
 		$show_columns['price'] = __( 'Price', 'woocommerce' );
 		if ( $this->cogs_is_enabled ) {
 			$show_columns['cogs_value'] = __( 'Cost', 'woocommerce' );
 		}
+=======
+		$show_columns['price']       = __( 'Price', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$show_columns['product_cat'] = __( 'Categories', 'woocommerce' );
 		$show_columns['product_tag'] = __( 'Tags', 'woocommerce' );
 		$show_columns['featured']    = '<span class="wc-featured parent-tips" data-tip="' . esc_attr__( 'Featured', 'woocommerce' ) . '">' . __( 'Featured', 'woocommerce' ) . '</span>';
@@ -205,11 +221,14 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 
 		get_inline_data( $post );
 
+<<<<<<< HEAD
 		$cogs_value_html = $this->cogs_is_enabled ?
 				'<div class="cogs_value">' . esc_html( $this->object->get_cogs_value() ?? '0' ) . '</div>' :
 				'';
 
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- the COGS value is already escaped.
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/* Custom inline data for woocommerce. */
 		echo '
 			<div class="hidden" id="woocommerce_inline_' . absint( $this->object->get_id() ) . '">
@@ -232,10 +251,16 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 				<div class="tax_status">' . esc_html( $this->object->get_tax_status() ) . '</div>
 				<div class="tax_class">' . esc_html( $this->object->get_tax_class() ) . '</div>
 				<div class="backorders">' . esc_html( $this->object->get_backorders() ) . '</div>
+<<<<<<< HEAD
 				<div class="low_stock_amount">' . esc_html( $this->object->get_low_stock_amount() ) . '</div>'
 				. $cogs_value_html .
 			'</div>';
 		// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
+=======
+				<div class="low_stock_amount">' . esc_html( $this->object->get_low_stock_amount() ) . '</div>
+			</div>
+		';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -249,6 +274,7 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 	 * Render column: price.
 	 */
 	protected function render_price_column() {
+<<<<<<< HEAD
 		$html = $this->object->get_price_html();
 		echo $html ? wp_kses_post( $html ) : '<span class="na">&ndash;</span>';
 	}
@@ -259,6 +285,9 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 	protected function render_cogs_value_column() {
 		$html = $this->object->get_cogs_value_html();
 		echo $html ? wp_kses_post( $html ) : '<span class="na">&ndash;</span>';
+=======
+		echo $this->object->get_price_html() ? wp_kses_post( $this->object->get_price_html() ) : '<span class="na">&ndash;</span>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -511,11 +540,14 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 				$callback = 'DESC' === $order ? 'order_by_sku_desc_post_clauses' : 'order_by_sku_asc_post_clauses';
 				add_filter( 'posts_clauses', array( $this, $callback ) );
 			}
+<<<<<<< HEAD
 
 			if ( 'cogs_value' === $orderby && $this->use_cogs_lookup_column ) {
 				$callback = 'DESC' === $order ? 'order_by_cogs_value_desc_post_clauses' : 'order_by_cogs_value_asc_post_clauses';
 				add_filter( 'posts_clauses', array( $this, $callback ) );
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		// Type filtering.
@@ -582,10 +614,13 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 		remove_filter( 'posts_clauses', array( $this, 'filter_downloadable_post_clauses' ) );
 		remove_filter( 'posts_clauses', array( $this, 'filter_virtual_post_clauses' ) );
 		remove_filter( 'posts_clauses', array( $this, 'filter_stock_status_post_clauses' ) );
+<<<<<<< HEAD
 		if ( $this->use_cogs_lookup_column ) {
 			remove_filter( 'posts_clauses', array( $this, 'order_by_cogs_value_asc_post_clauses' ) );
 			remove_filter( 'posts_clauses', array( $this, 'order_by_cogs_value_desc_post_clauses' ) );
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return $posts; // Keeping this here for backward compatibility.
 	}
 
@@ -638,6 +673,7 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Handle COGS value sorting.
 	 *
 	 * @param array $args Query args.
@@ -662,6 +698,8 @@ class WC_Admin_List_Table_Products extends WC_Admin_List_Table {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Filter by type.
 	 *
 	 * @param array $args Query args.

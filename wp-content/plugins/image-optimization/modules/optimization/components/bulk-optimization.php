@@ -86,7 +86,14 @@ class Bulk_Optimization {
 		} catch ( Throwable $t ) {
 			Logger::log( Logger::LEVEL_ERROR, 'Optimization error. Reason: ' . $t->getMessage() );
 
+<<<<<<< HEAD
 			Retry::maybe_retry_optimization( $image_id );
+=======
+			( new Image_Meta( $image_id ) )
+				->set_status( Image_Status::OPTIMIZATION_FAILED )
+				->set_error_type( Image_Optimization_Error_Type::GENERIC )
+				->save();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} finally {
 			Optimization_Stats::get_image_stats( null, true );
 		}
@@ -130,7 +137,14 @@ class Bulk_Optimization {
 		} catch ( Throwable $t ) {
 			Logger::log( Logger::LEVEL_ERROR, 'Reoptimization error. Reason: ' . $t->getMessage() );
 
+<<<<<<< HEAD
 			Retry::maybe_retry_optimization( $image_id );
+=======
+			( new Image_Meta( $image_id ) )
+				->set_status( Image_Status::REOPTIMIZING_FAILED )
+				->set_error_type( Image_Optimization_Error_Type::GENERIC )
+				->save();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} finally {
 			Optimization_Stats::get_image_stats( null, true );
 		}

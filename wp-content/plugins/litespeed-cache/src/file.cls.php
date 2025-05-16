@@ -1,12 +1,18 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * LiteSpeed File Operator Library Class
  * Append/Replace content to a file
  *
  * @since 1.1.0
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace LiteSpeed;
 
 defined('WPINC') || exit();
@@ -22,7 +28,11 @@ class File
 	 */
 	public static function is_404($url)
 	{
+<<<<<<< HEAD
 		$response = wp_safe_remote_get($url);
+=======
+		$response = wp_remote_get($url);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$code = wp_remote_retrieve_response_code($response);
 		if ($code == 404) {
 			return true;
@@ -134,10 +144,13 @@ class File
 	 */
 	public static function save($filename, $data, $mkdir = false, $append = false, $silence = true)
 	{
+<<<<<<< HEAD
 		if (is_null($filename)) {
 			return $silence ? false : __('Filename is empty!', 'litespeed-cache');
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$error = false;
 		$folder = dirname($filename);
 
@@ -151,10 +164,13 @@ class File
 
 			try {
 				mkdir($folder, 0755, true);
+<<<<<<< HEAD
 				// Create robots.txt file to forbid search engine indexes
 				if (!file_exists(LITESPEED_STATIC_DIR . '/robots.txt')) {
 					file_put_contents(LITESPEED_STATIC_DIR . '/robots.txt', "User-agent: *\nDisallow: /\n");
 				}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			} catch (\ErrorException $ex) {
 				return $silence ? false : sprintf(__('Can not create folder: %1$s. Error: %2$s', 'litespeed-cache'), $folder, $ex->getMessage());
 			}

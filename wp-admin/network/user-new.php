@@ -1,6 +1,10 @@
 <?php
 /**
+<<<<<<< HEAD
  * Add User network administration panel.
+=======
+ * Add New User network administration panel.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * @package WordPress
  * @subpackage Multisite
@@ -97,14 +101,22 @@ if ( isset( $_GET['update'] ) ) {
 }
 
 // Used in the HTML title tag.
+<<<<<<< HEAD
 $title       = __( 'Add User' );
+=======
+$title       = __( 'Add New User' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $parent_file = 'users.php';
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
+<<<<<<< HEAD
 <h1 id="add-new-user"><?php _e( 'Add User' ); ?></h1>
+=======
+<h1 id="add-new-user"><?php _e( 'Add New User' ); ?></h1>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <?php
 if ( '' !== $message ) {
 	wp_admin_notice(

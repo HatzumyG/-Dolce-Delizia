@@ -63,7 +63,11 @@ abstract class Base_Module extends BaseModule {
 	 *
 	 * @param array $args
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception Invalid version.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function on_plugin_update_message( array $args ) {
 		$new_version = Version::create_from_string( $args['new_version'] );
@@ -122,7 +126,11 @@ abstract class Base_Module extends BaseModule {
 	/**
 	 * Base_Module constructor.
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception Invalid version.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __construct() {
 		add_filter( 'extra_plugin_headers', function ( array $headers ) {

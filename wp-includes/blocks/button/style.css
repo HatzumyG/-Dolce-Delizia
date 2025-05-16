@@ -1,4 +1,5 @@
 .wp-block-button__link{
+<<<<<<< HEAD
   align-content:center;
   box-sizing:border-box;
   cursor:pointer;
@@ -6,6 +7,12 @@
   height:100%;
   text-align:center;
   width:100%;
+=======
+  box-sizing:border-box;
+  cursor:pointer;
+  display:inline-block;
+  text-align:center;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   word-break:break-word;
 }
 .wp-block-button__link.aligncenter{

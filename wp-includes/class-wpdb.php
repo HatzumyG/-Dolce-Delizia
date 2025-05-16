@@ -749,6 +749,7 @@ class wpdb {
 	 * @param string $dbname     Database name.
 	 * @param string $dbhost     Database host.
 	 */
+<<<<<<< HEAD
 	public function __construct(
 		$dbuser,
 		#[\SensitiveParameter]
@@ -756,6 +757,9 @@ class wpdb {
 		$dbname,
 		$dbhost
 	) {
+=======
+	public function __construct( $dbuser, $dbpassword, $dbname, $dbhost ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( WP_DEBUG && WP_DEBUG_DISPLAY ) {
 			$this->show_errors();
 		}
@@ -2412,10 +2416,19 @@ class wpdb {
 		static $placeholder;
 
 		if ( ! $placeholder ) {
+<<<<<<< HEAD
 			// Old WP installs may not have AUTH_SALT defined.
 			$salt = defined( 'AUTH_SALT' ) && AUTH_SALT ? AUTH_SALT : (string) rand();
 
 			$placeholder = '{' . hash_hmac( 'sha256', uniqid( $salt, true ), $salt ) . '}';
+=======
+			// If ext/hash is not present, compat.php's hash_hmac() does not support sha256.
+			$algo = function_exists( 'hash' ) ? 'sha256' : 'sha1';
+			// Old WP installs may not have AUTH_SALT defined.
+			$salt = defined( 'AUTH_SALT' ) && AUTH_SALT ? AUTH_SALT : (string) rand();
+
+			$placeholder = '{' . hash_hmac( $algo, uniqid( $salt, true ), $salt ) . '}';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/*

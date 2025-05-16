@@ -127,7 +127,10 @@ class Modules_Manager {
 			'global-classes',
 			'wc-product-editor',
 			'checklist',
+<<<<<<< HEAD
 			'cloud-library',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 	}
 

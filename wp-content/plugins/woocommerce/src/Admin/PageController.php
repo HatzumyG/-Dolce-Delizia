@@ -298,8 +298,13 @@ class PageController {
 		$tabs_with_sections = apply_filters(
 			'woocommerce_navigation_page_tab_sections',
 			array(
+<<<<<<< HEAD
 				'products'          => array( '', 'inventory', 'downloadable', 'download_urls', 'advanced' ),
 				'shipping'          => array( '', 'options', 'classes', 'pickup_location' ),
+=======
+				'products'          => array( '', 'inventory', 'downloadable' ),
+				'shipping'          => array( '', 'options', 'classes' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'checkout'          => array( WC_Gateway_BACS::ID, WC_Gateway_Cheque::ID, WC_Gateway_COD::ID, WC_Gateway_Paypal::ID ),
 				'email'             => $wc_email_ids,
 				'advanced'          => array(
@@ -308,8 +313,11 @@ class PageController {
 					'webhooks',
 					'legacy_api',
 					'woocommerce_com',
+<<<<<<< HEAD
 					'features',
 					'blueprint',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				),
 				'browse-extensions' => array( 'helper' ),
 			)
@@ -330,7 +338,11 @@ class PageController {
 					$section = wc_clean( wp_unslash( $_GET['section'] ) );
 					if (
 						isset( $tabs_with_sections[ $tab ] ) &&
+<<<<<<< HEAD
 						in_array( $section, array_values( $tabs_with_sections[ $tab ] ), true )
+=======
+						in_array( $section, array_keys( $tabs_with_sections[ $tab ] ) )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					) {
 						$screen_pieces[] = $section;
 					}
@@ -574,6 +586,7 @@ class PageController {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns true if we are on a settings page.
 	 */
 	public static function is_settings_page() {
@@ -583,6 +596,8 @@ class PageController {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *  Returns true if we are on a "classic" (non JS app) powered admin page.
 	 *
 	 * TODO: See usage in `admin.php`. This needs refactored and implemented properly in core.

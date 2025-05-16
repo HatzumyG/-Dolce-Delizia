@@ -10,7 +10,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Internal\Utilities\Types;
 
 /**
@@ -781,7 +784,11 @@ class WC_REST_Order_Refunds_V2_Controller extends WC_REST_Orders_V2_Controller {
 								'description' => __( 'Tax status of fee.', 'woocommerce' ),
 								'type'        => 'string',
 								'context'     => array( 'view', 'edit' ),
+<<<<<<< HEAD
 								'enum'        => array( ProductTaxStatus::TAXABLE, ProductTaxStatus::NONE ),
+=======
+								'enum'        => array( 'taxable', 'none' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							),
 							'total'      => array(
 								'description' => __( 'Line total (after discounts).', 'woocommerce' ),

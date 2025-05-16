@@ -124,8 +124,13 @@ if ( !function_exists( 'sweet_dessert_template_single_standard_output' ) ) {
 				?>
                 <div class="post_info post_info_bottom">
 					 <div class="wrap_cats_tags">
+<<<<<<< HEAD
 							<span class="post_info_item post_info_cat"><span class="b-tag"><?php esc_html_e('Categorías:', 'sweet-dessert'); ?></span> <?php echo join(', ', $post_data['post_terms'][$post_data['post_taxonomy']]->terms_links); ?></span>
 							<span class="post_info_item post_info_tags"><span class="b-tag"><?php esc_html_e('Etiquetas:', 'sweet-dessert'); ?></span> <?php echo join(', ', $post_data['post_terms'][$post_data['post_taxonomy_tags']]->terms_links); ?></span><br>
+=======
+							<span class="post_info_item post_info_cat"><span class="b-tag"><?php esc_html_e('Categories:', 'sweet-dessert'); ?></span> <?php echo join(', ', $post_data['post_terms'][$post_data['post_taxonomy']]->terms_links); ?></span>
+							<span class="post_info_item post_info_tags"><span class="b-tag"><?php esc_html_e('Tags:', 'sweet-dessert'); ?></span> <?php echo join(', ', $post_data['post_terms'][$post_data['post_taxonomy_tags']]->terms_links); ?></span><br>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						</div> 
                     <?php
                     // Prepare args for all rest template parts

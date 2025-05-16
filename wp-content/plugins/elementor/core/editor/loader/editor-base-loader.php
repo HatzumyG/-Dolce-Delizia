@@ -21,8 +21,13 @@ abstract class Editor_Base_Loader implements Editor_Loader_Interface {
 	protected $assets_config_provider;
 
 	/**
+<<<<<<< HEAD
 	 * @param Collection             $config
 	 * @param Assets_Config_Provider $assets_config_provider
+=======
+	 * @param Collection $config
+	 * @param Assets_Config_Provider $assets_config_provider\
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __construct( Collection $config, Assets_Config_Provider $assets_config_provider ) {
 		$this->config = $config;

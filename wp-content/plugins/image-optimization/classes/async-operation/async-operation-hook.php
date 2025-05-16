@@ -19,5 +19,8 @@ final class Async_Operation_Hook extends Basic_Enum {
 	public const RESTORE_MANY_IMAGES = 'image-optimization/restore/restore-many';
 	public const CALCULATE_OPTIMIZATION_STATS = 'image-optimization/optimization-stats/calculate';
 	public const DB_MIGRATION = 'image-optimization/database/migration';
+<<<<<<< HEAD
 	public const STUCK_OPERATION_CLEANUP = 'image-optimization/cleanup/stuck-operation';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

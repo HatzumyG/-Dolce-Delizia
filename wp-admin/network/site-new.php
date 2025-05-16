@@ -179,7 +179,11 @@ if ( isset( $_GET['update'] ) ) {
 }
 
 // Used in the HTML title tag.
+<<<<<<< HEAD
 $title       = __( 'Add Site' );
+=======
+$title       = __( 'Add New Site' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 $parent_file = 'sites.php';
 
 wp_enqueue_script( 'user-suggest' );
@@ -189,7 +193,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
+<<<<<<< HEAD
 <h1 id="add-new-site"><?php _e( 'Add Site' ); ?></h1>
+=======
+<h1 id="add-new-site"><?php _e( 'Add New Site' ); ?></h1>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <?php
 if ( ! empty( $messages ) ) {
 	$notice_args = array(

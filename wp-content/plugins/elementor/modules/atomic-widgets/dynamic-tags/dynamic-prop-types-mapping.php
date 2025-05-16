@@ -10,7 +10,10 @@ use Elementor\Modules\AtomicWidgets\PropTypes\Image_Src_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Primitives\Number_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Primitives\String_Prop_Type;
 use Elementor\Modules\AtomicWidgets\PropTypes\Union_Prop_Type;
+<<<<<<< HEAD
 use Elementor\Modules\AtomicWidgets\PropTypes\Url_Prop_Type;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\Modules\DynamicTags\Module as V1_Dynamic_Tags_Module;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -108,10 +111,13 @@ class Dynamic_Prop_Types_Mapping {
 			return [ V1_Dynamic_Tags_Module::TEXT_CATEGORY ];
 		}
 
+<<<<<<< HEAD
 		if ( $prop_type instanceof Url_Prop_Type ) {
 			return [ V1_Dynamic_Tags_Module::URL_CATEGORY ];
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [];
 	}
 }

@@ -61,6 +61,7 @@ function render_block_core_rss( $attributes ) {
 			$author = $item->get_author();
 			if ( is_object( $author ) ) {
 				$author = $author->get_name();
+<<<<<<< HEAD
 				if ( ! empty( $author ) ) {
 					$author = '<span class="wp-block-rss__item-author">' . sprintf(
 						/* translators: byline. %s: author. */
@@ -75,6 +76,19 @@ function render_block_core_rss( $attributes ) {
 		$description = $item->get_description();
 		if ( $attributes['displayExcerpt'] && ! empty( $description ) ) {
 			$excerpt = html_entity_decode( $description, ENT_QUOTES, get_option( 'blog_charset' ) );
+=======
+				$author = '<span class="wp-block-rss__item-author">' . sprintf(
+					/* translators: byline. %s: author. */
+					__( 'by %s' ),
+					esc_html( strip_tags( $author ) )
+				) . '</span>';
+			}
+		}
+
+		$excerpt = '';
+		if ( $attributes['displayExcerpt'] ) {
+			$excerpt = html_entity_decode( $item->get_description(), ENT_QUOTES, get_option( 'blog_charset' ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$excerpt = esc_attr( wp_trim_words( $excerpt, $attributes['excerptLength'], ' [&hellip;]' ) );
 
 			// Change existing [...] to [&hellip;].

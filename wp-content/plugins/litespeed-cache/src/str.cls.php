@@ -13,6 +13,7 @@ defined('WPINC') || exit();
 class Str
 {
 	/**
+<<<<<<< HEAD
 	 * Translate QC HTML links from html. Convert `<a href="{#xxx#}">xxxx</a>` to `<a href="xxx">xxxx</a>`
 	 *
 	 * @since 7.0
@@ -56,6 +57,8 @@ class Str
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Generate random string
 	 *
 	 * @since  1.3
@@ -66,6 +69,11 @@ class Str
 	 */
 	public static function rrand($len, $type = 7)
 	{
+<<<<<<< HEAD
+=======
+		// mt_srand((int) ((float) microtime() * 1000000));
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		switch ($type) {
 			case 0:
 				$charlist = '012';
@@ -104,7 +112,11 @@ class Str
 
 		$max = strlen($charlist) - 1;
 		for ($i = 0; $i < $len; $i++) {
+<<<<<<< HEAD
 			$str .= $charlist[random_int(0, $max)];
+=======
+			$str .= $charlist[mt_rand(0, $max)];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $str;

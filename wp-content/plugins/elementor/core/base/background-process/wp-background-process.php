@@ -6,7 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+<<<<<<< HEAD
  * Link https://github.com/A5hleyRich/wp-background-processing GPL v2.0.
+=======
+ * https://github.com/A5hleyRich/wp-background-processing GPL v2.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * WP Background Process
  *
@@ -152,7 +156,11 @@ abstract class WP_Background_Process extends WP_Async_Request {
 	 * @return string
 	 */
 	protected function generate_key( $length = 64 ) {
+<<<<<<< HEAD
 		$unique  = md5( microtime() . wp_rand() );
+=======
+		$unique  = md5( microtime() . rand() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$prepend = $this->identifier . '_batch_';
 
 		return substr( $prepend . $unique, 0, $length );
@@ -491,6 +499,10 @@ abstract class WP_Background_Process extends WP_Async_Request {
 	 * Cancel Process
 	 *
 	 * Stop processing queue items, clear cronjob and delete batch.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function cancel_process() {
 		if ( ! $this->is_queue_empty() ) {
@@ -500,6 +512,10 @@ abstract class WP_Background_Process extends WP_Async_Request {
 
 			wp_clear_scheduled_hook( $this->cron_hook_identifier );
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -515,4 +531,8 @@ abstract class WP_Background_Process extends WP_Async_Request {
 	 * @return mixed
 	 */
 	abstract protected function task( $item );
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

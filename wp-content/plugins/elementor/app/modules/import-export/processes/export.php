@@ -240,7 +240,11 @@ class Export {
 	 */
 	private function init_zip_archive() {
 		if ( ! class_exists( '\ZipArchive' ) ) {
+<<<<<<< HEAD
 			throw new \Error( static::ZIP_ARCHIVE_MODULE_MISSING ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+=======
+			throw new \Error( static::ZIP_ARCHIVE_MODULE_MISSING );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$zip = new \ZipArchive();

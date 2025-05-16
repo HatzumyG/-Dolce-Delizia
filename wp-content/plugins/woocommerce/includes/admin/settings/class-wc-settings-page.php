@@ -188,6 +188,7 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 		 * @return array
 		 */
 		public function add_settings_page_data( $pages ) {
+<<<<<<< HEAD
 			global $current_section;
 
 			$saved_current_section = $current_section;
@@ -197,19 +198,33 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 			// Loop through each section and get the settings for that section.
 			foreach ( $sections as $section_id => $section_label ) {
 				$current_section       = $section_id;
+=======
+			$sections      = $this->get_sections();
+			$sections_data = array();
+
+			// Loop through each section and get the settings for that section.
+			foreach ( $sections as $section_id => $section_label ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$section_settings_data = $this->get_section_settings_data( $section_id, $sections );
 
 				// Replace empty string section ids with 'default'.
 				$normalized_section_id                   = '' === $section_id ? 'default' : $section_id;
 				$sections_data[ $normalized_section_id ] = array(
+<<<<<<< HEAD
 					'label'    => html_entity_decode( esc_html( $section_label ) ),
+=======
+					'label'    => html_entity_decode( $section_label ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'settings' => $section_settings_data,
 				);
 			}
 
+<<<<<<< HEAD
 			// Reset the current section to the saved current section.
 			$current_section = $saved_current_section;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$pages[ $this->id ] = array(
 				'label'     => html_entity_decode( $this->label ),
 				'slug'      => $this->id,
@@ -218,9 +233,12 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 				'is_modern' => $this->is_modern,
 			);
 
+<<<<<<< HEAD
 			$pages[ $this->id ]['start'] = $this->get_custom_view( 'woocommerce_before_settings_' . $this->id );
 			$pages[ $this->id ]['end']   = $this->get_custom_view( 'woocommerce_after_settings_' . $this->id );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $pages;
 		}
 
@@ -234,7 +252,11 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 		protected function get_section_settings_data( $section_id, $sections ) {
 			$section_settings_data = array();
 
+<<<<<<< HEAD
 			$custom_view = $this->get_custom_view( 'woocommerce_settings_' . $this->id, $section_id );
+=======
+			$custom_view = $this->get_custom_view( $section_id );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			// We only want to loop through the settings object if the parent class's output method is being rendered during the get_custom_view call.
 			if ( $this->output_called ) {
 				$section_settings = count( $sections ) > 1
@@ -243,6 +265,7 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 
 				// Loop through each setting in the section and add the value to the settings data.
 				foreach ( $section_settings as $section_setting ) {
+<<<<<<< HEAD
 					// Add custom views for sectionend.
 					if ( 'sectionend' === $section_setting['type'] && ! empty( $section_setting['id'] ) ) {
 						$section_settings_data[] = $this->get_custom_view( 'woocommerce_settings_' . $section_setting['id'] . '_end' );
@@ -255,12 +278,22 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 					if ( 'title' === $section_setting['type'] && ! empty( $section_setting['id'] ) ) {
 						$section_settings_data[] = $this->get_custom_view( 'woocommerce_settings_' . $section_setting['id'] );
 					}
+=======
+					$section_settings_data[] = $this->populate_setting_value( $section_setting );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				}
 			}
 
 			// If the custom view has output, add it to the settings data.
 			if ( ! empty( $custom_view ) ) {
+<<<<<<< HEAD
 				$section_settings_data[] = $custom_view;
+=======
+				$section_settings_data[] = array(
+					'type'    => 'custom',
+					'content' => $custom_view,
+				);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			// Reset the output_called property.
@@ -295,6 +328,7 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 		/**
 		 * Get the custom view given the current tab and section.
 		 *
+<<<<<<< HEAD
 		 * @param string $action The action to call.
 		 * @param string $section_id The section id.
 		 * @return string The custom view. HTML output.
@@ -308,6 +342,17 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 				// set global current_section to the section_id.
 				$current_section = $section_id;
 			}
+=======
+		 * @param string $section_id The section id.
+		 * @return string The custom view. HTML output.
+		 */
+		public function get_custom_view( $section_id ) {
+			global $current_section;
+			// Make sure the current section is set to the sectionid here. Reset it at the end of the function.
+			$saved_current_section = $current_section;
+			// set global current_section to the section_id.
+			$current_section = $section_id;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			ob_start();
 			/**
@@ -315,11 +360,16 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 			 *
 			 * @since 2.1.0
 			 */
+<<<<<<< HEAD
 			do_action( $action );
+=======
+			do_action( 'woocommerce_settings_' . $this->id );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$html = ob_get_contents();
 			ob_end_clean();
 
 			// Reset the global variable.
+<<<<<<< HEAD
 			if ( $section_id ) {
 				$current_section = $saved_current_section;
 			}
@@ -335,6 +385,10 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 				'type'    => 'custom',
 				'content' => $content,
 			);
+=======
+			$current_section = $saved_current_section;
+			return trim( $html );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -355,7 +409,11 @@ if ( ! class_exists( 'WC_Settings_Page', false ) ) :
 			$html = ob_get_contents();
 			ob_end_clean();
 			$setting['content'] = trim( $html );
+<<<<<<< HEAD
 			$setting['id']      = isset( $setting['id'] ) ? $setting['id'] : wp_unique_prefixed_id( 'settings_custom_view' );
+=======
+			$setting['id']      = isset( $setting['id'] ) ? $setting['id'] : $setting['type'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$setting['type']    = 'custom';
 
 			return $setting;

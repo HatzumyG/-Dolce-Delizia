@@ -75,22 +75,28 @@ class ProductSummary extends AbstractBlock {
 		$short_description = $product->get_short_description();
 
 		if ( $short_description ) {
+<<<<<<< HEAD
 			// Logic copied from https://github.com/woocommerce/woocommerce/blob/637dde283057ed6667ff81c73ed08774552f631d/plugins/woocommerce/includes/wc-core-functions.php#L53-L62.
 			$short_description = wp_kses_post( $short_description );
 			$short_description = $GLOBALS['wp_embed']->run_shortcode( $short_description );
 			$short_description = shortcode_unautop( $short_description );
 			$short_description = do_shortcode( $short_description );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $short_description;
 		}
 
 		$description = $product->get_description();
 
 		if ( $show_description_if_empty && $description ) {
+<<<<<<< HEAD
 			// Logic copied from https://github.com/woocommerce/woocommerce/blob/637dde283057ed6667ff81c73ed08774552f631d/plugins/woocommerce/includes/wc-core-functions.php#L53-L62.
 			$description = wp_kses_post( $description );
 			$description = $GLOBALS['wp_embed']->run_shortcode( $description );
 			$description = shortcode_unautop( $description );
 			$description = do_shortcode( $description );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $description;
 		}
 
@@ -249,7 +255,11 @@ class ProductSummary extends AbstractBlock {
 			</div></div>',
 			esc_attr( $styles_and_classes['classes'] ),
 			esc_attr( $styles_and_classes['styles'] ?? '' ),
+<<<<<<< HEAD
 			$final_summary
+=======
+			wp_kses_post( $final_summary )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 	}
 }

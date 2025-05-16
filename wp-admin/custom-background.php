@@ -9,11 +9,14 @@
  * @subpackage Administration
  */
 
+<<<<<<< HEAD
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 _deprecated_file( basename( __FILE__ ), '5.3.0', 'wp-admin/includes/class-custom-background.php' );
 
 /** Custom_Background class */

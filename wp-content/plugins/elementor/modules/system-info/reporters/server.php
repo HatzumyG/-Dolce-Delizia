@@ -315,7 +315,11 @@ class Server extends Base {
 	 *                          folders don't have writing permissions, False otherwise.
 	 * }
 	 */
+<<<<<<< HEAD
 	public function get_write_permissions(): array {
+=======
+	public function get_write_permissions() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$paths_to_check = [
 			static::KEY_PATH_HTACCESS_FILE => $this->get_system_path( static::KEY_PATH_HTACCESS_FILE ),
 			static::KEY_PATH_UPLOADS_DIR => $this->get_system_path( static::KEY_PATH_UPLOADS_DIR ),
@@ -348,7 +352,11 @@ class Server extends Base {
 
 		return [
 			'value' => $value,
+<<<<<<< HEAD
 			'warning' => (bool) $write_problems,
+=======
+			'warning' => ! ! $write_problems,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 	}
 
@@ -417,7 +425,11 @@ class Server extends Base {
 	 * @param $paths [] Paths to check permissions.
 	 * @return array []{exists: bool, read: bool, write: bool, execute: bool}
 	 */
+<<<<<<< HEAD
 	public function get_paths_permissions( $paths ): array {
+=======
+	public function get_paths_permissions( $paths ) : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$permissions = [];
 
 		foreach ( $paths as $key_path => $path ) {
@@ -433,7 +445,11 @@ class Server extends Base {
 	 * @param $path_key
 	 * @return string
 	 */
+<<<<<<< HEAD
 	public function get_system_path( $path_key ): string {
+=======
+	public function get_system_path( $path_key ) : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		switch ( $path_key ) {
 			case static::KEY_PATH_WP_CONTENT_DIR:
 				return WP_CONTENT_DIR;
@@ -464,7 +480,11 @@ class Server extends Base {
 	 * @param $path
 	 * @return array{exists: bool, read: bool, write: bool, execute: bool}
 	 */
+<<<<<<< HEAD
 	public function get_path_permissions( $path ): array {
+=======
+	public function get_path_permissions( $path ) : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( empty( $path ) ) {
 			return [
 				'exists' => false,

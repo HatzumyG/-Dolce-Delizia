@@ -3,9 +3,16 @@
  * Plugin Name: Elementor
  * Description: The Elementor Website Builder has it all: drag and drop page builder, pixel perfect design, mobile responsive editing, and more. Get started now!
  * Plugin URI: https://elementor.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash
+<<<<<<< HEAD
  * Version: 3.28.4
  * Author: Elementor.com
  * Author URI: https://elementor.com/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash
+=======
+ * Author: Elementor.com
+ * Version: 3.27.6
+ * Author URI: https://elementor.com/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash
+ *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  * Text Domain: elementor
  *
  * @package Elementor
@@ -26,7 +33,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+<<<<<<< HEAD
 define( 'ELEMENTOR_VERSION', '3.28.4' );
+=======
+define( 'ELEMENTOR_VERSION', '3.27.6' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 define( 'ELEMENTOR__FILE__', __FILE__ );
 define( 'ELEMENTOR_PLUGIN_BASE', plugin_basename( ELEMENTOR__FILE__ ) );
@@ -46,12 +57,20 @@ if ( file_exists( ELEMENTOR_PATH . 'vendor/autoload.php' ) ) {
 	require_once ELEMENTOR_PATH . 'vendor/autoload.php';
 	// We need this file because of the DI\create function that we are using.
 	// Autoload classmap doesn't include this file.
+<<<<<<< HEAD
 	require_once ELEMENTOR_PATH . 'vendor_prefixed/dependency-injection/php-di/php-di/src/functions.php';
+=======
+	require_once ELEMENTOR_PATH . 'vendor_prefixed/php-di/php-di/src/functions.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 if ( ! version_compare( PHP_VERSION, '7.4', '>=' ) ) {
 	add_action( 'admin_notices', 'elementor_fail_php_version' );
+<<<<<<< HEAD
 } elseif ( ! version_compare( get_bloginfo( 'version' ), '6.5', '>=' ) ) {
+=======
+} elseif ( ! version_compare( get_bloginfo( 'version' ), '6.3', '>=' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	add_action( 'admin_notices', 'elementor_fail_wp_version' );
 } else {
 	require ELEMENTOR_PATH . 'includes/plugin.php';
@@ -97,7 +116,11 @@ function elementor_fail_wp_version() {
 		sprintf(
 			/* translators: %s: WordPress version. */
 			esc_html__( 'Update to version %s and get back to creating!', 'elementor' ),
+<<<<<<< HEAD
 			'6.5'
+=======
+			'6.3'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		),
 		esc_html__( 'Show me how', 'elementor' )
 	);

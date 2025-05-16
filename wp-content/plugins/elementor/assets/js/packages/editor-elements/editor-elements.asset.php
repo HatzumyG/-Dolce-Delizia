@@ -8,9 +8,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 return [
 	'handle' => 'elementor-v2-editor-elements',
 	'deps' => [
+<<<<<<< HEAD
 		'elementor-v2-editor-props',
 		'elementor-v2-editor-styles',
 		'elementor-v2-editor-v1-adapters',
 		'elementor-v2-utils',
+=======
+		'elementor-v2-editor-v1-adapters',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	],
 ];

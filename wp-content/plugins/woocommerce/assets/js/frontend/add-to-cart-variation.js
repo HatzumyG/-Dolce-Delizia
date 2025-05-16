@@ -304,6 +304,10 @@
 		$template_html = $template_html.replace( '/*<![CDATA[*/', '' );
 		$template_html = $template_html.replace( '/*]]>*/', '' );
 
+<<<<<<< HEAD
+=======
+		form.$singleVariation.html( $template_html );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		form.$form.find( 'input[name="variation_id"], input.variation_id' ).val( variation.variation_id ).trigger( 'change' );
 
 		// Hide or show qty input
@@ -330,6 +334,7 @@
 			purchasable = false;
 		}
 
+<<<<<<< HEAD
 		// Add a delay before updating the live region to ensure screen readers pick up the content changes.
 		setTimeout( function() {
 			form.$singleVariation.html( $template_html );
@@ -342,6 +347,14 @@
 			}
 		}, 300);
 
+=======
+		// Reveal
+		if ( form.$singleVariation.text().trim() ) {
+			form.$singleVariation.slideDown( 200 ).trigger( 'show_variation', [ variation, purchasable ] );
+		} else {
+			form.$singleVariation.show().trigger( 'show_variation', [ variation, purchasable ] );
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	};
 
 	/**

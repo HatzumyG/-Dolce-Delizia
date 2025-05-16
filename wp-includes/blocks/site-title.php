@@ -31,7 +31,11 @@ function render_block_core_site_title( $attributes ) {
 	}
 
 	if ( $attributes['isLink'] ) {
+<<<<<<< HEAD
 		$aria_current = ! is_paged() && ( is_front_page() || is_home() && ( (int) get_option( 'page_for_posts' ) !== get_queried_object_id() ) ) ? ' aria-current="page"' : '';
+=======
+		$aria_current = is_home() || ( is_front_page() && 'page' === get_option( 'show_on_front' ) ) ? ' aria-current="page"' : '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$link_target  = ! empty( $attributes['linkTarget'] ) ? $attributes['linkTarget'] : '_self';
 
 		$site_title = sprintf(

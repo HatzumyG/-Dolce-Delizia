@@ -196,7 +196,10 @@ return array(
     'Automattic\\WooCommerce\\Admin\\API\\Reports\\Variations\\Stats\\Query' => $baseDir . '/src/Admin/API/Reports/Variations/Stats/Query.php',
     'Automattic\\WooCommerce\\Admin\\API\\Reports\\Variations\\Stats\\Segmenter' => $baseDir . '/src/Admin/API/Reports/Variations/Stats/Segmenter.php',
     'Automattic\\WooCommerce\\Admin\\API\\SettingOptions' => $baseDir . '/src/Admin/API/SettingOptions.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Admin\\API\\Settings' => $baseDir . '/src/Admin/API/Settings.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Admin\\API\\ShippingPartnerSuggestions' => $baseDir . '/src/Admin/API/ShippingPartnerSuggestions.php',
     'Automattic\\WooCommerce\\Admin\\API\\Taxes' => $baseDir . '/src/Admin/API/Taxes.php',
     'Automattic\\WooCommerce\\Admin\\API\\Themes' => $baseDir . '/src/Admin/API/Themes.php',
@@ -214,6 +217,7 @@ return array(
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCCoreProfilerOptions' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCCoreProfilerOptions.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCPaymentGateways' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCPaymentGateways.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCSettings' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCSettings.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCSettingsAccount' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCSettingsAccount.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCSettingsAdvanced' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCSettingsAdvanced.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCSettingsEmails' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCSettingsEmails.php',
@@ -227,6 +231,16 @@ return array(
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Init' => $baseDir . '/src/Admin/Features/Blueprint/Init.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\RestApi' => $baseDir . '/src/Admin/Features/Blueprint/RestApi.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\SettingOptions' => $baseDir . '/src/Admin/Features/Blueprint/SettingOptions.php',
+=======
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCShipping' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCShipping.php',
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCTaskOptions' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCTaskOptions.php',
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Exporters\\ExportWCTaxRates' => $baseDir . '/src/Admin/Features/Blueprint/Exporters/ExportWCTaxRates.php',
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Importers\\ImportSetWCPaymentGateways' => $baseDir . '/src/Admin/Features/Blueprint/Importers/ImportSetWCPaymentGateways.php',
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Importers\\ImportSetWCShipping' => $baseDir . '/src/Admin/Features/Blueprint/Importers/ImportSetWCShipping.php',
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Importers\\ImportSetWCTaxRates' => $baseDir . '/src/Admin/Features/Blueprint/Importers/ImportSetWCTaxRates.php',
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Init' => $baseDir . '/src/Admin/Features/Blueprint/Init.php',
+    'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\RestApi' => $baseDir . '/src/Admin/Features/Blueprint/RestApi.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Steps\\SetWCPaymentGateways' => $baseDir . '/src/Admin/Features/Blueprint/Steps/SetWCPaymentGateways.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Steps\\SetWCShipping' => $baseDir . '/src/Admin/Features/Blueprint/Steps/SetWCShipping.php',
     'Automattic\\WooCommerce\\Admin\\Features\\Blueprint\\Steps\\SetWCTaxRates' => $baseDir . '/src/Admin/Features/Blueprint/Steps/SetWCTaxRates.php',
@@ -383,6 +397,7 @@ return array(
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AbstractDynamicBlock' => $baseDir . '/src/Blocks/BlockTypes/AbstractDynamicBlock.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AbstractInnerBlock' => $baseDir . '/src/Blocks/BlockTypes/AbstractInnerBlock.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AbstractProductGrid' => $baseDir . '/src/Blocks/BlockTypes/AbstractProductGrid.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\Accordion\\AccordionGroup' => $baseDir . '/src/Blocks/BlockTypes/Accordion/AccordionGroup.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\Accordion\\AccordionHeader' => $baseDir . '/src/Blocks/BlockTypes/Accordion/AccordionHeader.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\Accordion\\AccordionItem' => $baseDir . '/src/Blocks/BlockTypes/Accordion/AccordionItem.php',
@@ -392,13 +407,21 @@ return array(
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AddToCartWithOptions' => $baseDir . '/src/Blocks/BlockTypes/AddToCartWithOptions.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AddToCartWithOptionsGroupedProductSelector' => $baseDir . '/src/Blocks/BlockTypes/AddToCartWithOptionsGroupedProductSelector.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AddToCartWithOptionsGroupedProductSelectorItemTemplate' => $baseDir . '/src/Blocks/BlockTypes/AddToCartWithOptionsGroupedProductSelectorItemTemplate.php',
+=======
+    'Automattic\\WooCommerce\\Blocks\\BlockTypes\\ActiveFilters' => $baseDir . '/src/Blocks/BlockTypes/ActiveFilters.php',
+    'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AddToCartForm' => $baseDir . '/src/Blocks/BlockTypes/AddToCartForm.php',
+    'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AddToCartWithOptions' => $baseDir . '/src/Blocks/BlockTypes/AddToCartWithOptions.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AddToCartWithOptionsQuantitySelector' => $baseDir . '/src/Blocks/BlockTypes/AddToCartWithOptionsQuantitySelector.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AddToCartWithOptionsVariationSelector' => $baseDir . '/src/Blocks/BlockTypes/AddToCartWithOptionsVariationSelector.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AllProducts' => $baseDir . '/src/Blocks/BlockTypes/AllProducts.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AllReviews' => $baseDir . '/src/Blocks/BlockTypes/AllReviews.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AtomicBlock' => $baseDir . '/src/Blocks/BlockTypes/AtomicBlock.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\AttributeFilter' => $baseDir . '/src/Blocks/BlockTypes/AttributeFilter.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\BlockifiedProductDetails' => $baseDir . '/src/Blocks/BlockTypes/BlockifiedProductDetails.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\Breadcrumbs' => $baseDir . '/src/Blocks/BlockTypes/Breadcrumbs.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\Cart' => $baseDir . '/src/Blocks/BlockTypes/Cart.php',
     'Automattic\\WooCommerce\\Blocks\\BlockTypes\\CartAcceptedPaymentMethodsBlock' => $baseDir . '/src/Blocks/BlockTypes/CartAcceptedPaymentMethodsBlock.php',
@@ -547,8 +570,11 @@ return array(
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\CheckoutFields' => $baseDir . '/src/Blocks/Domain/Services/CheckoutFields.php',
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\CheckoutFieldsAdmin' => $baseDir . '/src/Blocks/Domain/Services/CheckoutFieldsAdmin.php',
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\CheckoutFieldsFrontend' => $baseDir . '/src/Blocks/Domain/Services/CheckoutFieldsFrontend.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\CheckoutFieldsSchema\\DocumentObject' => $baseDir . '/src/Blocks/Domain/Services/CheckoutFieldsSchema/DocumentObject.php',
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\CheckoutFieldsSchema\\Validation' => $baseDir . '/src/Blocks/Domain/Services/CheckoutFieldsSchema/Validation.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\CreateAccount' => $baseDir . '/src/Blocks/Domain/Services/CreateAccount.php',
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\DraftOrders' => $baseDir . '/src/Blocks/Domain/Services/DraftOrders.php',
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\Email\\CustomerNewAccount' => $baseDir . '/src/Blocks/Domain/Services/Email/CustomerNewAccount.php',
@@ -556,11 +582,21 @@ return array(
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\GoogleAnalytics' => $baseDir . '/src/Blocks/Domain/Services/GoogleAnalytics.php',
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\Hydration' => $baseDir . '/src/Blocks/Domain/Services/Hydration.php',
     'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\Notices' => $baseDir . '/src/Blocks/Domain/Services/Notices.php',
+<<<<<<< HEAD
+=======
+    'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\OnboardingTasks\\ReviewCheckoutTask' => $baseDir . '/src/Blocks/Domain/Services/OnboardingTasks/ReviewCheckoutTask.php',
+    'Automattic\\WooCommerce\\Blocks\\Domain\\Services\\OnboardingTasks\\TasksController' => $baseDir . '/src/Blocks/Domain/Services/OnboardingTasks/TasksController.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blocks\\Images\\Pexels' => $baseDir . '/src/Blocks/Images/Pexels.php',
     'Automattic\\WooCommerce\\Blocks\\InboxNotifications' => $baseDir . '/src/Blocks/InboxNotifications.php',
     'Automattic\\WooCommerce\\Blocks\\Installer' => $baseDir . '/src/Blocks/Installer.php',
     'Automattic\\WooCommerce\\Blocks\\Integrations\\IntegrationInterface' => $baseDir . '/src/Blocks/Integrations/IntegrationInterface.php',
     'Automattic\\WooCommerce\\Blocks\\Integrations\\IntegrationRegistry' => $baseDir . '/src/Blocks/Integrations/IntegrationRegistry.php',
+<<<<<<< HEAD
+=======
+    'Automattic\\WooCommerce\\Blocks\\InteractivityComponents\\CheckboxList' => $baseDir . '/src/Blocks/InteractivityComponents/CheckboxList.php',
+    'Automattic\\WooCommerce\\Blocks\\InteractivityComponents\\Dropdown' => $baseDir . '/src/Blocks/InteractivityComponents/Dropdown.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blocks\\Library' => $baseDir . '/src/Blocks/Library.php',
     'Automattic\\WooCommerce\\Blocks\\Migration' => $baseDir . '/src/Blocks/Migration.php',
     'Automattic\\WooCommerce\\Blocks\\Options' => $baseDir . '/src/Blocks/Options.php',
@@ -596,8 +632,11 @@ return array(
     'Automattic\\WooCommerce\\Blocks\\Templates\\ClassicTemplatesCompatibility' => $baseDir . '/src/Blocks/Templates/ClassicTemplatesCompatibility.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\ComingSoonSocialLinksTemplate' => $baseDir . '/src/Blocks/Templates/ComingSoonSocialLinksTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\ComingSoonTemplate' => $baseDir . '/src/Blocks/Templates/ComingSoonTemplate.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blocks\\Templates\\ExternalProductAddToCartWithOptionsTemplate' => $baseDir . '/src/Blocks/Templates/ExternalProductAddToCartWithOptionsTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\GroupedProductAddToCartWithOptionsTemplate' => $baseDir . '/src/Blocks/Templates/GroupedProductAddToCartWithOptionsTemplate.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blocks\\Templates\\MiniCartTemplate' => $baseDir . '/src/Blocks/Templates/MiniCartTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\OrderConfirmationTemplate' => $baseDir . '/src/Blocks/Templates/OrderConfirmationTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\ProductAttributeTemplate' => $baseDir . '/src/Blocks/Templates/ProductAttributeTemplate.php',
@@ -605,10 +644,15 @@ return array(
     'Automattic\\WooCommerce\\Blocks\\Templates\\ProductCategoryTemplate' => $baseDir . '/src/Blocks/Templates/ProductCategoryTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\ProductSearchResultsTemplate' => $baseDir . '/src/Blocks/Templates/ProductSearchResultsTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\ProductTagTemplate' => $baseDir . '/src/Blocks/Templates/ProductTagTemplate.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blocks\\Templates\\SimpleProductAddToCartWithOptionsTemplate' => $baseDir . '/src/Blocks/Templates/SimpleProductAddToCartWithOptionsTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\SingleProductTemplate' => $baseDir . '/src/Blocks/Templates/SingleProductTemplate.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\SingleProductTemplateCompatibility' => $baseDir . '/src/Blocks/Templates/SingleProductTemplateCompatibility.php',
     'Automattic\\WooCommerce\\Blocks\\Templates\\VariableProductAddToCartWithOptionsTemplate' => $baseDir . '/src/Blocks/Templates/VariableProductAddToCartWithOptionsTemplate.php',
+=======
+    'Automattic\\WooCommerce\\Blocks\\Templates\\SingleProductTemplate' => $baseDir . '/src/Blocks/Templates/SingleProductTemplate.php',
+    'Automattic\\WooCommerce\\Blocks\\Templates\\SingleProductTemplateCompatibility' => $baseDir . '/src/Blocks/Templates/SingleProductTemplateCompatibility.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blocks\\Utils\\BlockHooksTrait' => $baseDir . '/src/Blocks/Utils/BlockHooksTrait.php',
     'Automattic\\WooCommerce\\Blocks\\Utils\\BlockTemplateUtils' => $baseDir . '/src/Blocks/Utils/BlockTemplateUtils.php',
     'Automattic\\WooCommerce\\Blocks\\Utils\\BlocksWpQuery' => $baseDir . '/src/Blocks/Utils/BlocksWpQuery.php',
@@ -620,7 +664,10 @@ return array(
     'Automattic\\WooCommerce\\Blocks\\Utils\\Utils' => $baseDir . '/src/Blocks/Utils/Utils.php',
     'Automattic\\WooCommerce\\Blueprint\\BuiltInExporters' => $vendorDir . '/woocommerce/blueprint/src/BuiltInExporters.php',
     'Automattic\\WooCommerce\\Blueprint\\BuiltInStepProcessors' => $vendorDir . '/woocommerce/blueprint/src/BuiltInStepProcessors.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blueprint\\ClassExtractor' => $vendorDir . '/woocommerce/blueprint/src/ClassExtractor.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blueprint\\Cli' => $vendorDir . '/woocommerce/blueprint/src/Cli.php',
     'Automattic\\WooCommerce\\Blueprint\\Cli\\ExportCli' => $vendorDir . '/woocommerce/blueprint/src/Cli/ExportCli.php',
     'Automattic\\WooCommerce\\Blueprint\\Cli\\ImportCli' => $vendorDir . '/woocommerce/blueprint/src/Cli/ImportCli.php',
@@ -630,14 +677,20 @@ return array(
     'Automattic\\WooCommerce\\Blueprint\\Exporters\\HasAlias' => $vendorDir . '/woocommerce/blueprint/src/Exporters/HasAlias.php',
     'Automattic\\WooCommerce\\Blueprint\\Exporters\\StepExporter' => $vendorDir . '/woocommerce/blueprint/src/Exporters/StepExporter.php',
     'Automattic\\WooCommerce\\Blueprint\\ImportSchema' => $vendorDir . '/woocommerce/blueprint/src/ImportSchema.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blueprint\\ImportStep' => $vendorDir . '/woocommerce/blueprint/src/ImportStep.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportActivatePlugin' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportActivatePlugin.php',
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportActivateTheme' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportActivateTheme.php',
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportDeactivatePlugin' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportDeactivatePlugin.php',
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportDeletePlugin' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportDeletePlugin.php',
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportInstallPlugin' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportInstallPlugin.php',
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportInstallTheme' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportInstallTheme.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportRunSql' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportRunSql.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blueprint\\Importers\\ImportSetSiteOptions' => $vendorDir . '/woocommerce/blueprint/src/Importers/ImportSetSiteOptions.php',
     'Automattic\\WooCommerce\\Blueprint\\ResourceStorages' => $vendorDir . '/woocommerce/blueprint/src/ResourceStorages.php',
     'Automattic\\WooCommerce\\Blueprint\\ResourceStorages\\LocalPluginResourceStorage' => $vendorDir . '/woocommerce/blueprint/src/ResourceStorages/LocalPluginResourceStorage.php',
@@ -645,8 +698,11 @@ return array(
     'Automattic\\WooCommerce\\Blueprint\\ResourceStorages\\OrgPluginResourceStorage' => $vendorDir . '/woocommerce/blueprint/src/ResourceStorages/OrgPluginResourceStorage.php',
     'Automattic\\WooCommerce\\Blueprint\\ResourceStorages\\OrgThemeResourceStorage' => $vendorDir . '/woocommerce/blueprint/src/ResourceStorages/OrgThemeResourceStorage.php',
     'Automattic\\WooCommerce\\Blueprint\\ResourceStorages\\ResourceStorage' => $vendorDir . '/woocommerce/blueprint/src/ResourceStorages/ResourceStorage.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blueprint\\ResultFormatters\\CliResultFormatter' => $vendorDir . '/woocommerce/blueprint/src/ResultFormatters/CliResultFormatter.php',
     'Automattic\\WooCommerce\\Blueprint\\ResultFormatters\\JsonResultFormatter' => $vendorDir . '/woocommerce/blueprint/src/ResultFormatters/JsonResultFormatter.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blueprint\\Schemas\\JsonSchema' => $vendorDir . '/woocommerce/blueprint/src/Schemas/JsonSchema.php',
     'Automattic\\WooCommerce\\Blueprint\\Schemas\\ZipSchema' => $vendorDir . '/woocommerce/blueprint/src/Schemas/ZipSchema.php',
     'Automattic\\WooCommerce\\Blueprint\\StepProcessor' => $vendorDir . '/woocommerce/blueprint/src/StepProcessor.php',
@@ -657,11 +713,15 @@ return array(
     'Automattic\\WooCommerce\\Blueprint\\Steps\\DeletePlugin' => $vendorDir . '/woocommerce/blueprint/src/Steps/DeletePlugin.php',
     'Automattic\\WooCommerce\\Blueprint\\Steps\\InstallPlugin' => $vendorDir . '/woocommerce/blueprint/src/Steps/InstallPlugin.php',
     'Automattic\\WooCommerce\\Blueprint\\Steps\\InstallTheme' => $vendorDir . '/woocommerce/blueprint/src/Steps/InstallTheme.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blueprint\\Steps\\RunSql' => $vendorDir . '/woocommerce/blueprint/src/Steps/RunSql.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blueprint\\Steps\\SetSiteOptions' => $vendorDir . '/woocommerce/blueprint/src/Steps/SetSiteOptions.php',
     'Automattic\\WooCommerce\\Blueprint\\Steps\\Step' => $vendorDir . '/woocommerce/blueprint/src/Steps/Step.php',
     'Automattic\\WooCommerce\\Blueprint\\Tests\\TestCase' => $vendorDir . '/woocommerce/blueprint/tests/TestCase.php',
     'Automattic\\WooCommerce\\Blueprint\\Tests\\Unit\\ExportSchemaTest' => $vendorDir . '/woocommerce/blueprint/tests/Unit/ExportSchemaTest.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Blueprint\\Tests\\Unit\\Exporters\\ExportInstallPluginStepsTest' => $vendorDir . '/woocommerce/blueprint/tests/Unit/Exporters/ExportInstallPluginStepsTest.php',
     'Automattic\\WooCommerce\\Blueprint\\Tests\\Unit\\Importers\\ImportActivatePluginTest' => $vendorDir . '/woocommerce/blueprint/tests/Unit/Importers/ImportActivatePluginTest.php',
     'Automattic\\WooCommerce\\Blueprint\\Tests\\Unit\\Importers\\ImportActivateThemeTest' => $vendorDir . '/woocommerce/blueprint/tests/Unit/Importers/ImportActivateThemeTest.php',
@@ -678,6 +738,12 @@ return array(
     'Automattic\\WooCommerce\\Blueprint\\Tests\\stubs\\Exporters\\EmptySetSiteOptionsExporter' => $vendorDir . '/woocommerce/blueprint/tests/stubs/Exporters/EmptySetSiteOptionsExporter.php',
     'Automattic\\WooCommerce\\Blueprint\\Tests\\stubs\\Importers\\DummyImporter' => $vendorDir . '/woocommerce/blueprint/tests/stubs/Importers/DummyImporter.php',
     'Automattic\\WooCommerce\\Blueprint\\Tests\\stubs\\Steps\\DummyStep' => $vendorDir . '/woocommerce/blueprint/tests/stubs/Steps/DummyStep.php',
+=======
+    'Automattic\\WooCommerce\\Blueprint\\Tests\\Unit\\Schemas\\JsonSchemaTest' => $vendorDir . '/woocommerce/blueprint/tests/Unit/Schemas/JsonSchemaTest.php',
+    'Automattic\\WooCommerce\\Blueprint\\Tests\\Unit\\Schemas\\ZipSchemaTest' => $vendorDir . '/woocommerce/blueprint/tests/Unit/Schemas/ZipSchemaTest.php',
+    'Automattic\\WooCommerce\\Blueprint\\Tests\\Unit\\ZipExportedSchemaTest' => $vendorDir . '/woocommerce/blueprint/tests/Unit/ZipExportedSchemaTest.php',
+    'Automattic\\WooCommerce\\Blueprint\\Tests\\stubs\\Exporters\\EmptySetSiteOptionsExporter' => $vendorDir . '/woocommerce/blueprint/tests/stubs/Exporters/EmptySetSiteOptionsExporter.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Blueprint\\UsePluginHelpers' => $vendorDir . '/woocommerce/blueprint/src/UsePluginHelpers.php',
     'Automattic\\WooCommerce\\Blueprint\\UsePubSub' => $vendorDir . '/woocommerce/blueprint/src/UsePubSub.php',
     'Automattic\\WooCommerce\\Blueprint\\UseWPFunctions' => $vendorDir . '/woocommerce/blueprint/src/UseWPFunctions.php',
@@ -703,12 +769,18 @@ return array(
     'Automattic\\WooCommerce\\Database\\Migrations\\MetaToMetaTableMigrator' => $baseDir . '/src/Database/Migrations/MetaToMetaTableMigrator.php',
     'Automattic\\WooCommerce\\Database\\Migrations\\MigrationHelper' => $baseDir . '/src/Database/Migrations/MigrationHelper.php',
     'Automattic\\WooCommerce\\Database\\Migrations\\TableMigrator' => $baseDir . '/src/Database/Migrations/TableMigrator.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Enums\\CatalogVisibility' => $baseDir . '/src/Enums/CatalogVisibility.php',
     'Automattic\\WooCommerce\\Enums\\OrderInternalStatus' => $baseDir . '/src/Enums/OrderInternalStatus.php',
     'Automattic\\WooCommerce\\Enums\\OrderStatus' => $baseDir . '/src/Enums/OrderStatus.php',
     'Automattic\\WooCommerce\\Enums\\ProductStatus' => $baseDir . '/src/Enums/ProductStatus.php',
     'Automattic\\WooCommerce\\Enums\\ProductStockStatus' => $baseDir . '/src/Enums/ProductStockStatus.php',
     'Automattic\\WooCommerce\\Enums\\ProductTaxStatus' => $baseDir . '/src/Enums/ProductTaxStatus.php',
+=======
+    'Automattic\\WooCommerce\\Enums\\OrderInternalStatus' => $baseDir . '/src/Enums/OrderInternalStatus.php',
+    'Automattic\\WooCommerce\\Enums\\OrderStatus' => $baseDir . '/src/Enums/OrderStatus.php',
+    'Automattic\\WooCommerce\\Enums\\ProductStatus' => $baseDir . '/src/Enums/ProductStatus.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Enums\\ProductType' => $baseDir . '/src/Enums/ProductType.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\ActivityPanels' => $baseDir . '/src/Internal/Admin/ActivityPanels.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\Analytics' => $baseDir . '/src/Internal/Admin/Analytics.php',
@@ -743,6 +815,10 @@ return array(
     'Automattic\\WooCommerce\\Internal\\Admin\\Marketplace' => $baseDir . '/src/Internal/Admin/Marketplace.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\MobileAppBanner' => $baseDir . '/src/Internal/Admin/MobileAppBanner.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\Notes\\AddFirstProduct' => $baseDir . '/src/Internal/Admin/Notes/AddFirstProduct.php',
+<<<<<<< HEAD
+=======
+    'Automattic\\WooCommerce\\Internal\\Admin\\Notes\\ChoosingTheme' => $baseDir . '/src/Internal/Admin/Notes/ChoosingTheme.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Internal\\Admin\\Notes\\CustomizeStoreWithBlocks' => $baseDir . '/src/Internal/Admin/Notes/CustomizeStoreWithBlocks.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\Notes\\CustomizingProductCatalog' => $baseDir . '/src/Internal/Admin/Notes/CustomizingProductCatalog.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\Notes\\EUVATNumber' => $baseDir . '/src/Internal/Admin/Notes/EUVATNumber.php',
@@ -807,7 +883,10 @@ return array(
     'Automattic\\WooCommerce\\Internal\\Admin\\RemoteFreeExtensions\\DefaultFreeExtensions' => $baseDir . '/src/Internal/Admin/RemoteFreeExtensions/DefaultFreeExtensions.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\RemoteFreeExtensions\\EvaluateExtension' => $baseDir . '/src/Internal/Admin/RemoteFreeExtensions/EvaluateExtension.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\RemoteFreeExtensions\\Init' => $baseDir . '/src/Internal/Admin/RemoteFreeExtensions/Init.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Internal\\Admin\\RemoteFreeExtensions\\ProcessCoreProfilerPluginInstallOptions' => $baseDir . '/src/Internal/Admin/RemoteFreeExtensions/ProcessCoreProfilerPluginInstallOptions.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Internal\\Admin\\RemoteFreeExtensions\\RemoteFreeExtensionsDataSourcePoller' => $baseDir . '/src/Internal/Admin/RemoteFreeExtensions/RemoteFreeExtensionsDataSourcePoller.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\RemoteInboxNotifications' => $baseDir . '/src/Internal/Admin/RemoteInboxNotifications.php',
     'Automattic\\WooCommerce\\Internal\\Admin\\Schedulers\\CustomersScheduler' => $baseDir . '/src/Internal/Admin/Schedulers/CustomersScheduler.php',
@@ -886,7 +965,10 @@ return array(
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\ComingSoonServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/ComingSoonServiceProvider.php',
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\CostOfGoodsSoldServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/CostOfGoodsSoldServiceProvider.php',
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\DownloadPermissionsAdjusterServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/DownloadPermissionsAdjusterServiceProvider.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\EmailEditorServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/EmailEditorServiceProvider.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\EmailPreviewServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/EmailPreviewServiceProvider.php',
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\EnginesServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/EnginesServiceProvider.php',
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\FeaturesServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/FeaturesServiceProvider.php',
@@ -911,6 +993,7 @@ return array(
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\StatsServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/StatsServiceProvider.php',
     'Automattic\\WooCommerce\\Internal\\DependencyManagement\\ServiceProviders\\UtilsClassesServiceProvider' => $baseDir . '/src/Internal/DependencyManagement/ServiceProviders/UtilsClassesServiceProvider.php',
     'Automattic\\WooCommerce\\Internal\\DownloadPermissionsAdjuster' => $baseDir . '/src/Internal/DownloadPermissionsAdjuster.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\Internal\\EmailEditor\\EmailPatterns\\PatternsController' => $baseDir . '/src/Internal/EmailEditor/EmailPatterns/PatternsController.php',
     'Automattic\\WooCommerce\\Internal\\EmailEditor\\EmailPatterns\\WooEmailContentPattern' => $baseDir . '/src/Internal/EmailEditor/EmailPatterns/WooEmailContentPattern.php',
     'Automattic\\WooCommerce\\Internal\\EmailEditor\\EmailTemplates\\TemplatesController' => $baseDir . '/src/Internal/EmailEditor/EmailTemplates/TemplatesController.php',
@@ -922,6 +1005,9 @@ return array(
     'Automattic\\WooCommerce\\Internal\\Email\\EmailColors' => $baseDir . '/src/Internal/Email/EmailColors.php',
     'Automattic\\WooCommerce\\Internal\\Email\\EmailFont' => $baseDir . '/src/Internal/Email/EmailFont.php',
     'Automattic\\WooCommerce\\Internal\\Email\\EmailStyleSync' => $baseDir . '/src/Internal/Email/EmailStyleSync.php',
+=======
+    'Automattic\\WooCommerce\\Internal\\Email\\EmailFont' => $baseDir . '/src/Internal/Email/EmailFont.php',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\Internal\\Features\\FeaturesController' => $baseDir . '/src/Internal/Features/FeaturesController.php',
     'Automattic\\WooCommerce\\Internal\\Features\\ProductBlockEditor\\ProductTemplates\\AbstractProductFormTemplate' => $baseDir . '/src/Internal/Features/ProductBlockEditor/ProductTemplates/AbstractProductFormTemplate.php',
     'Automattic\\WooCommerce\\Internal\\Features\\ProductBlockEditor\\ProductTemplates\\DownloadableProductTrait' => $baseDir . '/src/Internal/Features/ProductBlockEditor/ProductTemplates/DownloadableProductTrait.php',
@@ -1038,8 +1124,11 @@ return array(
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductAttributeTerms' => $baseDir . '/src/StoreApi/Routes/V1/ProductAttributeTerms.php',
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductAttributes' => $baseDir . '/src/StoreApi/Routes/V1/ProductAttributes.php',
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductAttributesById' => $baseDir . '/src/StoreApi/Routes/V1/ProductAttributesById.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductBrands' => $baseDir . '/src/StoreApi/Routes/V1/ProductBrands.php',
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductBrandsById' => $baseDir . '/src/StoreApi/Routes/V1/ProductBrandsById.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductCategories' => $baseDir . '/src/StoreApi/Routes/V1/ProductCategories.php',
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductCategoriesById' => $baseDir . '/src/StoreApi/Routes/V1/ProductCategoriesById.php',
     'Automattic\\WooCommerce\\StoreApi\\Routes\\V1\\ProductCollectionData' => $baseDir . '/src/StoreApi/Routes/V1/ProductCollectionData.php',
@@ -1072,7 +1161,10 @@ return array(
     'Automattic\\WooCommerce\\StoreApi\\Schemas\\V1\\OrderSchema' => $baseDir . '/src/StoreApi/Schemas/V1/OrderSchema.php',
     'Automattic\\WooCommerce\\StoreApi\\Schemas\\V1\\PatternsSchema' => $baseDir . '/src/StoreApi/Schemas/V1/PatternsSchema.php',
     'Automattic\\WooCommerce\\StoreApi\\Schemas\\V1\\ProductAttributeSchema' => $baseDir . '/src/StoreApi/Schemas/V1/ProductAttributeSchema.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\StoreApi\\Schemas\\V1\\ProductBrandSchema' => $baseDir . '/src/StoreApi/Schemas/V1/ProductBrandSchema.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\StoreApi\\Schemas\\V1\\ProductCategorySchema' => $baseDir . '/src/StoreApi/Schemas/V1/ProductCategorySchema.php',
     'Automattic\\WooCommerce\\StoreApi\\Schemas\\V1\\ProductCollectionDataSchema' => $baseDir . '/src/StoreApi/Schemas/V1/ProductCollectionDataSchema.php',
     'Automattic\\WooCommerce\\StoreApi\\Schemas\\V1\\ProductReviewSchema' => $baseDir . '/src/StoreApi/Schemas/V1/ProductReviewSchema.php',
@@ -1091,7 +1183,10 @@ return array(
     'Automattic\\WooCommerce\\StoreApi\\Utilities\\OrderAuthorizationTrait' => $baseDir . '/src/StoreApi/Utilities/OrderAuthorizationTrait.php',
     'Automattic\\WooCommerce\\StoreApi\\Utilities\\OrderController' => $baseDir . '/src/StoreApi/Utilities/OrderController.php',
     'Automattic\\WooCommerce\\StoreApi\\Utilities\\Pagination' => $baseDir . '/src/StoreApi/Utilities/Pagination.php',
+<<<<<<< HEAD
     'Automattic\\WooCommerce\\StoreApi\\Utilities\\PaymentUtils' => $baseDir . '/src/StoreApi/Utilities/PaymentUtils.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Automattic\\WooCommerce\\StoreApi\\Utilities\\ProductItemTrait' => $baseDir . '/src/StoreApi/Utilities/ProductItemTrait.php',
     'Automattic\\WooCommerce\\StoreApi\\Utilities\\ProductQuery' => $baseDir . '/src/StoreApi/Utilities/ProductQuery.php',
     'Automattic\\WooCommerce\\StoreApi\\Utilities\\ProductQueryFilters' => $baseDir . '/src/StoreApi/Utilities/ProductQueryFilters.php',
@@ -1250,6 +1345,7 @@ return array(
     'Jetpack_Tracks_Client' => $vendorDir . '/automattic/jetpack-connection/legacy/class-jetpack-tracks-client.php',
     'Jetpack_Tracks_Event' => $vendorDir . '/automattic/jetpack-connection/legacy/class-jetpack-tracks-event.php',
     'Jetpack_XMLRPC_Server' => $vendorDir . '/automattic/jetpack-connection/legacy/class-jetpack-xmlrpc-server.php',
+<<<<<<< HEAD
     'MailPoet\\EmailEditor\\AccessDeniedException' => $baseDir . '/packages/email-editor/src/exceptions.php',
     'MailPoet\\EmailEditor\\Bootstrap' => $baseDir . '/packages/email-editor/src/Bootstrap.php',
     'MailPoet\\EmailEditor\\ConflictException' => $baseDir . '/packages/email-editor/src/exceptions.php',
@@ -1323,6 +1419,8 @@ return array(
     'MailPoet\\EmailEditor\\Validator\\Schema\\String_Schema' => $baseDir . '/packages/email-editor/src/Validator/Schema/class-string-schema.php',
     'MailPoet\\EmailEditor\\Validator\\Validation_Exception' => $baseDir . '/packages/email-editor/src/Validator/class-validation-exception.php',
     'MailPoet\\EmailEditor\\Validator\\Validator' => $baseDir . '/packages/email-editor/src/Validator/class-validator.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'MaxMind\\Db\\Reader' => $vendorDir . '/maxmind-db/reader/src/MaxMind/Db/Reader.php',
     'MaxMind\\Db\\Reader\\Decoder' => $vendorDir . '/maxmind-db/reader/src/MaxMind/Db/Reader/Decoder.php',
     'MaxMind\\Db\\Reader\\InvalidDatabaseException' => $vendorDir . '/maxmind-db/reader/src/MaxMind/Db/Reader/InvalidDatabaseException.php',
@@ -1582,8 +1680,11 @@ return array(
     'Sabberworm\\CSS\\Value\\URL' => $vendorDir . '/sabberworm/php-css-parser/src/Value/URL.php',
     'Sabberworm\\CSS\\Value\\Value' => $vendorDir . '/sabberworm/php-css-parser/src/Value/Value.php',
     'Sabberworm\\CSS\\Value\\ValueList' => $vendorDir . '/sabberworm/php-css-parser/src/Value/ValueList.php',
+<<<<<<< HEAD
     'Soundasleep\\Html2Text' => $vendorDir . '/soundasleep/html2text/src/Html2Text.php',
     'Soundasleep\\Html2TextException' => $vendorDir . '/soundasleep/html2text/src/Html2TextException.php',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'Symfony\\Component\\CssSelector\\CssSelectorConverter' => $vendorDir . '/symfony/css-selector/CssSelectorConverter.php',
     'Symfony\\Component\\CssSelector\\Exception\\ExceptionInterface' => $vendorDir . '/symfony/css-selector/Exception/ExceptionInterface.php',

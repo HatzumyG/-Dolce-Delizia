@@ -1,6 +1,183 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+<<<<<<< HEAD
+=======
+/***/ 1206:
+/***/ ((module) => {
+
+var State = wp.media.controller.State,
+	l10n = wp.media.view.l10n,
+	AudioDetails;
+
+/**
+ * wp.media.controller.AudioDetails
+ *
+ * The controller for the Audio Details state
+ *
+ * @memberOf wp.media.controller
+ *
+ * @class
+ * @augments wp.media.controller.State
+ * @augments Backbone.Model
+ */
+AudioDetails = State.extend(/** @lends wp.media.controller.AudioDetails.prototype */{
+	defaults: {
+		id: 'audio-details',
+		toolbar: 'audio-details',
+		title: l10n.audioDetailsTitle,
+		content: 'audio-details',
+		menu: 'audio-details',
+		router: false,
+		priority: 60
+	},
+
+	initialize: function( options ) {
+		this.media = options.media;
+		State.prototype.initialize.apply( this, arguments );
+	}
+});
+
+module.exports = AudioDetails;
+
+
+/***/ }),
+
+/***/ 5039:
+/***/ ((module) => {
+
+/**
+ * wp.media.controller.VideoDetails
+ *
+ * The controller for the Video Details state
+ *
+ * @memberOf wp.media.controller
+ *
+ * @class
+ * @augments wp.media.controller.State
+ * @augments Backbone.Model
+ */
+var State = wp.media.controller.State,
+	l10n = wp.media.view.l10n,
+	VideoDetails;
+
+VideoDetails = State.extend(/** @lends wp.media.controller.VideoDetails.prototype */{
+	defaults: {
+		id: 'video-details',
+		toolbar: 'video-details',
+		title: l10n.videoDetailsTitle,
+		content: 'video-details',
+		menu: 'video-details',
+		router: false,
+		priority: 60
+	},
+
+	initialize: function( options ) {
+		this.media = options.media;
+		State.prototype.initialize.apply( this, arguments );
+	}
+});
+
+module.exports = VideoDetails;
+
+
+/***/ }),
+
+/***/ 241:
+/***/ ((module) => {
+
+/**
+ * wp.media.model.PostMedia
+ *
+ * Shared model class for audio and video. Updates the model after
+ *   "Add Audio|Video Source" and "Replace Audio|Video" states return
+ *
+ * @memberOf wp.media.model
+ *
+ * @class
+ * @augments Backbone.Model
+ */
+var PostMedia = Backbone.Model.extend(/** @lends wp.media.model.PostMedia.prototype */{
+	initialize: function() {
+		this.attachment = false;
+	},
+
+	setSource: function( attachment ) {
+		this.attachment = attachment;
+		this.extension = attachment.get( 'filename' ).split('.').pop();
+
+		if ( this.get( 'src' ) && this.extension === this.get( 'src' ).split('.').pop() ) {
+			this.unset( 'src' );
+		}
+
+		if ( _.contains( wp.media.view.settings.embedExts, this.extension ) ) {
+			this.set( this.extension, this.attachment.get( 'url' ) );
+		} else {
+			this.unset( this.extension );
+		}
+	},
+
+	changeAttachment: function( attachment ) {
+		this.setSource( attachment );
+
+		this.unset( 'src' );
+		_.each( _.without( wp.media.view.settings.embedExts, this.extension ), function( ext ) {
+			this.unset( ext );
+		}, this );
+	}
+});
+
+module.exports = PostMedia;
+
+
+/***/ }),
+
+/***/ 3713:
+/***/ ((module) => {
+
+var MediaDetails = wp.media.view.MediaDetails,
+	AudioDetails;
+
+/**
+ * wp.media.view.AudioDetails
+ *
+ * @memberOf wp.media.view
+ *
+ * @class
+ * @augments wp.media.view.MediaDetails
+ * @augments wp.media.view.Settings.AttachmentDisplay
+ * @augments wp.media.view.Settings
+ * @augments wp.media.View
+ * @augments wp.Backbone.View
+ * @augments Backbone.View
+ */
+AudioDetails = MediaDetails.extend(/** @lends wp.media.view.AudioDetails.prototype */{
+	className: 'audio-details',
+	template:  wp.template('audio-details'),
+
+	setMedia: function() {
+		var audio = this.$('.wp-audio-shortcode');
+
+		if ( audio.find( 'source' ).length ) {
+			if ( audio.is(':hidden') ) {
+				audio.show();
+			}
+			this.media = MediaDetails.prepareSrc( audio.get(0) );
+		} else {
+			audio.hide();
+			this.media = false;
+		}
+
+		return this;
+	}
+});
+
+module.exports = AudioDetails;
+
+
+/***/ }),
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ 175:
 /***/ ((module) => {
 
@@ -84,6 +261,7 @@ module.exports = AudioDetails;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 241:
 /***/ ((module) => {
 
@@ -133,6 +311,8 @@ module.exports = PostMedia;
 
 /***/ }),
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ 741:
 /***/ ((module) => {
 
@@ -270,6 +450,7 @@ module.exports = MediaDetails;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 1206:
 /***/ ((module) => {
 
@@ -445,6 +626,8 @@ module.exports = VideoDetails;
 
 /***/ }),
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ 8646:
 /***/ ((module) => {
 
@@ -761,6 +944,59 @@ MediaDetails = AttachmentDisplay.extend(/** @lends wp.media.view.MediaDetails.pr
 module.exports = MediaDetails;
 
 
+<<<<<<< HEAD
+=======
+/***/ }),
+
+/***/ 5836:
+/***/ ((module) => {
+
+var MediaDetails = wp.media.view.MediaDetails,
+	VideoDetails;
+
+/**
+ * wp.media.view.VideoDetails
+ *
+ * @memberOf wp.media.view
+ *
+ * @class
+ * @augments wp.media.view.MediaDetails
+ * @augments wp.media.view.Settings.AttachmentDisplay
+ * @augments wp.media.view.Settings
+ * @augments wp.media.View
+ * @augments wp.Backbone.View
+ * @augments Backbone.View
+ */
+VideoDetails = MediaDetails.extend(/** @lends wp.media.view.VideoDetails.prototype */{
+	className: 'video-details',
+	template:  wp.template('video-details'),
+
+	setMedia: function() {
+		var video = this.$('.wp-video-shortcode');
+
+		if ( video.find( 'source' ).length ) {
+			if ( video.is(':hidden') ) {
+				video.show();
+			}
+
+			if ( ! video.hasClass( 'youtube-video' ) && ! video.hasClass( 'vimeo-video' ) ) {
+				this.media = MediaDetails.prepareSrc( video.get(0) );
+			} else {
+				this.media = video.get(0);
+			}
+		} else {
+			video.hide();
+			this.media = false;
+		}
+
+		return this;
+	}
+});
+
+module.exports = VideoDetails;
+
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /***/ })
 
 /******/ 	});
@@ -790,6 +1026,12 @@ module.exports = MediaDetails;
 /******/ 	}
 /******/ 	
 /************************************************************************/
+<<<<<<< HEAD
+=======
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * @output wp-includes/js/media-audiovideo.js
  */
@@ -1075,5 +1317,10 @@ media.view.MediaDetails = __webpack_require__( 9467 );
 media.view.AudioDetails = __webpack_require__( 3713 );
 media.view.VideoDetails = __webpack_require__( 5836 );
 
+<<<<<<< HEAD
+=======
+})();
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /******/ })()
 ;

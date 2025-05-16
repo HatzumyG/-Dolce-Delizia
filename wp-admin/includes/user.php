@@ -313,7 +313,11 @@ function get_users_drafts( $user_id ) {
 	$query = $wpdb->prepare( "SELECT ID, post_title FROM $wpdb->posts WHERE post_type = 'post' AND post_status = 'draft' AND post_author = %d ORDER BY post_modified DESC", $user_id );
 
 	/**
+<<<<<<< HEAD
 	 * Filters the SQL query string for the user's drafts query.
+=======
+	 * Filters the user's drafts query string.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 2.0.0
 	 *

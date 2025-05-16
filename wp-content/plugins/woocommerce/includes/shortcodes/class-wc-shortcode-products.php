@@ -6,8 +6,11 @@
  * @version  3.2.4
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\CatalogVisibility;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -128,7 +131,11 @@ class WC_Shortcode_Products {
 				'terms_operator' => 'IN',      // Operator to compare terms. Possible values are 'IN', 'NOT IN', 'AND'.
 				'tag'            => '',        // Comma separated tag slugs.
 				'tag_operator'   => 'IN',      // Operator to compare tags. Possible values are 'IN', 'NOT IN', 'AND'.
+<<<<<<< HEAD
 				'visibility'     => CatalogVisibility::VISIBLE, // Product visibility setting. Possible values are 'visible', 'catalog', 'search', 'hidden'.
+=======
+				'visibility'     => 'visible', // Product visibility setting. Possible values are 'visible', 'catalog', 'search', 'hidden'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'class'          => '',        // HTML class.
 				'page'           => 1,         // Page for pagination.
 				'paginate'       => false,     // Should results be paginated.

@@ -1,7 +1,10 @@
 <?php
 namespace Elementor;
 
+<<<<<<< HEAD
 use Elementor\Core\Files\Fonts\Google_Font;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Elementor\Core\Utils\Collection;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -106,10 +109,14 @@ class Utils {
 	const IMAGE_CAROUSEL = 'image_carousel';
 
 	/**
+<<<<<<< HEAD
 	 * Whether WordPress CLI mode is enabled or not.
 	 *
 	 * @access public
 	 * @static
+=======
+	 * Is WP CLI.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return bool
 	 */
@@ -118,18 +125,28 @@ class Utils {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Is script debug.
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Whether script debug is enabled or not.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @static
 	 *
+<<<<<<< HEAD
 	 * @return bool
+=======
+	 * @return bool True if it's a script debug is active, false otherwise.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public static function is_script_debug() {
 		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Whether Elementor debug is enabled or not.
 	 *
@@ -138,15 +155,21 @@ class Utils {
 	 *
 	 * @return bool
 	 */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public static function is_elementor_debug() {
 		return defined( 'ELEMENTOR_DEBUG' ) && ELEMENTOR_DEBUG;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Whether Elementor test mode is enabled or not.
 	 *
 	 * @access public
 	 * @static
+=======
+	 * Whether elementor test mode is enabled or not.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return bool
 	 */
@@ -195,11 +218,19 @@ class Utils {
 	 * @static
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param string $from
 	 * @param string $to
 	 *
 	 * @return string
 	 * @throws \Exception Replace URL exception.
+=======
+	 * @param $from
+	 * @param $to
+	 *
+	 * @return string
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public static function replace_urls( $from, $to ) {
 		$from = trim( $from );
@@ -247,7 +278,10 @@ class Utils {
 		$rows_affected += (int) apply_filters( 'elementor/tools/replace-urls', 0, $from, $to );
 
 		Plugin::$instance->files_manager->clear_cache();
+<<<<<<< HEAD
 		Google_Font::clear_cache();
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		return sprintf(
 			/* translators: %d: Number of rows. */
@@ -444,7 +478,11 @@ class Utils {
 	 * @deprecated 3.3.0 Use `Plugin::$instance->documents->get_create_new_post_url()` instead.
 	 * @static
 	 *
+<<<<<<< HEAD
 	 * @param string      $post_type Optional. Post type slug. Default is 'page'.
+=======
+	 * @param string $post_type Optional. Post type slug. Default is 'page'.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param string|null $template_type Optional. Query arg 'template_type'. Default is null.
 	 *
 	 * @return string A URL for creating new post using Elementor.
@@ -581,10 +619,16 @@ class Utils {
 	 * Add Elementor Config js vars to the relevant script handle,
 	 * WP will wrap it with <script> tag.
 	 * To make sure this script runs thru the `script_loader_tag` hook, use a known handle value.
+<<<<<<< HEAD
 	 *
 	 * @param string $handle
 	 * @param string $js_var
 	 * @param mixed  $config
+=======
+	 * @param string $handle
+	 * @param string $js_var
+	 * @param mixed $config
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public static function print_js_config( $handle, $js_var, $config ) {
 		$config = wp_json_encode( $config );
@@ -616,7 +660,11 @@ class Utils {
 	/**
 	 * Checks a control value for being empty, including a string of '0' not covered by PHP's empty().
 	 *
+<<<<<<< HEAD
 	 * @param mixed       $source
+=======
+	 * @param mixed $source
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param bool|string $key
 	 *
 	 * @return bool
@@ -640,7 +688,11 @@ class Utils {
 	/**
 	 * Convert HTMLEntities to UTF-8 characters
 	 *
+<<<<<<< HEAD
 	 * @param string $string
+=======
+	 * @param $string
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return string
 	 */
 	public static function urlencode_html_entities( $string ) {
@@ -735,8 +787,13 @@ class Utils {
 	 *
 	 * @since 3.1.0
 	 *
+<<<<<<< HEAD
 	 * @param string $menu_slug
 	 * @param string $new_label
+=======
+	 * @param $menu_slug
+	 * @param $new_label
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @access public
 	 */
 	public static function change_submenu_first_item_label( $menu_slug, $new_label ) {
@@ -837,14 +894,23 @@ class Utils {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param string $file
 	 * @param mixed  ...$args
+=======
+	 * @param $file
+	 * @param mixed ...$args
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return false|string
 	 */
 	public static function file_get_contents( $file, ...$args ) {
 		if ( ! is_file( $file ) || ! is_readable( $file ) ) {
 			return false;
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return file_get_contents( $file, ...$args );
 	}
 
@@ -853,7 +919,11 @@ class Utils {
 			return null;
 		}
 
+<<<<<<< HEAD
 		if ( $_FILES === $super_global ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+=======
+		if ( $_FILES === $super_global ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return isset( $super_global[ $key ]['name'] ) ?
 				self::sanitize_file_name( $super_global[ $key ] ) :
 				self::sanitize_multi_upload( $super_global[ $key ] );
@@ -877,9 +947,15 @@ class Utils {
 	/**
 	 * Return specific object property value if exist from array of keys.
 	 *
+<<<<<<< HEAD
 	 * @param array $array
 	 * @param array $keys
 	 * @return mixed|null
+=======
+	 * @param $array
+	 * @param $keys
+	 * @return key|false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public static function get_array_value_by_keys( $array, $keys ) {
 		$keys = (array) $keys;
@@ -920,7 +996,11 @@ class Utils {
 			return;
 		}
 
+<<<<<<< HEAD
 		throw new \Exception( esc_html( $message ) );
+=======
+		throw new \Exception( $message );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	public static function has_invalid_post_permissions( $post ): bool {

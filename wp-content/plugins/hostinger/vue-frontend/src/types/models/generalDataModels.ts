@@ -17,7 +17,10 @@ export type NonToggleableSettingsData = {
 export type HostingerToolsData = {
   homeUrl: string;
   siteUrl: string;
+<<<<<<< HEAD
   editSiteUrl: string;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   pluginUrl: string;
   assetUrl: string;
   translations: { [key: string]: string };

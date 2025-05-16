@@ -103,7 +103,11 @@ class Import_Images {
 	 * @access public
 	 *
 	 * @param array $attachment The attachment.
+<<<<<<< HEAD
 	 * @param int   $parent_post_id Optional.
+=======
+	 * @param int $parent_post_id Optional
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return false|array Imported image data, or false.
 	 */

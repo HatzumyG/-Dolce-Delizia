@@ -269,11 +269,14 @@ class WP_REST_Templates_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response
 	 */
 	public function get_items( $request ) {
+<<<<<<< HEAD
 		if ( $request->is_method( 'HEAD' ) ) {
 			// Return early as this handler doesn't add any response headers.
 			return new WP_REST_Response( array() );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$query = array();
 		if ( isset( $request['wp_id'] ) ) {
 			$query['wp_id'] = $request['wp_id'];
@@ -673,11 +676,14 @@ class WP_REST_Templates_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response Response object.
 	 */
 	public function prepare_item_for_response( $item, $request ) {
+<<<<<<< HEAD
 		// Don't prepare the response body for HEAD requests.
 		if ( $request->is_method( 'HEAD' ) ) {
 			return new WP_REST_Response( array() );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		/*
 		 * Resolve pattern blocks so they don't need to be resolved client-side
 		 * in the editor, improving performance.
@@ -882,7 +888,11 @@ class WP_REST_Templates_Controller extends WP_REST_Controller {
 				$theme_name = wp_get_theme( $template_object->theme )->get( 'Name' );
 				return empty( $theme_name ) ? $template_object->theme : $theme_name;
 			case 'plugin':
+<<<<<<< HEAD
 				if ( ! function_exists( 'get_plugins' ) ) {
+=======
+				if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'get_plugin_data' ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					require_once ABSPATH . 'wp-admin/includes/plugin.php';
 				}
 				if ( isset( $template_object->plugin ) ) {

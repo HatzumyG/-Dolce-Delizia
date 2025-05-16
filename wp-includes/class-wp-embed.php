@@ -163,9 +163,15 @@ class WP_Embed {
 						 *
 						 * @see WP_Embed::shortcode()
 						 *
+<<<<<<< HEAD
 						 * @param string $return The HTML result of the shortcode.
 						 * @param string $url    The embed URL.
 						 * @param array  $attr   An array of shortcode attributes.
+=======
+						 * @param string|false $return The HTML result of the shortcode, or false on failure.
+						 * @param string       $url    The embed URL.
+						 * @param array        $attr   An array of shortcode attributes.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 						 */
 						return apply_filters( 'embed_handler_html', $return, $url, $attr );
 					}
@@ -283,10 +289,17 @@ class WP_Embed {
 				 *
 				 * @see WP_Embed::shortcode()
 				 *
+<<<<<<< HEAD
 				 * @param string $cache   The cached HTML result, stored in post meta.
 				 * @param string $url     The attempted embed URL.
 				 * @param array  $attr    An array of shortcode attributes.
 				 * @param int    $post_id Post ID.
+=======
+				 * @param string|false $cache   The cached HTML result, stored in post meta.
+				 * @param string       $url     The attempted embed URL.
+				 * @param array        $attr    An array of shortcode attributes.
+				 * @param int          $post_id Post ID.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				 */
 				return apply_filters( 'embed_oembed_html', $cache, $url, $attr, $post_id );
 			}

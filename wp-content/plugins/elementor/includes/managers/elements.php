@@ -35,7 +35,11 @@ class Elements_Manager {
 	 *
 	 * @access private
 	 *
+<<<<<<< HEAD
 	 * @var $categories
+=======
+	 * @var
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private $categories;
 
@@ -276,10 +280,13 @@ class Elements_Manager {
 	 */
 	private function init_categories() {
 		$this->categories = [
+<<<<<<< HEAD
 			'v4-elements' => [
 				'title' => esc_html__( 'V4 Elements', 'elementor' ),
 				'hideIfEmpty' => true,
 			],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'layout' => [
 				'title' => esc_html__( 'Layout', 'elementor' ),
 				'hideIfEmpty' => true,

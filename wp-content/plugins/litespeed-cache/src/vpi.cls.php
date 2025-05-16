@@ -96,6 +96,16 @@ class VPI extends Base
 
 		$this->_queue = $this->load_queue('vpi');
 
+<<<<<<< HEAD
+=======
+		// Validate key
+		if (empty($post_data['domain_key']) || $post_data['domain_key'] !== md5($this->conf(self::O_API_KEY))) {
+			self::debug('❌ notify wrong key');
+			self::save_summary(array('notify_ts_err' => time()));
+			return Cloud::err('wrong_key');
+		}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		list($post_data) = $this->cls('Cloud')->extract_msg($post_data, 'vpi');
 
 		$notified_data = $post_data['data'];
@@ -205,8 +215,13 @@ class VPI extends Base
 				continue;
 			}
 
+<<<<<<< HEAD
 			// Exit queue if out of quota or service is hot
 			if ($res === 'out_of_quota' || $res === 'svc_hot') {
+=======
+			// Exit queue if out of quota
+			if ($res === 'out_of_quota') {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				return;
 			}
 
@@ -278,7 +293,11 @@ class VPI extends Base
 
 		$json = Cloud::post($svc, $data, 30);
 		if (!is_array($json)) {
+<<<<<<< HEAD
 			return $json;
+=======
+			return false;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		// Unknown status, remove this line

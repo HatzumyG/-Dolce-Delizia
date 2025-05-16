@@ -309,7 +309,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+<<<<<<< HEAD
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+=======
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 (() => {
 "use strict";
 // ESM COMPAT FLAG
@@ -332,7 +336,11 @@ __webpack_require__.d(__webpack_exports__, {
   subscribe: () => (/* reexport */ subscribe)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/memize/dist/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/memize/dist/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Memize options object.
  *
@@ -497,7 +505,11 @@ function memize(fn, options) {
 // EXTERNAL MODULE: ./node_modules/sprintf-js/src/sprintf.js
 var sprintf = __webpack_require__(2058);
 var sprintf_default = /*#__PURE__*/__webpack_require__.n(sprintf);
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/i18n/build-module/sprintf.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/sprintf.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -535,7 +547,11 @@ function sprintf_sprintf(format, ...args) {
   }
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@tannin/postfix/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@tannin/postfix/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 var PRECEDENCE, OPENERS, TERMINATORS, PATTERN;
 
 /**
@@ -661,7 +677,11 @@ function postfix( expression ) {
 	return terms.concat( stack.reverse() );
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@tannin/evaluate/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@tannin/evaluate/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Operator callback functions.
  *
@@ -773,7 +793,11 @@ function evaluate( postfix, variables ) {
 	return stack[ 0 ];
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@tannin/compile/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@tannin/compile/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 
@@ -804,7 +828,11 @@ function compile( expression ) {
 	};
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@tannin/plural-forms/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@tannin/plural-forms/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -824,7 +852,11 @@ function pluralForms( expression ) {
 	};
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/tannin/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/tannin/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 /**
@@ -1039,7 +1071,11 @@ Tannin.prototype.dcnpgettext = function( domain, context, singular, plural, n ) 
 	return index === 0 ? singular : plural;
 };
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/i18n/build-module/create-i18n.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/create-i18n.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * External dependencies
  */
@@ -1319,7 +1355,13 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.gettext', translation, text, domain);
+<<<<<<< HEAD
     return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.gettext_' + getFilterDomain(domain), translation, text, domain);
+=======
+    return /** @type {string} */(
+      /** @type {*} */hooks.applyFilters('i18n.gettext_' + getFilterDomain(domain), translation, text, domain)
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
 
   /** @type {_x} */
@@ -1339,7 +1381,13 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.gettext_with_context', translation, text, context, domain);
+<<<<<<< HEAD
     return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.gettext_with_context_' + getFilterDomain(domain), translation, text, context, domain);
+=======
+    return /** @type {string} */(
+      /** @type {*} */hooks.applyFilters('i18n.gettext_with_context_' + getFilterDomain(domain), translation, text, context, domain)
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
 
   /** @type {_n} */
@@ -1360,7 +1408,13 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.ngettext', translation, single, plural, number, domain);
+<<<<<<< HEAD
     return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.ngettext_' + getFilterDomain(domain), translation, single, plural, number, domain);
+=======
+    return /** @type {string} */(
+      /** @type {*} */hooks.applyFilters('i18n.ngettext_' + getFilterDomain(domain), translation, single, plural, number, domain)
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
 
   /** @type {_nx} */
@@ -1382,7 +1436,13 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.ngettext_with_context', translation, single, plural, number, context, domain);
+<<<<<<< HEAD
     return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.ngettext_with_context_' + getFilterDomain(domain), translation, single, plural, number, context, domain);
+=======
+    return /** @type {string} */(
+      /** @type {*} */hooks.applyFilters('i18n.ngettext_with_context_' + getFilterDomain(domain), translation, single, plural, number, context, domain)
+    );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   };
 
   /** @type {IsRtl} */
@@ -1440,9 +1500,15 @@ const createI18n = (initialData, initialDomain, hooks) => {
   };
 };
 
+<<<<<<< HEAD
 ;// external ["wp","hooks"]
 const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
 ;// ./node_modules/@wordpress/i18n/build-module/default-i18n.js
+=======
+;// CONCATENATED MODULE: external ["wp","hooks"]
+const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
+;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/default-i18n.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -1590,7 +1656,11 @@ const isRTL = i18n.isRTL.bind(i18n);
  */
 const hasTranslation = i18n.hasTranslation.bind(i18n);
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/i18n/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 

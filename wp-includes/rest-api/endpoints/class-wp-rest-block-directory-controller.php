@@ -285,7 +285,11 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 					'context'     => array( 'view' ),
 				),
 				'humanized_updated'   => array(
+<<<<<<< HEAD
 					'description' => __( 'The date when the block was last updated, in human readable format.' ),
+=======
+					'description' => __( 'The date when the block was last updated, in fuzzy human readable format.' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),

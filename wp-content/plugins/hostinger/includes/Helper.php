@@ -48,8 +48,11 @@ class Helper {
         'ur_PK' => 'hostinger.pk',
     ];
 
+<<<<<<< HEAD
     public const HOMEPAGE_DISPLAY = 'page';
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 *
 	 * Check if plugin is active
@@ -169,6 +172,7 @@ class Helper {
         // For versions below 4.9
         return '5.6';
     }
+<<<<<<< HEAD
 
     public function get_edit_site_url(): string {
         if ( wp_is_block_theme() ) {
@@ -190,3 +194,8 @@ class Helper {
         return '';
     }
 }
+=======
+}
+
+$hostinger_helper = new Helper();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244

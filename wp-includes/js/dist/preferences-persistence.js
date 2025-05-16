@@ -55,10 +55,17 @@ __webpack_require__.d(__webpack_exports__, {
   create: () => (/* reexport */ create)
 });
 
+<<<<<<< HEAD
 ;// external ["wp","apiFetch"]
 const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
 var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/create/debounce-async.js
+=======
+;// CONCATENATED MODULE: external ["wp","apiFetch"]
+const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
+var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/create/debounce-async.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Performs a leading edge debounce of async functions.
  *
@@ -127,7 +134,11 @@ function debounceAsync(func, delayMS) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/create/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/create/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WordPress dependencies
  */
@@ -229,7 +240,11 @@ function create({
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-feature-preferences.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-feature-preferences.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Move the 'features' object in local storage from the sourceStoreName to the
  * preferences store data structure.
@@ -354,7 +369,11 @@ function moveFeaturePreferences(state, sourceStoreName) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-third-party-feature-preferences.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-third-party-feature-preferences.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The interface package previously had a public API that could be used by
  * plugins to set persisted boolean 'feature' preferences.
@@ -440,7 +459,11 @@ function moveThirdPartyFeaturePreferencesToPreferences(state) {
   }, state);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-individual-preference.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-individual-preference.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 const identity = arg => arg;
 
 /**
@@ -526,7 +549,11 @@ function moveIndividualPreferenceToPreferences(state, {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-interface-enable-items.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/move-interface-enable-items.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Migrates interface 'enableItems' data to the preferences store.
  *
@@ -636,7 +663,11 @@ function moveInterfaceEnableItems(state) {
   };
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/convert-edit-post-panels.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/convert-edit-post-panels.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Convert the post editor's panels state from:
  * ```
@@ -686,7 +717,11 @@ function convertEditPostPanels(preferences) {
   });
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/legacy-local-storage-data/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -783,7 +818,11 @@ function convertLegacyLocalStorageData(userId) {
   return convertLegacyData(data);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/preferences-package-data/convert-complementary-areas.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/preferences-package-data/convert-complementary-areas.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 function convertComplementaryAreas(state) {
   return Object.keys(state).reduce((stateAccumulator, scope) => {
     const scopeData = state[scope];
@@ -802,7 +841,11 @@ function convertComplementaryAreas(state) {
   }, state);
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/preferences-package-data/convert-editor-settings.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/preferences-package-data/convert-editor-settings.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -835,7 +878,11 @@ function convertEditorSettings(data) {
   return newData;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/migrations/preferences-package-data/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/migrations/preferences-package-data/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */
@@ -847,7 +894,11 @@ function convertPreferencesPackageData(data) {
   return newData;
 }
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/preferences-persistence/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

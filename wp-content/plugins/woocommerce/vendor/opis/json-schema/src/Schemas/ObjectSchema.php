@@ -18,7 +18,11 @@
 namespace Opis\JsonSchema\Schemas;
 
 use Opis\JsonSchema\{Helper, Keyword, ValidationContext, KeywordValidator};
+<<<<<<< HEAD
 use Opis\JsonSchema\Info\{DataInfo, SchemaInfo};
+=======
+use Opis\JsonSchema\Info\SchemaInfo;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Opis\JsonSchema\Errors\ValidationError;
 use Opis\JsonSchema\KeywordValidators\CallbackKeywordValidator;
 
@@ -109,6 +113,7 @@ class ObjectSchema extends AbstractSchema
      */
     protected function applyKeywords(array $keywords, ValidationContext $context): ?ValidationError
     {
+<<<<<<< HEAD
         if ($context->stopAtFirstError()) {
             foreach ($keywords as $keyword) {
                 if ($error = $keyword->validate($context, $this)) {
@@ -144,5 +149,14 @@ class ObjectSchema extends AbstractSchema
             [],
             $error_list
         );
+=======
+        foreach ($keywords as $keyword) {
+            if ($error = $keyword->validate($context, $this)) {
+                return $error;
+            }
+        }
+
+        return null;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     }
 }

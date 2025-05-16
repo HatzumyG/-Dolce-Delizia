@@ -4,7 +4,11 @@ namespace Elementor\Modules\GlobalClasses;
 
 use Elementor\Core\Utils\Collection;
 
+<<<<<<< HEAD
 class Global_Classes {
+=======
+class Global_Classes implements \JsonSerializable {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	private Collection $items;
 	private Collection $order;
 
@@ -31,4 +35,11 @@ class Global_Classes {
 			'order' => $this->get_order()->all(),
 		];
 	}
+<<<<<<< HEAD
+=======
+
+	public function jsonSerialize() {
+		$this->get();
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -528,6 +528,7 @@ if ( defined( 'RELOCATE' ) && RELOCATE ) { // Move flag is set.
 
 // Set a cookie now to see if they are supported by the browser.
 $secure = ( 'https' === parse_url( wp_login_url(), PHP_URL_SCHEME ) );
+<<<<<<< HEAD
 setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, $secure, true );
 
 if ( SITECOOKIEPATH !== COOKIEPATH ) {
@@ -536,6 +537,16 @@ if ( SITECOOKIEPATH !== COOKIEPATH ) {
 
 if ( isset( $_GET['wp_lang'] ) ) {
 	setcookie( 'wp_lang', sanitize_text_field( $_GET['wp_lang'] ), 0, COOKIEPATH, COOKIE_DOMAIN, $secure, true );
+=======
+setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, $secure );
+
+if ( SITECOOKIEPATH !== COOKIEPATH ) {
+	setcookie( TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN, $secure );
+}
+
+if ( isset( $_GET['wp_lang'] ) ) {
+	setcookie( 'wp_lang', sanitize_text_field( $_GET['wp_lang'] ), 0, COOKIEPATH, COOKIE_DOMAIN, $secure );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -764,10 +775,15 @@ switch ( $action ) {
 		break;
 
 	case 'postpass':
+<<<<<<< HEAD
 		$redirect_to = $_POST['redirect_to'] ?? wp_get_referer();
 
 		if ( ! isset( $_POST['post_password'] ) || ! is_string( $_POST['post_password'] ) ) {
 			wp_safe_redirect( $redirect_to );
+=======
+		if ( ! isset( $_POST['post_password'] ) || ! is_string( $_POST['post_password'] ) ) {
+			wp_safe_redirect( wp_get_referer() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			exit;
 		}
 
@@ -784,17 +800,29 @@ switch ( $action ) {
 		 *
 		 * @param int $expires The expiry time, as passed to setcookie().
 		 */
+<<<<<<< HEAD
 		$expire = apply_filters( 'post_password_expires', time() + 10 * DAY_IN_SECONDS );
 
 		if ( $redirect_to ) {
 			$secure = ( 'https' === parse_url( $redirect_to, PHP_URL_SCHEME ) );
+=======
+		$expire  = apply_filters( 'post_password_expires', time() + 10 * DAY_IN_SECONDS );
+		$referer = wp_get_referer();
+
+		if ( $referer ) {
+			$secure = ( 'https' === parse_url( $referer, PHP_URL_SCHEME ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} else {
 			$secure = false;
 		}
 
 		setcookie( 'wp-postpass_' . COOKIEHASH, $hasher->HashPassword( wp_unslash( $_POST['post_password'] ) ), $expire, COOKIEPATH, COOKIE_DOMAIN, $secure );
 
+<<<<<<< HEAD
 		wp_safe_redirect( $redirect_to );
+=======
+		wp_safe_redirect( wp_get_referer() );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		exit;
 
 	case 'logout':

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! elementor - v3.28.0 - 22-04-2025 */
+=======
+/*! elementor - v3.27.0 - 18-02-2025 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .elementor-hidden {
   display: none;
 }
@@ -1984,10 +1988,13 @@ body.rtl .e-con {
   flex-direction: row;
   gap: 5px;
 }
+<<<<<<< HEAD
 .elementor-button-icon {
   display: flex;
   align-items: center;
 }
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 .elementor-button-icon svg {
   width: 1em;
   height: auto;
@@ -2130,6 +2137,13 @@ body.rtl .e-con {
     animation: none;
   }
 }
+<<<<<<< HEAD
+=======
+.elementor-post__thumbnail__link {
+  transition: none;
+}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 @media (max-width: 767px) {
   .elementor .elementor-hidden-phone,
   .elementor .elementor-hidden-mobile {

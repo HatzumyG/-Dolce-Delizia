@@ -124,17 +124,26 @@ class Assets
      */
     private function isHostingerMenuPage(): bool
     {
+<<<<<<< HEAD
         $admin_path = parse_url(admin_url(), PHP_URL_PATH);
 
         $pages = [
             $admin_path . 'admin.php?page=' . Menus::MENU_SLUG
+=======
+        $pages = [
+            'wp-admin/admin.php?page=' . Menus::MENU_SLUG
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         ];
 
         $subpages = Menus::getMenuSubpages();
 
         foreach ($subpages as $page) {
             if (isset($page['menu_slug'])) {
+<<<<<<< HEAD
                 $pages[] = $admin_path . 'admin.php?page=' . $page['menu_slug'];
+=======
+                $pages[] = 'wp-admin/admin.php?page=' . $page['menu_slug'];
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             }
         }
 

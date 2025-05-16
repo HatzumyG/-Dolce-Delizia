@@ -6,7 +6,11 @@ use Elementor\Plugin;
 use Elementor\Modules\Styleguide\Controls\Switcher;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Module extends Base_Module {
@@ -91,7 +95,11 @@ class Module extends Base_Module {
 	public function enqueue_styles() {
 		wp_enqueue_style(
 			static::ASSETS_HANDLE,
+<<<<<<< HEAD
 			$this->get_css_assets_url( 'modules/styleguide/editor' ),
+=======
+			$this->get_css_assets_url( 'modules/' . static::ASSETS_SRC . '/' . static::ASSETS_SRC ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			[],
 			ELEMENTOR_VERSION
 		);

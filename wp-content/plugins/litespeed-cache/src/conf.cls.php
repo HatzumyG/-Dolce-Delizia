@@ -64,6 +64,7 @@ class Conf extends Base
 		 */
 		$this->load_options();
 
+<<<<<<< HEAD
 		// Check if debug is on
 		// Init debug as early as possible
 		if ($this->conf(Base::O_DEBUG)) {
@@ -79,6 +80,39 @@ class Conf extends Base
 		if (!$ver) {
 			// Try upgrade first (network will upgrade inside too)
 			$ver_check_tag = Data::cls()->try_upgrade_conf_3_0();
+=======
+		$ver = $this->conf(self::_VER);
+
+		/**
+		 * Don't upgrade or run new installations other than from backend visit at the 2nd time (delay the update)
+		 * In this case, just use default conf
+		 */
+		$has_delay_conf_tag = self::get_option('__activation');
+		if (!$ver || $ver != Core::VER) {
+			if ((!is_admin() && !defined('LITESPEED_CLI')) || (!$has_delay_conf_tag || $has_delay_conf_tag == -1)) {
+				// Reuse __activation to control the delay conf update
+				if (!$has_delay_conf_tag || $has_delay_conf_tag == -1) {
+					self::update_option('__activation', Core::VER);
+				}
+
+				$this->set_conf($this->load_default_vals());
+				$this->_try_load_site_options();
+
+				// Disable new installation auto upgrade to avoid overwritten to customized data.ini
+				if (!$ver) {
+					defined('LITESPEED_BYPASS_AUTO_V') || define('LITESPEED_BYPASS_AUTO_V', true);
+				}
+				return;
+			}
+		}
+
+		/**
+		 * Version is less than v3.0, or, is a new installation
+		 */
+		if (!$ver) {
+			// Try upgrade first (network will upgrade inside too)
+			Data::cls()->try_upgrade_conf_3_0();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} else {
 			defined('LSCWP_CUR_V') || define('LSCWP_CUR_V', $ver);
 
@@ -88,7 +122,11 @@ class Conf extends Base
 			if ($ver != Core::VER) {
 				// Plugin version will be set inside
 				// Site plugin upgrade & version change will do in load_site_conf
+<<<<<<< HEAD
 				$ver_check_tag = Data::cls()->conf_upgrade($ver);
+=======
+				Data::cls()->conf_upgrade($ver);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
@@ -101,8 +139,11 @@ class Conf extends Base
 			if (!$ver) {
 				// New install
 				$this->set_conf(self::$_default_options);
+<<<<<<< HEAD
 
 				$ver_check_tag .= ' activate' . (defined('LSCWP_REF') ? '_' . LSCWP_REF : '');
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			// Init new default/missing options
@@ -114,10 +155,13 @@ class Conf extends Base
 
 			// Force correct version in case a rare unexpected case that `_ver` exists but empty
 			self::update_option(Base::_VER, Core::VER);
+<<<<<<< HEAD
 
 			if ($ver_check_tag) {
 				Cloud::version_check($ver_check_tag);
 			}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -130,10 +174,27 @@ class Conf extends Base
 		// Mark as conf loaded
 		defined('LITESPEED_CONF_LOADED') || define('LITESPEED_CONF_LOADED', true);
 
+<<<<<<< HEAD
 		if (!$ver || $ver != Core::VER) {
 			// Only trigger once in upgrade progress, don't run always
 			$this->update_confs(); // Files only get corrected in activation or saving settings actions.
 		}
+=======
+		/**
+		 * Activation delayed file update
+		 * Pros: This is to avoid file correction script changed in new versions
+		 * Cons: Conf upgrade won't get file correction if there is new values that are used in file
+		 */
+		if ($has_delay_conf_tag && $has_delay_conf_tag != -1) {
+			// Check new version @since 2.9.3
+			Cloud::version_check('activate' . (defined('LSCWP_REF') ? '_' . LSCWP_REF : ''));
+
+			$this->update_confs(); // Files only get corrected in activation or saving settings actions.
+		}
+		if ($has_delay_conf_tag != -1) {
+			self::update_option('__activation', -1);
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -457,6 +518,19 @@ class Conf extends Base
 
 		if ($this->_updated_ids) {
 			foreach ($this->_updated_ids as $id) {
+<<<<<<< HEAD
+=======
+				// Special handler for QUIC.cloud domain key to clear all existing nodes
+				if ($id == self::O_API_KEY) {
+					$this->cls('Cloud')->clear_cloud();
+				}
+
+				// Special handler for crawler: reset sitemap when drop_domain setting changed
+				if ($id == self::O_CRAWLER_DROP_DOMAIN) {
+					$this->cls('Crawler_Map')->empty_map();
+				}
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				// Check if need to do a purge all or not
 				if ($this->_conf_purge_all($id)) {
 					Purge::purge_all('conf changed [id] ' . $id);
@@ -698,7 +772,11 @@ class Conf extends Base
 		$this->update_confs($the_matrix);
 
 		$msg = __('Changed setting successfully.', 'litespeed-cache');
+<<<<<<< HEAD
 		Admin_Display::success($msg);
+=======
+		Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		// Redirect if changed frontend URL
 		if (!empty($_GET['redirect'])) {

@@ -2,8 +2,11 @@
 
 namespace Automattic\WooCommerce\Blocks\Domain\Services;
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Blocks\Domain\Services\CheckoutFieldsSchema\DocumentObject;
 use Automattic\WooCommerce\Admin\Features\Features;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use WC_Customer;
 use WC_Order;
 
@@ -40,12 +43,20 @@ class CheckoutFieldsFrontend {
 		add_action( 'woocommerce_my_account_after_my_address', array( $this, 'render_address_fields' ), 10, 1 );
 
 		// Edit account form under my account (for contact details).
+<<<<<<< HEAD
+=======
+		add_filter( 'woocommerce_save_account_details_required_fields', array( $this, 'edit_account_form_required_fields' ), 10, 1 );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_filter( 'woocommerce_edit_account_form_fields', array( $this, 'edit_account_form_fields' ), 10, 1 );
 		add_action( 'woocommerce_save_account_details', array( $this, 'save_account_form_fields' ), 10, 1 );
 
 		// Edit address form under my account.
 		add_filter( 'woocommerce_address_to_edit', array( $this, 'edit_address_fields' ), 10, 2 );
+<<<<<<< HEAD
 		add_action( 'woocommerce_customer_save_address', array( $this, 'save_address_fields' ), 10, 4 );
+=======
+		add_action( 'woocommerce_after_save_address_validation', array( $this, 'save_address_fields' ), 10, 4 );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -115,6 +126,7 @@ class CheckoutFieldsFrontend {
 		}
 
 		$customer = new WC_Customer( get_current_user_id() );
+<<<<<<< HEAD
 
 		if ( Features::is_enabled( 'experimental-blocks' ) ) {
 			$document_object = new DocumentObject();
@@ -124,6 +136,9 @@ class CheckoutFieldsFrontend {
 		} else {
 			$fields = $this->checkout_fields_controller->get_fields_for_location( 'address' );
 		}
+=======
+		$fields   = $this->checkout_fields_controller->get_fields_for_location( 'address' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		if ( ! $fields || ! $customer ) {
 			return;
@@ -144,10 +159,32 @@ class CheckoutFieldsFrontend {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Register required additional contact fields.
+	 *
+	 * @param array $fields Required fields.
+	 * @return array
+	 */
+	public function edit_account_form_required_fields( $fields ) {
+		$additional_fields = $this->checkout_fields_controller->get_fields_for_location( 'contact' );
+
+		foreach ( $additional_fields as $key => $field ) {
+			if ( ! empty( $field['required'] ) ) {
+				$fields[ $key ] = $field['label'];
+			}
+		}
+
+		return $fields;
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Adds additional contact fields to the My Account edit account form.
 	 */
 	public function edit_account_form_fields() {
 		$customer = new WC_Customer( get_current_user_id() );
+<<<<<<< HEAD
 
 		if ( Features::is_enabled( 'experimental-blocks' ) ) {
 			$document_object = new DocumentObject();
@@ -157,6 +194,9 @@ class CheckoutFieldsFrontend {
 		} else {
 			$fields = $this->checkout_fields_controller->get_fields_for_location( 'contact' );
 		}
+=======
+		$fields   = $this->checkout_fields_controller->get_fields_for_location( 'contact' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		foreach ( $fields as $key => $field ) {
 			$field_key           = CheckoutFields::get_group_key( 'other' ) . $key;
@@ -173,11 +213,64 @@ class CheckoutFieldsFrontend {
 				$form_field['unchecked_value'] = '0';
 			}
 
+<<<<<<< HEAD
 			woocommerce_form_field( $field_key, $form_field, wc_get_post_data_by_key( $key, $form_field['value'] ) );
+=======
+			woocommerce_form_field( $key, $form_field, wc_get_post_data_by_key( $key, $form_field['value'] ) );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Validates and saves additional address fields to the customer object on the My Account page.
+	 *
+	 * Customer is not provided by this hook so we handle save here.
+	 *
+	 * @param integer $user_id User ID.
+	 */
+	public function save_account_form_fields( $user_id ) {
+		// phpcs:disable WordPress.Security.NonceVerification.Missing
+		$customer          = new WC_Customer( $user_id );
+		$additional_fields = $this->checkout_fields_controller->get_fields_for_location( 'contact' );
+		$field_values      = array();
+
+		foreach ( array_keys( $additional_fields ) as $key ) {
+			$post_key = CheckoutFields::get_group_key( 'other' ) . $key;
+			if ( ! isset( $_POST[ $post_key ] ) ) {
+				continue;
+			}
+
+			$field_value = $this->checkout_fields_controller->sanitize_field( $key, wc_clean( wp_unslash( $_POST[ $post_key ] ) ) );
+			$validation  = $this->checkout_fields_controller->validate_field( $key, $field_value );
+
+			if ( is_wp_error( $validation ) && $validation->has_errors() ) {
+				wc_add_notice( $validation->get_error_message(), 'error' );
+				continue;
+			}
+
+			$field_values[ $key ] = $field_value;
+		}
+
+		// Persist individual additional fields to customer.
+		foreach ( $field_values as $key => $value ) {
+			$this->checkout_fields_controller->persist_field_for_customer( $key, $value, $customer, 'other' );
+		}
+
+		// Validate all fields for this location.
+		$location_validation = $this->checkout_fields_controller->validate_fields_for_location( $field_values, 'contact', 'other' );
+
+		if ( is_wp_error( $location_validation ) && $location_validation->has_errors() ) {
+			wc_add_notice( $location_validation->get_error_message(), 'error' );
+		}
+
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
+		$customer->save();
+	}
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Adds additional address fields to the My Account edit address form.
 	 *
 	 * @param array  $address Address fields.
@@ -186,6 +279,7 @@ class CheckoutFieldsFrontend {
 	 */
 	public function edit_address_fields( $address, $address_type ) {
 		$customer = new WC_Customer( get_current_user_id() );
+<<<<<<< HEAD
 
 		if ( Features::is_enabled( 'experimental-blocks' ) ) {
 			$document_object = new DocumentObject();
@@ -195,6 +289,9 @@ class CheckoutFieldsFrontend {
 		} else {
 			$fields = $this->checkout_fields_controller->get_fields_for_location( 'address' );
 		}
+=======
+		$fields   = $this->checkout_fields_controller->get_fields_for_location( 'address' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		foreach ( $fields as $key => $field ) {
 			$field_key                      = CheckoutFields::get_group_key( $address_type ) . $key;
@@ -223,6 +320,7 @@ class CheckoutFieldsFrontend {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Validates and saves additional address fields to the customer object on the My Account page.
 	 *
 	 * Customer is not provided by this hook so we handle save here.
@@ -254,6 +352,8 @@ class CheckoutFieldsFrontend {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * For the My Account page, save address fields. This uses the Store API endpoint for saving addresses so
 	 * extensibility hooks are consistent across the codebase.
 	 *
@@ -264,6 +364,7 @@ class CheckoutFieldsFrontend {
 	 * @param array       $address Address fields.
 	 * @param WC_Customer $customer Customer object.
 	 */
+<<<<<<< HEAD
 	public function save_address_fields( $user_id, $address_type, $address = [], $customer = null ) {
 		try {
 			$customer = $customer ?? new WC_Customer( $user_id );
@@ -387,5 +488,42 @@ class CheckoutFieldsFrontend {
 		}
 
 		return $errors->has_errors() ? $errors : true;
+=======
+	public function save_address_fields( $user_id, $address_type, $address, $customer ) {
+		// phpcs:disable WordPress.Security.NonceVerification.Missing
+		$additional_fields = $this->checkout_fields_controller->get_fields_for_location( 'address' );
+		$field_values      = array();
+
+		foreach ( array_keys( $additional_fields ) as $key ) {
+			$post_key = CheckoutFields::get_group_key( $address_type ) . $key;
+
+			if ( ! isset( $_POST[ $post_key ] ) ) {
+				continue;
+			}
+
+			$field_value = $this->checkout_fields_controller->sanitize_field( $key, wc_clean( wp_unslash( $_POST[ $post_key ] ) ) );
+			$validation  = $this->checkout_fields_controller->validate_field( $key, $field_value );
+
+			if ( is_wp_error( $validation ) && $validation->has_errors() ) {
+				wc_add_notice( $validation->get_error_message(), 'error' );
+				continue;
+			}
+
+			$field_values[ $key ] = $field_value;
+		}
+
+		// Persist individual additional fields to customer.
+		foreach ( $field_values as $key => $value ) {
+			$this->checkout_fields_controller->persist_field_for_customer( $key, $value, $customer, $address_type );
+		}
+
+		// Validate all fields for this location.
+		$location_validation = $this->checkout_fields_controller->validate_fields_for_location( array_merge( $address, $field_values ), 'address', $address_type );
+
+		if ( is_wp_error( $location_validation ) && $location_validation->has_errors() ) {
+			wc_add_notice( $location_validation->get_error_message(), 'error' );
+		}
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

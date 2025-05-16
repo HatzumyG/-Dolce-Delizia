@@ -35,7 +35,11 @@ class SMTP
      *
      * @var string
      */
+<<<<<<< HEAD
     const VERSION = '6.9.3';
+=======
+    const VERSION = '6.9.2';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
     /**
      * SMTP line break constant.
@@ -62,7 +66,11 @@ class SMTP
      * The maximum line length allowed by RFC 5321 section 4.5.3.1.6,
      * *excluding* a trailing CRLF break.
      *
+<<<<<<< HEAD
      * @see https://www.rfc-editor.org/rfc/rfc5321#section-4.5.3.1.6
+=======
+     * @see https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      *
      * @var int
      */
@@ -72,7 +80,11 @@ class SMTP
      * The maximum line length allowed for replies in RFC 5321 section 4.5.3.1.5,
      * *including* a trailing CRLF line break.
      *
+<<<<<<< HEAD
      * @see https://www.rfc-editor.org/rfc/rfc5321#section-4.5.3.1.5
+=======
+     * @see https://tools.ietf.org/html/rfc5321#section-4.5.3.1.5
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      *
      * @var int
      */
@@ -373,7 +385,11 @@ class SMTP
         }
         //Anything other than a 220 response means something went wrong
         //RFC 5321 says the server will wait for us to send a QUIT in response to a 554 error
+<<<<<<< HEAD
         //https://www.rfc-editor.org/rfc/rfc5321#section-3.1
+=======
+        //https://tools.ietf.org/html/rfc5321#section-3.1
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         if ($responseCode === 554) {
             $this->quit();
         }
@@ -582,7 +598,11 @@ class SMTP
                 }
                 //Send encoded username and password
                 if (
+<<<<<<< HEAD
                     //Format from https://www.rfc-editor.org/rfc/rfc4616#section-2
+=======
+                    //Format from https://tools.ietf.org/html/rfc4616#section-2
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                     //We skip the first field (it's forgery), so the string starts with a null byte
                     !$this->sendCommand(
                         'User & Password',
@@ -795,7 +815,11 @@ class SMTP
             //Send the lines to the server
             foreach ($lines_out as $line_out) {
                 //Dot-stuffing as per RFC5321 section 4.5.2
+<<<<<<< HEAD
                 //https://www.rfc-editor.org/rfc/rfc5321#section-4.5.2
+=======
+                //https://tools.ietf.org/html/rfc5321#section-4.5.2
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
                 if (!empty($line_out) && $line_out[0] === '.') {
                     $line_out = '.' . $line_out;
                 }

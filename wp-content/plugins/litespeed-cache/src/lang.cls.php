@@ -87,6 +87,10 @@ class Lang extends Base
 	{
 		$_lang_list = array(
 			self::O_SERVER_IP => __('Server IP', 'litespeed-cache'),
+<<<<<<< HEAD
+=======
+			self::O_API_KEY => __('Domain Key', 'litespeed-cache'),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			self::O_GUEST_UAS => __('Guest Mode User Agents', 'litespeed-cache'),
 			self::O_GUEST_IPS => __('Guest Mode IPs', 'litespeed-cache'),
 
@@ -172,7 +176,10 @@ class Lang extends Base
 			self::O_OPTM_CCSS_CON => __('Critical CSS Rules', 'litespeed-cache'),
 			self::O_OPTM_CCSS_SEP_POSTTYPE => __('Separate CCSS Cache Post Types', 'litespeed-cache'),
 			self::O_OPTM_CCSS_SEP_URI => __('Separate CCSS Cache URIs', 'litespeed-cache'),
+<<<<<<< HEAD
 			self::O_OPTM_CCSS_SELECTOR_WHITELIST => __('CCSS Selector Allowlist', 'litespeed-cache'),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			self::O_OPTM_JS_DEFER_EXC => __('JS Deferred / Delayed Excludes', 'litespeed-cache'),
 			self::O_OPTM_GM_JS_EXC => __('Guest Mode JS Excludes', 'litespeed-cache'),
 			self::O_OPTM_EMOJI_RM => __('Remove WordPress Emoji', 'litespeed-cache'),
@@ -208,6 +215,7 @@ class Lang extends Base
 			self::O_MEDIA_VPI_CRON => __('Viewport Images Cron', 'litespeed-cache'),
 
 			self::O_IMG_OPTM_AUTO => __('Auto Request Cron', 'litespeed-cache'),
+<<<<<<< HEAD
 			self::O_IMG_OPTM_ORI => __('Optimize Original Images', 'litespeed-cache'),
 			self::O_IMG_OPTM_RM_BKUP => __('Remove Original Backups', 'litespeed-cache'),
 			self::O_IMG_OPTM_WEBP => __('Next-Gen Image Format', 'litespeed-cache'),
@@ -215,6 +223,16 @@ class Lang extends Base
 			self::O_IMG_OPTM_EXIF => __('Preserve EXIF/XMP data', 'litespeed-cache'),
 			self::O_IMG_OPTM_WEBP_ATTR => __('WebP/AVIF Attribute To Replace', 'litespeed-cache'),
 			self::O_IMG_OPTM_WEBP_REPLACE_SRCSET => __('WebP/AVIF For Extra srcset', 'litespeed-cache'),
+=======
+			self::O_IMG_OPTM_CRON => __('Auto Pull Cron', 'litespeed-cache'),
+			self::O_IMG_OPTM_ORI => __('Optimize Original Images', 'litespeed-cache'),
+			self::O_IMG_OPTM_RM_BKUP => __('Remove Original Backups', 'litespeed-cache'),
+			self::O_IMG_OPTM_WEBP => __('Image WebP Replacement', 'litespeed-cache'),
+			self::O_IMG_OPTM_LOSSLESS => __('Optimize Losslessly', 'litespeed-cache'),
+			self::O_IMG_OPTM_EXIF => __('Preserve EXIF/XMP data', 'litespeed-cache'),
+			self::O_IMG_OPTM_WEBP_ATTR => __('WebP Attribute To Replace', 'litespeed-cache'),
+			self::O_IMG_OPTM_WEBP_REPLACE_SRCSET => __('WebP For Extra srcset', 'litespeed-cache'),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			self::O_IMG_OPTM_JPG_QUALITY => __('WordPress Image Quality Control', 'litespeed-cache'),
 			self::O_ESI => __('Enable ESI', 'litespeed-cache'),
 			self::O_ESI_CACHE_ADMBAR => __('Cache Admin Bar', 'litespeed-cache'),
@@ -236,6 +254,10 @@ class Lang extends Base
 			self::O_MISC_HEARTBEAT_EDITOR => __('Editor Heartbeat', 'litespeed-cache'),
 			self::O_MISC_HEARTBEAT_EDITOR_TTL => __('Editor Heartbeat TTL', 'litespeed-cache'),
 
+<<<<<<< HEAD
+=======
+			self::O_CDN_QUIC => __('QUIC.cloud CDN', 'litespeed-cache'),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			self::O_CDN => __('Use CDN Mapping', 'litespeed-cache'),
 			self::CDN_MAPPING_URL => __('CDN URL', 'litespeed-cache'),
 			self::CDN_MAPPING_INC_IMG => __('Include Images', 'litespeed-cache'),
@@ -249,11 +271,25 @@ class Lang extends Base
 			self::O_CDN_CLOUDFLARE => __('Cloudflare API', 'litespeed-cache'),
 
 			self::O_CRAWLER => __('Crawler', 'litespeed-cache'),
+<<<<<<< HEAD
 			self::O_CRAWLER_CRAWL_INTERVAL => __('Crawl Interval', 'litespeed-cache'),
+=======
+			self::O_CRAWLER_USLEEP => __('Delay', 'litespeed-cache'),
+			self::O_CRAWLER_RUN_DURATION => __('Run Duration', 'litespeed-cache'),
+			self::O_CRAWLER_RUN_INTERVAL => __('Interval Between Runs', 'litespeed-cache'),
+			self::O_CRAWLER_CRAWL_INTERVAL => __('Crawl Interval', 'litespeed-cache'),
+			self::O_CRAWLER_THREADS => __('Threads', 'litespeed-cache'),
+			self::O_CRAWLER_TIMEOUT => __('Timeout', 'litespeed-cache'),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			self::O_CRAWLER_LOAD_LIMIT => __('Server Load Limit', 'litespeed-cache'),
 			self::O_CRAWLER_ROLES => __('Role Simulation', 'litespeed-cache'),
 			self::O_CRAWLER_COOKIES => __('Cookie Simulation', 'litespeed-cache'),
 			self::O_CRAWLER_SITEMAP => __('Custom Sitemap', 'litespeed-cache'),
+<<<<<<< HEAD
+=======
+			self::O_CRAWLER_DROP_DOMAIN => __('Drop Domain from Sitemap', 'litespeed-cache'),
+			self::O_CRAWLER_MAP_TIMEOUT => __('Sitemap Timeout', 'litespeed-cache'),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			self::O_DEBUG_DISABLE_ALL => __('Disable All Features', 'litespeed-cache'),
 			self::O_DEBUG => __('Debug Log', 'litespeed-cache'),

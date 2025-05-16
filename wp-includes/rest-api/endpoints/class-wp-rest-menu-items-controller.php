@@ -80,6 +80,7 @@ class WP_REST_Menu_Items_Controller extends WP_REST_Posts_Controller {
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
 	 */
 	protected function check_has_read_only_access( $request ) {
+<<<<<<< HEAD
 		/**
 		 * Filters whether the current user has read access to menu items via the REST API.
 		 *
@@ -95,6 +96,8 @@ class WP_REST_Menu_Items_Controller extends WP_REST_Posts_Controller {
 			return true;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( current_user_can( 'edit_theme_options' ) ) {
 			return true;
 		}

@@ -7,7 +7,10 @@
  * @since   3.0.0
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Utilities\NumberUtil;
 
 defined( 'ABSPATH' ) || exit;
@@ -32,7 +35,11 @@ class WC_Order_Item_Shipping extends WC_Order_Item {
 		'taxes'        => array(
 			'total' => array(),
 		),
+<<<<<<< HEAD
 		'tax_status'   => ProductTaxStatus::TAXABLE,
+=======
+		'tax_status'   => 'taxable',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	);
 
 	/**
@@ -46,7 +53,11 @@ class WC_Order_Item_Shipping extends WC_Order_Item {
 		if ( ! isset( $calculate_tax_for['country'], $calculate_tax_for['state'], $calculate_tax_for['postcode'], $calculate_tax_for['city'], $calculate_tax_for['tax_class'] ) ) {
 			return false;
 		}
+<<<<<<< HEAD
 		if ( wc_tax_enabled() && ProductTaxStatus::TAXABLE === $this->get_tax_status() ) {
+=======
+		if ( wc_tax_enabled() && 'taxable' === $this->get_tax_status() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$tax_rates = WC_Tax::find_shipping_rates( $calculate_tax_for );
 			$taxes     = WC_Tax::calc_tax( $this->get_total(), $tax_rates, false );
 			$this->set_taxes( array( 'total' => $taxes ) );
@@ -287,7 +298,11 @@ class WC_Order_Item_Shipping extends WC_Order_Item {
 	 */
 	public function get_tax_status( $context = 'view' ) {
 		$shipping_method = WC_Shipping_Zones::get_shipping_method( $this->get_instance_id() );
+<<<<<<< HEAD
 		return $shipping_method ? $shipping_method->get_option( 'tax_status' ) : ProductTaxStatus::TAXABLE;
+=======
+		return $shipping_method ? $shipping_method->get_option( 'tax_status' ) : 'taxable';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/*

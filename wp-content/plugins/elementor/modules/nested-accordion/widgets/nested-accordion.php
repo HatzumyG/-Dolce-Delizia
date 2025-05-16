@@ -15,7 +15,11 @@ use Elementor\Utils;
 use Elementor\Group_Control_Text_Stroke;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -764,7 +768,11 @@ class Nested_Accordion extends Widget_Nested_Base {
 		$this->end_controls_tab();
 	}
 
+<<<<<<< HEAD
 	private function is_active_icon_exist( $settings ): bool {
+=======
+	private function is_active_icon_exist( $settings ):bool {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return array_key_exists( 'accordion_item_title_icon_active', $settings ) && ! empty( $settings['accordion_item_title_icon_active'] ) && ! empty( $settings['accordion_item_title_icon_active']['value'] );
 	}
 
@@ -1008,8 +1016,11 @@ class Nested_Accordion extends Widget_Nested_Base {
 						'data-binding-setting': ['item_title'],
 						'data-binding-index': itemCount,
 						'data-binding-dynamic': 'true',
+<<<<<<< HEAD
 						'data-binding-dynamic-css-id': 'element_css_id',
 						'data-binding-single-item-html-wrapper-tag': 'details',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					});
 				#>
 

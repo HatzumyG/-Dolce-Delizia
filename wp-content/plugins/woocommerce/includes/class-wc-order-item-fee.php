@@ -10,7 +10,10 @@
  * @since   3.0.0
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Utilities\NumberUtil;
 
 defined( 'ABSPATH' ) || exit;
@@ -43,7 +46,11 @@ class WC_Order_Item_Fee extends WC_Order_Item {
 	 */
 	protected $extra_data = array(
 		'tax_class'  => '',
+<<<<<<< HEAD
 		'tax_status' => ProductTaxStatus::TAXABLE,
+=======
+		'tax_status' => 'taxable',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'amount'     => '',
 		'total'      => '',
 		'total_tax'  => '',
@@ -68,7 +75,11 @@ class WC_Order_Item_Fee extends WC_Order_Item {
 			if ( 0 > $item->get_total() ) {
 				continue;
 			}
+<<<<<<< HEAD
 			if ( ProductTaxStatus::TAXABLE !== $item->get_tax_status() ) {
+=======
+			if ( 'taxable' !== $item->get_tax_status() ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				$costs['non-taxable'] += $item->get_total();
 			} elseif ( 'inherit' === $item->get_tax_class() ) {
 				$inherit_class            = reset( $order_item_tax_classes );
@@ -157,10 +168,17 @@ class WC_Order_Item_Fee extends WC_Order_Item {
 	 * @param string $value Tax status.
 	 */
 	public function set_tax_status( $value ) {
+<<<<<<< HEAD
 		if ( in_array( $value, array( ProductTaxStatus::TAXABLE, ProductTaxStatus::NONE ), true ) ) {
 			$this->set_prop( 'tax_status', $value );
 		} else {
 			$this->set_prop( 'tax_status', ProductTaxStatus::TAXABLE );
+=======
+		if ( in_array( $value, array( 'taxable', 'none' ), true ) ) {
+			$this->set_prop( 'tax_status', $value );
+		} else {
+			$this->set_prop( 'tax_status', 'taxable' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

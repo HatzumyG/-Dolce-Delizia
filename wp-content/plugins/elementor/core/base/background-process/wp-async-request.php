@@ -6,7 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+<<<<<<< HEAD
  * Link https://github.com/A5hleyRich/wp-background-processing GPL v2.0
+=======
+ * https://github.com/A5hleyRich/wp-background-processing GPL v2.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  *
  * WP Async Request
  *
@@ -165,4 +169,8 @@ abstract class WP_Async_Request {
 	 * during the async request.
 	 */
 	abstract protected function handle();
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

@@ -209,7 +209,10 @@ class Media_Control {
 					Module::load_template( $context, 'optimized', array_merge(
 						$global_context, [
 							'sizes_optimized_count' => $stats['optimized_image_count'],
+<<<<<<< HEAD
 							'sizes_total' => $stats['total_image_count'],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							'saved' => $saved,
 							'is_losseless_and_webp' => $is_losseless_and_webp,
 						]

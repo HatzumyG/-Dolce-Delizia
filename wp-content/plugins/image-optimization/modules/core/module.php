@@ -2,7 +2,10 @@
 namespace ImageOptimization\Modules\Core;
 
 use ImageOptimization\Modules\Optimization\{
+<<<<<<< HEAD
 	Classes\Validate_Image,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	Rest\Cancel_Bulk_Optimization,
 	Rest\Optimize_Bulk,
 };
@@ -11,6 +14,7 @@ use ImageOptimization\Modules\Backups\Rest\{
 	Remove_Backups,
 };
 use ImageOptimization\Classes\{
+<<<<<<< HEAD
 	Async_Operation\Async_Operation,
 	Async_Operation\Async_Operation_Queue,
 	Async_Operation\Queries\Operation_Query,
@@ -20,6 +24,11 @@ use ImageOptimization\Classes\{
 	Migration\Migration_Manager,
 	Module_Base,
 	Utils,
+=======
+	Migration\Migration_Manager,
+	Module_Base,
+	Utils
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 };
 
 use ImageOptimization\Plugin;
@@ -189,8 +198,11 @@ class Module extends Module_Base {
 			wp_enqueue_style( $style );
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_style( 'thickbox' );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		wp_enqueue_script(
 			'image-optimization-admin',
 			$this->get_js_assets_url( 'admin' ),
@@ -232,7 +244,10 @@ class Module extends Module_Base {
 				'isOwner' => $module->connect_instance->is_connected() ? $module->connect_instance->user_is_subscription_owner() : null,
 				'subscriptionEmail' => $connect_email ? $connect_email : null,
 				'showResetButton' => $show_reset,
+<<<<<<< HEAD
 				'maxFileSize' => Validate_Image::get_max_file_size(),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				'wpRestNonce' => wp_create_nonce( 'wp_rest' ),
 				'disconnect' => wp_create_nonce( 'wp_rest' ),
@@ -256,6 +271,7 @@ class Module extends Module_Base {
 		return ( Utils::is_media_page() || Utils::is_plugin_page() ) && Utils::user_is_admin();
 	}
 
+<<<<<<< HEAD
 	public static function on_deactivation(): void {
 		$optimization_query = ( new Operation_Query() )
 			->set_queue( Async_Operation_Queue::OPTIMIZE )
@@ -309,6 +325,8 @@ class Module extends Module_Base {
 		}
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * Module constructor.
 	 */

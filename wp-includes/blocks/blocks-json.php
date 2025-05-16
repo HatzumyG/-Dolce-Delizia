@@ -27,12 +27,15 @@
     ),
     'supports' => array(
       'align' => true,
+<<<<<<< HEAD
       '__experimentalBorder' => array(
         'radius' => true,
         'color' => true,
         'width' => true,
         'style' => true
       ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'html' => false,
       'spacing' => array(
         'margin' => true,
@@ -55,6 +58,7 @@
           'fontSize' => true
         )
       ),
+<<<<<<< HEAD
       'color' => array(
         'gradients' => true,
         'link' => true,
@@ -64,6 +68,8 @@
           'link' => true
         )
       ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'interactivity' => array(
         'clientNavigation' => true
       )
@@ -339,6 +345,7 @@
         )
       ),
       'typography' => array(
+<<<<<<< HEAD
         '__experimentalSkipSerialization' => array(
           'fontSize',
           'lineHeight',
@@ -349,6 +356,8 @@
           'textDecoration',
           'letterSpacing'
         ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         'fontSize' => true,
         'lineHeight' => true,
         '__experimentalFontFamily' => true,
@@ -389,6 +398,10 @@
           'width' => true
         )
       ),
+<<<<<<< HEAD
+=======
+      '__experimentalSelector' => '.wp-block-button .wp-block-button__link',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'interactivity' => array(
         'clientNavigation' => true
       )
@@ -405,6 +418,7 @@
       )
     ),
     'editorStyle' => 'wp-block-button-editor',
+<<<<<<< HEAD
     'style' => 'wp-block-button',
     'selectors' => array(
       'root' => '.wp-block-button .wp-block-button__link',
@@ -412,6 +426,9 @@
         'writingMode' => '.wp-block-button'
       )
     )
+=======
+    'style' => 'wp-block-button'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   ),
   'buttons' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -619,6 +636,7 @@
           'fontSize' => true
         )
       ),
+<<<<<<< HEAD
       'color' => array(
         'gradients' => true,
         'link' => true,
@@ -628,6 +646,8 @@
           'link' => true
         )
       ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'interactivity' => array(
         'clientNavigation' => true
       ),
@@ -1353,6 +1373,7 @@
         '__experimentalDefaultControls' => array(
           'fontSize' => true
         )
+<<<<<<< HEAD
       ),
       '__experimentalBorder' => array(
         'radius' => true,
@@ -1365,6 +1386,8 @@
           'width' => true,
           'style' => true
         )
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'editorStyle' => 'wp-block-comments-editor',
@@ -1395,11 +1418,14 @@
         'default' => 'none'
       )
     ),
+<<<<<<< HEAD
     'example' => array(
       'attributes' => array(
         'paginationArrow' => 'none'
       )
     ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'providesContext' => array(
       'comments/paginationArrow' => 'paginationArrow'
     ),
@@ -1746,9 +1772,12 @@
       'tagName' => array(
         'type' => 'string',
         'default' => 'div'
+<<<<<<< HEAD
       ),
       'sizeSlug' => array(
         'type' => 'string'
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'usesContext' => array(
@@ -1843,6 +1872,7 @@
         'type' => 'rich-text',
         'source' => 'rich-text',
         'selector' => 'summary'
+<<<<<<< HEAD
       ),
       'name' => array(
         'type' => 'string',
@@ -1855,6 +1885,8 @@
       ),
       'placeholder' => array(
         'type' => 'string'
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'supports' => array(
@@ -1863,7 +1895,10 @@
         'wide',
         'full'
       ),
+<<<<<<< HEAD
       'anchor' => true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'color' => array(
         'gradients' => true,
         'link' => true,
@@ -1986,8 +2021,12 @@
         'role' => 'local'
       ),
       'href' => array(
+<<<<<<< HEAD
         'type' => 'string',
         'role' => 'content'
+=======
+        'type' => 'string'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'fileId' => array(
         'type' => 'string',
@@ -1998,15 +2037,23 @@
       'fileName' => array(
         'type' => 'rich-text',
         'source' => 'rich-text',
+<<<<<<< HEAD
         'selector' => 'a:not([download])',
         'role' => 'content'
+=======
+        'selector' => 'a:not([download])'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'textLinkHref' => array(
         'type' => 'string',
         'source' => 'attribute',
         'selector' => 'a:not([download])',
+<<<<<<< HEAD
         'attribute' => 'href',
         'role' => 'content'
+=======
+        'attribute' => 'href'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'textLinkTarget' => array(
         'type' => 'string',
@@ -2021,8 +2068,12 @@
       'downloadButtonText' => array(
         'type' => 'rich-text',
         'source' => 'rich-text',
+<<<<<<< HEAD
         'selector' => 'a[download]',
         'role' => 'content'
+=======
+        'selector' => 'a[download]'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'displayPreview' => array(
         'type' => 'boolean'
@@ -2496,7 +2547,17 @@
         'color' => true,
         'radius' => true,
         'style' => true,
+<<<<<<< HEAD
         'width' => true
+=======
+        'width' => true,
+        '__experimentalDefaultControls' => array(
+          'color' => true,
+          'radius' => true,
+          'style' => true,
+          'width' => true
+        )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'color' => array(
         'gradients' => true,
@@ -2621,10 +2682,14 @@
     'usesContext' => array(
       'allowResize',
       'imageCrop',
+<<<<<<< HEAD
       'fixedHeight',
       'postId',
       'postType',
       'queryId'
+=======
+      'fixedHeight'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ),
     'description' => 'Insert an image to make a visual statement.',
     'keywords' => array(
@@ -2962,6 +3027,7 @@
           'fontSize' => true
         )
       ),
+<<<<<<< HEAD
       '__experimentalBorder' => array(
         'radius' => true,
         'color' => true,
@@ -2974,6 +3040,8 @@
           'style' => true
         )
       ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'interactivity' => array(
         'clientNavigation' => true
       )
@@ -3112,7 +3180,11 @@
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
     'name' => 'core/list-item',
+<<<<<<< HEAD
     'title' => 'List Item',
+=======
+    'title' => 'List item',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'category' => 'text',
     'parent' => array(
       'core/list'
@@ -3893,6 +3965,7 @@
       ),
       'interactivity' => array(
         'clientNavigation' => true
+<<<<<<< HEAD
       ),
       'color' => array(
         'text' => true,
@@ -3918,6 +3991,8 @@
           'padding' => false,
           'margin' => false
         )
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'editorStyle' => 'wp-block-page-list-editor',
@@ -4073,7 +4148,11 @@
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
     'name' => 'core/pattern',
+<<<<<<< HEAD
     'title' => 'Pattern Placeholder',
+=======
+    'title' => 'Pattern placeholder',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'category' => 'theme',
     'description' => 'Show a block pattern.',
     'supports' => array(
@@ -4119,6 +4198,7 @@
       ),
       'isLink' => array(
         'type' => 'boolean',
+<<<<<<< HEAD
         'default' => false,
         'role' => 'content'
       ),
@@ -4126,6 +4206,13 @@
         'type' => 'string',
         'default' => '_self',
         'role' => 'content'
+=======
+        'default' => false
+      ),
+      'linkTarget' => array(
+        'type' => 'string',
+        'default' => '_self'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'usesContext' => array(
@@ -4258,6 +4345,7 @@
       ),
       'isLink' => array(
         'type' => 'boolean',
+<<<<<<< HEAD
         'default' => false,
         'role' => 'content'
       ),
@@ -4265,6 +4353,13 @@
         'type' => 'string',
         'default' => '_self',
         'role' => 'content'
+=======
+        'default' => false
+      ),
+      'linkTarget' => array(
+        'type' => 'string',
+        'default' => '_self'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'usesContext' => array(
@@ -4381,11 +4476,14 @@
       'wp-block-post-comments-form',
       'wp-block-buttons',
       'wp-block-button'
+<<<<<<< HEAD
     ),
     'example' => array(
       'attributes' => array(
         'textAlign' => 'center'
       )
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     )
   ),
   'post-content' => array(
@@ -4424,7 +4522,10 @@
       'spacing' => array(
         'blockGap' => true,
         'padding' => true,
+<<<<<<< HEAD
         'margin' => true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         '__experimentalDefaultControls' => array(
           'margin' => false,
           'padding' => false
@@ -4432,7 +4533,10 @@
       ),
       'color' => array(
         'gradients' => true,
+<<<<<<< HEAD
         'heading' => true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         'link' => true,
         '__experimentalDefaultControls' => array(
           'background' => false,
@@ -4451,6 +4555,7 @@
         '__experimentalDefaultControls' => array(
           'fontSize' => true
         )
+<<<<<<< HEAD
       ),
       '__experimentalBorder' => array(
         'radius' => true,
@@ -4463,6 +4568,8 @@
           'width' => true,
           'style' => true
         )
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'style' => 'wp-block-post-content',
@@ -4485,8 +4592,12 @@
       ),
       'isLink' => array(
         'type' => 'boolean',
+<<<<<<< HEAD
         'default' => false,
         'role' => 'content'
+=======
+        'default' => false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'displayType' => array(
         'type' => 'string',
@@ -4636,8 +4747,12 @@
     'attributes' => array(
       'isLink' => array(
         'type' => 'boolean',
+<<<<<<< HEAD
         'default' => false,
         'role' => 'content'
+=======
+        'default' => false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'aspectRatio' => array(
         'type' => 'string'
@@ -4658,6 +4773,7 @@
       'rel' => array(
         'type' => 'string',
         'attribute' => 'rel',
+<<<<<<< HEAD
         'default' => '',
         'role' => 'content'
       ),
@@ -4665,6 +4781,13 @@
         'type' => 'string',
         'default' => '_self',
         'role' => 'content'
+=======
+        'default' => ''
+      ),
+      'linkTarget' => array(
+        'type' => 'string',
+        'default' => '_self'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'overlayColor' => array(
         'type' => 'string'
@@ -4814,7 +4937,11 @@
     'name' => 'core/post-template',
     'title' => 'Post Template',
     'category' => 'theme',
+<<<<<<< HEAD
     'ancestor' => array(
+=======
+    'parent' => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'core/query'
     ),
     'description' => 'Contains the block elements used to render a post, like the title, date, featured image, content or excerpt, and more.',
@@ -4825,8 +4952,12 @@
       'displayLayout',
       'templateSlug',
       'previewPostType',
+<<<<<<< HEAD
       'enhancedPagination',
       'postType'
+=======
+      'enhancedPagination'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ),
     'supports' => array(
       'reusable' => false,
@@ -4858,25 +4989,35 @@
         )
       ),
       'spacing' => array(
+<<<<<<< HEAD
         'margin' => true,
         'padding' => true,
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         'blockGap' => array(
           '__experimentalDefault' => '1.25em'
         ),
         '__experimentalDefaultControls' => array(
+<<<<<<< HEAD
           'blockGap' => true,
           'padding' => false,
           'margin' => false
+=======
+          'blockGap' => true
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         )
       ),
       'interactivity' => array(
         'clientNavigation' => true
+<<<<<<< HEAD
       ),
       '__experimentalBorder' => array(
         'radius' => true,
         'color' => true,
         'width' => true,
         'style' => true
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'style' => 'wp-block-post-template',
@@ -4989,12 +5130,17 @@
       ),
       'isLink' => array(
         'type' => 'boolean',
+<<<<<<< HEAD
         'default' => false,
         'role' => 'content'
+=======
+        'default' => false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'rel' => array(
         'type' => 'string',
         'attribute' => 'rel',
+<<<<<<< HEAD
         'default' => '',
         'role' => 'content'
       ),
@@ -5002,6 +5148,13 @@
         'type' => 'string',
         'default' => '_self',
         'role' => 'content'
+=======
+        'default' => ''
+      ),
+      'linkTarget' => array(
+        'type' => 'string',
+        'default' => '_self'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'example' => array(
@@ -5222,6 +5375,7 @@
     'title' => 'Query Loop',
     'category' => 'theme',
     'description' => 'An advanced block that allows displaying post types based on different query parameters and visual configurations.',
+<<<<<<< HEAD
     'keywords' => array(
       'posts',
       'list',
@@ -5229,6 +5383,8 @@
       'blogs',
       'custom post types'
     ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'textdomain' => 'default',
     'attributes' => array(
       'queryId' => array(
@@ -5272,7 +5428,11 @@
       )
     ),
     'usesContext' => array(
+<<<<<<< HEAD
       'templateSlug'
+=======
+      'postType'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     ),
     'providesContext' => array(
       'queryId' => 'queryId',
@@ -5295,10 +5455,17 @@
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
     'name' => 'core/query-no-results',
+<<<<<<< HEAD
     'title' => 'No Results',
     'category' => 'theme',
     'description' => 'Contains the block elements used to render content when no query results are found.',
     'ancestor' => array(
+=======
+    'title' => 'No results',
+    'category' => 'theme',
+    'description' => 'Contains the block elements used to render content when no query results are found.',
+    'parent' => array(
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'core/query'
     ),
     'textdomain' => 'default',
@@ -5590,11 +5757,14 @@
         'default' => true
       )
     ),
+<<<<<<< HEAD
     'example' => array(
       'attributes' => array(
         'type' => 'search'
       )
     ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'supports' => array(
       'align' => array(
         'wide',
@@ -5643,6 +5813,7 @@
     ),
     'style' => 'wp-block-query-title'
   ),
+<<<<<<< HEAD
   'query-total' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
@@ -5712,6 +5883,8 @@
     ),
     'style' => 'wp-block-query-total'
   ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   'quote' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
@@ -5942,6 +6115,7 @@
       'html' => false,
       'interactivity' => array(
         'clientNavigation' => true
+<<<<<<< HEAD
       ),
       '__experimentalBorder' => array(
         'radius' => true,
@@ -5962,6 +6136,8 @@
         'text' => true,
         'gradients' => true,
         'link' => true
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'editorStyle' => 'wp-block-rss-editor',
@@ -6087,6 +6263,7 @@
       'opacity' => array(
         'type' => 'string',
         'default' => 'alpha-channel'
+<<<<<<< HEAD
       ),
       'tagName' => array(
         'type' => 'string',
@@ -6095,6 +6272,8 @@
           'div'
         ),
         'default' => 'hr'
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'supports' => array(
@@ -6177,6 +6356,7 @@
       ),
       'isLink' => array(
         'type' => 'boolean',
+<<<<<<< HEAD
         'default' => true,
         'role' => 'content'
       ),
@@ -6184,6 +6364,13 @@
         'type' => 'string',
         'default' => '_self',
         'role' => 'content'
+=======
+        'default' => true
+      ),
+      'linkTarget' => array(
+        'type' => 'string',
+        'default' => '_self'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'shouldSyncIcon' => array(
         'type' => 'boolean'
@@ -6347,6 +6534,7 @@
       ),
       'isLink' => array(
         'type' => 'boolean',
+<<<<<<< HEAD
         'default' => true,
         'role' => 'content'
       ),
@@ -6354,6 +6542,13 @@
         'type' => 'string',
         'default' => '_self',
         'role' => 'content'
+=======
+        'default' => true
+      ),
+      'linkTarget' => array(
+        'type' => 'string',
+        'default' => '_self'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       )
     ),
     'example' => array(
@@ -6422,15 +6617,23 @@
     'textdomain' => 'default',
     'attributes' => array(
       'url' => array(
+<<<<<<< HEAD
         'type' => 'string',
         'role' => 'content'
+=======
+        'type' => 'string'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'service' => array(
         'type' => 'string'
       ),
       'label' => array(
+<<<<<<< HEAD
         'type' => 'string',
         'role' => 'content'
+=======
+        'type' => 'string'
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       ),
       'rel' => array(
         'type' => 'string'
@@ -6832,14 +7035,21 @@
           'width' => true
         )
       ),
+<<<<<<< HEAD
+=======
+      '__experimentalSelector' => '.wp-block-table > table',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
       'interactivity' => array(
         'clientNavigation' => true
       )
     ),
+<<<<<<< HEAD
     'selectors' => array(
       'root' => '.wp-block-table > table',
       'spacing' => '.wp-block-table'
     ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
     'styles' => array(
       array(
         'name' => 'regular',

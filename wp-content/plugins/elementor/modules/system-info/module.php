@@ -281,8 +281,14 @@ class Module extends BaseModule {
 	 *
 	 * @return \WP_Error|false|Base Base instance if the report was created,
 	 *                                       False or WP_Error otherwise.
+<<<<<<< HEAD
 	 * @since 2.9.0
 	 * @access public
+=======
+	 *@since 2.9.0
+	 * @access public
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function create_reporter( array $properties ) {
 		$properties = Model_Helper::prepare_properties( $this->get_settings( 'reporter_properties' ), $properties );

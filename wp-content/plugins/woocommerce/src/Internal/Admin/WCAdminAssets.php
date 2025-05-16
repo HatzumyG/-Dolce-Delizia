@@ -9,7 +9,11 @@ use _WP_Dependency;
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\PageController;
 use Automattic\WooCommerce\Internal\Admin\Loader;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
+=======
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * WCAdminAssets Class.
  */
@@ -248,16 +252,20 @@ class WCAdminAssets {
 		wp_enqueue_style( 'wc-material-icons' );
 		wp_enqueue_style( 'wc-onboarding' );
 
+<<<<<<< HEAD
 		if ( PageController::is_settings_page() ) {
 			$this->register_script( 'wp-admin-scripts', 'settings-embed', true );
 			$this->register_style( 'settings-embed', 'style', array( 'wp-components' ) );
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Preload our assets.
 		$this->output_header_preload_tags();
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Modify script dependencies based on various conditions to only load the necessary scripts.
 	 *
 	 * @param array  $dependencies Array of script dependencies.
@@ -294,6 +302,8 @@ class WCAdminAssets {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Registers all the necessary scripts and styles to show the admin experience.
 	 */
 	public function register_scripts() {
@@ -325,7 +335,11 @@ class WCAdminAssets {
 		);
 
 		$scripts_map = array(
+<<<<<<< HEAD
 			WC_ADMIN_APP    => PageController::is_embed_page() ? 'embed' : 'app',
+=======
+			WC_ADMIN_APP    => 'app',
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'wc-csv'        => 'csv-export',
 			'wc-store-data' => 'data',
 		);
@@ -349,12 +363,35 @@ class WCAdminAssets {
 				$script_assets          = require WC_ADMIN_ABSPATH . WC_ADMIN_DIST_JS_FOLDER . $script_path_name . '/' . $script_assets_filename;
 				$script_version         = self::get_file_version( 'js', $script_assets['version'] );
 
+<<<<<<< HEAD
 				$script_dependencies = $this->modify_script_dependencies( $script_assets['dependencies'], $script, $script_path_name );
+=======
+				global $wp_version;
+				if ( 'app' === $script_path_name && version_compare( $wp_version, '6.3', '<' ) ) {
+					// Remove wp-router dependency for WordPress versions < 6.3 because wp-router is not included in those versions. We only use wp-router in customize store pages and the feature is only available in WordPress 6.3+.
+					// We can remove this once our minimum support is WP 6.3.
+					$script_assets['dependencies'] = array_diff( $script_assets['dependencies'], array( 'wp-router' ) );
+				}
+
+				// Remove wp-editor dependency if we're not on a customize store page since we don't use wp-editor in other pages.
+				$is_customize_store_page = (
+					PageController::is_admin_page() &&
+					isset( $_GET['path'] ) &&
+					str_starts_with( wc_clean( wp_unslash( $_GET['path'] ) ), '/customize-store' )
+				);
+				if ( ! $is_customize_store_page && WC_ADMIN_APP === $script ) {
+					$script_assets['dependencies'] = array_diff( $script_assets['dependencies'], array( 'wp-editor' ) );
+				}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 				wp_register_script(
 					$script,
 					self::get_url( $script_path_name . '/index', 'js' ),
+<<<<<<< HEAD
 					$script_dependencies,
+=======
+					$script_assets['dependencies'],
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					$script_version,
 					true
 				);

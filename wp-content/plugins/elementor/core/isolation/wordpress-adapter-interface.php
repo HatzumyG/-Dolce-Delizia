@@ -35,8 +35,11 @@ interface Wordpress_Adapter_Interface {
 	public function current_user_can( $capability, $args );
 
 	public function get_post_status( $post_id );
+<<<<<<< HEAD
 
 	public function get_posts( $args );
 
 	public function get_post_types( $args = [], $output = 'names', $operator = 'and' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

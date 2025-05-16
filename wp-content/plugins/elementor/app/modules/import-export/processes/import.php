@@ -145,7 +145,11 @@ class Import {
 	 *      (e.g: include, selected_plugins, selected_cpt, selected_override_conditions, etc.)
 	 * @param array|null $old_instance An array of old instance parameters that will be used for creating new instance.
 	 *      We are using it for quick creation of the instance when the import process is being split into chunks.
+<<<<<<< HEAD
 	 * @throws \Exception If the import session does not exist.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __construct( string $path, array $settings = [], array $old_instance = null ) {
 		if ( ! empty( $old_instance ) ) {
@@ -221,7 +225,11 @@ class Import {
 	 * @param string $session_id
 	 *
 	 * @return Import
+<<<<<<< HEAD
 	 * @throws \Exception If the import session does not exist.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public static function from_session( string $session_id ): Import {
 		$import_sessions = Utils::get_import_sessions();
@@ -602,10 +610,17 @@ class Import {
 
 		if ( is_wp_error( $extraction_result ) ) {
 			if ( isset( $extraction_result->errors['zip_error'] ) ) {
+<<<<<<< HEAD
 				throw new \Error( static::ZIP_ARCHIVE_ERROR_KEY ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 			}
 
 			throw new \Error( static::ZIP_FILE_ERROR_KEY ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+=======
+				throw new \Error( static::ZIP_ARCHIVE_ERROR_KEY );
+			}
+
+			throw new \Error( static::ZIP_FILE_ERROR_KEY );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		return $extraction_result['extraction_directory'];
@@ -621,7 +636,11 @@ class Import {
 
 		if ( ! $manifest ) {
 			Plugin::$instance->logger->get_logger()->error( static::MANIFEST_ERROR_KEY );
+<<<<<<< HEAD
 			throw new \Error( static::ZIP_FILE_ERROR_KEY ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+=======
+			throw new \Error( static::ZIP_FILE_ERROR_KEY );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$this->init_adapters( $manifest );
@@ -730,7 +749,11 @@ class Import {
 	 *
 	 * @return array{post_ids: array, term_ids: array}
 	 */
+<<<<<<< HEAD
 	private function get_imported_data_replacements(): array {
+=======
+	private function get_imported_data_replacements() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return [
 			'post_ids' => Utils::map_old_new_post_ids( $this->imported_data ),
 			'term_ids' => Utils::map_old_new_term_ids( $this->imported_data ),

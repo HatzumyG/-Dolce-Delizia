@@ -195,6 +195,7 @@ class WP_Importer {
 	 * @param bool   $head
 	 * @return array
 	 */
+<<<<<<< HEAD
 	public function get_page(
 		$url,
 		$username = '',
@@ -202,6 +203,9 @@ class WP_Importer {
 		$password = '',
 		$head = false
 	) {
+=======
+	public function get_page( $url, $username = '', $password = '', $head = false ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Increase the timeout.
 		add_filter( 'http_request_timeout', array( $this, 'bump_request_timeout' ) );
 

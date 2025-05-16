@@ -218,9 +218,13 @@ class Manager
 
         $plugin = current(array_filter($this->old_plugins, fn($p) => $p['slug'] === $plugin_name));
 
+<<<<<<< HEAD
         $hostinger_admin_url = parse_url(admin_url('admin.php?page=hostinger'), PHP_URL_PATH) . '?page=hostinger';
 
         if (str_contains($current_uri, $hostinger_admin_url)) {
+=======
+        if (str_contains($current_uri, '/wp-admin/admin.php?page=hostinger')) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
             if (!$this->checkOutdatedPluginVersion($plugin['slug'], $plugin['version'])) {
                 wp_redirect(get_admin_url());
                 die();

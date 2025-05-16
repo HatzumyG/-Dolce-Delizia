@@ -102,6 +102,7 @@ class WC_REST_Shipping_Methods_V2_Controller extends WC_REST_Controller {
 	 */
 	public function get_items( $request ) {
 		$wc_shipping = WC_Shipping::instance();
+<<<<<<< HEAD
 		$data        = array();
 		foreach ( $wc_shipping->get_shipping_methods() as $id => $shipping_method ) {
 			$method = $this->prepare_item_for_response( $shipping_method, $request );
@@ -114,6 +115,15 @@ class WC_REST_Shipping_Methods_V2_Controller extends WC_REST_Controller {
 		$response->header( 'X-WP-Total', (int) $total );
 		$response->header( 'X-WP-TotalPages', $total ? 1 : 0 );
 		return $response;
+=======
+		$response    = array();
+		foreach ( $wc_shipping->get_shipping_methods() as $id => $shipping_method ) {
+			$method     = $this->prepare_item_for_response( $shipping_method, $request );
+			$method     = $this->prepare_response_for_collection( $method );
+			$response[] = $method;
+		}
+		return rest_ensure_response( $response );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

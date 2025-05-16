@@ -1371,9 +1371,12 @@ class WP_REST_Server {
 			'home'            => home_url(),
 			'gmt_offset'      => get_option( 'gmt_offset' ),
 			'timezone_string' => get_option( 'timezone_string' ),
+<<<<<<< HEAD
 			'page_for_posts'  => (int) get_option( 'page_for_posts' ),
 			'page_on_front'   => (int) get_option( 'page_on_front' ),
 			'show_on_front'   => get_option( 'show_on_front' ),
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'namespaces'      => array_keys( $this->namespaces ),
 			'authentication'  => array(),
 			'routes'          => $this->get_data_for_routes( $this->get_routes(), $request['context'] ),

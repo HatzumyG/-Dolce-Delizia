@@ -8,7 +8,11 @@ use Elementor\Plugin;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class PageBase extends Document {
@@ -171,7 +175,11 @@ abstract class PageBase extends Document {
 		Plugin::$instance->controls_manager->add_custom_css_controls( $document );
 	}
 
+<<<<<<< HEAD
 	public static function get_labels(): array {
+=======
+	public static function get_labels() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$plural_label   = static::get_plural_title();
 		$singular_label = static::get_title();
 
@@ -272,7 +280,11 @@ abstract class PageBase extends Document {
 	 *
 	 * @param array $data
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception Exception If the post ID is not set.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __construct( array $data = [] ) {
 		if ( $data ) {

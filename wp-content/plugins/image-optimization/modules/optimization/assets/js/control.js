@@ -5,7 +5,10 @@ import API from './classes/api';
 import ControlSync from './classes/control/control-sync';
 import ControlStates from './classes/control/control-states';
 import ControlMeta from './classes/control/control-meta';
+<<<<<<< HEAD
 import OptimizationDetails from './classes/optimization-details';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 class OptimizationControl {
 	constructor() {
@@ -38,8 +41,11 @@ class OptimizationControl {
 		document.addEventListener( 'click', ( e ) => this.handleOptimizeButtonClick( e ) );
 		document.addEventListener( 'click', ( e ) => this.handleReoptimizeButtonClick( e ) );
 		document.addEventListener( 'click', ( e ) => this.handleRestoreButtonClick( e ) );
+<<<<<<< HEAD
 		document.addEventListener( 'click', ( e ) => this.handleOptimizationDetailsOpen( e ) );
 		document.addEventListener( 'click', ( e ) => this.handleOptimizationDetailsClick( e ) );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	async handleOptimizeButtonClick( e ) {
@@ -110,6 +116,7 @@ class OptimizationControl {
 			states.renderError( error );
 		}
 	}
+<<<<<<< HEAD
 
 	async handleOptimizationDetailsOpen( e ) {
 		if ( ! e.target.closest( `${ SELECTORS.optimizationDetailsButtonSelector }` ) ) {
@@ -150,6 +157,8 @@ class OptimizationControl {
 
 		OptimizationDetails.closeModal();
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 export default OptimizationControl;

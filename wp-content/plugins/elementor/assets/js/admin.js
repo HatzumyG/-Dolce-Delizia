@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! elementor - v3.28.0 - 22-04-2025 */
+=======
+/*! elementor - v3.27.0 - 18-02-2025 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -2091,8 +2095,12 @@ var _module3 = _interopRequireDefault(__webpack_require__(/*! elementor/modules/
         var $wrapperElm = $(this).closest('.e-notice--dismissible');
         $.post(ajaxurl, {
           action: 'elementor_set_admin_notice_viewed',
+<<<<<<< HEAD
           notice_id: $wrapperElm.data('notice_id'),
           _wpnonce: $wrapperElm.data('nonce')
+=======
+          notice_id: $wrapperElm.data('notice_id')
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         });
         $wrapperElm.fadeTo(100, 0, function () {
           $wrapperElm.slideUp(100, function () {

@@ -227,8 +227,13 @@ class Embed {
 	 * Get oembed data from the cache.
 	 * if not exists in the cache it will fetch from provider and then save to the cache.
 	 *
+<<<<<<< HEAD
 	 * @param string $oembed_url
 	 * @param string $cached_post_id
+=======
+	 * @param $oembed_url
+	 * @param $cached_post_id
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array|null
 	 */
@@ -258,7 +263,12 @@ class Embed {
 	/**
 	 * Fetch oembed data from oembed provider.
 	 *
+<<<<<<< HEAD
 	 * @param string $oembed_url
+=======
+	 * @param $oembed_url
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return array|null
 	 */
 	public static function fetch_oembed_data( $oembed_url ) {
@@ -275,7 +285,11 @@ class Embed {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param string          $oembed_url
+=======
+	 * @param $oembed_url
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @param null|string|int $cached_post_id
 	 *
 	 * @return string|null

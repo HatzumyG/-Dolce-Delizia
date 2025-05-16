@@ -3,6 +3,7 @@
 	"description": "Style variation description",
 	"settings": {
 		"typography": {
+<<<<<<< HEAD
 			"fontSizes": [
 				{
 					"name": "Font size name"
@@ -30,6 +31,35 @@
 					"name": "Duotone name"
 				}
 			]
+=======
+				"fontSizes": [
+					{
+						"name": "Font size name"
+					}
+				],
+				"fontFamilies": [
+					{
+						"name": "Font family name"
+					}
+				]
+		},
+		"color": {
+				"palette": [
+					{
+						"name": "Color name"
+					}
+				],
+				"gradients": [
+					{
+						"name": "Gradient name"
+					}
+				],
+				"duotone": [
+					{
+						"name": "Duotone name"
+					}
+				]
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"spacing": {
 			"spacingSizes": [
@@ -45,6 +75,7 @@
 				}
 			]
 		},
+<<<<<<< HEAD
 		"shadow": {
 			"presets": [
 				{
@@ -52,6 +83,8 @@
 				}
 			]
 		},
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		"blocks": {
 			"*": {
 				"typography": {
@@ -76,6 +109,7 @@
 						{
 							"name": "Gradient name"
 						}
+<<<<<<< HEAD
 					],
 					"duotone": [
 						{
@@ -88,6 +122,8 @@
 						{
 							"name": "Aspect ratio name"
 						}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					]
 				},
 				"spacing": {

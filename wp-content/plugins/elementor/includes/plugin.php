@@ -25,11 +25,16 @@ use Elementor\Core\Page_Assets\Loader as Assets_Loader;
 use Elementor\Modules\System_Info\Module as System_Info_Module;
 use Elementor\Data\Manager as Data_Manager;
 use Elementor\Data\V2\Manager as Data_Manager_V2;
+<<<<<<< HEAD
 use Elementor\Core\Files\Uploads_Manager;
 use ElementorDeps\DI\{
 	DependencyException,
 	NotFoundException,
 };
+=======
+use Elementor\Core\Common\Modules\DevTools\Module as Dev_Tools;
+use Elementor\Core\Files\Uploads_Manager as Uploads_Manager;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -98,6 +103,22 @@ class Plugin {
 	public $documents;
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Schemes manager.
+	 *
+	 * Holds the plugin schemes manager.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @deprecated 3.0.0
+	 *
+	 * @var Schemes_Manager
+	 */
+	public $schemes_manager;
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Elements manager.
 	 *
 	 * Holds the plugin elements manager.
@@ -429,6 +450,20 @@ class Plugin {
 	public $logger;
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Dev tools.
+	 *
+	 * Holds the plugin dev tools.
+	 *
+	 * @access private
+	 *
+	 * @var Dev_Tools
+	 */
+	private $dev_tools;
+
+	/**
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Upgrade manager.
 	 *
 	 * Holds the plugin upgrade manager.
@@ -628,6 +663,7 @@ class Plugin {
 
 	/**
 	 * Get the Elementor container or resolve a dependency.
+<<<<<<< HEAD
 	 *
 	 * @param string|null $dependency The dependency to resolve. If null, returns the container instance.
 	 *
@@ -643,6 +679,15 @@ class Plugin {
 		}
 
 		return $this->container->make( $dependency );
+=======
+	 */
+	public function elementor_container( $abstract = null ) {
+		if ( is_null( $abstract ) ) {
+			return $this->container;
+		}
+
+		return $this->container->make( $abstract );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -815,14 +860,24 @@ class Plugin {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Magic getter for accessing certain properties.
+=======
+	 * Plugin Magic Getter
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @since 3.1.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @param string $property The property name.
 	 * @return mixed The property value or null if not found.
 	 * @throws \Exception If trying to access a private property.
+=======
+	 * @param $property
+	 * @return mixed
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __get( $property ) {
 		if ( 'posts_css_manager' === $property ) {

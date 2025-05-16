@@ -5,7 +5,11 @@ use Elementor\Core\Base\Document;
 use Elementor\TemplateLibrary\Forms\New_Template_Form;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 $new_template_control_form = new New_Template_Form( [ 'id' => 'form' ] );
 $document_types = Plugin::$instance->documents->get_document_types();

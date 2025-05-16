@@ -454,7 +454,11 @@ final class WP_Customize_Manager {
 		}
 
 		if ( ! $message ) {
+<<<<<<< HEAD
 			$message = __( 'An error occurred while customizing. Please refresh the page and try again.' );
+=======
+			$message = __( 'Something went wrong.' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		if ( $this->messenger_channel ) {

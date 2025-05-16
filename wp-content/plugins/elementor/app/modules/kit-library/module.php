@@ -14,7 +14,11 @@ use Elementor\App\Modules\KitLibrary\Data\Taxonomies\Controller as Taxonomies_Co
 use Elementor\Core\Utils\Promotions\Filtered_Promotions_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Module extends BaseModule {
@@ -60,7 +64,11 @@ class Module extends BaseModule {
 		$kit_library = $connect->get_app( 'kit-library' );
 
 		Plugin::$instance->app->set_settings( 'kit-library', [
+<<<<<<< HEAD
 			'has_access_to_module' => current_user_can( 'manage_options' ),
+=======
+			'has_access_to_module' => current_user_can( 'administrator' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'subscription_plans' => $this->apply_filter_subscription_plans( $connect->get_subscription_plans( 'kit-library' ) ),
 			'is_pro' => false,
 			'is_library_connected' => $kit_library->is_connected(),
@@ -112,6 +120,10 @@ class Module extends BaseModule {
 
 		add_action( 'elementor/init', function () {
 			$this->set_kit_library_settings();
+<<<<<<< HEAD
 		}, 12 /** After the initiation of the connect kit library */ );
+=======
+		}, 12 /** after the initiation of the connect kit library */ );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 }

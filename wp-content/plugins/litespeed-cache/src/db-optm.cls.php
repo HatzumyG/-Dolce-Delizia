@@ -296,7 +296,11 @@ class DB_Optm extends Root
 		Debug2::debug("[DB] Converted $tb to InnoDB");
 
 		$msg = __('Converted to InnoDB successfully.', 'litespeed-cache');
+<<<<<<< HEAD
 		Admin_Display::success($msg);
+=======
+		Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -309,6 +313,7 @@ class DB_Optm extends Root
 	{
 		global $wpdb;
 
+<<<<<<< HEAD
 		$autoloads = function_exists('wp_autoload_values_to_autoload') ? wp_autoload_values_to_autoload() : array('yes', 'on', 'auto-on', 'auto');
 		$autoloads = '("' . implode('","', $autoloads) . '")';
 
@@ -318,6 +323,12 @@ class DB_Optm extends Root
 			"SELECT option_name, LENGTH(option_value) AS option_value_length, autoload FROM `$wpdb->options` WHERE autoload IN " .
 				$autoloads .
 				' ORDER BY option_value_length DESC LIMIT 20'
+=======
+		$summary = $wpdb->get_row("SELECT SUM(LENGTH(option_value)) AS autoload_size,COUNT(*) AS autload_entries FROM `$wpdb->options` WHERE autoload='yes'");
+
+		$summary->autoload_toplist = $wpdb->get_results(
+			"SELECT option_name, LENGTH(option_value) AS option_value_length FROM `$wpdb->options` WHERE autoload='yes' ORDER BY option_value_length DESC LIMIT 20"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		);
 
 		return $summary;
@@ -346,7 +357,11 @@ class DB_Optm extends Root
 				} else {
 					$msg = $this->_db_clean($type);
 				}
+<<<<<<< HEAD
 				Admin_Display::success($msg);
+=======
+				Admin_Display::succeed($msg);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				break;
 
 			case self::TYPE_CONV_TB:

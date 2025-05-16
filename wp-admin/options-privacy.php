@@ -236,7 +236,11 @@ wp_admin_notice(
 		}
 		printf(
 			/* translators: 1: Privacy Policy guide URL, 2: Additional link attributes, 3: Accessibility text. */
+<<<<<<< HEAD
 			__( 'Need help putting together your new Privacy Policy page? <a href="%1$s" %2$s>Check out the privacy policy guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme.' ),
+=======
+			__( 'Need help putting together your new Privacy Policy page? <a href="%1$s" %2$s>Check out our privacy policy guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme.' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			esc_url( admin_url( 'options-privacy.php?tab=policyguide' ) ),
 			'',
 			''

@@ -12,7 +12,11 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails\HTML
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 9.7.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
@@ -26,6 +30,7 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improveme
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
+<<<<<<< HEAD
 <?php
 echo $email_improvements_enabled ? '<div class="email-introduction">' : '';
 /* translators: %s: Customer billing full name */
@@ -36,6 +41,11 @@ if ( $email_improvements_enabled ) {
 }
 ?>
 <p><?php printf( esc_html( $text ), esc_html( $order->get_formatted_billing_full_name() ) ); ?></p>
+=======
+<?php echo $email_improvements_enabled ? '<div class="email-introduction">' : ''; ?>
+<?php /* translators: %s: Customer billing full name */ ?>
+<p><?php printf( esc_html__( 'You’ve received the following order from %s:', 'woocommerce' ), $order->get_formatted_billing_full_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 <?php echo $email_improvements_enabled ? '</div>' : ''; ?>
 
 <?php
@@ -63,9 +73,15 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
  * Show user-defined additional content - this is set in each email's settings.
  */
 if ( $additional_content ) {
+<<<<<<< HEAD
 	echo $email_improvements_enabled ? '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td class="email-additional-content">' : '';
 	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
 	echo $email_improvements_enabled ? '</td></tr></table>' : '';
+=======
+	echo $email_improvements_enabled ? '<div class="email-additional-content">' : '';
+	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
+	echo $email_improvements_enabled ? '</div>' : '';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /*

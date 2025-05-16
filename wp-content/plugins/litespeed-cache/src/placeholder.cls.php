@@ -290,8 +290,15 @@ class Placeholder extends Base
 	{
 		// Use LQIP Cloud generator, each image placeholder will be separately stored
 
+<<<<<<< HEAD
 		// Compatibility with WebP and AVIF
 		$src = Utility::drop_webp($src);
+=======
+		// Compatibility with WebP
+		if (substr($src, -5) === '.webp') {
+			$src = substr($src, 0, -5);
+		}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		$filepath_prefix = $this->_build_filepath_prefix('lqip');
 
@@ -412,7 +419,11 @@ class Placeholder extends Base
 			$req_data = array(
 				'width' => $width,
 				'height' => $height,
+<<<<<<< HEAD
 				'url' => Utility::drop_webp($src),
+=======
+				'url' => substr($src, -5) === '.webp' ? substr($src, 0, -5) : $src,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'quality' => $this->_conf_lqip_qual,
 			);
 

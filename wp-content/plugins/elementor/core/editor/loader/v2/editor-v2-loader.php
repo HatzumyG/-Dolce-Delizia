@@ -6,7 +6,10 @@ use Elementor\Core\Editor\Loader\Editor_Base_Loader;
 use Elementor\Core\Utils\Assets_Translation_Loader;
 use Elementor\Core\Utils\Collection;
 use Elementor\Utils;
+<<<<<<< HEAD
 use Elementor\Modules\AtomicWidgets\Image\Placeholder_Image;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -21,7 +24,10 @@ class Editor_V2_Loader extends Editor_Base_Loader {
 	 */
 	const LIBS = [
 		'editor-responsive',
+<<<<<<< HEAD
 		'editor-ui',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'editor-v1-adapters',
 		self::ENV_PACKAGE,
 		'http',
@@ -31,7 +37,10 @@ class Editor_V2_Loader extends Editor_Base_Loader {
 		'query',
 		'schema',
 		'store',
+<<<<<<< HEAD
 		'session',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		'ui',
 		'utils',
 		'wp-media',
@@ -127,15 +136,22 @@ class Editor_V2_Loader extends Editor_Base_Loader {
 
 		if ( $env_config ) {
 			$client_env = apply_filters( 'elementor/editor/v2/scripts/env', [
+<<<<<<< HEAD
 				'@elementor/http' => [
+=======
+				'@elementor/env' => [
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'base_url' => rest_url( 'elementor/v1' ),
 					'headers' => [
 						'X-WP-Nonce' => wp_create_nonce( 'wp_rest' ),
 					],
 				],
+<<<<<<< HEAD
 				'@elementor/editor-controls' => [
 					'background_placeholder_image' => Placeholder_Image::get_background_placeholder_image(),
 				],
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			] );
 
 			Utils::print_js_config(
@@ -204,16 +220,28 @@ class Editor_V2_Loader extends Editor_Base_Loader {
 	 */
 	public function print_root_template() {
 		// Exposing the path for the view part to render the body of the editor template.
+<<<<<<< HEAD
 		$body_file_path = __DIR__ . '/templates/editor-body-v2-view.php';
+=======
+		$body_file_path = __DIR__ . '/templates/editor-body-v2.view.php';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		include ELEMENTOR_PATH . 'includes/editor-templates/editor-wrapper.php';
 	}
 
+<<<<<<< HEAD
 	public static function get_packages_to_enqueue(): array {
 		return apply_filters( 'elementor/editor/v2/packages', [] );
 	}
 
 	private function get_styles(): array {
+=======
+	public static function get_packages_to_enqueue() : array {
+		return apply_filters( 'elementor/editor/v2/packages', [] );
+	}
+
+	private function get_styles() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$styles = apply_filters( 'elementor/editor/v2/styles', [] );
 
 		return Collection::make( $styles )

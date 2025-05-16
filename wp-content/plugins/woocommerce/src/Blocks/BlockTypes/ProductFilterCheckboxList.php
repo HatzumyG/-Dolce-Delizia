@@ -31,8 +31,11 @@ final class ProductFilterCheckboxList extends AbstractBlock {
 			return '';
 		}
 
+<<<<<<< HEAD
 		wp_enqueue_script_module( $this->get_full_block_name() );
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$block_context = $block->context['filterData'];
 		$parent        = $block_context['parent'];
 		$items         = $block_context['items'] ?? array();
@@ -56,8 +59,13 @@ final class ProductFilterCheckboxList extends AbstractBlock {
 		$count                       = 0;
 
 		$wrapper_attributes = array(
+<<<<<<< HEAD
 			'data-wp-interactive' => $this->get_full_block_name(),
 			'data-wp-key'         => wp_unique_prefixed_id( $this->get_full_block_name() ),
+=======
+			'data-wc-interactive' => esc_attr( wp_json_encode( array( 'namespace' => 'woocommerce/product-filter-checkbox-list' ), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) ),
+			'data-wc-key'         => wp_unique_prefixed_id( $this->get_full_block_name() ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			'class'               => esc_attr( $classes ),
 			'style'               => esc_attr( $style ),
 		);
@@ -73,11 +81,19 @@ final class ProductFilterCheckboxList extends AbstractBlock {
 					$aria_label = sprintf( __( 'Filter item: %s', 'woocommerce' ), $item['ariaLabel'] ?? $item['label'] );
 					?>
 					<li
+<<<<<<< HEAD
 						data-wp-key="<?php echo esc_attr( $item['id'] ); ?>"
 						class="wc-block-product-filter-checkbox-list__item"
 						<?php if ( ! $item['selected'] ) : ?>
 							<?php if ( $count >= $remaining_initial_unchecked ) : ?>
 								data-wp-bind--hidden="!context.showAll"
+=======
+						data-wc-key="<?php echo esc_attr( $item['id'] ); ?>"
+						class="wc-block-product-filter-checkbox-list__item"
+						<?php if ( ! $item['selected'] ) : ?>
+							<?php if ( $count >= $remaining_initial_unchecked ) : ?>
+								data-wc-bind--hidden="!context.showAll"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								hidden
 							<?php else : ?>
 								<?php ++$count; ?>
@@ -94,9 +110,16 @@ final class ProductFilterCheckboxList extends AbstractBlock {
 									class="wc-block-product-filter-checkbox-list__input"
 									type="checkbox"
 									aria-label="<?php echo esc_attr( $aria_label ); ?>"
+<<<<<<< HEAD
 									data-wp-on--change--parent-action="<?php echo esc_attr( $parent . '::actions.toggleFilter' ); ?>"
 									value="<?php echo esc_attr( $item['value'] ); ?>"
 									data-wp-bind--checked="<?php echo esc_attr( $parent . '::state.isItemSelected' ); ?>"
+=======
+									data-wc-on--change--parent-action="<?php echo esc_attr( $parent . '::actions.toggleFilter' ); ?>"
+									value="<?php echo esc_attr( $item['value'] ); ?>"
+									<?php checked( $item['selected'], 1 ); ?>
+									data-wc-bind--checked="<?php echo esc_attr( $parent . '::state.isItemSelected' ); ?>"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 									data-filter-item="<?php echo esc_attr( wp_json_encode( $item, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) ); ?>"
 								>
 								<svg class="wc-block-product-filter-checkbox-list__mark" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,8 +136,13 @@ final class ProductFilterCheckboxList extends AbstractBlock {
 			<?php if ( count( $items ) > $show_initially ) : ?>
 				<button
 					class="wc-block-product-filter-checkbox-list__show-more"
+<<<<<<< HEAD
 					data-wp-bind--hidden="context.showAll"
 					data-wp-on--click="actions.showAllItems"
+=======
+					data-wc-bind--hidden="context.showAll"
+					data-wc-on--click="actions.showAllItems"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					hidden
 				>
 					<?php echo esc_html__( 'Show more...', 'woocommerce' ); ?>
@@ -124,6 +152,7 @@ final class ProductFilterCheckboxList extends AbstractBlock {
 		<?php
 		return ob_get_clean();
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Disable the block type script, this uses script modules.
@@ -135,4 +164,6 @@ final class ProductFilterCheckboxList extends AbstractBlock {
 	protected function get_block_type_script( $key = null ) {
 		return null;
 	}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

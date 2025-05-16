@@ -35,8 +35,11 @@ class Module extends Module_Base {
 			'List_View_Pointer',
 			'Admin_Bulk_Actions',
 			'Admin_Filter',
+<<<<<<< HEAD
 			'Retry',
 			'Actions_Cleanup',
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		];
 	}
 

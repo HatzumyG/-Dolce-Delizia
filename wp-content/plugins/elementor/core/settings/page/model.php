@@ -149,7 +149,11 @@ class Model extends CSS_Model {
 			 * @var \Elementor\Modules\PageTemplates\Module $page_templates_module
 			 */
 			$page_templates_module = Plugin::$instance->modules_manager->get_modules( 'page-templates' );
+<<<<<<< HEAD
 			$is_elementor_template = (bool) $page_templates_module->get_template_path( $element_data['settings']['template'] );
+=======
+			$is_elementor_template = ! ! $page_templates_module->get_template_path( $element_data['settings']['template'] );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 			if ( ! $is_elementor_template ) {
 				unset( $element_data['settings']['template'] );
@@ -168,7 +172,11 @@ class Model extends CSS_Model {
 	 * @access protected
 	 */
 	protected function register_controls() {
+<<<<<<< HEAD
 		// Check if it's a real model, or abstract (for example - on import ).
+=======
+		// Check if it's a real model, or abstract (for example - on import )
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $this->post->ID ) {
 			$document = Plugin::$instance->documents->get_doc_or_auto_save( $this->post->ID );
 

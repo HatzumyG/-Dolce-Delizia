@@ -57,7 +57,10 @@ require_once ABSPATH . WPINC . '/blocks/query-pagination-next.php';
 require_once ABSPATH . WPINC . '/blocks/query-pagination-numbers.php';
 require_once ABSPATH . WPINC . '/blocks/query-pagination-previous.php';
 require_once ABSPATH . WPINC . '/blocks/query-title.php';
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/blocks/query-total.php';
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 require_once ABSPATH . WPINC . '/blocks/read-more.php';
 require_once ABSPATH . WPINC . '/blocks/rss.php';
 require_once ABSPATH . WPINC . '/blocks/search.php';

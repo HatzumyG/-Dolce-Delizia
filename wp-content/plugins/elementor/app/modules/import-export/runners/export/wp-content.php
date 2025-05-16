@@ -7,7 +7,11 @@ use Elementor\Core\Utils\ImportExport\WP_Exporter;
 
 class Wp_Content extends Export_Runner_Base {
 
+<<<<<<< HEAD
 	public static function get_name(): string {
+=======
+	public static function get_name() : string {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return 'wp-content';
 	}
 

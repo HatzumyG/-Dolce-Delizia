@@ -41,6 +41,7 @@ class FeaturePlugin {
 	protected static $instance = null;
 
 	/**
+<<<<<<< HEAD
 	 * Indicates if init has been invoked already.
 	 *
 	 * @var bool
@@ -48,6 +49,8 @@ class FeaturePlugin {
 	private bool $initialized = false;
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Constructor
 	 *
 	 * @return void
@@ -75,11 +78,14 @@ class FeaturePlugin {
 			return;
 		}
 
+<<<<<<< HEAD
 		if ( $this->initialized ) {
 			return;
 		}
 		$this->initialized = true;
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Load the page controller functions file first to prevent fatal errors when disabling WooCommerce Admin.
 		$this->define_constants();
 		require_once WC_ADMIN_ABSPATH . '/includes/react-admin/page-controller-functions.php';
@@ -144,11 +150,19 @@ class FeaturePlugin {
 		 */
 		if ( ! defined( 'WC_ADMIN_VERSION_NUMBER' ) ) {
 			/**
+<<<<<<< HEAD
 			 * Define the current WC Admin version.
 			 *
 			 * @deprecated 6.4.0
 			 * @var string
 			 */
+=======
+			  * Define the current WC Admin version.
+			  *
+			  * @deprecated 6.4.0
+			  * @var string
+			  */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			define( 'WC_ADMIN_VERSION_NUMBER', '3.3.0' );
 		}
 	}

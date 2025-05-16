@@ -20,12 +20,17 @@
 		},
 		"isLink": {
 			"type": "boolean",
+<<<<<<< HEAD
 			"default": false,
 			"role": "content"
+=======
+			"default": false
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		},
 		"rel": {
 			"type": "string",
 			"attribute": "rel",
+<<<<<<< HEAD
 			"default": "",
 			"role": "content"
 		},
@@ -33,6 +38,13 @@
 			"type": "string",
 			"default": "_self",
 			"role": "content"
+=======
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": "_self"
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"example": {

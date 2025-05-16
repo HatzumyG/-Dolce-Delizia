@@ -12,6 +12,7 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates\Emails\Plain
+<<<<<<< HEAD
  * @version 9.8.0
  */
 
@@ -21,18 +22,29 @@ defined( 'ABSPATH' ) || exit;
 
 $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
 
+=======
+ * @version 7.3.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
 echo esc_html( wp_strip_all_tags( $email_heading ) );
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
 /* translators: %s: Customer first name */
 echo sprintf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ) . "\n\n";
+<<<<<<< HEAD
 if ( $email_improvements_enabled ) {
 	echo esc_html__( 'We’ve received your order and it’s currently on hold until we can confirm your payment has been processed.', 'woocommerce' ) . "\n\n";
 	echo esc_html__( 'Here’s a reminder of what you’ve ordered:', 'woocommerce' ) . "\n\n";
 } else {
 	echo esc_html__( 'Thanks for your order. It’s on-hold until we confirm that payment has been received.', 'woocommerce' ) . "\n\n";
 }
+=======
+echo esc_html__( 'Thanks for your order. It’s on-hold until we confirm that payment has been received.', 'woocommerce' ) . "\n\n";
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /*
  * @hooked WC_Emails::order_details() Shows the order details table.

@@ -26,7 +26,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		</div>
 
 		<div class="about__header-text">
+<<<<<<< HEAD
 			<?php _e( 'WordPress.org takes privacy and transparency very seriously' ); ?>
+=======
+			<?php _e( 'We take privacy and transparency very seriously' ); ?>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		</div>
 	</div>
 
@@ -59,7 +63,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<?php
 				printf(
 					/* translators: %s: https://wordpress.org/about/privacy/ */
+<<<<<<< HEAD
 					__( 'WordPress.org takes privacy and transparency very seriously. To learn more about what data is collected, and how it is used, please visit <a href="%s">the WordPress.org Privacy Policy</a>.' ),
+=======
+					__( 'We take privacy and transparency very seriously. To learn more about what data we collect, and how we use it, please visit <a href="%s">our Privacy Policy</a>.' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					__( 'https://wordpress.org/about/privacy/' )
 				);
 				?>

@@ -6,7 +6,11 @@ use Elementor\Core\Admin\Admin_Notices;
 use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class DB_Upgrades_Manager extends Background_Task_Manager {

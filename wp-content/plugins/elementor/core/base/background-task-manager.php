@@ -6,7 +6,11 @@ use Elementor\Core\Base\Module as BaseModule;
 use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 abstract class Background_Task_Manager extends BaseModule {
@@ -41,11 +45,16 @@ abstract class Background_Task_Manager extends BaseModule {
 
 		return $this->task_runner;
 	}
+<<<<<<< HEAD
 	/**
 	 * @param $flag
 	 * @return void
 	 * // TODO: Replace with a db settings system.
 	 */
+=======
+
+	// TODO: Replace with a db settings system.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	protected function add_flag( $flag ) {
 		add_option( $this->get_plugin_name() . '_' . $this->get_action() . '_' . $flag, 1 );
 	}

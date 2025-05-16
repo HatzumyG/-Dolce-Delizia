@@ -119,6 +119,11 @@ class Manager {
 	/**
 	 * Get class path for default settings managers.
 	 *
+<<<<<<< HEAD
+=======
+	 * @param $manager_name
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return string
 	 * @since  3.0.0
 	 * @access private

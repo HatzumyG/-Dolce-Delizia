@@ -20,9 +20,13 @@
  * @since 2.5.0
  * @var string
  */
+<<<<<<< HEAD
 if ( ! defined( 'CRLF' ) ) {
 	define( 'CRLF', "\r\n" );
 }
+=======
+if(!defined('CRLF')) define('CRLF',"\r\n");
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Sets whatever to autodetect ASCII mode.
@@ -32,9 +36,13 @@ if ( ! defined( 'CRLF' ) ) {
  * @since 2.5.0
  * @var int
  */
+<<<<<<< HEAD
 if ( ! defined( 'FTP_AUTOASCII' ) ) {
 	define( 'FTP_AUTOASCII', -1 );
 }
+=======
+if(!defined("FTP_AUTOASCII")) define("FTP_AUTOASCII", -1);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  *
@@ -42,9 +50,13 @@ if ( ! defined( 'FTP_AUTOASCII' ) ) {
  * @since 2.5.0
  * @var int
  */
+<<<<<<< HEAD
 if ( ! defined( 'FTP_BINARY' ) ) {
 	define( 'FTP_BINARY', 1 );
 }
+=======
+if(!defined("FTP_BINARY")) define("FTP_BINARY", 1);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  *
@@ -52,9 +64,13 @@ if ( ! defined( 'FTP_BINARY' ) ) {
  * @since 2.5.0
  * @var int
  */
+<<<<<<< HEAD
 if ( ! defined( 'FTP_ASCII' ) ) {
 	define( 'FTP_ASCII', 0 );
 }
+=======
+if(!defined("FTP_ASCII")) define("FTP_ASCII", 0);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * Whether to force FTP.
@@ -64,9 +80,13 @@ if ( ! defined( 'FTP_ASCII' ) ) {
  * @since 2.5.0
  * @var bool
  */
+<<<<<<< HEAD
 if ( ! defined( 'FTP_FORCE' ) ) {
 	define( 'FTP_FORCE', true );
 }
+=======
+if(!defined('FTP_FORCE')) define('FTP_FORCE', true);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 /**
  * @since 2.5.0

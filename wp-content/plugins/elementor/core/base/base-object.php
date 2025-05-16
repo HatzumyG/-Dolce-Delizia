@@ -3,7 +3,11 @@
 namespace Elementor\Core\Base;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -67,7 +71,10 @@ class Base_Object {
 	 * Delete setting.
 	 *
 	 * Deletes the settings array or a specific key of the settings array if `$key` is specified.
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @since 2.3.0
 	 * @access public
 	 *

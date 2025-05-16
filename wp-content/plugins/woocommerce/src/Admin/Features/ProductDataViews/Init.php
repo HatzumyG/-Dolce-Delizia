@@ -38,7 +38,11 @@ class Init {
 	/**
 	 * Returns true if we are on a JS powered admin page.
 	 */
+<<<<<<< HEAD
 	public static function is_product_data_view_page() {
+=======
+	private static function is_product_data_view_page() {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// phpcs:disable WordPress.Security.NonceVerification
 		return isset( $_GET['page'] ) && 'woocommerce-products-dashboard' === $_GET['page'];
 		// phpcs:enable WordPress.Security.NonceVerification

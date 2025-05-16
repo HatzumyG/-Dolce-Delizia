@@ -43,7 +43,11 @@ class API {
 		return $notifications;
 	}
 
+<<<<<<< HEAD
 	private static function fetch_data(): array {
+=======
+	private static function fetch_data() : array {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$response = wp_remote_get( self::NOTIFICATIONS_URL );
 
 		if ( is_wp_error( $response ) ) {
@@ -104,7 +108,11 @@ class API {
 					break;
 				case 'plugin':
 					if ( ! function_exists( 'is_plugin_active' ) ) {
+<<<<<<< HEAD
 						require_once ABSPATH . 'wp-admin/includes/plugin.php';
+=======
+						require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					}
 
 					$is_plugin_active = is_plugin_active( $condition['plugin'] );

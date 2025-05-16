@@ -162,7 +162,11 @@
 			if ( wpLink.isMCE() ) {
 				wpLink.mceRefresh( url, text );
 			} else {
+<<<<<<< HEAD
 				// For the Code editor the "Link text" field is always shown.
+=======
+				// For the Text editor the "Link text" field is always shown.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				if ( ! inputs.wrap.hasClass( 'has-text-field' ) ) {
 					inputs.wrap.addClass( 'has-text-field' );
 				}

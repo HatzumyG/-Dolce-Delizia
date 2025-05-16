@@ -1,10 +1,19 @@
 === WooCommerce ===
+<<<<<<< HEAD
 Contributors: automattic, woocommerce, mikejolley, jameskoster, claudiosanches, rodrigosprimo, peterfabian1000, vedjain, jamosova, obliviousharmony, konamiman, sadowski, wpmuguru, royho, barryhughes-1, claudiulodro, tiagonoronha, ryelle, levinmedia, aljullu, nerrad, joshuawold, assassinateur, haszari, mppfeiffer, nielslange, opr18, ralucastn, tjcafferkey, danielwrobert, patriciahillebrandt, albarin, dinhtungdu, imanish003, karolmanijak, sunyatasattva, alexandrelara, gigitux, danieldudzic, samueljseay, alexflorisca, opr18, tarunvijwani, pauloarromba, saadtarhi, bor0, kloon, coreymckrill, jorgeatorres, leifsinger, neosinner
 Tags: online store, ecommerce, shop, shopping cart, sell online
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
 Stable tag: 9.8.4
+=======
+Contributors: automattic, woocommerce, mikejolley, jameskoster, claudiosanches, rodrigosprimo, peterfabian1000, vedjain, jamosova, obliviousharmony, konamiman, sadowski, wpmuguru, royho, barryhughes-1, claudiulodro, tiagonoronha, ryelle, levinmedia, aljullu, nerrad, joshuawold, assassinateur, haszari, mppfeiffer, nielslange, opr18, ralucastn, tjcafferkey, danielwrobert, patriciahillebrandt, albarin, dinhtungdu, imanish003, karolmanijak, sunyatasattva, alexandrelara, gigitux, danieldudzic, samueljseay, alexflorisca, opr18, tarunvijwani, pauloarromba, saadtarhi, bor0, kloon, coreymckrill, jorgeatorres, leifsinger
+Tags: online store, ecommerce, shop, shopping cart, sell online
+Requires at least: 6.6
+Tested up to: 6.7
+Requires PHP: 7.4
+Stable tag: 9.7.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -169,6 +178,7 @@ WooCommerce comes with some sample data you can use to see how products look; im
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 9.8.5 2025-05-12 =
 
 **WooCommerce**
@@ -189,6 +199,15 @@ WooCommerce comes with some sample data you can use to see how products look; im
 * Dev - E2E tests: enhance shipping zones test [#56786](https://github.com/woocommerce/woocommerce/pull/56786)
 * Tweak - The new Payments Settings page is now enabled by default for all stores, new and existing. [#57614](https://github.com/woocommerce/woocommerce/pull/57614)
 * Tweak - Update recurring payments icon on the new settings page. [#57618](https://github.com/woocommerce/woocommerce/pull/57618)
+=======
+= 9.7.1 2025-03-04 =
+
+**WooCommerce**
+
+* Fix - Remove decodeEntities from the product name used on cart & checkout [#56048](https://github.com/woocommerce/woocommerce/pull/56048)
+* Fix - Improved shortcode cart and checkout coupon notices by appending elements instead of text. [#56047](https://github.com/woocommerce/woocommerce/pull/56047)
+* Update - Replaced concatenated string-based HTML elements in JS with createElement(). [#56047](https://github.com/woocommerce/woocommerce/pull/56047)
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 
 [See changelog for all versions](https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/changelog.txt).

@@ -2,7 +2,11 @@
 namespace Elementor\Core\Logger\Loggers;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 interface Logger_Interface {
@@ -23,7 +27,11 @@ interface Logger_Interface {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $meta
+=======
+	 * @param array $meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
@@ -31,7 +39,11 @@ interface Logger_Interface {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $meta
+=======
+	 * @param array $meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
@@ -39,7 +51,11 @@ interface Logger_Interface {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $meta
+=======
+	 * @param array $meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
@@ -47,16 +63,30 @@ interface Logger_Interface {
 
 	/**
 	 * @param string $message
+<<<<<<< HEAD
 	 * @param array  $meta
+=======
+	 * @param array $meta
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return void
 	 */
 	public function error( $message, $meta = [] );
 
 	/**
+<<<<<<< HEAD
 	 * @param int  $max_entries
 	 * @param bool $table use <td> in format.
 	 * @return array [ 'key' => [ 'total_count' => int, 'count' => int, 'entries' => Log_Item[] ] ]
 	 */
 	public function get_formatted_log_entries( $max_entries, $table = true );
+=======
+	 * @param int $max_entries
+	 * @param bool $table use <td> in format
+	 *
+	 * @return array [ 'key' => [ 'total_count' => int, 'count' => int, 'entries' => Log_Item[] ] ]
+	 */
+	public function get_formatted_log_entries( $max_entries, $table = true );
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

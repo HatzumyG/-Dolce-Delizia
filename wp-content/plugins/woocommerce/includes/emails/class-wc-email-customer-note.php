@@ -37,6 +37,10 @@ if ( ! class_exists( 'WC_Email_Customer_Note', false ) ) :
 			$this->id             = 'customer_note';
 			$this->customer_email = true;
 			$this->title          = __( 'Customer note', 'woocommerce' );
+<<<<<<< HEAD
+=======
+			$this->description    = __( 'Customer note emails are sent when you add a note to an order.', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$this->template_html  = 'emails/customer-note.php';
 			$this->template_plain = 'emails/plain/customer-note.php';
 			$this->placeholders   = array(
@@ -49,11 +53,14 @@ if ( ! class_exists( 'WC_Email_Customer_Note', false ) ) :
 
 			// Call parent constructor.
 			parent::__construct();
+<<<<<<< HEAD
 
 			// Must be after parent's constructor which sets `email_improvements_enabled` property.
 			$this->description = $this->email_improvements_enabled
 				? __( 'Let your shoppers know when you’ve added a note to their order.', 'woocommerce' )
 				: __( 'Customer note emails are sent when you add a note to an order.', 'woocommerce' );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -63,9 +70,13 @@ if ( ! class_exists( 'WC_Email_Customer_Note', false ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
+<<<<<<< HEAD
 			return $this->email_improvements_enabled
 				? __( 'A note has been added to your order from {site_title}', 'woocommerce' )
 				: __( 'Note added to your {site_title} order from {order_date}', 'woocommerce' );
+=======
+			return __( 'Note added to your {site_title} order from {order_date}', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		/**
@@ -163,9 +174,13 @@ if ( ! class_exists( 'WC_Email_Customer_Note', false ) ) :
 		 * @return string
 		 */
 		public function get_default_additional_content() {
+<<<<<<< HEAD
 			return $this->email_improvements_enabled
 				? __( 'Thanks again! If you need any help with your order, please contact us at {store_email}.', 'woocommerce' )
 				: __( 'Thanks for reading.', 'woocommerce' );
+=======
+			return __( 'Thanks for reading.', 'woocommerce' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	}
 

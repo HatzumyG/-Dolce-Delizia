@@ -11,7 +11,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Button extends Base_Object {
 
 	private $options;
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	/**
 	 * @inheritDoc
 	 */
@@ -71,7 +74,11 @@ class Button extends Base_Object {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param string $option Optional default is null.
+=======
+	 * @param string $option Optional default is null
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @return array|mixed
 	 */
 	private function get_options( $option = null ) {
@@ -94,7 +101,11 @@ class Button extends Base_Object {
 			'before' => '',
 		];
 
+<<<<<<< HEAD
 		if ( null !== $option && -1 !== in_array( $option, $default_options, true ) ) {
+=======
+		if ( null !== $option && -1 !== in_array( $option, $default_options ) ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			return $default_options[ $option ];
 		}
 

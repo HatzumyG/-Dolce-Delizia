@@ -3,7 +3,11 @@
 /**
  * Class for the Stripe API.
  *
+<<<<<<< HEAD
  * @link https://docs.stripe.com/api
+=======
+ * @link https://stripe.com/docs/api
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 class WPCF7_Stripe_API {
 
@@ -40,7 +44,11 @@ class WPCF7_Stripe_API {
 	/**
 	 * Returns default set of HTTP request headers used for Stripe API.
 	 *
+<<<<<<< HEAD
 	 * @link https://docs.stripe.com/building-plugins#setappinfo
+=======
+	 * @link https://stripe.com/docs/building-plugins#setappinfo
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return array An associative array of headers.
 	 */
@@ -77,7 +85,11 @@ class WPCF7_Stripe_API {
 	/**
 	 * Creates a Payment Intent.
 	 *
+<<<<<<< HEAD
 	 * @link https://docs.stripe.com/api/payment_intents/create
+=======
+	 * @link https://stripe.com/docs/api/payment_intents/create
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param string|array $args Optional. Arguments to control behavior.
 	 * @return array|bool An associative array if 200 OK, false otherwise.
@@ -118,9 +130,15 @@ class WPCF7_Stripe_API {
 
 
 	/**
+<<<<<<< HEAD
 	 * Retrieves a Payment Intent.
 	 *
 	 * @link https://docs.stripe.com/api/payment_intents/retrieve
+=======
+	 * Retrieve a Payment Intent.
+	 *
+	 * @link https://stripe.com/docs/api/payment_intents/retrieve
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param string $id Payment Intent identifier.
 	 * @return array|bool An associative array if 200 OK, false otherwise.
@@ -151,6 +169,7 @@ class WPCF7_Stripe_API {
 		return $response_body;
 	}
 
+<<<<<<< HEAD
 
 	/**
 	 * Updates a Payment Intent.
@@ -188,4 +207,6 @@ class WPCF7_Stripe_API {
 		return $response_body;
 	}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }

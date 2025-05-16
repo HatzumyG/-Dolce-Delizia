@@ -6,7 +6,11 @@ use Elementor\Data\V2\Base\Exceptions\Error_500;
 use WP_REST_Server;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 /**
@@ -257,6 +261,16 @@ abstract class Base_Route {
 		$this->register_route( '', $methods, $args );
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Register item route.
+	 *
+	 * @param string $route
+	 * @param array $args
+	 * @param string $methods
+	 */
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function register_item_route( $methods = WP_REST_Server::READABLE, $args = [], $route = '/' ) {
 		if ( ! empty( $args['id_arg_name'] ) ) {
 			$this->id_arg_name = $args['id_arg_name'];
@@ -359,7 +373,11 @@ abstract class Base_Route {
 	/**
 	 * Constructor.
 	 *
+<<<<<<< HEAD
 	 * Run `$this->register()`.
+=======
+	 * run `$this->register()`.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @param \Elementor\Data\V2\Base\Controller $controller
 	 * @param string $route

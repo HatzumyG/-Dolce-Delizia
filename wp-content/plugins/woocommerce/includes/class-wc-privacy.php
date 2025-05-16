@@ -139,7 +139,10 @@ class WC_Privacy extends WC_Abstract_Privacy {
 		self::$background_process->push_to_queue( array( 'task' => 'trash_pending_orders' ) );
 		self::$background_process->push_to_queue( array( 'task' => 'trash_failed_orders' ) );
 		self::$background_process->push_to_queue( array( 'task' => 'trash_cancelled_orders' ) );
+<<<<<<< HEAD
 		self::$background_process->push_to_queue( array( 'task' => 'anonymize_refunded_orders' ) );
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		self::$background_process->push_to_queue( array( 'task' => 'anonymize_completed_orders' ) );
 		self::$background_process->push_to_queue( array( 'task' => 'delete_inactive_accounts' ) );
 		self::$background_process->save()->dispatch();
@@ -251,6 +254,7 @@ class WC_Privacy extends WC_Abstract_Privacy {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Find and Anonymize refunded orders.
 	 *
 	 * @since 9.8.0
@@ -288,6 +292,8 @@ class WC_Privacy extends WC_Abstract_Privacy {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * For a given query trash all matches.
 	 *
 	 * @since 3.4.0

@@ -1,8 +1,13 @@
 <?php
 
+<<<<<<< HEAD
 namespace Automattic\WooCommerce\Blueprint\ResultFormatters;
 
 use Automattic\WooCommerce\Blueprint\StepProcessorResult;
+=======
+namespace Automattic\WooCommerce\Blueprint;
+
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use function WP_CLI\Utils\format_items;
 
 /**
@@ -47,6 +52,7 @@ class CliResultFormatter {
 			}
 		}
 
+<<<<<<< HEAD
 		$format_items_exist = function_exists('format_items');
 
 		if ( $format_items_exist ) {
@@ -54,6 +60,9 @@ class CliResultFormatter {
 		} else {
 			throw new \Exception( 'WP CLI Utils not found' );
 		}
+=======
+		format_items( 'table', $items, $header );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

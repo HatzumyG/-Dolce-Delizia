@@ -11,10 +11,14 @@
  */
 
 use Automattic\WooCommerce\Enums\ProductStatus;
+<<<<<<< HEAD
 use Automattic\WooCommerce\Enums\ProductStockStatus;
 use Automattic\WooCommerce\Enums\ProductTaxStatus;
 use Automattic\WooCommerce\Enums\ProductType;
 use Automattic\WooCommerce\Enums\CatalogVisibility;
+=======
+use Automattic\WooCommerce\Enums\ProductType;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Automattic\WooCommerce\Utilities\I18nUtil;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1225,7 +1229,11 @@ class WC_REST_Products_V1_Controller extends WC_REST_Posts_Controller {
 
 		// Stock status.
 		if ( isset( $request['in_stock'] ) ) {
+<<<<<<< HEAD
 			$stock_status = true === $request['in_stock'] ? ProductStockStatus::IN_STOCK : ProductStockStatus::OUT_OF_STOCK;
+=======
+			$stock_status = true === $request['in_stock'] ? 'instock' : 'outofstock';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} else {
 			$stock_status = $product->get_stock_status();
 		}
@@ -1251,7 +1259,11 @@ class WC_REST_Products_V1_Controller extends WC_REST_Posts_Controller {
 				$product->set_manage_stock( 'no' );
 				$product->set_backorders( 'no' );
 				$product->set_stock_quantity( '' );
+<<<<<<< HEAD
 				$product->set_stock_status( ProductStockStatus::IN_STOCK );
+=======
+				$product->set_stock_status( 'instock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			} elseif ( $product->get_manage_stock() ) {
 				// Stock status is always determined by children so sync later.
 				if ( ! $product->is_type( ProductType::VARIABLE ) ) {
@@ -1444,7 +1456,11 @@ class WC_REST_Products_V1_Controller extends WC_REST_Posts_Controller {
 			}
 
 			if ( isset( $data['in_stock'] ) ) {
+<<<<<<< HEAD
 				$variation->set_stock_status( true === $data['in_stock'] ? ProductStockStatus::IN_STOCK : ProductStockStatus::OUT_OF_STOCK );
+=======
+				$variation->set_stock_status( true === $data['in_stock'] ? 'instock' : 'outofstock' );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 
 			if ( isset( $data['backorders'] ) ) {
@@ -1800,8 +1816,13 @@ class WC_REST_Products_V1_Controller extends WC_REST_Posts_Controller {
 				'catalog_visibility' => array(
 					'description' => __( 'Catalog visibility.', 'woocommerce' ),
 					'type'        => 'string',
+<<<<<<< HEAD
 					'default'     => CatalogVisibility::VISIBLE,
 					'enum'        => array( CatalogVisibility::VISIBLE, CatalogVisibility::CATALOG, CatalogVisibility::SEARCH, CatalogVisibility::HIDDEN ),
+=======
+					'default'     => 'visible',
+					'enum'        => array( 'visible', 'catalog', 'search', 'hidden' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'context'     => array( 'view', 'edit' ),
 				),
 				'description' => array(
@@ -1939,8 +1960,13 @@ class WC_REST_Products_V1_Controller extends WC_REST_Posts_Controller {
 				'tax_status' => array(
 					'description' => __( 'Tax status.', 'woocommerce' ),
 					'type'        => 'string',
+<<<<<<< HEAD
 					'default'     => ProductTaxStatus::TAXABLE,
 					'enum'        => array( ProductTaxStatus::TAXABLE, ProductTaxStatus::SHIPPING, ProductTaxStatus::NONE ),
+=======
+					'default'     => 'taxable',
+					'enum'        => array( 'taxable', 'shipping', 'none' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 					'context'     => array( 'view', 'edit' ),
 				),
 				'tax_class' => array(
@@ -2398,8 +2424,13 @@ class WC_REST_Products_V1_Controller extends WC_REST_Posts_Controller {
 							'tax_status' => array(
 								'description' => __( 'Tax status.', 'woocommerce' ),
 								'type'        => 'string',
+<<<<<<< HEAD
 								'default'     => ProductTaxStatus::TAXABLE,
 								'enum'        => array( ProductTaxStatus::TAXABLE, ProductTaxStatus::SHIPPING, ProductTaxStatus::NONE ),
+=======
+								'default'     => 'taxable',
+								'enum'        => array( 'taxable', 'shipping', 'none' ),
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 								'context'     => array( 'view', 'edit' ),
 							),
 							'tax_class' => array(

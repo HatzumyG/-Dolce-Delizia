@@ -5,7 +5,11 @@ use Elementor\Core\Base\Module as BaseModule;
 use Elementor\Data\Base\Processor;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Manager extends BaseModule {
@@ -110,6 +114,10 @@ class Manager extends BaseModule {
 	 *
 	 * @param string $command
 	 * @param string $format
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function register_endpoint_format( $command, $format ) {
 		$this->command_formats[ $command ] = rtrim( $format, '/' );

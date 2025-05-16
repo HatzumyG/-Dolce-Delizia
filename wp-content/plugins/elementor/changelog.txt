@@ -1,5 +1,6 @@
 == Changelog ==
 
+<<<<<<< HEAD
 = 3.28.4 - 2025-04-22 =
 
 * Tweak: Added Site Planner as an option in the onboarding wizard
@@ -49,6 +50,8 @@
 
 * Security Fix: Improved code security enforcement in Admin Notices
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 = 3.27.6 - 2025-02-18 =
 
 * Fix: Dimension Controls displayed `undefined` as a placeholder value when empty ([#30277](https://github.com/elementor/elementor/issues/30277))

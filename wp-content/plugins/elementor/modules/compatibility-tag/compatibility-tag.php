@@ -35,10 +35,17 @@ class Compatibility_Tag extends Base_Object {
 	 * Return if plugins is compatible or not.
 	 *
 	 * @param Version $version
+<<<<<<< HEAD
 	 * @param array $plugins_names
 	 *
 	 * @return array
 	 * @throws \Exception If an error occurs during compatibility check.
+=======
+	 * @param array   $plugins_names
+	 *
+	 * @return array
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function check( Version $version, array $plugins_names ) {
 		return ( new Collection( $plugins_names ) )
@@ -55,7 +62,11 @@ class Compatibility_Tag extends Base_Object {
 	 * @param         $plugin_name
 	 *
 	 * @return string
+<<<<<<< HEAD
 	 * @throws \Exception If an error occurs during the compatibility check.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function is_compatible( Version $version, $plugin_name ) {
 		$plugins = Plugin::$instance->wp->get_plugins();

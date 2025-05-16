@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * The optimize4 class.
  *
@@ -8,7 +11,10 @@
  * @subpackage 	LiteSpeed/inc
  * @author     	LiteSpeed Technologies <info@litespeedtech.com>
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 namespace LiteSpeed;
 
 defined('WPINC') || exit();
@@ -138,6 +144,7 @@ class Optimizer extends Root
 			File::save($tmp_static_file, $content, true, true);
 		}
 
+<<<<<<< HEAD
 		// if CSS - run the minification on the saved file.
 		// Will move imports to the top of file and remove extra spaces.
 		if ($file_type == 'css') {
@@ -147,6 +154,8 @@ class Optimizer extends Root
 			File::save($tmp_static_file, $file_content_combined);
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// validate md5
 		$filecon_md5 = md5_file($tmp_static_file);
 
@@ -221,7 +230,11 @@ class Optimizer extends Root
 		$folder_name = LITESPEED_STATIC_DIR . $file_path_prefix;
 		$to_be_deleted_folder = $folder_name . date('Ymd', strtotime('-2 days'));
 		if (file_exists($to_be_deleted_folder)) {
+<<<<<<< HEAD
 			Debug2::debug('[Optimizer] ❌ Clearing folder [name] ' . $to_be_deleted_folder);
+=======
+			Debug2::debug('[Optimizer] ❌ Clearning folder [name] ' . $to_be_deleted_folder);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			File::rrmdir($to_be_deleted_folder);
 		}
 
@@ -231,7 +244,11 @@ class Optimizer extends Root
 		}
 
 		// Write file
+<<<<<<< HEAD
 		$res = wp_safe_remote_get($url);
+=======
+		$res = wp_remote_get($url);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$res_code = wp_remote_retrieve_response_code($res);
 		if (is_wp_error($res) || $res_code != 200) {
 			Debug2::debug2('[Optimizer] ❌ Load Remote error [code] ' . $res_code);
@@ -265,7 +282,11 @@ class Optimizer extends Root
 			if ($file_type == 'css') {
 				$dirname = dirname($this_url) . '/';
 
+<<<<<<< HEAD
 				$con = Lib\UriRewriter::prepend($con, $dirname);
+=======
+				$con = Lib\CSS_MIN\UriRewriter::prepend($con, $dirname);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		} else {
 			Debug2::debug2('[CSS] Load local [' . $file_type . '] ' . $real_file[0]);
@@ -274,7 +295,11 @@ class Optimizer extends Root
 			if ($file_type == 'css') {
 				$dirname = dirname($real_file[0]);
 
+<<<<<<< HEAD
 				$con = Lib\UriRewriter::rewrite($con, $dirname);
+=======
+				$con = Lib\CSS_MIN\UriRewriter::rewrite($con, $dirname);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			}
 		}
 
@@ -290,10 +315,15 @@ class Optimizer extends Root
 	public static function minify_css($data)
 	{
 		try {
+<<<<<<< HEAD
 			$obj = new Lib\CSS_JS_MIN\Minify\CSS();
 			$obj->add($data);
 
 			return $obj->minify();
+=======
+			$obj = new Lib\CSS_MIN\Minifier();
+			return $obj->run($data);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} catch (\Exception $e) {
 			Debug2::debug('******[Optmer] minify_css failed: ' . $e->getMessage());
 			error_log('****** LiteSpeed Optimizer minify_css failed: ' . $e->getMessage());
@@ -321,10 +351,15 @@ class Optimizer extends Root
 		}
 
 		try {
+<<<<<<< HEAD
 			$obj = new Lib\CSS_JS_MIN\Minify\JS();
 			$obj->add($data);
 
 			return $obj->minify();
+=======
+			$data = Lib\JSMin::minify($data);
+			return $data;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		} catch (\Exception $e) {
 			Debug2::debug('******[Optmer] minify_js failed: ' . $e->getMessage());
 			// error_log( '****** LiteSpeed Optimizer minify_js failed: ' . $e->getMessage() );

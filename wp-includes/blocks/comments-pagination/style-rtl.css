@@ -1,5 +1,8 @@
 .wp-block-comments-pagination>.wp-block-comments-pagination-next,.wp-block-comments-pagination>.wp-block-comments-pagination-numbers,.wp-block-comments-pagination>.wp-block-comments-pagination-previous{
+<<<<<<< HEAD
   font-size:inherit;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   margin-bottom:.5em;
   margin-right:.5em;
 }

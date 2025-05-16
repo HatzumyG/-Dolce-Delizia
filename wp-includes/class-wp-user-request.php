@@ -92,8 +92,11 @@ final class WP_User_Request {
 	 * Key used to confirm this request.
 	 *
 	 * @since 4.9.6
+<<<<<<< HEAD
 	 * @since 6.8.0 The key is now hashed using wp_fast_hash() instead of phpass.
 	 *
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * @var string
 	 */
 	public $confirm_key = '';

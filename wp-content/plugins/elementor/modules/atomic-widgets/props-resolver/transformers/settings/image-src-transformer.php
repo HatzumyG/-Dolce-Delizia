@@ -9,12 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Image_Src_Transformer extends Transformer_Base {
+<<<<<<< HEAD
 
 	/**
 	 * This transformer (or rather this prop type) exists only to support dynamic images.
 	 * Currently, the dynamic tags that return images return it with id & url no matter
 	 * what, so we need to keep the same structure in the props.
 	 */
+=======
+	// This transformer (or rather this prop type) exists only to support dynamic images.
+	// Currently, the dynamic tags that return images return it with id & url no matter
+	// what, so we need to keep the same structure in the props.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	public function transform( $value, $key ) {
 		return [
 			'id' => isset( $value['id'] ) ? (int) $value['id'] : null,

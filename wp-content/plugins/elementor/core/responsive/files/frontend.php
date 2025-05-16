@@ -9,7 +9,11 @@ use Elementor\Plugin;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	exit; // Exit if accessed directly.
+=======
+	exit; // Exit if accessed directly
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 }
 
 class Frontend extends Base {
@@ -176,6 +180,12 @@ class Frontend extends Base {
 	 * Used for backwards compatibility for old Pro versions that were built with an Elementor Core version <3.2.0.
 	 *
 	 * @since 3.2.3
+<<<<<<< HEAD
+=======
+	 *
+	 * @param $placeholder_data
+	 * @return mixed
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function maybe_convert_placeholder_data( $placeholder_data ) {
 		switch ( $placeholder_data[1] ) {

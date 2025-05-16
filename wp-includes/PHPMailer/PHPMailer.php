@@ -253,7 +253,11 @@ class PHPMailer
      * You can set your own, but it must be in the format "<id@domain>",
      * as defined in RFC5322 section 3.6.4 or it will be ignored.
      *
+<<<<<<< HEAD
      * @see https://www.rfc-editor.org/rfc/rfc5322#section-3.6.4
+=======
+     * @see https://tools.ietf.org/html/rfc5322#section-3.6.4
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      *
      * @var string
      */
@@ -387,7 +391,11 @@ class PHPMailer
      * 'DELAY'   will notify you if there is an unusual delay in delivery, but the actual
      *           delivery's outcome (success or failure) is not yet decided.
      *
+<<<<<<< HEAD
      * @see https://www.rfc-editor.org/rfc/rfc3461.html#section-4.1 for more information about NOTIFY
+=======
+     * @see https://tools.ietf.org/html/rfc3461 See section 4.1 for more information about NOTIFY
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      */
     public $dsn = '';
 
@@ -756,7 +764,11 @@ class PHPMailer
      *
      * @var string
      */
+<<<<<<< HEAD
     const VERSION = '6.9.3';
+=======
+    const VERSION = '6.9.2';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
     /**
      * Error severity: message only, continue processing.
@@ -1873,7 +1885,11 @@ class PHPMailer
      */
     protected static function isPermittedPath($path)
     {
+<<<<<<< HEAD
         //Matches scheme definition from https://www.rfc-editor.org/rfc/rfc3986#section-3.1
+=======
+        //Matches scheme definition from https://tools.ietf.org/html/rfc3986#section-3.1
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         return !preg_match('#^[a-z][a-z\d+.-]*://#i', $path);
     }
 
@@ -2707,7 +2723,11 @@ class PHPMailer
         }
 
         //Only allow a custom message ID if it conforms to RFC 5322 section 3.6.4
+<<<<<<< HEAD
         //https://www.rfc-editor.org/rfc/rfc5322#section-3.6.4
+=======
+        //https://tools.ietf.org/html/rfc5322#section-3.6.4
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         if (
             '' !== $this->MessageID &&
             preg_match(
@@ -4912,7 +4932,11 @@ class PHPMailer
      * Uses the 'relaxed' algorithm from RFC6376 section 3.4.2.
      * Canonicalized headers should *always* use CRLF, regardless of mailer setting.
      *
+<<<<<<< HEAD
      * @see https://www.rfc-editor.org/rfc/rfc6376#section-3.4.2
+=======
+     * @see https://tools.ietf.org/html/rfc6376#section-3.4.2
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      *
      * @param string $signHeader Header
      *
@@ -4924,7 +4948,11 @@ class PHPMailer
         $signHeader = static::normalizeBreaks($signHeader, self::CRLF);
         //Unfold header lines
         //Note PCRE \s is too broad a definition of whitespace; RFC5322 defines it as `[ \t]`
+<<<<<<< HEAD
         //@see https://www.rfc-editor.org/rfc/rfc5322#section-2.2
+=======
+        //@see https://tools.ietf.org/html/rfc5322#section-2.2
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         //That means this may break if you do something daft like put vertical tabs in your headers.
         $signHeader = preg_replace('/\r\n[ \t]+/', ' ', $signHeader);
         //Break headers out into an array
@@ -4956,7 +4984,11 @@ class PHPMailer
      * Uses the 'simple' algorithm from RFC6376 section 3.4.3.
      * Canonicalized bodies should *always* use CRLF, regardless of mailer setting.
      *
+<<<<<<< HEAD
      * @see https://www.rfc-editor.org/rfc/rfc6376#section-3.4.3
+=======
+     * @see https://tools.ietf.org/html/rfc6376#section-3.4.3
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
      *
      * @param string $body Message Body
      *
@@ -4992,7 +5024,11 @@ class PHPMailer
         $DKIMquery = 'dns/txt'; //Query method
         $DKIMtime = time();
         //Always sign these headers without being asked
+<<<<<<< HEAD
         //Recommended list from https://www.rfc-editor.org/rfc/rfc6376#section-5.4.1
+=======
+        //Recommended list from https://tools.ietf.org/html/rfc6376#section-5.4.1
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         $autoSignHeaders = [
             'from',
             'to',
@@ -5098,7 +5134,11 @@ class PHPMailer
         }
         //The DKIM-Signature header is included in the signature *except for* the value of the `b` tag
         //which is appended after calculating the signature
+<<<<<<< HEAD
         //https://www.rfc-editor.org/rfc/rfc6376#section-3.5
+=======
+        //https://tools.ietf.org/html/rfc6376#section-3.5
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
         $dkimSignatureHeader = 'DKIM-Signature: v=1;' .
             ' d=' . $this->DKIM_domain . ';' .
             ' s=' . $this->DKIM_selector . ';' . static::$LE .

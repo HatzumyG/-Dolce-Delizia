@@ -2,7 +2,10 @@
 namespace Elementor;
 
 use Elementor\Core\Utils\Promotions\Filtered_Promotions_Manager;
+<<<<<<< HEAD
 use Elementor\Utils;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -301,7 +304,11 @@ abstract class Widget_Base extends Element_Base {
 				$skin_options[ $skin_id ] = $skin->get_title();
 			}
 
+<<<<<<< HEAD
 			// Get the first item for default value.
+=======
+			// Get the first item for default value
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			$default_value = array_keys( $skin_options );
 			$default_value = array_shift( $default_value );
 
@@ -427,7 +434,11 @@ abstract class Widget_Base extends Element_Base {
 		if ( $this->has_widget_inner_wrapper() ) : ?>
 		<div class="elementor-widget-container">
 		<?php endif;
+<<<<<<< HEAD
 			Utils::print_unescaped_internal_string( $template_content );
+=======
+			echo $template_content; // XSS ok.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( $this->has_widget_inner_wrapper() ) : ?>
 		</div>
 		<?php endif;
@@ -542,15 +553,27 @@ abstract class Widget_Base extends Element_Base {
 	 * Used to add Light-Box-related data attributes to links that open media files.
 	 *
 	 * @param array|string $element         The link HTML element.
+<<<<<<< HEAD
 	 * @param int          $id                       The ID of the image.
 	 * @param string       $lightbox_setting_key  The setting key that dictates whether to open the image in a lightbox.
 	 * @param string       $group_id              Unique ID for a group of lightbox images.
 	 * @param bool         $overwrite               Optional. Whether to overwrite existing
 	 *                                              attribute. Default is false, not to overwrite.
+=======
+	 * @param int $id                       The ID of the image
+	 * @param string $lightbox_setting_key  The setting key that dictates whether to open the image in a lightbox
+	 * @param string $group_id              Unique ID for a group of lightbox images
+	 * @param bool $overwrite               Optional. Whether to overwrite existing
+	 *                                      attribute. Default is false, not to overwrite.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return Widget_Base Current instance of the widget.
 	 * @since 2.9.0
 	 * @access public
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function add_lightbox_data_attributes( $element, $id = null, $lightbox_setting_key = null, $group_id = null, $overwrite = false ) {
 		$kit = Plugin::$instance->kits_manager->get_active_kit();
@@ -660,7 +683,12 @@ abstract class Widget_Base extends Element_Base {
 			 * @param Widget_Base $this           The widget.
 			 */
 			$widget_content = apply_filters( 'elementor/widget/render_content', $widget_content, $this );
+<<<<<<< HEAD
 			Utils::print_unescaped_internal_string( $widget_content );
+=======
+
+			echo $widget_content; // XSS ok.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 			?>
 		<?php if ( $this->has_widget_inner_wrapper() ) : ?>
 		</div>
@@ -780,8 +808,13 @@ abstract class Widget_Base extends Element_Base {
 	 * Script tags are allowed on frontend according to the WP theme securing policy.
 	 *
 	 * @param string $setting
+<<<<<<< HEAD
 	 * @param null   $repeater_name
 	 * @param null   $index
+=======
+	 * @param null $repeater_name
+	 * @param null $index
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	final public function print_unescaped_setting( $setting, $repeater_name = null, $index = null ) {
 		if ( $repeater_name ) {
@@ -848,7 +881,11 @@ abstract class Widget_Base extends Element_Base {
 	 *
 	 * @param string $setting_key      The current setting key inside the repeater item (e.g. `tab_title`).
 	 * @param string $repeater_key     The repeater key containing the array of all the items in the repeater (e.g. `tabs`).
+<<<<<<< HEAD
 	 * @param int    $repeater_item_index The current item index in the repeater array (e.g. `3`).
+=======
+	 * @param int $repeater_item_index The current item index in the repeater array (e.g. `3`).
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 *
 	 * @return string The repeater setting key (e.g. `tabs.3.tab_title`).
 	 */
@@ -1007,10 +1044,17 @@ abstract class Widget_Base extends Element_Base {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param string $plugin_title  Plugin's title.
 	 * @param string $since         Plugin version widget was deprecated.
 	 * @param string $last          Plugin version in which the widget will be removed.
 	 * @param string $replacement   Widget replacement.
+=======
+	 * @param string $plugin_title  Plugin's title
+	 * @param string $since         Plugin version widget was deprecated
+	 * @param string $last          Plugin version in which the widget will be removed
+	 * @param string $replacement   Widget replacement
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function deprecated_notice( $plugin_title, $since, $last = '', $replacement = '' ) {
 		$this->start_controls_section(
@@ -1058,9 +1102,15 @@ abstract class Widget_Base extends Element_Base {
 	 *
 	 * Use `get_deprecation_message()` method to print the message control at specific location in register_controls().
 	 *
+<<<<<<< HEAD
 	 * @param string $version            The version of Elementor that deprecated the widget.
 	 * @param string $message          A message regarding the deprecation.
 	 * @param string $replacement    The widget that should be used instead.
+=======
+	 * @param $version string           The version of Elementor that deprecated the widget.
+	 * @param $message string         A message regarding the deprecation.
+	 * @param $replacement string   The widget that should be used instead.
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	protected function add_deprecation_message( $version, $message, $replacement ) {
 		// Expose the config for handling in JS.

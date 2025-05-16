@@ -54,11 +54,19 @@ class Render_Mode_Manager {
 	 * @param $class_name
 	 *
 	 * @return $this
+<<<<<<< HEAD
 	 * @throws \Exception If the class does not extend Render_Mode_Base.
 	 */
 	public function register_render_mode( $class_name ) {
 		if ( ! is_subclass_of( $class_name, Render_Mode_Base::class ) ) {
 			throw new \Exception( sprintf( "'%s' must extend 'Render_Mode_Base'.", esc_html( $class_name ) ) );
+=======
+	 * @throws \Exception
+	 */
+	public function register_render_mode( $class_name ) {
+		if ( ! is_subclass_of( $class_name, Render_Mode_Base::class ) ) {
+			throw new \Exception( "'{$class_name}' must extend 'Render_Mode_Base'." );
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 
 		$this->render_modes[ $class_name::get_name() ] = $class_name;
@@ -126,8 +134,13 @@ class Render_Mode_Manager {
 	/**
 	 * Add actions base on the current render.
 	 *
+<<<<<<< HEAD
 	 * @throws \Requests_Exception_HTTP_403 If the current render mode does not have the required permissions.
 	 * @throws Status403 If the current render mode does not have the required permissions.
+=======
+	 * @throws \Requests_Exception_HTTP_403
+	 * @throws Status403
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	private function add_current_actions() {
 		if ( ! $this->current->get_permissions_callback() ) {
@@ -146,7 +159,11 @@ class Render_Mode_Manager {
 	/**
 	 * Render_Mode_Manager constructor.
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception If the render mode registration fails.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public function __construct() {
 		$this->register_render_mode( Render_Mode_Normal::class );

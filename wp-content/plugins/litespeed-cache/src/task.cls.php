@@ -44,7 +44,11 @@ class Task extends Root
 		$guest_optm = $this->conf(Base::O_GUEST) && $this->conf(Base::O_GUEST_OPTM);
 
 		foreach (self::$_triggers as $id => $trigger) {
+<<<<<<< HEAD
 			if ($id != Base::O_IMG_OPTM_CRON && !$this->conf($id)) {
+=======
+			if (!$this->conf($id)) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				if (!$guest_optm || !in_array($id, self::$_guest_options)) {
 					continue;
 				}
@@ -131,7 +135,11 @@ class Task extends Root
 		);
 		$url = add_query_arg($qs, admin_url('admin-ajax.php'));
 		self::debug('async call to ' . $url);
+<<<<<<< HEAD
 		wp_safe_remote_post(esc_url_raw($url), $args);
+=======
+		wp_remote_post(esc_url_raw($url), $args);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -200,12 +208,20 @@ class Task extends Root
 	 */
 	public function lscache_cron_filter_crawler($schedules)
 	{
+<<<<<<< HEAD
 		$CRAWLER_RUN_INTERVAL = defined('LITESPEED_CRAWLER_RUN_INTERVAL') ? LITESPEED_CRAWLER_RUN_INTERVAL : 600;
+=======
+		$interval = $this->conf(Base::O_CRAWLER_RUN_INTERVAL);
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// $wp_schedules = wp_get_schedules();
 		if (!array_key_exists(self::FILTER_CRAWLER, $schedules)) {
 			// 	self::debug('Crawler cron log: cron filter '.$interval.' added');
 			$schedules[self::FILTER_CRAWLER] = array(
+<<<<<<< HEAD
 				'interval' => $CRAWLER_RUN_INTERVAL,
+=======
+				'interval' => $interval,
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 				'display' => __('LiteSpeed Crawler Cron', 'litespeed-cache'),
 			);
 		}

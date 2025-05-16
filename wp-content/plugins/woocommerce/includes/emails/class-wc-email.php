@@ -5,7 +5,10 @@
  * @package WooCommerce\Emails
  */
 
+<<<<<<< HEAD
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 use Pelago\Emogrifier\CssInliner;
 use Pelago\Emogrifier\HtmlProcessor\CssToAttributeConverter;
 use Pelago\Emogrifier\HtmlProcessor\HtmlPruner;
@@ -107,6 +110,7 @@ class WC_Email extends WC_Settings_API {
 	public $recipient;
 
 	/**
+<<<<<<< HEAD
 	 * Cc recipients for the email.
 	 *
 	 * @var string
@@ -121,6 +125,8 @@ class WC_Email extends WC_Settings_API {
 	public $bcc;
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Object this email is for, for example a customer, product, or email.
 	 *
 	 * @var object|bool
@@ -251,6 +257,7 @@ class WC_Email extends WC_Settings_API {
 	public $email_type;
 
 	/**
+<<<<<<< HEAD
 	 * Whether email improvements feature is enabled.
 	 *
 	 * @var bool
@@ -263,6 +270,11 @@ class WC_Email extends WC_Settings_API {
 	public function __construct() {
 		$this->email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
 
+=======
+	 * Constructor.
+	 */
+	public function __construct() {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		// Find/replace.
 		$this->placeholders = array_merge(
 			array(
@@ -285,10 +297,13 @@ class WC_Email extends WC_Settings_API {
 
 		$this->email_type = $this->get_option( 'email_type' );
 		$this->enabled    = $this->get_option( 'enabled' );
+<<<<<<< HEAD
 		if ( FeaturesUtil::feature_is_enabled( 'email_improvements' ) ) {
 			$this->cc  = $this->get_option( 'cc' );
 			$this->bcc = $this->get_option( 'bcc' );
 		}
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		add_action( 'phpmailer_init', array( $this, 'handle_multipart' ) );
 		add_action( 'woocommerce_update_options_email_' . $this->id, array( $this, 'process_admin_options' ) );
@@ -490,6 +505,7 @@ class WC_Email extends WC_Settings_API {
 	 * @return string
 	 */
 	public function get_recipient() {
+<<<<<<< HEAD
 		/**
 		 * Filter the recipient for the email.
 		 *
@@ -499,6 +515,8 @@ class WC_Email extends WC_Settings_API {
 		 * @param object   $object    The object (ie, product or order) this email relates to, if any.
 		 * @param WC_Email $email     WC_Email instance managing the email.
 		 */
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$recipient  = apply_filters( 'woocommerce_email_recipient_' . $this->id, $this->recipient, $this->object, $this );
 		$recipients = array_map( 'trim', explode( ',', $recipient ) );
 		$recipients = array_filter( $recipients, 'is_email' );
@@ -506,6 +524,7 @@ class WC_Email extends WC_Settings_API {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Get valid Cc recipients.
 	 *
 	 * @return string
@@ -550,6 +569,8 @@ class WC_Email extends WC_Settings_API {
 	}
 
 	/**
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 * Get email headers.
 	 *
 	 * @return string
@@ -565,6 +586,7 @@ class WC_Email extends WC_Settings_API {
 			$header .= 'Reply-to: ' . $this->get_from_name() . ' <' . $this->get_from_address() . ">\r\n";
 		}
 
+<<<<<<< HEAD
 		if ( FeaturesUtil::feature_is_enabled( 'email_improvements' ) ) {
 			$cc = $this->get_cc_recipient();
 			if ( ! empty( $cc ) ) {
@@ -577,6 +599,8 @@ class WC_Email extends WC_Settings_API {
 			}
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return apply_filters( 'woocommerce_email_headers', $header, $this->id, $this->object, $this );
 	}
 
@@ -595,6 +619,7 @@ class WC_Email extends WC_Settings_API {
 	 * @return string
 	 */
 	public function get_email_type() {
+<<<<<<< HEAD
 		$email_type = $this->email_type;
 		/**
 		 * This filter is documented in templates/emails/email-styles.php
@@ -609,6 +634,9 @@ class WC_Email extends WC_Settings_API {
 			$email_type = $transient ? $transient : $email_type;
 		}
 		return $email_type && class_exists( 'DOMDocument' ) ? $email_type : 'plain';
+=======
+		return $this->email_type && class_exists( 'DOMDocument' ) ? $this->email_type : 'plain';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -943,6 +971,7 @@ class WC_Email extends WC_Settings_API {
 				'desc_tip'    => true,
 			),
 		);
+<<<<<<< HEAD
 		if ( FeaturesUtil::feature_is_enabled( 'email_improvements' ) ) {
 			$this->form_fields['cc']  = $this->get_cc_field();
 			$this->form_fields['bcc'] = $this->get_bcc_field();
@@ -981,6 +1010,8 @@ class WC_Email extends WC_Settings_API {
 			'default'     => '',
 			'desc_tip'    => true,
 		);
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**
@@ -1184,7 +1215,11 @@ class WC_Email extends WC_Settings_API {
 		// Do admin actions.
 		$this->admin_actions();
 		?>
+<<<<<<< HEAD
 		<?php wc_back_header( $this->get_title(), __( 'Return to emails', 'woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=email' ) ); ?>
+=======
+		<h2><?php echo esc_html( $this->get_title() ); ?> <?php wc_back_link( __( 'Return to emails', 'woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=email' ) ); ?></h2>
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 		<?php echo wpautop( wp_kses_post( $this->get_description() ) ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?>
 
@@ -1369,7 +1404,11 @@ class WC_Email extends WC_Settings_API {
 	 * @param string $key Option key.
 	 * @param mixed  $empty_value Value to use when option is empty.
 	 */
+<<<<<<< HEAD
 	protected function get_option_or_transient( string $key, $empty_value = null ) {
+=======
+	private function get_option_or_transient( string $key, $empty_value = null ) {
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		$option = $this->get_option( $key, $empty_value );
 
 		/**

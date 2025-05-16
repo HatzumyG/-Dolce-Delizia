@@ -12,7 +12,11 @@
  *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
+<<<<<<< HEAD
  * @version 9.8.0
+=======
+ * @version 7.0.1
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -64,6 +68,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								woocommerce_template_loop_add_to_cart();
 							} elseif ( $grouped_product_child->is_sold_individually() ) {
 								echo '<input type="checkbox" name="' . esc_attr( 'quantity[' . $grouped_product_child->get_id() . ']' ) . '" value="1" class="wc-grouped-product-add-to-cart-checkbox" id="' . esc_attr( 'quantity-' . $grouped_product_child->get_id() ) . '" />';
+<<<<<<< HEAD
 								echo '<label for="' . esc_attr( 'quantity-' . $grouped_product_child->get_id() ) . '" class="screen-reader-text">';
 								if ( $grouped_product_child->is_on_sale() ) {
 									printf(
@@ -83,6 +88,9 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								}
 								echo '</label>';
 
+=======
+								echo '<label for="' . esc_attr( 'quantity-' . $grouped_product_child->get_id() ) . '" class="screen-reader-text">' . esc_html__( 'Buy one of this item', 'woocommerce' ) . '</label>';
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 							} else {
 								do_action( 'woocommerce_before_add_to_cart_quantity' );
 

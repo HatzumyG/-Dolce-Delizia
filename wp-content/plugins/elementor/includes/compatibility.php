@@ -45,7 +45,11 @@ class Compatibility {
 		add_action( 'elementor/maintenance_mode/mode_changed', [ __CLASS__, 'clear_3rd_party_cache' ] );
 
 		// Enable floating buttons and link in bio experiment for all.
+<<<<<<< HEAD
 		// TODO Remove in version 3.26.
+=======
+		// TODO Remove in version 3.26
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_filter( 'pre_option_elementor_experiment-floating-buttons', [ __CLASS__, 'return_active' ] );
 		add_filter( 'pre_option_elementor_experiment-link-in-bio', [ __CLASS__, 'return_active' ] );
 	}
@@ -65,7 +69,11 @@ class Compatibility {
 			$GLOBALS['wp_fastest_cache']->deleteCache();
 		}
 
+<<<<<<< HEAD
 		// WP Super Cache.
+=======
+		// WP Super Cache
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( function_exists( 'wp_cache_clean_cache' ) ) {
 			global $file_prefix;
 			wp_cache_clean_cache( $file_prefix, true );
@@ -88,12 +96,20 @@ class Compatibility {
 			return;
 		}
 
+<<<<<<< HEAD
 		// Introduced in WP 5.0.
+=======
+		// Introduced in WP 5.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( function_exists( 'use_block_editor_for_post' ) && ! use_block_editor_for_post( $typenow ) ) {
 			return;
 		}
 
+<<<<<<< HEAD
 		// Deprecated/removed in Gutenberg plugin v5.3.0.
+=======
+		// Deprecated/removed in Gutenberg plugin v5.3.0
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( function_exists( 'gutenberg_can_edit_post_type' ) && ! gutenberg_can_edit_post_type( $typenow ) ) {
 			return;
 		}
@@ -214,7 +230,11 @@ class Compatibility {
 			} );
 		}
 
+<<<<<<< HEAD
 		// Fix Preview URL for https://github.com/wpmudev/domain-mapping plugin.
+=======
+		// Fix Preview URL for https://github.com/wpmudev/domain-mapping plugin
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( class_exists( 'domain_map' ) ) {
 			add_filter( 'elementor/document/urls/preview', function( $preview_url ) {
 				if ( wp_parse_url( $preview_url, PHP_URL_HOST ) !== Utils::get_super_global_value( $_SERVER, 'HTTP_HOST' ) ) {
@@ -228,7 +248,11 @@ class Compatibility {
 			} );
 		}
 
+<<<<<<< HEAD
 		// Gutenberg.
+=======
+		// Gutenberg
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		if ( function_exists( 'gutenberg_init' ) ) {
 			add_action( 'admin_print_scripts-edit.php', [ __CLASS__, 'add_new_button_to_gutenberg' ], 11 );
 		}
@@ -250,7 +274,11 @@ class Compatibility {
 	 * @static
 	 */
 	private static function polylang_compatibility() {
+<<<<<<< HEAD
 		// Copy elementor data while polylang creates a translation copy.
+=======
+		// Copy elementor data while polylang creates a translation copy
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		add_filter( 'pll_copy_post_metas', [ __CLASS__, 'save_polylang_meta' ], 10, 4 );
 	}
 

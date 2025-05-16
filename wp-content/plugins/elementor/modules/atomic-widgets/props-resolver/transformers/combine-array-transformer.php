@@ -16,10 +16,13 @@ class Combine_Array_Transformer extends Transformer_Base {
 	}
 
 	public function transform( $value, $key ) {
+<<<<<<< HEAD
 		if ( ! is_array( $value ) ) {
 			return null;
 		}
 
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		return implode( $this->separator, array_filter( $value ) );
 	}
 }

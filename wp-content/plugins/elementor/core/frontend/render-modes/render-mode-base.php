@@ -35,7 +35,12 @@ abstract class Render_Mode_Base {
 	/**
 	 * Returns the key name of the class.
 	 *
+<<<<<<< HEAD
 	 * @throws \Exception If the `get_name` method is not implemented.
+=======
+	 * @return string
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public static function get_name() {
 		throw new \Exception( 'You must implements `get_name` static method in ' . static::class );
@@ -45,7 +50,11 @@ abstract class Render_Mode_Base {
 	 * @param $post_id
 	 *
 	 * @return string
+<<<<<<< HEAD
 	 * @throws \Exception If the `get_name` method is not implemented.
+=======
+	 * @throws \Exception
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	 */
 	public static function get_url( $post_id ) {
 		return Render_Mode_Manager::get_base_url( $post_id, static::get_name() );
@@ -67,12 +76,24 @@ abstract class Render_Mode_Base {
 	/**
 	 * By default do not do anything.
 	 */
+<<<<<<< HEAD
 	protected function enqueue_scripts() {}
+=======
+	protected function enqueue_scripts() {
+		//
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * By default do not do anything.
 	 */
+<<<<<<< HEAD
 	protected function enqueue_styles() {}
+=======
+	protected function enqueue_styles() {
+		//
+	}
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 
 	/**
 	 * Check if the current user has permissions for the current render mode.

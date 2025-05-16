@@ -29,14 +29,22 @@ __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ warning)
 });
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/warning/build-module/utils.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/warning/build-module/utils.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Object map tracking messages which have been logged, for use in ensuring a
  * message is only logged once.
  */
 const logged = new Set();
 
+<<<<<<< HEAD
 ;// ./node_modules/@wordpress/warning/build-module/index.js
+=======
+;// CONCATENATED MODULE: ./node_modules/@wordpress/warning/build-module/index.js
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 /**
  * Internal dependencies
  */

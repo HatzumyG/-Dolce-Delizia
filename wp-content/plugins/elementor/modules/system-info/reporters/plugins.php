@@ -72,7 +72,11 @@ class Plugins extends Base_Plugin {
 	 * @return bool True if the site has active plugins, False otherwise.
 	 */
 	public function is_enabled() {
+<<<<<<< HEAD
 		return (bool) $this->get_plugins();
+=======
+		return ! ! $this->get_plugins();
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 	}
 
 	/**

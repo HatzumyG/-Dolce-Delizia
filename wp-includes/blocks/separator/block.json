@@ -11,11 +11,14 @@
 		"opacity": {
 			"type": "string",
 			"default": "alpha-channel"
+<<<<<<< HEAD
 		},
 		"tagName": {
 			"type": "string",
 			"enum": [ "hr", "div" ],
 			"default": "hr"
+=======
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
 		}
 	},
 	"supports": {

@@ -209,10 +209,19 @@
 div[data-type="core/freeform"]:before{
   border:1px solid #ddd;
   outline:1px solid #0000;
+<<<<<<< HEAD
 }
 @media not (prefers-reduced-motion){
   div[data-type="core/freeform"]:before{
     transition:border-color .1s linear,box-shadow .1s linear;
+=======
+  transition:border-color .1s linear,box-shadow .1s linear;
+}
+@media (prefers-reduced-motion:reduce){
+  div[data-type="core/freeform"]:before{
+    transition-delay:0s;
+    transition-duration:0s;
+>>>>>>> fa623e74ce55ca1a48265d395a80daf0b504f244
   }
 }
 div[data-type="core/freeform"].is-selected:before{
